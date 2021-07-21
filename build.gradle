@@ -50,7 +50,6 @@ plugins {
     id 'maven-publish'
     id 'jacoco' // test coverage
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
-    id 'net.corda.cordapp.cordapp-configuration'
 }
 
 def rootProjectDir = rootDir
@@ -456,5 +455,3 @@ subprojects {
     }
 
 }
-
-apply from: "$rootDir/gradle/e2e.gradle"
