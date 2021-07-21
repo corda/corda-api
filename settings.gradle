@@ -76,9 +76,6 @@ rootProject.name = "corda-project"
 //  - experimental:*
 //  - jdk8u-deterministic
 
-// Gradle plugin for configuring CorDapp metadata.
-includeBuild 'cordapp-configuration'
-
 
 include 'application'
 include 'application-dependency-injection-internal'
