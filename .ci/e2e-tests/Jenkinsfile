@@ -1,0 +1,6 @@
+def sharedE2E
+node {
+    checkout scm
+    sharedE2E = load(".ci/lib/sharedE2E.groovy")
+}
+sharedE2E("5.0-beta", "zul-")

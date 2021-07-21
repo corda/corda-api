@@ -1,0 +1,198 @@
+pluginManagement {
+    repositories {
+        def cordaUseCache = System.getenv("CORDA_USE_CACHE")
+        if (cordaUseCache != null) {
+            maven {
+                url = "$artifactoryContextUrl/$cordaUseCache"
+                name = "R3 Maven remote repositories"
+                authentication {
+                    basic(BasicAuthentication)
+                }
+                credentials {
+                    username = System.getenv('CORDA_ARTIFACTORY_USERNAME')
+                    password = System.getenv('CORDA_ARTIFACTORY_PASSWORD')
+                }
+            }
+        } else {
+            maven {
+                url "$artifactoryContextUrl/corda-dev"
+                content {
+                    includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
+                }
+            }
+            maven {
+                url "$artifactoryContextUrl/corda-releases"
+                content {
+                    includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
+                }
+            }
+            gradlePluginPortal()
+        }
+    }
+
+    plugins {
+        id 'net.corda.plugins.cordapp-cpk' version gradlePluginsVersion
+        id 'net.corda.plugins.quasar-utils' version gradlePluginsVersion
+        id 'net.corda.plugins.flask' version gradlePluginsVersion
+        id 'org.jetbrains.kotlin.jvm' version kotlinVersion
+        id 'org.jetbrains.kotlin.plugin.allopen' version kotlinVersion
+        id 'org.jetbrains.kotlin.plugin.noarg' version kotlinVersion
+        id 'org.openjfx.javafxplugin' version javaFxPluginVersion
+        id 'io.gitlab.arturbosch.detekt' version detektPluginVersion
+        id 'org.ajoberstar.grgit' version grgitPluginVersion // used for GIT interaction (e.g. extract commit hash)
+        id 'com.jfrog.artifactory' version jfrogArtifactoryPluginVersion
+        id 'com.dorongold.task-tree' version taskTreePluginVersion // utility to visualise Gradle task DAG
+        id 'biz.aQute.bnd.builder' version bndVersion // used to create OSGi bundles
+    }
+}
+
+rootProject.name = "corda-project"
+
+// Projects that have been left out of the build
+
+//  Moving to a different repo
+//  - client:mock
+//  - samples:*
+
+//  Only required for integration tests
+//  - smoke-test-utils
+//  - test-cli
+//  - test-db
+//  - testing:cordapps:dbfailure:*
+
+//  Not relevant to the main build
+//  - detekt-plugins
+//  - docker
+//  - docs
+//  - isolated
+//  - tools:loadtest
+//  - tools:graphs
+//  - tools:blobinspector
+//  - tools:network-builder
+//  - tools:checkpoint-agent
+//  - tools:error-tool
+
+//  Not relevant to Corda5
+//  - experimental:*
+//  - jdk8u-deterministic
+
+// Gradle plugin for configuring CorDapp metadata.
+includeBuild 'cordapp-configuration'
+
+
+include 'application'
+include 'application-dependency-injection-internal'
+include 'application-internal'
+include 'base'
+include 'base-internal'
+include 'client:jackson'
+include 'client:rpc'
+include 'client:extensions-rpc'
+include 'core-tests'
+include 'common:validation'
+include 'common:configuration-parsing'
+include 'common:logging'
+include 'common:json-serialization'
+include 'cordapp-configuration-publish'
+include 'class-info'
+include 'crypto:crypto-api'
+include 'crypto:cipher-suite'
+include 'crypto:crypto-impl'
+include 'crypto:crypto-testkit'
+include 'flows'
+include 'flows-internal'
+include 'install'
+include 'http'
+include 'kotlin-reflection'
+include 'kotlin-reflection:kotlin-reflection-test-api'
+include 'kotlin-reflection:kotlin-reflection-test-example'
+include 'ledger:ledger'
+include 'ledger:ledger-internal'
+include 'ledger:ledger-serialization'
+include 'legacy-api'
+include 'membership'
+include 'membership-internal'
+include 'node'
+include 'node-api'
+include 'node-protocol-messages'
+include 'extensions-api'
+include 'extensions-node'
+include 'packaging'
+include 'packaging:test:contract-cpk'
+include 'packaging:test:workflow-cpk'
+include 'sandbox'
+include 'persistence'
+include 'persistence-internal'
+include 'serialization'
+include 'serialization-encoding'
+include 'serialization-internal'
+include 'serialization-internal:osgiIntegrationTests'
+include 'serialization-internal:osgiIntegrationTests:TestSerializable1'
+include 'serialization-internal:osgiIntegrationTests:TestSerializable2'
+include 'serialization-internal:osgiIntegrationTests:TestSerializable3'
+include 'serialization-internal:osgiIntegrationTests:TestSerializable4'
+include 'testing:test-common'
+include 'testing:core-test-utils'
+include 'testing:flow-test-utils'
+include 'testing:test-utils'
+include 'testing:http-rpc-test-utils'
+include 'testing:dev-network-lib'
+include 'testing:corda-dev-network-artemis-rpc-lib'
+
+include 'tools:bootstrapper'
+include 'tools:cliutils'
+include 'tools:cordapp-builder'
+include 'tools:shell'
+include 'tools:tlsutil'
+include 'tools:checkpoint-agent'
+
+// cordapps
+include 'testing:cordapps:data-persistence-sample:data-persistence-contracts'
+include 'testing:cordapps:data-persistence-sample:data-persistence-workflows'
+include 'testing:cordapps:communication-sample:communication-contracts'
+include 'testing:cordapps:communication-sample:communication-workflows'
+include 'testing:cordapps:linearstate-sample:linearstate-contracts'
+include 'testing:cordapps:linearstate-sample:linearstate-workflows'
+include 'testing:cordapps:fungiblestate-sample:fungiblestate-contracts'
+include 'testing:cordapps:fungiblestate-sample:fungiblestate-workflows'
+include 'testing:cordapps:service-sample:service-contracts'
+include 'testing:cordapps:service-sample:service-workflows'
+include 'testing:cordapps:permissions-sample:permissions-workflows'
+include 'testing:cordapps:logging-sample:logging-workflows'
+include 'testing:cordapps:logging-sample:logging-library'
+
+// e2etests
+include 'testing:e2e:e2e-tests'
+include 'testing:e2e:e2e-tests-app'
+include 'testing:e2e:spring-boot'
+
+// smoketests
+include 'testing:smoketests'
+
+// OSGi Node Bootstrap
+include 'osgi-framework-bootstrap'
+include 'osgi-framework-bootstrap:framework-api'
+
+// Samples:
+// CordApp cnfiguration
+include 'samples:cordapp-configuration:workflows'
+
+// Network Verifier
+include 'samples:network-verifier:contracts'
+include 'samples:network-verifier:workflows'
+
+//HTTP RPC
+include 'http-rpc:http-rpc-api'
+include 'http-rpc:http-rpc-server'
+include 'http-rpc:http-rpc-tools'
+include 'http-rpc:http-rpc-client'
+
+include 'corda-node-cli'
+
+include 'testing:cordapps:httprpc-demo:httprpc-demo-workflows'
+include 'testing:cordapps:httprpc-demo:httprpc-demo-contracts'
+
+include 'serialization-kryo'
+include 'serialization-kryo:osgiIntegrationTests'
+include 'serialization-kryo:osgiIntegrationTests:TestSerializableCordapp1'
+include 'serialization-kryo:osgiIntegrationTests:TestSerializableCordapp2'

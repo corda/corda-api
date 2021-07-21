@@ -1,0 +1,39 @@
+apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'maven-publish'
+
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId project.group
+            version tasks.jar.archiveVersion.get()
+            versionMapping {
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            afterEvaluate {
+                artifactId tasks.jar.archiveBaseName.get()
+                if (project.hasProperty('artifact')) {
+                    artifact project.ext.artifact
+                    artifactId project.ext.artifact.archiveBaseName.get()
+                } else {
+                    def cpk = tasks.findByName("cpk")
+                    if(cpk) {
+                        artifact cpk
+                    }
+                }
+            }
+            from components.kotlin
+        }
+    }
+}
+
+afterEvaluate {
+    artifactoryPublish.dependsOn(tasks.findByName("cpk") ?: tasks.jar)
+}
+
+artifactoryPublish {
+    publications('maven')
+}
