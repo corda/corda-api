@@ -51,16 +51,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
-# docs related
-docs/virtualenv/
-virtualenv/
-
-# bft-smart
-**/config/currentView
-
-# Node Explorer
-/tools/explorer/conf/CordaExplorer.properties
-
 # vim
 *.swp
 *.swn
