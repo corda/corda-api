@@ -144,7 +144,7 @@ if (System.getenv("RELEASE_VERSION")?.trim()) {
     version = "$cordaVersion-$versionSuffix"
 }
 
-logger.quiet("Corda platformVersion: {}", version)
+logger.quiet("Corda release version: {}", version)
 logger.quiet("Corda baseVersion: {}", cordaVersion)
 logger.quiet("Release Type: {}", releaseType)
 
