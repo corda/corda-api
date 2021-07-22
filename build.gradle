@@ -314,18 +314,6 @@ subprojects {
                 dependencySubstitution {
                     // Replace any Logback SLF4J back-end with Log4J2.
                     substitute module('ch.qos.logback:logback-classic') using module("org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion")
-
-                    // The "servicemix" version of antlr doesn't seem to play nicely with Spring Boot!
-                    substitute module('antlr:antlr') using module("antlr:antlr.osgi:$antlrVersion")
-                    substitute module('org.dom4j:dom4j') using module("org.apache.servicemix.bundles:org.apache.servicemix.bundles.dom4j:$dom4jOsgiVersion")
-                    substitute module("commons-logging:commons-logging") using module("org.slf4j:jcl-over-slf4j:$slf4jVersion")
-
-                    // Ensure we upgrade these to the latest versions, even when they're used transitively.
-                    substitute module('commons-io:commons-io') using module("commons-io:commons-io:$commonsIoVersion")
-                    substitute module('org.yaml:snakeyaml') using module("org.yaml:snakeyaml:$snakeYamlVersion")
-
-                    // We never want netty-all, so replace it with netty-common.
-                    substitute module('io.netty:netty-all') using module("io.netty:netty-common:$nettyVersion")
                 }
 
                 // Ensure that everything uses our given version of Netty.
