@@ -17,9 +17,6 @@ local.properties
 # General build files
 **/build/*
 
-lib/dokka.jar
-lib/quasar.jar
-
 **/logs/*
 
 ### JetBrains template
@@ -66,5 +63,3 @@ TODO
 
 # Directory generated during Resolve and TestOSGi gradle tasks
 bnd/
-
-/node/data/**
