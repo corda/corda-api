@@ -137,7 +137,6 @@ if (JavaVersion.current() != javaVersion) {
 }
 logger.quiet("SDK version: {}", JavaVersion.current())
 logger.quiet("JAVA HOME {}", System.getProperty("java.home"))
-logger.quiet("Target Version: {}", platformVersion)
 if (System.getenv("RELEASE_VERSION")?.trim()) {
     version = System.getenv("RELEASE_VERSION")
 } else {
@@ -359,7 +358,6 @@ subprojects {
     tasks.withType(Jar).matching { it.name != 'cpk' }.configureEach {
         manifest {
             attributes("Corda-Release-Version": archiveVersion.get())
-            attributes("Corda-Platform-Version": platformVersion)
             attributes("Corda-Revision": revision)
             attributes("Automatic-Module-Name": "net.corda.${project.name.replace('-', '.')}")
             // NOTE: this needs to be reverted to a URL with the version once the URL structure has been defined.
