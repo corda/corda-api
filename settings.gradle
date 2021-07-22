@@ -31,9 +31,6 @@ pluginManagement {
     }
 
     plugins {
-        id 'net.corda.plugins.cordapp-cpk' version gradlePluginsVersion
-        id 'net.corda.plugins.quasar-utils' version gradlePluginsVersion
-        id 'net.corda.plugins.flask' version gradlePluginsVersion
         id 'org.jetbrains.kotlin.jvm' version kotlinVersion
         id 'org.jetbrains.kotlin.plugin.allopen' version kotlinVersion
         id 'org.jetbrains.kotlin.plugin.noarg' version kotlinVersion
