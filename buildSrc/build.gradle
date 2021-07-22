@@ -1,7 +1,0 @@
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation "com.google.cloud.tools:jib-core:0.16.0"
-}
