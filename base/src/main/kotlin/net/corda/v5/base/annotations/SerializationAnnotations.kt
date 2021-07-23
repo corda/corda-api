@@ -13,8 +13,6 @@ import java.lang.annotation.Inherited
  *
  * Do NOT include [AnnotationTarget.EXPRESSION] as one of the @Target parameters, as this would allow any Lambda to
  * be serialised. This would be a security hole.
- *
- * TODO: As we approach a long term wire format, this annotation will only be permitted on classes that meet certain criteria.
  */
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
