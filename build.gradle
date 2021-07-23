@@ -90,41 +90,20 @@ allprojects {
                 }
             }
         } else {
-            maven {
-                url = "$artifactoryContextUrl/corda-dependencies-dev"
-            }
-            maven {
-                url = "$artifactoryContextUrl/corda-releases"
-            }
+            mavenLocal()
+            mavenCentral()
+
             maven {
                 url = "$artifactoryContextUrl/corda-dependencies"
             }
-            maven {
-                url = "$artifactoryContextUrl/corda-dev"
-            }
-            mavenCentral()
-            jcenter()
-            maven {
-                url = "https://kotlin.bintray.com/kotlinx"
-            }
+
             maven {
                 url = "https://repo.gradle.org/gradle/libs-releases-local/"
             }
-            maven {
-                url = "https://dl.bintray.com/palantir/releases/"
-            }
-            maven {
-                // For Apache ServiceMix.
-                url = 'https://repository.mulesoft.org/nexus/content/repositories/public'
-                content {
-                    // The repo contains this artifact but without its jar.
-                    excludeGroup 'com.github.detro'
-                }
-            }
+
             maven {
                 url = "$artifactoryContextUrl/${System.getenv('CORDA_CONSUME_REPOSITORY_KEY') ?: 'corda-os-maven'}"
             }
-            mavenLocal()
         }
     }
 }
