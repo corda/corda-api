@@ -14,5 +14,5 @@ interface DurableCursorBuilder<T> {
      */
     var positionManager: PositionManager
 
-    fun build() : DurableCursor<T>
+    fun build(): DurableCursor<T>
 }

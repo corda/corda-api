@@ -9,8 +9,8 @@ import java.nio.ReadOnlyBufferException
 import kotlin.test.assertEquals
 
 class ByteArraysTest {
-    @Test(timeout=300_000)
-	fun `slice works`() {
+    @Test(timeout = 300_000)
+    fun `slice works`() {
         byteArrayOf(9, 9, 0, 1, 2, 3, 4, 9, 9).let {
             sliceWorksImpl(it, OpaqueBytesSubSequence(it, 2, 5))
         }
@@ -27,10 +27,10 @@ class ByteArraysTest {
             assertEquals(ByteBuffer.wrap(expected), actual)
             assertSame(ReadOnlyBufferException::class.java, catchThrowable { actual.array() }.javaClass)
             assertSame(array,
-                    ByteBuffer::class.java
-                            .getDeclaredField("hb")
-                            .apply { isAccessible = true }
-                            .get(actual) as ByteArray
+                ByteBuffer::class.java
+                    .getDeclaredField("hb")
+                    .apply { isAccessible = true }
+                    .get(actual) as ByteArray
             )
         }
         check(byteArrayOf(0, 1, 2, 3, 4), seq.slice())
@@ -48,11 +48,11 @@ class ByteArraysTest {
         check(byteArrayOf(), seq.slice(2, 1))
     }
 
-    @Test(timeout=300_000)
-	fun `test hex parsing strictly uppercase`() {
+    @Test(timeout = 300_000)
+    fun `test hex parsing strictly uppercase`() {
         val HEX_REGEX = "^[0-9A-F]+\$".toRegex()
 
-        val opaqueBytes = OpaqueBytes.of( 1, 23, 63, 127, 34, 44, 55, 66, 22, 110)
+        val opaqueBytes = OpaqueBytes.of(1, 23, 63, 127, 34, 44, 55, 66, 22, 110)
         val hexString = opaqueBytes.bytes.toHexString()
         assertTrue(hexString.matches(HEX_REGEX))
     }

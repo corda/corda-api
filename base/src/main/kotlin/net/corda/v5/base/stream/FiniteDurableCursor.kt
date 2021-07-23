@@ -13,5 +13,5 @@ interface FiniteDurableCursor<T> : DurableCursor<T> {
     /**
      * Convenience method over [DurableCursor.poll] which instructs not to spend any time waiting for result on the server side.
      */
-    fun take(maxCount: Int) : Cursor.PollResult<T> = poll(maxCount, Duration.ZERO)
+    fun take(maxCount: Int): Cursor.PollResult<T> = poll(maxCount, Duration.ZERO)
 }

@@ -3,9 +3,11 @@ package net.corda.v5.base.exceptions
 import java.util.Arrays
 import java.util.Objects
 
-open class CordaRuntimeException(override var originalExceptionClassName: String?,
-                                 private var _message: String?,
-                                 private var _cause: Throwable?) : RuntimeException(null, null, true, true), CordaThrowable {
+open class CordaRuntimeException(
+    override var originalExceptionClassName: String?,
+    private var _message: String?,
+    private var _cause: Throwable?
+) : RuntimeException(null, null, true, true), CordaThrowable {
     constructor(message: String?, cause: Throwable?) : this(null, message, cause)
 
     constructor(message: String?) : this(null, message, null)

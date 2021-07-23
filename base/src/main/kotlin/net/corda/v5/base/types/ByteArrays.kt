@@ -267,7 +267,8 @@ private fun parseHexBinary(s: String): ByteArray {
 /**
  * Class is public for serialization purposes.
  */
-class OpaqueBytesSubSequence(override val bytes: ByteArray, offset: Int, size: Int) : ByteSequence(bytes, offset, size) {
+class OpaqueBytesSubSequence(override val bytes: ByteArray, offset: Int, size: Int) :
+    ByteSequence(bytes, offset, size) {
     init {
         require(offset >= 0 && offset < bytes.size) { "Offset must be greater than or equal to 0, and less than the size of the backing array" }
         require(size >= 0 && offset + size <= bytes.size) { "Sub-sequence size must be greater than or equal to 0, and less than the size of the backing array" }

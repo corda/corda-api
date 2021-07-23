@@ -9,5 +9,5 @@ import net.corda.v5.base.annotations.DoNotImplement
 @DoNotImplement
 interface FiniteDurableCursorBuilder<T> : DurableCursorBuilder<T> {
 
-    override fun build() : FiniteDurableCursor<T>
+    override fun build(): FiniteDurableCursor<T>
 }

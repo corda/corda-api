@@ -29,7 +29,8 @@ data class Trace(val invocationId: InvocationId, val sessionId: SessionId) {
          * @param invocationId The [InvocationId].
          */
         @JvmStatic
-        fun newInstance(invocationId: InvocationId): Trace = Trace(invocationId, SessionId(invocationId.value, invocationId.timestamp))
+        fun newInstance(invocationId: InvocationId): Trace =
+            Trace(invocationId, SessionId(invocationId.value, invocationId.timestamp))
 
         /**
          * Creates a [Trace] using the passed in [sessionId].
