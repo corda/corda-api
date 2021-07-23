@@ -261,51 +261,6 @@ subprojects {
         dependsOn tasks.named('junit4Test')
     }
 
-    sourceSets {
-        integrationTest {
-            kotlin {
-                srcDirs += "src/integrationTest/kotlin"
-            }
-            java {
-                srcDirs += "src/integrationTest/java"
-            }
-            resources {
-                srcDirs += "src/integrationTest/resources"
-            }
-            compileClasspath += main.output + test.output
-            runtimeClasspath += main.output + test.output
-        }
-    }
-
-    kotlin {
-        target {
-            java
-            compilations.integrationTest {
-                associateWith compilations.main
-                associateWith compilations.test
-
-                configurations {
-                    integrationTestApi.extendsFrom testApi
-                    integrationTestImplementation.extendsFrom testImplementation
-                    integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
-
-                    [ integrationTestCompileClasspath, integrationTestRuntimeClasspath ].forEach { cfg ->
-                        configureKotlinForOSGi(cfg)
-                    }
-                }
-            }
-        }
-    }
-
-    tasks.register('integrationTest', Test) {
-        description = "Runs integration tests."
-        group = "verification"
-
-        testClassesDirs = project.sourceSets["integrationTest"].output.classesDirs
-        classpath = project.sourceSets["integrationTest"].runtimeClasspath
-        shouldRunAfter tasks.named('test')
-    }
-
 
     configurations {
         all {
