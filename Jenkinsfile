@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@driessamyn/notick/revised-versioning') _
+@Library('corda-shared-build-pipeline-steps@corda5') _
 
 cordaPipeline(
     runIntegrationTests: false,
