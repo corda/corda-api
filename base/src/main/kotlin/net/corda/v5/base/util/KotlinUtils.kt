@@ -43,8 +43,8 @@ inline fun Logger.trace(msg: () -> String) {
 }
 
 /** Log a DEBUG level message produced by evaluating the given lamdba, but only if DEBUG logging is enabled. */
-inline fun Logger.debug(msg: () -> String) {
-    if (isDebugEnabled) debug(msg())
+inline fun Logger.debug(msg: () -> String, newArg: String) {
+    if (isDebugEnabled) debug(newArg + msg())
 }
 
 /**
