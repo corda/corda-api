@@ -13,16 +13,6 @@ pluginManagement {
                     password = System.getenv('CORDA_ARTIFACTORY_PASSWORD')
                 }
             }
-            maven {
-                url "$artifactoryContextUrl/engineering-tools-maven"
-                credentials {
-                    username = System.getenv('CORDA_ARTIFACTORY_USERNAME') ?: cordaArtifactoryUsername
-                    password = System.getenv('CORDA_ARTIFACTORY_PASSWORD') ?: cordaArtifactoryPassword
-                }
-                content {
-                    includeGroupByRegex 'com\\.r3\\.internal(\\..*)?'
-                }
-            }
         } else {
             maven {
                 url "$artifactoryContextUrl/corda-dev"
@@ -36,17 +26,18 @@ pluginManagement {
                     includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
                 }
             }
-            maven {
-                url "$artifactoryContextUrl/engineering-tools-maven"
-                credentials {
-                    username = System.getenv('CORDA_ARTIFACTORY_USERNAME') ?: cordaArtifactoryUsername
-                    password = System.getenv('CORDA_ARTIFACTORY_PASSWORD') ?: cordaArtifactoryPassword
-                }
-                content {
-                    includeGroupByRegex 'com\\.r3\\.internal(\\..*)?'
-                }
-            }
             gradlePluginPortal()
+        }
+
+        maven {
+            url "$artifactoryContextUrl/engineering-tools-maven"
+            credentials {
+                username = System.getenv('CORDA_ARTIFACTORY_USERNAME') ?: cordaArtifactoryUsername
+                password = System.getenv('CORDA_ARTIFACTORY_PASSWORD') ?: cordaArtifactoryPassword
+            }
+            content {
+                includeGroupByRegex 'com\\.r3\\.internal(\\..*)?'
+            }
         }
     }
 
