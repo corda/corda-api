@@ -19,9 +19,9 @@ public class CryptoUtilsJavaApiTest {
     @Timeout(10)
     public void ShouldComputeCorrectlySHA25forGivenByteArray() {
         var hash = CryptoUtils.sha256Bytes("42".getBytes(StandardCharsets.UTF_8));
-        var expected = new byte[] {
+        var expected = new byte[]{
             115, 71, 92, -76, 10, 86, -114, -115, -88, -96, 69, -50, -47, 16, 19, 126, 21, -97, -119, 10, -60, -38, -120,
-                    59, 107, 23, -36, 101, 27, 58, -128, 73
+            59, 107, 23, -36, 101, 27, 58, -128, 73
         };
         assertArrayEquals(expected, hash);
     }
@@ -84,8 +84,14 @@ public class CryptoUtilsJavaApiTest {
     @Test
     @Timeout(10)
     public void byKeysShouldReturnSetOfAllPublicKeysOfDigitalSignatureWithKeyCollection() {
-        var signature1 = new DigitalSignature.WithKey(CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(), "abc".getBytes());
-        var signature2 = new DigitalSignature.WithKey(CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(), "abc".getBytes());
+        var signature1 = new DigitalSignature.WithKey(
+            CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(),
+            "abc".getBytes()
+        );
+        var signature2 = new DigitalSignature.WithKey(
+            CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(),
+            "abc".getBytes()
+        );
         var signatures = new ArrayList<DigitalSignature.WithKey>();
         signatures.add(signature1);
         signatures.add(signature2);
@@ -94,5 +100,4 @@ public class CryptoUtilsJavaApiTest {
         assertTrue(result.contains(signature1.getBy()));
         assertTrue(result.contains(signature2.getBy()));
     }
-
 }

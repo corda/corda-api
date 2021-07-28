@@ -39,32 +39,32 @@ import java.time.temporal.ChronoUnit
 import java.util.Date
 
 val EDDSA_ED25519_SPEC = KeySpec(
-        name = "1.3.101.112",
-        spec = EdDSANamedCurveTable.getByName("ED25519")
+    name = "1.3.101.112",
+    spec = EdDSANamedCurveTable.getByName("ED25519")
 )
 
 val ECDSA_SECP256R1_SPEC = KeySpec(
-        name = "EC",
-        spec = ECNamedCurveTable.getParameterSpec("secp256r1")
+    name = "EC",
+    spec = ECNamedCurveTable.getParameterSpec("secp256r1")
 )
 
 val ECDSA_SECP256K1_SPEC = KeySpec(
-        name = "EC",
-        spec = ECNamedCurveTable.getParameterSpec("secp256k1")
+    name = "EC",
+    spec = ECNamedCurveTable.getParameterSpec("secp256k1")
 )
 
 val RSA_SPEC = KeySpec(
-        name = "RSA",
-        keyLength = 3072
+    name = "RSA",
+    keyLength = 3072
 )
 
 private val bouncyCastleProvider: Provider = BouncyCastleProvider()
 
-val specs : Map<AlgorithmIdentifier, KeySpec> = mapOf(
-        AlgorithmIdentifier(ASN1ObjectIdentifier("1.3.101.112"), null) to EDDSA_ED25519_SPEC,
-        AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256r1) to ECDSA_SECP256R1_SPEC,
-        AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1) to ECDSA_SECP256K1_SPEC,
-        AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null) to RSA_SPEC
+val specs: Map<AlgorithmIdentifier, KeySpec> = mapOf(
+    AlgorithmIdentifier(ASN1ObjectIdentifier("1.3.101.112"), null) to EDDSA_ED25519_SPEC,
+    AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256r1) to ECDSA_SECP256R1_SPEC,
+    AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1) to ECDSA_SECP256K1_SPEC,
+    AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null) to RSA_SPEC
 )
 
 fun generateKeyPair(spec: KeySpec): KeyPair {
@@ -79,7 +79,7 @@ fun generateKeyPair(spec: KeySpec): KeyPair {
 
 fun decodePublicKey(encodedKey: ByteArray): PublicKey {
     val subjectPublicKeyInfo = SubjectPublicKeyInfo.getInstance(encodedKey)
-    return if(subjectPublicKeyInfo.algorithm.algorithm.id == OID_COMPOSITE_KEY) {
+    return if (subjectPublicKeyInfo.algorithm.algorithm.id == OID_COMPOSITE_KEY) {
         CompositeKey.getInstance(ASN1Primitive.fromByteArray(encodedKey)) {
             decodePublicKey(it)
         }
@@ -91,20 +91,20 @@ fun decodePublicKey(encodedKey: ByteArray): PublicKey {
 }
 
 fun createDevCertificate(
-        issuer: X500Name,
-        contentSigner: ContentSigner,
-        subject: X500Name,
-        subjectPublicKey: PublicKey
+    issuer: X500Name,
+    contentSigner: ContentSigner,
+    subject: X500Name,
+    subjectPublicKey: PublicKey
 ): X509Certificate {
     val subjectPublicKeyInfo = SubjectPublicKeyInfo.getInstance(ASN1Sequence.getInstance(subjectPublicKey.encoded))
     val validityWindow = getValidityWindow(Duration.ZERO, Duration.ofDays(365))
     val v3CertGen = X509v3CertificateBuilder(
-            issuer,
-            BigInteger.valueOf(System.currentTimeMillis()),
-            Time(validityWindow.first),
-            Time(validityWindow.second),
-            subject,
-            subjectPublicKeyInfo
+        issuer,
+        BigInteger.valueOf(System.currentTimeMillis()),
+        Time(validityWindow.first),
+        Time(validityWindow.second),
+        subject,
+        subjectPublicKeyInfo
     )
     return v3CertGen.build(contentSigner).toJca()
 }
@@ -130,6 +130,6 @@ private fun getValidityWindow(before: Duration, after: Duration): Pair<Date, Dat
 }
 
 private fun X509CertificateHolder.toJca(): X509Certificate =
-        requireNotNull(CertificateFactory.getInstance("X.509").generateCertificate(encoded.inputStream()) as? X509Certificate) {
-            "Not an X.509 certificate: $this"
-        }
+    requireNotNull(CertificateFactory.getInstance("X.509").generateCertificate(encoded.inputStream()) as? X509Certificate) {
+        "Not an X.509 certificate: $this"
+    }

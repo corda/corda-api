@@ -8,12 +8,12 @@ import java.security.MessageDigest
 import java.security.PrivateKey
 import java.security.PublicKey
 
-private fun messageDigestSha256() : MessageDigest =
+private fun messageDigestSha256(): MessageDigest =
     MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name)
 
 fun ByteArray.sha256Bytes(): ByteArray = messageDigestSha256().digest(this)
 
-fun PublicKey.sha256Bytes(): ByteArray =  messageDigestSha256().digest(encoded)
+fun PublicKey.sha256Bytes(): ByteArray = messageDigestSha256().digest(encoded)
 
 /** Render a public key to its hash (in Base58) of its serialised form using the DL prefix. */
 fun PublicKey.toStringShort(): String = "DL" + this.sha256Bytes().toBase58()
@@ -29,7 +29,8 @@ val PublicKey.keys: Set<PublicKey> get() = (this as? CompositeKey)?.leafKeys ?: 
 fun PublicKey.isFulfilledBy(otherKey: PublicKey): Boolean = isFulfilledBy(setOf(otherKey))
 
 /** Return true if [otherKeys] fulfil the requirements of this [PublicKey]. */
-fun PublicKey.isFulfilledBy(otherKeys: Iterable<PublicKey>): Boolean = (this as? CompositeKey)?.isFulfilledBy(otherKeys) ?: (this in otherKeys)
+fun PublicKey.isFulfilledBy(otherKeys: Iterable<PublicKey>): Boolean =
+    (this as? CompositeKey)?.isFulfilledBy(otherKeys) ?: (this in otherKeys)
 
 /**
  * Checks whether any of the given [keys] matches a leaf on the [CompositeKey] tree or a single [PublicKey].

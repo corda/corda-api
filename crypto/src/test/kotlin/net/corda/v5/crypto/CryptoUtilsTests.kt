@@ -31,8 +31,8 @@ class CryptoUtilsTests {
     fun `Should compute correctly SHA256 for a given byte array`() {
         val hash = "42".toByteArray().sha256Bytes()
         val expected = byteArrayOf(
-                115, 71, 92, -76, 10, 86, -114, -115, -88, -96, 69, -50, -47, 16, 19, 126, 21, -97, -119, 10, -60, -38, -120,
-                59, 107, 23, -36, 101, 27, 58, -128, 73
+            115, 71, 92, -76, 10, 86, -114, -115, -88, -96, 69, -50, -47, 16, 19, 126, 21, -97, -119, 10, -60, -38, -120,
+            59, 107, 23, -36, 101, 27, 58, -128, 73
         )
         assertArrayEquals(expected, hash)
     }
@@ -73,11 +73,11 @@ class CryptoUtilsTests {
         val publicKeyEd1 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val publicKeyEd2 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyRSA,
-                publicKeyK1,
-                publicKeyR1,
-                publicKeyEd1,
-                publicKeyEd2
+            publicKeyRSA,
+            publicKeyK1,
+            publicKeyR1,
+            publicKeyEd1,
+            publicKeyEd2
         ).build()
         val result = compositeKey.keys
         assertEquals(5, result.size)
@@ -117,7 +117,7 @@ class CryptoUtilsTests {
     fun `isFulfilledBy overload with single key should return true if the keys is held in the composite key`() {
         val publicKeyK1 = generateKeyPair(ECDSA_SECP256K1_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyK1
+            publicKeyK1
         ).build()
         assertTrue(compositeKey.isFulfilledBy(publicKeyK1))
     }
@@ -134,7 +134,7 @@ class CryptoUtilsTests {
     fun `isFulfilledBy overload with single key should return false if the keys is not held in the composite key`() {
         val publicKeyK1 = generateKeyPair(ECDSA_SECP256K1_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyK1
+            publicKeyK1
         ).build()
         assertFalse(compositeKey.isFulfilledBy(generateKeyPair(ECDSA_SECP256K1_SPEC).public))
     }
@@ -145,7 +145,7 @@ class CryptoUtilsTests {
         val publicKeyK1 = generateKeyPair(ECDSA_SECP256K1_SPEC).public
         val publicKeyR1 = generateKeyPair(ECDSA_SECP256R1_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyK1, publicKeyR1
+            publicKeyK1, publicKeyR1
         ).build()
         assertFalse(compositeKey.isFulfilledBy(publicKeyK1))
     }
@@ -166,11 +166,11 @@ class CryptoUtilsTests {
         val publicKeyEd1 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val publicKeyEd2 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyRSA,
-                publicKeyK1,
-                publicKeyR1,
-                publicKeyEd1,
-                publicKeyEd2
+            publicKeyRSA,
+            publicKeyK1,
+            publicKeyR1,
+            publicKeyEd1,
+            publicKeyEd2
         ).build()
         assertTrue {
             compositeKey.isFulfilledBy(listOf(publicKeyRSA, publicKeyK1, publicKeyR1, publicKeyEd1, publicKeyEd2))
@@ -186,15 +186,18 @@ class CryptoUtilsTests {
         val publicKeyEd1 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val publicKeyEd2 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyRSA,
-                publicKeyK1,
-                publicKeyR1,
-                publicKeyEd1,
-                publicKeyEd2
+            publicKeyRSA,
+            publicKeyK1,
+            publicKeyR1,
+            publicKeyEd1,
+            publicKeyEd2
         ).build()
         assertTrue {
-            compositeKey.isFulfilledBy(listOf(
-                    publicKeyRSA, publicKeyK1, publicKeyR1, publicKeyEd1, publicKeyEd2, generateKeyPair(ECDSA_SECP256K1_SPEC).public))
+            compositeKey.isFulfilledBy(
+                listOf(
+                    publicKeyRSA, publicKeyK1, publicKeyR1, publicKeyEd1, publicKeyEd2, generateKeyPair(ECDSA_SECP256K1_SPEC).public
+                )
+            )
         }
     }
 
@@ -214,11 +217,11 @@ class CryptoUtilsTests {
         val publicKeyEd1 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val publicKeyEd2 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyRSA,
-                publicKeyK1,
-                publicKeyR1,
-                publicKeyEd1,
-                publicKeyEd2
+            publicKeyRSA,
+            publicKeyK1,
+            publicKeyR1,
+            publicKeyEd1,
+            publicKeyEd2
         ).build()
         assertFalse {
             compositeKey.isFulfilledBy(listOf(publicKeyRSA, publicKeyK1, publicKeyR1))
@@ -229,19 +232,27 @@ class CryptoUtilsTests {
     @MethodSource("publicKeys")
     @Timeout(10)
     fun `containsAny should return true if the key is in collection a given public key`(key: PublicKey) {
-        assertTrue(key.containsAny(listOf(
-                generateKeyPair(ECDSA_SECP256R1_SPEC).public,
-                key
-        )))
+        assertTrue(
+            key.containsAny(
+                listOf(
+                    generateKeyPair(ECDSA_SECP256R1_SPEC).public,
+                    key
+                )
+            )
+        )
     }
 
     @ParameterizedTest
     @MethodSource("publicKeys")
     @Timeout(10)
     fun `containsAny should return false if the key is ot in collection a given public key`(key: PublicKey) {
-        assertFalse(key.containsAny(listOf(
-                generateKeyPair(ECDSA_SECP256R1_SPEC).public,
-        )))
+        assertFalse(
+            key.containsAny(
+                listOf(
+                    generateKeyPair(ECDSA_SECP256R1_SPEC).public,
+                )
+            )
+        )
     }
 
     @Test
@@ -253,11 +264,11 @@ class CryptoUtilsTests {
         val publicKeyEd1 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val publicKeyEd2 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyRSA,
-                publicKeyK1,
-                publicKeyR1,
-                publicKeyEd1,
-                publicKeyEd2
+            publicKeyRSA,
+            publicKeyK1,
+            publicKeyR1,
+            publicKeyEd1,
+            publicKeyEd2
         ).build()
         assertTrue {
             compositeKey.containsAny(listOf(publicKeyRSA, generateKeyPair(ECDSA_SECP256R1_SPEC).public, publicKeyR1))
@@ -273,11 +284,11 @@ class CryptoUtilsTests {
         val publicKeyEd1 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val publicKeyEd2 = generateKeyPair(EDDSA_ED25519_SPEC).public
         val compositeKey = CompositeKey.Builder().addKeys(
-                publicKeyRSA,
-                publicKeyK1,
-                publicKeyR1,
-                publicKeyEd1,
-                publicKeyEd2
+            publicKeyRSA,
+            publicKeyK1,
+            publicKeyR1,
+            publicKeyEd1,
+            publicKeyEd2
         ).build()
         assertFalse {
             compositeKey.containsAny(listOf(generateKeyPair(ECDSA_SECP256R1_SPEC).public, generateKeyPair(ECDSA_SECP256R1_SPEC).public))

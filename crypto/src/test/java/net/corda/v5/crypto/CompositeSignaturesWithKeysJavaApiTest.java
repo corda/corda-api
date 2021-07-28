@@ -12,7 +12,10 @@ public class CompositeSignaturesWithKeysJavaApiTest {
     @Timeout(5)
     public void emptyConstantTest() {
         assertTrue(CompositeSignaturesWithKeys.EMPTY.getSigs().isEmpty());
-        var sig = new DigitalSignature.WithKey(CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(), "abc".getBytes());
+        var sig = new DigitalSignature.WithKey(
+            CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(),
+            "abc".getBytes()
+        );
         assertThrows(UnsupportedOperationException.class, () -> CompositeSignaturesWithKeys.EMPTY.getSigs().add(sig));
     }
 }

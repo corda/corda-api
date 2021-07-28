@@ -61,8 +61,8 @@ private fun DigestService.getConstantsFor(digestAlgorithmName: DigestAlgorithmNa
     return hashConstants.getOrPut(algorithm) {
         val digestLength = digestLength(digestAlgorithmName)
         HashConstants(
-                zero = SecureHash(algorithm, ByteArray(digestLength) { 0.toByte() }),
-                allOnes = SecureHash(algorithm, ByteArray(digestLength) { 255.toByte() })
+            zero = SecureHash(algorithm, ByteArray(digestLength) { 0.toByte() }),
+            allOnes = SecureHash(algorithm, ByteArray(digestLength) { 255.toByte() })
         )
     }
 }

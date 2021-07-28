@@ -53,7 +53,8 @@ class PartialMerkleTree(val root: PartialTree) {
     sealed class PartialTree {
         data class IncludedLeaf(val hash: SecureHash) : PartialTree()
         data class Leaf(val hash: SecureHash) : PartialTree()
-        data class Node(val left: PartialTree, val right: PartialTree, val hashAlgorithm: String? = DigestAlgorithmName.SHA2_256.name) : PartialTree()
+        data class Node(val left: PartialTree, val right: PartialTree, val hashAlgorithm: String? = DigestAlgorithmName.SHA2_256.name) :
+            PartialTree()
     }
 
     companion object {
@@ -100,9 +101,9 @@ class PartialMerkleTree(val root: PartialTree) {
          * Second element refers to that subtree.
          */
         private fun buildPartialTree(
-                root: MerkleTree,
-                includeHashes: List<SecureHash>,
-                usedHashes: MutableList<SecureHash>
+            root: MerkleTree,
+            includeHashes: List<SecureHash>,
+            usedHashes: MutableList<SecureHash>
         ): Pair<Boolean, PartialTree> {
             return when (root) {
                 is MerkleTree.Leaf ->
@@ -151,7 +152,12 @@ class PartialMerkleTree(val root: PartialTree) {
             }
         }
 
-        private fun concatenateAs(digestService: DigestService, first: SecureHash, second: SecureHash, concatAlgorithmName: DigestAlgorithmName): SecureHash {
+        private fun concatenateAs(
+            digestService: DigestService,
+            first: SecureHash,
+            second: SecureHash,
+            concatAlgorithmName: DigestAlgorithmName
+        ): SecureHash {
             require(first.algorithm == second.algorithm) {
                 "Cannot concatenate ${first.algorithm} with ${second.algorithm}"
             }
@@ -213,15 +219,15 @@ class PartialMerkleTree(val root: PartialTree) {
 
     // Return the leaf index from the path boolean list.
     private fun indexFromFlagPath(pathList: List<Boolean>) =
-            pathList.mapIndexed { index, value -> if (value) (1 shl index) else 0 }.sum()
+        pathList.mapIndexed { index, value -> if (value) (1 shl index) else 0 }.sum()
 }
 
-
-private val OpaqueBytes.isZero: Boolean get() {
-    for (b in bytes) {
-        if (b != 0.toByte()) {
-            return false
+private val OpaqueBytes.isZero: Boolean
+    get() {
+        for (b in bytes) {
+            if (b != 0.toByte()) {
+                return false
+            }
         }
+        return true
     }
-    return true
-}

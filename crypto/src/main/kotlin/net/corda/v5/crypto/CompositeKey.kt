@@ -57,6 +57,7 @@ class CompositeKey private constructor(val threshold: Int, children: List<NodeAn
             }
             return builder.build(threshold)
         }
+
         // Required for sorting [children] list. To ensure a deterministic way of adding children required for equality
         // checking, [children] list is sorted during construction. A DESC ordering in the [NodeAndWeight.weight] field
         // will improve efficiency, because keys with bigger "weights" are the first to be checked and thus the

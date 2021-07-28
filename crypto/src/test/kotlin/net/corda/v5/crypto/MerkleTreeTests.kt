@@ -21,25 +21,25 @@ class MerkleTreeTests {
         }
     }
 
-    private fun leaf1Hash(algorithm : DigestAlgorithmName): SecureHash = digestService.hash("leaf1".toByteArray(), algorithm)
+    private fun leaf1Hash(algorithm: DigestAlgorithmName): SecureHash = digestService.hash("leaf1".toByteArray(), algorithm)
 
-    private fun leaf2Hash(algorithm : DigestAlgorithmName): SecureHash = digestService.hash("leaf2".toByteArray(), algorithm)
+    private fun leaf2Hash(algorithm: DigestAlgorithmName): SecureHash = digestService.hash("leaf2".toByteArray(), algorithm)
 
-    private fun leaf3Hash(algorithm : DigestAlgorithmName): SecureHash = digestService.hash("leaf3".toByteArray(), algorithm)
+    private fun leaf3Hash(algorithm: DigestAlgorithmName): SecureHash = digestService.hash("leaf3".toByteArray(), algorithm)
 
-    private fun oneLeaf(algorithm : DigestAlgorithmName) : List<SecureHash> = listOf(
-            leaf1Hash(algorithm)
+    private fun oneLeaf(algorithm: DigestAlgorithmName): List<SecureHash> = listOf(
+        leaf1Hash(algorithm)
     )
 
-    private fun twoLeaves(algorithm : DigestAlgorithmName) : List<SecureHash> = listOf(
-            leaf1Hash(algorithm),
-            leaf2Hash(algorithm)
+    private fun twoLeaves(algorithm: DigestAlgorithmName): List<SecureHash> = listOf(
+        leaf1Hash(algorithm),
+        leaf2Hash(algorithm)
     )
 
-    private fun threeLeaves(algorithm : DigestAlgorithmName) : List<SecureHash> = listOf(
-            leaf1Hash(algorithm),
-            leaf2Hash(algorithm),
-            leaf3Hash(algorithm)
+    private fun threeLeaves(algorithm: DigestAlgorithmName): List<SecureHash> = listOf(
+        leaf1Hash(algorithm),
+        leaf2Hash(algorithm),
+        leaf3Hash(algorithm)
     )
 
     @Test
@@ -55,12 +55,13 @@ class MerkleTreeTests {
             digestService.hash(it.toString().toByteArray(), DigestAlgorithmName.SHA2_256)
         }
         val expected = MerkleTree.getMerkleTree(
-                leaves + listOf(
-                        digestService.getZeroHash(DigestAlgorithmName.SHA2_256),
-                        digestService.getZeroHash(DigestAlgorithmName.SHA2_256)
-                ),
-                DigestAlgorithmName.SHA2_256,
-                digestService)
+            leaves + listOf(
+                digestService.getZeroHash(DigestAlgorithmName.SHA2_256),
+                digestService.getZeroHash(DigestAlgorithmName.SHA2_256)
+            ),
+            DigestAlgorithmName.SHA2_256,
+            digestService
+        )
         val actual = MerkleTree.getMerkleTree(leaves, DigestAlgorithmName.SHA2_256, digestService)
         assertEquals(expected.hash, actual.hash)
         assertEquals(expected, actual)
@@ -114,12 +115,15 @@ class MerkleTreeTests {
         assertTrue(merkle.right is MerkleTree.Leaf)
         assertEquals(merkle.left.hash, leaf1Hash(DigestAlgorithmName.SHA2_256))
         assertEquals(merkle.right.hash, digestService.getZeroHash(DigestAlgorithmName.SHA2_256))
-        assertEquals(digestService.create("SHA-384:16D25072B2671729D36B3E637181EDA825D58E48B3DD3273251F742EE3225A461CC9D5884CA9E471B900259F74AA60B4"), merkle.hash)
+        assertEquals(
+            digestService.create("SHA-384:16D25072B2671729D36B3E637181EDA825D58E48B3DD3273251F742EE3225A461CC9D5884CA9E471B900259F74AA60B4"),
+            merkle.hash
+        )
     }
 
     @Test
     @Timeout(5)
-	fun `Should create MerkleTree out of two leaves with SHA256 using SHA256 for nodes`() {
+    fun `Should create MerkleTree out of two leaves with SHA256 using SHA256 for nodes`() {
         val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_256, digestService)
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
@@ -150,7 +154,10 @@ class MerkleTreeTests {
         assertTrue(merkle.right is MerkleTree.Leaf)
         assertEquals(merkle.left.hash, leaf1Hash(DigestAlgorithmName.SHA2_256))
         assertEquals(merkle.right.hash, leaf2Hash(DigestAlgorithmName.SHA2_256))
-        assertEquals(digestService.create("SHA-384:D8735F176D4979F1C397D3F461B48527943C58B9A89E8DDDBC5C9909F65631FBFB6BD01F07A66AD351F22FE7A4E350FD"), merkle.hash)
+        assertEquals(
+            digestService.create("SHA-384:D8735F176D4979F1C397D3F461B48527943C58B9A89E8DDDBC5C9909F65631FBFB6BD01F07A66AD351F22FE7A4E350FD"),
+            merkle.hash
+        )
     }
 
     @Test
@@ -196,14 +203,23 @@ class MerkleTreeTests {
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Node)
         assertTrue(merkle.right is MerkleTree.Node)
-        assertEquals(digestService.create("SHA-384:D8735F176D4979F1C397D3F461B48527943C58B9A89E8DDDBC5C9909F65631FBFB6BD01F07A66AD351F22FE7A4E350FD"), merkle.left.hash)
-        assertEquals(digestService.create("SHA-384:90E5730F61EC2D68D983E11F6A4A768167D6D6412D4A80B95CE1F5CC9984E8B2EBA3A36C6DF690D1F63CCDF3619B5055"), merkle.right.hash)
+        assertEquals(
+            digestService.create("SHA-384:D8735F176D4979F1C397D3F461B48527943C58B9A89E8DDDBC5C9909F65631FBFB6BD01F07A66AD351F22FE7A4E350FD"),
+            merkle.left.hash
+        )
+        assertEquals(
+            digestService.create("SHA-384:90E5730F61EC2D68D983E11F6A4A768167D6D6412D4A80B95CE1F5CC9984E8B2EBA3A36C6DF690D1F63CCDF3619B5055"),
+            merkle.right.hash
+        )
         assertTrue((merkle.left as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue((merkle.left as MerkleTree.Node).right is MerkleTree.Leaf)
         assertEquals((merkle.left as MerkleTree.Node).left.hash, leaf1Hash(DigestAlgorithmName.SHA2_256))
         assertEquals((merkle.left as MerkleTree.Node).right.hash, leaf2Hash(DigestAlgorithmName.SHA2_256))
         assertEquals((merkle.right as MerkleTree.Node).left.hash, leaf3Hash(DigestAlgorithmName.SHA2_256))
         assertEquals((merkle.right as MerkleTree.Node).right.hash, digestService.getZeroHash(DigestAlgorithmName.SHA2_256))
-        assertEquals(digestService.create("SHA-384:AFA6D7049EF4051202F3A7975DC54CB0085B2928453AFE4E23FBC9496C7A852679866115D360970F43BEC517D492B9F2"), merkle.hash)
+        assertEquals(
+            digestService.create("SHA-384:AFA6D7049EF4051202F3A7975DC54CB0085B2928453AFE4E23FBC9496C7A852679866115D360970F43BEC517D492B9F2"),
+            merkle.hash
+        )
     }
 }

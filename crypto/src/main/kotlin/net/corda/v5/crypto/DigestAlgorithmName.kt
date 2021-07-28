@@ -32,6 +32,6 @@ data class DigestAlgorithmName(val name: String) {
          * It would be probably useful to assume an override priority order.
          */
         @JvmField
-        val DEFAULT_ALGORITHM_NAME : DigestAlgorithmName = SHA2_256
+        val DEFAULT_ALGORITHM_NAME: DigestAlgorithmName = SHA2_256
     }
 }

@@ -32,10 +32,12 @@ class PartialMerkleTreeTests {
 
     @Test
     @Timeout(5)
-	fun `check full tree`() {
+    fun `check full tree`() {
         val h = digestService.hash(UUID.randomUUID().toString().toByteArray(), DigestAlgorithmName.SHA2_256)
-        val left = MerkleTree.Node(h, MerkleTree.Node(h, MerkleTree.Leaf(h), MerkleTree.Leaf(h)),
-                MerkleTree.Node(h, MerkleTree.Leaf(h), MerkleTree.Leaf(h)))
+        val left = MerkleTree.Node(
+            h, MerkleTree.Node(h, MerkleTree.Leaf(h), MerkleTree.Leaf(h)),
+            MerkleTree.Node(h, MerkleTree.Leaf(h), MerkleTree.Leaf(h))
+        )
         val right = MerkleTree.Node(h, MerkleTree.Leaf(h), MerkleTree.Leaf(h))
         val tree = MerkleTree.Node(h, left, right)
         assertFailsWith<MerkleTreeException> { PartialMerkleTree.build(tree, listOf(h)) }
@@ -54,25 +56,31 @@ class PartialMerkleTreeTests {
 
         // Provided hashes are not in the tree.
         assertFailsWith<MerkleTreeException> {
-            PartialMerkleTree.build(merkleTree, listOf(
-                digestService.hash("20".toByteArray(), DigestAlgorithmName.SHA2_256)
-            ))
+            PartialMerkleTree.build(
+                merkleTree, listOf(
+                    digestService.hash("20".toByteArray(), DigestAlgorithmName.SHA2_256)
+                )
+            )
         }
         // One of the provided hashes is not in the tree.
         assertFailsWith<MerkleTreeException> {
-            PartialMerkleTree.build(merkleTree, listOf(
-                digestService.hash("20".toByteArray(), DigestAlgorithmName.SHA2_256),
-                digestService.hash("1".toByteArray(), DigestAlgorithmName.SHA2_256),
-                digestService.hash("5".toByteArray(), DigestAlgorithmName.SHA2_256)
-            ))
+            PartialMerkleTree.build(
+                merkleTree, listOf(
+                    digestService.hash("20".toByteArray(), DigestAlgorithmName.SHA2_256),
+                    digestService.hash("1".toByteArray(), DigestAlgorithmName.SHA2_256),
+                    digestService.hash("5".toByteArray(), DigestAlgorithmName.SHA2_256)
+                )
+            )
         }
 
-        val pmt = PartialMerkleTree.build(merkleTree, listOf(
+        val pmt = PartialMerkleTree.build(
+            merkleTree, listOf(
                 digestService.hash("1".toByteArray(), DigestAlgorithmName.SHA2_256),
                 digestService.hash("5".toByteArray(), DigestAlgorithmName.SHA2_256),
                 digestService.hash("0".toByteArray(), DigestAlgorithmName.SHA2_256),
                 digestService.hash("19".toByteArray(), DigestAlgorithmName.SHA2_256)
-        ))
+            )
+        )
         // First leaf.
         assertEquals(0, pmt.leafIndex(digestService.hash("0".toByteArray(), DigestAlgorithmName.SHA2_256)))
         // Second leaf.
@@ -90,14 +98,16 @@ class PartialMerkleTreeTests {
             pmt.leafIndex(digestService.hash("30".toByteArray(), DigestAlgorithmName.SHA2_256))
         }
 
-        val pmtFirstElementOnly = PartialMerkleTree.build(merkleTree, listOf(digestService.hash("0".toByteArray(), DigestAlgorithmName.SHA2_256)))
+        val pmtFirstElementOnly =
+            PartialMerkleTree.build(merkleTree, listOf(digestService.hash("0".toByteArray(), DigestAlgorithmName.SHA2_256)))
         assertEquals(0, pmtFirstElementOnly.leafIndex(digestService.hash("0".toByteArray(), DigestAlgorithmName.SHA2_256)))
         // The provided hash is not in the tree.
         assertFailsWith<MerkleTreeException> {
             pmtFirstElementOnly.leafIndex(digestService.hash("10".toByteArray(), DigestAlgorithmName.SHA2_256))
         }
 
-        val pmtLastElementOnly = PartialMerkleTree.build(merkleTree, listOf(digestService.hash("19".toByteArray(), DigestAlgorithmName.SHA2_256)))
+        val pmtLastElementOnly =
+            PartialMerkleTree.build(merkleTree, listOf(digestService.hash("19".toByteArray(), DigestAlgorithmName.SHA2_256)))
         assertEquals(19, pmtLastElementOnly.leafIndex(digestService.hash("19".toByteArray(), DigestAlgorithmName.SHA2_256)))
         // The provided hash is not in the tree.
         assertFailsWith<MerkleTreeException> {
@@ -112,7 +122,10 @@ class PartialMerkleTreeTests {
         }
 
         val pmtAllIncluded = PartialMerkleTree.build(merkleTree, sampleLeaves)
-        for (i in 0..19) assertEquals(i, pmtAllIncluded.leafIndex(digestService.hash(i.toString().toByteArray(), DigestAlgorithmName.SHA2_256)))
+        for (i in 0..19) assertEquals(
+            i,
+            pmtAllIncluded.leafIndex(digestService.hash(i.toString().toByteArray(), DigestAlgorithmName.SHA2_256))
+        )
 
         // The provided hash is not in the tree (using a leaf that didn't exist in the original Merkle tree).
         assertFailsWith<MerkleTreeException> {
@@ -181,7 +194,11 @@ class PartialMerkleTreeTests {
     @Test
     @Timeout(5)
     fun `verify Partial Merkle Tree - duplicate leaves failure`() {
-        val mt = MerkleTree.getMerkleTree(leaves.subList(0, 5), DigestAlgorithmName.SHA2_256, digestService) // Odd number of leaves. Last one is duplicated.
+        val mt = MerkleTree.getMerkleTree(
+            leaves.subList(0, 5),
+            DigestAlgorithmName.SHA2_256,
+            digestService
+        ) // Odd number of leaves. Last one is duplicated.
         val inclHashes = arrayListOf(leaves[3], leaves[4])
         val pmt = PartialMerkleTree.build(mt, inclHashes)
         inclHashes.add(leaves[4])

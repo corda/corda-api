@@ -29,9 +29,9 @@ sealed class MerkleTree {
          */
         @JvmStatic
         fun getMerkleTree(
-                allLeavesHashes: List<SecureHash>,
-                nodeDigestAlgorithmName: DigestAlgorithmName,
-                digestService: DigestService
+            allLeavesHashes: List<SecureHash>,
+            nodeDigestAlgorithmName: DigestAlgorithmName,
+            digestService: DigestService
         ): MerkleTree {
             if (allLeavesHashes.isEmpty())
                 throw MerkleTreeException("Cannot calculate Merkle root on empty hash list.")
@@ -61,9 +61,9 @@ sealed class MerkleTree {
          * @return Tree root.
          */
         private tailrec fun buildMerkleTree(
-                lastNodesList: List<MerkleTree>,
-                nodeDigestAlgorithmName: DigestAlgorithmName,
-                digestService: DigestService
+            lastNodesList: List<MerkleTree>,
+            nodeDigestAlgorithmName: DigestAlgorithmName,
+            digestService: DigestService
         ): MerkleTree {
             return if (lastNodesList.size == 1) {
                 lastNodesList[0] // Root reached.
