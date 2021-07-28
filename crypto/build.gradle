@@ -3,7 +3,7 @@ plugins {
     id 'biz.aQute.bnd.builder'
 }
 
-description 'Corda Crypto API'
+description 'Corda Crypto'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
@@ -25,7 +25,7 @@ dependencies {
 tasks.named('jar', Jar) {
     archiveBaseName = 'corda-crypto'
     bnd """\
-Bundle-Name: Corda Crypto API
+Bundle-Name: Corda Crypto
 Bundle-SymbolicName: \${project.group}.crypto
 Import-Package:\
     net.i2p.crypto.eddsa.math;resolution:=optional,\
