@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class CordaOIDJavaTests {
+public class CordaOIDJavaApiTest {
     @Test
     @Timeout(5)
     public void constantTests() {

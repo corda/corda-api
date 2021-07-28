@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CompositeKeyJavaTests {
+class CompositeKeyJavaApiTest {
     @Test
     @Timeout(5)
     public void keyAlgorithmConstantTest() {

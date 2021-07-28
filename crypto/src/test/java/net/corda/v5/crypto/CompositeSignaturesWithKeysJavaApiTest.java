@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Timeout;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CompositeSignaturesWithKeysJavaTests {
+public class CompositeSignaturesWithKeysJavaApiTest {
     @Test
     @Timeout(5)
     public void emptyConstantTest() {

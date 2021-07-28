@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Timeout;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SecureHashJavaTests {
+public class SecureHashJavaApiTest {
     @Test
     @Timeout(5)
     public void shouldCreateInstance() {

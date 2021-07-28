@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PartialMerkleTreeJavaTests {
+public class PartialMerkleTreeJavaApiTest {
     private static DigestService digestService;
 
     @BeforeAll

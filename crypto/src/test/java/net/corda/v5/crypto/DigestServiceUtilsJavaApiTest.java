@@ -10,7 +10,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DigestServiceUtilsJavaTests {
+public class DigestServiceUtilsJavaApiTest {
     private static DigestService digestService;
 
     @BeforeAll

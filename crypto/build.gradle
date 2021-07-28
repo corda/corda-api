@@ -23,10 +23,10 @@ dependencies {
 }
 
 tasks.named('jar', Jar) {
-    archiveBaseName = 'corda-crypto-api'
+    archiveBaseName = 'corda-crypto'
     bnd """\
 Bundle-Name: Corda Crypto API
-Bundle-SymbolicName: \${project.group}.crypto-api
+Bundle-SymbolicName: \${project.group}.crypto
 Import-Package:\
     net.i2p.crypto.eddsa.math;resolution:=optional,\
     *

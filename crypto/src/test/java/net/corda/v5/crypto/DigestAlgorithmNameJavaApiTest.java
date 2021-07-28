@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DigestAlgorithmNameJavaTests {
+public class DigestAlgorithmNameJavaApiTest {
     @Test
     @Timeout(5)
     public void constantsTests() {
