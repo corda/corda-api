@@ -26,7 +26,7 @@ dependencies {
 tasks.named('jar', Jar) {
     archiveBaseName = 'corda-cipher-suite'
     bnd """\
-Bundle-Name: Corda Crypto
+Bundle-Name: Corda Cipher Suite
 Bundle-SymbolicName: \${project.group}.cipher-suite
 Import-Package:\
     net.i2p.crypto.eddsa.math;resolution:=optional,\
