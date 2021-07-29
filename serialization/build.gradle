@@ -1,7 +1,13 @@
 plugins {
     id 'com.r3.internal.gradle.plugins.r3Publish'
     id 'biz.aQute.bnd.builder'
+
+    // At some stage we should use the common-library for OSGI metadata.
+    // So above two lines need to be replaced with ...
+    // id 'corda.common-library'
+    // id 'corda.publish'
 }
+
 description 'Corda Serialization'
 
 dependencies {
@@ -17,6 +23,7 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
+// When common-library in use this can be deleted.
 tasks.named('jar', Jar) {
     archiveBaseName = 'corda-serialization'
     bnd """\
