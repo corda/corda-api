@@ -37,7 +37,6 @@ pluginManagement {
             }
             content {
                 includeGroupByRegex 'com\\.r3\\.internal(\\..*)?'
-                includeGroupByRegex 'corda\\.common-library(\\..*)?'
             }
         }
     }
@@ -54,7 +53,6 @@ pluginManagement {
         id 'com.dorongold.task-tree' version taskTreePluginVersion // utility to visualise Gradle task DAG
         id 'biz.aQute.bnd.builder' version bndVersion // used to create OSGi bundles
         id 'org.jetbrains.dokka' version dokkaVersion
-        id 'corda.common-library' version cordaCommonLibraryVersion
     }
 }
 
