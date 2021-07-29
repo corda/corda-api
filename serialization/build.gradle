@@ -15,7 +15,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
     implementation "net.corda.kotlin:kotlin-stdlib-jdk8-osgi:$kotlinVersion"
-    implementation "org.slf4j:slf4j-api:$slf4jVersion"
 
     compileOnly "org.osgi:osgi.annotation:$osgiVersion"
 
