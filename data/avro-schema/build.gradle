@@ -3,14 +3,17 @@ import groovy.io.FileType
 import groovy.text.SimpleTemplateEngine
 
 plugins {
-    id 'corda.publish'
-    id 'corda.common-library'
+    id 'com.r3.internal.gradle.plugins.r3Publish'
     id "com.github.davidmc24.gradle.plugin.avro-base" version "$avroGradlePluginVersion"
+    id 'biz.aQute.bnd.builder'
 }
 
 dependencies {
     api "org.apache.avro:avro:$avroVersion"
     implementation project(":base")
+
+    compileOnly "org.osgi:osgi.annotation:$osgiVersion"
+    compileOnly "org.osgi:osgi.core:$osgiVersion"
 }
 
 description 'Data Model Definitions'

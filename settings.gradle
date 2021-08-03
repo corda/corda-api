@@ -60,5 +60,6 @@ rootProject.name = "corda-api"
 include 'application'
 include 'base'
 include 'crypto'
-include 'data'
+include 'data:avro-schema'
+include 'data:topic-schema'
 include 'serialization'

@@ -1,1 +1,5 @@
 description 'Definition of Topics'
+
+plugins {
+    id 'com.r3.internal.gradle.plugins.r3Publish'
+}
