@@ -57,7 +57,8 @@ pluginManagement {
 
 rootProject.name = "corda-api"
 
+include 'application'
 include 'base'
 include 'crypto'
+include 'data'
 include 'serialization'
-include 'application'
