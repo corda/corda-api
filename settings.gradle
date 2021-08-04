@@ -52,6 +52,7 @@ pluginManagement {
         id 'com.dorongold.task-tree' version taskTreePluginVersion // utility to visualise Gradle task DAG
         id 'biz.aQute.bnd.builder' version bndVersion // used to create OSGi bundles
         id 'org.jetbrains.dokka' version dokkaVersion
+        id "com.github.davidmc24.gradle.plugin.avro-base" version avroGradlePluginVersion
     }
 }
 
