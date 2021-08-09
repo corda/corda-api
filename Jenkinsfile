@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@driessamyn/notick/support-version-suffix-override-for-local-publication') _
+@Library('corda-shared-build-pipeline-steps@5.0') _
 
 cordaPipeline(
     runIntegrationTests: false,
