@@ -18,12 +18,12 @@ import java.security.Signature
  * the implementation will calculate hash by using the RSA encryption on the private key and the decryption using the public key.
  */
 data class SignatureSpec(
-        val signatureName: String,
-        val customDigestName: DigestAlgorithmName? = null,
-        val signatureOID: AlgorithmIdentifier? = null
+    val signatureName: String,
+    val customDigestName: DigestAlgorithmName? = null,
+    val signatureOID: AlgorithmIdentifier? = null
 ) {
     init {
-        require(signatureName.isNotBlank()) { "The signatureName must not be blank."}
+        require(signatureName.isNotBlank()) { "The signatureName must not be blank." }
     }
 
     /**
@@ -34,10 +34,11 @@ data class SignatureSpec(
     /**
      * Returns signing data, does hashing of required
      */
-    fun getSigningData(hashingService: DigestService, data: ByteArray): ByteArray =
-            if (precalculateHash) {
-                hashingService.hash(data, customDigestName!!).bytes
-            } else {
-                data
-            }
+    fun getSigningData(hashingService: DigestService, data: ByteArray): ByteArray {
+        return if (precalculateHash) {
+            hashingService.hash(data, customDigestName!!).bytes
+        } else {
+            data
+        }
+    }
 }

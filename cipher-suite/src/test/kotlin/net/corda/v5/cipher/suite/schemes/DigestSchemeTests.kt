@@ -10,8 +10,8 @@ class DigestSchemeTests {
     fun `Should throw IllegalArgumentException when initializing with blank algorithm name`() {
         assertThrows<IllegalArgumentException> {
             DigestScheme(
-                    algorithmName = "  ",
-                    providerName = "BC"
+                algorithmName = "  ",
+                providerName = "BC"
             )
         }
     }
@@ -21,8 +21,8 @@ class DigestSchemeTests {
     fun `Should throw IllegalArgumentException when initializing with blank provider name`() {
         assertThrows<IllegalArgumentException> {
             DigestScheme(
-                    algorithmName = "SHA-384",
-                    providerName = "  "
+                algorithmName = "SHA-384",
+                providerName = "  "
             )
         }
     }

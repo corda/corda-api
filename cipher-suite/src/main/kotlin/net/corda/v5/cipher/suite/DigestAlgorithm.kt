@@ -1,6 +1,5 @@
 package net.corda.v5.cipher.suite
 
-
 /**
  * Interface for injecting custom digest implementation bypassing JCA.
  */

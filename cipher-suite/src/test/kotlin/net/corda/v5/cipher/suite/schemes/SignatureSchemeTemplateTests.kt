@@ -13,14 +13,12 @@ class SignatureSchemeTemplateTests {
     fun `Should throw IllegalArgumentException when initializing with blank code name`() {
         assertThrows<IllegalArgumentException> {
             SignatureSchemeTemplate(
-                    codeName = "  ",
-                    algorithmOIDs = listOf(
-                            AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)
-                    ),
-                    algorithmName = "EC",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = "  ",
+                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                algorithmName = "EC",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }
@@ -30,12 +28,12 @@ class SignatureSchemeTemplateTests {
     fun `Should throw IllegalArgumentException when initializing with empty algorithmOIDs`() {
         assertThrows<IllegalArgumentException> {
             SignatureSchemeTemplate(
-                    codeName = ECDSA_SECP256K1_CODE_NAME,
-                    algorithmOIDs = emptyList(),
-                    algorithmName = "EC",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = ECDSA_SECP256K1_CODE_NAME,
+                algorithmOIDs = emptyList(),
+                algorithmName = "EC",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }
@@ -45,14 +43,12 @@ class SignatureSchemeTemplateTests {
     fun `Should throw IllegalArgumentException when initializing with blank algorithm name`() {
         assertThrows<IllegalArgumentException> {
             SignatureSchemeTemplate(
-                    codeName = ECDSA_SECP256K1_CODE_NAME,
-                    algorithmOIDs = listOf(
-                            AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)
-                    ),
-                    algorithmName = "  ",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = ECDSA_SECP256K1_CODE_NAME,
+                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                algorithmName = "  ",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }

@@ -13,15 +13,13 @@ class SignatureSchemeTests {
     fun `Should throw IllegalArgumentException when initializing with blank code name`() {
         assertThrows<IllegalArgumentException> {
             SignatureScheme(
-                    codeName = "  ",
-                    algorithmOIDs = listOf(
-                            AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)
-                    ),
-                    providerName = "provider",
-                    algorithmName = "EC",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = "  ",
+                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                providerName = "provider",
+                algorithmName = "EC",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }
@@ -31,13 +29,13 @@ class SignatureSchemeTests {
     fun `Should throw IllegalArgumentException when initializing with empty algorithmOIDs`() {
         assertThrows<IllegalArgumentException> {
             SignatureScheme(
-                    codeName = ECDSA_SECP256K1_CODE_NAME,
-                    algorithmOIDs = emptyList(),
-                    providerName = "provider",
-                    algorithmName = "EC",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = ECDSA_SECP256K1_CODE_NAME,
+                algorithmOIDs = emptyList(),
+                providerName = "provider",
+                algorithmName = "EC",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }
@@ -47,15 +45,13 @@ class SignatureSchemeTests {
     fun `Should throw IllegalArgumentException when initializing with blank provider name`() {
         assertThrows<IllegalArgumentException> {
             SignatureScheme(
-                    codeName = ECDSA_SECP256K1_CODE_NAME,
-                    algorithmOIDs = listOf(
-                            AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)
-                    ),
-                    providerName = "  ",
-                    algorithmName = "EC",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = ECDSA_SECP256K1_CODE_NAME,
+                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                providerName = "  ",
+                algorithmName = "EC",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }
@@ -65,15 +61,13 @@ class SignatureSchemeTests {
     fun `Should throw IllegalArgumentException when initializing with blank algorithm name`() {
         assertThrows<IllegalArgumentException> {
             SignatureScheme(
-                    codeName = ECDSA_SECP256K1_CODE_NAME,
-                    algorithmOIDs = listOf(
-                            AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)
-                    ),
-                    providerName = "provider",
-                    algorithmName = "  ",
-                    algSpec = null,
-                    keySize = null,
-                    signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
+                codeName = ECDSA_SECP256K1_CODE_NAME,
+                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                providerName = "provider",
+                algorithmName = "  ",
+                algSpec = null,
+                keySize = null,
+                signatureSpec = ECDSA_SECP256K1_SHA256_TEMPLATE.signatureSpec
             )
         }
     }

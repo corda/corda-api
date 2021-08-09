@@ -18,27 +18,27 @@ import java.security.spec.AlgorithmParameterSpec
  */
 @Suppress("LongParameterList")
 class SignatureSchemeTemplate(
-        val codeName: String,
-        val algorithmOIDs: List<AlgorithmIdentifier>,
-        val algorithmName: String,
-        val algSpec: AlgorithmParameterSpec?,
-        val keySize: Int?,
-        val signatureSpec: SignatureSpec
+    val codeName: String,
+    val algorithmOIDs: List<AlgorithmIdentifier>,
+    val algorithmName: String,
+    val algSpec: AlgorithmParameterSpec?,
+    val keySize: Int?,
+    val signatureSpec: SignatureSpec
 ) {
     init {
-        require(codeName.isNotBlank()) { "The codeName must not be blank."}
-        require(algorithmName.isNotBlank()) { "The algorithmName must not be blank."}
-        require(algorithmOIDs.isNotEmpty()) { "The algorithmOIDs must not be empty."}
+        require(codeName.isNotBlank()) { "The codeName must not be blank." }
+        require(algorithmName.isNotBlank()) { "The algorithmName must not be blank." }
+        require(algorithmOIDs.isNotEmpty()) { "The algorithmOIDs must not be empty." }
     }
 
     fun makeScheme(providerName: String): SignatureScheme = SignatureScheme(
-            providerName = providerName,
-            codeName = codeName,
-            algorithmOIDs = algorithmOIDs.toList(),
-            algorithmName = algorithmName,
-            algSpec = algSpec,
-            keySize = keySize,
-            signatureSpec = signatureSpec.copy()
+        providerName = providerName,
+        codeName = codeName,
+        algorithmOIDs = algorithmOIDs.toList(),
+        algorithmName = algorithmName,
+        algSpec = algSpec,
+        keySize = keySize,
+        signatureSpec = signatureSpec.copy()
     )
 }
 

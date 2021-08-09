@@ -17,12 +17,12 @@ interface CipherSchemeMetadata : KeyEncodingService {
     companion object {
         @JvmField
         val BANNED_DIGESTS: Set<String> = NonEmptySet.of(
-                "MD5",
-                "MD2",
-                "SHA-1",
-                "MD4",
-                "HARAKA-256",
-                "HARAKA-512"
+            "MD5",
+            "MD2",
+            "SHA-1",
+            "MD4",
+            "HARAKA-256",
+            "HARAKA-512"
         )
     }
 

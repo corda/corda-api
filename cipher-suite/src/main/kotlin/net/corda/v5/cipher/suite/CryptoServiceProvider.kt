@@ -5,7 +5,7 @@ import net.corda.v5.crypto.exceptions.CryptoServiceException
 /**
  * Factory to create new instances of the crypto service.
  */
-interface CryptoServiceProvider<T: Any> {
+interface CryptoServiceProvider<T : Any> {
     /**
      * The name used to resolve current provider by crypto service factory. Should match `cryptoServiceName` in the configuration.
      */

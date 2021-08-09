@@ -29,7 +29,7 @@ class SignatureSpecTests {
     fun `Should throw IllegalArgumentException when initializing with blank signature name`() {
         assertThrows<IllegalArgumentException> {
             SignatureSpec(
-                    signatureName = "  "
+                signatureName = "  "
             )
         }
     }
@@ -47,9 +47,9 @@ class SignatureSpecTests {
     @Timeout(5)
     fun `getSigningData should returned digest byte array for precalculated digest`() {
         val spec = SignatureSpec(
-                signatureName =  "NONEwithECDSA",
-                signatureOID = null,
-                customDigestName = DigestAlgorithmName.SHA2_256
+            signatureName = "NONEwithECDSA",
+            signatureOID = null,
+            customDigestName = DigestAlgorithmName.SHA2_256
         )
         val data = UUID.randomUUID().toString().toByteArray()
         val expected = MessageDigest.getInstance("SHA-256").digest(data)

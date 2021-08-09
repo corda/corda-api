@@ -40,127 +40,123 @@ val SHA512_256 = DLSequence(arrayOf(NISTObjectIdentifiers.id_sha512_256))
 
 @JvmField
 val NaSignatureSpec: SignatureSpec = SignatureSpec(
-        signatureName = "na",
-        signatureOID = null
+    signatureName = "na",
+    signatureOID = null
 )
 
 @JvmField
 val RSA_SHA256_TEMPLATE = SignatureSchemeTemplate(
-        codeName = RSA_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null)
-        ),
-        algorithmName = "RSA",
-        algSpec = null,
-        keySize = 3072,
-        signatureSpec = SignatureSpec(
-                signatureName = "SHA256WITHRSA",
-                signatureOID = AlgorithmIdentifier(PKCSObjectIdentifiers.sha256WithRSAEncryption, null)
-        )
+    codeName = RSA_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null)),
+    algorithmName = "RSA",
+    algSpec = null,
+    keySize = 3072,
+    signatureSpec = SignatureSpec(
+        signatureName = "SHA256WITHRSA",
+        signatureOID = AlgorithmIdentifier(PKCSObjectIdentifiers.sha256WithRSAEncryption, null)
+    )
 )
 
 @JvmField
 val ECDSA_SECP256K1_SHA256_TEMPLATE = SignatureSchemeTemplate(
-        codeName = ECDSA_SECP256K1_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)
-        ),
-        algorithmName = "EC",
-        algSpec = ECNamedCurveTable.getParameterSpec("secp256k1"),
-        keySize = null,
-        signatureSpec = SignatureSpec(
-                signatureName = "SHA256withECDSA",
-                signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256k1)
-        )
+    codeName = ECDSA_SECP256K1_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+    algorithmName = "EC",
+    algSpec = ECNamedCurveTable.getParameterSpec("secp256k1"),
+    keySize = null,
+    signatureSpec = SignatureSpec(
+        signatureName = "SHA256withECDSA",
+        signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256k1)
+    )
 )
 
 @JvmField
 val ECDSA_SECP256R1_SHA256_TEMPLATE = SignatureSchemeTemplate(
-        codeName = ECDSA_SECP256R1_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256r1)
-        ),
-        algorithmName = "EC",
-        algSpec = ECNamedCurveTable.getParameterSpec("secp256r1"),
-        keySize = null,
-        signatureSpec = SignatureSpec(
-                signatureName = "SHA256withECDSA",
-                signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256r1)
-        )
+    codeName = ECDSA_SECP256R1_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256r1)),
+    algorithmName = "EC",
+    algSpec = ECNamedCurveTable.getParameterSpec("secp256r1"),
+    keySize = null,
+    signatureSpec = SignatureSpec(
+        signatureName = "SHA256withECDSA",
+        signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256r1)
+    )
 )
 
 @JvmField
 val EDDSA_ED25519_NONE_TEMPLATE = SignatureSchemeTemplate(
-        codeName = EDDSA_ED25519_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(ID_CURVE_25519PH, null)
-        ),
-        algorithmName = "1.3.101.112",
-        algSpec = EdDSANamedCurveTable.getByName("ED25519"),
-        keySize = null,
-        signatureSpec = SignatureSpec(
-                signatureName = EdDSAEngine.SIGNATURE_ALGORITHM,
-                signatureOID = AlgorithmIdentifier(ID_CURVE_25519PH, null)
-        )
+    codeName = EDDSA_ED25519_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(ID_CURVE_25519PH, null)),
+    algorithmName = "1.3.101.112",
+    algSpec = EdDSANamedCurveTable.getByName("ED25519"),
+    keySize = null,
+    signatureSpec = SignatureSpec(
+        signatureName = EdDSAEngine.SIGNATURE_ALGORITHM,
+        signatureOID = AlgorithmIdentifier(ID_CURVE_25519PH, null)
+    )
 )
 
 @JvmField
 val SPHINCS256_SHA512_TEMPLATE = SignatureSchemeTemplate(
-        codeName = SPHINCS256_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(BCObjectIdentifiers.sphincs256, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))
-        ),
-        algorithmName = "SPHINCS256",
-        algSpec = SPHINCS256KeyGenParameterSpec(SPHINCS256KeyGenParameterSpec.SHA512_256),
-        keySize = null,
-        signatureSpec = SignatureSpec(
-                signatureName = "SHA512WITHSPHINCS256",
-                signatureOID = AlgorithmIdentifier(BCObjectIdentifiers.sphincs256_with_SHA512, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))
-        )
+    codeName = SPHINCS256_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(BCObjectIdentifiers.sphincs256, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))),
+    algorithmName = "SPHINCS256",
+    algSpec = SPHINCS256KeyGenParameterSpec(SPHINCS256KeyGenParameterSpec.SHA512_256),
+    keySize = null,
+    signatureSpec = SignatureSpec(
+        signatureName = "SHA512WITHSPHINCS256",
+        signatureOID = AlgorithmIdentifier(BCObjectIdentifiers.sphincs256_with_SHA512, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))
+    )
 )
 
 @JvmField
 val SM2_SM3_TEMPLATE = SignatureSchemeTemplate(
-        codeName = SM2_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, GMObjectIdentifiers.sm2p256v1)
-        ),
-        algorithmName = "EC",
-        algSpec = ECNamedCurveTable.getParameterSpec("sm2p256v1"),
-        keySize = null,
-        signatureSpec = SignatureSpec(
-                signatureName = "SM3withSM2",
-                signatureOID = AlgorithmIdentifier(GMObjectIdentifiers.sm2sign_with_sm3, GMObjectIdentifiers.sm2p256v1)
-        )
+    codeName = SM2_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, GMObjectIdentifiers.sm2p256v1)),
+    algorithmName = "EC",
+    algSpec = ECNamedCurveTable.getParameterSpec("sm2p256v1"),
+    keySize = null,
+    signatureSpec = SignatureSpec(
+        signatureName = "SM3withSM2",
+        signatureOID = AlgorithmIdentifier(GMObjectIdentifiers.sm2sign_with_sm3, GMObjectIdentifiers.sm2p256v1)
+    )
 )
 
 @JvmField
 val GOST3410_GOST3411_TEMPLATE = SignatureSchemeTemplate(
-        codeName = GOST3410_GOST3411_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3410_94, DLSequence(arrayOf(
-                        CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
-                        CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet)))
-        ),
-        algorithmName = "GOST3410",
-        algSpec = GOST3410ParameterSpec(CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A.id),
-        keySize = null,
-        signatureSpec = SignatureSpec(
-                signatureName = "GOST3411withGOST3410",
-                signatureOID = AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3410_94, DLSequence(arrayOf(
-                        CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
-                        CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet)))
+    codeName = GOST3410_GOST3411_CODE_NAME,
+    algorithmOIDs = listOf(
+        AlgorithmIdentifier(
+            CryptoProObjectIdentifiers.gostR3410_94, DLSequence(
+                arrayOf(
+                    CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
+                    CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet
+                )
+            )
         )
+    ),
+    algorithmName = "GOST3410",
+    algSpec = GOST3410ParameterSpec(CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A.id),
+    keySize = null,
+    signatureSpec = SignatureSpec(
+        signatureName = "GOST3411withGOST3410",
+        signatureOID = AlgorithmIdentifier(
+            CryptoProObjectIdentifiers.gostR3410_94, DLSequence(
+                arrayOf(
+                    CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
+                    CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet
+                )
+            )
+        )
+    )
 )
 
 @JvmField
 val COMPOSITE_KEY_TEMPLATE = SignatureSchemeTemplate(
-        codeName = COMPOSITE_KEY_CODE_NAME,
-        algorithmOIDs = listOf(
-                AlgorithmIdentifier(OID_COMPOSITE_KEY_IDENTIFIER)
-        ),
-        algorithmName = CompositeKey.KEY_ALGORITHM,
-        algSpec = null,
-        keySize = null,
-        signatureSpec = NaSignatureSpec
+    codeName = COMPOSITE_KEY_CODE_NAME,
+    algorithmOIDs = listOf(AlgorithmIdentifier(OID_COMPOSITE_KEY_IDENTIFIER)),
+    algorithmName = CompositeKey.KEY_ALGORITHM,
+    algSpec = null,
+    keySize = null,
+    signatureSpec = NaSignatureSpec
 )

@@ -6,7 +6,6 @@ import net.corda.v5.crypto.exceptions.CryptoServiceBadRequestException
 import net.corda.v5.crypto.exceptions.CryptoServiceException
 import java.security.PublicKey
 
-
 /**
  * Crypto service which can sign as well as create new key pairs.
  */

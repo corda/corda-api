@@ -18,19 +18,19 @@ import java.security.spec.AlgorithmParameterSpec
  * @param signatureSpec the signature scheme
  */
 data class SignatureScheme(
-        val codeName: String,
-        val algorithmOIDs: List<AlgorithmIdentifier>,
-        val providerName: String,
-        val algorithmName: String,
-        val algSpec: AlgorithmParameterSpec?,
-        val keySize: Int?,
-        val signatureSpec: SignatureSpec
+    val codeName: String,
+    val algorithmOIDs: List<AlgorithmIdentifier>,
+    val providerName: String,
+    val algorithmName: String,
+    val algSpec: AlgorithmParameterSpec?,
+    val keySize: Int?,
+    val signatureSpec: SignatureSpec
 ) {
     init {
-        require(codeName.isNotBlank()) { "The codeName must not be blank."}
-        require(providerName.isNotBlank()) { "The providerName must not be blank."}
-        require(algorithmName.isNotBlank()) { "The algorithmName must not be blank."}
-        require(algorithmOIDs.isNotEmpty()) { "The algorithmOIDs must not be empty."}
+        require(codeName.isNotBlank()) { "The codeName must not be blank." }
+        require(providerName.isNotBlank()) { "The providerName must not be blank." }
+        require(algorithmName.isNotBlank()) { "The algorithmName must not be blank." }
+        require(algorithmOIDs.isNotEmpty()) { "The algorithmOIDs must not be empty." }
     }
 }
 

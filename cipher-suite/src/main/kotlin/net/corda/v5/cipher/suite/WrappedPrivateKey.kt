@@ -8,8 +8,8 @@ import net.corda.v5.cipher.suite.schemes.SignatureScheme
  * in case if the HSM natively supports large number of keys.
  */
 class WrappedPrivateKey(
-        val keyMaterial: ByteArray,
-        val masterKeyAlias: String,
-        val signatureScheme: SignatureScheme,
-        val encodingVersion: Int
+    val keyMaterial: ByteArray,
+    val masterKeyAlias: String,
+    val signatureScheme: SignatureScheme,
+    val encodingVersion: Int
 )
