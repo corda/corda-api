@@ -8,9 +8,11 @@ package net.corda.v5.persistence
  * @param version The version number of this instance within the family.
  * @param mappedTypes The JPA entity classes that the ORM layer needs to be configure with for this schema.
  */
-open class MappedSchema(schemaFamily: Class<*>,
-                        val version: Int,
-                        val mappedTypes: Iterable<Class<*>>) {
+open class MappedSchema(
+    schemaFamily: Class<*>,
+    val version: Int,
+    val mappedTypes: Iterable<Class<*>>
+) {
     val name: String = schemaFamily.name
 
     /**

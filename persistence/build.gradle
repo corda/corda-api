@@ -9,7 +9,7 @@ description 'Corda Persistence'
 dependencies {
     compileOnly "org.osgi:osgi.annotation:$osgiVersion"
 
-    api "javax.persistence:javax.persistence-api:$persistenceApiVersion"
+    api "javax.persistence:javax.persistence-api:$javaxPersistenceApiVersion"
     implementation "net.corda.kotlin:kotlin-stdlib-jdk8-osgi:$kotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
 
