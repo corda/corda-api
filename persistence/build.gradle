@@ -1,0 +1,31 @@
+plugins {
+    id 'com.r3.internal.gradle.plugins.r3Publish'
+    id "biz.aQute.bnd.builder"
+}
+
+description 'Corda Persistence'
+
+dependencies {
+    compileOnly "org.osgi:osgi.annotation:$osgiVersion"
+
+    api "javax.persistence:javax.persistence-api:$persistenceApiVersion"
+    implementation "net.corda.kotlin:kotlin-stdlib-jdk8-osgi:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
+
+    implementation("org.hibernate:hibernate-osgi:$hibernateVersion") {
+        exclude group: 'org.osgi'
+    }
+
+    // COMMON
+    implementation project(":base")
+    implementation project(":application")
+    implementation project(":application-dependency-injection-internal")
+    implementation project(":common:logging")
+}
+tasks.named('jar', Jar) {
+    archiveBaseName = 'corda-persistence'
+    bnd """\
+Bundle-Name: Corda persistence library 
+Bundle-SymbolicName: \${project.group}.persistence
+"""
+}
