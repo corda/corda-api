@@ -272,12 +272,12 @@ subprojects {
     }
 
     tasks.register("apiDiff", ApiDifferenceTask) {
-        description = 'diff'
+        description = 'Runs an api-difference scan to ensure api-stability between releases'
         group = 'Corda API'
         dependsOn tasks.withType(ScanApiTask)
     }
     tasks.register("cementApi", CementApiTask) {
-        description = 'cement'
+        description = 'cement api changes to the base api yaml'
         group = 'Corda API'
         dependsOn tasks.withType(ScanApiTask)
     }
