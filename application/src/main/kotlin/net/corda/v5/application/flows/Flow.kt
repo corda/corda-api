@@ -14,7 +14,5 @@ interface Flow<out T> {
      */
     @Suspendable
     fun call(): T
-    fun test(): String {
-        return ""
-    }
+    fun test(): String
 }
