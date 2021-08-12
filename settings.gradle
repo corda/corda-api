@@ -31,6 +31,7 @@ pluginManagement {
             }
             content {
                 includeGroupByRegex 'com\\.r3\\.internal(\\..*)?'
+                includeGroupByRegex 'net\\.corda\\.internal(\\..*)?'
             }
         }
     }
@@ -43,6 +44,7 @@ pluginManagement {
         id 'org.ajoberstar.grgit' version grgitPluginVersion // used for GIT interaction (e.g. extract commit hash)
         id 'com.r3.internal.gradle.plugins.r3Publish' version internalPublishVersion
         id 'com.r3.internal.gradle.plugins.r3ArtifactoryPublish' version internalPublishVersion
+        id 'net.corda.internal.gradle.plugins.api-scanner' version internalApiScannerVersion
         id 'com.dorongold.task-tree' version taskTreePluginVersion // utility to visualise Gradle task DAG
         id 'biz.aQute.bnd.builder' version bndVersion // used to create OSGi bundles
         id 'org.jetbrains.dokka' version dokkaVersion

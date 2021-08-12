@@ -1,3 +1,6 @@
+import net.corda.internal.gradle.plugins.ApiDifferenceTask
+import net.corda.internal.gradle.plugins.CementApiTask
+import net.corda.internal.gradle.plugins.ScanApiTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import static org.gradle.api.JavaVersion.*
 
@@ -17,6 +20,7 @@ plugins {
     id 'io.gitlab.arturbosch.detekt' apply false
     id 'org.ajoberstar.grgit' // used for GIT interaction (e.g. extract commit hash)
     id 'com.r3.internal.gradle.plugins.r3ArtifactoryPublish'
+    id 'net.corda.internal.gradle.plugins.api-scanner'
     id 'maven-publish'
     id 'jacoco' // test coverage
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
@@ -87,6 +91,7 @@ subprojects {
     version rootProject.version
     group 'net.corda'
 
+<<<<<<< HEAD
     pluginManager.withPlugin('org.jetbrains.kotlin.jvm') {
         apply plugin: 'io.gitlab.arturbosch.detekt'
         apply plugin: 'jacoco'
@@ -103,6 +108,25 @@ subprojects {
                 // Excluding mockito-core and adding it implicitly above. This is done to allow the use of the latest version of mockito.
                 exclude group: 'mockito-core'
             }
+=======
+    apply plugin: 'kotlin'
+    apply plugin: DetektPlugin
+    apply plugin: 'jacoco'
+    apply plugin: 'org.jetbrains.dokka'
+    apply plugin: 'net.corda.internal.gradle.plugins.api-scanner'
+
+    // NOTE: question whether it is "ok" to force dependencies on all modules like this
+    //  thinking is that for the test dependencies it's ok as it'll keep things consistent.
+    //  we can add exclusions, or review this if necessary.
+    dependencies {
+        // Test libraries -> keep consistent across modules
+        testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+        testImplementation "org.mockito:mockito-core:$mockitoVersion"
+        testImplementation("com.nhaarman:mockito-kotlin:$mockitoKotlinVersion") {
+            // Excluding mockito-core and adding it implicitly above. This is done to allow the use of the latest version of mockito.
+            exclude group: 'mockito-core'
+        }
+>>>>>>> added api diff and cement task and initial api yaml files
 
             testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 
@@ -246,4 +270,16 @@ subprojects {
             from(dokkaHtml.outputDirectory)
         }
     }
+
+    tasks.register("apiDiff", ApiDifferenceTask) {
+        description = 'diff'
+        group = 'Corda API'
+        dependsOn tasks.withType(ScanApiTask)
+    }
+    tasks.register("cementApi", CementApiTask) {
+        description = 'cement'
+        group = 'Corda API'
+        dependsOn tasks.withType(ScanApiTask)
+    }
+
 }
