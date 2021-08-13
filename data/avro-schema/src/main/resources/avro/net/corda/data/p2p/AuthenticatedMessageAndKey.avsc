@@ -1,11 +1,11 @@
 {
   "type": "record",
-  "name": "FlowMessageAndKey",
-  "namespace": "net.corda.p2p.payload",
+  "name": "AuthenticatedMessageAndKey",
+  "namespace": "net.corda.p2p",
   "fields": [
     {
       "name": "flowMessage",
-      "type": "net.corda.p2p.payload.FlowMessage"
+      "type": "net.corda.p2p.app.AuthenticatedMessage"
     },
     {
       "name": "key",
