@@ -4,7 +4,7 @@
   "namespace": "net.corda.p2p",
   "fields": [
     {
-      "name": "flowMessage",
+      "name": "message",
       "type": "net.corda.p2p.app.AuthenticatedMessage"
     },
     {
