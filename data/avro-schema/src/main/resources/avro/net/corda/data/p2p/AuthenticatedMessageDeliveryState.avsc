@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "AuthenticatedMessageDeliveryState",
+  "namespace": "net.corda.p2p",
+  "doc": "State used to track when a {@link net.corda.p2p.AuthenticatedMessage} should be replayed.",
+  "fields": [
+    {
+      "name": "partition",
+      "type": "long",
+      "doc": "The partition of the tracked AuthenticatedMessage in P2P_OUT_TOPIC."
+    },
+    {
+      "name": "offset",
+      "type": "long",
+      "doc": "The offset of the tracked AuthenticatedMessage in P2P_OUT_TOPIC."
+    }
+  ]
+}
