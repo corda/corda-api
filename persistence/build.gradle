@@ -11,6 +11,7 @@ dependencies {
 
     api 'javax.persistence:javax.persistence-api'
     implementation 'net.corda.kotlin:kotlin-stdlib-jdk8-osgi'
+    implementation "de.javakaffee:kryo-serializers:$kryo_serializer_version"
 
     implementation platform(project(':corda-api'))
     implementation project(":base")
