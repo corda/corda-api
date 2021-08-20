@@ -13,6 +13,10 @@
       "name": "offset",
       "type": "long",
       "doc": "The offset of the tracked AuthenticatedMessage in P2P_OUT_TOPIC."
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
     }
   ]
 }
