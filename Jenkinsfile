@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0') _
+@Library('corda-shared-build-pipeline-steps@INFRA-1553-Enable-GitHub-SCM-integration-scanning-build-gradle-for-PRs') _
 
 cordaPipeline(
     runIntegrationTests: false,
