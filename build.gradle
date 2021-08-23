@@ -21,6 +21,7 @@ plugins {
     id 'jacoco' // test coverage
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
     id 'org.jetbrains.dokka'
+    id 'net.corda.internal.gradle.plugins.api-scanner'
 }
 
 def rootProjectDir = rootDir
@@ -91,6 +92,7 @@ subprojects {
         apply plugin: 'io.gitlab.arturbosch.detekt'
         apply plugin: 'jacoco'
         apply plugin: 'org.jetbrains.dokka'
+        apply plugin: 'net.corda.internal.gradle.plugins.api-scanner'
 
         // NOTE: question whether it is "ok" to force dependencies on all modules like this
         //  thinking is that for the test dependencies it's ok as it'll keep things consistent.
