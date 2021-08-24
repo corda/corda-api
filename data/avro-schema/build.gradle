@@ -3,7 +3,7 @@ import groovy.io.FileType
 import groovy.text.SimpleTemplateEngine
 
 plugins {
-    id 'corda.common-library'
+    id 'corda-api.common-library'
     id 'com.r3.internal.gradle.plugins.r3Publish'
     id "com.github.davidmc24.gradle.plugin.avro-base"
     id 'org.jetbrains.kotlin.jvm'

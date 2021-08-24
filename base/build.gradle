@@ -1,5 +1,5 @@
 plugins {
-    id 'corda.common-library'
+    id 'corda-api.common-library'
     id 'com.r3.internal.gradle.plugins.r3Publish'
     id 'org.jetbrains.kotlin.jvm'
 }
