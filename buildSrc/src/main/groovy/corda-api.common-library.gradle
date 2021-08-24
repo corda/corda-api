@@ -24,7 +24,7 @@ dependencies {
 }
 
 tasks.named('jar', Jar) {
-    archiveBaseName = project.name
+    archiveBaseName = "corda-" + project.name
     bnd """
 Bundle-Name: \${project.description}
 Bundle-SymbolicName: \${project.group}.\${project.name}
