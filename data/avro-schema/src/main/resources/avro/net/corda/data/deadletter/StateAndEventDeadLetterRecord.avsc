@@ -9,7 +9,7 @@
     },
     {
       "name": "event",
-      "type": ["null", "bytes"]
+      "type": ["bytes"]
     }
   ]
 }
