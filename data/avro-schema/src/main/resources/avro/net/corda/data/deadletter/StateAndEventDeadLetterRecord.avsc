@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "StateAndEventDeadLetterRecord",
+  "namespace": "net.corda.data.deadletter",
+  "fields": [
+    {
+      "name": "state",
+      "type": ["null", "bytes"]
+    },
+    {
+      "name": "event",
+      "type": ["null", "bytes"]
+    }
+  ]
+}
