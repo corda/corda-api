@@ -1,5 +1,5 @@
 plugins {
-    id 'corda-api.common-library'
+    id 'biz.aQute.bnd.builder'
     id 'com.r3.internal.gradle.plugins.r3Publish'
     id 'org.jetbrains.kotlin.jvm'
 }
@@ -21,6 +21,7 @@ dependencies {
     api project(':crypto')
 
     testImplementation "org.assertj:assertj-core:$assertjVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 }
 
 tasks.named('jar', Jar) {
