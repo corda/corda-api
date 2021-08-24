@@ -3,10 +3,10 @@ import groovy.io.FileType
 import groovy.text.SimpleTemplateEngine
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm'
+    id 'corda.common-library'
     id 'com.r3.internal.gradle.plugins.r3Publish'
     id "com.github.davidmc24.gradle.plugin.avro-base"
-    id 'biz.aQute.bnd.builder'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 dependencies {

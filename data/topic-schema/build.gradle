@@ -1,6 +1,7 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm'
+    id 'corda.common-library'
     id 'com.r3.internal.gradle.plugins.r3Publish'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 description 'Definition of Topics'
