@@ -14,6 +14,7 @@ dependencies {
         api project(':data:topic-schema')
         api project(':persistence')
         api project(':serialization')
+        api project(':http-rpc-api')
 
         api "javax.persistence:javax.persistence-api:$javaxPersistenceApiVersion"
         api "net.corda.kotlin:kotlin-stdlib-jdk8-osgi:$kotlinVersion"

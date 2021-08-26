@@ -1,0 +1,21 @@
+plugins {
+    id 'com.r3.internal.gradle.plugins.r3Publish'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'biz.aQute.bnd.builder'
+}
+description 'Corda HTTP RPC API'
+
+dependencies {
+    implementation platform(project(':corda-api'))
+    implementation 'net.corda.kotlin:kotlin-stdlib-jdk8-osgi'
+
+    compileOnly 'org.osgi:osgi.annotation'
+}
+
+tasks.named('jar', Jar) {
+    archiveBaseName = 'corda-http-rpc-api'
+    bnd """\
+Bundle-Name: Corda HTTP RPC API library
+Bundle-SymbolicName: \${project.group}.http-rpc-api
+"""
+}
