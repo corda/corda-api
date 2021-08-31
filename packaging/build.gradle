@@ -35,10 +35,10 @@ configurations {
 dependencies {
     compileOnly "org.osgi:osgi.core"
     compileOnly "org.osgi:osgi.annotation"
-    compileOnly "org.osgi:org.osgi.service.component.annotations:$osgiScrAnnotationVersion"
+    compileOnly "org.osgi:org.osgi.service.component.annotations"
     implementation "net.corda.kotlin:kotlin-stdlib-jdk8-osgi"
     implementation "com.typesafe:config:$typesafeConfigVersion"
-    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.slf4j:slf4j-api"
 
     api platform(project(':corda-api'))
 
