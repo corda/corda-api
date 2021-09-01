@@ -5,14 +5,9 @@
   "doc": "State used to track when a {@link net.corda.p2p.AuthenticatedMessage} should be replayed.",
   "fields": [
     {
-      "name": "partition",
-      "type": "long",
-      "doc": "The partition of the tracked AuthenticatedMessage in P2P_OUT_TOPIC."
-    },
-    {
-      "name": "offset",
-      "type": "long",
-      "doc": "The offset of the tracked AuthenticatedMessage in P2P_OUT_TOPIC."
+      "name": "message",
+      "type": "net.corda.p2p.AuthenticatedMessageAndKey",
+      "doc": "A copy of the original message in P2P_OUT_TOPIC."
     },
     {
       "name": "timestamp",
