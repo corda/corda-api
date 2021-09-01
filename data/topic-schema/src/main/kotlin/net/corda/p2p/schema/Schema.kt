@@ -8,5 +8,7 @@ class Schema {
         const val LINK_OUT_TOPIC = "link.out"
         const val LINK_IN_TOPIC = "link.in"
         const val SESSION_OUT_PARTITIONS = "session.out.partitions"
+
+        const val CRYPTO_KEYS_TOPIC = "p2p.crypto.keys"
     }
 }
