@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "RPCMessage",
+  "namespace": "net.corda.data",
+  "fields": [
+    {
+      "name": "key",
+      "type": "string"
+    },
+    {
+      "name": "payload",
+      "type": "bytes"
+    }
+  ]
+}
