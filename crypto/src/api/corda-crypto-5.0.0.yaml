@@ -7,13 +7,11 @@ net.corda.v5.crypto.CompositeKey:
   methods:
     checkValidity:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: void
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -23,31 +21,26 @@ net.corda.v5.crypto.CompositeKey:
           type: Object
     getAlgorithm:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
     getChildren:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<net.corda.v5.crypto.CompositeKey.NodeAndWeight>
     getEncoded:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: byte[]
     getFormat:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.security.PublicKey
@@ -60,25 +53,21 @@ net.corda.v5.crypto.CompositeKey:
           type: kotlin.jvm.functions.Function1<? super byte[], ? extends java.security.PublicKey>
     getLeafKeys:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.Set<java.security.PublicKey>
     getThreshold:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     isFulfilledBy:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
@@ -88,27 +77,14 @@ net.corda.v5.crypto.CompositeKey:
           type: Iterable<? extends java.security.PublicKey>
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    children:
-      annotation: [NotNull]
-      type: private final java.util.List<net.corda.v5.crypto.CompositeKey.NodeAndWeight>
-    validated:
-      annotation: *id001
-      type: private transient boolean
-    threshold:
-      annotation: *id001
-      type: private final int
     KEY_ALGORITHM:
       annotation: [NotNull]
       type: public static final String
       initialised value: COMPOSITE
-    descWeightComparator:
-      annotation: *id001
-      type: private static final java.util.Comparator<net.corda.v5.crypto.CompositeKey.NodeAndWeight>
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.crypto.CompositeKey.Companion
@@ -121,7 +97,6 @@ net.corda.v5.crypto.CompositeKey$Builder:
   methods:
     addKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.CompositeKey.Builder
@@ -134,7 +109,6 @@ net.corda.v5.crypto.CompositeKey$Builder:
           type: int
     addKeys:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.CompositeKey.Builder
@@ -144,14 +118,9 @@ net.corda.v5.crypto.CompositeKey$Builder:
           type: java.util.List<? extends java.security.PublicKey>
     build:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.PublicKey
-  fields:
-    children:
-      annotation: *id001
-      type: private final java.util.List<net.corda.v5.crypto.CompositeKey.NodeAndWeight>
 net.corda.v5.crypto.CompositeKey$Companion:
   annotations: *id001
   type: public static final class
@@ -161,7 +130,6 @@ net.corda.v5.crypto.CompositeKey$Companion:
   methods:
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.PublicKey
@@ -181,7 +149,6 @@ net.corda.v5.crypto.CompositeKey$NodeAndWeight:
   methods:
     compareTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
@@ -191,19 +158,16 @@ net.corda.v5.crypto.CompositeKey$NodeAndWeight:
           type: net.corda.v5.crypto.CompositeKey.NodeAndWeight
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.PublicKey
     component2:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.CompositeKey.NodeAndWeight
@@ -216,7 +180,6 @@ net.corda.v5.crypto.CompositeKey$NodeAndWeight:
           type: int
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -226,41 +189,29 @@ net.corda.v5.crypto.CompositeKey$NodeAndWeight:
           type: Object
     getNode:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.PublicKey
     getWeight:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toASN1Primitive:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: org.bouncycastle.asn1.ASN1Primitive
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    node:
-      annotation: [NotNull]
-      type: private final java.security.PublicKey
-    weight:
-      annotation: *id001
-      type: private final int
 net.corda.v5.crypto.CompositeSignaturesWithKeys:
   annotations: [CordaSerializable]
   type: public final class
@@ -270,13 +221,11 @@ net.corda.v5.crypto.CompositeSignaturesWithKeys:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<net.corda.v5.crypto.DigitalSignature.WithKey>
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.CompositeSignaturesWithKeys
@@ -286,7 +235,6 @@ net.corda.v5.crypto.CompositeSignaturesWithKeys:
           type: java.util.List<? extends net.corda.v5.crypto.DigitalSignature.WithKey>
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -296,26 +244,20 @@ net.corda.v5.crypto.CompositeSignaturesWithKeys:
           type: Object
     getSigs:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<net.corda.v5.crypto.DigitalSignature.WithKey>
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    sigs:
-      annotation: [NotNull]
-      type: private final java.util.List<net.corda.v5.crypto.DigitalSignature.WithKey>
     EMPTY:
       annotation: [NotNull]
       type: public static final net.corda.v5.crypto.CompositeSignaturesWithKeys
@@ -379,28 +321,24 @@ net.corda.v5.crypto.CryptoUtils:
   methods:
     byKeys:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.util.Set<java.security.PublicKey>
       params: {}
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.security.PrivateKey
       params: {}
     component2:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.security.PublicKey
       params: {}
     containsAny:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: boolean
@@ -410,14 +348,12 @@ net.corda.v5.crypto.CryptoUtils:
           type: Iterable<? extends java.security.PublicKey>
     getKeys:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.util.Set<java.security.PublicKey>
       params: {}
     isFulfilledBy:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: boolean
@@ -427,14 +363,12 @@ net.corda.v5.crypto.CryptoUtils:
           type: Iterable<? extends java.security.PublicKey>
     sha256Bytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: byte[]
       params: {}
     toStringShort:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
@@ -448,13 +382,11 @@ net.corda.v5.crypto.DigestAlgorithmName:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.DigestAlgorithmName
@@ -464,7 +396,6 @@ net.corda.v5.crypto.DigestAlgorithmName:
           type: String
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -474,26 +405,20 @@ net.corda.v5.crypto.DigestAlgorithmName:
           type: Object
     getName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    name:
-      annotation: [NotNull]
-      type: private final String
     NONCE_SIZE:
       annotation: *id001
       type: public static final int
@@ -528,7 +453,6 @@ net.corda.v5.crypto.DigestService:
   methods:
     digestLength:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: int
@@ -538,7 +462,6 @@ net.corda.v5.crypto.DigestService:
           type: net.corda.v5.crypto.DigestAlgorithmName
     hash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.crypto.SecureHash
@@ -558,7 +481,6 @@ net.corda.v5.crypto.DigestServiceUtils:
   methods:
     create:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.SecureHash
@@ -568,7 +490,6 @@ net.corda.v5.crypto.DigestServiceUtils:
           type: String
     getAllOnesHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.SecureHash
@@ -578,7 +499,6 @@ net.corda.v5.crypto.DigestServiceUtils:
           type: net.corda.v5.crypto.DigestAlgorithmName
     getZeroHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.SecureHash
@@ -586,10 +506,6 @@ net.corda.v5.crypto.DigestServiceUtils:
         digestAlgorithmName:
           annotation: [NotNull]
           type: net.corda.v5.crypto.DigestAlgorithmName
-  fields:
-    hashConstants:
-      annotation: *id001
-      type: private static final java.util.concurrent.ConcurrentMap<String, net.corda.v5.crypto.HashConstants>
 net.corda.v5.crypto.DigitalSignature:
   annotations: [CordaSerializable]
   type: public class
@@ -606,14 +522,9 @@ net.corda.v5.crypto.DigitalSignature$WithKey:
   methods:
     getBy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.PublicKey
-  fields:
-    by:
-      annotation: [NotNull]
-      type: private final java.security.PublicKey
 net.corda.v5.crypto.MerkleTree:
   annotations: *id001
   type: public abstract class
@@ -623,13 +534,11 @@ net.corda.v5.crypto.MerkleTree:
   methods:
     getHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.crypto.SecureHash
     getMerkleTree:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.MerkleTree
@@ -656,7 +565,6 @@ net.corda.v5.crypto.MerkleTree$Companion:
   methods:
     getMerkleTree:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree
@@ -679,13 +587,11 @@ net.corda.v5.crypto.MerkleTree$Leaf:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree.Leaf
@@ -695,7 +601,6 @@ net.corda.v5.crypto.MerkleTree$Leaf:
           type: net.corda.v5.crypto.SecureHash
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -705,13 +610,11 @@ net.corda.v5.crypto.MerkleTree$Leaf:
           type: Object
     getHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: net.corda.v5.crypto.SecureHash
     getMerkleTree:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.MerkleTree
@@ -727,20 +630,15 @@ net.corda.v5.crypto.MerkleTree$Leaf:
           type: net.corda.v5.crypto.DigestService
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    hash:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.SecureHash
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.crypto.MerkleTree.Companion
@@ -753,25 +651,21 @@ net.corda.v5.crypto.MerkleTree$Node:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
     component2:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree
     component3:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree.Node
@@ -787,7 +681,6 @@ net.corda.v5.crypto.MerkleTree$Node:
           type: net.corda.v5.crypto.MerkleTree
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -797,19 +690,16 @@ net.corda.v5.crypto.MerkleTree$Node:
           type: Object
     getHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: net.corda.v5.crypto.SecureHash
     getLeft:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree
     getMerkleTree:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.MerkleTree
@@ -825,32 +715,20 @@ net.corda.v5.crypto.MerkleTree$Node:
           type: net.corda.v5.crypto.DigestService
     getRight:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.MerkleTree
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    hash:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.SecureHash
-    left:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.MerkleTree
-    right:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.MerkleTree
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.crypto.MerkleTree.Companion
@@ -863,7 +741,6 @@ net.corda.v5.crypto.PartialMerkleTree:
   methods:
     build:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.PartialMerkleTree
@@ -876,13 +753,11 @@ net.corda.v5.crypto.PartialMerkleTree:
           type: java.util.List<net.corda.v5.crypto.SecureHash>
     getRoot:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree
     rootAndUsedHashes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.SecureHash
@@ -898,7 +773,6 @@ net.corda.v5.crypto.PartialMerkleTree:
           type: net.corda.v5.crypto.DigestService
     verify:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
@@ -913,9 +787,6 @@ net.corda.v5.crypto.PartialMerkleTree:
           annotation: [NotNull]
           type: net.corda.v5.crypto.DigestService
   fields:
-    root:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.PartialMerkleTree.PartialTree
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.crypto.PartialMerkleTree.Companion
@@ -928,7 +799,6 @@ net.corda.v5.crypto.PartialMerkleTree$Companion:
   methods:
     build:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree
@@ -941,7 +811,6 @@ net.corda.v5.crypto.PartialMerkleTree$Companion:
           type: java.util.List<net.corda.v5.crypto.SecureHash>
     rootAndUsedHashes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
@@ -971,13 +840,11 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$IncludedLeaf:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree.IncludedLeaf
@@ -987,7 +854,6 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$IncludedLeaf:
           type: net.corda.v5.crypto.SecureHash
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -997,26 +863,19 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$IncludedLeaf:
           type: Object
     getHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    hash:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.SecureHash
 net.corda.v5.crypto.PartialMerkleTree$PartialTree$Leaf:
   annotations: [CordaSerializable]
   type: public static final class
@@ -1026,13 +885,11 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$Leaf:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree.Leaf
@@ -1042,7 +899,6 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$Leaf:
           type: net.corda.v5.crypto.SecureHash
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1052,26 +908,19 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$Leaf:
           type: Object
     getHash:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    hash:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.SecureHash
 net.corda.v5.crypto.PartialMerkleTree$PartialTree$Node:
   annotations: [CordaSerializable]
   type: public static final class
@@ -1081,25 +930,21 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$Node:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree
     component2:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree
     component3:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: String
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree.Node
@@ -1115,7 +960,6 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$Node:
           type: String
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1125,44 +969,29 @@ net.corda.v5.crypto.PartialMerkleTree$PartialTree$Node:
           type: Object
     getHashAlgorithm:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getLeft:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree
     getRight:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.PartialMerkleTree.PartialTree
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    left:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.PartialMerkleTree.PartialTree
-    right:
-      annotation: [NotNull]
-      type: private final net.corda.v5.crypto.PartialMerkleTree.PartialTree
-    hashAlgorithm:
-      annotation: [Nullable]
-      type: private final String
 net.corda.v5.crypto.PartialMerkleTreeKt:
   annotations: *id001
   type: public final class
@@ -1179,7 +1008,6 @@ net.corda.v5.crypto.SecureHash:
   methods:
     create:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.crypto.SecureHash
@@ -1189,7 +1017,6 @@ net.corda.v5.crypto.SecureHash:
           type: String
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1199,19 +1026,16 @@ net.corda.v5.crypto.SecureHash:
           type: Object
     getAlgorithm:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     prefixChars:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
@@ -1221,20 +1045,15 @@ net.corda.v5.crypto.SecureHash:
           type: int
     toHexString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    algorithm:
-      annotation: [NotNull]
-      type: private final String
     DELIMITER:
       annotation: *id001
       type: public static final char
@@ -1251,7 +1070,6 @@ net.corda.v5.crypto.SecureHash$Companion:
   methods:
     create:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.SecureHash
@@ -1267,7 +1085,6 @@ net.corda.v5.crypto.SignatureVerificationService:
   methods:
     isValid:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
@@ -1283,7 +1100,6 @@ net.corda.v5.crypto.SignatureVerificationService:
           type: byte[]
     verify:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -1306,14 +1122,9 @@ net.corda.v5.crypto.exceptions.CryptoServiceBadRequestException:
   methods:
     isRecoverable:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
-  fields:
-    isRecoverable:
-      annotation: *id001
-      type: private boolean
 net.corda.v5.crypto.exceptions.CryptoServiceException:
   annotations: [CordaSerializable]
   type: public class
@@ -1323,14 +1134,9 @@ net.corda.v5.crypto.exceptions.CryptoServiceException:
   methods:
     isRecoverable:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
-  fields:
-    isRecoverable:
-      annotation: *id001
-      type: private boolean
 net.corda.v5.crypto.exceptions.CryptoServiceLibraryException:
   annotations: [CordaSerializable]
   type: public class
@@ -1347,14 +1153,9 @@ net.corda.v5.crypto.exceptions.CryptoServiceProviderException:
   methods:
     isRecoverable:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
-  fields:
-    isRecoverable:
-      annotation: *id001
-      type: private boolean
 net.corda.v5.crypto.exceptions.CryptoServiceTimeoutException:
   annotations: [CordaSerializable]
   type: public final class
@@ -1364,14 +1165,9 @@ net.corda.v5.crypto.exceptions.CryptoServiceTimeoutException:
   methods:
     isRecoverable:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
-  fields:
-    isRecoverable:
-      annotation: *id001
-      type: private boolean
 net.corda.v5.crypto.exceptions.MerkleTreeException:
   annotations: [CordaSerializable]
   type: public final class
@@ -1381,14 +1177,9 @@ net.corda.v5.crypto.exceptions.MerkleTreeException:
   methods:
     getReason:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
-  fields:
-    reason:
-      annotation: [NotNull]
-      type: private final String
 net.corda.v5.crypto.exceptions.SignatureSchemeException:
   annotations: [CordaSerializable]
   type: public class

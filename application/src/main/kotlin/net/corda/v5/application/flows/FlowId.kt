@@ -1,5 +1,6 @@
 package net.corda.v5.application.flows
 
+import net.corda.v5.base.annotations.CordaInternal
 import net.corda.v5.base.annotations.CordaSerializable
 import java.util.*
 

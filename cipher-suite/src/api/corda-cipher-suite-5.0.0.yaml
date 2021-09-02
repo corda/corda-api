@@ -6,7 +6,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
   methods:
     decodePublicKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PublicKey
@@ -16,7 +15,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
           type: String
     encodeAsByteArray:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: byte[]
@@ -26,7 +24,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
           type: java.security.PublicKey
     encodeAsString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -36,7 +33,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
           type: java.security.PublicKey
     findKeyFactory:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.KeyFactory
@@ -46,7 +42,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
           type: net.corda.v5.cipher.suite.schemes.SignatureScheme
     findSignatureScheme:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme
@@ -56,31 +51,26 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
           type: String
     getDigests:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.schemes.DigestScheme[]
     getProviders:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.util.Map<String, java.security.Provider>
     getSchemes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme[]
     getSecureRandom:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.SecureRandom
     toSupportedPrivateKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PrivateKey
@@ -90,7 +80,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata:
           type: java.security.PrivateKey
     toSupportedPublicKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PublicKey
@@ -105,7 +94,6 @@ net.corda.v5.cipher.suite.CipherSchemeMetadata$Companion:
   implements: *id001
   interface: false
   methods: {}
-  fields: {}
 net.corda.v5.cipher.suite.CipherSchemeMetadataProvider:
   annotations: *id001
   type: public interface
@@ -114,13 +102,11 @@ net.corda.v5.cipher.suite.CipherSchemeMetadataProvider:
   methods:
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.CipherSchemeMetadata
     getName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -132,7 +118,6 @@ net.corda.v5.cipher.suite.CipherSuiteFactory:
   methods:
     getCryptoService:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.CryptoService
@@ -142,19 +127,16 @@ net.corda.v5.cipher.suite.CipherSuiteFactory:
           type: net.corda.v5.cipher.suite.config.CryptoServiceConfigInfo
     getDigestService:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.crypto.DigestService
     getSchemeMap:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.CipherSchemeMetadata
     getSignatureVerificationService:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.crypto.SignatureVerificationService
@@ -166,7 +148,6 @@ net.corda.v5.cipher.suite.CryptoService:
   methods:
     containsKey:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
@@ -176,7 +157,6 @@ net.corda.v5.cipher.suite.CryptoService:
           type: String
     createWrappingKey:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -189,7 +169,6 @@ net.corda.v5.cipher.suite.CryptoService:
           type: boolean
     findPublicKey:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PublicKey
@@ -199,7 +178,6 @@ net.corda.v5.cipher.suite.CryptoService:
           type: String
     generateKeyPair:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PublicKey
@@ -212,7 +190,6 @@ net.corda.v5.cipher.suite.CryptoService:
           type: net.corda.v5.cipher.suite.schemes.SignatureScheme
     generateWrappedKeyPair:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.WrappedKeyPair
@@ -225,13 +202,11 @@ net.corda.v5.cipher.suite.CryptoService:
           type: net.corda.v5.cipher.suite.schemes.SignatureScheme
     requiresWrappingKey:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
     sign:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: byte[]
@@ -247,13 +222,11 @@ net.corda.v5.cipher.suite.CryptoService:
           type: byte[]
     supportedSchemes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme[]
     supportedWrappingSchemes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme[]
@@ -266,41 +239,24 @@ net.corda.v5.cipher.suite.CryptoServiceContext:
   methods:
     getCategory:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getCipherSuiteFactory:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.CipherSuiteFactory
     getConfig:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: T
     getSandboxId:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
-  fields:
-    category:
-      annotation: [NotNull]
-      type: private final String
-    sandboxId:
-      annotation: [NotNull]
-      type: private final String
-    cipherSuiteFactory:
-      annotation: [NotNull]
-      type: private final net.corda.v5.cipher.suite.CipherSuiteFactory
-    config:
-      annotation: *id001
-      type: private final T
 net.corda.v5.cipher.suite.CryptoServiceProvider:
   annotations: *id001
   type: public interface
@@ -309,13 +265,11 @@ net.corda.v5.cipher.suite.CryptoServiceProvider:
   methods:
     getConfigType:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: Class<T>
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.CryptoService
@@ -325,7 +279,6 @@ net.corda.v5.cipher.suite.CryptoServiceProvider:
           type: net.corda.v5.cipher.suite.CryptoServiceContext<T>
     getName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -337,7 +290,6 @@ net.corda.v5.cipher.suite.CryptoServiceTestSupport:
   methods:
     delete:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -353,7 +305,6 @@ net.corda.v5.cipher.suite.DigestAlgorithm:
   methods:
     digest:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: byte[]
@@ -363,13 +314,11 @@ net.corda.v5.cipher.suite.DigestAlgorithm:
           type: byte[]
     getAlgorithm:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     getDigestLength:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: int
@@ -381,13 +330,11 @@ net.corda.v5.cipher.suite.DigestAlgorithmFactory:
   methods:
     getAlgorithm:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.cipher.suite.DigestAlgorithm
@@ -399,7 +346,6 @@ net.corda.v5.cipher.suite.DigestServiceProvider:
   methods:
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.crypto.DigestService
@@ -409,7 +355,6 @@ net.corda.v5.cipher.suite.DigestServiceProvider:
           type: net.corda.v5.cipher.suite.CipherSuiteFactory
     getName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -421,7 +366,6 @@ net.corda.v5.cipher.suite.KeyEncodingService:
   methods:
     decodePublicKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PublicKey
@@ -431,7 +375,6 @@ net.corda.v5.cipher.suite.KeyEncodingService:
           type: String
     encodeAsByteArray:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: byte[]
@@ -441,7 +384,6 @@ net.corda.v5.cipher.suite.KeyEncodingService:
           type: java.security.PublicKey
     encodeAsString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -451,7 +393,6 @@ net.corda.v5.cipher.suite.KeyEncodingService:
           type: java.security.PublicKey
     toSupportedPrivateKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PrivateKey
@@ -461,7 +402,6 @@ net.corda.v5.cipher.suite.KeyEncodingService:
           type: java.security.PrivateKey
     toSupportedPublicKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.security.PublicKey
@@ -477,7 +417,6 @@ net.corda.v5.cipher.suite.SignatureVerificationServiceProvider:
   methods:
     getInstance:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.crypto.SignatureVerificationService
@@ -487,7 +426,6 @@ net.corda.v5.cipher.suite.SignatureVerificationServiceProvider:
           type: net.corda.v5.cipher.suite.CipherSuiteFactory
     getName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -500,32 +438,19 @@ net.corda.v5.cipher.suite.WrappedKeyPair:
   methods:
     getEncodingVersion:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     getKeyMaterial:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
     getPublicKey:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.PublicKey
-  fields:
-    publicKey:
-      annotation: [NotNull]
-      type: private final java.security.PublicKey
-    keyMaterial:
-      annotation: [NotNull]
-      type: private final byte[]
-    encodingVersion:
-      annotation: *id001
-      type: private final int
 net.corda.v5.cipher.suite.WrappedPrivateKey:
   annotations: *id001
   type: public final class
@@ -535,41 +460,24 @@ net.corda.v5.cipher.suite.WrappedPrivateKey:
   methods:
     getEncodingVersion:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     getKeyMaterial:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
     getMasterKeyAlias:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getSignatureScheme:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme
-  fields:
-    keyMaterial:
-      annotation: [NotNull]
-      type: private final byte[]
-    masterKeyAlias:
-      annotation: [NotNull]
-      type: private final String
-    signatureScheme:
-      annotation: [NotNull]
-      type: private final net.corda.v5.cipher.suite.schemes.SignatureScheme
-    encodingVersion:
-      annotation: *id001
-      type: private final int
 net.corda.v5.cipher.suite.config.CryptoServiceConfig:
   annotations: *id001
   type: public final class
@@ -579,32 +487,20 @@ net.corda.v5.cipher.suite.config.CryptoServiceConfig:
   methods:
     getServiceConfig:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.Map<String, Object>
     getServiceName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getTimeout:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.time.Duration
   fields:
-    serviceName:
-      annotation: [NotNull]
-      type: private final String
-    timeout:
-      annotation: [NotNull]
-      type: private final java.time.Duration
-    serviceConfig:
-      annotation: [NotNull]
-      type: private final java.util.Map<String, Object>
     DEFAULT_SERVICE_NAME:
       annotation: [NotNull]
       type: public static final String
@@ -628,32 +524,19 @@ net.corda.v5.cipher.suite.config.CryptoServiceConfigInfo:
   methods:
     getCategory:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getConfig:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.config.CryptoServiceConfig
     getEffectiveSandboxId:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
-  fields:
-    category:
-      annotation: [NotNull]
-      type: private final String
-    effectiveSandboxId:
-      annotation: [NotNull]
-      type: private final String
-    config:
-      annotation: [NotNull]
-      type: private final net.corda.v5.cipher.suite.config.CryptoServiceConfig
 net.corda.v5.cipher.suite.schemes.DigestScheme:
   annotations: *id001
   type: public final class
@@ -663,19 +546,16 @@ net.corda.v5.cipher.suite.schemes.DigestScheme:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     component2:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.DigestScheme
@@ -688,7 +568,6 @@ net.corda.v5.cipher.suite.schemes.DigestScheme:
           type: String
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -698,35 +577,24 @@ net.corda.v5.cipher.suite.schemes.DigestScheme:
           type: Object
     getAlgorithmName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getProviderName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    algorithmName:
-      annotation: [NotNull]
-      type: private final String
-    providerName:
-      annotation: [NotNull]
-      type: private final String
 net.corda.v5.cipher.suite.schemes.SchemeTemplates:
   annotations: *id001
   type: public final class
@@ -809,49 +677,41 @@ net.corda.v5.cipher.suite.schemes.SignatureScheme:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     component2:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<org.bouncycastle.asn1.x509.AlgorithmIdentifier>
     component3:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     component4:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     component5:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.spec.AlgorithmParameterSpec
     component6:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: Integer
     component7:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureSpec
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme
@@ -879,7 +739,6 @@ net.corda.v5.cipher.suite.schemes.SignatureScheme:
           type: net.corda.v5.cipher.suite.schemes.SignatureSpec
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -889,80 +748,49 @@ net.corda.v5.cipher.suite.schemes.SignatureScheme:
           type: Object
     getAlgSpec:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.spec.AlgorithmParameterSpec
     getAlgorithmName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getAlgorithmOIDs:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<org.bouncycastle.asn1.x509.AlgorithmIdentifier>
     getCodeName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getKeySize:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: Integer
     getProviderName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getSignatureSpec:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureSpec
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    codeName:
-      annotation: [NotNull]
-      type: private final String
-    algorithmOIDs:
-      annotation: [NotNull]
-      type: private final java.util.List<org.bouncycastle.asn1.x509.AlgorithmIdentifier>
-    providerName:
-      annotation: [NotNull]
-      type: private final String
-    algorithmName:
-      annotation: [NotNull]
-      type: private final String
-    algSpec:
-      annotation: [Nullable]
-      type: private final java.security.spec.AlgorithmParameterSpec
-    keySize:
-      annotation: [Nullable]
-      type: private final Integer
-    signatureSpec:
-      annotation: [NotNull]
-      type: private final net.corda.v5.cipher.suite.schemes.SignatureSpec
 net.corda.v5.cipher.suite.schemes.SignatureSchemeTemplate:
   annotations: *id001
   type: public final class
@@ -972,43 +800,36 @@ net.corda.v5.cipher.suite.schemes.SignatureSchemeTemplate:
   methods:
     getAlgSpec:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: java.security.spec.AlgorithmParameterSpec
     getAlgorithmName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getAlgorithmOIDs:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<org.bouncycastle.asn1.x509.AlgorithmIdentifier>
     getCodeName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getKeySize:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: Integer
     getSignatureSpec:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureSpec
     makeScheme:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureScheme
@@ -1016,25 +837,6 @@ net.corda.v5.cipher.suite.schemes.SignatureSchemeTemplate:
         providerName:
           annotation: [NotNull]
           type: String
-  fields:
-    codeName:
-      annotation: [NotNull]
-      type: private final String
-    algorithmOIDs:
-      annotation: [NotNull]
-      type: private final java.util.List<org.bouncycastle.asn1.x509.AlgorithmIdentifier>
-    algorithmName:
-      annotation: [NotNull]
-      type: private final String
-    algSpec:
-      annotation: [Nullable]
-      type: private final java.security.spec.AlgorithmParameterSpec
-    keySize:
-      annotation: [Nullable]
-      type: private final Integer
-    signatureSpec:
-      annotation: [NotNull]
-      type: private final net.corda.v5.cipher.suite.schemes.SignatureSpec
 net.corda.v5.cipher.suite.schemes.SignatureSpec:
   annotations: *id001
   type: public final class
@@ -1044,25 +846,21 @@ net.corda.v5.cipher.suite.schemes.SignatureSpec:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     component2:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.DigestAlgorithmName
     component3:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: org.bouncycastle.asn1.x509.AlgorithmIdentifier
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.cipher.suite.schemes.SignatureSpec
@@ -1078,7 +876,6 @@ net.corda.v5.cipher.suite.schemes.SignatureSpec:
           type: org.bouncycastle.asn1.x509.AlgorithmIdentifier
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1088,31 +885,26 @@ net.corda.v5.cipher.suite.schemes.SignatureSpec:
           type: Object
     getCustomDigestName:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.crypto.DigestAlgorithmName
     getPrecalculateHash:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: boolean
     getSignatureName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getSignatureOID:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: org.bouncycastle.asn1.x509.AlgorithmIdentifier
     getSigningData:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
@@ -1125,23 +917,11 @@ net.corda.v5.cipher.suite.schemes.SignatureSpec:
           type: byte[]
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    signatureName:
-      annotation: [NotNull]
-      type: private final String
-    customDigestName:
-      annotation: [Nullable]
-      type: private final net.corda.v5.crypto.DigestAlgorithmName
-    signatureOID:
-      annotation: [Nullable]
-      type: private final org.bouncycastle.asn1.x509.AlgorithmIdentifier

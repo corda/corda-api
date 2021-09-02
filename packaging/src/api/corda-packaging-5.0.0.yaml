@@ -1,0 +1,1954 @@
+net.corda.packaging.CordappManifest:
+  annotations: &id001 []
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    component1:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component2:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component3:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    component4:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    component5:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.ManifestCordappInfo
+    component6:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.ManifestCordappInfo
+    component7:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Map<String, String>
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.CordappManifest
+      params:
+        bundleSymbolicName:
+          annotation: [NotNull]
+          type: String
+        bundleVersion:
+          annotation: [NotNull]
+          type: String
+        minPlatformVersion:
+          annotation: *id001
+          type: int
+        targetPlatformVersion:
+          annotation: *id001
+          type: int
+        contractInfo:
+          annotation: [NotNull]
+          type: net.corda.packaging.ManifestCordappInfo
+        workflowInfo:
+          annotation: [NotNull]
+          type: net.corda.packaging.ManifestCordappInfo
+        attributes:
+          annotation: [NotNull]
+          type: java.util.Map<String, String>
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getAttributes:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Map<String, String>
+    getBundleSymbolicName:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getBundleVersion:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getCheckpointSerializers:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getContractInfo:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.ManifestCordappInfo
+    getContracts:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getFlows:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getMinPlatformVersion:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    getNotaryProtocols:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getQueryPostProcessors:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getSchemas:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getSerializers:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getServices:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getTargetPlatformVersion:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    getWhitelists:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<String>
+    getWorkflowInfo:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.ManifestCordappInfo
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+  fields:
+    DEFAULT_MIN_PLATFORM_VERSION:
+      annotation: *id001
+      type: public static final int
+      initialised value: '999'
+    TARGET_PLATFORM_VERSION:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Target-Platform-Version
+    MIN_PLATFORM_VERSION:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Min-Platform-Version
+    CORDAPP_CONTRACT_NAME:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Contract-Name
+    CORDAPP_CONTRACT_VERSION:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Contract-Version
+    CORDAPP_CONTRACT_VENDOR:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Contract-Vendor
+    CORDAPP_CONTRACT_LICENCE:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Contract-Licence
+    CORDAPP_WORKFLOW_NAME:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Workflow-Name
+    CORDAPP_WORKFLOW_VERSION:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Workflow-Version
+    CORDAPP_WORKFLOW_VENDOR:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Workflow-Vendor
+    CORDAPP_WORKFLOW_LICENCE:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Cordapp-Workflow-Licence
+    CORDAPP_CONTRACTS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-Contract-Classes
+    CORDAPP_FLOWS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-Flow-Classes
+    CORDAPP_SERVICES:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-Service-Classes
+    CORDAPP_WHITELISTS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-SerializationWhitelist-Classes
+    CORDAPP_SCHEMAS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-MappedSchema-Classes
+    CORDAPP_SERIALIZERS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-SerializationCustomSerializer-Classes
+    CORDAPP_CHECKPOINT_SERIALIZERS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-CheckpointCustomSerializer-Classes
+    CORDAPP_STATE_AND_REF_PROCESSORS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-StateAndRefPostProcessor-Classes
+    CORDAPP_CUSTOM_QUERY_PROCESSORS:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-CustomQueryPostProcessor-Classes
+    CORDAPP_NOTARIES:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-NotaryService-Classes
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.CordappManifest.Companion
+net.corda.packaging.CordappManifest$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    fromManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.CordappManifest
+      params:
+        manifest:
+          annotation: [NotNull]
+          type: java.util.jar.Manifest
+net.corda.packaging.CordappManifestException:
+  annotations: *id001
+  type: public final class
+  extends: java.lang.Exception
+  implements: *id001
+  interface: false
+  methods: {}
+net.corda.packaging.Cpb:
+  annotations: *id001
+  type: public abstract class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    assemble:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        null:
+          annotation: [NotNull]
+          type: Iterable<? extends java.nio.file.Path>
+    getIdentifier:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.Identifier
+    getMetadata:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.MetaData
+  fields:
+    fileExtension:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: .cpb
+    DEFAULT_VERIFY_JAR_SIGNATURES_KEY:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: net.corda.packaging.jarSignatureVerification
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpb.Companion
+net.corda.packaging.Cpb$Archived:
+  annotations: *id001
+  type: public static final class
+  extends: net.corda.packaging.Cpb
+  implements: *id001
+  interface: false
+  methods:
+    assemble:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        null:
+          annotation: [NotNull]
+          type: Iterable<? extends java.nio.file.Path>
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpb.Archived
+      params:
+        null:
+          annotation: [NotNull]
+          type: java.io.InputStream
+    getCpks:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: Iterable<net.corda.packaging.Cpk>
+    getIdentifier:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.Identifier
+    getMetadata:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.MetaData
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpb.Archived.Companion
+    fileExtension:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: .cpb
+    DEFAULT_VERIFY_JAR_SIGNATURES_KEY:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: net.corda.packaging.jarSignatureVerification
+net.corda.packaging.Cpb$Archived$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.Archived
+      params:
+        null:
+          annotation: [NotNull]
+          type: java.io.InputStream
+net.corda.packaging.Cpb$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    assemble:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        null:
+          annotation: [NotNull]
+          type: Iterable<? extends java.nio.file.Path>
+net.corda.packaging.Cpb$Expanded:
+  annotations: *id001
+  type: public static final class
+  extends: net.corda.packaging.Cpb
+  implements: *id001
+  interface: false
+  methods:
+    assemble:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        null:
+          annotation: [NotNull]
+          type: Iterable<? extends java.nio.file.Path>
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpb.Expanded
+      params:
+        null:
+          annotation: [Nullable]
+          type: java.nio.file.Path
+    getCpks:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: Iterable<net.corda.packaging.Cpk.Expanded>
+    getIdentifier:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.Identifier
+    getMetadata:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.MetaData
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpb.Expanded.Companion
+    fileExtension:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: .cpb
+    DEFAULT_VERIFY_JAR_SIGNATURES_KEY:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: net.corda.packaging.jarSignatureVerification
+net.corda.packaging.Cpb$Expanded$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.Expanded
+      params:
+        null:
+          annotation: [Nullable]
+          type: java.nio.file.Path
+net.corda.packaging.Cpb$Identifier:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    component1:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.Identifier
+      params:
+        hash:
+          annotation: [NotNull]
+          type: net.corda.v5.crypto.SecureHash
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+net.corda.packaging.Cpb$MetaData:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    component1:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Map<String, String>
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb.MetaData
+      params:
+        metadata:
+          annotation: [NotNull]
+          type: java.util.Map<String, String>
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getMetadata:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Map<String, String>
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+net.corda.packaging.Cpk:
+  annotations: *id001
+  type: public abstract class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    getCordappCertificates:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<java.security.cert.Certificate>
+    getCordappHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    getCordappJarFileName:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getCordappManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.CordappManifest
+    getCpkHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    getCpkManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest
+    getDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+    getId:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Identifier
+    getLibraryDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableMap<String, net.corda.v5.crypto.SecureHash>
+    getType:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Type
+    resolveDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+      params:
+        cpks:
+          annotation: [NotNull]
+          type: Iterable<? extends net.corda.packaging.Cpk>
+        useSignatures:
+          annotation: *id001
+          type: boolean
+  fields:
+    fileExtension:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: .cpk
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Companion
+net.corda.packaging.Cpk$Archived:
+  annotations: *id001
+  type: public static final class
+  extends: net.corda.packaging.Cpk
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpk.Archived
+      params:
+        null:
+          annotation: [NotNull]
+          type: java.io.InputStream
+    getCordappCertificates:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<java.security.cert.Certificate>
+    getCordappHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    getCordappJarFileName:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getCordappManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.CordappManifest
+    getCpkHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    getCpkManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest
+    getDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+    getId:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Identifier
+    getLibraryDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableMap<String, net.corda.v5.crypto.SecureHash>
+    getType:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Type
+    resolveDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+      params:
+        cpks:
+          annotation: [NotNull]
+          type: Iterable<? extends net.corda.packaging.Cpk>
+        useSignatures:
+          annotation: *id001
+          type: boolean
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Archived.Companion
+    fileExtension:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: .cpk
+net.corda.packaging.Cpk$Archived$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Archived
+      params:
+        null:
+          annotation: [NotNull]
+          type: java.io.InputStream
+net.corda.packaging.Cpk$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    resolveDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+      params:
+        cpks:
+          annotation: [NotNull]
+          type: Iterable<? extends net.corda.packaging.Cpk>
+        useSignatures:
+          annotation: *id001
+          type: boolean
+net.corda.packaging.Cpk$Expanded:
+  annotations: *id001
+  type: public static final class
+  extends: net.corda.packaging.Cpk
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpk.Expanded
+      params:
+        null:
+          annotation: [NotNull]
+          type: java.nio.file.Path
+    getCordappCertificates:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<java.security.cert.Certificate>
+    getCordappHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    getCordappJarFileName:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getCordappManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.CordappManifest
+    getCpkHash:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+    getCpkManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest
+    getDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+    getId:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Identifier
+    getLibraries:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<java.nio.file.Path>
+    getLibraryDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableMap<String, net.corda.v5.crypto.SecureHash>
+    getMainJar:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.nio.file.Path
+    getType:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Type
+    resolveDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+      params:
+        cpks:
+          annotation: [NotNull]
+          type: Iterable<? extends net.corda.packaging.Cpk>
+        useSignatures:
+          annotation: *id001
+          type: boolean
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Expanded.Companion
+    fileExtension:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: .cpk
+net.corda.packaging.Cpk$Expanded$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Expanded
+      params:
+        null:
+          annotation: [NotNull]
+          type: java.nio.file.Path
+net.corda.packaging.Cpk$Identifier:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: [java.lang.Comparable]
+  interface: false
+  methods:
+    compareTo:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+      params:
+        other:
+          annotation: [NotNull]
+          type: net.corda.packaging.Cpk.Identifier
+    component1:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component2:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component3:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.v5.crypto.SecureHash>
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Identifier
+      params:
+        symbolicName:
+          annotation: [NotNull]
+          type: String
+        version:
+          annotation: [NotNull]
+          type: String
+        signers:
+          annotation: [NotNull]
+          type: java.util.NavigableSet<net.corda.v5.crypto.SecureHash>
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getSigners:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.v5.crypto.SecureHash>
+    getSymbolicName:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getVersion:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Identifier.Companion
+net.corda.packaging.Cpk$Identifier$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    getSecureHashComparator:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Comparator<net.corda.v5.crypto.SecureHash>
+net.corda.packaging.Cpk$Manifest:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    component1:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest
+      params:
+        cpkFormatVersion:
+          annotation: [NotNull]
+          type: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    fromManifest:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpk.Manifest
+      params:
+        manifest:
+          annotation: [NotNull]
+          type: java.util.jar.Manifest
+    getCpkFormatVersion:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    parseFormatVersion:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+      params:
+        manifest:
+          annotation: [NotNull]
+          type: java.util.jar.Manifest
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+  fields:
+    CPK_FORMAT:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-CPK-Format
+    CPK_TYPE:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: Corda-CPK-Type
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Manifest.Companion
+net.corda.packaging.Cpk$Manifest$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    fromManifest:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest
+      params:
+        manifest:
+          annotation: [NotNull]
+          type: java.util.jar.Manifest
+    parseFormatVersion:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+      params:
+        manifest:
+          annotation: [NotNull]
+          type: java.util.jar.Manifest
+net.corda.packaging.Cpk$Manifest$CpkFormatVersion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: [java.lang.Comparable]
+  interface: false
+  methods:
+    compareTo:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+      params:
+        other:
+          annotation: [NotNull]
+          type: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+    component1:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    component2:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+      params:
+        major:
+          annotation: *id001
+          type: int
+        minor:
+          annotation: *id001
+          type: int
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getMajor:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    getMinor:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    parse:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+      params:
+        cpkFormatVersion:
+          annotation: [NotNull]
+          type: String
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Manifest.CpkFormatVersion.Companion
+net.corda.packaging.Cpk$Manifest$CpkFormatVersion$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    parse:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Manifest.CpkFormatVersion
+      params:
+        cpkFormatVersion:
+          annotation: [NotNull]
+          type: String
+net.corda.packaging.Cpk$Type:
+  annotations: *id001
+  type: public static final class
+  extends: java.lang.Enum
+  implements: [java.lang.Comparable]
+  interface: false
+  methods:
+    parse:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.packaging.Cpk.Type
+      params:
+        text:
+          annotation: [NotNull]
+          type: String
+    valueOf:
+      annotations: *id001
+      default: false
+      type: public static
+      returnType: net.corda.packaging.Cpk.Type
+      params:
+        null:
+          annotation: *id001
+          type: String
+    values:
+      annotations: *id001
+      default: false
+      type: public static
+      returnType: net.corda.packaging.Cpk.Type[]
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.Cpk.Type.Companion
+net.corda.packaging.Cpk$Type$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    parse:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Type
+      params:
+        text:
+          annotation: [NotNull]
+          type: String
+net.corda.packaging.DependencyMetadataException:
+  annotations: *id001
+  type: public final class
+  extends: java.lang.Exception
+  implements: *id001
+  interface: false
+  methods: {}
+net.corda.packaging.DependencyResolutionException:
+  annotations: *id001
+  type: public class
+  extends: java.lang.Exception
+  implements: *id001
+  interface: false
+  methods: {}
+net.corda.packaging.ExtensionsKt:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    sha256:
+      annotations: [NotNull]
+      default: false
+      type: public static final
+      returnType: net.corda.v5.crypto.SecureHash
+      params: {}
+net.corda.packaging.InvalidSignatureException:
+  annotations: *id001
+  type: public class
+  extends: java.lang.Exception
+  implements: *id001
+  interface: false
+  methods: {}
+net.corda.packaging.ManifestCordappInfo:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    component1:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    component2:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    component3:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: Integer
+    component4:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.ManifestCordappInfo
+      params:
+        shortName:
+          annotation: [Nullable]
+          type: String
+        vendor:
+          annotation: [Nullable]
+          type: String
+        versionId:
+          annotation: [Nullable]
+          type: Integer
+        licence:
+          annotation: [Nullable]
+          type: String
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getLicence:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    getShortName:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    getVendor:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    getVersionId:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: Integer
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+net.corda.packaging.PackagingException:
+  annotations: *id001
+  type: public class
+  extends: java.lang.Exception
+  implements: *id001
+  interface: false
+  methods: {}
+net.corda.packaging.SigningParameters:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    getKeyAlias:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getKeyPassword:
+      annotations: [Nullable]
+      default: false
+      type: public final
+      returnType: String
+    getKeyStore:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.security.KeyStore
+    sign:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        originalFile:
+          annotation: [NotNull]
+          type: java.io.File
+        outputStream:
+          annotation: [NotNull]
+          type: java.io.OutputStream
+        params:
+          annotation: [NotNull]
+          type: net.corda.packaging.SigningParameters
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.SigningParameters.Companion
+net.corda.packaging.SigningParameters$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    sign:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        originalFile:
+          annotation: [NotNull]
+          type: java.io.File
+        outputStream:
+          annotation: [NotNull]
+          type: java.io.OutputStream
+        params:
+          annotation: [NotNull]
+          type: net.corda.packaging.SigningParameters
+net.corda.packaging.VersionComparator:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: [java.util.Comparator]
+  interface: false
+  methods:
+    cmp:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: int
+      params:
+        v1:
+          annotation: [Nullable]
+          type: String
+        v2:
+          annotation: [Nullable]
+          type: String
+    compare:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+      params:
+        v1:
+          annotation: [Nullable]
+          type: String
+        v2:
+          annotation: [Nullable]
+          type: String
+  fields:
+    DEFAULT_EPOCH:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: '0'
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.VersionComparator.Companion
+net.corda.packaging.VersionComparator$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    cmp:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: int
+      params:
+        v1:
+          annotation: [Nullable]
+          type: String
+        v2:
+          annotation: [Nullable]
+          type: String
+    toVersionParts:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.VersionComparator.Parts
+      params: {}
+net.corda.packaging.VersionComparator$Parts:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    component1:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component2:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component3:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    component4:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: boolean
+    copy:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.VersionComparator.Parts
+      params:
+        epoch:
+          annotation: [NotNull]
+          type: String
+        version:
+          annotation: [NotNull]
+          type: String
+        release:
+          annotation: [NotNull]
+          type: String
+        hasRelease:
+          annotation: *id001
+          type: boolean
+    equals:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        null:
+          annotation: [Nullable]
+          type: Object
+    getEpoch:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getHasRelease:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: boolean
+    getRelease:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    getVersion:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: String
+    hashCode:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: [NotNull]
+      default: false
+      type: public
+      returnType: String
+net.corda.packaging.internal.CpbBuilder:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    build:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        output:
+          annotation: [NotNull]
+          type: java.io.OutputStream
+net.corda.packaging.internal.CpbLoader:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpb
+      params:
+        inputStream:
+          annotation: [NotNull]
+          type: java.io.InputStream
+        expansionLocation:
+          annotation: [Nullable]
+          type: java.nio.file.Path
+        cpbLocation:
+          annotation: [Nullable]
+          type: String
+        verifySignature:
+          annotation: *id001
+          type: boolean
+  fields:
+    INSTANCE:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.internal.CpbLoader
+net.corda.packaging.internal.CpkDependencyResolver:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    resolveDependencies:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
+      params:
+        roots:
+          annotation: [NotNull]
+          type: Iterable<net.corda.packaging.Cpk.Identifier>
+        availableIds:
+          annotation: [NotNull]
+          type: java.util.NavigableMap<net.corda.packaging.Cpk.Identifier, java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>>
+        useSignatures:
+          annotation: *id001
+          type: boolean
+  fields:
+    INSTANCE:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.internal.CpkDependencyResolver
+net.corda.packaging.internal.CpkLoader:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    from:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk
+      params:
+        source:
+          annotation: [NotNull]
+          type: java.io.InputStream
+        expansionLocation:
+          annotation: [Nullable]
+          type: java.nio.file.Path
+        cpkLocation:
+          annotation: [Nullable]
+          type: String
+        verifySignature:
+          annotation: *id001
+          type: boolean
+  fields:
+    DEPENDENCIES_FILE_ENTRY:
+      annotation: [NotNull]
+      type: public static final String
+      initialised value: META-INF/CPKDependencies
+    INSTANCE:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.internal.CpkLoader
+net.corda.packaging.internal.JarExtractorInputStream:
+  annotations: *id001
+  type: public final class
+  extends: java.util.jar.JarInputStream
+  implements: *id001
+  interface: false
+  methods:
+    closeEntry:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: void
+    getNextEntry:
+      annotations: [Nullable]
+      default: false
+      type: public
+      returnType: java.util.zip.ZipEntry
+    read:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+      params:
+        b:
+          annotation: [NotNull]
+          type: byte[]
+        'off':
+          annotation: *id001
+          type: int
+        len:
+          annotation: *id001
+          type: int
+net.corda.packaging.internal.SignatureCollector:
+  annotations: *id001
+  type: public final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    addEntry:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        jarEntry:
+          annotation: [NotNull]
+          type: java.util.jar.JarEntry
+    getCertificates:
+      annotations: [NotNull]
+      default: false
+      type: public final
+      returnType: java.util.Set<java.security.cert.Certificate>
+    isSignable:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: boolean
+      params:
+        entry:
+          annotation: [NotNull]
+          type: java.util.jar.JarEntry
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.internal.SignatureCollector.Companion
+net.corda.packaging.internal.SignatureCollector$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    isSignable:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: boolean
+      params:
+        entry:
+          annotation: [NotNull]
+          type: java.util.jar.JarEntry
+net.corda.packaging.internal.UncloseableInputStream:
+  annotations: *id001
+  type: public final class
+  extends: java.io.FilterInputStream
+  implements: *id001
+  interface: false
+  methods:
+    close:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: void
+net.corda.packaging.internal.UncloseableOutputStream:
+  annotations: *id001
+  type: public final class
+  extends: java.io.FilterOutputStream
+  implements: *id001
+  interface: false
+  methods:
+    close:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: void
+net.corda.packaging.internal.ZipExtractorInputStream:
+  annotations: *id001
+  type: public final class
+  extends: java.util.zip.ZipInputStream
+  implements: *id001
+  interface: false
+  methods:
+    closeEntry:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: void
+    getNextEntry:
+      annotations: [Nullable]
+      default: false
+      type: public
+      returnType: java.util.zip.ZipEntry
+    read:
+      annotations: *id001
+      default: false
+      type: public
+      returnType: int
+      params:
+        b:
+          annotation: [NotNull]
+          type: byte[]
+        'off':
+          annotation: *id001
+          type: int
+        len:
+          annotation: *id001
+          type: int
+net.corda.packaging.internal.ZipTweaker:
+  annotations: *id001
+  type: public class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    removeJarSignature:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        jarFile:
+          annotation: [NotNull]
+          type: java.nio.file.Path
+        outFile:
+          annotation: [Nullable]
+          type: java.nio.file.Path
+    run:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        source:
+          annotation: [NotNull]
+          type: java.io.InputStream
+        destination:
+          annotation: [NotNull]
+          type: java.io.OutputStream
+    tweakEntry:
+      annotations: [NotNull]
+      default: false
+      type: protected
+      returnType: net.corda.packaging.internal.ZipTweaker.AfterTweakAction
+      params:
+        inputStream:
+          annotation: [NotNull]
+          type: java.util.zip.ZipInputStream
+        outputStream:
+          annotation: [NotNull]
+          type: java.util.zip.ZipOutputStream
+        currentEntry:
+          annotation: [NotNull]
+          type: java.util.zip.ZipEntry
+        buffer:
+          annotation: [NotNull]
+          type: byte[]
+    write2Stream:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        outputStream:
+          annotation: [NotNull]
+          type: java.util.zip.ZipOutputStream
+        inputStream:
+          annotation: [NotNull]
+          type: java.io.InputStream
+        buffer:
+          annotation: [NotNull]
+          type: byte[]
+    writeZipEntry:
+      annotations: *id001
+      default: false
+      type: public static final
+      returnType: void
+      params:
+        zip:
+          annotation: [NotNull]
+          type: java.util.zip.ZipOutputStream
+        source:
+          annotation: [NotNull]
+          type: kotlin.jvm.functions.Function0<? extends java.io.InputStream>
+        destinationFileName:
+          annotation: [NotNull]
+          type: String
+        buffer:
+          annotation: [NotNull]
+          type: byte[]
+        compressionMethod:
+          annotation: *id001
+          type: int
+  fields:
+    Companion:
+      annotation: [NotNull]
+      type: public static final net.corda.packaging.internal.ZipTweaker.Companion
+net.corda.packaging.internal.ZipTweaker$AfterTweakAction:
+  annotations: *id001
+  type: protected static final class
+  extends: java.lang.Enum
+  implements: *id001
+  interface: false
+  methods:
+    valueOf:
+      annotations: *id001
+      default: false
+      type: public static
+      returnType: net.corda.packaging.internal.ZipTweaker.AfterTweakAction
+      params:
+        null:
+          annotation: *id001
+          type: String
+    values:
+      annotations: *id001
+      default: false
+      type: public static
+      returnType: net.corda.packaging.internal.ZipTweaker.AfterTweakAction[]
+net.corda.packaging.internal.ZipTweaker$Companion:
+  annotations: *id001
+  type: public static final class
+  extends: null
+  implements: *id001
+  interface: false
+  methods:
+    removeJarSignature:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        jarFile:
+          annotation: [NotNull]
+          type: java.nio.file.Path
+        outFile:
+          annotation: [Nullable]
+          type: java.nio.file.Path
+    write2Stream:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        outputStream:
+          annotation: [NotNull]
+          type: java.util.zip.ZipOutputStream
+        inputStream:
+          annotation: [NotNull]
+          type: java.io.InputStream
+        buffer:
+          annotation: [NotNull]
+          type: byte[]
+    writeZipEntry:
+      annotations: *id001
+      default: false
+      type: public final
+      returnType: void
+      params:
+        zip:
+          annotation: [NotNull]
+          type: java.util.zip.ZipOutputStream
+        source:
+          annotation: [NotNull]
+          type: kotlin.jvm.functions.Function0<? extends java.io.InputStream>
+        destinationFileName:
+          annotation: [NotNull]
+          type: String
+        buffer:
+          annotation: [NotNull]
+          type: byte[]
+        compressionMethod:
+          annotation: *id001
+          type: int

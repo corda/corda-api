@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'com.r3.internal.gradle.plugins.r3Publish'
+    id 'net.corda.internal.gradle.plugins.api-scanner'
     id 'biz.aQute.bnd.builder'
 }
 

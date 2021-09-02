@@ -6,7 +6,6 @@ net.corda.v5.serialization.CheckpointCustomSerializer:
   methods:
     fromProxy:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: OBJ
@@ -16,7 +15,6 @@ net.corda.v5.serialization.CheckpointCustomSerializer:
           type: PROXY
     toProxy:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: PROXY
@@ -32,7 +30,6 @@ net.corda.v5.serialization.ClassWhitelist:
   methods:
     hasListed:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
@@ -49,7 +46,6 @@ net.corda.v5.serialization.ContextPropertyKeys:
   methods:
     valueOf:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: net.corda.v5.serialization.ContextPropertyKeys
@@ -59,11 +55,9 @@ net.corda.v5.serialization.ContextPropertyKeys:
           type: String
     values:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: net.corda.v5.serialization.ContextPropertyKeys[]
-  fields: {}
 net.corda.v5.serialization.EncodingWhitelist:
   annotations: [DoNotImplement]
   type: public interface
@@ -72,7 +66,6 @@ net.corda.v5.serialization.EncodingWhitelist:
   methods:
     acceptEncoding:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
@@ -89,23 +82,14 @@ net.corda.v5.serialization.MissingSerializerException:
   methods:
     getTypeDescriptor:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getTypeNames:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.List<String>
-  fields:
-    typeDescriptor:
-      annotation: [Nullable]
-      type: private final String
-    typeNames:
-      annotation: [NotNull]
-      type: private final java.util.List<String>
 net.corda.v5.serialization.ObjectWithCompatibleContext:
   annotations: *id001
   type: public final class
@@ -115,19 +99,16 @@ net.corda.v5.serialization.ObjectWithCompatibleContext:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: T
     component2:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationContext
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.ObjectWithCompatibleContext<T>
@@ -140,7 +121,6 @@ net.corda.v5.serialization.ObjectWithCompatibleContext:
           type: net.corda.v5.serialization.SerializationContext
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -150,35 +130,24 @@ net.corda.v5.serialization.ObjectWithCompatibleContext:
           type: Object
     getContext:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationContext
     getObj:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: T
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
-  fields:
-    obj:
-      annotation: [NotNull]
-      type: private final T
-    context:
-      annotation: [NotNull]
-      type: private final net.corda.v5.serialization.SerializationContext
 net.corda.v5.serialization.SerializationAPIKt:
   annotations: *id001
   type: public final class
@@ -188,7 +157,6 @@ net.corda.v5.serialization.SerializationAPIKt:
   methods:
     withWhitelist:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.serialization.SerializationContext
@@ -204,80 +172,67 @@ net.corda.v5.serialization.SerializationContext:
   methods:
     getClassInfoService:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: Object
     getCustomSerializers:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.util.Set<net.corda.v5.serialization.SerializationCustomSerializer<?,
         ?>>
     getDeserializationClassLoader:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: ClassLoader
     getEncoding:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationEncoding
     getEncodingWhitelist:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.EncodingWhitelist
     getObjectReferencesEnabled:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
     getPreferredSerializationVersion:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.types.ByteSequence
     getPreventDataLoss:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
     getProperties:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.util.Map<Object, Object>
     getSandboxGroup:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: Object
     getUseCase:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext.UseCase
     getWhitelist:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.ClassWhitelist
     withClassInfoService:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -287,7 +242,6 @@ net.corda.v5.serialization.SerializationContext:
           type: Object
     withClassLoader:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -297,7 +251,6 @@ net.corda.v5.serialization.SerializationContext:
           type: ClassLoader
     withCustomSerializers:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -308,7 +261,6 @@ net.corda.v5.serialization.SerializationContext:
             ?>>
     withEncoding:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -318,7 +270,6 @@ net.corda.v5.serialization.SerializationContext:
           type: net.corda.v5.serialization.SerializationEncoding
     withEncodingWhitelist:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -328,7 +279,6 @@ net.corda.v5.serialization.SerializationContext:
           type: net.corda.v5.serialization.EncodingWhitelist
     withPreferredSerializationVersion:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -338,13 +288,11 @@ net.corda.v5.serialization.SerializationContext:
           type: net.corda.v5.base.types.ByteSequence
     withPreventDataLoss:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
     withProperty:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -357,7 +305,6 @@ net.corda.v5.serialization.SerializationContext:
           type: Object
     withSandboxGroup:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -367,7 +314,6 @@ net.corda.v5.serialization.SerializationContext:
           type: Object
     withWhitelisted:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -377,7 +323,6 @@ net.corda.v5.serialization.SerializationContext:
           type: Class<?>
     withoutReferences:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
@@ -390,7 +335,6 @@ net.corda.v5.serialization.SerializationContext$UseCase:
   methods:
     valueOf:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: net.corda.v5.serialization.SerializationContext.UseCase
@@ -400,11 +344,9 @@ net.corda.v5.serialization.SerializationContext$UseCase:
           type: String
     values:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: net.corda.v5.serialization.SerializationContext.UseCase[]
-  fields: {}
 net.corda.v5.serialization.SerializationCustomSerializer:
   annotations: *id001
   type: public interface
@@ -413,7 +355,6 @@ net.corda.v5.serialization.SerializationCustomSerializer:
   methods:
     fromProxy:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: OBJ
@@ -423,7 +364,6 @@ net.corda.v5.serialization.SerializationCustomSerializer:
           type: PROXY
     toProxy:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: PROXY
@@ -446,7 +386,6 @@ net.corda.v5.serialization.SerializationFactory:
   methods:
     asCurrent:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: T
@@ -457,7 +396,6 @@ net.corda.v5.serialization.SerializationFactory:
             ? extends T>
     deserialize:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: T
@@ -473,7 +411,6 @@ net.corda.v5.serialization.SerializationFactory:
           type: net.corda.v5.serialization.SerializationContext
     deserializeWithCompatibleContext:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.ObjectWithCompatibleContext<T>
@@ -489,13 +426,11 @@ net.corda.v5.serialization.SerializationFactory:
           type: net.corda.v5.serialization.SerializationContext
     getCurrentContext:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationContext
     serialize:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializedBytes<T>
@@ -508,7 +443,6 @@ net.corda.v5.serialization.SerializationFactory:
           type: net.corda.v5.serialization.SerializationContext
     withCurrentContext:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: T
@@ -520,12 +454,6 @@ net.corda.v5.serialization.SerializationFactory:
           annotation: [NotNull]
           type: kotlin.jvm.functions.Function0<? extends T>
   fields:
-    _currentContext:
-      annotation: *id001
-      type: private final ThreadLocal<net.corda.v5.serialization.SerializationContext>
-    _currentFactory:
-      annotation: *id001
-      type: private static final ThreadLocal<net.corda.v5.serialization.SerializationFactory>
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.serialization.SerializationFactory.Companion
@@ -538,7 +466,6 @@ net.corda.v5.serialization.SerializationFactory$Companion:
   methods:
     getCurrentFactory:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationFactory
@@ -550,7 +477,6 @@ net.corda.v5.serialization.SerializationToken:
   methods:
     fromToken:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: Object
@@ -566,7 +492,6 @@ net.corda.v5.serialization.SerializationWhitelist:
   methods:
     getWhitelist:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.util.List<Class<?>>
@@ -578,7 +503,6 @@ net.corda.v5.serialization.SerializeAsToken:
   methods:
     toToken:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationToken
@@ -594,7 +518,6 @@ net.corda.v5.serialization.SerializeAsTokenContext:
   methods:
     fromIdentifier:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializeAsToken
@@ -604,7 +527,6 @@ net.corda.v5.serialization.SerializeAsTokenContext:
           type: String
     withIdentifier:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -624,7 +546,6 @@ net.corda.v5.serialization.SerializedBytes:
   methods:
     getSummary:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
@@ -637,7 +558,6 @@ net.corda.v5.serialization.SingletonSerializationToken:
   methods:
     fromToken:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: net.corda.v5.serialization.SerializeAsToken
@@ -647,13 +567,11 @@ net.corda.v5.serialization.SingletonSerializationToken:
           type: net.corda.v5.serialization.SerializeAsTokenContext
     getClassName:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     registerWithContext:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SingletonSerializationToken
@@ -666,7 +584,6 @@ net.corda.v5.serialization.SingletonSerializationToken:
           type: net.corda.v5.serialization.SerializeAsToken
     singletonSerializationToken:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.serialization.SingletonSerializationToken
@@ -675,9 +592,6 @@ net.corda.v5.serialization.SingletonSerializationToken:
           annotation: [NotNull]
           type: String
   fields:
-    className:
-      annotation: [NotNull]
-      type: private final String
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.serialization.SingletonSerializationToken.Companion
@@ -690,7 +604,6 @@ net.corda.v5.serialization.SingletonSerializationToken$Companion:
   methods:
     singletonSerializationToken:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SingletonSerializationToken
@@ -706,13 +619,11 @@ net.corda.v5.serialization.SingletonSerializeAsToken:
   methods:
     getTokenName:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: String
     toToken:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: net.corda.v5.serialization.SingletonSerializationToken
@@ -732,13 +643,11 @@ net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault:
   methods:
     new:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     old:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -749,7 +658,6 @@ net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefaults:
   methods:
     value:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault[]
@@ -760,13 +668,11 @@ net.corda.v5.serialization.annotations.CordaSerializationTransformRename:
   methods:
     from:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     to:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: String
@@ -777,7 +683,6 @@ net.corda.v5.serialization.annotations.CordaSerializationTransformRenames:
   methods:
     value:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.annotations.CordaSerializationTransformRename[]
@@ -788,7 +693,6 @@ net.corda.v5.serialization.annotations.DeprecatedConstructorForDeserialization:
   methods:
     version:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: int

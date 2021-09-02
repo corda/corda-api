@@ -32,7 +32,6 @@ net.corda.v5.base.concurrent.ConcurrencyUtils:
   methods:
     getOrThrow:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: V
@@ -46,7 +45,6 @@ net.corda.v5.base.exceptions.CordaRuntimeException:
   methods:
     addSuppressed:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: void
@@ -56,7 +54,6 @@ net.corda.v5.base.exceptions.CordaRuntimeException:
           type: Throwable[]
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -66,37 +63,31 @@ net.corda.v5.base.exceptions.CordaRuntimeException:
           type: Object
     getCause:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public
       returnType: Throwable
     getMessage:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public
       returnType: String
     getOriginalExceptionClassName:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public
       returnType: String
     getOriginalMessage:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public
       returnType: String
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     setCause:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: void
@@ -106,7 +97,6 @@ net.corda.v5.base.exceptions.CordaRuntimeException:
           type: Throwable
     setMessage:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: void
@@ -116,7 +106,6 @@ net.corda.v5.base.exceptions.CordaRuntimeException:
           type: String
     setOriginalExceptionClassName:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: void
@@ -124,16 +113,6 @@ net.corda.v5.base.exceptions.CordaRuntimeException:
         <set-?>:
           annotation: [Nullable]
           type: String
-  fields:
-    originalExceptionClassName:
-      annotation: [Nullable]
-      type: private String
-    _message:
-      annotation: *id001
-      type: private String
-    _cause:
-      annotation: *id001
-      type: private Throwable
 net.corda.v5.base.exceptions.CordaThrowable:
   annotations: [CordaSerializable]
   type: public interface
@@ -142,7 +121,6 @@ net.corda.v5.base.exceptions.CordaThrowable:
   methods:
     addSuppressed:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -152,19 +130,16 @@ net.corda.v5.base.exceptions.CordaThrowable:
           type: Throwable[]
     getOriginalExceptionClassName:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     getOriginalMessage:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     setCause:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -174,7 +149,6 @@ net.corda.v5.base.exceptions.CordaThrowable:
           type: Throwable
     setMessage:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -184,7 +158,6 @@ net.corda.v5.base.exceptions.CordaThrowable:
           type: String
     setOriginalExceptionClassName:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -201,7 +174,6 @@ net.corda.v5.base.internal.ReflectionHelpersKt:
   methods:
     uncheckedCast:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: U
@@ -217,7 +189,6 @@ net.corda.v5.base.stream.Cursor:
   methods:
     asyncPoll:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: java.util.concurrent.CompletableFuture<net.corda.v5.base.stream.Cursor.PollResult<T>>
@@ -230,7 +201,6 @@ net.corda.v5.base.stream.Cursor:
           type: java.time.Duration
     poll:
       annotations: [Suspendable, NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.Cursor.PollResult<T>
@@ -249,43 +219,36 @@ net.corda.v5.base.stream.Cursor$PollResult:
   methods:
     getFirstPosition:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: long
     getLastPosition:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: long
     getPositionedValues:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: java.util.List<net.corda.v5.base.stream.Cursor.PollResult.PositionedValue<T>>
     getRemainingElementsCountEstimate:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: Long
     getValues:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: java.util.List<T>
     isEmpty:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: boolean
     isLastResult:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
@@ -297,13 +260,11 @@ net.corda.v5.base.stream.Cursor$PollResult$PositionedValue:
   methods:
     getPosition:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: long
     getValue:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: T
@@ -316,7 +277,6 @@ net.corda.v5.base.stream.CursorException:
   methods:
     addSuppressed:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -326,7 +286,6 @@ net.corda.v5.base.stream.CursorException:
           type: Throwable[]
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -336,37 +295,31 @@ net.corda.v5.base.stream.CursorException:
           type: Object
     getCause:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public
       returnType: Throwable
     getMessage:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public
       returnType: String
     getOriginalExceptionClassName:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     getOriginalMessage:
       annotations: [Nullable]
-      constructor: false
       default: false
       type: public abstract
       returnType: String
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     setCause:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -376,7 +329,6 @@ net.corda.v5.base.stream.CursorException:
           type: Throwable
     setMessage:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -386,7 +338,6 @@ net.corda.v5.base.stream.CursorException:
           type: String
     setOriginalExceptionClassName:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -394,16 +345,6 @@ net.corda.v5.base.stream.CursorException:
         <set-?>:
           annotation: [Nullable]
           type: String
-  fields:
-    originalExceptionClassName:
-      annotation: [Nullable]
-      type: private String
-    _message:
-      annotation: *id001
-      type: private String
-    _cause:
-      annotation: *id001
-      type: private Throwable
 net.corda.v5.base.stream.DurableCursor:
   annotations: [DoNotImplement]
   type: public interface
@@ -412,7 +353,6 @@ net.corda.v5.base.stream.DurableCursor:
   methods:
     asyncCommit:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: java.util.concurrent.CompletableFuture<kotlin.Unit>
@@ -422,7 +362,6 @@ net.corda.v5.base.stream.DurableCursor:
           type: long
     asyncPoll:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: java.util.concurrent.CompletableFuture<net.corda.v5.base.stream.Cursor.PollResult<T>>
@@ -435,7 +374,6 @@ net.corda.v5.base.stream.DurableCursor:
           type: java.time.Duration
     commit:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: void
@@ -445,19 +383,16 @@ net.corda.v5.base.stream.DurableCursor:
           type: net.corda.v5.base.stream.Cursor.PollResult<T>
     getCurrentPosition:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: long
     getPositionManager:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.PositionManager
     poll:
       annotations: [Suspendable, NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.Cursor.PollResult<T>
@@ -470,13 +405,11 @@ net.corda.v5.base.stream.DurableCursor:
           type: java.time.Duration
     reset:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: void
     seek:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: void
@@ -492,19 +425,16 @@ net.corda.v5.base.stream.DurableCursorBuilder:
   methods:
     build:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.DurableCursor<T>
     getPositionManager:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.PositionManager
     setPositionManager:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -520,7 +450,6 @@ net.corda.v5.base.stream.FiniteDurableCursor:
   methods:
     asyncCommit:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: java.util.concurrent.CompletableFuture<kotlin.Unit>
@@ -530,7 +459,6 @@ net.corda.v5.base.stream.FiniteDurableCursor:
           type: long
     asyncPoll:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: java.util.concurrent.CompletableFuture<net.corda.v5.base.stream.Cursor.PollResult<T>>
@@ -543,7 +471,6 @@ net.corda.v5.base.stream.FiniteDurableCursor:
           type: java.time.Duration
     commit:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: void
@@ -553,19 +480,16 @@ net.corda.v5.base.stream.FiniteDurableCursor:
           type: net.corda.v5.base.stream.Cursor.PollResult<T>
     getCurrentPosition:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: long
     getPositionManager:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.PositionManager
     poll:
       annotations: [Suspendable, NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.Cursor.PollResult<T>
@@ -578,13 +502,11 @@ net.corda.v5.base.stream.FiniteDurableCursor:
           type: java.time.Duration
     reset:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: void
     seek:
       annotations: *id001
-      constructor: false
       default: true
       type: public
       returnType: void
@@ -594,7 +516,6 @@ net.corda.v5.base.stream.FiniteDurableCursor:
           type: long
     take:
       annotations: [NotNull]
-      constructor: false
       default: true
       type: public
       returnType: net.corda.v5.base.stream.Cursor.PollResult<T>
@@ -610,19 +531,16 @@ net.corda.v5.base.stream.FiniteDurableCursorBuilder:
   methods:
     build:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.DurableCursor<T>
     getPositionManager:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: net.corda.v5.base.stream.PositionManager
     setPositionManager:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void
@@ -639,14 +557,12 @@ net.corda.v5.base.stream.MethodKt:
   methods:
     isFiniteDurableStreamsMethod:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: boolean
       params: {}
     returnsDurableCursorBuilder:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: boolean
@@ -678,14 +594,12 @@ net.corda.v5.base.types.ByteArrays:
   methods:
     parseAsHex:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: byte[]
       params: {}
     sequence:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -698,15 +612,10 @@ net.corda.v5.base.types.ByteArrays:
           type: int
     toHexString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
-  fields:
-    hexCode:
-      annotation: *id001
-      type: private static final char[]
 net.corda.v5.base.types.ByteSequence:
   annotations: *id001
   type: public abstract class
@@ -716,7 +625,6 @@ net.corda.v5.base.types.ByteSequence:
   methods:
     compareTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
@@ -726,19 +634,16 @@ net.corda.v5.base.types.ByteSequence:
           type: net.corda.v5.base.types.ByteSequence
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
     copyBytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -748,31 +653,26 @@ net.corda.v5.base.types.ByteSequence:
           type: Object
     getBytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public abstract
       returnType: byte[]
     getOffset:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     getSize:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     of:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -782,13 +682,11 @@ net.corda.v5.base.types.ByteSequence:
           type: byte[]
     open:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.io.ByteArrayInputStream
     putTo:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.nio.ByteBuffer
@@ -798,13 +696,11 @@ net.corda.v5.base.types.ByteSequence:
           type: java.nio.ByteBuffer
     slice:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.nio.ByteBuffer
     subSequence:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -817,7 +713,6 @@ net.corda.v5.base.types.ByteSequence:
           type: int
     take:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -827,13 +722,11 @@ net.corda.v5.base.types.ByteSequence:
           type: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
     writeTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: void
@@ -842,15 +735,6 @@ net.corda.v5.base.types.ByteSequence:
           annotation: [NotNull]
           type: java.io.OutputStream
   fields:
-    _bytes:
-      annotation: *id001
-      type: private final byte[]
-    offset:
-      annotation: *id001
-      type: private final int
-    size:
-      annotation: *id001
-      type: private final int
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.base.types.ByteSequence.Companion
@@ -863,7 +747,6 @@ net.corda.v5.base.types.ByteSequence$Companion:
   methods:
     of:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -880,7 +763,6 @@ net.corda.v5.base.types.OpaqueBytes:
   methods:
     compareTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
@@ -890,19 +772,16 @@ net.corda.v5.base.types.OpaqueBytes:
           type: net.corda.v5.base.types.ByteSequence
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
     copyBytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -912,31 +791,26 @@ net.corda.v5.base.types.OpaqueBytes:
           type: Object
     getBytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
     getOffset:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     getSize:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     of:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -946,13 +820,11 @@ net.corda.v5.base.types.OpaqueBytes:
           type: byte[]
     open:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.io.ByteArrayInputStream
     putTo:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.nio.ByteBuffer
@@ -962,13 +834,11 @@ net.corda.v5.base.types.OpaqueBytes:
           type: java.nio.ByteBuffer
     slice:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.nio.ByteBuffer
     subSequence:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -981,7 +851,6 @@ net.corda.v5.base.types.OpaqueBytes:
           type: int
     take:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -991,13 +860,11 @@ net.corda.v5.base.types.OpaqueBytes:
           type: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
     writeTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: void
@@ -1006,21 +873,9 @@ net.corda.v5.base.types.OpaqueBytes:
           annotation: [NotNull]
           type: java.io.OutputStream
   fields:
-    bytes:
-      annotation: [NotNull]
-      type: private final byte[]
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.base.types.OpaqueBytes.Companion
-    _bytes:
-      annotation: *id001
-      type: private final byte[]
-    offset:
-      annotation: *id001
-      type: private final int
-    size:
-      annotation: *id001
-      type: private final int
 net.corda.v5.base.types.OpaqueBytes$Companion:
   annotations: *id001
   type: public static final class
@@ -1030,7 +885,6 @@ net.corda.v5.base.types.OpaqueBytes$Companion:
   methods:
     of:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.OpaqueBytes
@@ -1047,7 +901,6 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
   methods:
     compareTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
@@ -1057,19 +910,16 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           type: net.corda.v5.base.types.ByteSequence
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
     copyBytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: byte[]
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1079,31 +929,26 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           type: Object
     getBytes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: byte[]
     getOffset:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     getSize:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     of:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -1113,13 +958,11 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           type: byte[]
     open:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.io.ByteArrayInputStream
     putTo:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.nio.ByteBuffer
@@ -1129,13 +972,11 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           type: java.nio.ByteBuffer
     slice:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.nio.ByteBuffer
     subSequence:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -1148,7 +989,6 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           type: int
     take:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.types.ByteSequence
@@ -1158,13 +998,11 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           type: int
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
     writeTo:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: void
@@ -1173,18 +1011,6 @@ net.corda.v5.base.types.OpaqueBytesSubSequence:
           annotation: [NotNull]
           type: java.io.OutputStream
   fields:
-    bytes:
-      annotation: [NotNull]
-      type: private final byte[]
-    _bytes:
-      annotation: *id001
-      type: private final byte[]
-    offset:
-      annotation: *id001
-      type: private final int
-    size:
-      annotation: *id001
-      type: private final int
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.base.types.ByteSequence.Companion
@@ -1197,7 +1023,6 @@ net.corda.v5.base.util.Base58:
   methods:
     decode:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: byte[]
@@ -1207,7 +1032,6 @@ net.corda.v5.base.util.Base58:
           type: String
     decodeToBigInteger:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: java.math.BigInteger
@@ -1217,7 +1041,6 @@ net.corda.v5.base.util.Base58:
           type: String
     encode:
       annotations: *id001
-      constructor: false
       default: false
       type: public static
       returnType: String
@@ -1225,16 +1048,6 @@ net.corda.v5.base.util.Base58:
         input:
           annotation: *id001
           type: byte[]
-  fields:
-    ALPHABET:
-      annotation: *id001
-      type: private static final char[]
-    ENCODED_ZERO:
-      annotation: *id001
-      type: private static final char
-    INDEXES:
-      annotation: *id001
-      type: private static final int[]
 net.corda.v5.base.util.EncodingUtils:
   annotations: *id001
   type: public final class
@@ -1244,105 +1057,90 @@ net.corda.v5.base.util.EncodingUtils:
   methods:
     base58ToByteArray:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: byte[]
       params: {}
     base58ToRealString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     base58toBase64:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     base58toHex:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     base64ToByteArray:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: byte[]
       params: {}
     base64ToRealString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     base64toBase58:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     base64toHex:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     hexToBase58:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     hexToBase64:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     hexToByteArray:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: byte[]
       params: {}
     hexToRealString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     toBase58:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     toBase64:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
       params: {}
     toHex:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: String
@@ -1356,14 +1154,12 @@ net.corda.v5.base.util.KotlinUtilsKt:
   methods:
     contextLogger:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: org.slf4j.Logger
       params: {}
     debug:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: void
@@ -1373,13 +1169,11 @@ net.corda.v5.base.util.KotlinUtilsKt:
           type: kotlin.jvm.functions.Function0<String>
     detailedLogger:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: org.slf4j.Logger
     exactAdd:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: long
@@ -1389,48 +1183,41 @@ net.corda.v5.base.util.KotlinUtilsKt:
           type: long
     getDays:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.time.Duration
       params: {}
     getHours:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.time.Duration
       params: {}
     getMillis:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.time.Duration
       params: {}
     getMinutes:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.time.Duration
       params: {}
     getSeconds:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: java.time.Duration
       params: {}
     loggerFor:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final synthetic
       returnType: org.slf4j.Logger
     trace:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: void
@@ -1440,7 +1227,6 @@ net.corda.v5.base.util.KotlinUtilsKt:
           type: kotlin.jvm.functions.Function0<String>
     transient:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.util.PropertyDelegate<T>
@@ -1450,7 +1236,6 @@ net.corda.v5.base.util.KotlinUtilsKt:
           type: kotlin.jvm.functions.Function0<? extends T>
     uncheckedCast:
       annotations: *id001
-      constructor: false
       default: false
       type: public static final
       returnType: U
@@ -1467,19 +1252,16 @@ net.corda.v5.base.util.NetworkHostAndPort:
   methods:
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     component2:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.NetworkHostAndPort
@@ -1492,7 +1274,6 @@ net.corda.v5.base.util.NetworkHostAndPort:
           type: int
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1502,25 +1283,21 @@ net.corda.v5.base.util.NetworkHostAndPort:
           type: Object
     getHost:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: String
     getPort:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: int
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     parse:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.util.NetworkHostAndPort
@@ -1530,17 +1307,10 @@ net.corda.v5.base.util.NetworkHostAndPort:
           type: String
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    host:
-      annotation: [NotNull]
-      type: private final String
-    port:
-      annotation: *id001
-      type: private final int
     INVALID_PORT_FORMAT:
       annotation: [NotNull]
       type: public static final String
@@ -1553,9 +1323,6 @@ net.corda.v5.base.util.NetworkHostAndPort:
       annotation: [NotNull]
       type: public static final String
       initialised value: 'Missing port: %s'
-    bracketedHost:
-      annotation: *id001
-      type: private static final kotlin.text.Regex
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.base.util.NetworkHostAndPort.Companion
@@ -1568,7 +1335,6 @@ net.corda.v5.base.util.NetworkHostAndPort$Companion:
   methods:
     parse:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.NetworkHostAndPort
@@ -1584,7 +1350,6 @@ net.corda.v5.base.util.PropertyDelegate:
   methods:
     getValue:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: T
@@ -1604,7 +1369,6 @@ net.corda.v5.base.util.Try:
   methods:
     combine:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<C>
@@ -1617,7 +1381,6 @@ net.corda.v5.base.util.Try:
           type: kotlin.jvm.functions.Function2<? super A, ? super B, ? extends C>
     doOnFailure:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1627,7 +1390,6 @@ net.corda.v5.base.util.Try:
           type: java.util.function.Consumer<Throwable>
     doOnSuccess:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1637,7 +1399,6 @@ net.corda.v5.base.util.Try:
           type: java.util.function.Consumer<? super A>
     flatMap:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<B>
@@ -1648,25 +1409,21 @@ net.corda.v5.base.util.Try:
             extends B>>
     getOrThrow:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: A
     isFailure:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
     isSuccess:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: boolean
     map:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<B>
@@ -1676,7 +1433,6 @@ net.corda.v5.base.util.Try:
           type: kotlin.jvm.functions.Function1<? super A, ? extends B>
     'on':
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.util.Try<T>
@@ -1686,7 +1442,6 @@ net.corda.v5.base.util.Try:
           type: kotlin.jvm.functions.Function0<? extends T>
     throwError:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1703,7 +1458,6 @@ net.corda.v5.base.util.Try$Companion:
   methods:
     'on':
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<T>
@@ -1720,7 +1474,6 @@ net.corda.v5.base.util.Try$Failure:
   methods:
     combine:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<C>
@@ -1733,13 +1486,11 @@ net.corda.v5.base.util.Try$Failure:
           type: kotlin.jvm.functions.Function2<? super A, ? super B, ? extends C>
     component1:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: Throwable
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try.Failure<A>
@@ -1749,7 +1500,6 @@ net.corda.v5.base.util.Try$Failure:
           type: Throwable
     doOnFailure:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1759,7 +1509,6 @@ net.corda.v5.base.util.Try$Failure:
           type: java.util.function.Consumer<Throwable>
     doOnSuccess:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1769,7 +1518,6 @@ net.corda.v5.base.util.Try$Failure:
           type: java.util.function.Consumer<? super A>
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1779,7 +1527,6 @@ net.corda.v5.base.util.Try$Failure:
           type: Object
     flatMap:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<B>
@@ -1790,37 +1537,31 @@ net.corda.v5.base.util.Try$Failure:
             extends B>>
     getException:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: Throwable
     getOrThrow:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: A
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     isFailure:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
     isSuccess:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
     map:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<B>
@@ -1830,7 +1571,6 @@ net.corda.v5.base.util.Try$Failure:
           type: kotlin.jvm.functions.Function1<? super A, ? extends B>
     'on':
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.util.Try<T>
@@ -1840,20 +1580,15 @@ net.corda.v5.base.util.Try$Failure:
           type: kotlin.jvm.functions.Function0<? extends T>
     throwError:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    exception:
-      annotation: [NotNull]
-      type: private final Throwable
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.base.util.Try.Companion
@@ -1866,7 +1601,6 @@ net.corda.v5.base.util.Try$Success:
   methods:
     combine:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<C>
@@ -1879,13 +1613,11 @@ net.corda.v5.base.util.Try$Success:
           type: kotlin.jvm.functions.Function2<? super A, ? super B, ? extends C>
     component1:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: A
     copy:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try.Success<A>
@@ -1895,7 +1627,6 @@ net.corda.v5.base.util.Try$Success:
           type: A
     doOnFailure:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1905,7 +1636,6 @@ net.corda.v5.base.util.Try$Success:
           type: java.util.function.Consumer<Throwable>
     doOnSuccess:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
@@ -1915,7 +1645,6 @@ net.corda.v5.base.util.Try$Success:
           type: java.util.function.Consumer<? super A>
     equals:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
@@ -1925,7 +1654,6 @@ net.corda.v5.base.util.Try$Success:
           type: Object
     flatMap:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<B>
@@ -1936,37 +1664,31 @@ net.corda.v5.base.util.Try$Success:
             extends B>>
     getOrThrow:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: A
     getValue:
       annotations: *id001
-      constructor: false
       default: false
       type: public final
       returnType: A
     hashCode:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: int
     isFailure:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
     isSuccess:
       annotations: *id001
-      constructor: false
       default: false
       type: public
       returnType: boolean
     map:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<B>
@@ -1976,7 +1698,6 @@ net.corda.v5.base.util.Try$Success:
           type: kotlin.jvm.functions.Function1<? super A, ? extends B>
     'on':
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public static final
       returnType: net.corda.v5.base.util.Try<T>
@@ -1986,20 +1707,15 @@ net.corda.v5.base.util.Try$Success:
           type: kotlin.jvm.functions.Function0<? extends T>
     throwError:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: net.corda.v5.base.util.Try<A>
     toString:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public
       returnType: String
   fields:
-    value:
-      annotation: *id001
-      type: private final A
     Companion:
       annotation: [NotNull]
       type: public static final net.corda.v5.base.util.Try.Companion
@@ -2023,7 +1739,6 @@ net.corda.v5.base.util.UuidGenerator$Companion:
   methods:
     next:
       annotations: [NotNull]
-      constructor: false
       default: false
       type: public final
       returnType: java.util.UUID
@@ -2035,7 +1750,6 @@ net.corda.v5.base.util.VariablePropertyDelegate:
   methods:
     getValue:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: T
@@ -2048,7 +1762,6 @@ net.corda.v5.base.util.VariablePropertyDelegate:
           type: kotlin.reflect.KProperty<?>
     setValue:
       annotations: *id001
-      constructor: false
       default: false
       type: public abstract
       returnType: void

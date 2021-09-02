@@ -1,6 +1,7 @@
 plugins {
     id 'corda-api.common-library'
     id 'com.r3.internal.gradle.plugins.r3Publish'
+    id 'net.corda.internal.gradle.plugins.api-scanner'
     id 'org.jetbrains.kotlin.jvm'
 }
 
