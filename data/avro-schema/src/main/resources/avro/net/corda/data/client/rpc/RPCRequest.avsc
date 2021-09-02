@@ -1,11 +1,15 @@
 {
   "type": "record",
-  "name": "RPCMessage",
+  "name": "RPCRequest",
   "namespace": "net.corda.data",
   "fields": [
     {
-      "name": "key",
+      "name": "correlation-key",
       "type": "string"
+    },
+    {
+      "name": "partition",
+      "type": "int"
     },
     {
       "name": "payload",

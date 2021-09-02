@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "RPCRequest",
+  "namespace": "net.corda.data",
+  "fields": [
+    {
+      "name": "correlation-key",
+      "type": "string"
+    },
+    {
+      "name": "payload",
+      "type": "bytes"
+    }
+  ]
+}
