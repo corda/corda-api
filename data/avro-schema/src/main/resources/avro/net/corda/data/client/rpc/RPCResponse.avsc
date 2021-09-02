@@ -1,10 +1,10 @@
 {
   "type": "record",
-  "name": "RPCRequest",
+  "name": "RPCResponse",
   "namespace": "net.corda.data.client.rpc",
   "fields": [
     {
-      "name": "correlation-key",
+      "name": "correlationKey",
       "type": "string"
     },
     {
