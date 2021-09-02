@@ -22,13 +22,11 @@ class ZipExtractorInputStream(source : InputStream,
     override fun getNextEntry(): ZipEntry? {
         return super.getNextEntry()?.also { entry ->
             val newFileSystemLocation = destination.resolve(entry.name)
-            if (filter(entry)) {
-                if (entry.isDirectory) {
-                    Files.createDirectories(newFileSystemLocation)
-                } else {
-                    Files.createDirectories(newFileSystemLocation.parent)
-                    currentFile = Files.newOutputStream(destination.resolve(entry.name))
-                }
+            if (entry.isDirectory) {
+                Files.createDirectories(newFileSystemLocation)
+            } else {
+                Files.createDirectories(newFileSystemLocation.parent)
+                currentFile = Files.newOutputStream(destination.resolve(entry.name))
             }
         }
     }
@@ -59,10 +57,7 @@ class ZipExtractorInputStream(source : InputStream,
 class JarExtractorInputStream(source : InputStream,
                               private val destination : Path,
                               verify : Boolean,
-                              private val sourceLocation : String?,
-                              private val outputNameTransformer: (String) -> String = {name -> name},
-                              private val filter: (ZipEntry) -> Boolean = { true }
-                              ) : JarInputStream(source, verify) {
+                              private val sourceLocation : String?) : JarInputStream(source, verify) {
     private var currentFile : OutputStream? = null
 
     init {
@@ -80,14 +75,11 @@ class JarExtractorInputStream(source : InputStream,
         checkHasAnyEntry(nextEntry)
         return nextEntry?.also { entry ->
             val newFileSystemLocation = destination.resolve(entry.name)
-            if (filter(entry)) {
-                if (entry.isDirectory) {
-                    Files.createDirectories(newFileSystemLocation)
-                } else {
-                    Files.createDirectories(newFileSystemLocation.parent)
-                    val name = outputNameTransformer(entry.name)
-                    currentFile = Files.newOutputStream(destination.resolve(name))
-                }
+            if (entry.isDirectory) {
+                Files.createDirectories(newFileSystemLocation)
+            } else {
+                Files.createDirectories(newFileSystemLocation.parent)
+                currentFile = Files.newOutputStream(destination.resolve(entry.name))
             }
         }
     }
