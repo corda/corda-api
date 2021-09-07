@@ -54,7 +54,7 @@ class VaultStateEventCursorTest {
         thread.interrupt()
     }
 
-    @Suppress("UNCHECKED_CAST")
+    @Suppress("UNCHECKED_CAST", "NestedBlockDepth")
     private fun run() {
         while (!Thread.currentThread().isInterrupted) {
             val result = cursor.poll(50, 5.minutes);
