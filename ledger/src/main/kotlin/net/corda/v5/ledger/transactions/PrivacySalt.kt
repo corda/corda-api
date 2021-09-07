@@ -3,7 +3,6 @@ package net.corda.v5.ledger.transactions
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.types.OpaqueBytes
 import net.corda.v5.crypto.SecureHash
-import net.corda.v5.crypto.internal.secureRandomBytes
 
 /**
  * A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot
@@ -16,11 +15,6 @@ import net.corda.v5.crypto.internal.secureRandomBytes
  */
 @CordaSerializable
 class PrivacySalt(bytes: ByteArray) : OpaqueBytes(bytes) {
-    /** Constructs a salt with a randomly-generated saltLength byte value. */
-    constructor(saltLength: Int) : this(secureRandomBytes(saltLength))
-
-    /** Constructs a salt with a randomly-generated 32 byte value. */
-    constructor() : this(MINIMUM_SIZE)
 
     init {
         require(bytes.any { it != 0.toByte() }) { "Privacy salt should not be all zeros." }
