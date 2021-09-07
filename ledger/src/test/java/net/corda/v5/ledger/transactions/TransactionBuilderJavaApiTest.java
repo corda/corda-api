@@ -378,7 +378,8 @@ public class TransactionBuilderJavaApiTest {
 
     @Test
     public void setPrivacySalt() {
-        final PrivacySalt privacySaltA = new PrivacySalt();
+        byte[] bytes = "6D1687C143DF792A011A1E80670A4E4E".getBytes();
+        final PrivacySalt privacySaltA = new PrivacySalt(bytes);
         when(builderA.setPrivacySalt(privacySaltA)).thenReturn(builderB);
 
         TransactionBuilder result = builderA.setPrivacySalt(privacySaltA);

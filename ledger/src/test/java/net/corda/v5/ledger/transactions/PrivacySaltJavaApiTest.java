@@ -5,14 +5,12 @@ import org.junit.jupiter.api.Test;
 
 public class PrivacySaltJavaApiTest {
 
-    private final PrivacySalt privacySaltA = new PrivacySalt();
-    private final PrivacySalt privacySaltB = new PrivacySalt(55);
     private final byte[] bytes = "6D1687C143DF792A011A1E80670A4E4E".getBytes();
     private final PrivacySalt privacySaltC = new PrivacySalt(bytes);
 
     @Test
     public void getOffset() {
-        int result = privacySaltA.getOffset();
+        int result = privacySaltC.getOffset();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(0);
@@ -20,10 +18,10 @@ public class PrivacySaltJavaApiTest {
 
     @Test
     public void getSize() {
-        int result = privacySaltB.getSize();
+        int result = privacySaltC.getSize();
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(55);
+        Assertions.assertThat(result).isEqualTo(32);
     }
 
     @Test
