@@ -5,8 +5,6 @@ import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.contracts.Attachment
-import net.corda.v5.ledger.services.vault.AttachmentQueryCriteria
-import net.corda.v5.ledger.services.vault.AttachmentSort
 import java.io.IOException
 import java.io.InputStream
 import java.nio.file.FileAlreadyExistsException
@@ -40,25 +38,6 @@ interface AttachmentStorage : CordaServiceInjectable, CordaFlowInjectable {
      */
     @Throws(FileAlreadyExistsException::class, IOException::class)
     fun importAttachment(jar: InputStream, uploader: String, filename: String?): AttachmentId
-
-    /**
-     * Searches attachments using given criteria and sorting rules.
-     *
-     * @param criteria The [AttachmentQueryCriteria] to use as a filter.
-     * @param sorting The [AttachmentSort] definition.
-     *
-     * @return List of [AttachmentId]s of attachments matching criteria, sorted according to given sorting parameter.
-     */
-    fun queryAttachments(criteria: AttachmentQueryCriteria, sorting: AttachmentSort): List<AttachmentId>
-
-    /**
-     * Searches attachments using given criteria and sorting rules.
-     *
-     * @param criteria The [AttachmentQueryCriteria] to use as a filter.
-     *
-     * @return List of [AttachmentId]s of attachments matching criteria, sorted according to given sorting parameter.
-     */
-    fun queryAttachments(criteria: AttachmentQueryCriteria): List<AttachmentId>
 
     /**
      * Checks if an attachment already exists.
