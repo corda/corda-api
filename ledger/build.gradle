@@ -1,0 +1,59 @@
+plugins {
+    id 'corda-api.common-library'
+    id 'com.r3.internal.gradle.plugins.r3Publish'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+description 'Corda Ledger'
+
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
+    implementation "net.corda.kotlin:kotlin-stdlib-jdk8-osgi:$kotlinVersion"
+    // Concluded this is the one acceptable dependency in addition to kotlin.
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation("org.hibernate:hibernate-osgi:$hibernateVersion") {
+        exclude group: 'org.osgi'
+    }
+    api "javax.persistence:javax.persistence-api:$persistenceApiVersion"
+
+    implementation project(":crypto")
+    implementation project(":serialization")
+    implementation project(":application")
+    implementation project(":persistence")
+
+    testImplementation project(path: ":application", configuration: "testArtifacts")
+    testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+
+    compileOnly "org.osgi:osgi.core:$osgiVersion"
+    compileOnly "org.osgi:osgi.annotation:$osgiVersion"
+}
+
+// Added to facilitate core-tests
+configurations {
+    testArtifacts.extendsFrom testRuntimeClasspath
+}
+
+tasks.named('jar', Jar) {
+    archiveBaseName = 'corda-ledger'
+    bnd """\
+Bundle-Name: Corda ledger API
+Bundle-SymbolicName: \${project.group}.ledger
+Import-Package:\
+    org.hibernate.proxy,\
+    *
+"""
+}
+
+// Added to facilitate core-tests
+def testJar = tasks.register('testJar', Jar) {
+    archiveClassifier = "tests"
+    from sourceSets.test.output
+}
+
+// Added to facilitate core-tests
+// Exposes test classes for other modules
+artifacts {
+    testArtifacts testJar
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexMethod:Amount.kt$AmountTransfer$ override fun equals(other: Any?): Boolean</ID>
+    <ID>ForbiddenComment:TransactionUtils.kt$// TODO: add link to docsite page, when there is one.</ID>
+    <ID>ForbiddenComment:TransactionVerificationException.kt$TransactionVerificationException$// TODO: Make this descend from TransactionVerificationException so that untrusted attachments cause flows to be hospitalized.</ID>
+    <ID>ForbiddenComment:TransactionVerificationException.kt$TransactionVerificationException.TransactionRequiredContractUnspecifiedException$// TODO: add reference to documentation</ID>
+    <ID>MatchingDeclarationName:ContractsDSL.kt$Requirements</ID>
+    <ID>NestedBlockDepth:Amount.kt$Amount.Companion$ @JvmStatic fun parseCurrency(input: String): Amount&lt;Currency&gt;</ID>
+    <ID>SpreadOperator:TransactionBuilder.kt$TransactionBuilder$(*keys)</ID>
+    <ID>SpreadOperator:TransactionWithSignatures.kt$TransactionWithSignatures$(*allowedToBeMissing)</ID>
+    <ID>TooGenericExceptionCaught:Amount.kt$Amount.Companion$e: Exception</ID>
+    <ID>TooManyFunctions:LedgerTransaction.kt$LedgerTransaction : FullTransaction</ID>
+    <ID>TooManyFunctions:LedgerTransaction.kt$net.corda.v5.ledger.transactions.LedgerTransaction.kt</ID>
+    <ID>TooManyFunctions:QueryCriteria.kt$QueryCriteria$VaultQueryCriteria : CommonQueryCriteria</ID>
+    <ID>TooManyFunctions:QueryCriteriaUtils.kt$Builder$Builder</ID>
+    <ID>TooManyFunctions:TransactionBuilder.kt$TransactionBuilder</ID>
+  </CurrentIssues>
+</SmellBaseline>
