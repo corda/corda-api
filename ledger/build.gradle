@@ -6,7 +6,6 @@ plugins {
 
 description 'Corda Ledger'
 
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
     implementation "net.corda.kotlin:kotlin-stdlib-jdk8-osgi:$kotlinVersion"
@@ -30,11 +29,6 @@ dependencies {
     compileOnly "org.osgi:osgi.annotation:$osgiVersion"
 }
 
-// Added to facilitate core-tests
-configurations {
-    testArtifacts.extendsFrom testRuntimeClasspath
-}
-
 tasks.named('jar', Jar) {
     archiveBaseName = 'corda-ledger'
     bnd """\
@@ -44,16 +38,4 @@ Import-Package:\
     org.hibernate.proxy,\
     *
 """
-}
-
-// Added to facilitate core-tests
-def testJar = tasks.register('testJar', Jar) {
-    archiveClassifier = "tests"
-    from sourceSets.test.output
-}
-
-// Added to facilitate core-tests
-// Exposes test classes for other modules
-artifacts {
-    testArtifacts testJar
 }

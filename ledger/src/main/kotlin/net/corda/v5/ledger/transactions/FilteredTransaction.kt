@@ -75,10 +75,12 @@ interface FilteredTransaction : TraversableTransaction {
  * This is similar to [ComponentGroup], but it also includes the corresponding nonce per component.
  */
 @CordaSerializable
-data class FilteredComponentGroup(override val groupIndex: Int,
-                                  override val components: List<OpaqueBytes>,
-                                  val nonces: List<SecureHash>,
-                                  val partialMerkleTree: PartialMerkleTree) : ComponentGroup(groupIndex, components) {
+data class FilteredComponentGroup(
+    override val groupIndex: Int,
+    override val components: List<OpaqueBytes>,
+    val nonces: List<SecureHash>,
+    val partialMerkleTree: PartialMerkleTree
+) : ComponentGroup(groupIndex, components) {
     init {
         check(components.size == nonces.size) { "Size of transaction components and nonces do not match" }
     }
