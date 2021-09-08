@@ -2,28 +2,34 @@
   "type": "record",
   "name": "WireSigningResponse",
   "namespace": "net.corda.data.crypto.wire.signing",
+  "doc": "Internal over-the-wire response for crypto's [SigningService] operations",
   "fields": [
     {
       "name": "requestingComponent",
-      "type": "string"
+      "type": "string",
+      "doc": "Name of the component which requested the operation, copied from the corresponding request"
     },
     {
       "name": "requestTimestamp",
       "type": "long",
-      "logicalType": "timestamp-millis"
+      "logicalType": "timestamp-millis",
+      "doc": "Time ([Instant]) in milliseconds of the request, copied from the corresponding request"
     },
     {
       "name": "responseTimestamp",
       "type": "long",
-      "logicalType": "timestamp-millis"
+      "logicalType": "timestamp-millis",
+      "doc": "Time ([Instant]) in milliseconds of the response"
     },
     {
       "name": "correlation",
-      "type": "string"
+      "type": "string",
+      "doc": "Optional correlation id, copied from the corresponding request"
     },
     {
       "name": "memberId",
-      "type": "string"
+      "type": "string",
+      "doc": "Member's ID on which behalf the request is made, copied from the corresponding request"
     },
     {
       "name": "response",
@@ -33,7 +39,8 @@
         "net.corda.data.crypto.wire.WireSignature",
         "net.corda.data.crypto.wire.WireSignatureWithKey",
         "net.corda.data.crypto.wire.WireSignatureSchemes"
-      ]
+      ],
+      "doc": "Response's payload, depends on the requested operation"
     }
   ]
 }

@@ -2,10 +2,12 @@
   "type": "record",
   "name": "WirePublicKey",
   "namespace": "net.corda.data.crypto.wire",
+  "doc": "Internal over-the-wire public key serialised as byte array for crypto services.",
   "fields": [
     {
       "name": "key",
-      "type": "bytes"
+      "type": "bytes",
+      "doc": "Encoded public key"
     }
   ]
 }
