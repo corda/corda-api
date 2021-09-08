@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "Response",
+  "namespace": "net.corda.data.crypto.services.signing",
+  "fields": [
+    {
+      "name": "response",
+      "type": [
+        "null",
+        "net.corda.data.crypto.services.SerializedPublicKey",
+        "net.corda.data.crypto.services.DigitalSignature",
+        "net.corda.data.crypto.services.DigitalSignatureWithKey"
+      ]
+    }
+  ]
+}

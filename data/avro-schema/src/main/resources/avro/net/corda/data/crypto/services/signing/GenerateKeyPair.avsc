@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "GenerateKeyPair",
+  "namespace": "net.corda.data.crypto.services.signing",
+  "fields": [
+    {
+      "name": "alias",
+      "type": "string"
+    }
+  ]
+}

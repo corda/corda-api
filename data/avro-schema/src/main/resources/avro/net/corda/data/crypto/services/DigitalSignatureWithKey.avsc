@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "DigitalSignatureWithKey",
+  "namespace": "net.corda.data.crypto.services",
+  "fields": [
+    {
+      "name": "by",
+      "type": "string"
+    },
+    {
+      "name": "bytes",
+      "type": "bytes"
+    }
+  ]
+}

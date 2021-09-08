@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "SignatureSpec",
+  "namespace": "net.corda.data.crypto.services",
+  "fields": [
+    {
+      "name": "signatureName",
+      "type": "string"
+    },
+    {
+      "name": "customDigestName",
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  ]
+}

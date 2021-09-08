@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "SerializedPublicKey",
+  "namespace": "net.corda.data.crypto.services",
+  "fields": [
+    {
+      "name": "key",
+      "type": "string"
+    }
+  ]
+}

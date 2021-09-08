@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "Response",
+  "namespace": "net.corda.data.crypto.services.freshkeys",
+  "fields": [
+    {
+      "name": "response",
+      "type": [
+        "net.corda.data.crypto.services.SerializedPublicKey",
+        "net.corda.data.crypto.services.SerializedPublicKeys",
+        "net.corda.data.crypto.services.DigitalSignatureWithKey"
+      ]
+    }
+  ]
+}

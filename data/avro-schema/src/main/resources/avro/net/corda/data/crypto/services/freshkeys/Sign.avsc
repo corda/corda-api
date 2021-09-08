@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "Sign",
+  "namespace": "net.corda.data.crypto.services.freshkeys",
+  "fields": [
+    {
+      "name": "publicKey",
+      "type": "string"
+    },
+    {
+      "name": "signatureSpec",
+      "type": [
+        "null",
+        "net.corda.data.crypto.services.SignatureSpec"
+      ]
+    },
+    {
+      "name": "bytes",
+      "type": "bytes"
+    }
+  ]
+}

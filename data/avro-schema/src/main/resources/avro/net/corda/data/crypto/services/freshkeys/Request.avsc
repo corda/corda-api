@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "Request",
+  "namespace": "net.corda.data.crypto.services.freshkeys",
+  "fields": [
+    {
+      "name": "request",
+      "type": [
+        "FreshKey",
+        "EnsureWrappingKey",
+        "Sign",
+        "FilterMyKeys"
+      ]
+    }
+  ]
+}

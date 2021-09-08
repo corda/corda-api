@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "FilterMyKeys",
+  "namespace": "net.corda.data.crypto.services.freshkeys",
+  "fields": [
+    {
+      "name": "keys",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}
