@@ -21,7 +21,6 @@ dependencies {
     implementation project(":application")
     implementation project(":persistence")
 
-    testImplementation project(path: ":application", configuration: "testArtifacts")
     testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
     testImplementation "org.assertj:assertj-core:$assertjVersion"
