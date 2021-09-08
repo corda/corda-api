@@ -24,6 +24,7 @@ dependencies {
     testImplementation project(path: ":application", configuration: "testArtifacts")
     testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
 
     compileOnly "org.osgi:osgi.core:$osgiVersion"
     compileOnly "org.osgi:osgi.annotation:$osgiVersion"
