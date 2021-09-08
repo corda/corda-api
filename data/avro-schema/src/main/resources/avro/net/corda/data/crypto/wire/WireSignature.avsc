@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "DigitalSignature",
-  "namespace": "net.corda.data.crypto.services",
+  "name": "WireSignature",
+  "namespace": "net.corda.data.crypto.wire",
   "fields": [
     {
       "name": "bytes",

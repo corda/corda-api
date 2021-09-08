@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "WireFreshKeysFreshKey",
+  "namespace": "net.corda.data.crypto.wire.freshkeys",
+  "fields": [
+    {
+      "name": "externalId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "logicalType": "uuid"
+        }
+      ]
+    }
+  ]
+}

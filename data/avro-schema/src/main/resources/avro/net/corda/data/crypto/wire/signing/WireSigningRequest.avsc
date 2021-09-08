@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "WireSigningRequest",
+  "namespace": "net.corda.data.crypto.wire.signing",
+  "fields": [
+    {
+      "name": "requestingComponent",
+      "type": "string"
+    },
+    {
+      "name": "requestTimestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "correlation",
+      "type": "string"
+    },
+    {
+      "name": "memberId",
+      "type": "string"
+    },
+    {
+      "name": "request",
+      "type": [
+        "WireSigningFindPublicKey",
+        "WireSigningGenerateKeyPair",
+        "WireSigningSign",
+        "WireSigningGetSupportedSchemes"
+      ]
+    }
+  ]
+}

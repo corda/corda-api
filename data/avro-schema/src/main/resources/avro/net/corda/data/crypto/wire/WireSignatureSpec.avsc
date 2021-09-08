@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "SignatureSpec",
-  "namespace": "net.corda.data.crypto.services",
+  "name": "WireSignatureSpec",
+  "namespace": "net.corda.data.crypto.wire",
   "fields": [
     {
       "name": "signatureName",

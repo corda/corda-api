@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "WireSigningGetSupportedSchemes",
+  "namespace": "net.corda.data.crypto.wire.signing",
+  "fields": [
+  ]
+}

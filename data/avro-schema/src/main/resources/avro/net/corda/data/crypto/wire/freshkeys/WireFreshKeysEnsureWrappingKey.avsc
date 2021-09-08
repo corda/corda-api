@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "WireFreshKeysEnsureWrappingKey",
+  "namespace": "net.corda.data.crypto.wire.freshkeys",
+  "fields": [
+  ]
+}

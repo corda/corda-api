@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "WireSignatureWithKey",
+  "namespace": "net.corda.data.crypto.wire",
+  "fields": [
+    {
+      "name": "publicKey",
+      "type": "bytes"
+    },
+    {
+      "name": "bytes",
+      "type": "bytes"
+    }
+  ]
+}

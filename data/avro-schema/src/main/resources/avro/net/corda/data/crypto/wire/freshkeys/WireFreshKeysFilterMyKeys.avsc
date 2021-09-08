@@ -1,13 +1,13 @@
 {
   "type": "record",
-  "name": "SerializedPublicKeys",
-  "namespace": "net.corda.data.crypto.services",
+  "name": "WireFreshKeysFilterMyKeys",
+  "namespace": "net.corda.data.crypto.wire.freshkeys",
   "fields": [
     {
       "name": "keys",
       "type": {
         "type": "array",
-        "items": "string"
+        "items": "bytes"
       }
     }
   ]

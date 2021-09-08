@@ -1,7 +1,0 @@
-{
-  "type": "record",
-  "name": "GetSupportedSchemes",
-  "namespace": "net.corda.data.crypto.services.signing",
-  "fields": [
-  ]
-}

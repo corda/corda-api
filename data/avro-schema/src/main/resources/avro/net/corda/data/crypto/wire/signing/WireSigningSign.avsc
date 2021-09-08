@@ -1,13 +1,13 @@
 {
   "type": "record",
-  "name": "Sign",
-  "namespace": "net.corda.data.crypto.services.signing",
+  "name": "WireSigningSign",
+  "namespace": "net.corda.data.crypto.wire.signing",
   "fields": [
     {
       "name": "publicKey",
       "type": [
         "null",
-        "string"
+        "bytes"
       ]
     },
     {
@@ -21,7 +21,7 @@
       "name": "signatureSpec",
       "type": [
         "null",
-        "net.corda.data.crypto.services.SignatureSpec"
+        "net.corda.data.crypto.wire.WireSignatureSpec"
       ]
     },
     {

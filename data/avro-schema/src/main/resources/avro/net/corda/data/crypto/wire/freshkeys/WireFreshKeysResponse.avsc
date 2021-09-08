@@ -1,0 +1,37 @@
+{
+  "type": "record",
+  "name": "WireFreshKeysResponse",
+  "namespace": "net.corda.data.crypto.wire.freshkeys",
+  "fields": [
+    {
+      "name": "requestingComponent",
+      "type": "string"
+    },
+    {
+      "name": "requestTimestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "responseTimestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "correlation",
+      "type": "string"
+    },
+    {
+      "name": "memberId",
+      "type": "string"
+    },
+    {
+      "name": "response",
+      "type": [
+        "net.corda.data.crypto.wire.WirePublicKey",
+        "net.corda.data.crypto.wire.WirePublicKeys",
+        "net.corda.data.crypto.wire.WireSignatureWithKey"
+      ]
+    }
+  ]
+}

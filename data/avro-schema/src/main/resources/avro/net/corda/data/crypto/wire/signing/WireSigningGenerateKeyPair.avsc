@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "FindPublicKey",
-  "namespace": "net.corda.data.crypto.services.signing",
+  "name": "WireSigningGenerateKeyPair",
+  "namespace": "net.corda.data.crypto.wire.signing",
   "fields": [
     {
       "name": "alias",
