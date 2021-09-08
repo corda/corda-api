@@ -14,7 +14,7 @@ dependencies {
     implementation("org.hibernate:hibernate-osgi:$hibernateVersion") {
         exclude group: 'org.osgi'
     }
-    api "javax.persistence:javax.persistence-api:$persistenceApiVersion"
+    api "javax.persistence:javax.persistence-api:$javaxPersistenceApiVersion"
 
     implementation project(":crypto")
     implementation project(":serialization")
