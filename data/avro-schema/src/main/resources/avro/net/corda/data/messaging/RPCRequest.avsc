@@ -2,19 +2,23 @@
   "type": "record",
   "name": "RPCRequest",
   "namespace": "net.corda.data.messaging",
+  "doc": "Request envelope for inter node communication",
   "fields": [
     {
       "name": "correlationKey",
-      "type": "string"
+      "type": "string",
+      "doc": "Unique identifier"
     },
     {
       "name": "sendTime",
       "type": "long",
       "logicalType": "timestamp-millis",
+      "doc": "Time ([Instant]) in milliseconds of the request"
     },
     {
       "name": "partition",
-      "type": "int"
+      "type": "int",
+      "doc": "The partition we expect the response to be on"
     },
     {
       "name": "payload",

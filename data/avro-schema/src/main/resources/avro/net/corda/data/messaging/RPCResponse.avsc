@@ -2,21 +2,28 @@
   "type": "record",
   "name": "RPCResponse",
   "namespace": "net.corda.data.messaging",
+  "doc": "Response envelope for inter node communication",
   "fields": [
     {
       "name": "correlationKey",
-      "type": "string"
+      "type": "string",
+      "doc": "Unique identifier"
     },
     {
       "name": "sendTime",
       "type": "long",
       "logicalType": "timestamp-millis",
+      "doc": "Time ([Instant]) in milliseconds of the response"
     },
     {
-      "name": "status",
-      "type": "enum",
-      "symbols" : ["OK", "FAILED", "CANCELLED"]
-    }
+      "name": "responseStatus",
+      "type": {
+        "type": "enum",
+        "name": "status",
+        "symbols": ["OK", "FAILED", "CANCELLED"]
+      },
+      "doc": "Status enum on the response to help with response handling"
+    },
     {
       "name": "payload",
       "type": "bytes"
