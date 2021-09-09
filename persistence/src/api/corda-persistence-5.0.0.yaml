@@ -1,82 +1,93 @@
 net.corda.v5.persistence.CordaPersistenceException:
-  annotations: &id001 []
+  annotations: []
   type: public final class
   extends: net.corda.v5.base.exceptions.CordaRuntimeException
-  implements: *id001
+  implements: []
   interface: false
   methods: {}
 net.corda.v5.persistence.MappedSchema:
-  annotations: *id001
+  annotations: []
   type: public class
   extends: null
-  implements: *id001
+  implements: []
   interface: false
   methods:
     equals:
-      annotations: *id001
+      annotations: []
       default: false
       type: public
       returnType: boolean
       params:
         other:
-          annotation: [Nullable]
+          annotation:
+            - Nullable
           type: Object
     getMappedTypes:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: Iterable<Class<?>>
     getMigrationResource:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public
       returnType: String
     getName:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: String
     getVersion:
-      annotations: *id001
+      annotations: []
       default: false
       type: public final
       returnType: int
     hashCode:
-      annotations: *id001
+      annotations: []
       default: false
       type: public
       returnType: int
     toString:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public
       returnType: String
 net.corda.v5.persistence.UUIDConverter:
-  annotations: *id001
+  annotations: []
   type: public final class
   extends: null
-  implements: [javax.persistence.AttributeConverter]
+  implements:
+    - javax.persistence.AttributeConverter
   interface: false
   methods:
     convertToDatabaseColumn:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public
       returnType: String
       params:
         uuid:
-          annotation: [Nullable]
+          annotation:
+            - Nullable
           type: java.util.UUID
     convertToEntityAttribute:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public
       returnType: java.util.UUID
       params:
         dbData:
-          annotation: [Nullable]
+          annotation:
+            - Nullable
           type: String
   fields:
     INSTANCE:
-      annotation: [NotNull]
+      annotation:
+        - NotNull
       type: public static final net.corda.v5.persistence.UUIDConverter

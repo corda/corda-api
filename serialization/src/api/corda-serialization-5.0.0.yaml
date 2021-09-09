@@ -1,698 +1,793 @@
 net.corda.v5.serialization.CheckpointCustomSerializer:
-  annotations: &id001 []
+  annotations: []
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     fromProxy:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: OBJ
       params:
         proxy:
-          annotation: *id001
+          annotation: []
           type: PROXY
     toProxy:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: PROXY
       params:
         obj:
-          annotation: *id001
+          annotation: []
           type: OBJ
 net.corda.v5.serialization.ClassWhitelist:
-  annotations: *id001
+  annotations: []
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     hasListed:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: boolean
       params:
         type:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Class<?>
 net.corda.v5.serialization.ContextPropertyKeys:
-  annotations: *id001
+  annotations: []
   type: public final class
   extends: java.lang.Enum
-  implements: *id001
+  implements: []
   interface: false
   methods:
     valueOf:
-      annotations: *id001
+      annotations: []
       default: false
       type: public static
       returnType: net.corda.v5.serialization.ContextPropertyKeys
       params:
-        null:
-          annotation: *id001
+        "null":
+          annotation: []
           type: String
     values:
-      annotations: *id001
+      annotations: []
       default: false
       type: public static
-      returnType: net.corda.v5.serialization.ContextPropertyKeys[]
+      returnType: "net.corda.v5.serialization.ContextPropertyKeys[]"
 net.corda.v5.serialization.EncodingWhitelist:
-  annotations: [DoNotImplement]
+  annotations:
+    - DoNotImplement
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     acceptEncoding:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: boolean
       params:
         encoding:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializationEncoding
 net.corda.v5.serialization.MissingSerializerException:
-  annotations: *id001
+  annotations: []
   type: public class
   extends: java.io.NotSerializableException
-  implements: *id001
+  implements: []
   interface: false
   methods:
     getTypeDescriptor:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public final
       returnType: String
     getTypeNames:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: java.util.List<String>
 net.corda.v5.serialization.ObjectWithCompatibleContext:
-  annotations: *id001
+  annotations: []
   type: public final class
   extends: null
-  implements: *id001
+  implements: []
   interface: false
   methods:
     component1:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: T
     component2:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationContext
     copy:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: net.corda.v5.serialization.ObjectWithCompatibleContext<T>
       params:
         obj:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: T
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializationContext
     equals:
-      annotations: *id001
+      annotations: []
       default: false
       type: public
       returnType: boolean
       params:
-        null:
-          annotation: [Nullable]
+        "null":
+          annotation:
+            - Nullable
           type: Object
     getContext:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationContext
     getObj:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: T
     hashCode:
-      annotations: *id001
+      annotations: []
       default: false
       type: public
       returnType: int
     toString:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public
       returnType: String
 net.corda.v5.serialization.SerializationAPIKt:
-  annotations: *id001
+  annotations: []
   type: public final class
   extends: null
-  implements: *id001
+  implements: []
   interface: false
   methods:
     withWhitelist:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public static final
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         classes:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: java.util.List<? extends Class<?>>
 net.corda.v5.serialization.SerializationContext:
-  annotations: [DoNotImplement]
+  annotations:
+    - DoNotImplement
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     getClassInfoService:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public abstract
       returnType: Object
     getCustomSerializers:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public abstract
-      returnType: java.util.Set<net.corda.v5.serialization.SerializationCustomSerializer<?,
-        ?>>
+      returnType: "java.util.Set<net.corda.v5.serialization.SerializationCustomSerializer<?,\
+        \ ?>>"
     getDeserializationClassLoader:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: ClassLoader
     getEncoding:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationEncoding
     getEncodingWhitelist:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.EncodingWhitelist
     getObjectReferencesEnabled:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: boolean
     getPreferredSerializationVersion:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.base.types.ByteSequence
     getPreventDataLoss:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: boolean
     getProperties:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
-      returnType: java.util.Map<Object, Object>
+      returnType: "java.util.Map<Object, Object>"
     getSandboxGroup:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public abstract
       returnType: Object
     getUseCase:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext.UseCase
     getWhitelist:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.ClassWhitelist
     withClassInfoService:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         classInfoService:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Object
     withClassLoader:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         classLoader:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: ClassLoader
     withCustomSerializers:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         serializers:
-          annotation: [NotNull]
-          type: java.util.Set<? extends net.corda.v5.serialization.SerializationCustomSerializer<?,
-            ?>>
+          annotation:
+            - NotNull
+          type: "java.util.Set<? extends net.corda.v5.serialization.SerializationCustomSerializer<?,\
+            \ ?>>"
     withEncoding:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         encoding:
-          annotation: [Nullable]
+          annotation:
+            - Nullable
           type: net.corda.v5.serialization.SerializationEncoding
     withEncodingWhitelist:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         encodingWhitelist:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.EncodingWhitelist
     withPreferredSerializationVersion:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         magic:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.base.types.ByteSequence
     withPreventDataLoss:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
     withProperty:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         property:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Object
         value:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Object
     withSandboxGroup:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         sandboxGroup:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Object
     withWhitelisted:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
       params:
         clazz:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Class<?>
     withoutReferences:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationContext
 net.corda.v5.serialization.SerializationContext$UseCase:
-  annotations: *id001
+  annotations: []
   type: public static final class
   extends: java.lang.Enum
-  implements: *id001
+  implements: []
   interface: false
   methods:
     valueOf:
-      annotations: *id001
+      annotations: []
       default: false
       type: public static
       returnType: net.corda.v5.serialization.SerializationContext.UseCase
       params:
-        null:
-          annotation: *id001
+        "null":
+          annotation: []
           type: String
     values:
-      annotations: *id001
+      annotations: []
       default: false
       type: public static
-      returnType: net.corda.v5.serialization.SerializationContext.UseCase[]
+      returnType: "net.corda.v5.serialization.SerializationContext.UseCase[]"
 net.corda.v5.serialization.SerializationCustomSerializer:
-  annotations: *id001
+  annotations: []
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     fromProxy:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: OBJ
       params:
         proxy:
-          annotation: *id001
+          annotation: []
           type: PROXY
     toProxy:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: PROXY
       params:
         obj:
-          annotation: *id001
+          annotation: []
           type: OBJ
 net.corda.v5.serialization.SerializationEncoding:
-  annotations: [DoNotImplement]
+  annotations:
+    - DoNotImplement
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods: {}
 net.corda.v5.serialization.SerializationFactory:
-  annotations: *id001
+  annotations: []
   type: public abstract class
   extends: null
-  implements: *id001
+  implements: []
   interface: false
   methods:
     asCurrent:
-      annotations: *id001
+      annotations: []
       default: false
       type: public final
       returnType: T
       params:
         block:
-          annotation: [NotNull]
-          type: kotlin.jvm.functions.Function1<? super net.corda.v5.serialization.SerializationFactory,
-            ? extends T>
+          annotation:
+            - NotNull
+          type: "kotlin.jvm.functions.Function1<? super net.corda.v5.serialization.SerializationFactory,\
+            \ ? extends T>"
     deserialize:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: T
       params:
         byteSequence:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.base.types.ByteSequence
         clazz:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Class<T>
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializationContext
     deserializeWithCompatibleContext:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.ObjectWithCompatibleContext<T>
       params:
         byteSequence:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.base.types.ByteSequence
         clazz:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: Class<T>
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializationContext
     getCurrentContext:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationContext
     serialize:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializedBytes<T>
       params:
         obj:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: T
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializationContext
     withCurrentContext:
-      annotations: *id001
+      annotations: []
       default: false
       type: public final
       returnType: T
       params:
         context:
-          annotation: [Nullable]
+          annotation:
+            - Nullable
           type: net.corda.v5.serialization.SerializationContext
         block:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: kotlin.jvm.functions.Function0<? extends T>
   fields:
     Companion:
-      annotation: [NotNull]
+      annotation:
+        - NotNull
       type: public static final net.corda.v5.serialization.SerializationFactory.Companion
 net.corda.v5.serialization.SerializationFactory$Companion:
-  annotations: *id001
+  annotations: []
   type: public static final class
   extends: null
-  implements: *id001
+  implements: []
   interface: false
   methods:
     getCurrentFactory:
-      annotations: [Nullable]
+      annotations:
+        - Nullable
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SerializationFactory
 net.corda.v5.serialization.SerializationToken:
-  annotations: *id001
+  annotations: []
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     fromToken:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: Object
       params:
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsTokenContext
 net.corda.v5.serialization.SerializationWhitelist:
-  annotations: *id001
+  annotations: []
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     getWhitelist:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: java.util.List<Class<?>>
 net.corda.v5.serialization.SerializeAsToken:
-  annotations: [CordaSerializable]
+  annotations:
+    - CordaSerializable
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     toToken:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializationToken
       params:
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsTokenContext
 net.corda.v5.serialization.SerializeAsTokenContext:
-  annotations: *id001
+  annotations: []
   type: public interface
-  extends: *id001
+  extends: []
   interface: true
   methods:
     fromIdentifier:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.serialization.SerializeAsToken
       params:
         id:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: String
     withIdentifier:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: void
       params:
         id:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: String
         toBeTokenized:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsToken
 net.corda.v5.serialization.SerializedBytes:
-  annotations: [CordaSerializable]
+  annotations:
+    - CordaSerializable
   type: public final class
   extends: net.corda.v5.base.types.OpaqueBytes
-  implements: *id001
+  implements: []
   interface: false
   methods:
     getSummary:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: String
 net.corda.v5.serialization.SingletonSerializationToken:
-  annotations: *id001
+  annotations: []
   type: public final class
   extends: null
-  implements: [net.corda.v5.serialization.SerializationToken]
+  implements:
+    - net.corda.v5.serialization.SerializationToken
   interface: false
   methods:
     fromToken:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public
       returnType: net.corda.v5.serialization.SerializeAsToken
       params:
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsTokenContext
     getClassName:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: String
     registerWithContext:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SingletonSerializationToken
       params:
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsTokenContext
         toBeTokenized:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsToken
     singletonSerializationToken:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public static final
       returnType: net.corda.v5.serialization.SingletonSerializationToken
       params:
         className:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: String
   fields:
     Companion:
-      annotation: [NotNull]
+      annotation:
+        - NotNull
       type: public static final net.corda.v5.serialization.SingletonSerializationToken.Companion
 net.corda.v5.serialization.SingletonSerializationToken$Companion:
-  annotations: *id001
+  annotations: []
   type: public static final class
   extends: null
-  implements: *id001
+  implements: []
   interface: false
   methods:
     singletonSerializationToken:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: false
       type: public final
       returnType: net.corda.v5.serialization.SingletonSerializationToken
       params:
         className:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: String
 net.corda.v5.serialization.SingletonSerializeAsToken:
-  annotations: [CordaSerializable]
+  annotations:
+    - CordaSerializable
   type: public interface
-  extends: [net.corda.v5.serialization.SerializeAsToken]
+  extends:
+    - net.corda.v5.serialization.SerializeAsToken
   interface: true
   methods:
     getTokenName:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: true
       type: public
       returnType: String
     toToken:
-      annotations: [NotNull]
+      annotations:
+        - NotNull
       default: true
       type: public
       returnType: net.corda.v5.serialization.SingletonSerializationToken
       params:
         context:
-          annotation: [NotNull]
+          annotation:
+            - NotNull
           type: net.corda.v5.serialization.SerializeAsTokenContext
 net.corda.v5.serialization.annotations.ConstructorForDeserialization:
-  annotations: *id001
+  annotations: []
   type: public @interface
   interface: false
   methods: {}
 net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault:
-  annotations: *id001
+  annotations: []
   type: public @interface
   interface: false
   methods:
     new:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: String
     old:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: String
 net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefaults:
-  annotations: *id001
+  annotations: []
   type: public @interface
   interface: false
   methods:
     value:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
-      returnType: net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault[]
+      returnType: "net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault[]"
 net.corda.v5.serialization.annotations.CordaSerializationTransformRename:
-  annotations: *id001
+  annotations: []
   type: public @interface
   interface: false
   methods:
     from:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: String
     to:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: String
 net.corda.v5.serialization.annotations.CordaSerializationTransformRenames:
-  annotations: *id001
+  annotations: []
   type: public @interface
   interface: false
   methods:
     value:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
-      returnType: net.corda.v5.serialization.annotations.CordaSerializationTransformRename[]
+      returnType: "net.corda.v5.serialization.annotations.CordaSerializationTransformRename[]"
 net.corda.v5.serialization.annotations.DeprecatedConstructorForDeserialization:
-  annotations: *id001
+  annotations: []
   type: public @interface
   interface: false
   methods:
     version:
-      annotations: *id001
+      annotations: []
       default: false
       type: public abstract
       returnType: int
