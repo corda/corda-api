@@ -28,14 +28,3 @@ dependencies {
     compileOnly "org.osgi:osgi.core:$osgiVersion"
     compileOnly "org.osgi:osgi.annotation:$osgiVersion"
 }
-
-tasks.named('jar', Jar) {
-    archiveBaseName = 'corda-ledger'
-    bnd """\
-Bundle-Name: Corda ledger API
-Bundle-SymbolicName: \${project.group}.ledger
-Import-Package:\
-    org.hibernate.proxy,\
-    *
-"""
-}
