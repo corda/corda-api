@@ -8,6 +8,10 @@
       "type": "string"
     },
     {
+      "name": "sendTime",
+      "type": "timestamp"
+    },
+    {
       "name": "partition",
       "type": "int"
     },

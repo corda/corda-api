@@ -8,6 +8,15 @@
       "type": "string"
     },
     {
+      "name": "sendTime",
+      "type": "timestamp"
+    },
+    {
+      "name": "status",
+      "type": "enum",
+      "symbols" : ["OK", "FAILED", "CANCELLED"]
+    }
+    {
       "name": "payload",
       "type": "bytes"
     }
