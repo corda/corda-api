@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "WireFreshKeysRequest",
+  "namespace": "net.corda.data.crypto.wire.freshkeys",
+  "doc": "Internal over-the-wire request for crypto's [FreshKeysSigningService], the service operations are multiplexed",
+  "fields": [
+    {
+      "name": "context",
+      "type": "net.corda.data.crypto.wire.WireRequestContext",
+      "doc": "Request context, member id, timestamp, etc."
+    },
+    {
+      "name": "request",
+      "type": [
+        "WireFreshKeysFreshKey",
+        "WireFreshKeysEnsureWrappingKey",
+        "WireFreshKeysSign",
+        "WireFreshKeysSignWithSpec",
+        "WireFreshKeysFilterMyKeys"
+      ],
+      "doc": "Request's payload, depends on the requested operation"
+    }
+  ]
+}
