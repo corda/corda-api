@@ -15,6 +15,9 @@
         "WireSigningFindPublicKey",
         "WireSigningGenerateKeyPair",
         "WireSigningSign",
+        "WireSigningSignWithSpec",
+        "WireSigningSignWithAlias",
+        "WireSigningSignWithAliasSpec",
         "WireSigningGetSupportedSchemes"
       ],
       "doc": "Request's payload, depends on the requested operation"

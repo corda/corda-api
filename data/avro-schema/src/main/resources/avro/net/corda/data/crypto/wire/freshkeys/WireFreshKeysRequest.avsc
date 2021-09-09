@@ -15,6 +15,7 @@
         "WireFreshKeysFreshKey",
         "WireFreshKeysEnsureWrappingKey",
         "WireFreshKeysSign",
+        "WireFreshKeysSignWithSpec",
         "WireFreshKeysFilterMyKeys"
       ],
       "doc": "Request's payload, depends on the requested operation"
