@@ -9,7 +9,8 @@
     },
     {
       "name": "sendTime",
-      "type": "timestamp"
+      "type": "long",
+      "logicalType": "timestamp-millis",
     },
     {
       "name": "partition",
