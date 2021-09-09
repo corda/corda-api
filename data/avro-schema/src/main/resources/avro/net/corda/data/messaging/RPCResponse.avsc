@@ -19,7 +19,7 @@
       "name": "responseStatus",
       "type": {
         "type": "enum",
-        "name": "status",
+        "name": "ResponseStatus",
         "symbols": ["OK", "FAILED", "CANCELLED"]
       },
       "doc": "Status enum on the response to help with response handling"
