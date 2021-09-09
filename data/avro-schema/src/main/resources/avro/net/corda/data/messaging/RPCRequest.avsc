@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "RPCRequest",
-  "namespace": "net.corda.data.client.rpc",
+  "namespace": "net.corda.data.messaging",
   "fields": [
     {
       "name": "correlationKey",
