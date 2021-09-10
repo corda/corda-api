@@ -21,7 +21,7 @@
       "doc": "The topic the response needs to be posted on"
     },
     {
-      "name": "partition",
+      "name": "replyPartition",
       "type": "int",
       "doc": "The partition we expect the response to be on"
     },
