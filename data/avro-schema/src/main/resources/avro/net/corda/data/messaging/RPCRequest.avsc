@@ -16,7 +16,7 @@
       "doc": "Time ([Instant]) in milliseconds of the request"
     },
     {
-      "name": "responseTopic",
+      "name": "replyTopic",
       "type": "String",
       "doc": "The topic the response needs to be posted on"
     },
