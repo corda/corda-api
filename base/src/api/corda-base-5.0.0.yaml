@@ -183,22 +183,6 @@ net.corda.v5.base.exceptions.CordaThrowable:
           annotation:
             - Nullable
           type: String
-net.corda.v5.base.internal.ReflectionHelpersKt:
-  annotations: []
-  type: public final class
-  extends: null
-  implements: []
-  interface: false
-  methods:
-    uncheckedCast:
-      annotations: []
-      default: false
-      type: public static final
-      returnType: U
-      params:
-        obj:
-          annotation: []
-          type: T
 net.corda.v5.base.stream.Cursor:
   annotations:
     - DoNotImplement
@@ -1297,6 +1281,17 @@ net.corda.v5.base.util.KotlinUtilsKt:
   implements: []
   interface: false
   methods:
+    castIfPossible:
+      annotations:
+        - Nullable
+      default: false
+      type: public static final
+      returnType: T
+      params:
+        obj:
+          annotation:
+            - NotNull
+          type: Object
     contextLogger:
       annotations:
         - NotNull

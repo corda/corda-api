@@ -887,6 +887,61 @@ net.corda.packaging.Cpk$Expanded:
   implements: []
   interface: false
   methods:
+    copy:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: net.corda.packaging.Cpk.Expanded
+      params:
+        mainJar:
+          annotation:
+            - NotNull
+          type: java.nio.file.Path
+        libraries:
+          annotation:
+            - NotNull
+          type: java.util.Set<? extends java.nio.file.Path>
+        cpkFile:
+          annotation:
+            - NotNull
+          type: java.nio.file.Path
+        type:
+          annotation:
+            - NotNull
+          type: net.corda.packaging.Cpk.Type
+        cpkHash:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+        cpkManifest:
+          annotation:
+            - NotNull
+          type: net.corda.packaging.Cpk.Manifest
+        cordappJarFileName:
+          annotation:
+            - NotNull
+          type: String
+        cordappHash:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+        cordappCertificates:
+          annotation:
+            - NotNull
+          type: java.util.Set<? extends java.security.cert.Certificate>
+        cordappManifest:
+          annotation:
+            - NotNull
+          type: net.corda.packaging.CordappManifest
+        libraryDependencies:
+          annotation:
+            - NotNull
+          type: "java.util.NavigableMap<String, net.corda.v5.crypto.SecureHash>"
+        dependencies:
+          annotation:
+            - NotNull
+          type: java.util.NavigableSet<net.corda.packaging.Cpk.Identifier>
     from:
       annotations:
         - NotNull
@@ -922,6 +977,12 @@ net.corda.packaging.Cpk$Expanded:
       default: false
       type: public final
       returnType: net.corda.packaging.CordappManifest
+    getCpkFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: java.nio.file.Path
     getCpkHash:
       annotations:
         - NotNull
@@ -1417,20 +1478,6 @@ net.corda.packaging.DependencyResolutionException:
   implements: []
   interface: false
   methods: {}
-net.corda.packaging.ExtensionsKt:
-  annotations: []
-  type: public final class
-  extends: null
-  implements: []
-  interface: false
-  methods:
-    sha256:
-      annotations:
-        - NotNull
-      default: false
-      type: public static final
-      returnType: net.corda.v5.crypto.SecureHash
-      params: {}
 net.corda.packaging.InvalidSignatureException:
   annotations: []
   type: public class
@@ -1996,6 +2043,48 @@ net.corda.packaging.internal.SignatureCollector$Companion:
           annotation:
             - NotNull
           type: java.util.jar.JarEntry
+net.corda.packaging.internal.TeeInputStream:
+  annotations: []
+  type: public final class
+  extends: java.io.FilterInputStream
+  implements: []
+  interface: false
+  methods:
+    close:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+    getWritten:
+      annotations: []
+      default: false
+      type: public final
+      returnType: int
+    read:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+      params:
+        b:
+          annotation:
+            - NotNull
+          type: "byte[]"
+        "off":
+          annotation: []
+          type: int
+        len:
+          annotation: []
+          type: int
+    setWritten:
+      annotations: []
+      default: false
+      type: public final
+      returnType: void
+      params:
+        <set-?>:
+          annotation: []
+          type: int
 net.corda.packaging.internal.UncloseableInputStream:
   annotations: []
   type: public final class
@@ -2020,6 +2109,24 @@ net.corda.packaging.internal.UncloseableOutputStream:
       default: false
       type: public
       returnType: void
+net.corda.packaging.internal.UtilsKt:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    hash:
+      annotations:
+        - NotNull
+      default: false
+      type: public static final
+      returnType: net.corda.v5.crypto.SecureHash
+      params:
+        algo:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.DigestAlgorithmName
 net.corda.packaging.internal.ZipExtractorInputStream:
   annotations: []
   type: public final class
