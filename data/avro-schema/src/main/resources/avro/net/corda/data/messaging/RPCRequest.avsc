@@ -2,7 +2,7 @@
   "type": "record",
   "name": "RPCRequest",
   "namespace": "net.corda.data.messaging",
-  "doc": "Request envelope for inter node communication",
+  "doc": "Request envelope for RPC message pattern",
   "fields": [
     {
       "name": "correlationKey",
