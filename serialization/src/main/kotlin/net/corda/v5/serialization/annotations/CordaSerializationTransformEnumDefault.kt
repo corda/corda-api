@@ -88,6 +88,7 @@ annotation class CordaSerializationTransformEnumDefaults(vararg val value: Corda
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 // When Kotlin starts writing 1.8 class files enable this, it removes the need for the wrapping annotation
+// Kotlin are targeting this feature for Kotlin 1.6 - https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md
 //@Repeatable
 annotation class CordaSerializationTransformEnumDefault(val new: String, val old: String)
 

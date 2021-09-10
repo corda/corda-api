@@ -31,5 +31,6 @@ annotation class CordaSerializationTransformRenames(vararg val value: CordaSeria
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 // When Kotlin starts writing 1.8 class files enable this, it removes the need for the wrapping annotation
+// Kotlin are targeting this feature for Kotlin 1.6 - https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md
 //@Repeatable
 annotation class CordaSerializationTransformRename(val to: String, val from: String)
