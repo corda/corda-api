@@ -16,6 +16,11 @@
       "doc": "Time ([Instant]) in milliseconds of the request"
     },
     {
+      "name": "responseTopic",
+      "type": "String",
+      "doc": "The topic the response needs to be posted on"
+    },
+    {
       "name": "partition",
       "type": "int",
       "doc": "The partition we expect the response to be on"
