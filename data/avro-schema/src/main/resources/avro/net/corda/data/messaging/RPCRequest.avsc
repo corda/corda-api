@@ -17,7 +17,7 @@
     },
     {
       "name": "replyTopic",
-      "type": "String",
+      "type": "string",
       "doc": "The topic the response needs to be posted on"
     },
     {
