@@ -11,6 +11,6 @@ dependencies {
     api project(":base")
 
     implementation 'net.corda.kotlin:kotlin-stdlib-jdk8-osgi'
-
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
     compileOnly 'org.osgi:osgi.annotation'
 }
