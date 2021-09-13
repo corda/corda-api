@@ -1,7 +1,5 @@
 @Library('corda-shared-build-pipeline-steps@INFRA-1553-Enable-GitHub-SCM-integration-scanning-build-gradle-for-PRs') _
 
-echo "Change request is: ${changeRequest()}"
-
 cordaPipeline(
     runIntegrationTests: false,
     nexusAppId: 'net.corda-api-5.0',
