@@ -4,6 +4,13 @@
   "namespace": "net.corda.data.deadletter",
   "fields": [
     {
+      "name": "timestamp",
+      "type": {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+    },
+    {
       "name": "state",
       "type": ["null", "bytes"]
     },
