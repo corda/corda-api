@@ -2,6 +2,8 @@
 
 echo "Testing"
 
+echo "Testing again"
+
 cordaPipeline(
     runIntegrationTests: false,
     nexusAppId: 'net.corda-api-5.0',
