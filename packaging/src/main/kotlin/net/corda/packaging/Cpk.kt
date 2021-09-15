@@ -37,12 +37,12 @@ sealed class Cpk(
     }
 
     val shortId = let {
-        val cpkSignerBytes = id.signers.sorted().joinToString("").toByteArray()
+        val signerBytes = id.signers.sorted().joinToString("").toByteArray()
         val digest = MessageDigest.getInstance(hashAlgorithm)
-        digest.update(cpkSignerBytes)
+        digest.update(signerBytes)
         val signerSummaryHash = SecureHash(digest.algorithm, digest.digest())
 
-        ShortIdentifier(cordappManifest.bundleSymbolicName, cordappManifest.bundleVersion, signerSummaryHash)
+        ShortIdentifier(id.symbolicName, id.version, signerSummaryHash)
     }
 
     companion object {
