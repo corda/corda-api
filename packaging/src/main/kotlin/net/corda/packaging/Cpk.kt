@@ -39,8 +39,7 @@ sealed class Cpk(
     val shortId = let {
         val signerBytes = id.signers.sorted().joinToString("").toByteArray()
         val digest = MessageDigest.getInstance(hashAlgorithm)
-        digest.update(signerBytes)
-        val signerSummaryHash = SecureHash(digest.algorithm, digest.digest())
+        val signerSummaryHash = SecureHash(digest.algorithm, digest.digest(signerBytes))
 
         ShortIdentifier(id.symbolicName, id.version, signerSummaryHash)
     }
