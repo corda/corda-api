@@ -7,7 +7,6 @@ import net.corda.packaging.internal.hash
 import net.corda.v5.crypto.SecureHash
 import java.io.InputStream
 import java.nio.file.Path
-import java.security.MessageDigest
 import java.security.cert.Certificate
 import java.util.Arrays
 import java.util.NavigableMap
@@ -38,8 +37,7 @@ sealed class Cpk(
 
     val shortId = let {
         val signerBytes = id.signers.sorted().joinToString("").toByteArray()
-        val digest = MessageDigest.getInstance(hashAlgorithm)
-        val signerSummaryHash = SecureHash(digest.algorithm, digest.digest(signerBytes))
+        val signerSummaryHash = SecureHash(hashAlgorithm, signerBytes)
 
         ShortIdentifier(id.symbolicName, id.version, signerSummaryHash)
     }
