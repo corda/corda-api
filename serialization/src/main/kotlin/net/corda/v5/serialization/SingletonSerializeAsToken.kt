@@ -2,9 +2,13 @@ package net.corda.v5.serialization
 
 /**
  * This interface should be implemented by classes that want to substitute a singleton token representation of
- * themselves upon serialization.  This may be because of internal state that does not serialize well.
+ * themselves upon checkpoint serialization.  This may be because of internal state that does not serialize well.
  *
  * This interface should only be used on singleton classes, meaning that only one should exist during runtime.
+ *
+ * In addition, this interface is strictly for checkpoint serialization.  It is not compatible with AMQP
+ * serialization (or [@CordaSerializable]) and will cause serialization errors in AMQP.
+ *
  */
 interface SingletonSerializeAsToken {
 
