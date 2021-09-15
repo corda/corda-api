@@ -12,7 +12,7 @@
     {
       "name": "timestamp",
       "type": "long",
-      "doc": "The timestamp when the event indicated by the {@link net.corda.p2p.markers.LinkManagerSentMarker} happened."
+      "doc": "The timestamp when the message was originally processed for the first time."
     }
   ]
 }
