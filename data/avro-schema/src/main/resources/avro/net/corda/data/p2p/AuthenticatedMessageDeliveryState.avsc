@@ -2,7 +2,7 @@
   "type": "record",
   "name": "AuthenticatedMessageDeliveryState",
   "namespace": "net.corda.p2p",
-  "doc": "State used to track when a {@link net.corda.p2p.AuthenticatedMessage} should be replayed.",
+  "doc": "State used to track when a {@link net.corda.p2p.app.AuthenticatedMessage} should be replayed.",
   "fields": [
     {
       "name": "message",
@@ -11,7 +11,8 @@
     },
     {
       "name": "timestamp",
-      "type": "long"
+      "type": "long",
+      "doc": "The timestamp when the event indicated by the {@link net.corda.p2p.markers.LinkManagerSentMarker} happened."
     }
   ]
 }
