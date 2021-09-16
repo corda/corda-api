@@ -11,10 +11,6 @@
         }
     },
     {
-      "name": "key",
-      "type": ["bytes"]
-    },
-    {
       "name": "state",
       "type": ["null", "bytes"]
     },
