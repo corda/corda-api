@@ -11,8 +11,18 @@
     },
     {
       "name": "memberships",
-      "doc": "List of updates.",
+      "doc": "List of membership updates.",
       "type": { "type": "array", "items": "net.corda.data.identity.WireMemberInfo" }
+    },
+    {
+      "name": "groupParameters",
+      "doc": "GroupParameters updates.",
+      "type": ["null", "net.corda.data.identity.WireGroupParameters"]
+    },
+    {
+      "name": "cpiWhitelist",
+      "doc": "The current CpiWhiteList.",
+      "type": { "type": "array", "items": "net.corda.data.identity.WireCpiVersion" }
     }
   ]
 }

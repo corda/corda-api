@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "WireGroupParameters",
+  "namespace": "net.corda.data.identity",
+  "doc": "Avro representation of GroupParameters.",
+  "fields": [
+    {
+      "name": "entries",
+      "doc": "Entries of GroupParameters.",
+      "type": { "type": "array", "items": "net.corda.data.WireKeyValuePair" }
+    }
+  ]
+}
