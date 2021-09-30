@@ -1,7 +1,6 @@
 package net.corda.v5.ledger.schemas.vault
 
 import net.corda.v5.application.identity.AbstractParty
-import net.corda.v5.application.identity.CordaX500Name
 import net.corda.v5.application.identity.Party
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.crypto.toStringShort
@@ -15,6 +14,7 @@ import net.corda.v5.ledger.schemas.PersistentStateRef
 import net.corda.v5.ledger.services.vault.RelevancyStatus
 import net.corda.v5.ledger.services.vault.StateStatus
 import net.corda.v5.ledger.transactions.MAX_NUMBER_OF_KEYS_IN_SIGNATURE_CONSTRAINT
+import net.corda.v5.membership.CordaX500Name
 import net.corda.v5.persistence.MappedSchema
 import org.hibernate.annotations.Immutable
 import org.hibernate.annotations.Type

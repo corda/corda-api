@@ -1,6 +1,6 @@
-package net.corda.v5.application.node
+package net.corda.v5.membership
 
-import net.corda.v5.application.identity.Party
+import net.corda.data.identity.HoldingIdentity
 import net.corda.v5.base.annotations.CordaSerializable
 import java.security.PublicKey
 
@@ -17,10 +17,10 @@ interface MemberInfo {
     val mgmProvidedContext: MemberContext
 
     /**
-     * Member identity, which includes X.500 name and identity key.
+     * Member identity, which includes X.500 name and group id.
      * Party name is unique within the group and cannot be changed while the membership exists.
      */
-    val party: Party
+    val holdingIdentity: HoldingIdentity
 
     /** List of current and previous (rotated) identity keys, which member can still use to sign unspent transactions on ledger. */
     val identityKeys: List<PublicKey>

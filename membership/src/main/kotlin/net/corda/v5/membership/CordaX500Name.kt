@@ -1,13 +1,13 @@
-package net.corda.v5.application.identity
+package net.corda.v5.membership
 
-import net.corda.v5.application.internal.LegalNameValidator
 import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.membership.internal.LegalNameValidator
 import org.bouncycastle.asn1.ASN1ObjectIdentifier
 import org.bouncycastle.asn1.x500.AttributeTypeAndValue
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x500.X500NameBuilder
 import org.bouncycastle.asn1.x500.style.BCStyle
-import java.util.Locale
+import java.util.*
 import javax.security.auth.x500.X500Principal
 
 /**

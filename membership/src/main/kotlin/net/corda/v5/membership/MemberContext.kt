@@ -1,4 +1,4 @@
-package net.corda.v5.application.node
+package net.corda.v5.membership
 
 import net.corda.v5.base.annotations.CordaSerializable
 

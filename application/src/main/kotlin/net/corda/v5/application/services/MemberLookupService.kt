@@ -1,10 +1,10 @@
 package net.corda.v5.application.services
 
-import net.corda.v5.application.identity.CordaX500Name
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
-import net.corda.v5.application.node.MemberInfo
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.membership.CordaX500Name
+import net.corda.v5.membership.MemberInfo
 import java.security.PublicKey
 
 /**

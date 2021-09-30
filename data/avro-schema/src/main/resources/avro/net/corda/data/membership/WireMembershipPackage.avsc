@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "WireMembershipPackage",
+  "namespace": "net.corda.data.identity",
+  "doc": "Membership data package which will be distributed on the wire across members.",
+  "fields": [
+    {
+      "name": "hashCheck",
+      "doc": "Hash value to help identify out-of-sync members.",
+      "type": "string"
+    },
+    {
+      "name": "memberships",
+      "doc": "List of membership updates.",
+      "type": { "type": "array", "items": "net.corda.data.identity.WireMemberInfo" }
+    },
+    {
+      "name": "groupParameters",
+      "doc": "GroupParameters updates.",
+      "type": ["null", "net.corda.data.identity.WireGroupParameters"]
+    },
+    {
+      "name": "cpiWhitelist",
+      "doc": "The current CpiWhiteList.",
+      "type": { "type": "array", "items": "net.corda.data.identity.WireCpiVersion" }
+    }
+  ]
+}

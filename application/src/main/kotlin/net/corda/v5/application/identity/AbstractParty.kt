@@ -4,6 +4,7 @@ import net.corda.v5.application.flows.Destination
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.OpaqueBytes
+import net.corda.v5.membership.CordaX500Name
 import java.security.PublicKey
 
 /**
