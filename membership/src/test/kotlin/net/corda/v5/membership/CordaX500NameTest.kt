@@ -1,7 +1,7 @@
-package net.corda.v5.application.identity
+package net.corda.v5.membership
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
@@ -21,7 +21,7 @@ class CordaX500NameTest {
     fun `service name`() {
         val name = CordaX500Name.parse("O=Bank A, L=New York, C=US, CN=Service Name")
         assertEquals("Service Name", name.commonName)
-        assertNull(name.organisationUnit)
+        Assertions.assertNull(name.organisationUnit)
         assertEquals("Bank A", name.organisation)
         assertEquals("New York", name.locality)
         assertEquals(CordaX500Name.parse(name.toString()), name)
@@ -31,8 +31,8 @@ class CordaX500NameTest {
     @Test
     fun `legal entity name`() {
         val name = CordaX500Name.parse("O=Bank A, L=New York, C=US")
-        assertNull(name.commonName)
-        assertNull(name.organisationUnit)
+        Assertions.assertNull(name.commonName)
+        Assertions.assertNull(name.organisationUnit)
         assertEquals("Bank A", name.organisation)
         assertEquals("New York", name.locality)
         assertEquals(CordaX500Name.parse(name.toString()), name)
