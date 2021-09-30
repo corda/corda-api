@@ -20,8 +20,6 @@ dependencies {
     implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
     implementation "org.bouncycastle:bcpkix-jdk15on:$bouncycastleVersion"
     implementation project(':data:avro-schema')
-    // for crypto stuff in DummyKeyEncodingService
-    implementation 'net.corda:corda-application-internal:5.0.0-DevPreview--alpha-5d9c95d'
 
     compileOnly 'org.osgi:osgi.core'
     compileOnly 'org.osgi:osgi.annotation'
