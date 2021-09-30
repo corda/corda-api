@@ -7,5 +7,6 @@ import net.corda.v5.membership.identity.getValue
 
 const val NOTARY_SERVICE_PARTY = "corda.notaryServiceParty"
 
+// TODO: figure out how to read Party here
 val MemberInfo.notaryServiceParty: Party?
     get() = memberProvidedContext.getValue(NOTARY_SERVICE_PARTY)
