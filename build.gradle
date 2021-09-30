@@ -115,6 +115,7 @@ subprojects {
         }
 
         java {
+            withSourcesJar()
             sourceCompatibility = javaVersion
             targetCompatibility = javaVersion
         }
