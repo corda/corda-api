@@ -17,7 +17,7 @@
     {
       "name": "cpiWhitelist",
       "doc": "CpiWhiteList updates.",
-      "type": ["null", "net.corda.data.identity.WireCpiWhitelist"]
+      "type": ["null", "net.corda.data.membership.WireCpiWhitelist"]
     }
   ]
 }
