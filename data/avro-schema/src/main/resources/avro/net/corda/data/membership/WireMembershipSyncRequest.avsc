@@ -7,7 +7,7 @@
     {
       "name": "sendMembershipDataFrom",
       "doc": "Timestamp value representing the date the member wants to have the sync from.",
-      "type": "string"
+      "type": { "type": "long", "logicalType": "timestamp-millis" }
     },
     {
       "name": "groupParametersHash",

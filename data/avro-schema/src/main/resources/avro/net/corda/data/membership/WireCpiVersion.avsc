@@ -5,8 +5,8 @@
   "doc": "Avro representation of CpiVersion.",
   "fields": [
     {
-      "name": "entries",
-      "doc": "Entries of CpiVersion.",
+      "name": "cpiVersion",
+      "doc": "CpiVersion in a <List<Pair<String, String>> format.",
       "type": { "type": "array", "items": "net.corda.data.WireKeyValuePair" }
     }
   ]
