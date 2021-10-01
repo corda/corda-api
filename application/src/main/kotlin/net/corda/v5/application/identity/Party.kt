@@ -26,7 +26,7 @@ import net.corda.v5.membership.CordaX500Name
  * ### Flow sessions
  *
  * Communication with other parties is done using the flow framework with the [FlowMessaging.initiateFlow] method. Message routing is done by
- * using the network map to look up the connectivity details pertaining to the [Party].
+ * using the member lookup to look up the connectivity details pertaining to the [Party].
  *
  * @see CompositeKey
  */

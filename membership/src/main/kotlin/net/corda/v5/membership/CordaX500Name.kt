@@ -85,6 +85,7 @@ data class CordaX500Name(
 
         private val supportedAttributes = setOf(BCStyle.O, BCStyle.C, BCStyle.L, BCStyle.CN, BCStyle.ST, BCStyle.OU)
         private const val unspecifiedCountry = "ZZ"
+        @Suppress("SpreadOperator")
         private val countryCodes: Set<String> = setOf(*Locale.getISOCountries(), unspecifiedCountry)
 
         @JvmStatic

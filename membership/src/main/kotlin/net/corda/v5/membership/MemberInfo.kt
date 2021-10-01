@@ -18,7 +18,7 @@ interface MemberInfo {
 
     /**
      * Member identity, which includes X.500 name and group id.
-     * Party name is unique within the group and cannot be changed while the membership exists.
+     * x.500 name is unique within the group and cannot be changed while the membership exists.
      */
     val holdingIdentity: HoldingIdentity
 
