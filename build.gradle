@@ -115,7 +115,9 @@ subprojects {
         }
 
         java {
-            withSourcesJar()
+            if(releaseType != 'GA' || releaseType != 'RC') {
+                withSourcesJar()
+            }
             sourceCompatibility = javaVersion
             targetCompatibility = javaVersion
         }
