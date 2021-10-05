@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
 }
 
-description 'Corda Membership'
+description 'Corda Membership Identity'
 
 dependencies {
     api platform(project(':corda-api'))
@@ -13,4 +13,7 @@ dependencies {
     compileOnly 'org.osgi:osgi.annotation'
 
     api project(':base')
+    api project(':data:avro-schema')
+
+    implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
 }

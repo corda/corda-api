@@ -1,6 +1,6 @@
-package net.corda.v5.membership
+package net.corda.v5.membership.identity
 
-import net.corda.v5.membership.internal.LegalNameValidator
+import net.corda.v5.membership.identity.internal.LegalNameValidator
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith

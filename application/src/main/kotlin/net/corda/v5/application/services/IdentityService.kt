@@ -2,11 +2,11 @@ package net.corda.v5.application.services
 
 import net.corda.v5.application.identity.AbstractParty
 import net.corda.v5.application.identity.AnonymousParty
+import net.corda.v5.application.identity.CordaX500Name
 import net.corda.v5.application.identity.Party
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
-import net.corda.v5.membership.CordaX500Name
 import java.security.PublicKey
 import java.util.*
 

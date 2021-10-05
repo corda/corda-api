@@ -4,7 +4,6 @@ import net.corda.v5.application.flows.flowservices.FlowMessaging
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.CompositeKey
 import net.corda.v5.crypto.toStringShort
-import net.corda.v5.membership.CordaX500Name
 
 /**
  * The [Party] class represents an entity on the network, which is typically identified by a legal [name] and public key

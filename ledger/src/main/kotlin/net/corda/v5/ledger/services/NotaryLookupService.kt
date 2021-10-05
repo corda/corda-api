@@ -1,11 +1,11 @@
 package net.corda.v5.ledger.services
 
+import net.corda.v5.application.identity.CordaX500Name
 import net.corda.v5.application.identity.Party
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.ledger.NotaryInfo.Companion.NOTARY_TYPE_VALIDATING
-import net.corda.v5.membership.CordaX500Name
 
 /**
  *  Lookup of notary services and their types on the network.

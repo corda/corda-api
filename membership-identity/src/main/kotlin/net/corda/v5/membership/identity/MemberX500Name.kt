@@ -1,19 +1,21 @@
-package net.corda.v5.membership
+package net.corda.v5.membership.identity
 
 import net.corda.v5.base.annotations.CordaSerializable
-import net.corda.v5.membership.internal.LegalNameValidator
+import net.corda.v5.membership.identity.internal.LegalNameValidator
 import org.bouncycastle.asn1.ASN1ObjectIdentifier
 import org.bouncycastle.asn1.x500.AttributeTypeAndValue
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x500.X500NameBuilder
 import org.bouncycastle.asn1.x500.style.BCStyle
-import java.util.Locale
+import java.util.*
 import javax.security.auth.x500.X500Principal
 
 /**
  * X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
  * supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
- * the underlying attribute type definitions
+ * the underlying attribute type definitions.
+ *
+ * This is the base class for CordaX500Name. Should be used for modules which are below application.
  *
  * @property commonName optional name by the which the entity is usually known. Used only for services (for
  * organisations, the [organisation] property is the name). Corresponds to the "CN" attribute type.
@@ -25,9 +27,9 @@ import javax.security.auth.x500.X500Principal
  * attribute type.
  * @property country country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
  * attribute type.
- */
+*/
 @CordaSerializable
-data class CordaX500Name(
+open class MemberX500Name(
     val commonName: String?,
     val organisationUnit: String?,
     val organisation: String,
@@ -89,7 +91,7 @@ data class CordaX500Name(
         private val countryCodes: Set<String> = setOf(*Locale.getISOCountries(), unspecifiedCountry)
 
         @JvmStatic
-        fun build(principal: X500Principal): CordaX500Name {
+        fun build(principal: X500Principal): MemberX500Name {
             val attrsMap = principal.toAttributesMap(supportedAttributes)
             val CN = attrsMap[BCStyle.CN]
             val OU = attrsMap[BCStyle.OU]
@@ -97,11 +99,11 @@ data class CordaX500Name(
             val L = requireNotNull(attrsMap[BCStyle.L]) { "Corda X.500 names must include an L attribute" }
             val ST = attrsMap[BCStyle.ST]
             val C = requireNotNull(attrsMap[BCStyle.C]) { "Corda X.500 names must include an C attribute" }
-            return CordaX500Name(CN, OU, O, L, ST, C)
+            return MemberX500Name(CN, OU, O, L, ST, C)
         }
 
         @JvmStatic
-        fun parse(name: String): CordaX500Name = build(X500Principal(name))
+        fun parse(name: String): MemberX500Name = build(X500Principal(name))
     }
 
     @Transient
@@ -128,6 +130,32 @@ data class CordaX500Name(
             organisationUnit?.let { addRDN(BCStyle.OU, it) }
             commonName?.let { addRDN(BCStyle.CN, it) }
         }.build()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as MemberX500Name
+
+        if (commonName != other.commonName) return false
+        if (organisationUnit != other.organisationUnit) return false
+        if (organisation != other.organisation) return false
+        if (locality != other.locality) return false
+        if (state != other.state) return false
+        if (country != other.country) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = commonName?.hashCode() ?: 0
+        result = 31 * result + (organisationUnit?.hashCode() ?: 0)
+        result = 31 * result + organisation.hashCode()
+        result = 31 * result + locality.hashCode()
+        result = 31 * result + (state?.hashCode() ?: 0)
+        result = 31 * result + country.hashCode()
+        return result
     }
 }
 

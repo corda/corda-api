@@ -1,4 +1,4 @@
-package net.corda.v5.membership.internal
+package net.corda.v5.membership.identity.internal
 
 import java.text.Normalizer
 import javax.security.auth.x500.X500Principal
