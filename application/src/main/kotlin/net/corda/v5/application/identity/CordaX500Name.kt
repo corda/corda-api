@@ -3,6 +3,22 @@ package net.corda.v5.application.identity
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.membership.identity.MemberX500Name
 
+/**
+ * X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
+ * supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
+ * the underlying attribute type definitions
+ *
+ * @property commonName optional name by the which the entity is usually known. Used only for services (for
+ * organisations, the [organisation] property is the name). Corresponds to the "CN" attribute type.
+ * @property organisationUnit optional name of a unit within the [organisation]. Corresponds to the "OU" attribute type.
+ * @property organisation name of the organisation. Corresponds to the "O" attribute type.
+ * @property locality locality of the organisation, typically nearest major city. For distributed services this would be
+ * where one of the organisations is based. Corresponds to the "L" attribute type.
+ * @property state the full name of the state or province the organisation is based in. Corresponds to the "ST"
+ * attribute type.
+ * @property country country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
+ * attribute type.
+ */
 @Suppress("LongParameterList")
 @CordaSerializable
 class CordaX500Name(
