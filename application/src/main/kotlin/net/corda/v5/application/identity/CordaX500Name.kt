@@ -3,6 +3,7 @@ package net.corda.v5.application.identity
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.membership.identity.MemberX500Name
 
+@Suppress("LongParameterList")
 @CordaSerializable
 class CordaX500Name(
     commonName: String?,
@@ -29,4 +30,17 @@ class CordaX500Name(
      */
     constructor(organisation: String, locality: String, country: String)
             : this(null, null, organisation, locality, null, country)
+
+    /**
+     * @param memberX500Name the [MemberX500Name] we want to copy as [CordaX500Name]
+     */
+    constructor(memberX500Name: MemberX500Name) :
+            this(
+                memberX500Name.commonName,
+                memberX500Name.organisationUnit,
+                memberX500Name.organisation,
+                memberX500Name.locality,
+                memberX500Name.state,
+                memberX500Name.country
+            )
 }

@@ -28,6 +28,7 @@ import javax.security.auth.x500.X500Principal
  * @property country country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
  * attribute type.
 */
+@Suppress("LongParameterList")
 @CordaSerializable
 open class MemberX500Name(
     val commonName: String?,
