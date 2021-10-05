@@ -6,13 +6,21 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
 class MemberX500NameTest {
+    companion object {
+        private val commonName = "Service Name"
+        private val organisationUnit = "Org Unit"
+        private val organisation = "Bank A"
+        private val locality = "New York"
+        private val country = "US"
+    }
+
     @Test
     fun `service name with organisational unit`() {
         val name = MemberX500Name.parse("O=Bank A, L=New York, C=US, OU=Org Unit, CN=Service Name")
-        assertEquals("Service Name", name.commonName)
-        assertEquals("Org Unit", name.organisationUnit)
-        assertEquals("Bank A", name.organisation)
-        assertEquals("New York", name.locality)
+        assertEquals(commonName, name.commonName)
+        assertEquals(organisationUnit, name.organisationUnit)
+        assertEquals(organisation, name.organisation)
+        assertEquals(locality, name.locality)
         assertEquals(MemberX500Name.parse(name.toString()), name)
         assertEquals(MemberX500Name.build(name.x500Principal), name)
     }
@@ -20,10 +28,10 @@ class MemberX500NameTest {
     @Test
     fun `service name`() {
         val name = MemberX500Name.parse("O=Bank A, L=New York, C=US, CN=Service Name")
-        assertEquals("Service Name", name.commonName)
+        assertEquals(commonName, name.commonName)
         assertNull(name.organisationUnit)
-        assertEquals("Bank A", name.organisation)
-        assertEquals("New York", name.locality)
+        assertEquals(organisation, name.organisation)
+        assertEquals(locality, name.locality)
         assertEquals(MemberX500Name.parse(name.toString()), name)
         assertEquals(MemberX500Name.build(name.x500Principal), name)
     }
@@ -33,8 +41,8 @@ class MemberX500NameTest {
         val name = MemberX500Name.parse("O=Bank A, L=New York, C=US")
         assertNull(name.commonName)
         assertNull(name.organisationUnit)
-        assertEquals("Bank A", name.organisation)
-        assertEquals("New York", name.locality)
+        assertEquals(organisation, name.organisation)
+        assertEquals(locality, name.locality)
         assertEquals(MemberX500Name.parse(name.toString()), name)
         assertEquals(MemberX500Name.build(name.x500Principal), name)
     }
@@ -168,6 +176,28 @@ class MemberX500NameTest {
             MemberX500Name.parse("O=IN${Character.MIN_VALUE}VALID , L=VALID, C=DE, OU=VALID, CN=VALID")
         }
         validateLocalityAndOrganisationalUnitAndCommonName("VA${Character.MIN_VALUE}LID")
+    }
+
+    @Test
+    fun `create MemberX500Name without organisationUnit and state`() {
+        val member = MemberX500Name(commonName, organisation, locality, country)
+        assertEquals(commonName, member.commonName)
+        assertNull(member.organisationUnit)
+        assertEquals(organisation, member.organisation)
+        assertEquals(locality, member.locality)
+        assertNull(member.state)
+        assertEquals(country, member.country)
+    }
+
+    @Test
+    fun `create MemberX500Name without commonName, organisationUnit and state`() {
+        val member = MemberX500Name(organisation, locality, country)
+        assertNull(member.commonName)
+        assertNull(member.organisationUnit)
+        assertEquals(organisation, member.organisation)
+        assertEquals(locality, member.locality)
+        assertNull(member.state)
+        assertEquals(country, member.country)
     }
 
     private fun checkLocalityAndOrganisationalUnitAndCommonNameReject(invalid: String) {
