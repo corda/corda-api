@@ -4,6 +4,8 @@ import net.corda.v5.membership.identity.MemberX500Name
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
+import java.lang.IllegalArgumentException
+import kotlin.test.assertFailsWith
 
 class CordaX500NameTest {
     companion object {
@@ -42,5 +44,10 @@ class CordaX500NameTest {
         assertEquals(memberX500Name.organisation, cordaX500Name.organisation)
         assertEquals(memberX500Name.locality, cordaX500Name.locality)
         assertEquals(memberX500Name.country, cordaX500Name.country)
+    }
+
+    @Test
+    fun `create CordaX500Name should fail due to invalid country code`() {
+        assertFailsWith<IllegalArgumentException>("Invalid country code XX", { CordaX500Name(organisation, locality, "XX") })
     }
 }
