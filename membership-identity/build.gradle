@@ -13,7 +13,6 @@ dependencies {
     compileOnly 'org.osgi:osgi.annotation'
 
     api project(':base')
-    api project(':data:avro-schema')
 
     implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
 }
