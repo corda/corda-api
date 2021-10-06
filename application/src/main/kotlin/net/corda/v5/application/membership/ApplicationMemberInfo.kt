@@ -1,4 +1,4 @@
-@file:JvmName("MemberInfoApplicationExtensions")
+@file:JvmName("ApplicationMemberInfo")
 package net.corda.v5.application.membership
 
 import net.corda.v5.application.identity.Party
