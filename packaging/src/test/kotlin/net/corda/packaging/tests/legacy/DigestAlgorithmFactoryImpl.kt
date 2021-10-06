@@ -2,7 +2,6 @@ package net.corda.packaging.tests.legacy
 
 import net.corda.v5.cipher.suite.DigestAlgorithm
 import net.corda.v5.cipher.suite.DigestAlgorithmFactory
-import net.corda.v5.crypto.SecureHash
 import java.io.InputStream
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
