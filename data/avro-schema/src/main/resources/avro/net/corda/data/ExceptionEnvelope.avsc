@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "ExceptionEnvelope",
-  "namespace": "net.corda.data.messaging",
+  "namespace": "net.corda.data",
   "doc": "Exception envelope for transmitting exceptions",
   "fields": [
     {
