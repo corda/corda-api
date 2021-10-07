@@ -2,6 +2,7 @@ package net.corda.v5.application.identity
 
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.membership.identity.MemberX500Name
+import javax.security.auth.x500.X500Principal
 
 /**
  * X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
@@ -59,4 +60,9 @@ class CordaX500Name(
                 memberX500Name.state,
                 memberX500Name.country
             )
+
+    companion object {
+        @JvmStatic
+        fun parse(name: String): CordaX500Name = CordaX500Name(build(X500Principal(name)))
+    }
 }

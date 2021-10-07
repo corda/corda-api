@@ -10,6 +10,7 @@ import kotlin.test.assertFailsWith
 class CordaX500NameTest {
     companion object {
         private val commonName = "Service Name"
+        private val organisationUnit = "Org Unit"
         private val organisation = "Bank A"
         private val locality = "New York"
         private val country = "US"
@@ -49,5 +50,15 @@ class CordaX500NameTest {
     @Test
     fun `create CordaX500Name should fail due to invalid country code`() {
         assertFailsWith<IllegalArgumentException>("Invalid country code XX", { CordaX500Name(organisation, locality, "XX") })
+    }
+
+    @Test
+    fun `parse function creates CordaX500Name`() {
+        val name = CordaX500Name.parse("O=Bank A, L=New York, C=US, OU=Org Unit, CN=Service Name")
+        assertEquals(commonName, name.commonName)
+        assertEquals(organisationUnit, name.organisationUnit)
+        assertEquals(organisation, name.organisation)
+        assertEquals(locality, name.locality)
+        assertEquals(CordaX500Name.parse(name.toString()), name)
     }
 }
