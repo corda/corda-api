@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "RPCException",
+  "namespace": "net.corda.data.messaging",
+  "doc": "Exception envelope for inter node communication",
+  "fields": [
+    {
+      "name": "errorType",
+      "type": "string"
+    },
+    {
+      "name": "errorMessage",
+      "type": "string"
+    }
+  ]
+}
