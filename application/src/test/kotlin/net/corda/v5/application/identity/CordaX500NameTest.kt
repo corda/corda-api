@@ -60,5 +60,6 @@ class CordaX500NameTest {
         assertEquals(organisation, name.organisation)
         assertEquals(locality, name.locality)
         assertEquals(CordaX500Name.parse(name.toString()), name)
+        assertEquals(CordaX500Name.build(name.x500Principal), name)
     }
 }

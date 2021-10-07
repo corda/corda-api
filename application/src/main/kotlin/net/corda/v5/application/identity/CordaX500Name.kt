@@ -63,6 +63,11 @@ class CordaX500Name(
 
     companion object {
         @JvmStatic
-        fun parse(name: String): CordaX500Name = CordaX500Name(build(X500Principal(name)))
+        fun build(principal: X500Principal): CordaX500Name {
+            return CordaX500Name(build(principal))
+        }
+
+        @JvmStatic
+        fun parse(name: String): CordaX500Name = build(X500Principal(name))
     }
 }
