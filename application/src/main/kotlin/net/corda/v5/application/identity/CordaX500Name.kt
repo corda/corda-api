@@ -64,7 +64,7 @@ class CordaX500Name(
     companion object {
         @JvmStatic
         fun build(principal: X500Principal): CordaX500Name {
-            return CordaX500Name(build(principal))
+            return CordaX500Name(MemberX500Name.build(principal))
         }
 
         @JvmStatic
