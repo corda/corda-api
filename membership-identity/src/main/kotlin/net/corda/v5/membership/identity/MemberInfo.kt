@@ -11,9 +11,9 @@ import java.security.PublicKey
 @CordaSerializable
 interface MemberInfo {
 
-    val memberProvidedContext: MemberContext
+    val memberProvidedContext: KeyValueStore
 
-    val mgmProvidedContext: MemberContext
+    val mgmProvidedContext: KeyValueStore
 
     /**
      * Member's X.500 name.

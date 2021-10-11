@@ -4,7 +4,7 @@ import net.corda.v5.base.annotations.CordaSerializable
 import java.time.Instant
 
 @CordaSerializable
-interface GroupParameters: AbstractKeyValue {
+interface GroupParameters: KeyValueStore {
 
     /**
      * Version number of the Group parameters. Starting from 1,
@@ -32,5 +32,5 @@ interface GroupParameters: AbstractKeyValue {
      * This is a map of additional key value pairs, that allows the MGM to define additional parameters
      * potentially unique to their network. Examples of what this could be a list of acceptable oracles.
      */
-    val additionalFields: AbstractKeyValue
+    val additionalFields: KeyValueStore
 }
