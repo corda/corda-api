@@ -19,7 +19,6 @@ dependencies {
 
     implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
     implementation "org.bouncycastle:bcpkix-jdk15on:$bouncycastleVersion"
-    implementation project(':data:avro-schema')
 
     compileOnly 'org.osgi:osgi.core'
     compileOnly 'org.osgi:osgi.annotation'
