@@ -1,0 +1,67 @@
+{
+  "type": "record",
+  "name": "User",
+  "namespace": "net.corda.data.permissions",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "updateTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the user was last updated."
+    },
+    {
+      "name": "fullName",
+      "type": "string"
+    },
+    {
+      "name": "enabled",
+      "type": "boolean"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "saltValue",
+      "type": "string"
+    },
+    {
+      "name": "hashedPassword",
+      "type": "string"
+    },
+    {
+      "name": "passwordExpiry",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the password expires."
+    },
+    {
+      "name": "parentGroup",
+      "type": "net.corda.data.permissions.Group"
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.permissions.Property"
+      },
+      "doc": "List of user properties."
+    },
+    {
+      "name": "roles",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.permissions.Role"
+      },
+      "doc": "List of user roles."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "Permission",
+  "namespace": "net.corda.data.permissions",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "updateTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when permission was last updated."
+    },
+    {
+      "name": "virtualNode",
+      "type": "string"
+    },
+    {
+      "name": "permissionString",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "PermissionType",
+        "symbols": ["ALLOW", "DENY"]
+      },
+      "doc": "The type of the permission."
+    }
+  ]
+}

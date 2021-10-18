@@ -1,0 +1,43 @@
+{
+  "type": "record",
+  "name": "Group",
+  "namespace": "net.corda.data.permissions",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "updateTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when group was last updated."
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "parentGroup",
+      "type": "net.corda.data.permissions.Group"
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.permissions.Property"
+      },
+      "doc": "List of group properties."
+    },
+    {
+      "name": "roles",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.permissions.Role"
+      },
+      "doc": "List of group roles."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "record",
+  "name": "GetUserPermissionsRequest",
+  "namespace": "net.corda.data.permissions.operations",
+  "doc": "A request for the graph of permission data for a user.",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "Unique identifier for the request."
+    },
+    {
+      "name": "virtualNode",
+      "type": "string",
+      "doc": "ID of virtual node."
+    },
+    {
+      "name": "loginName",
+      "type": "string",
+      "doc": "The user's login name for the request issued."
+    },
+    {
+      "name": "timeoutTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the request should be ignored as it has timed out."
+    }
+  ]
+}
