@@ -1,68 +1,56 @@
 package net.corda.v5.membership.identity
 
-import net.corda.data.WireKeyValuePair
 import net.corda.v5.base.exceptions.CordaRuntimeException
 
 /**
- * Common interface for supporting Map<String, String> structure.
+ * Interface for supporting Map<String, String> structure.
+ * Has the required functions for converting and parsing the String values to Objects.
  */
 interface KeyValueStore {
     operator fun get(key: String): String?
 
     val keys: Set<String>
 
-    val entries: Set<Map.Entry<String, String>>
+    val entries: Set<Map.Entry<String, String?>>
 
     fun <T> parse(key: String,
-                  clazz: Class<out T>,
-                  stringObjectConverter: StringObjectConverter<T>? = null): T
+                  clazz: Class<out T>): T
 
     fun <T> parseOrNull(key: String,
-                        clazz: Class<out T>,
-                        stringObjectConverter: StringObjectConverter<T>? = null): T?
+                        clazz: Class<out T>): T?
 
     fun <T> parseList(itemKeyPrefix: String,
-                      clazz: Class<out T>,
-                      converter: StringObjectConverter<T>? = null): List<T>
+                      clazz: Class<out T>): List<T>
 }
 
 /**
- * Extension function for converting the content of [KeyValueStore] to a list of [WireKeyValuePair].
- * This conversion is required, because of the avro serialization done on the P2P layer.
+ * Function for reading and parsing the String values stored in the values to actual objects.
+ *
+ * @param key The key we are looking for in the store.
  */
-fun KeyValueStore.toWireKeyValuePairList(): List<WireKeyValuePair> = entries.map { WireKeyValuePair(it.key, it.value) }
-
-/**
- * Extension function for reading and parsing the String values stored in the values to actual objects.
- */
-inline fun <reified T> KeyValueStore.parse(
-    key: String,
-    stringObjectConverter: StringObjectConverter<T>? = null
-): T {
-        return parse(key, T::class.java, stringObjectConverter)
+inline fun <reified T> KeyValueStore.parse(key: String): T {
+        return parse(key, T::class.java)
 }
 
 /**
- * Extension function for reading and parsing the String values stored in the values to actual objects or return null.
+ * Function for reading and parsing the String values stored in the values to actual objects or return null.
+ *
+ * @param key The key we are looking for in the store.
  */
-inline fun <reified T> KeyValueStore.parseOrNull(
-    key: String,
-    stringObjectConverter: StringObjectConverter<T>? = null
-): T? {
-    return parseOrNull(key, T::class.java, stringObjectConverter)
+inline fun <reified T> KeyValueStore.parseOrNull(key: String): T? {
+    return parseOrNull(key, T::class.java)
 }
 
 /**
- * Extension function for reading and parsing the String values stored in the values to an actual list of objects.
+ * Function for reading and parsing the String values stored in the values to an actual list of objects.
+ *
+ * @param itemKeyPrefix The key prefix we are looking for in the store.
  */
-inline fun <reified T> KeyValueStore.parseList(
-    itemKeyPrefix: String,
-    stringObjectConverter: StringObjectConverter<T>? = null
-): List<T> {
-    return parseList(itemKeyPrefix, T::class.java, stringObjectConverter)
+inline fun <reified T> KeyValueStore.parseList(itemKeyPrefix: String): List<T> {
+    return parseList(itemKeyPrefix, T::class.java)
 }
 
 /**
- * Exception, being thrown when a value for a specific key cannot be found in [KeyValueStore].
+ * Exception, being thrown if a value for a specific key cannot be found in the [KeyValueStore].
  */
 class ValueNotFoundException(message: String?) : CordaRuntimeException(message)
