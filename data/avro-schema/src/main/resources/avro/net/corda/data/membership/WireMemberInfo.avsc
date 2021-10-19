@@ -2,7 +2,7 @@
   "type": "record",
   "name": "WireMemberInfo",
   "namespace": "net.corda.data.membership",
-  "doc": "Avro representation of MemberInfo. xD",
+  "doc": "Avro representation of MemberInfo.",
   "fields": [
     {
       "name": "memberContext",

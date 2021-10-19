@@ -9,8 +9,6 @@ import net.corda.v5.base.exceptions.CordaRuntimeException
 interface KeyValueStore {
     operator fun get(key: String): String?
 
-    val keys: Set<String>
-
     val entries: Set<Map.Entry<String, String?>>
 
     fun <T> parse(key: String,
@@ -29,7 +27,7 @@ interface KeyValueStore {
  * @param key The key we are looking for in the store.
  */
 inline fun <reified T> KeyValueStore.parse(key: String): T {
-        return parse(key, T::class.java)
+    return parse(key, T::class.java)
 }
 
 /**

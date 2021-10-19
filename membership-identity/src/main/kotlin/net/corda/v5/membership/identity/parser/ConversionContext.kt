@@ -14,5 +14,5 @@ open class ConversionContext(
     val storeClass: Class<out KeyValueStore>,
     val key: String
 ) {
-    fun value(): String? = store[key]
+    val value: String? get() = store[key]
 }

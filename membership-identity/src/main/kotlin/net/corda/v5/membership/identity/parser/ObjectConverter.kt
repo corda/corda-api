@@ -11,11 +11,4 @@ interface ObjectConverter {
      * @param clazz The class we want to convert to.
      */
     fun <T> convert(context: ConversionContext, clazz: Class<out T>): T?
-
-    /**
-     * Registering a [CustomObjectConverter], for use, to convert more complex types besides the built-in ones.
-     *
-     * @param converter The converter class we want to register.
-     */
-    fun registerConverter(converter: CustomObjectConverter)
 }
