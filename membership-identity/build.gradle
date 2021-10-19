@@ -15,6 +15,4 @@ dependencies {
     api project(':base')
 
     implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
-    // there's a chance that this will cause jenkins failure again
-    implementation project(':data:avro-schema')
 }
