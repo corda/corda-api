@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "CPIMetadata",
+  "namespace": "net.corda.data.packaging",
+  "fields": [
+    {
+      "name": "id",
+      "type": "net.corda.data.packaging.CPIIdentifier"
+    },
+    {
+      "name": "cpks",
+      "type": { "type": "array", "items": "net.corda.data.packaging.CPKMetadata" }
+    },
+    {
+      "name": "networkPolicy",
+      "type": ["string", "null"]
+    }
+  ]
+}
