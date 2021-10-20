@@ -11,7 +11,7 @@
     },
     {
       "name": "virtualNode",
-      "type": "string",
+      "type": [ "null", "string"],
       "doc": "ID of virtual node."
     },
     {

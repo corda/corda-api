@@ -21,7 +21,7 @@
     },
     {
       "name": "parentGroup",
-      "type": "net.corda.data.permissions.Group"
+      "type": [ "null", "net.corda.data.permissions.Group" ]
     },
     {
       "name": "properties",

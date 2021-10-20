@@ -28,24 +28,12 @@
       "type": "string"
     },
     {
-      "name": "saltValue",
-      "type": "string"
-    },
-    {
-      "name": "hashedPassword",
-      "type": "string"
-    },
-    {
-      "name": "passwordExpiry",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
-      "doc": "Time ([Instant]) in milliseconds when the password expires."
+      "name": "ssoAuth",
+      "type": "boolean"
     },
     {
       "name": "parentGroup",
-      "type": "net.corda.data.permissions.Group"
+      "type": [ "null", "net.corda.data.permissions.Group" ]
     },
     {
       "name": "properties",
