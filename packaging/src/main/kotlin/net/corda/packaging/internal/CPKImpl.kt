@@ -17,9 +17,6 @@ internal data class CPKIdentifierImpl(
     override val signerSummaryHash: SecureHash?) : CPK.Identifier {
 
     companion object {
-        val secureHashComparator = Comparator.nullsFirst(
-            Comparator.comparing(SecureHash::algorithm)
-            .then { h1, h2 -> Arrays.compare(h1?.bytes, h2?.bytes) })
         private val identifierComparator = Comparator.comparing(CPK.Identifier::name)
             .thenComparing(CPK.Identifier::version, VersionComparator())
             .thenComparing(CPK.Identifier::signerSummaryHash, secureHashComparator)
