@@ -20,11 +20,8 @@
       "type": "string"
     },
     {
-      "name": "args",
-      "type": {
-        "type": "array",
-        "items": "bytes"
-      }
+      "name": "jsonArgs",
+      "type": "string"
     }
   ]
 }

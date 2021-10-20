@@ -27,11 +27,8 @@
       }
     },
     {
-      "name": "args",
-      "type": {
-        "type": "array",
-        "items": ["null", "bytes"]
-      }
+      "name": "jsonArgs",
+      "type": "string"
     }
   ]
 }
