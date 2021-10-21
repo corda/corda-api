@@ -135,6 +135,9 @@ interface CPK : AutoCloseable {
             @Suppress("ThrowsCount")
             fun parseFormatVersion(manifest: java.util.jar.Manifest): FormatVersion =
                 CPKManifestImpl.parseFormatVersion(manifest)
+
+            @JvmStatic
+            fun newInstance(cpkFormatVersion: FormatVersion) : Manifest = CPKManifestImpl(cpkFormatVersion)
         }
     }
 
