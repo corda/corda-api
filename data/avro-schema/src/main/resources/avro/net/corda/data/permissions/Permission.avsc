@@ -8,6 +8,10 @@
       "type": "string"
     },
     {
+      "name": "version",
+      "type": "int"
+    },
+    {
       "name": "updateTimestamp",
       "type": {
         "type": "long",
