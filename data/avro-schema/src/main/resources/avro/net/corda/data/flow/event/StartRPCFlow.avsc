@@ -27,8 +27,11 @@
       }
     },
     {
-      "name": "jsonArgs",
-      "type": "string"
+      "name": "args",
+      "type": {
+        "type": "array",
+        "items": ["null", "bytes"]
+      }
     }
   ]
 }
