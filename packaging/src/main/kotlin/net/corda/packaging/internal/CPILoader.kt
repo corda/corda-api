@@ -7,6 +7,7 @@ import net.corda.packaging.internal.PackagingConstants.CPI_NAME_ATTRIBUTE
 import net.corda.packaging.internal.PackagingConstants.CPI_VERSION_ATTRIBUTE
 import net.corda.packaging.util.UncloseableInputStream
 import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.crypto.SecureHash
 import java.io.InputStream
 import java.nio.file.Path
 import java.security.DigestInputStream
@@ -74,6 +75,7 @@ internal object CPILoader {
                 name ?: throw PackagingException("CPI name missing from manifest"),
                 version ?: throw PackagingException("CPI version missing from manifest"),
                 signatureCollector.certificates.asSequence().certSummaryHash(), null),
+            hash = SecureHash(DigestAlgorithmName.SHA2_256.name, md.digest()),
             cpks = cpkMetadata,
             networkPolicy = null
         ), cpks.takeIf { expansionLocation != null } )

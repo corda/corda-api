@@ -131,11 +131,13 @@ interface CPI : AutoCloseable {
 
     interface Metadata {
         val id : Identifier
+        val hash : SecureHash
         val cpks : Collection<CPK.Metadata>
         val networkPolicy : String?
 
         /**
-         * @return a [CPK.Metadata] instance with containing the informa
+         * @return a [CPK.Metadata] instance with containing the information about a single [CPK]
+         * @throws [NoSuchElementException] if a [CPK] with the given [CPK.Identifier] doesn't exist in the [CPI]
          */
         fun cpkById(id : CPK.Identifier) : CPK.Metadata
 
