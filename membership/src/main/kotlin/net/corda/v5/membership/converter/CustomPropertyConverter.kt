@@ -1,9 +1,9 @@
-package net.corda.v5.membership.identity.parser
+package net.corda.v5.membership.converter
 
 /**
  * Converter interface for more complex types (such as Party, EndpointInfo, etc).
  */
-interface CustomObjectConverter<T> {
+interface CustomPropertyConverter<T> {
     /**
      * Type of the class the converter is for.
      */

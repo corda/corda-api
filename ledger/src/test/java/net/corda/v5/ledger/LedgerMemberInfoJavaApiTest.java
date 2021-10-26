@@ -1,7 +1,6 @@
 package net.corda.v5.ledger;
 
 import net.corda.v5.application.identity.Party;
-import net.corda.v5.membership.identity.KeyValueStore;
 import net.corda.v5.membership.identity.MemberContext;
 import net.corda.v5.membership.identity.MemberInfo;
 import org.assertj.core.api.Assertions;

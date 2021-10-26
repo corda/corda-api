@@ -1,4 +1,4 @@
-package net.corda.v5.membership.identity
+package net.corda.v5.membership.properties
 
 import net.corda.v5.base.exceptions.CordaRuntimeException
 
@@ -6,7 +6,7 @@ import net.corda.v5.base.exceptions.CordaRuntimeException
  * Interface for supporting Map<String, String> structure.
  * Has the required functions for converting and parsing the String values to Objects.
  */
-interface KeyValueStore {
+interface LayeredPropertyMap {
     operator fun get(key: String): String?
 
     val entries: Set<Map.Entry<String, String?>>
@@ -26,7 +26,7 @@ interface KeyValueStore {
  *
  * @param key The key we are looking for in the store.
  */
-inline fun <reified T> KeyValueStore.parse(key: String): T {
+inline fun <reified T> LayeredPropertyMap.parse(key: String): T {
     return parse(key, T::class.java)
 }
 
@@ -35,7 +35,7 @@ inline fun <reified T> KeyValueStore.parse(key: String): T {
  *
  * @param key The key we are looking for in the store.
  */
-inline fun <reified T> KeyValueStore.parseOrNull(key: String): T? {
+inline fun <reified T> LayeredPropertyMap.parseOrNull(key: String): T? {
     return parseOrNull(key, T::class.java)
 }
 
@@ -44,11 +44,11 @@ inline fun <reified T> KeyValueStore.parseOrNull(key: String): T? {
  *
  * @param itemKeyPrefix The key prefix we are looking for in the store.
  */
-inline fun <reified T> KeyValueStore.parseList(itemKeyPrefix: String): List<T> {
+inline fun <reified T> LayeredPropertyMap.parseList(itemKeyPrefix: String): List<T> {
     return parseList(itemKeyPrefix, T::class.java)
 }
 
 /**
- * Exception, being thrown if a value for a specific key cannot be found in the [KeyValueStore].
+ * Exception, being thrown if a value for a specific key cannot be found in the [LayeredPropertyMap].
  */
 class ValueNotFoundException(message: String?) : CordaRuntimeException(message)

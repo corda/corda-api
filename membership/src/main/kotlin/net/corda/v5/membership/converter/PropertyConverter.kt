@@ -1,9 +1,9 @@
-package net.corda.v5.membership.identity.parser
+package net.corda.v5.membership.converter
 
 /**
  * Converter class, converting from String to actual Objects.
  */
-interface ObjectConverter {
+interface PropertyConverter {
     /**
      * Convert function, which does the parsing from String.
      *
