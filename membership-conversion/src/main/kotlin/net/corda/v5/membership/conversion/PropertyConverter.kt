@@ -1,4 +1,4 @@
-package net.corda.v5.membership.converter
+package net.corda.v5.membership.conversion
 
 /**
  * Converter class, converting from String to actual Objects.

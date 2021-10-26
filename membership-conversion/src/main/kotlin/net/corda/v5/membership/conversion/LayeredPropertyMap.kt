@@ -1,4 +1,4 @@
-package net.corda.v5.membership.properties
+package net.corda.v5.membership.conversion
 
 import net.corda.v5.base.exceptions.CordaRuntimeException
 

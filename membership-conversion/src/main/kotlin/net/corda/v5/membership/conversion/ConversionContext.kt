@@ -1,6 +1,4 @@
-package net.corda.v5.membership.converter
-
-import net.corda.v5.membership.properties.LayeredPropertyMap
+package net.corda.v5.membership.conversion
 
 /**
  * The context from which we want to do the conversion and parsing from.
