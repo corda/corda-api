@@ -32,6 +32,10 @@
       "type": "string"
     },
     {
+      "name": "saltValue",
+      "type": [ "null", "string" ]
+    },
+    {
       "name": "ssoAuth",
       "type": "boolean"
     },

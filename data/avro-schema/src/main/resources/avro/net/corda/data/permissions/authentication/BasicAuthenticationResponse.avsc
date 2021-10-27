@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "BasicAuthenticationResponse",
+  "namespace": "net.corda.data.permissions.authentication",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string"
+    },
+    {
+      "name": "userLogin",
+      "type": "string"
+    },
+    {
+      "name": "authenticated",
+      "type": "boolean"
+    },
+    {
+      "name": "expiryTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the request expires."
+    }
+  ]
+}
