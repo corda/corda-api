@@ -12,12 +12,8 @@
       "type": "int"
     },
     {
-      "name": "updateTimestamp",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
-      "doc": "Time ([Instant]) in milliseconds when permission was last updated."
+      "name": "lastChangeDetails",
+      "type": "net.corda.data.permissions.ChangeDetails"
     },
     {
       "name": "virtualNode",
