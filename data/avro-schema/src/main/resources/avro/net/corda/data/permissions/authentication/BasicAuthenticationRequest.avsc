@@ -14,14 +14,6 @@
     {
       "name": "hashedPassword",
       "type": "string"
-    },
-    {
-      "name": "expiryTimestamp",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
-      "doc": "Time ([Instant]) in milliseconds when the request expires."
     }
   ]
 }
