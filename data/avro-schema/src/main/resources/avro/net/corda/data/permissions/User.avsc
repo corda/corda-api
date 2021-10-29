@@ -28,6 +28,10 @@
       "type": "string"
     },
     {
+      "name": "hashedPassword",
+      "type": [ "null", "string" ]
+    },
+    {
       "name": "saltValue",
       "type": [ "null", "string" ]
     },
