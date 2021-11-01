@@ -40,8 +40,9 @@
       "type": "boolean"
     },
     {
-      "name": "parentGroup",
-      "type": [ "null", "net.corda.data.permissions.Group" ]
+      "name": "parentGroupId",
+      "type": [ "null", "string" ],
+      "doc": "Optional parent group ID of this User."
     },
     {
       "name": "properties",
@@ -52,12 +53,12 @@
       "doc": "List of user properties."
     },
     {
-      "name": "roles",
+      "name": "roleIds",
       "type": {
         "type": "array",
-        "items": "net.corda.data.permissions.Role"
+        "items": "string"
       },
-      "doc": "List of user roles."
+      "doc": "List of role IDs associated with this User."
     }
   ]
 }
