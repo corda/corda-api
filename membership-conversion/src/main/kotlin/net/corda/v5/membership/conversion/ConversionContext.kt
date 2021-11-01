@@ -12,5 +12,14 @@ open class ConversionContext(
     val storeClass: Class<out LayeredPropertyMap>,
     val key: String
 ) {
-    val value: String? get() = store[key]
+    val value: String? get() = store[key] ?: findValueByPattern(key)
+
+    /**
+     * Finds the value in the store based on the key and given pattern.
+     */
+    fun findValueByPattern(pattern: String): String? {
+        return store.entries.firstOrNull {
+            it.key.startsWith(key) && it.key.contains(pattern)
+        }?.value
+    }
 }
