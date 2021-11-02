@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "PermissionManagementRequest",
+  "namespace": "net.corda.data.permissions.management",
+  "fields": [
+    {
+      "name": "request",
+      "type": [
+        "net.corda.data.permissions.management.user.CreateUserRequest"
+      ]
+    }
+  ]
+}
