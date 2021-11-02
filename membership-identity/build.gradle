@@ -15,4 +15,6 @@ dependencies {
     api project(':base')
 
     implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
+
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
 }
