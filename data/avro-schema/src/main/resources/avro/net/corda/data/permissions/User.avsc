@@ -37,8 +37,8 @@
     },
     {
       "name": "parentGroupId",
-      "type": [ "null", "string" ],
-      "doc": "Optional parent group ID of this User."
+      "type": [ "null", "net.corda.data.permissions.EntityAssociation" ],
+      "doc": "Optional parent group associated with this User."
     },
     {
       "name": "properties",
@@ -49,12 +49,12 @@
       "doc": "List of user properties."
     },
     {
-      "name": "roleIds",
+      "name": "roleAssociations",
       "type": {
         "type": "array",
-        "items": "string"
+        "items": "net.corda.data.permissions.EntityAssociation"
       },
-      "doc": "List of role IDs associated with this User."
+      "doc": "List of roles associated with this User."
     }
   ]
 }
