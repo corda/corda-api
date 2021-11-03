@@ -41,7 +41,7 @@ public class MemberInfoJavaApiTest {
     }
 
     @Test
-    public void getParty() {
+    public void getName() {
         MemberX500Name testName = mock(MemberX500Name.class);
         when(memberInfo.getName()).thenReturn(testName);
 
