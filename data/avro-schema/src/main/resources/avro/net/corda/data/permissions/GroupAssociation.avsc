@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "EntityAssociation",
+  "name": "GroupAssociation",
   "namespace": "net.corda.data.permissions",
-  "doc": "An ID of an associated entity along with the time the association was last updated.",
+  "doc": "An ID of an associated Group along with the time the association was last updated.",
   "fields": [
     {
       "name": "updateTimestamp",
@@ -10,12 +10,12 @@
         "type": "long",
         "logicalType": "timestamp-millis"
       },
-      "doc": "Time ([Instant]) in milliseconds when this entity association was last updated."
+      "doc": "Time ([Instant]) in milliseconds when this Group association was last updated."
     },
     {
       "name": "ID",
       "type": "string",
-      "doc": "ID of associated entity."
+      "doc": "ID of associated Group."
     }
   ]
 }
