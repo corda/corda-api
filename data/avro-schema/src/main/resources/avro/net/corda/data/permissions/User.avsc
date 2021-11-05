@@ -16,6 +16,10 @@
       "type": "net.corda.data.permissions.ChangeDetails"
     },
     {
+      "name": "loginName",
+      "type": "string"
+    },
+    {
       "name": "fullName",
       "type": "string"
     },
