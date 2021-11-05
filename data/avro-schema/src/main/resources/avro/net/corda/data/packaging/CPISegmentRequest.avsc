@@ -2,14 +2,17 @@
   "type": "record",
   "name": "CPISegmentRequest",
   "namespace": "net.corda.data.packaging",
+  "doc": "Request to retrieve a byte segment of a CPI file",
   "fields": [
     {
       "name": "identifier",
-      "type": "net.corda.data.packaging.CPIIdentifier"
+      "type": "net.corda.data.packaging.CPIIdentifier",
+      "doc": "Identifies the CPI we are interested in"
     },
     {
-      "name": "start",
-      "type": "long"
+      "name": "offset",
+      "type": "long",
+      "doc": "The file position from which we want to receive more bytes"
     }
   ]
 }

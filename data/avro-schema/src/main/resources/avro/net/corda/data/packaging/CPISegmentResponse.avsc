@@ -2,14 +2,17 @@
   "type": "record",
   "name": "CPISegmentResponse",
   "namespace": "net.corda.data.packaging",
+  "doc": "Response containing a segment of bytes from a CPI file",
   "fields": [
     {
       "name": "segment",
-      "type": "bytes"
+      "type": "bytes",
+      "doc": "The segment of bytes"
     },
     {
       "name": "atEnd",
-      "type": "boolean"
+      "type": "boolean",
+      "doc": "Will be true if there are no more bytes to read"
     }
   ]
 }
