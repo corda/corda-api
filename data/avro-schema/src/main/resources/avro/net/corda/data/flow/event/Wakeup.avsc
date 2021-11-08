@@ -10,10 +10,6 @@
       {
         "name": "cpiId",
         "type": "string"
-      },
-      {
-        "name": "identity",
-        "type": "string"
       }
   ]
 }
