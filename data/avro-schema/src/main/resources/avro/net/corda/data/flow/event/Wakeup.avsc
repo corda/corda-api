@@ -6,10 +6,6 @@
       {
         "name": "flowName",
         "type": "string"
-      },
-      {
-        "name": "cpiId",
-        "type": "string"
       }
   ]
 }
