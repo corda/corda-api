@@ -74,10 +74,11 @@ internal object CPILoader {
             id = CPIIdentifierImpl(
                 name ?: throw PackagingException("CPI name missing from manifest"),
                 version ?: throw PackagingException("CPI version missing from manifest"),
-                signatureCollector.certificates.asSequence().certSummaryHash()),
+                signatureCollector.certPaths.asSequence().map { it.certificates.first() }.certSummaryHash()),
             hash = SecureHash(DigestAlgorithmName.SHA2_256.name, md.digest()),
             cpks = cpkMetadata,
-            networkPolicy = null
+            networkPolicy = null,
+            signers = signatureCollector.certPaths
         ), cpks.takeIf { expansionLocation != null } )
     }
 }

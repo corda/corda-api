@@ -38,6 +38,10 @@
     {
       "name": "corDappCertificates",
       "type": { "type": "array", "items": "bytes" }
+    },
+    {
+      "name": "signers",
+      "type": { "type": "array", "items": "bytes" }
     }
   ]
 }

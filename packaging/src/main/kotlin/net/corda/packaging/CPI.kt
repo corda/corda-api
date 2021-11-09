@@ -10,6 +10,7 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.io.Reader
 import java.nio.file.Path
+import java.security.cert.CertPath
 
 interface CPI : AutoCloseable {
 
@@ -108,6 +109,7 @@ interface CPI : AutoCloseable {
         val hash : SecureHash
         val cpks : Collection<CPK.Metadata>
         val networkPolicy : String?
+        val signers : Set<CertPath>
 
         /**
          * @return a [CPK.Metadata] instance with containing the information about a single [CPK]
@@ -132,8 +134,12 @@ interface CPI : AutoCloseable {
                 CPILoader.loadMetadata(inputStream, cpiLocation, verifySignature)
 
             @JvmStatic
-            fun newInstance(id : Identifier, hash: SecureHash, cpks: Iterable<CPK.Metadata>, networkPolicy : String?) : Metadata =
-                CPIMetadataImpl(id, hash, cpks, networkPolicy)
+            fun newInstance(id : Identifier,
+                            hash: SecureHash,
+                            cpks: Iterable<CPK.Metadata>,
+                            networkPolicy : String?,
+                            signers : Set<CertPath>) : Metadata =
+                CPIMetadataImpl(id, hash, cpks, networkPolicy, signers)
         }
     }
 

@@ -17,6 +17,7 @@ import net.corda.packaging.CordappManifest
 import net.corda.packaging.ManifestCordappInfo
 import java.io.ByteArrayInputStream
 import java.nio.ByteBuffer
+import java.nio.charset.StandardCharsets
 import java.security.cert.Certificate
 import java.security.cert.CertificateFactory
 import java.util.Collections
@@ -85,6 +86,8 @@ fun CordappManifest.toAvro() : CorDappManifest = CorDappManifest.newBuilder().al
     it.attributes = attributes
 }.build()
 
+private val crtFactory = CertificateFactory.getInstance("X.509")
+
 fun CPKMetadata.toCorda() : CPK.Metadata = CPK.Metadata.newInstance(
     manifest.toCorda(),
     mainBundle,
@@ -98,10 +101,15 @@ fun CPKMetadata.toCorda() : CPK.Metadata = CPK.Metadata.newInstance(
     type.toCorda(),
     net.corda.v5.crypto.SecureHash(hash.algorithm, hash.serverHash.array()),
     let {
-        val crtFactory = CertificateFactory.getInstance("X.509")
         corDappCertificates.stream().map {
             ByteArrayInputStream(it.array())
                 .use(crtFactory::generateCertificate)
+        }.collect(Collectors.toUnmodifiableSet())
+    },
+    let {
+        signers.stream().map {
+            ByteArrayInputStream(it.array())
+                .use(crtFactory::generateCertPath)
         }.collect(Collectors.toUnmodifiableSet())
     }
 )
@@ -119,6 +127,7 @@ fun CPK.Metadata.toAvro() : CPKMetadata = CPKMetadata.newBuilder().also {
         .map(Certificate::getEncoded)
         .map(ByteBuffer::wrap)
         .collect(Collectors.toUnmodifiableList())
+    it.signers = signers.map { certPath -> ByteBuffer.wrap(certPath.getEncoded(StandardCharsets.UTF_8.name())) }
 }.build()
 
 fun CPIIdentifier.toCorda() = CPI.Identifier.newInstance(
@@ -137,7 +146,13 @@ fun CPIMetadata.toCorda() = CPI.Metadata.newInstance(
     id.toCorda(),
     net.corda.v5.crypto.SecureHash(hash.algorithm, hash.serverHash.array()),
     cpks.map(CPKMetadata::toCorda),
-    networkPolicy
+    networkPolicy,
+    let {
+        signers.stream().map {
+            ByteArrayInputStream(it.array())
+                .use(crtFactory::generateCertPath)
+        }.collect(Collectors.toUnmodifiableSet())
+    }
 )
 
 fun CPI.Metadata.toAvro() = CPIMetadata.newBuilder().also {
@@ -145,5 +160,6 @@ fun CPI.Metadata.toAvro() = CPIMetadata.newBuilder().also {
     it.hash = SecureHash(hash.algorithm, ByteBuffer.wrap(hash.bytes))
     it.cpks = cpks.map(CPK.Metadata::toAvro)
     it.networkPolicy = networkPolicy
+    it.signers = signers.map { certPath -> ByteBuffer.wrap(certPath.getEncoded(StandardCharsets.UTF_8.name())) }
 }.build()
 

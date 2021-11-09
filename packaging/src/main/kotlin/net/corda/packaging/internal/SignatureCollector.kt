@@ -1,7 +1,7 @@
 package net.corda.packaging.internal
 
 import java.security.CodeSigner
-import java.security.cert.Certificate
+import java.security.cert.CertPath
 import java.util.*
 import java.util.jar.JarEntry
 
@@ -32,9 +32,9 @@ class SignatureCollector {
 
     private var firstSignedEntry : String? = null
     private var codeSigners : Array<CodeSigner>? = null
-    private val _certificates = mutableSetOf<Certificate>()
-    val certificates : Set<Certificate>
-        get() = Collections.unmodifiableSet(_certificates)
+    private val _certPaths = mutableSetOf<CertPath>()
+    val certPaths : Set<CertPath>
+        get() = Collections.unmodifiableSet(_certPaths)
 
     fun addEntry(jarEntry : JarEntry) {
         if(isSignable(jarEntry)) {
@@ -43,11 +43,11 @@ class SignatureCollector {
                 codeSigners = entrySigners
                 firstSignedEntry = jarEntry.name
                 for (signer in entrySigners) {
-                    _certificates.add(signer.signerCertPath.certificates.first())
+                    _certPaths.add(signer.signerCertPath)
                 }
             }
             if (!Arrays.equals(codeSigners, entrySigners)) {
-                throw throw IllegalArgumentException(
+                throw throw SecurityException(
                     """
                     Mismatch between signers ${signers2OrderedPublicKeys(codeSigners!!)} for file $firstSignedEntry
                     and signers ${signers2OrderedPublicKeys(entrySigners)} for file ${jarEntry.name}

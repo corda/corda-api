@@ -43,7 +43,7 @@ class ConvertersTest {
         cordappManifest,
         cpkType,
         SecureHash(DigestAlgorithmName.DEFAULT_ALGORITHM_NAME.name, ByteArray(32).also(random::nextBytes)),
-        emptySet()
+        emptySet(), emptySet()
     )
 
     private companion object {
@@ -149,6 +149,7 @@ class ConvertersTest {
             cordappManifest,
             cpkType,
             SecureHash(DigestAlgorithmName.DEFAULT_ALGORITHM_NAME.name, ByteArray(32).also(random::nextBytes)),
+            emptySet(),
             emptySet()
         )
         val avroObject = original.toAvro()
@@ -182,7 +183,7 @@ class ConvertersTest {
             cpiId,
             SecureHash(DigestAlgorithmName.DEFAULT_ALGORITHM_NAME.name, ByteArray(32).also(random::nextBytes)),
             listOf(cpkMetadata),
-            "someString")
+            "someString", emptySet())
         val avroObject = original.toAvro()
         val cordaObject = avroObject.toCorda()
         assertCPIMetadataEquals(original, cordaObject)
