@@ -30,6 +30,7 @@ import java.nio.file.Path
 import java.nio.file.StandardCopyOption.REPLACE_EXISTING
 import java.security.DigestInputStream
 import java.security.MessageDigest
+import java.security.cert.CertPath
 import java.security.cert.Certificate
 import java.util.Base64
 import java.util.Collections
@@ -115,7 +116,8 @@ internal object CPKLoader {
         val cpkDigest: MessageDigest,
         var cordappFileName: String?,
         val cordappDigest: MessageDigest,
-        var cordappCertificates: Set<Certificate>?,
+        var cordappCertificates: Set<Certificate>,
+        var signers: Set<CertPath>,
         var cordappManifest: CordappManifest?,
         var cpkManifest: CPK.Manifest?,
         val libraryMap: NavigableMap<String, SecureHash>,
@@ -164,9 +166,9 @@ internal object CPKLoader {
                 mainBundle = cordappFileName!!,
                 hash = SecureHash(DigestAlgorithmName.SHA2_256.name, cpkDigest.digest()),
                 cordappManifest = cordappManifest!!,
-                cordappCertificates = cordappCertificates!!,
                 libraries = Collections.unmodifiableList(ArrayList(libraryMap.keys)),
                 dependencies = Collections.unmodifiableNavigableSet(cpkDependencies),
+                signers = signers
             )
         }
     }
@@ -240,11 +242,11 @@ internal object CPKLoader {
                 ctx.fileLocationAppender("Missing manifest from cordapp jar '${ctx.cordappFileName}'")
             )
             manifest.mainAttributes.getValue(CPKManifestImpl.CPK_TYPE)?.let(CPK.Type::parse)?.also { ctx.cpkType = it }
-            CordappManifest.fromManifest(manifest) to signatureCollector.certificates
+            CordappManifest.fromManifest(manifest) to signatureCollector.certPaths
         }
 
         // Replace any "same as me" placeholders with this CPK's actual summary hash.
-        val cpkSummaryHash = certificates.asSequence().certSummaryHash()
+        val cpkSummaryHash = certificates.asSequence().certPathSummaryHash()
         ctx.cpkDependencies = ctx.cpkDependencies.mapTo(TreeSet()) { cpk ->
             if (cpk.signerSummaryHash === SAME_SIGNER_PLACEHOLDER) {
                 CPKIdentifierImpl(cpk.name, cpk.version, cpkSummaryHash)
@@ -255,7 +257,7 @@ internal object CPKLoader {
 
         consumeStream(cordappDigestInputStream, ctx.buffer)
         ctx.cordappManifest = manifest
-        ctx.cordappCertificates = certificates
+        ctx.cordappCertificates = certificates.map { it.certificates.first() }.toSet()
         ctx.topLevelJars++
     }
 
@@ -296,7 +298,7 @@ internal object CPKLoader {
             cpkDigest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name),
             cordappFileName = null,
             cordappDigest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name),
-            cordappCertificates = null,
+            cordappCertificates = emptySet(),
             cordappManifest = null,
             cpkManifest = null,
             libraryMap = TreeMap(),
@@ -306,7 +308,8 @@ internal object CPKLoader {
                 { msg: String -> msg }
             } else {
                 { msg: String -> "$msg in CPK at $cpkLocation" }
-            }
+            },
+            signers = emptySet()
         )
         var stream2BeFullyConsumed: InputStream = DigestInputStream(source, ctx.cpkDigest)
         val temporaryCPKFile = ctx.temporaryCPKFile
@@ -320,20 +323,21 @@ internal object CPKLoader {
             val jarManifest =
                 jarInputStream.manifest ?: throw PackagingException(ctx.fileLocationAppender("Invalid file format"))
             ctx.cpkManifest = CPK.Manifest.fromJarManifest(Manifest(jarManifest))
+            val signatureCollector = SignatureCollector()
             while (true) {
-                val cpkEntry = jarInputStream.nextEntry ?: break
+                val cpkEntry = jarInputStream.nextJarEntry ?: break
                 when {
                     isMainJar(cpkEntry) -> {
                         processMainJar(jarInputStream, cpkEntry, verifySignature, ctx)
                     }
                     isLibJar(cpkEntry) -> processLibJar(jarInputStream, cpkEntry, ctx)
-                    isManifest(cpkEntry) -> {
-                        ctx.cpkManifest = CPK.Manifest.fromJarManifest(Manifest(jarInputStream))
-                    }
+                    else -> consumeStream(jarInputStream, ctx.buffer)
                 }
+                signatureCollector.addEntry(cpkEntry)
                 jarInputStream.closeEntry()
             }
             consumeStream(stream2BeFullyConsumed, ctx.buffer)
+            ctx.signers = signatureCollector.certPaths
         }
         ctx.validate()
         return ctx

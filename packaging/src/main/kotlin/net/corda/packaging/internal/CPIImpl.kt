@@ -4,6 +4,7 @@ import net.corda.packaging.CPI
 import net.corda.packaging.CPK
 import net.corda.packaging.VersionComparator
 import net.corda.v5.crypto.SecureHash
+import java.security.cert.CertPath
 import java.util.Collections
 import java.util.NavigableMap
 import java.util.TreeMap
@@ -27,7 +28,8 @@ internal class CPIMetadataImpl(
     override val id: CPI.Identifier,
     override val hash : SecureHash,
     cpks: Iterable<CPK.Metadata>,
-    override val groupPolicy: String?) : CPI.Metadata {
+    override val groupPolicy: String?,
+    override val signers: Set<CertPath>) : CPI.Metadata {
     private val cpkMap : NavigableMap<CPK.Identifier, CPK.Metadata>
 
     init {

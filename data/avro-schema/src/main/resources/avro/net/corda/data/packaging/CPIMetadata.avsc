@@ -18,6 +18,10 @@
     {
       "name": "groupPolicy",
       "type": ["string", "null"]
+    },
+    {
+      "name": "signers",
+      "type": { "type": "array", "items": "bytes" }
     }
   ]
 }

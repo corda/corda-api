@@ -6,7 +6,7 @@ import net.corda.packaging.PackagingException
 import net.corda.packaging.VersionComparator
 import net.corda.v5.crypto.SecureHash
 import java.io.IOException
-import java.security.cert.Certificate
+import java.security.cert.CertPath
 import java.util.NavigableSet
 import java.util.jar.JarFile
 
@@ -33,14 +33,12 @@ internal data class CPKMetadataImpl(
     override val cordappManifest: CordappManifest,
     override val type: CPK.Type,
     override val hash: SecureHash,
-    override val cordappCertificates : Set<Certificate>
+    override val signers: Set<CertPath>
 ) : CPK.Metadata {
     override val id: CPK.Identifier = CPKIdentifierImpl(
         name = cordappManifest.bundleSymbolicName,
         version = cordappManifest.bundleVersion,
-        signerSummaryHash = cordappCertificates
-            .asSequence()
-            .certSummaryHash()
+        signerSummaryHash = signers.asSequence().certPathSummaryHash()
     )
 }
 

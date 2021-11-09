@@ -60,12 +60,10 @@ dependencies {
     workflowCPK project(path: 'test:workflow-cpk', configuration: 'cordaCPK')
 }
 
-def certificateProvider = provider {
-    CertificateFactory cf = CertificateFactory.getInstance('X.509')
-    def cert = file('config/dev/corda_dev_cpk.cer').withInputStream {
-        cf.generateCertificate(it)
+tasks.named('processTestResources', ProcessResources) {
+    into("META-INF/security") {
+        from(file('config/dev/corda_dev.crt.pem'))
     }
-    cert.publicKey.encoded.sha256()
 }
 
 tasks.named('test', Test) {
@@ -73,7 +71,6 @@ tasks.named('test', Test) {
 
     doFirst {
         systemProperties([
-            'net.corda.dev.cert' : certificateProvider.get(),
             'net.corda.packaging.test.workflow.libs' : configurations.workflowLibs.collect { it.toURI() }.join(' '),
             'net.corda.flows.cpk' : configurations.flowsCPK.singleFile.toURI(),
             'net.corda.packaging.test.contract.cpk' : configurations.contractCPK.singleFile.toURI(),

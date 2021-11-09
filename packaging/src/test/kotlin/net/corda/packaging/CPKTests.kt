@@ -25,6 +25,8 @@ import java.nio.file.Files
 import java.nio.file.LinkOption
 import java.nio.file.Path
 import java.security.MessageDigest
+import java.security.cert.CertificateFactory
+import java.security.cert.X509Certificate
 import java.util.Base64
 import java.util.jar.JarFile
 import java.util.stream.Collectors
@@ -33,7 +35,8 @@ import java.util.zip.ZipFile
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
 
-// This is to avoid extracting the CPK archive in every single test case,
+
+//This is to avoid extracting the CPK archive in every single test case,
 // no test case writes anything to the filesystem, nor alters the state of the test class instance;
 // this makes it safe to use the same instance for all test cases (test case execution order is irrelevant)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -52,7 +55,14 @@ class CPKTests {
 
     private lateinit var workflowCPKLibraries: Map<String, SecureHash>
 
-    private val cordaDevKey = SecureHash.create("SHA-256:${System.getProperty("net.corda.dev.cert")}")
+    private val cordaDevCert = CertificateFactory.getInstance("X.509").let { crtFactory ->
+        javaClass.getResourceAsStream("/META-INF/security/corda_dev.crt.pem").use(crtFactory::generateCertificate) as X509Certificate
+    }
+
+    private val cordaDevKey = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name).let { md ->
+        md.update(cordaDevCert.publicKey.encoded)
+        SecureHash(DigestAlgorithmName.SHA2_256.name, md.digest())
+    }
 
     @BeforeAll
     fun setup(@TempDir junitTestDir: Path) {

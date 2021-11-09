@@ -1,17 +1,17 @@
 package net.corda.packaging
 
+import net.corda.packaging.internal.CPKDependencyResolver
 import net.corda.packaging.internal.CPKFormatVersionImpl
 import net.corda.packaging.internal.CPKIdentifierImpl
 import net.corda.packaging.internal.CPKLoader
 import net.corda.packaging.internal.CPKManifestImpl
-import net.corda.packaging.internal.CPKDependencyResolver
 import net.corda.packaging.internal.CPKMetadataImpl
 import net.corda.packaging.internal.jarSignatureVerificationEnabledByDefault
 import net.corda.v5.crypto.SecureHash
 import java.io.IOException
 import java.io.InputStream
 import java.nio.file.Path
-import java.security.cert.Certificate
+import java.security.cert.CertPath
 import java.util.NavigableSet
 import java.util.TreeMap
 
@@ -160,7 +160,7 @@ interface CPK : AutoCloseable {
         val cordappManifest : CordappManifest
         val type : Type
         val hash: SecureHash
-        val cordappCertificates : Set<Certificate>
+        val signers : Set<CertPath>
 
         companion object {
             @JvmStatic
@@ -179,7 +179,7 @@ interface CPK : AutoCloseable {
                             cordappManifest: CordappManifest,
                             type : Type,
                             hash: SecureHash,
-                            cordappCertificates : Set<Certificate>
+                            signers : Set<CertPath>
             ) : Metadata = CPKMetadataImpl(
                 mainBundle,
                 manifest,
@@ -188,7 +188,7 @@ interface CPK : AutoCloseable {
                 cordappManifest,
                 type,
                 hash,
-                cordappCertificates
+                signers
             )
         }
     }

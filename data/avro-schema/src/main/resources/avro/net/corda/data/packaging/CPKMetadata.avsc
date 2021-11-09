@@ -36,7 +36,7 @@
       "type": "net.corda.data.crypto.SecureHash"
     },
     {
-      "name": "corDappCertificates",
+      "name": "signers",
       "type": { "type": "array", "items": "bytes" }
     }
   ]

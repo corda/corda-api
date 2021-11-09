@@ -1,14 +1,14 @@
 package net.corda.packaging.internal
 
 import java.security.CodeSigner
-import java.security.cert.Certificate
 import java.util.Arrays
 import java.util.Collections
+import java.security.cert.CertPath
 import java.util.jar.JarEntry
 
 /**
  * Helper class to extract signatures from a jar file, it has to be used calling [addEntry] on all of the jar's [JarEntry]
- * after having consumed their entry content from the source [java.util.jar.JarInputStream], then [certificates] property
+ * after having consumed their entry content from the source [java.util.jar.JarInputStream], then [certPaths] property
  * will contain the public keys of the jar's signers.
  */
 class SignatureCollector {
@@ -33,9 +33,9 @@ class SignatureCollector {
 
     private var firstSignedEntry : String? = null
     private var codeSigners : Array<CodeSigner>? = null
-    private val _certificates = mutableSetOf<Certificate>()
-    val certificates : Set<Certificate>
-        get() = Collections.unmodifiableSet(_certificates)
+    private val _certPaths = mutableSetOf<CertPath>()
+    val certPaths : Set<CertPath>
+        get() = Collections.unmodifiableSet(_certPaths)
 
     fun addEntry(jarEntry : JarEntry) {
         if(isSignable(jarEntry)) {
@@ -44,11 +44,11 @@ class SignatureCollector {
                 codeSigners = entrySigners
                 firstSignedEntry = jarEntry.name
                 for (signer in entrySigners) {
-                    _certificates.add(signer.signerCertPath.certificates.first())
+                    _certPaths.add(signer.signerCertPath)
                 }
             }
             if (!Arrays.equals(codeSigners, entrySigners)) {
-                throw throw IllegalArgumentException(
+                throw throw SecurityException(
                     """
                     Mismatch between signers ${signers2OrderedPublicKeys(codeSigners!!)} for file $firstSignedEntry
                     and signers ${signers2OrderedPublicKeys(entrySigners)} for file ${jarEntry.name}

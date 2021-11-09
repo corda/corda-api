@@ -3,7 +3,7 @@ package net.corda.packaging.internal
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.SecureHash
 import java.security.MessageDigest
-import java.security.cert.Certificate
+import java.security.cert.CertPath
 import java.util.Arrays
 
 internal val secureHashComparator = Comparator.nullsFirst(
@@ -45,7 +45,9 @@ internal fun Sequence<SecureHash>.summaryHash() : SecureHash? {
     }.takeIf { counter > 0 }
 }
 
-internal fun Sequence<Certificate>.certSummaryHash() : SecureHash? = map { it.publicKey.encoded.hash() }.summaryHash()
+internal fun Sequence<CertPath>.certPathSummaryHash() : SecureHash? = flatMap { it.certificates.asSequence() }
+    .map { it.publicKey.encoded.hash() }
+    .summaryHash()
 
 private const val DEFAULT_VERIFY_JAR_SIGNATURES_KEY = "net.corda.packaging.jarSignatureVerification"
 internal fun jarSignatureVerificationEnabledByDefault() = System.getProperty(DEFAULT_VERIFY_JAR_SIGNATURES_KEY)?.toBoolean() ?: true

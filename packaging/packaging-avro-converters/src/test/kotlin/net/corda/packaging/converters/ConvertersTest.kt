@@ -56,7 +56,7 @@ class ConvertersTest {
             assertCordappManifestEquals(cpkMetadata1.cordappManifest, cpkMetadata2.cordappManifest)
             Assertions.assertEquals(cpkMetadata1.type, cpkMetadata2.type)
             Assertions.assertEquals(cpkMetadata1.hash, cpkMetadata2.hash)
-            Assertions.assertEquals(cpkMetadata1.cordappCertificates, cpkMetadata2.cordappCertificates)
+            Assertions.assertEquals(cpkMetadata1.signers, cpkMetadata2.signers)
         }
 
         fun assertCordappManifestEquals(m1 : CordappManifest, m2 : CordappManifest) {
@@ -149,7 +149,7 @@ class ConvertersTest {
             cordappManifest,
             cpkType,
             SecureHash(DigestAlgorithmName.DEFAULT_ALGORITHM_NAME.name, ByteArray(32).also(random::nextBytes)),
-            emptySet()
+            emptySet(),
         )
         val avroObject = original.toAvro()
         val cordaObject = avroObject.toCorda()
@@ -182,7 +182,7 @@ class ConvertersTest {
             cpiId,
             SecureHash(DigestAlgorithmName.DEFAULT_ALGORITHM_NAME.name, ByteArray(32).also(random::nextBytes)),
             listOf(cpkMetadata),
-            "someString")
+            "someString", emptySet())
         val avroObject = original.toAvro()
         val cordaObject = avroObject.toCorda()
         assertCPIMetadataEquals(original, cordaObject)
