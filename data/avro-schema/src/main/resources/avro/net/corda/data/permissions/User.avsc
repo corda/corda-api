@@ -40,7 +40,7 @@
       "type": "boolean"
     },
     {
-      "name": "parentGroupId",
+      "name": "parentGroupAssociation",
       "type": [ "null", "net.corda.data.permissions.GroupAssociation" ],
       "doc": "Optional parent group associated with this User."
     },
