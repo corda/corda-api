@@ -4,7 +4,8 @@ package net.corda.schema.configuration
  */
 class ConfigKeys {
     companion object {
-        const val CRYPTO_CONFIG = "corda.crypto"
+        const val BOOT_CONFIG = "corda.boot"
+        const val CRYPTO_CONFIG = "corda.cryptoLibrary"
         const val DB_CONFIG = "corda.db"
         const val FLOW_CONFIG = "corda.flow"
         const val IDENTITY_CONFIG = "corda.identity"
