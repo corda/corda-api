@@ -1,6 +1,12 @@
 package net.corda.schema.configuration
 
 /**
+ * The following constants define the root keys for various configurations within a virtual node.
+ *
+ * These keys are the values that will be used when configuration changes.
+ *
+ * So writers will use them publishing changes one of the config sections defined by a key, and readers will
+ * use the keys to determine which config section a given update is for.
  */
 class ConfigKeys {
     companion object {
