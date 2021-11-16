@@ -9,7 +9,7 @@
       "type": "net.corda.data.permissions.ChangeDetails"
     },
     {
-      "name": "ID",
+      "name": "groupId",
       "type": "string",
       "doc": "ID of associated Group."
     }
