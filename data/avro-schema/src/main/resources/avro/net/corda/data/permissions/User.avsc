@@ -36,6 +36,14 @@
       "type": [ "null", "string" ]
     },
     {
+      "name": "passwordExpiryTimestamp",
+      "type": ["null", {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }],
+      "doc": "Optional time ([Instant]) in milliseconds when the password expires."
+    },
+    {
       "name": "ssoAuth",
       "type": "boolean"
     },

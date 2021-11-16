@@ -5,12 +5,8 @@
   "doc": "A permission along with the time the association was last updated.",
   "fields": [
     {
-      "name": "updateTimestamp",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
-      "doc": "Time ([Instant]) in milliseconds when this permission association was last updated."
+      "name": "lastChangeDetails",
+      "type": "net.corda.data.permissions.ChangeDetails"
     },
     {
       "name": "permission",
