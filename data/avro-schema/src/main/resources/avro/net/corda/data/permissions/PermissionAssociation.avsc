@@ -5,7 +5,7 @@
   "doc": "A permission along with the time the association was last updated.",
   "fields": [
     {
-      "name": "lastChangeDetails",
+      "name": "changeDetails",
       "type": "net.corda.data.permissions.ChangeDetails"
     },
     {

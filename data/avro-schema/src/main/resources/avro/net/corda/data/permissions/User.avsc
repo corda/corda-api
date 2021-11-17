@@ -36,7 +36,7 @@
       "type": [ "null", "string" ]
     },
     {
-      "name": "passwordExpiryTimestamp",
+      "name": "passwordExpiry",
       "type": ["null", {
         "type": "long",
         "logicalType": "timestamp-millis"
