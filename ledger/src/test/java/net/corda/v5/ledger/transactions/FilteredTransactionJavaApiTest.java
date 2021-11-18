@@ -174,17 +174,4 @@ public class FilteredTransactionJavaApiTest {
             Assertions.assertThat(result).isEqualTo(stateRef);
         }
     }
-
-    @Nested
-    public class NetworkParametersHashJavaApiTest {
-        private final NetworkParametersHash networkParametersHash = new NetworkParametersHash(secureHash);
-
-        @Test
-        public void getHash() {
-            SecureHash result = networkParametersHash.getHash();
-
-            Assertions.assertThat(result).isNotNull();
-            Assertions.assertThat(result).isEqualTo(secureHash);
-        }
-    }
 }
