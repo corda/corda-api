@@ -1,0 +1,6 @@
+@Library('corda-shared-build-pipeline-steps@ronanb/INFRA-1643/create-nightly') _
+
+windowsCompatibility(
+    runIntegrationTests: false,
+    dailyBuildCron: 'H 02 * * *'
+    )
