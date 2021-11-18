@@ -1,0 +1,110 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'application'
+}
+
+configurations {
+    testCPK
+}
+
+dependencies {
+    implementation platform(project(':corda-api'))
+
+    implementation project(":packaging")
+    implementation group: 'info.picocli', name: 'picocli', version: '4.6.2'
+    implementation group: 'org.fusesource.jansi', name: 'jansi', version: '2.4.0'
+    implementation 'org.slf4j:slf4j-api'
+
+    runtimeOnly group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
+
+    testCPK project(path: ':packaging:test:workflow-cpk', configuration: 'cordaCPK')
+}
+
+application {
+    mainClass = 'net.corda.packaging.signature.demo.Cli'
+}
+
+Provider<RegularFile> keyStore = project.layout.buildDirectory.file('pki/trusted_key.p12')
+Provider<RegularFile> certStore = project.layout.buildDirectory.file('pki/certstore.p12')
+Provider<RegularFile> signedCpk = project.layout.buildDirectory.file('pki/signed.cpk')
+
+Provider<Exec> createPKITaskProvider = tasks.register("createPKI", Exec) { exec ->
+    executable = project.file("./create_pki.sh")
+    exec.outputs.files(keyStore, certStore)
+    doLast {
+        logger.lifecycle("Created signing keystore in ${keyStore.get().asFile.toString()}")
+        logger.lifecycle("Created certificate in ${certStore.get().asFile.toString()}")
+    }
+}
+
+Provider<Exec> signCPKTaskProvider = tasks.register("signCPK", JavaExec) { javaExec ->
+    mainClass = 'net.corda.packaging.signature.demo.Cli'
+    classpath configurations.runtimeClasspath
+    classpath tasks.named(JavaPlugin.JAR_TASK_NAME)
+    javaExec.inputs.files(createPKITaskProvider)
+    inputs.files(configurations.testCPK)
+    javaExec.outputs.file(signedCpk)
+    argumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            return [
+                'sign',
+                '-i', configurations.testCPK.singleFile.toString(),
+                '-o', signedCpk.get().asFile.toString(),
+                '-k', keyStore.get().asFile.toString(),
+                '-p', 'password',
+                '-a', 'child',
+                '-P', 'password'
+            ]
+        }
+    })
+    doLast {
+        logger.lifecycle("Signed CPK file in ${signedCpk.get().asFile.toString()}")
+    }
+}
+
+
+tasks.register("jarsignerVerifyCPK", Exec) { exec ->
+    inputs.files(configurations.testCPK)
+    inputs.files(signCPKTaskProvider)
+    exec.executable = javaToolchains.launcherFor {
+        it.languageVersion = java.toolchain.languageVersion
+        it.vendor = java.toolchain.vendor
+        it.implementation = java.toolchain.implementation
+    }.map {
+        it.metadata.installationPath.file("bin/jarsigner")
+    }.map(RegularFile.&getAsFile).get()
+    exec.argumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            return [
+                '-verbose',
+                '-verify',
+                signedCpk.get().asFile.toString(),
+                '-keystore', certStore.get().asFile.toString(),
+                '-storepass', 'password'
+            ]
+        }
+    })
+}
+
+Provider<Exec> verifyCPKTaskProvider = tasks.register("verifyCPK", JavaExec) { javaExec ->
+    mainClass = 'net.corda.packaging.signature.demo.Cli'
+    classpath configurations.runtimeClasspath
+    classpath tasks.named(JavaPlugin.JAR_TASK_NAME)
+    javaExec.inputs.files(signCPKTaskProvider)
+    argumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            return [
+                    'verify',
+                    '-i', signedCpk.get().asFile.toString(),
+                    '-k', certStore.get().asFile.toString(),
+                    '-p', 'password',
+            ]
+        }
+    })
+    doLast {
+        logger.lifecycle("CPK file in ${signedCpk.get().asFile.toString()} verified")
+    }
+}
