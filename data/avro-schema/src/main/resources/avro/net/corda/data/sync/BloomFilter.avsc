@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "WireBloomFilter",
-  "namespace": "net.corda.data",
+  "name": "BloomFilter",
+  "namespace": "net.corda.data.sync",
   "fields": [
     {
       "name": "numberOfHashFunctions",
