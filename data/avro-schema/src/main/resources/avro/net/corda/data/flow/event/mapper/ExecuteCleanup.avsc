@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "ExecuteCleanup",
+  "namespace": "net.corda.data.flow.event.mapper",
+  "fields": [
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "ScheduleCleanup",
+  "namespace": "net.corda.data.flow.event.mapper",
+  "fields": [
+    {
+      "name": "expiryTime",
+      "type": "long"
+    }
+  ]
+}

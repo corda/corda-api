@@ -8,6 +8,10 @@
       "type": "string"
     },
     {
+      "name": "startRPCFlowKey",
+      "type": "string"
+    },
+    {
       "name": "flowName",
       "type": "string"
     },

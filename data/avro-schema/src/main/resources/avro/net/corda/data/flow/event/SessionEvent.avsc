@@ -1,0 +1,43 @@
+{
+  "type": "record",
+  "name": "SessionEvent",
+  "namespace": "net.corda.data.flow.event",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": "long"
+    },
+    {
+      "name": "sequenceNum",
+      "type": "int"
+    },
+    {
+      "name": "initiatingIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "initiatedIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "messageDirection",
+      "type": {
+        "name": "MessageDirection",
+        "type": "enum",
+        "symbols": [
+          "INBOUND",
+          "OUTBOUND"
+        ]
+      }
+    },
+    {
+      "name": "payload",
+      "type": [
+        "net.corda.data.flow.event.mapper.ExecuteCleanup",
+        "net.corda.data.flow.event.mapper.ScheduleCleanup",
+        "net.corda.data.flow.event.session.SessionInit",
+        "net.corda.data.flow.event.session.SessionAck"
+      ]
+    }
+  ]
+}

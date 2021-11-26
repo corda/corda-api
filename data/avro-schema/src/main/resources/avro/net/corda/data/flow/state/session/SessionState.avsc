@@ -1,0 +1,60 @@
+{
+  "type": "record",
+  "name": "SessionState",
+  "namespace": "net.corda.data.flow.state.session",
+  "fields": [
+    {
+      "name": "sessionId",
+      "type": "string"
+    },
+    {
+      "name": "counterpartySessionId",
+      "type": "string"
+    },
+    {
+      "name": "sessionStartTime",
+      "type": "long"
+    },
+    {
+      "name": "isInitiator",
+      "type": "boolean"
+    },
+    {
+      "name": "initiatorSequenceNum",
+      "type": "int"
+    },
+    {
+      "name": "initiatedSequenceNum",
+      "type": "int"
+    },
+    {
+      "name": "initiatorIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "initiatedIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "unacknowledgedMessages",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.flow.event.SessionEvent"
+      }
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "SessionStateType",
+        "symbols": [
+          "CREATED",
+          "CONFIRMED",
+          "CLOSING",
+          "CLOSED",
+          "ERROR"
+        ]
+      }
+    }
+  ]
+}

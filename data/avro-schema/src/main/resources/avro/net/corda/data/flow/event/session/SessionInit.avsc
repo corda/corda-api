@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "SessionInit",
+  "namespace": "net.corda.data.flow.event.session",
+  "fields": [
+    {
+      "name": "flowName",
+      "type": "string"
+    },
+    {
+      "name": "cpiId",
+      "type": "string"
+    },
+    {
+      "name": "flowKey",
+      "type": "string"
+    },
+    {
+      "name": "initiatedSessionID",
+      "type": "string"
+    },
+    {
+      "name": "initiatingSessionID",
+      "type": "string"
+    }
+  ]
+}

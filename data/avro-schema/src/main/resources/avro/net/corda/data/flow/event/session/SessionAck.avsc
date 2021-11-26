@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "SessionAck",
+  "namespace": "net.corda.data.flow.event.session",
+  "fields": [
+    {
+      "name": "sequenceNumber",
+      "type": "int"
+    }
+  ]
+}
