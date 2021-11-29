@@ -1,14 +1,10 @@
 {
   "type": "record",
-  "name": "FlowInfo",
+  "name": "FlowKey",
   "namespace": "net.corda.data.flow",
   "fields": [
     {
       "name": "flowId",
-      "type": "string"
-    },
-    {
-      "name": "cpiId",
       "type": "string"
     },
     {

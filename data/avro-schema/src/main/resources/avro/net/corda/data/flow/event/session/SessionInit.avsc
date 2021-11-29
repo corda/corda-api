@@ -12,15 +12,11 @@
       "type": "string"
     },
     {
-      "name": "flowKey",
+      "name": "flowEventKey",
       "type": "string"
     },
     {
-      "name": "initiatedSessionID",
-      "type": "string"
-    },
-    {
-      "name": "initiatingSessionID",
+      "name": "counterpartySessionID",
       "type": "string"
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "SessionProcessState",
+  "namespace": "net.corda.data.flow.state.session",
+  "fields": [
+    {
+      "name": "lastProcessedSequenceNum",
+      "type": "int"
+    },
+    {
+      "name": "undeliveredMessages",
+      "type": "net.corda.data.flow.event.SessionEvent"
+    }
+  ]
+}

@@ -4,8 +4,8 @@
   "namespace": "net.corda.data.flow.state",
   "fields": [
     {
-      "name": "flowInfo",
-      "type": "net.corda.data.flow.FlowInfo"
+      "name": "flowKey",
+      "type": "net.corda.data.flow.FlowKey"
     },
     {
       "name": "fiber",
@@ -14,10 +14,6 @@
     {
       "name": "flowState",
       "type": "net.corda.data.flow.state.StateMachineState"
-    },
-    {
-      "name": "startEventKey",
-      "type": "string"
     },
     {
       "name": "sessions",

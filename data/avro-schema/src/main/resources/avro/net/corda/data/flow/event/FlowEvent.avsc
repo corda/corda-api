@@ -4,17 +4,19 @@
   "namespace": "net.corda.data.flow.event",
   "fields": [
     {
-      "name": "flowInfo",
-      "type": "net.corda.data.flow.FlowInfo"
+      "name": "flowKey",
+      "type": "net.corda.data.flow.FlowKey"
+    },
+    {
+      "name": "cpiId",
+      "type": "string"
     },
     {
       "name": "payload",
       "type": [
-        "net.corda.data.flow.event.RemoteFlowError",
-        "net.corda.data.flow.event.StartRemotelyInitiatedFlow",
         "net.corda.data.flow.event.StartRPCFlow",
         "net.corda.data.flow.event.Wakeup",
-        "net.corda.data.flow.event.RPCFlowResult",
+        "net.corda.data.flow.output.RPCFlowResult",
         "net.corda.data.flow.event.SessionEvent"
       ]
     }

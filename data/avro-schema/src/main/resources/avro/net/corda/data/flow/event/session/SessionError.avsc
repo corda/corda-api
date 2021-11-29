@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "SessionError",
+  "namespace": "net.corda.data.flow.event.session",
+  "fields": [
+    {
+      "name": "errorMessage",
+      "type": "string"
+    }
+  ]
+}

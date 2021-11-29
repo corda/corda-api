@@ -12,12 +12,12 @@
       "type": "int"
     },
     {
-      "name": "initiatingIdentity",
-      "type": "net.corda.data.identity.HoldingIdentity"
+      "name": "initiatedSessionID",
+      "type": "string"
     },
     {
-      "name": "initiatedIdentity",
-      "type": "net.corda.data.identity.HoldingIdentity"
+      "name": "initiatingSessionID",
+      "type": "string"
     },
     {
       "name": "messageDirection",
@@ -33,8 +33,6 @@
     {
       "name": "payload",
       "type": [
-        "net.corda.data.flow.event.mapper.ExecuteCleanup",
-        "net.corda.data.flow.event.mapper.ScheduleCleanup",
         "net.corda.data.flow.event.session.SessionInit",
         "net.corda.data.flow.event.session.SessionAck"
       ]
