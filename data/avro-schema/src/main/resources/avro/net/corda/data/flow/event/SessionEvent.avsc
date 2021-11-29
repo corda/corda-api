@@ -34,7 +34,8 @@
       "name": "payload",
       "type": [
         "net.corda.data.flow.event.session.SessionInit",
-        "net.corda.data.flow.event.session.SessionAck"
+        "net.corda.data.flow.event.session.SessionAck",
+        "net.corda.data.flow.event.session.SessionError"
       ]
     }
   ]
