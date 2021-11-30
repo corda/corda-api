@@ -9,7 +9,10 @@
     },
     {
       "name": "undeliveredMessages",
-      "type": "net.corda.data.flow.event.SessionEvent"
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.flow.event.SessionEvent"
+      }
     }
   ]
 }

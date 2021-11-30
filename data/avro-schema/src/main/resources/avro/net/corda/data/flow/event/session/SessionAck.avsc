@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.flow.event.session",
   "fields": [
     {
-      "name": "sequenceNumber",
+      "name": "sequenceNum",
       "type": "int"
     }
   ]
