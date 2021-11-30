@@ -14,6 +14,7 @@
     {
       "name": "payload",
       "type": [
+        "net.corda.data.flow.event.SessionEvent",
         "net.corda.data.flow.event.FlowSessionMessage",
         "net.corda.data.flow.event.RemoteFlowError",
         "net.corda.data.flow.event.StartRemotelyInitiatedFlow",

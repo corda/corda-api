@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "SessionEvent",
+  "namespace": "net.corda.data.flow.event",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": "long"
+    },
+    {
+      "name": "sequenceNum",
+      "type": "int"
+    },
+    {
+      "name": "initiatedSessionID",
+      "type": "string"
+    },
+    {
+      "name": "initiatingSessionID",
+      "type": "string"
+    },
+    {
+      "name": "messageDirection",
+      "type": {
+        "name": "MessageDirection",
+        "type": "enum",
+        "symbols": [
+          "INBOUND",
+          "OUTBOUND"
+        ]
+      }
+    }
+  ]
+}
