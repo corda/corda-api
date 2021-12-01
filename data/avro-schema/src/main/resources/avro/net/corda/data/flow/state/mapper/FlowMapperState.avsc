@@ -12,8 +12,8 @@
       "type": ["null", "string"]
     },
     {
-      "name": "flowEventKey",
-      "type": "string"
+      "name": "flowKey",
+      "type": "net.corda.data.flow.FlowKey"
     },
     {
       "name": "expiryTime",
