@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "FlowMapperEvent",
+  "namespace": "net.corda.data.flow.event.mapper",
+  "fields": [
+    {
+      "name": "flowKey",
+      "type": "net.corda.data.flow.FlowKey",
+      "doc": "Required to inform the mapper of the flowKey for new outbound sessions"
+    },
+    {
+      "name": "cpiId",
+      "type": "string",
+      "doc": "Required for RPC calls such as StartRPCFlow"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "net.corda.data.flow.event.StartRPCFlow",
+        "net.corda.data.flow.event.SessionEvent",
+        "net.corda.data.flow.event.mapper.CleanupEvent"
+      ]
+    }
+  ]
+}
