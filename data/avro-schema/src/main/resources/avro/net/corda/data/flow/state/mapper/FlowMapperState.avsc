@@ -5,10 +5,7 @@
   "fields": [
     {
       "name": "outboundKey",
-      "type": [
-        "net.corda.data.flow.FlowKey",
-        "string"
-      ]
+      "type": "net.corda.data.flow.FlowKey"
     },
     {
       "name": "expiryTime",
