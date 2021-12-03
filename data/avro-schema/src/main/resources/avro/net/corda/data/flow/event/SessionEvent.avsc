@@ -12,14 +12,6 @@
       "type": "int"
     },
     {
-      "name": "initiatedSessionID",
-      "type": "string"
-    },
-    {
-      "name": "initiatingSessionID",
-      "type": "string"
-    },
-    {
       "name": "payload",
       "type": [
         "net.corda.data.flow.event.session.SessionInit",
