@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.flow.state.mapper",
   "fields": [
     {
-      "name": "outboundKey",
+      "name": "flowKey",
       "type": "net.corda.data.flow.FlowKey"
     },
     {
