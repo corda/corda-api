@@ -23,7 +23,6 @@
         "name": "FlowMapperStateType",
         "symbols": [
           "OPEN",
-          "CLOSED",
           "CLOSING"
         ]
       }
