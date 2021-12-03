@@ -8,6 +8,11 @@
       "type": "net.corda.data.flow.FlowKey"
     },
     {
+      "name": "isInitiator",
+      "type": "boolean",
+      "doc": "Required to inform the mapper when constructing counterparty sessionId"
+    },
+    {
       "name": "expiryTime",
       "type": ["null", "long"]
     },

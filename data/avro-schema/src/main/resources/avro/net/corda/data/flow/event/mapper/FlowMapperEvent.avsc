@@ -4,11 +4,6 @@
   "namespace": "net.corda.data.flow.event.mapper",
   "fields": [
     {
-      "name": "isInitiator",
-      "type": "boolean",
-      "doc": "Required to inform the mapper when constructing counterparty sessionId"
-    },
-    {
       "name": "messageDirection",
       "type": {
         "name": "MessageDirection",
