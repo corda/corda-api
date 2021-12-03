@@ -20,20 +20,11 @@
       "type": "string"
     },
     {
-      "name": "messageDirection",
-      "type": {
-        "name": "MessageDirection",
-        "type": "enum",
-        "symbols": [
-          "INBOUND",
-          "OUTBOUND"
-        ]
-      }
-    },
-    {
       "name": "payload",
       "type": [
         "net.corda.data.flow.event.session.SessionInit",
+        "net.corda.data.flow.event.session.SessionData",
+        "net.corda.data.flow.event.session.SessionClose",
         "net.corda.data.flow.event.session.SessionAck",
         "net.corda.data.flow.event.session.SessionError"
       ]

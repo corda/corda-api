@@ -12,14 +12,19 @@
       "type": "bytes"
     },
     {
+      "name": "cpiId",
+      "type": "string"
+    },
+    {
       "name": "flowState",
       "type": "net.corda.data.flow.state.StateMachineState"
     },
     {
       "name": "sessions",
       "type": {
-        "type": "array",
-        "items": "net.corda.data.flow.state.session.SessionState"
+        "type": "map",
+        "values": "net.corda.data.flow.state.session.SessionState",
+        "default": {}
       }
     }
   ]

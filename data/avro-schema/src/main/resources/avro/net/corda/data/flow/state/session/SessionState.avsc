@@ -12,10 +12,6 @@
       "type": "long"
     },
     {
-      "name": "counterpartySessionId",
-      "type": "string"
-    },
-    {
       "name": "counterpartyIdentity",
       "type": "net.corda.data.identity.HoldingIdentity"
     },

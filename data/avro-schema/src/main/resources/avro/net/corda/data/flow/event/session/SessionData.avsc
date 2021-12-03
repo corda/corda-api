@@ -1,11 +1,11 @@
 {
   "type": "record",
-  "name": "SessionError",
+  "name": "SessionData",
   "namespace": "net.corda.data.flow.event.session",
   "fields": [
     {
-      "name": "errorMessage",
-      "type": "net.corda.data.ExceptionEnvelope"
+      "name": "payload",
+      "type": "bytes"
     }
   ]
 }

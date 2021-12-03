@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "CleanupEvent",
+  "docs": "Events related to the cleanup of the flow mapper session state",
   "namespace": "net.corda.data.flow.event.mapper",
   "fields": [
     {

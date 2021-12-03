@@ -4,16 +4,11 @@
   "namespace": "net.corda.data.flow.state.mapper",
   "fields": [
     {
-      "name": "sessionId",
-      "type": ["null", "string"]
-    },
-    {
-      "name": "counterpartySessionId",
-      "type": ["null", "string"]
-    },
-    {
-      "name": "flowKey",
-      "type": "net.corda.data.flow.FlowKey"
+      "name": "outboundKey",
+      "type": [
+        "net.corda.data.flow.FlowKey",
+        "string"
+      ]
     },
     {
       "name": "expiryTime",
