@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "FlowIORequest",
+  "namespace": "net.corda.data.flow.request",
+  "fields": [
+    {
+      "name": "request",
+      "type": [
+        "null",
+        "net.corda.data.flow.request.CloseSessionsRequest",
+        "net.corda.data.flow.request.ForceCheckpointRequest",
+        "net.corda.data.flow.request.GetFlowInfoRequest",
+        "net.corda.data.flow.request.ReceiveRequest",
+        "net.corda.data.flow.request.SendAndReceiveRequest",
+        "net.corda.data.flow.request.SendRequest",
+        "net.corda.data.flow.request.SleepRequest",
+        "net.corda.data.flow.request.WaitForSessionConfirmationsRequest"
+      ]
+    }
+  ]
+}

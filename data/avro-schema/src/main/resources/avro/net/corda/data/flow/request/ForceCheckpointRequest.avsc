@@ -1,0 +1,6 @@
+{
+  "type": "record",
+  "name": "ForceCheckpointRequest",
+  "namespace": "net.corda.data.flow.request",
+  "fields": []
+}
