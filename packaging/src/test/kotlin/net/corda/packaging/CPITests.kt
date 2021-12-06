@@ -60,19 +60,7 @@ class CPITests {
 
     @AfterAll
     fun teardown() {
-        Files.walk(testDir).forEach {
-            println(it)
-            if (it.isRegularFile()) {
-                println("Deleting $it")
-                Files.delete(it)
-            }
-        }
-
-        println("------")
-
-        Files.walk(testDir).forEach {
-            println(it)
-        }
+        testCPI.close()
     }
 
     @Test
