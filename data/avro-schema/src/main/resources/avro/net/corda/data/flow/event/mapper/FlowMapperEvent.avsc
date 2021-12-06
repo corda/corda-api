@@ -19,7 +19,8 @@
       "type": [
         "net.corda.data.flow.event.StartRPCFlow",
         "net.corda.data.flow.event.SessionEvent",
-        "net.corda.data.flow.event.mapper.CleanupEvent"
+        "net.corda.data.flow.event.mapper.ScheduleCleanup",
+        "net.corda.data.flow.event.mapper.ExecuteCleanup"
       ]
     }
   ]
