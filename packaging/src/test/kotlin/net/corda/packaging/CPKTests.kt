@@ -117,7 +117,7 @@ class CPKTests {
                 while (true) {
                     val read = stream.read(buffer)
                     size += read
-                    if (read <= 0) {
+                    if (read < 0) {
                         println("Stream size: $size")
                         break
                     }

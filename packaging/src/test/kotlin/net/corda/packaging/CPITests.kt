@@ -50,10 +50,8 @@ class CPITests {
             CPI.assemble(it, cpiName, cpiVersion, listOf(workflowCPKPath, contractCPKPath))
         }
         val md = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name)
-        Files.newInputStream(testCPIPath).use {
-            testCPI = DigestInputStream(it, md).use { inputStream ->
-                CPI.from(inputStream, testDir.resolve("cpi_expansion_dir"))
-            }
+        testCPI = DigestInputStream(Files.newInputStream(testCPIPath), md).use { inputStream ->
+            CPI.from(inputStream, testDir.resolve("cpi_expansion_dir"))
         }
         cpiHash = SecureHash(DigestAlgorithmName.SHA2_256.name, md.digest())
     }
