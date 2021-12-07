@@ -40,12 +40,12 @@ class CPITests {
         testDir = junitTestDir
 
         flowsCPKPath = Path.of(URI(System.getProperty("net.corda.flows.cpk")))
-        Files.newInputStream(flowsCPKPath).use { flowsCPK = CPK.Metadata.from(it, flowsCPKPath.toString()) }
+        flowsCPK = Files.newInputStream(flowsCPKPath).use { CPK.Metadata.from(it, flowsCPKPath.toString()) }
         testCPIPath = testDir.resolve("test.cpi")
         workflowCPKPath = Path.of(URI(System.getProperty("net.corda.packaging.test.workflow.cpk")))
         contractCPKPath = Path.of(URI(System.getProperty("net.corda.packaging.test.contract.cpk")))
-        Files.newInputStream(contractCPKPath).use { contractCPK = CPK.Metadata.from(it, contractCPKPath.toString()) }
-        Files.newInputStream(workflowCPKPath).use { workflowCPK = CPK.Metadata.from(it, workflowCPKPath.toString()) }
+        contractCPK = Files.newInputStream(contractCPKPath).use { CPK.Metadata.from(it, contractCPKPath.toString()) }
+        workflowCPK = Files.newInputStream(workflowCPKPath).use { CPK.Metadata.from(it, workflowCPKPath.toString()) }
         Files.newOutputStream(testCPIPath).use {
             CPI.assemble(it, cpiName, cpiVersion, listOf(workflowCPKPath, contractCPKPath))
         }

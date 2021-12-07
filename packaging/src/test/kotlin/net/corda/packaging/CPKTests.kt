@@ -52,7 +52,7 @@ class CPKTests {
 
     private lateinit var workflowCPKLibraries: Map<String, SecureHash>
 
-    private val cordaDevKey = SecureHash.create("SHA-256" + ":" + System.getProperty("net.corda.dev.cert"))
+    private val cordaDevKey = SecureHash.create("SHA-256:${System.getProperty("net.corda.dev.cert")}")
 
     @BeforeAll
     fun setup(@TempDir junitTestDir: Path) {
@@ -198,8 +198,9 @@ class CPKTests {
 
     @Test
     fun `Verify hash of cpk file`() {
+        val hash = Files.newInputStream(workflowCPKPath).use { computeSHA256Digest(it) }
         Assertions.assertEquals(
-            computeSHA256Digest(Files.newInputStream(workflowCPKPath)), workflowCPK.metadata.hash,
+            hash, workflowCPK.metadata.hash,
             "The cpk hash from CPK.Metadata differs from the actual hash of the .cpk file"
         )
     }
@@ -261,11 +262,13 @@ class CPKTests {
         }
         tweakCordappJar(modifiedWorkflowCPK, tweaker)
         assertThrows<CordappManifestException> {
-            CPK.Metadata.from(
-                Files.newInputStream(modifiedWorkflowCPK),
-                cpkLocation = modifiedWorkflowCPK.toString(),
-                verifySignature = false
-            )
+            Files.newInputStream(modifiedWorkflowCPK).use {
+                CPK.Metadata.from(
+                    it,
+                    cpkLocation = modifiedWorkflowCPK.toString(),
+                    verifySignature = false
+                )
+            }
         }
     }
 
