@@ -22,9 +22,8 @@
     {
       "name": "sessions",
       "type": {
-        "type": "map",
-        "values": "net.corda.data.flow.state.session.SessionState",
-        "default": {}
+        "type": "array",
+        "items": "net.corda.data.flow.state.session.SessionState"
       }
     }
   ]

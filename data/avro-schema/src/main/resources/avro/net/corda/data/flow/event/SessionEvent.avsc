@@ -2,6 +2,7 @@
   "type": "record",
   "name": "SessionEvent",
   "namespace": "net.corda.data.flow.event",
+  "doc": "Events sent to counterparties as part of a session",
   "fields": [
     {
       "name": "timestamp",
@@ -9,7 +10,8 @@
     },
     {
       "name": "sequenceNum",
-      "type": "int"
+      "type": "int",
+      "doc" : "Unique id for a message sent to a party. sequenceNum is not bidirectional. Each party will track outbound/inbound sequence numbers separately."
     },
     {
       "name": "payload",
