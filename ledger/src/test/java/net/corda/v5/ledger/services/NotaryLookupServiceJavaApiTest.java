@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 public class NotaryLookupServiceJavaApiTest {
 
     private final NotaryLookupService notaryLookupService = mock(NotaryLookupService.class);
-    private final CordaX500Name testCordaX500Name = mock(CordaX500Name.class);
+    private final CordaX500Name testCordaX500Name = new CordaX500Name("Bob Plc", "Rome", "IT");
     private final Party party = mock(Party.class);
     private final NotaryInfo notaryInfo = mock(NotaryInfo.class);
     private final List<NotaryInfo> notaryInfoList = List.of(notaryInfo);
