@@ -6,7 +6,7 @@
     {
       "name": "flowKey",
       "type": "net.corda.data.flow.FlowKey",
-      "doc": "The key on which inbound events should be forwarded to on the flow event topic"
+      "doc": "The key on which inbound events should be forwarded to on the flow event topic."
     },
     {
       "name": "expiryTime",
