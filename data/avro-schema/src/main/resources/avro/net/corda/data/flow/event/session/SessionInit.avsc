@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "SessionInit",
+  "doc": "Message sent to a counterparty to initiate a session",
   "namespace": "net.corda.data.flow.event.session",
   "fields": [
     {
@@ -13,7 +14,8 @@
     },
     {
       "name": "flowKey",
-      "type": "net.corda.data.flow.FlowKey"
+      "type": [null,"net.corda.data.flow.FlowKey"],
+      "doc": "FlowKey of the flow initiating the session. This is only required to inform the Flow Mapper. It should be null when sent to counterparties."
     },
     {
       "name": "initiatedIdentity",
