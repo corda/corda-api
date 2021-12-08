@@ -7,10 +7,10 @@ interface CordaAvroSerializationFactory {
     /**
      * Create the [CordaAvroSerializer] for use in Avro/Message bus serialization
      */
-    fun <T> createAvroSerializer(): CordaAvroSerializer<T>
+    fun <T> createAvroSerializer(onError: (ByteArray) -> Unit): CordaAvroSerializer<T>
 
     /**
      * Create the [CordaAvroDeserializer] for use in Avro/Message bus serialization
      */
-    fun <T> createAvroDeserializer(): CordaAvroDeserializer<T>
+    fun <T> createAvroDeserializer(onError: (ByteArray) -> Unit): CordaAvroDeserializer<T>
 }
