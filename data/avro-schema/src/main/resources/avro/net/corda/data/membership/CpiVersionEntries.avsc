@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "WireCpiVersionEntries",
+  "namespace": "net.corda.data.membership",
+  "doc": "Avro representation of a list of WireCpiVersion.",
+  "fields": [
+    {
+      "name": "items",
+      "doc": "List of the WireCpiVersion items.",
+      "type": { "type": "array", "items": "net.corda.data.membership.WireCpiVersion" }
+    }
+  ]
+}
