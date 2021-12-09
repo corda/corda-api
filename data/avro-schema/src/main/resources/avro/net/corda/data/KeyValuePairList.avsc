@@ -2,7 +2,7 @@
   "type": "record",
   "name": "KeyValuePairList",
   "namespace": "net.corda.data",
-  "doc": "Avro representation of the List<Pair<String, String?> format.",
+  "doc": "Avro representation of the List<Pair<String, String?>> format.",
   "fields": [
     {
       "name": "items",
