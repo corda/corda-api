@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "groupParameters",
-      "doc": "GroupParameters entries serialised as byte array.",
+      "doc": "GroupParameters entries serialised as byte array by using KeyValuePairList.",
       "type": "bytes"
     },
     {

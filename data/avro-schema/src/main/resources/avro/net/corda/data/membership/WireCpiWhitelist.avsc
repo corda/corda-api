@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "cpiWhitelist",
-      "doc": "The CpiWhiteList, listing the current, accepted CpiVersions, serialised as bytes.",
+      "doc": "The CpiWhiteList, listing the current, accepted CpiVersions, serialised as bytes by using CpiVersionEntries.",
       "type": "bytes"
     },
     {

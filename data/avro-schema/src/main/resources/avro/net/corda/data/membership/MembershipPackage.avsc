@@ -14,14 +14,19 @@
       }
     },
     {
-      "name": "isFinalPage",
-      "doc": "Boolean value to identify last page of an update batch.",
-      "type": "boolean"
+      "name": "currentPage",
+      "doc": "Placeholder for the current page we are processing.",
+      "type": "int"
     },
     {
-      "name": "responseMetaData",
-      "doc": "Basic information about a response to a sync, must be null if the distribution type is standard.",
-      "type": ["null", "net.corda.data.membership.SyncMetaData"]
+      "name": "pageCount",
+      "doc": "The total number of pages in the given update.",
+      "type": "int"
+    },
+    {
+      "name": "distributionMetaData",
+      "doc": "Basic information about the data distribution, can also be a response to a sync.",
+      "type": "net.corda.data.membership.DistributionMetaData"
     },
     {
       "name": "memberships",

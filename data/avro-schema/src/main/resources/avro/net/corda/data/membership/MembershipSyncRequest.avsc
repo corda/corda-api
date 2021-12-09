@@ -5,9 +5,9 @@
   "doc": "Membership data synchronization request which will be processed by the MGM.",
   "fields": [
     {
-      "name": "requestMetaData",
+      "name": "distributionMetaData",
       "doc": "Basic information about the request.",
-      "type": "net.corda.data.membership.SyncMetaData"
+      "type": "net.corda.data.membership.DistributionMetaData"
     },
     {
       "name": "membersHash",
