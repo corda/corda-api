@@ -4,6 +4,10 @@
   "namespace": "net.corda.data.permissions.management.user",
   "fields": [
     {
+      "name": "actorUser",
+      "type": "string"
+    },
+    {
       "name": "fullName",
       "type": "string"
     },
