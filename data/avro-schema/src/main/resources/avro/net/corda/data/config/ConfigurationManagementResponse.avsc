@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "ConfigurationManagementResponse",
+  "namespace": "net.corda.data.config",
+  "fields": [
+    {
+      "name": "response",
+      "type": [
+        "boolean",
+        "net.corda.data.ExceptionEnvelope"
+      ]
+    }
+  ]
+}

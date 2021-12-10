@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "ConfigurationManagementRequest",
+  "namespace": "net.corda.data.config",
+  "fields": [
+    {
+      "name": "userId",
+      "type": "string",
+      "doc": "ID of user who invoked this request."
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis",
+      "doc": "Time at which the user invoked this request."
+    },
+    {
+      "name": "section",
+      "type": "string",
+      "doc": "Section of the configuration."
+    },
+    {
+      "name": "configuration",
+      "type": "string",
+      "doc": "Configuration in JSON or HOCON format."
+    },
+    {
+      "name": "version",
+      "type": "int",
+      "doc": "Version of the configuration."
+    }
+  ]
+}
