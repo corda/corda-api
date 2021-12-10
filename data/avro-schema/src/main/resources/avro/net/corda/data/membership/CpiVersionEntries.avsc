@@ -7,7 +7,10 @@
     {
       "name": "items",
       "doc": "List of the WireCpiVersion items.",
-      "type": { "type": "array", "items": "net.corda.data.membership.WireCpiVersion" }
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.membership.WireCpiVersion"
+      }
     }
   ]
 }
