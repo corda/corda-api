@@ -133,7 +133,7 @@ object VaultSchemaV1 : MappedSchema(
 
         /** associated constraint type data (if any) */
         // TODO: remove org.hibernate.annotations in API
-        @Suppress("DEPRECATION")
+        @Suppress("DEPRECATION", "ForbiddenComment")
         @Column(name = "constraint_data", length = MAX_CONSTRAINT_DATA_SIZE, nullable = true)
         @org.hibernate.annotations.Type(type = "corda-wrapper-binary")
         var constraintData: ByteArray? = null
@@ -144,6 +144,7 @@ object VaultSchemaV1 : MappedSchema(
         name = "vault_linear_state",
         indexes = [Index(name = "external_id_index", columnList = "external_id"), Index(name = "uuid_index", columnList = "uuid")]
     )
+    @Suppress("ForbiddenComment")
     class VaultLinearState(
         /** [net.corda.v5.ledger.contracts.ContractState] attributes */
 
@@ -194,6 +195,7 @@ object VaultSchemaV1 : MappedSchema(
     }
 
     @Embeddable
+    @Suppress("ForbiddenComment")
     // TODO: remove org.hibernate.annotations in API
     @org.hibernate.annotations.Immutable
     data class PersistentStateRefAndKey(/* Foreign key. */
@@ -217,6 +219,7 @@ object VaultSchemaV1 : MappedSchema(
     }
 
     @Entity
+    @Suppress("ForbiddenComment")
     // TODO: remove org.hibernate.annotations in API
     @org.hibernate.annotations.Immutable
     @Table(name = "v_pkey_hash_ex_id_map")
@@ -225,7 +228,7 @@ object VaultSchemaV1 : MappedSchema(
         override val compositeKey: PersistentStateRefAndKey,
 
         // TODO: remove org.hibernate.annotations in API
-        @Suppress("DEPRECATION")
+        @Suppress("DEPRECATION", "ForbiddenComment")
         @Column(name = "external_id")
         @org.hibernate.annotations.Type(type = "uuid-char")
         val externalId: UUID
