@@ -23,8 +23,18 @@
       "type": "bytes"
     },
     {
-      "name": "flowIORequest",
-      "type": "net.corda.data.flow.request.FlowIORequest"
+      "name": "suspendedOn",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "waitingFor",
+      "type": [
+        "null",
+        "net.corda.data.flow.state.waiting.WaitingFor"
+      ]
     },
     {
       "name": "flowClassName",

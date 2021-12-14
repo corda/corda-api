@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "SendAndReceiveRequest",
-  "namespace": "net.corda.data.flow.request",
+  "name": "Receive",
+  "namespace": "net.corda.data.flow.state.waiting",
   "fields": [
     {
       "name": "sessionIds",
