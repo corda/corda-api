@@ -118,4 +118,5 @@ class Schemas {
             const val SOFT_HSM_PERSISTENCE_TOPIC = "crypto.key.soft"
             const val EVENT_TOPIC = "crypto.event"
         }
-    }}
+    }
+}
