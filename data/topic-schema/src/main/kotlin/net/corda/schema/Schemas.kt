@@ -99,24 +99,23 @@ class Schemas {
         const val CPI_INFO_TOPIC = "cpi.info"
 
         fun getRPCResponseTopic(topic: String) = "$topic.resp"
-
-        /**
-         * Crypto topic schema
-         */
-        class Crypto {
-            companion object {
-                const val HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.registration.hsm"
-                const val KEY_REGISTRATION_MESSAGE_TOPIC = "crypto.registration.key"
-                const val RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc"
-                const val FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow"
-                const val HSM_CONFIG_TOPIC = "crypto.config.hsm"
-                const val HSM_CONFIG_LABEL_TOPIC = "crypto.config.hsm.label"
-                const val MEMBER_CONFIG_TOPIC = "crypto.config.member"
-                const val MEMBER_KEY_ALIAS_PERSISTENCE_TOPIC = "crypto.key.alias"
-                const val SIGNING_KEY_PERSISTENCE_TOPIC = "crypto.key.signing"
-                const val SOFT_HSM_PERSISTENCE_TOPIC = "crypto.key.soft"
-                const val EVENT_TOPIC = "crypto.event"
-            }
-        }
     }
-}
+
+    /**
+     * Crypto topic schema
+     */
+    class Crypto {
+        companion object {
+            const val HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.registration.hsm"
+            const val KEY_REGISTRATION_MESSAGE_TOPIC = "crypto.registration.key"
+            const val RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc"
+            const val FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow"
+            const val HSM_CONFIG_TOPIC = "crypto.config.hsm"
+            const val HSM_CONFIG_LABEL_TOPIC = "crypto.config.hsm.label"
+            const val MEMBER_CONFIG_TOPIC = "crypto.config.member"
+            const val MEMBER_KEY_ALIAS_PERSISTENCE_TOPIC = "crypto.key.alias"
+            const val SIGNING_KEY_PERSISTENCE_TOPIC = "crypto.key.signing"
+            const val SOFT_HSM_PERSISTENCE_TOPIC = "crypto.key.soft"
+            const val EVENT_TOPIC = "crypto.event"
+        }
+    }}
