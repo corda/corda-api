@@ -132,7 +132,7 @@ class Schemas {
             const val PROPOSAL_TOPIC = "membership.proposals"
 
             // Member messaging topics
-            const val GROUP_UPDATE_TOPIC = "membership.update"
+            const val UPDATE_TOPIC = "membership.update"
             const val EVENT_TOPIC = "membership.event"
         }
     }
