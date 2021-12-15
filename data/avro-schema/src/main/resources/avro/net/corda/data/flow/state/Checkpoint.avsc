@@ -25,6 +25,13 @@
         "type": "array",
         "items": "net.corda.data.flow.state.session.SessionState"
       }
+    },
+    {
+      "name": "flowStackItems",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.flow.FlowStackItem"
+      }
     }
   ]
 }
