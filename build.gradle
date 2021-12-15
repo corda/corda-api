@@ -235,8 +235,8 @@ subprojects {
         task.dependsOn tasks.withType(AbstractCompile)
     }
 
-    task allDependencyInsight(type: DependencyInsightReportTask) {}
-    task allDependencies(type: DependencyReportTask) {}
+    tasks.register('allDependencyInsight', DependencyInsightReportTask)
+    tasks.register('allDependencies', DependencyReportTask)
 }
 
 // report updatable dependencies: gradle dependencyUpdates
