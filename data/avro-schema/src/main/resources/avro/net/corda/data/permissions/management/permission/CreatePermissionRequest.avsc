@@ -5,14 +5,8 @@
   "fields": [
     {
       "name": "permissionType",
-      "type": {
-        "type": "enum",
-        "name": "PermissionTypeEnum",
-        "symbols": [
-          "ALLOW",
-          "DENY"
-        ]
-      }
+      "type": "net.corda.data.permissions.PermissionType",
+      "doc": "The type of the permission."
     },
     {
       "name": "permissionString",
