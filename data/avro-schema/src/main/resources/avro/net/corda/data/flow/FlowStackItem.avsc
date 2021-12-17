@@ -2,7 +2,7 @@
   "type": "record",
   "name": "FlowStackItem",
   "namespace": "net.corda.data.flow",
-  "doc": "Internal representation of an item on the flow stack.",
+  "doc": "Represents an item on the flow stack.",
   "fields": [
     {
       "name": "flowName",

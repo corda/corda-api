@@ -2,7 +2,7 @@
   "type": "record",
   "name": "Checkpoint",
   "namespace": "net.corda.data.flow.state",
-  "doc": "Internal Represents the current state of a flow when suspended.",
+  "doc": "Represents the current state of a flow when suspended.",
   "fields": [
     {
       "name": "flowKey",
@@ -22,7 +22,7 @@
     {
       "name": "flowState",
       "type": "net.corda.data.flow.state.StateMachineState",
-      "doc": "A set of attributes used to record the current state of the flows execution."
+      "doc": "A set of attributes used to record the current state of the flow's execution."
     },
     {
       "name": "sessions",

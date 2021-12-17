@@ -2,7 +2,7 @@
   "type": "record",
   "name": "FlowKey",
   "namespace": "net.corda.data.flow",
-  "doc": "Internal representation of a unique key for a flow instance.",
+  "doc": "Represents of a unique key for a flow instance.",
   "fields": [
     {
       "name": "flowId",
