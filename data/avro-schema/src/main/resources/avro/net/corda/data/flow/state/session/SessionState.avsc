@@ -38,6 +38,7 @@
           "CREATED",
           "CONFIRMED",
           "CLOSING",
+          "WAIT_FOR_FINAL_ACK",
           "CLOSED",
           "ERROR"
         ]
