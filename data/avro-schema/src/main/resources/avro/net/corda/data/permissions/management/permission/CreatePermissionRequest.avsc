@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "CreatePermissionRequest",
+  "namespace": "net.corda.data.permissions.management.permission",
+  "fields": [
+    {
+      "name": "permissionType",
+      "type": {
+        "type": "enum",
+        "name": "PermissionTypeEnum",
+        "symbols": [
+          "ALLOW",
+          "DENY"
+        ]
+      }
+    },
+    {
+      "name": "permissionString",
+      "type": "string"
+    },
+    {
+      "name": "groupVisibility",
+      "type": [ "null", "string" ]
+    }
+  ]
+}
