@@ -17,7 +17,7 @@
     },
     {
       "name": "virtualNode",
-      "type": "string"
+      "type": [ "null", "string" ]
     },
     {
       "name": "permissionType",
