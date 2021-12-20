@@ -21,6 +21,7 @@ plugins {
     id 'jacoco' // test coverage
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
     id 'org.jetbrains.dokka'
+    id 'com.github.ben-manes.versions' // discover possible dependency version upgrades
 }
 
 def rootProjectDir = rootDir
@@ -136,15 +137,6 @@ subprojects {
         apply plugin: 'kotlin-jpa'
 
         configurations {
-            all {
-                resolutionStrategy {
-                    dependencySubstitution {
-                        // Replace any Logback SLF4J back-end with Log4J2.
-                        substitute module('ch.qos.logback:logback-classic') using module("org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion")
-                    }
-                }
-            }
-
             [ compileClasspath, testCompileClasspath, runtimeClasspath, testRuntimeClasspath ].forEach { cfg ->
                 configureKotlinForOSGi(cfg)
             }
@@ -242,10 +234,25 @@ subprojects {
 
         task.dependsOn tasks.withType(AbstractCompile)
     }
+
+    tasks.register('allDependencyInsight', DependencyInsightReportTask)
+    tasks.register('allDependencies', DependencyReportTask)
+}
+
+// report updatable dependencies: gradle dependencyUpdates
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+        isNonStable(it.candidate.version) && !isNonStable(it.currentVersion)
+    }
 }
 
 wrapper {
-    gradleVersion = '7.2'
+    gradleVersion = '7.3.2'
     distributionType = Wrapper.DistributionType.BIN
     distributionUrl="https://gradleproxy:gradleproxy@software.r3.com/artifactory/gradle-proxy/gradle-$gradleVersion-bin.zip"
 }

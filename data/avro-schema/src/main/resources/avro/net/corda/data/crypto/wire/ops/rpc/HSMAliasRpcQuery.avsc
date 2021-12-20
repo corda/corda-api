@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "HSMAliasRpcQuery",
+  "namespace": "net.corda.data.crypto.wire.ops.rpc",
+  "doc": "Internal over-the-wire request to get HSM alias.",
+  "fields": [
+    {
+      "name": "alias",
+      "type": "string",
+      "doc": "Tenant provided alias."
+    }
+  ]
+}
