@@ -2,7 +2,7 @@
   "type": "record",
   "name": "HSMKeyInfoByPublicKeyRpcQuery",
   "namespace": "net.corda.data.crypto.wire.ops.rpc",
-  "doc": "Internal over-the-wire request to get HSM key info by the public key hash.",
+  "doc": "Request to get HSM key info by the public key hash.",
   "fields": [
     {
       "name": "publicKeyHash",
