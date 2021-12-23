@@ -21,6 +21,9 @@
             <column name="config" type="TEXT">
                 <constraints nullable="false"/>
             </column>
+            <column name="config_version" type="INT">
+                <constraints nullable="false"/>
+            </column>
             <column name="update_ts" type="DATETIME">
                 <constraints nullable="false"/>
             </column>
@@ -38,10 +41,10 @@
             <column name="section" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="version" type="INT">
+            <column name="config" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="config" type="TEXT">
+            <column name="config_version" type="INT">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="DATETIME">

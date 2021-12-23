@@ -11,12 +11,17 @@
     {
       "name": "version",
       "type": "int",
-      "doc": "Version of the configuration."
+      "doc": "Version number used for optimistic locking."
     },
     {
-      "name": "configuration",
+      "name": "config",
       "type": "string",
       "doc": "Configuration in JSON or HOCON format."
+    },
+    {
+      "name": "configVersion",
+      "type": "int",
+      "doc": "Version of the configuration."
     },
     {
       "name": "updateActor",
