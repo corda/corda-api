@@ -7,4 +7,5 @@ package net.corda.db.schema
  */
 object DbSchema  {
     const val RPC_RBAC = "RPC_RBAC"
+    const val CONFIG = "CONFIG"
 }
