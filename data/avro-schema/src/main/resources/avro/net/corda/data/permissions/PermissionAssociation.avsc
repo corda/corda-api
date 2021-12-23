@@ -2,7 +2,7 @@
   "type": "record",
   "name": "PermissionAssociation",
   "namespace": "net.corda.data.permissions",
-  "doc": "A permission ID along with the time the association was last updated.",
+  "doc": "A permission ID along with the time when the association was created.",
   "fields": [
     {
       "name": "changeDetails",
