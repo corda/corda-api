@@ -24,38 +24,20 @@ class Schemas {
         const val REPLICATION_FACTOR = "replicationFactor"
         const val TOPIC_CONFIG = "config"
 
-        fun getStateAndEventDLQTopic(topic: String) = "$topic.DLQ"
+        /**
+         * [getStateAndEventDLQTopic] returns the state and event dlq topic
+         * [getStateAndEventStateTopic] returns the state and event state topic
+         * [getRPCResponseTopic] returns the rpc response topic
+         */
+        fun getStateAndEventDLQTopic(topic: String) = "$topic.state.DLQ"
         fun getStateAndEventStateTopic(topic: String) = "$topic.state"
-
         fun getRPCResponseTopic(topic: String) = "$topic.resp"
     }
 
     /**
      * Flow event topic schema
-     * Note that this follows a state + event pattern
-     *
-     * topics = [
-     *     {
-     *         topicName = "flow.event"
-     *         numPartitions = 3
-     *         replicationFactor = 3
-     *     },
-     *     {
-     *         topicName = "flow.event.DLQ"
-     *         numPartitions = $numPartitions
-     *         replicationFactor = $replicationFactor
-     *     },
-     *     {
-     *         topicName = "flow.event.state"
-     *         numPartitions = 3
-     *         replicationFactor = 3,
-     *         config {
-     *             cleanup.policy=compact
-     *         }
-     *     }
-     * ]
      */
-    class FlowEvent {
+    class Flow {
         companion object {
             const val FLOW_EVENT_TOPIC = "flow.event"
             const val FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event"
@@ -64,18 +46,6 @@ class Schemas {
 
     /**
      * Config read topic schema
-     * Note that this follows a compacted pattern
-     *
-     * topics = [
-     *     {
-     *         topicName = "compactedTopic"
-     *         numPartitions = 1
-     *         replicationFactor = 3,
-     *         config {
-     *             cleanup.policy=compact
-     *         }
-     *     }
-     * ]
      */
     class Config {
         companion object {
