@@ -421,10 +421,13 @@ class CPKTests {
         assertThrows<PackagingException> {
             CPK.Metadata.from(Files.newInputStream(nonJarFile), nonJarFile.toString())
         }
+        val cpkCacheSubfolder = Files.createTempDirectory(testDir, null)
         assertThrows<PackagingException> {
-            CPK.from(Files.newInputStream(nonJarFile), processedWorkflowCPKPath, nonJarFile.toString())
+            CPK.from(Files.newInputStream(nonJarFile), cpkCacheSubfolder, nonJarFile.toString())
                 .also(CPK::close)
         }
+        //Make sure any temporary file is deleted when an exception occurs parsing a CPK file
+        Assertions.assertEquals(0, Files.list(cpkCacheSubfolder).count())
     }
 
     @Test

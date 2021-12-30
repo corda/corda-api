@@ -278,7 +278,7 @@ internal object CPKLoader {
      * [cacheDir] if it is present. A [cpkLocation] string can be provided for more meaningful
      * exception messages in case of errors
      */
-    @Suppress("ComplexMethod")
+    @Suppress("ComplexMethod", "TooGenericExceptionCaught", "NestedBlockDepth")
     private fun createContext(
         source: InputStream,
         cacheDir: Path?,
@@ -310,33 +310,37 @@ internal object CPKLoader {
         )
         var stream2BeFullyConsumed: InputStream = DigestInputStream(source, ctx.cpkDigest)
         val temporaryCPKFile = ctx.temporaryCPKFile
-        if (temporaryCPKFile == null) {
-            JarInputStream(stream2BeFullyConsumed, verifySignature)
-        } else {
-            Files.createDirectories(temporaryCPKFile.parent)
-            stream2BeFullyConsumed = TeeInputStream(stream2BeFullyConsumed, Files.newOutputStream(temporaryCPKFile))
-            JarInputStream(stream2BeFullyConsumed, verifySignature)
-        }.use { jarInputStream ->
-            val jarManifest =
-                jarInputStream.manifest ?: throw PackagingException(ctx.fileLocationAppender("Invalid file format"))
-            ctx.cpkManifest = CPK.Manifest.fromJarManifest(Manifest(jarManifest))
-            while (true) {
-                val cpkEntry = jarInputStream.nextEntry ?: break
-                when {
-                    isMainJar(cpkEntry) -> {
-                        processMainJar(jarInputStream, cpkEntry, verifySignature, ctx)
+        return try {
+            if (temporaryCPKFile == null) {
+                JarInputStream(stream2BeFullyConsumed, verifySignature)
+            } else {
+                stream2BeFullyConsumed = TeeInputStream(stream2BeFullyConsumed, Files.newOutputStream(temporaryCPKFile))
+                JarInputStream(stream2BeFullyConsumed, verifySignature)
+            }.use { jarInputStream ->
+                val jarManifest =
+                    jarInputStream.manifest ?: throw PackagingException(ctx.fileLocationAppender("Invalid file format"))
+                ctx.cpkManifest = CPK.Manifest.fromJarManifest(Manifest(jarManifest))
+                while (true) {
+                    val cpkEntry = jarInputStream.nextEntry ?: break
+                    when {
+                        isMainJar(cpkEntry) -> {
+                            processMainJar(jarInputStream, cpkEntry, verifySignature, ctx)
+                        }
+                        isLibJar(cpkEntry) -> processLibJar(jarInputStream, cpkEntry, ctx)
+                        isManifest(cpkEntry) -> {
+                            ctx.cpkManifest = CPK.Manifest.fromJarManifest(Manifest(jarInputStream))
+                        }
                     }
-                    isLibJar(cpkEntry) -> processLibJar(jarInputStream, cpkEntry, ctx)
-                    isManifest(cpkEntry) -> {
-                        ctx.cpkManifest = CPK.Manifest.fromJarManifest(Manifest(jarInputStream))
-                    }
+                    jarInputStream.closeEntry()
                 }
-                jarInputStream.closeEntry()
+                consumeStream(stream2BeFullyConsumed, ctx.buffer)
+                ctx.validate()
+                ctx
             }
-            consumeStream(stream2BeFullyConsumed, ctx.buffer)
+        }  catch (ex : Exception) {
+            temporaryCPKFile?.let(Files::delete)
+            throw ex
         }
-        ctx.validate()
-        return ctx
     }
 
     fun loadCPK(source: InputStream, cacheDir: Path?, cpkLocation: String?, verifySignature: Boolean) =
