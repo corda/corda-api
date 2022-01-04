@@ -19,9 +19,9 @@
       "doc": "Configuration in JSON or HOCON format."
     },
     {
-      "name": "configVersion",
+      "name": "configSchemaVersion",
       "type": "int",
-      "doc": "Version of the configuration."
+      "doc": "Schema version of the configuration."
     },
     {
       "name": "updateActor",
