@@ -5,7 +5,7 @@
 
     <property name="schema.name" value="CONFIG"/>
 
-    <changeSet author="joeldudleyr3" id="config-creation-v1.0">
+    <changeSet author="R3.Corda" id="config-creation-v1.0">
 
         <sql>
             CREATE SCHEMA IF NOT EXISTS CONFIG;
