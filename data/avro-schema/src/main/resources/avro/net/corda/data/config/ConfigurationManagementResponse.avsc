@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.config",
   "fields": [
     {
-      "name": "response",
+      "name": "status",
       "type": [
         "boolean",
         "net.corda.data.ExceptionEnvelope"
