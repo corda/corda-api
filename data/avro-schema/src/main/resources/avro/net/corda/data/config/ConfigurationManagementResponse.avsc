@@ -9,16 +9,6 @@
         "boolean",
         "net.corda.data.ExceptionEnvelope"
       ]
-    },
-    {
-      "name": "currentVersion",
-      "type": "int",
-      "doc": "Current cluster database version for the section for which an update was requested. -1 indicates that no configuration exists for this section."
-    },
-    {
-      "name": "currentConfiguration",
-      "type": "string",
-      "doc": "Current cluster database configuration for the section for which an update was requested in JSON format. \"{}\" indicates that no configuration exists for this section."
     }
   ]
 }
