@@ -12,13 +12,13 @@
     },
     {
       "name": "currentVersion",
-      "type": ["int", "null"],
-      "doc": "Current cluster database version for the section for which an update was requested."
+      "type": "int",
+      "doc": "Current cluster database version for the section for which an update was requested. -1 indicates that no configuration exists for this section."
     },
     {
       "name": "currentConfiguration",
-      "type": ["string", "null"],
-      "doc": "Current cluster database configuration for the section for which an update was requested in JSON format."
+      "type": "string",
+      "doc": "Current cluster database configuration for the section for which an update was requested in JSON format. \"{}\" indicates that no configuration exists for this section."
     }
   ]
 }
