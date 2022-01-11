@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "GatewayTruststore",
+  "namespace": "net.corda.p2p",
+  "fields": [
+    {
+      "name": "trustedCertificates",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}
