@@ -90,6 +90,23 @@ dependencyResolutionManagement {
     }
 }
 
+
+ext.isPush = getProperty('gradle.cache.push')
+
+buildCache {
+    local {
+        enabled = false
+    }
+    remote(HttpBuildCache) {
+        url = "${artifactoryContextUrl}/gradle-cache-example/"
+        credentials {
+            username = System.getenv('CORDA_ARTIFACTORY_USERNAME')
+            password = System.getenv('CORDA_ARTIFACTORY_PASSWORD')
+        }
+        push = isPush
+    }
+}
+
 rootProject.name = "corda-api"
 
 includeBuild 'cordapp-configuration'
