@@ -20,7 +20,6 @@ class ConfigKeys {
         const val SANDBOX_CONFIG = "corda.sandbox"
         
         const val BOOTSTRAP_SERVERS = "messaging.kafka.common.bootstrap.servers"
-        const val CONFIG_TOPIC_NAME = "config.topic.name"
         const val CONFIG_RPC_TIMEOUT_MILLIS = "timeout.millis"
     }
 }
