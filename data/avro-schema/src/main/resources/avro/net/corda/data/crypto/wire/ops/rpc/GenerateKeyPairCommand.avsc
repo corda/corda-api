@@ -1,14 +1,9 @@
 {
   "type": "record",
   "name": "GenerateKeyPairCommand",
-  "namespace": "net.corda.data.crypto.wire.registration.key",
-  "doc": "Internal over-the-wire request to generate a new key pair for a tenant.",
+  "namespace": "net.corda.data.crypto.wire.ops.rpc",
+  "doc": "Request to generate a new key pair for a tenant.",
   "fields": [
-    {
-      "name": "tenantId",
-      "type": "string",
-      "doc": "The tenant id which wants an HSM to be assigned to."
-    },
     {
       "name": "category",
       "type": "string",
