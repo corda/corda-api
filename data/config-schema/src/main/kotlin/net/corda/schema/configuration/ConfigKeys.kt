@@ -1,6 +1,6 @@
 package net.corda.schema.configuration
 
-/** The keys for various configurations within a virtual node. */
+/** The keys for various configurations for a worker. */
 class ConfigKeys {
     companion object {
         // These root keys are the values that will be used when configuration changes. Writers will use them when
