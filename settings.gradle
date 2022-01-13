@@ -98,7 +98,7 @@ buildCache {
         enabled = false
     }
     remote(HttpBuildCache) {
-        url = "${artifactoryContextUrl}/gradle-cache-example/"
+        url = "${artifactoryContextUrl}/gradle-build-cache-local/"
         credentials {
             username = System.getenv('CORDA_ARTIFACTORY_USERNAME')
             password = System.getenv('CORDA_ARTIFACTORY_PASSWORD')
