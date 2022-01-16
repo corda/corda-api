@@ -1,0 +1,5 @@
+@Library('corda-shared-build-pipeline-steps@ronanb/CORE-3412/moving-nexus-scan') _
+
+cordaNexusScanPipeline(
+      nexusAppId: 'net.corda-api-5.0'
+)
