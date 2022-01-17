@@ -5,6 +5,11 @@
   "doc": "Avro representation of signed MemberInfo.",
   "fields": [
     {
+      "name": "owningHoldingIdentity",
+      "doc": "Holding identity of the member owning the data view.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
       "name": "memberContext",
       "doc": "Member provided data in MemberInfo serialised as byte array by using KeyValuePairList.",
       "type": "bytes"

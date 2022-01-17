@@ -5,6 +5,11 @@
   "doc": "Avro representation of the CpiWhitelist data part, which will be sent over the wire, wrapped into the MembershipPackage.",
   "fields": [
     {
+      "name": "owningHoldingIdentity",
+      "doc": "Holding identity of the member owning the data view.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
       "name": "cpiWhitelist",
       "doc": "The CpiWhiteList, listing the current, accepted CpiVersions, serialised as bytes by using CpiVersionEntries.",
       "type": "bytes"
