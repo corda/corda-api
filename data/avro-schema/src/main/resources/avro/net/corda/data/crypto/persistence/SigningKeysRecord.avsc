@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "SigningKeyRecord",
+  "name": "SigningKeysRecord",
   "namespace": "net.corda.data.crypto.persistence",
   "doc": "Defines persistent record for the signing keys. The record is immutable.",
   "fields": [
