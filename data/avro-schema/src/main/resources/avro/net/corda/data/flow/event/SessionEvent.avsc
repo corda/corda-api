@@ -5,6 +5,18 @@
   "doc": "Events sent to counterparties as part of a session",
   "fields": [
     {
+      "name": "messageDirection",
+      "doc": "INBOUND for messages originating from a counterparty. OUTBOUND for messages to be sent to a counterparty." ,
+      "type": {
+        "name": "MessageDirection",
+        "type": "enum",
+        "symbols": [
+          "INBOUND",
+          "OUTBOUND"
+        ]
+      }
+    },
+    {
       "name": "timestamp",
       "type": "long"
     },
