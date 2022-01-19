@@ -26,7 +26,7 @@
     },
     {
       "name": "sequenceNum",
-      "type": "int",
+      "type": ["null", "int"],
       "doc" : "Unique id for a message sent to a party. sequenceNum is not bidirectional. Each party will track outbound/inbound sequence numbers separately."
     },
     {
