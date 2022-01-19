@@ -4,21 +4,37 @@
   "namespace": "net.corda.data.config",
   "fields": [
     {
-      "name": "status",
+      "name": "success",
+      "type": "boolean",
+      "doc": "Whether the request was successful."
+    },
+    {
+      "name": "exception",
       "type": [
-        "boolean",
+        "null",
         "net.corda.data.ExceptionEnvelope"
-      ]
+      ],
+      "doc": "The cause of failure if the request was unsuccessful."
     },
     {
-      "name": "currentVersion",
-      "type": ["int", "null"],
-      "doc": "Current cluster database version for the section for which an update was requested."
+      "name": "section",
+      "type": "string",
+      "doc": "The configuration section for which an update was requested."
     },
     {
-      "name": "currentConfiguration",
-      "type": ["string", "null"],
-      "doc": "Current cluster database configuration for the section for which an update was requested in JSON format."
+      "name": "config",
+      "type": "string",
+      "doc": "The current configuration in JSON format for the given section."
+    },
+    {
+      "name": "schemaVersion",
+      "type": "int",
+      "doc": "The current configuration's schema version for the given section."
+    },
+    {
+      "name": "version",
+      "type": "int",
+      "doc": "The current configuration's optimistic-locking version for the given section."
     }
   ]
 }
