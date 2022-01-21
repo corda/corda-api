@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "VirtualNodeCreationRequest",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "x500Name",
+      "type": "string"
+    },
+    {
+      "name": "cpiIdHash",
+      "type": "net.corda.data.crypto.SecureHash"
+    }
+  ]
+}
