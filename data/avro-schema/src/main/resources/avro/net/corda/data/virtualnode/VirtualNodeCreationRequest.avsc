@@ -9,8 +9,8 @@
     },
     {
       "name": "cpiIdHash",
-      "type": "net.corda.data.crypto.SecureHash",
-      "doc": "The short, 12 character, hash of the CPI."
+      "type": "string",
+      "doc": "The short 12-character hash of the CPI."
     }
   ]
 }
