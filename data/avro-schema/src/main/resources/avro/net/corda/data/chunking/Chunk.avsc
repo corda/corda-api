@@ -2,11 +2,12 @@
   "type": "record",
   "name": "Chunk",
   "namespace": "net.corda.data.chunking",
+  "doc": "Binary chunk of a larger binary artifact",
   "fields": [
     {
-      "name": "id",
+      "name": "identifier",
       "type": "net.corda.data.crypto.SecureHash",
-      "doc": "group id of this chunk"
+      "doc": "group identifier of this chunk"
     },
     {
       "name": "checksum",
@@ -19,23 +20,14 @@
       "doc": "number of chunk"
     },
     {
-      "name": "chunkCount",
-      "type": "int",
-      "doc": "total number of chunks"
-    },
-    {
       "name": "offset",
       "type": "long",
-      "doc": "offset of this chunk from beginning of complete byte array"
-    },
-    {
-      "name": "length",
-      "type": "long",
-      "doc": "number of bytes in payload"
+      "doc": "offset of this chunk from beginning of complete binary artifact"
     },
     {
       "name": "payload",
-      "type": "bytes"
+      "type": "bytes",
+      "doc": "the binary chunk"
     }
   ]
 }
