@@ -254,5 +254,4 @@ tasks.named("dependencyUpdates").configure {
 wrapper {
     gradleVersion = '7.3.2'
     distributionType = Wrapper.DistributionType.BIN
-    distributionUrl="https://services.gradle.org/distributions/gradle-$gradleVersion-bin.zip"
 }
