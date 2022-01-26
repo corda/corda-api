@@ -4,9 +4,22 @@
   "namespace": "net.corda.data.permissions.management",
   "fields": [
     {
+      "name": "success",
+      "type": "boolean",
+      "doc": "Whether the request was successful."
+    },
+    {
+      "name": "exception",
+      "type": [
+        "null",
+        "net.corda.data.ExceptionEnvelope"
+      ],
+      "doc": "The cause of failure if the request was unsuccessful."
+    },
+    {
       "name": "response",
       "type": [
-        "boolean",
+        "null",
         "net.corda.data.ExceptionEnvelope",
         "net.corda.data.permissions.User",
         "net.corda.data.permissions.Role",
