@@ -14,7 +14,7 @@
       "doc": "checksum of assembled chunks"
     },
     {
-      "name": "chunk",
+      "name": "chunkNumber",
       "type": "int",
       "doc": "number of chunk"
     },
@@ -26,10 +26,10 @@
     {
       "name": "offset",
       "type": "long",
-      "doc": "offset of this chunk"
+      "doc": "offset of this chunk from beginning of complete byte array"
     },
     {
-      "name": "payloadSize",
+      "name": "length",
       "type": "long",
       "doc": "number of bytes in payload"
     },
