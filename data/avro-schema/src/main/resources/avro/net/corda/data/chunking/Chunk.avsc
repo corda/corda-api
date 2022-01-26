@@ -24,8 +24,13 @@
       "doc": "total number of chunks"
     },
     {
+      "name": "offset",
+      "type": "long",
+      "doc": "offset of this chunk"
+    },
+    {
       "name": "payloadSize",
-      "type": "int",
+      "type": "long",
       "doc": "number of bytes in payload"
     },
     {
