@@ -15,7 +15,7 @@ class PublicKeyHash private constructor(
 ) {
     companion object {
         /**
-         * Generates a public key hash by parsing the given byte array.
+         * Parses the given hash as [ByteArray] and wraps it in a [PublicKeyHash].
          *
          * @param bytes The byte array to be parsed.
          * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
@@ -29,7 +29,7 @@ class PublicKeyHash private constructor(
         }
 
         /**
-         * Generates a public key hash by parsing the given Hex string.
+         * Parses the given hash as hexadecimal [String] and wraps it in a [PublicKeyHash].
          *
          * @param str The Hex string to be parsed.
          * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
