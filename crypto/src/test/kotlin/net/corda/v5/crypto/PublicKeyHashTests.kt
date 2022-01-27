@@ -34,6 +34,14 @@ class PublicKeyHashTests {
         )
     }
 
+    @Test
+    @Timeout(10)
+    fun `hash is computed correctly for a given string`() {
+        val str = "BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD"
+        val hash = PublicKeyHash.parse(str)
+        assertEquals(str, hash.value)
+    }
+
     @ParameterizedTest
     @MethodSource("publicKeys")
     @Timeout(10)
@@ -66,6 +74,24 @@ class PublicKeyHashTests {
 
     @Test
     @Timeout(10)
+    fun `throws IllegalArgumentException if input string length is not 64`() {
+        val str = "abc"
+        assertFailsWith(IllegalArgumentException::class) {
+            PublicKeyHash.parse(str)
+        }
+    }
+
+    @Test
+    @Timeout(10)
+    fun `throws IllegalArgumentException if input is an invalid hex string`() {
+        val str = "ZZ7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD"
+        assertFailsWith(IllegalArgumentException::class) {
+            PublicKeyHash.parse(str)
+        }
+    }
+
+    @Test
+    @Timeout(10)
     fun `correctly returns false while comparing with null value`() {
         val bytes = "abc".toByteArray().sha256Bytes()
         val hash = PublicKeyHash.parse(bytes)
@@ -79,6 +105,15 @@ class PublicKeyHashTests {
         val hash = PublicKeyHash.parse(bytes)
         assertTrue(hash.equals("BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD"))
         assertFalse(hash.equals("INCORRECTSTRING"))
+    }
+
+    @Test
+    @Timeout(10)
+    fun `correctly compares hash value with byte array input`() {
+        val bytes = "abc".toByteArray().sha256Bytes()
+        val hash = PublicKeyHash.parse(bytes)
+        assertTrue(hash.equals(bytes))
+        assertFalse(hash.equals("def".toByteArray()))
     }
 
     @Test
