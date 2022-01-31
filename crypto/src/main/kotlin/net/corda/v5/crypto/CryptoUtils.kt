@@ -13,7 +13,6 @@ private fun messageDigestSha256(): MessageDigest =
 
 fun ByteArray.sha256Bytes(): ByteArray = messageDigestSha256().digest(this)
 
-@Deprecated("Use [net.corda.v5.crypto.PublicKeyHash] instead.")
 fun PublicKey.sha256Bytes(): ByteArray = messageDigestSha256().digest(encoded)
 
 /** Render a public key to its hash (in Base58) of its serialised form using the DL prefix. */
