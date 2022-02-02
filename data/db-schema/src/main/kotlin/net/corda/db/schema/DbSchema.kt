@@ -14,4 +14,8 @@ object DbSchema {
     const val CONFIG_AUDIT_ID_SEQUENCE = "config_audit_id_seq"
     const val CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE = 1
     const val CONFIG_DB_CONNECTION_TABLE = "db_connection"
+
+    const val VNODE = "VNODE"
+    const val VNODE_INSTANCE_DB_TABLE = "vnode_instance"
+    const val HOLDING_IDENTITY_DB_TABLE = "holding_identity"
 }
