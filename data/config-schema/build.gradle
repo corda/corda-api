@@ -9,15 +9,9 @@ description 'Schema Definition for Configuration'
 dependencies {
     implementation 'net.corda.kotlin:kotlin-stdlib-jdk8-osgi'
     implementation platform(project(':corda-api'))
-
-    implementation "com.worldturner.medeia:medeia-validator-jackson:1.1.1"
-    implementation 'com.github.erosb:everit-json-schema:1.14.0'
-    implementation 'com.networknt:json-schema-validator:1.0.66'
-    implementation 'io.vertx:vertx-json-schema:4.2.4'
+    implementation project(":base")
 
     compileOnly 'org.osgi:osgi.annotation'
     compileOnly "org.osgi:osgi.core"
-
-    testRuntimeOnly 'org.osgi:osgi.core'
 }
 

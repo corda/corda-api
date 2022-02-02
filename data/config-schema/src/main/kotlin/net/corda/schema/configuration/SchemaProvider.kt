@@ -1,6 +1,6 @@
 package net.corda.schema.configuration
 
-import java.net.URI
+import java.io.InputStream
 
 /**
  * Exposes the configuration JSON schema files in this module in a way that should work under OSGi and non-OSGi.
@@ -10,7 +10,7 @@ import java.net.URI
  */
 interface SchemaProvider {
 
-    fun getSchema(key: String) : URI
+    fun getSchema(key: String): InputStream
 
-    fun getAllSchema() : List<URI>
+    fun getSchemaFile(fileName: String): InputStream
 }
