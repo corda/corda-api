@@ -9,12 +9,15 @@ import net.i2p.crypto.eddsa.EdDSAEngine
 import net.i2p.crypto.eddsa.spec.EdDSANamedCurveTable
 import org.bouncycastle.asn1.ASN1Integer
 import org.bouncycastle.asn1.ASN1ObjectIdentifier
+import org.bouncycastle.asn1.DERNull
 import org.bouncycastle.asn1.DLSequence
 import org.bouncycastle.asn1.bc.BCObjectIdentifiers
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers
 import org.bouncycastle.asn1.gm.GMObjectIdentifiers
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers
+import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers
+import org.bouncycastle.asn1.pkcs.RSAESOAEPparams
 import org.bouncycastle.asn1.sec.SECObjectIdentifiers
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier
 import org.bouncycastle.asn1.x9.X9ObjectIdentifiers
@@ -46,16 +49,62 @@ val NaSignatureSpec: SignatureSpec = SignatureSpec(
 )
 
 @JvmField
+val RSA_SHA256_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA256WITHRSA",
+    signatureOID = AlgorithmIdentifier(PKCSObjectIdentifiers.sha256WithRSAEncryption, null)
+)
+
+@JvmField
+val ECDSA_SECP256K1_SHA256_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA256withECDSA",
+    signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256k1)
+)
+
+@JvmField
+val ECDSA_SECP256R1_SHA256_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA256withECDSA",
+    signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256r1)
+)
+
+@JvmField
+val EDDSA_ED25519_NONE_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = EdDSAEngine.SIGNATURE_ALGORITHM,
+    signatureOID = AlgorithmIdentifier(ID_CURVE_25519PH, null)
+)
+
+@JvmField
+val SPHINCS256_SHA512_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA512WITHSPHINCS256",
+    signatureOID = AlgorithmIdentifier(BCObjectIdentifiers.sphincs256_with_SHA512, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))
+)
+
+@JvmField
+val SM2_SM3_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SM3withSM2",
+    signatureOID = AlgorithmIdentifier(GMObjectIdentifiers.sm2sign_with_sm3, GMObjectIdentifiers.sm2p256v1)
+)
+
+@JvmField
+val GOST3410_GOST3411_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "GOST3411withGOST3410",
+    signatureOID = AlgorithmIdentifier(
+        CryptoProObjectIdentifiers.gostR3410_94, DLSequence(
+            arrayOf(
+                CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
+                CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet
+            )
+        )
+    )
+)
+
+@JvmField
 val RSA_SHA256_TEMPLATE = SignatureSchemeTemplate(
     codeName = RSA_CODE_NAME,
     algorithmOIDs = listOf(AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null)),
     algorithmName = "RSA",
     algSpec = null,
     keySize = 3072,
-    signatureSpec = SignatureSpec(
-        signatureName = "SHA256WITHRSA",
-        signatureOID = AlgorithmIdentifier(PKCSObjectIdentifiers.sha256WithRSAEncryption, null)
-    )
+    signatureSpec = RSA_SHA256_SIGNATURE_SPEC
 )
 
 @JvmField
@@ -65,10 +114,7 @@ val ECDSA_SECP256K1_SHA256_TEMPLATE = SignatureSchemeTemplate(
     algorithmName = "EC",
     algSpec = ECNamedCurveTable.getParameterSpec("secp256k1"),
     keySize = null,
-    signatureSpec = SignatureSpec(
-        signatureName = "SHA256withECDSA",
-        signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256k1)
-    )
+    signatureSpec = ECDSA_SECP256K1_SHA256_SIGNATURE_SPEC
 )
 
 @JvmField
@@ -78,10 +124,7 @@ val ECDSA_SECP256R1_SHA256_TEMPLATE = SignatureSchemeTemplate(
     algorithmName = "EC",
     algSpec = ECNamedCurveTable.getParameterSpec("secp256r1"),
     keySize = null,
-    signatureSpec = SignatureSpec(
-        signatureName = "SHA256withECDSA",
-        signatureOID = AlgorithmIdentifier(X9ObjectIdentifiers.ecdsa_with_SHA256, SECObjectIdentifiers.secp256r1)
-    )
+    signatureSpec = ECDSA_SECP256R1_SHA256_SIGNATURE_SPEC
 )
 
 @JvmField
@@ -91,10 +134,7 @@ val EDDSA_ED25519_NONE_TEMPLATE = SignatureSchemeTemplate(
     algorithmName = "1.3.101.112",
     algSpec = EdDSANamedCurveTable.getByName("ED25519"),
     keySize = null,
-    signatureSpec = SignatureSpec(
-        signatureName = EdDSAEngine.SIGNATURE_ALGORITHM,
-        signatureOID = AlgorithmIdentifier(ID_CURVE_25519PH, null)
-    )
+    signatureSpec = EDDSA_ED25519_NONE_SIGNATURE_SPEC
 )
 
 @JvmField
@@ -104,10 +144,7 @@ val SPHINCS256_SHA512_TEMPLATE = SignatureSchemeTemplate(
     algorithmName = "SPHINCS256",
     algSpec = SPHINCS256KeyGenParameterSpec(SPHINCS256KeyGenParameterSpec.SHA512_256),
     keySize = null,
-    signatureSpec = SignatureSpec(
-        signatureName = "SHA512WITHSPHINCS256",
-        signatureOID = AlgorithmIdentifier(BCObjectIdentifiers.sphincs256_with_SHA512, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))
-    )
+    signatureSpec = SPHINCS256_SHA512_SIGNATURE_SPEC
 )
 
 @JvmField
@@ -117,10 +154,7 @@ val SM2_SM3_TEMPLATE = SignatureSchemeTemplate(
     algorithmName = "EC",
     algSpec = ECNamedCurveTable.getParameterSpec("sm2p256v1"),
     keySize = null,
-    signatureSpec = SignatureSpec(
-        signatureName = "SM3withSM2",
-        signatureOID = AlgorithmIdentifier(GMObjectIdentifiers.sm2sign_with_sm3, GMObjectIdentifiers.sm2p256v1)
-    )
+    signatureSpec = SM2_SM3_SIGNATURE_SPEC
 )
 
 @JvmField
@@ -139,17 +173,7 @@ val GOST3410_GOST3411_TEMPLATE = SignatureSchemeTemplate(
     algorithmName = "GOST3410",
     algSpec = GOST3410ParameterSpec(CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A.id),
     keySize = null,
-    signatureSpec = SignatureSpec(
-        signatureName = "GOST3411withGOST3410",
-        signatureOID = AlgorithmIdentifier(
-            CryptoProObjectIdentifiers.gostR3410_94, DLSequence(
-                arrayOf(
-                    CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
-                    CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet
-                )
-            )
-        )
-    )
+    signatureSpec = GOST3410_GOST3411_SIGNATURE_SPEC
 )
 
 @JvmField
