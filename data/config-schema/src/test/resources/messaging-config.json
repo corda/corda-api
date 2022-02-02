@@ -1,0 +1,14 @@
+{
+  "bus": {
+    "busType": "KAFKA",
+    "kafkaProperties": {
+      "bootstrap.servers": "localhost:9092"
+    }
+  },
+  "subscription": {
+    "poll.timeout": 100
+  },
+  "publisher": {
+    "close.timeout": 700
+  }
+}
