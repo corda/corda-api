@@ -1,7 +1,6 @@
 package net.corda.v5.crypto
 
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier
-import org.bouncycastle.operator.ContentSigner
 import java.security.spec.AlgorithmParameterSpec
 
 /**
