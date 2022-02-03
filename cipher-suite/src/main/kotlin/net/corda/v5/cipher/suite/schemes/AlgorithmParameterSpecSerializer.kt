@@ -9,11 +9,15 @@ import java.security.spec.AlgorithmParameterSpec
 interface AlgorithmParameterSpecSerializer<T : AlgorithmParameterSpec> {
     /**
      * Serialize the given parameters into the byte array.
+     *
+     * @throws [IllegalArgumentException] if the serialization is not supported for the params.
      */
     fun serialize(params: T): ByteArray
 
     /**
      * Deserialize the given byte array into corresponding parameters.
+     *
+     * @throws [IllegalArgumentException] if the deserialization is not supported for the params.
      */
     fun deserialize(bytes: ByteArray): T
 }
