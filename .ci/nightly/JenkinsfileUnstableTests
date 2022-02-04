@@ -2,8 +2,8 @@
 @Library('corda-shared-build-pipeline-steps@5.0') _
 
 cordaPipeline(
-    runIntegrationTests: true,
-    createPostgresDb: true,
+    runIntegrationTests: false,
+    createPostgresDb: false,
     gradleAdditionalArgs: '-PrunUnstableTests',
     dailyBuildCron: 'H */4 * * *',
     publishRepoPrefix: '',
