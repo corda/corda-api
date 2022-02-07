@@ -20,4 +20,6 @@ object DbSchema {
     const val HOLDING_IDENTITY_DB_TABLE = "holding_identity"
 
     const val DB_MESSAGE_BUS = "DB_MESSAGE_BUS"
+
+    const val CHUNKING_SCHEMA_NAME = "chunking"
 }
