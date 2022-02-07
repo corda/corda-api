@@ -1,5 +1,7 @@
-package net.corda.schema.configuration
+package net.corda.schema.configuration.provider.impl
 
+import net.corda.schema.configuration.provider.ConfigSchemaException
+import net.corda.schema.configuration.provider.SchemaProvider
 import net.corda.v5.base.util.contextLogger
 import net.corda.v5.base.util.debug
 import net.corda.v5.base.util.trace
