@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/corda.messaging.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/1.0/corda.messaging.json",
   "title": "Corda Messaging Configuration Schema",
   "description": "Configuration schema for the messaging subsection. This configures the interactions of the workers with the underlying message bus.",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/kafka-properties.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/1.0/kafka-properties.json",
   "title": "Kafka properties schema",
   "description": "Schema container for Kafka properties",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/subscription.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/1.0/subscription.json",
   "title": "Common subscription configuration",
   "description": "Configuration settings for all subscriptions to the message bus.",
   "type": "object",

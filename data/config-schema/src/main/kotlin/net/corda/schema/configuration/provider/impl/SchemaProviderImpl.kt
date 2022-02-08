@@ -18,10 +18,10 @@ class SchemaProviderImpl : SchemaProvider {
         private const val CORDA_PREFIX = "corda."
     }
 
-    override fun getSchema(key: String): InputStream {
-        logger.debug { "Request for schema for config key $key" }
+    override fun getSchema(key: String, version: String): InputStream {
+        logger.debug { "Request for schema for config key $key at version $version" }
         val directory = key.removePrefix(CORDA_PREFIX)
-        val resource = "$RESOURCE_ROOT/$directory/$key$SCHEMA_EXTENSION"
+        val resource = "$RESOURCE_ROOT/$directory/$version/$key$SCHEMA_EXTENSION"
         return getResourceInputStream(resource)
     }
 
