@@ -4,6 +4,7 @@
   "namespace": "net.corda.p2p",
   "fields": [
     {
+      "doc": "Collection of certificates in PEM format",
       "name": "trustedCertificates",
       "type": {
         "type": "array",
