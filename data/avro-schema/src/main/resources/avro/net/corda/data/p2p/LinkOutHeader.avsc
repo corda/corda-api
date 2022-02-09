@@ -16,8 +16,8 @@
       "type": "string"
     },
     {
-      "doc": "A hash of the trust store (i.e. the key in the {@link  net.corda.schema.Schemas.P2P.Companion.GATEWAY_TLS_TRUSTSTORES} topic where the value should be a {@link net.corda.p2p.GatewayTruststore})",
-      "name": "trustStoreHash",
+      "doc": "An identifier of the trust store (i.e. the subject in the {@link  net.corda.schema.Schemas.P2P.Companion.GATEWAY_TLS_TRUSTSTORES} topic where the value should be a {@link net.corda.p2p.GatewayTruststore})",
+      "name": "subjectKeyIdentifier",
       "type": "string"
     }
   ]
