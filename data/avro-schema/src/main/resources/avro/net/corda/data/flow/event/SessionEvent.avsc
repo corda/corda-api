@@ -18,7 +18,7 @@
     },
     {
       "name": "timestamp",
-      "type": "long"
+      "type": ["null", "long"]
     },
     {
       "name": "sessionId",
