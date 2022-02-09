@@ -11,7 +11,10 @@ import net.corda.schema.configuration.ConfigKeys.POLICY_CONFIG
 import net.corda.schema.configuration.ConfigKeys.RPC_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SANDBOX_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SECRETS_CONFIG
+import net.corda.schema.configuration.provider.ConfigSchemaException
 import net.corda.schema.configuration.provider.SchemaProviderFactory
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.Arguments.arguments
@@ -46,6 +49,11 @@ class SchemaProviderImplTest {
                 VERSIONS.stream().map { version -> arguments(key, version) }
             }
         }
+
+        private const val BAD_KEY = "not-a-key"
+
+        private const val SCHEMA_FILE = "net/corda/schema/configuration/test/1.0/schema-fragment.json"
+        private const val BAD_SCHEMA_FILE = "foo/bar/does-not-exist.json"
     }
 
     @ParameterizedTest(name = "schema provider fetches schema for top-level keys: key={0}, version={1}")
@@ -54,5 +62,36 @@ class SchemaProviderImplTest {
         val provider = SchemaProviderFactory.getSchemaProvider()
         val stream = provider.getSchema(key, version)
         stream.close()
+    }
+
+    @Test
+    fun `throws if provided key is not a top-level key`() {
+        val provider = SchemaProviderFactory.getSchemaProvider()
+        assertThrows<ConfigSchemaException> {
+            provider.getSchema(BAD_KEY, "1.0")
+        }
+    }
+
+    @Test
+    fun `throws if provided version is not valid`() {
+        val provider = SchemaProviderFactory.getSchemaProvider()
+        assertThrows<ConfigSchemaException> {
+            provider.getSchema(MESSAGING_CONFIG, "9999999999")
+        }
+    }
+
+    @Test
+    fun `retrieves schema files when specified directly`() {
+        val provider = SchemaProviderFactory.getSchemaProvider()
+        val stream = provider.getSchemaFile(SCHEMA_FILE)
+        stream.close()
+    }
+
+    @Test
+    fun `throws if provided file does not exist`() {
+        val provider = SchemaProviderFactory.getSchemaProvider()
+        assertThrows<ConfigSchemaException> {
+            provider.getSchemaFile(BAD_SCHEMA_FILE)
+        }
     }
 }
