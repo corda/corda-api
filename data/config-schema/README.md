@@ -41,7 +41,7 @@ is non-trivial, so do not make changes to the draft version without checking fir
 
 Schema files must be placed in a directory structure like below in resources:
 
-'net/corda/schema/configuration/<key>/<version>/corda.<key>.json'
+`net/corda/schema/configuration/<key>/<version>/corda.<key>.json`
 
 Where <key> is the top-level section (e.g. messaging, flow, db) and <version> is the schema version.
 
