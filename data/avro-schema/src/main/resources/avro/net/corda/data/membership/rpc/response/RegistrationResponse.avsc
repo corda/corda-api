@@ -15,12 +15,16 @@
     {
       "name": "registrationStatus",
       "doc": "Status of the registration request.",
-      "type": "string"
+      "type": {
+        "type": "enum",
+        "name": "RegistrationStatus",
+        "symbols": ["SUBMITTED", "NOT_SUBMITTED"]
+      }
     },
     {
       "name": "memberInfoSubmitted",
       "doc": "The MemberInfo which got submitted for registration.",
-      "type": "net.corda.data.KeyValuePairList"
+      "type": "InitialMemberInfo"
     }
   ]
 }

@@ -12,7 +12,11 @@
     {
       "name": "registrationAction",
       "doc": "The action to take during registration.",
-      "type": "string"
+      "type": {
+        "type": "enum",
+        "name": "RegistrationAction",
+        "symbols": ["REQUEST_JOIN"]
+      }
     }
   ]
 }

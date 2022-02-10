@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "InitialMemberInfo",
+  "namespace": "net.corda.data.membership.rpc.response",
+  "doc": "MemberInfo submitted in the registration request.",
+  "fields": [
+    {
+      "name": "memberProvidedContext",
+      "doc": "Member provided context as it will appear in the final MemberInfo.",
+      "type": "net.corda.data.KeyValuePairList"
+    },
+    {
+      "name": "additionalInfo",
+      "doc": "A map of generic additional information to help the Group Manager build the final signed MemberInfo. May include role and CPI version related information",
+      "type": "net.corda.data.KeyValuePairList"
+    }
+  ]
+}
