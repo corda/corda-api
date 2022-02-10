@@ -8,7 +8,7 @@ import net.corda.v5.base.util.trace
 import org.osgi.framework.FrameworkUtil
 import java.io.InputStream
 
-class SchemaProviderImpl : SchemaProvider {
+internal class SchemaProviderImpl : SchemaProvider {
 
     companion object {
         private val logger = contextLogger()
