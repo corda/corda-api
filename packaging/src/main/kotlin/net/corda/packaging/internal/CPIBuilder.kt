@@ -43,11 +43,13 @@ internal class CPIBuilder(
         val index = TreeMap<CPK.Identifier, CPKData>()
         index(roots, index)
         val rootIdentifiers = index.keys.toList()
-        for(archivePath in archivePaths) {
-            val cpkFiles = Files.list(archivePath).asSequence()
-                .filter { it.toRealPath() !in rootSet }
-                .filter { it.fileName.toString().toLowerCase().endsWith(CPK.fileExtension) }
-                .toList()
+        for (archivePath in archivePaths) {
+            val cpkFiles = Files.list(archivePath).use { stream ->
+                stream.asSequence()
+                    .filter { it.toRealPath() !in rootSet }
+                    .filter { it.fileName.toString().toLowerCase().endsWith(CPK.fileExtension) }
+                    .toList()
+            }
             index(cpkFiles, index)
         }
         val dependencyMap = index.entries.associateByTo(TreeMap(), {it.key}, {it.value.cpkMetadata.dependencies})
@@ -57,7 +59,7 @@ internal class CPIBuilder(
     private fun index(roots: Iterable<Path>,
                       existingIndex : NavigableMap<CPK.Identifier, CPKData> = TreeMap()) : NavigableMap<CPK.Identifier, CPKData> {
         for(root in roots) {
-            val cpk = CPK.Metadata.from(Files.newInputStream(root), cpkLocation = root.toString(), useSignatures)
+            val cpk = Files.newInputStream(root).use { CPK.Metadata.from(it, cpkLocation = root.toString(), useSignatures) }
             val previous = existingIndex.put(cpk.id, CPKData(cpk, root))
             if(previous != null) throw DependencyResolutionException(
                     "Detected two CPKs with the same identifier ${cpk.id}: '$root' and '${previous.path}'")

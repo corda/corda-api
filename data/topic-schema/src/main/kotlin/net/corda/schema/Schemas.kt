@@ -29,7 +29,7 @@ class Schemas {
          * [getStateAndEventStateTopic] returns the state and event state topic
          * [getRPCResponseTopic] returns the rpc response topic
          */
-        fun getStateAndEventDLQTopic(topic: String) = "$topic.state.DLQ"
+        fun getStateAndEventDLQTopic(topic: String) = "$topic.dlq"
         fun getStateAndEventStateTopic(topic: String) = "$topic.state"
         fun getRPCResponseTopic(topic: String) = "$topic.resp"
     }
@@ -90,6 +90,7 @@ class Schemas {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             const val CPI_INFO_TOPIC = "cpi.info"
+            const val CPI_UPLOAD_TOPIC = "cpi.upload"
         }
     }
 
