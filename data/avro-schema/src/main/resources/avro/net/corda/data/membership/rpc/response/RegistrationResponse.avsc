@@ -27,14 +27,6 @@
       "type": "int"
     },
     {
-      "name": "timestamp",
-      "doc": "Time ([Instant]) in milliseconds when the request was created.",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      }
-    },
-    {
       "name": "memberProvidedContext",
       "doc": "Member provided context submitted for registration.",
       "type": "net.corda.data.KeyValuePairList"
