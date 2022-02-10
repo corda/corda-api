@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "RegistrationRequest",
+  "namespace": "net.corda.data.membership.rpc.request",
+  "doc": "Request to start the registration process.",
+  "fields": [
+    {
+      "name": "virtualNodeId",
+      "doc": "ID of the virtual node applying for registration.",
+      "type": "string"
+    },
+    {
+      "name": "registrationAction",
+      "doc": "The action to take during registration.",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "RegistrationResponse",
+  "namespace": "net.corda.data.membership.rpc.response",
+  "doc": "Registration response to submitting the registration request.",
+  "fields": [
+    {
+      "name": "registrationSent",
+      "doc": "Time ([Instant]) in milliseconds when the registration request was sent.",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "registrationStatus",
+      "doc": "Status of the registration request.",
+      "type": "string"
+    },
+    {
+      "name": "memberInfoSubmitted",
+      "doc": "The MemberInfo which got submitted for registration.",
+      "type": "net.corda.data.KeyValuePairList"
+    }
+  ]
+}
