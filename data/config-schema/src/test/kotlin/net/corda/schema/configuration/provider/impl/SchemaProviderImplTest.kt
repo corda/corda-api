@@ -13,6 +13,7 @@ import net.corda.schema.configuration.ConfigKeys.SANDBOX_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SECRETS_CONFIG
 import net.corda.schema.configuration.provider.ConfigSchemaException
 import net.corda.schema.configuration.provider.SchemaProviderFactory
+import net.corda.v5.base.versioning.Version
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
@@ -60,7 +61,7 @@ class SchemaProviderImplTest {
     @MethodSource("schemaSources")
     fun `schema provider fetches schema for top-level keys`(key: String, version: String) {
         val provider = SchemaProviderFactory.getSchemaProvider()
-        val stream = provider.getSchema(key, version)
+        val stream = provider.getSchema(key, Version.fromString(version))
         stream.close()
     }
 
@@ -68,7 +69,7 @@ class SchemaProviderImplTest {
     fun `throws if provided key is not a top-level key`() {
         val provider = SchemaProviderFactory.getSchemaProvider()
         assertThrows<ConfigSchemaException> {
-            provider.getSchema(BAD_KEY, "1.0")
+            provider.getSchema(BAD_KEY, Version.fromString("1.0"))
         }
     }
 
@@ -76,7 +77,7 @@ class SchemaProviderImplTest {
     fun `throws if provided version is not valid`() {
         val provider = SchemaProviderFactory.getSchemaProvider()
         assertThrows<ConfigSchemaException> {
-            provider.getSchema(MESSAGING_CONFIG, "9999999999")
+            provider.getSchema(MESSAGING_CONFIG, Version(0, 0))
         }
     }
 

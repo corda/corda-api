@@ -5,6 +5,7 @@ import net.corda.schema.configuration.provider.SchemaProvider
 import net.corda.v5.base.util.contextLogger
 import net.corda.v5.base.util.debug
 import net.corda.v5.base.util.trace
+import net.corda.v5.base.versioning.Version
 import org.osgi.framework.FrameworkUtil
 import java.io.InputStream
 
@@ -18,7 +19,7 @@ internal class SchemaProviderImpl : SchemaProvider {
         private const val CORDA_PREFIX = "corda."
     }
 
-    override fun getSchema(key: String, version: String): InputStream {
+    override fun getSchema(key: String, version: Version): InputStream {
         logger.debug { "Request for schema for config key $key at version $version" }
         val directory = key.removePrefix(CORDA_PREFIX)
         val resource = "$RESOURCE_ROOT/$directory/$version/$key$SCHEMA_EXTENSION"

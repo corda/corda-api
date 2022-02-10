@@ -1,5 +1,6 @@
 package net.corda.schema.configuration.provider
 
+import net.corda.v5.base.versioning.Version
 import java.io.InputStream
 
 /**
@@ -18,7 +19,7 @@ interface SchemaProvider {
      * @param key The top-level configuration key to retrieve schema for. See ConfigKeys.
      * @return An input stream of the resource file containing the schema.
      */
-    fun getSchema(key: String, version: String): InputStream
+    fun getSchema(key: String, version: Version): InputStream
 
     /**
      * Retrieve a schema file with the given path.
