@@ -43,7 +43,7 @@ Schema files must be placed in a directory structure like below in resources:
 
 `net/corda/schema/configuration/<key>/<version>/corda.<key>.json`
 
-Where <key> is the top-level section (e.g. messaging, flow, db) and <version> is the schema version.
+Where \<key> is the top-level section (e.g. messaging, flow, db) and \<version> is the schema version.
 
 Files that the main schema refers to in $ref fields should be placed in the same directory.
 
