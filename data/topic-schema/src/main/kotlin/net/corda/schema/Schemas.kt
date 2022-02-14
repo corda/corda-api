@@ -29,7 +29,7 @@ class Schemas {
          * [getStateAndEventStateTopic] returns the state and event state topic
          * [getRPCResponseTopic] returns the rpc response topic
          */
-        fun getStateAndEventDLQTopic(topic: String) = "$topic.state.DLQ"
+        fun getStateAndEventDLQTopic(topic: String) = "$topic.dlq"
         fun getStateAndEventStateTopic(topic: String) = "$topic.state"
         fun getRPCResponseTopic(topic: String) = "$topic.resp"
     }
@@ -50,7 +50,7 @@ class Schemas {
     class Config {
         companion object {
             const val CONFIG_TOPIC = "config.topic"
-            const val CONFIG_MGMT_REQUEST_TOPIC = "config-management-request.topic"
+            const val CONFIG_MGMT_REQUEST_TOPIC = "config.management.request"
         }
     }
 
@@ -83,12 +83,23 @@ class Schemas {
     }
 
     /**
+     * Permissions Message schema
+     */
+    class Permissions {
+        companion object {
+            const val PERMISSIONS_USER_SUMMARY_TOPIC = "permissions.user.summary"
+        }
+    }
+
+    /**
      * Virtual Node schema
      */
     class VirtualNode {
         companion object {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
+            const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             const val CPI_INFO_TOPIC = "cpi.info"
+            const val CPI_UPLOAD_TOPIC = "cpi.upload"
         }
     }
 

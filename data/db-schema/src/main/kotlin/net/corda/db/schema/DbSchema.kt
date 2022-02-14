@@ -5,7 +5,7 @@ package net.corda.db.schema
  * Since Liquibase does not allow specifying schema as part of change set definition.
  * For more information, please see [here](https://docs.liquibase.com/concepts/advanced/liquibase-schema-name-parameter.html).
  */
-object DbSchema  {
+object DbSchema {
     const val RPC_RBAC = "RPC_RBAC"
 
     const val CONFIG = "CONFIG"
@@ -13,4 +13,11 @@ object DbSchema  {
     const val CONFIG_AUDIT_DB_TABLE = "config_audit"
     const val CONFIG_AUDIT_ID_SEQUENCE = "config_audit_id_seq"
     const val CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE = 1
+    const val CONFIG_DB_CONNECTION_TABLE = "db_connection"
+
+    const val VNODE = "VNODE"
+    const val VNODE_INSTANCE_DB_TABLE = "vnode_instance"
+    const val HOLDING_IDENTITY_DB_TABLE = "holding_identity"
+
+    const val DB_MESSAGE_BUS = "DB_MESSAGE_BUS"
 }
