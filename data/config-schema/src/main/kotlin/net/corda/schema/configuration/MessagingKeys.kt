@@ -8,15 +8,30 @@ object MessagingKeys {
     /**
      * Configuration for connecting to the underlying message bus.
      */
-    const val BUS = "bus"
+    object Bus {
+        const val BUS = "bus"
+        const val BUS_TYPE = "$BUS.type"
+        const val KAFKA_PROPERTIES = "$BUS.kafkaProperties"
+    }
 
     /**
      * Subscription related configuration.
      */
-    const val SUBSCRIPTION = "subscription"
+    object Subscription {
+        const val SUBSCRIPTION = "subscription"
+        const val POLL_TIMEOUT = "$SUBSCRIPTION.poll.timeout"
+        const val THREAD_STOP_TIMEOUT = "$SUBSCRIPTION.thread.stop.timeout"
+        const val PROCESSOR_RETRIES = "$SUBSCRIPTION.processor.retries"
+        const val SUBSCRIBE_RETRIES = "$SUBSCRIPTION.subscribe.retries"
+        const val COMMIT_RETRIES = "$SUBSCRIPTION.commit.retries"
+        const val PROCESSOR_TIMEOUT = "$SUBSCRIPTION.processor.timeout"
+    }
 
     /**
      * Publisher related configuration.
      */
-    const val PUBLISHER = "publisher"
+    object Publisher {
+        const val PUBLISHER = "publisher"
+        const val CLOSE_TIMEOUT = "$PUBLISHER.close.timeout"
+    }
 }
