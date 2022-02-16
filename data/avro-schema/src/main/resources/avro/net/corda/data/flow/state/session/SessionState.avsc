@@ -12,6 +12,11 @@
       "type": "long"
     },
     {
+      "name": "lastReceivedMessageTime",
+      "type": "long",
+      "doc": "timestamp of the last message received from a counterparty"
+    },
+    {
       "name": "counterpartyIdentity",
       "type": "net.corda.data.identity.HoldingIdentity"
     },
