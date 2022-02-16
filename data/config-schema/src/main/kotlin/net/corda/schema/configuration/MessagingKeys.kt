@@ -10,7 +10,7 @@ object MessagingKeys {
      */
     object Bus {
         const val BUS = "bus"
-        const val BUS_TYPE = "$BUS.type"
+        const val BUS_TYPE = "$BUS.busType"
         const val KAFKA_PROPERTIES = "$BUS.kafkaProperties"
     }
 
