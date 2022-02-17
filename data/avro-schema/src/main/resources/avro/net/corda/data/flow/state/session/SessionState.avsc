@@ -14,7 +14,12 @@
     {
       "name": "lastReceivedMessageTime",
       "type": "long",
-      "doc": "timestamp of the last message received from a counterparty"
+      "doc": "Timestamp of the last message received from a counterparty"
+    },
+    {
+      "name": "lastSentMessageTime",
+      "type": "long",
+      "doc": "Timestamp of the last message sent to a counterparty"
     },
     {
       "name": "counterpartyIdentity",
