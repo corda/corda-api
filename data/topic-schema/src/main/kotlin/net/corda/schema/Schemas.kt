@@ -41,6 +41,7 @@ class Schemas {
         companion object {
             const val FLOW_EVENT_TOPIC = "flow.event"
             const val FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event"
+            const val FLOW_STATUS_TOPIC = "flow.status"
         }
     }
 
@@ -130,6 +131,7 @@ class Schemas {
             const val GROUP_PARAMETERS_TOPIC = "membership.group.params"
             const val CPI_WHITELIST_TOPIC = "membership.group.cpi.whitelists"
             const val PROPOSAL_TOPIC = "membership.proposals"
+            const val MEMBERSHIP_RPC_TOPIC = "membership.rpc.ops"
 
             // Member messaging topics
             const val UPDATE_TOPIC = "membership.update"
