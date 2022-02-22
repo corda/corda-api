@@ -109,10 +109,10 @@
             <column name="vault_ddl_connection_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
-            <column name="crypto_ddl_connection_id" type="UUID">
+            <column name="vault_dml_connection_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
-            <column name="vault_dml_connection_id" type="UUID">
+            <column name="crypto_ddl_connection_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
             <column name="crypto_dml_connection_id" type="UUID">
@@ -124,6 +124,26 @@
         </createTable>
         <addPrimaryKey columnNames="holding_identity_id" constraintName="holding_identity_pk" tableName="holding_identity"
                        schemaName="${schema.name}"/>
+        <addForeignKeyConstraint baseTableName="holding_identity" baseColumnNames="vault_ddl_connection_id"
+                                 referencedTableName="db_connection" referencedColumnNames="connection_id"
+                                 constraintName="FK__holding_identity__vault_ddl_connection_id"
+                                 baseTableSchemaName="${schema.name}"
+                                 referencedTableSchemaName="${schema.name}"/>
+        <addForeignKeyConstraint baseTableName="holding_identity" baseColumnNames="vault_dml_connection_id"
+                                 referencedTableName="db_connection" referencedColumnNames="connection_id"
+                                 constraintName="FK__holding_identity__vault_dml_connection_id"
+                                 baseTableSchemaName="${schema.name}"
+                                 referencedTableSchemaName="${schema.name}"/>
+        <addForeignKeyConstraint baseTableName="holding_identity" baseColumnNames="crypto_ddl_connection_id"
+                                 referencedTableName="db_connection" referencedColumnNames="connection_id"
+                                 constraintName="FK__holding_identity__crypto_ddl_connection_id"
+                                 baseTableSchemaName="${schema.name}"
+                                 referencedTableSchemaName="${schema.name}"/>
+        <addForeignKeyConstraint baseTableName="holding_identity" baseColumnNames="crypto_dml_connection_id"
+                                 referencedTableName="db_connection" referencedColumnNames="connection_id"
+                                 constraintName="FK__holding_identity__crypto_dml_connection_id"
+                                 baseTableSchemaName="${schema.name}"
+                                 referencedTableSchemaName="${schema.name}"/>
 
         <createTable tableName="vnode_instance" schemaName="${schema.name}">
             <column name="holding_identity_id" type="VARCHAR(12)">
