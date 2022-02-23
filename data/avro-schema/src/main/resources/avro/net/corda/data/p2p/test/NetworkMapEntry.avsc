@@ -30,6 +30,14 @@
         "type": "array",
         "items": "string"
       }
+    },
+    {
+      "doc": "The TLS certificates of the identity (in PEM format)",
+      "name": "tlsCertificates",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
     }
   ]
 }
