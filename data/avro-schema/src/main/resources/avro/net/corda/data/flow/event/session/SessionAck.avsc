@@ -5,7 +5,7 @@
   "namespace": "net.corda.data.flow.event.session",
   "fields": [
     {
-      "name": "sequenceNum",
+      "name": "outOfOrderSequenceNums",
       "type": {
         "type": "array",
         "items": "int"
