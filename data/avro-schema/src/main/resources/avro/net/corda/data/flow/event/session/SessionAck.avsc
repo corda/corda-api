@@ -6,8 +6,11 @@
   "fields": [
     {
       "name": "sequenceNum",
-      "type": "int",
-      "doc": "The sequenceNum of the session event that is being acknowledged."
+      "type": {
+        "type": "array",
+        "items": "int"
+      },
+      "doc": "The sequence numbers of events received with a value greater than the last contiguous event received. i.e out of order messages received with a value greater than the receivedSequenceNum present aon the SessionEvent."
     }
   ]
 }

@@ -38,6 +38,11 @@
       "doc": "Unique id for a message sent to a party. sequenceNum is not bidirectional. Each party will track outbound/inbound sequence numbers separately."
     },
     {
+      "name": "receivedSequenceNum",
+      "type": "int",
+      "doc": "Sequence number of the last contiguous message received from a counterparty. 0 if no messages received. Out of order messages received with a value greater than this are not represented in this field and are sent as part of a SessionAck payload."
+    },
+    {
       "name": "payload",
       "type": [
         "net.corda.data.flow.event.session.SessionInit",
