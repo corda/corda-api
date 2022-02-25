@@ -4,7 +4,7 @@ package net.corda.v5.base.types
  * Interface for supporting Map<String, String> structure.
  * Has the required functions for converting and parsing the String values to Objects.
  *
- * The layered property map provides simple conversions to a posiibly complex objects which can use sevearl keys in
+ * The layered property map provides simple conversions to a possibly complex objects which can use several keys in
  * dot-notation. Take as an example of the map:
  *
  * "corda.name" to "CN=me, O=R3, L=Dublin, C=Ireland",
