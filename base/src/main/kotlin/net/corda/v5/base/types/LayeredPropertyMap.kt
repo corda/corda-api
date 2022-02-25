@@ -3,6 +3,25 @@ package net.corda.v5.base.types
 /**
  * Interface for supporting Map<String, String> structure.
  * Has the required functions for converting and parsing the String values to Objects.
+ *
+ * The layered property map provides simple conversions to a posiibly complex objects which can use sevearl keys in
+ * dot-notation. Take as an example of the map:
+ *
+ * "corda.name" to "CN=me, O=R3, L=Dublin, C=Ireland",
+ * "corda.sessionKey" to "ABCDEF...",
+ * "corda.endpoints.0.url" to "localhost",
+ * "corda.endpoints.0.protocolVersion" to "1",
+ * "corda.endpoints.1.url" to "localhost",
+ * "corda.endpoints.1.protocolVersion" to "2"
+ *
+ * That map can be parsed into:
+ * - MemberX500Name using parse("corda.name", MemberX500Name::class.java)
+ * - session PublicKey using parse("corda.sessionKey", PublicKey::class.java)
+ * - list of endpoints using parseList("corda.endpoints", EndpointInfo::class.java)
+ *
+ * The default implementation of the [LayeredPropertyMap] is extendable by supplying implementations of custom
+ * converters using OSGi. Out of box it supports conversion to simple types like Int, Boolean,
+ * as well as MemberX500Name.
  */
 interface LayeredPropertyMap {
 
@@ -18,8 +37,9 @@ interface LayeredPropertyMap {
 
     /**
      * Converts the value of the given key to the specified type.
-     * @throws [ValueNotFoundException] if the key is not found.
-     * @throws [IllegalStateException]  if the value for the key is null.
+     *
+     * @throws [IllegalArgumentException] if the [T] is not supported
+     * @throws [ValueNotFoundException] if the key is not found or the value for the key is null.
      * @throws [ClassCastException] as the result of the conversion is cached, it'll be thrown if the second time around
      * the [T] is different from it was called for the first time.
      */
@@ -28,6 +48,8 @@ interface LayeredPropertyMap {
     /**
      * Converts the value of the given key to the specified type or returns null if the key is not found or the value
      * itself is null.
+     *
+     * @throws [IllegalArgumentException] if the [T] is not supported
      * @throws [ClassCastException] as the result of the conversion is cached, it'll be thrown if the second time around
      * the [T] is different from it was called for the first time.
      * */
@@ -36,6 +58,11 @@ interface LayeredPropertyMap {
     /**
      * Converts several items with the given prefix to the list.
      *
+     * @throws [IllegalArgumentException] if the [T] is not supported
+     * @throws [ValueNotFoundException] if one of the list values is null
+     * @throws [ClassCastException] as the result of the conversion is cached, it'll be thrown if the second time around
+     * the [T] is different from it was called for the first time.
+
      * Here is an example how a list will look like
      * (the [itemKeyPrefix] have to be "corda.endpoints" or "corda.endpoints."):
      *  corda.endpoints.1.url = localhost
