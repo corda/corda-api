@@ -38,7 +38,7 @@ interface LayeredPropertyMap {
     /**
      * Converts the value of the given key to the specified type.
      *
-     * @throws [IllegalArgumentException] if the [T] is not supported
+     * @throws [IllegalArgumentException] if the [T] is not supported or the [key] is blank string.
      * @throws [ValueNotFoundException] if the key is not found or the value for the key is null.
      * @throws [ClassCastException] as the result of the conversion is cached, it'll be thrown if the second time around
      * the [T] is different from it was called for the first time.
@@ -49,7 +49,7 @@ interface LayeredPropertyMap {
      * Converts the value of the given key to the specified type or returns null if the key is not found or the value
      * itself is null.
      *
-     * @throws [IllegalArgumentException] if the [T] is not supported
+     * @throws [IllegalArgumentException] if the [T] is not supported or the [key] is blank string.
      * @throws [ClassCastException] as the result of the conversion is cached, it'll be thrown if the second time around
      * the [T] is different from it was called for the first time.
      * */
@@ -58,8 +58,8 @@ interface LayeredPropertyMap {
     /**
      * Converts several items with the given prefix to the list.
      *
-     * @throws [IllegalArgumentException] if the [T] is not supported
-     * @throws [ValueNotFoundException] if one of the list values is null
+     * @throws [IllegalArgumentException] if the [T] is not supported or the [itemKeyPrefix] is blank string.
+     * @throws [ValueNotFoundException] if one of the list values is null.
      * @throws [ClassCastException] as the result of the conversion is cached, it'll be thrown if the second time around
      * the [T] is different from it was called for the first time.
 
