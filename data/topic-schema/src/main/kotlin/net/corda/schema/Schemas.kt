@@ -41,6 +41,7 @@ class Schemas {
         companion object {
             const val FLOW_EVENT_TOPIC = "flow.event"
             const val FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event"
+            const val FLOW_STATUS_TOPIC = "flow.status"
         }
     }
 
@@ -65,6 +66,7 @@ class Schemas {
             const val LINK_OUT_TOPIC = "link.out"
             const val LINK_IN_TOPIC = "link.in"
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
+            const val GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores"
         }
     }
 
@@ -100,6 +102,8 @@ class Schemas {
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             const val CPI_INFO_TOPIC = "cpi.info"
             const val CPI_UPLOAD_TOPIC = "cpi.upload"
+            const val CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status"
+            const val CPK_FILE_TOPIC = "cpk.file"
         }
     }
 
@@ -130,6 +134,7 @@ class Schemas {
             const val GROUP_PARAMETERS_TOPIC = "membership.group.params"
             const val CPI_WHITELIST_TOPIC = "membership.group.cpi.whitelists"
             const val PROPOSAL_TOPIC = "membership.proposals"
+            const val MEMBERSHIP_RPC_TOPIC = "membership.rpc.ops"
 
             // Member messaging topics
             const val UPDATE_TOPIC = "membership.update"
