@@ -4,6 +4,11 @@
   "namespace": "net.corda.p2p",
   "fields": [
     {
+      "doc": "The certificates tenant ID",
+      "name": "tenantId",
+      "type": "string"
+    },
+    {
       "doc": "Collection of certificates in PEM format",
       "name": "tlsCertificates",
       "type": {
