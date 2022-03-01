@@ -40,7 +40,15 @@
     {
       "name": "receivedSequenceNum",
       "type": "int",
-      "doc": "Sequence number of the last contiguous message received from a counterparty. 0 if no messages received. Out of order messages received with a value greater than this are not represented in this field and are sent as part of a SessionAck payload."
+      "doc": "Sequence number of the last contiguous message received from a counterparty. 0 if no messages received."
+    },
+    {
+      "name": "outOfOrderSequenceNums",
+      "type": {
+        "type": "array",
+        "items": "int"
+      },
+      "doc": "The sequence numbers of events received with a value greater than the last contiguous event received. i.e out of order messages received with a value greater than the receivedSequenceNum."
     },
     {
       "name": "payload",

@@ -3,14 +3,5 @@
   "name": "SessionAck",
   "doc" : "Acknowledge to another party that their session message was received.",
   "namespace": "net.corda.data.flow.event.session",
-  "fields": [
-    {
-      "name": "outOfOrderSequenceNums",
-      "type": {
-        "type": "array",
-        "items": "int"
-      },
-      "doc": "The sequence numbers of events received with a value greater than the last contiguous event received. i.e out of order messages received with a value greater than the receivedSequenceNum present aon the SessionEvent."
-    }
-  ]
+  "fields": []
 }
