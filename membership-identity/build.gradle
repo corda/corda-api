@@ -14,4 +14,6 @@ dependencies {
 
     api project(':base')
     implementation project(":membership")
+
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
 }
