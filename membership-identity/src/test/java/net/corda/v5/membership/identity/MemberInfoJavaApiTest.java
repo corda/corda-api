@@ -1,5 +1,6 @@
 package net.corda.v5.membership.identity;
 
+import net.corda.v5.base.types.MemberX500Name;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
