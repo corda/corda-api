@@ -43,7 +43,7 @@ public class MemberInfoJavaApiTest {
 
     @Test
     public void getName() {
-        MemberX500Name testName = mock(MemberX500Name.class);
+        MemberX500Name testName = MemberX500Name.parse("CN=alice, O=R3, L=Dublin, C=IE");
         when(memberInfo.getName()).thenReturn(testName);
 
         MemberX500Name result = memberInfo.getName();
