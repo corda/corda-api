@@ -3,7 +3,18 @@ package net.corda.schema.configuration
 /**
  * Configuration keys to access public parts of the configuration under the corda.messaging key
  */
-object MessagingKeys {
+object MessagingConfig {
+
+    /**
+     * Configuration paths that should be merged into the messaging config block from the boot config.
+     *
+     * Note that these do not appear directly in the user-facing schema, as they are properties provided to the process
+     * on start.
+     */
+    object Boot {
+        const val INSTANCE_ID = "instance.id"
+        const val TOPIC_PREFIX = "topic.prefix"
+    }
 
     /**
      * Configuration for connecting to the underlying message bus.
