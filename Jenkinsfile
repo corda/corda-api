@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0') _
+@Library('corda-shared-build-pipeline-steps@ronanb/NOTICK/gradle-ent') _
 
 cordaPipeline(
     runIntegrationTests: false,
