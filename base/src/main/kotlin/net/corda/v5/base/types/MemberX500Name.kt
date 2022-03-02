@@ -71,7 +71,7 @@ class MemberX500Name(
 
         /**
          * Creates an instance of [MemberX500Name] by parsing the string representation of X500 name, like
-         * "CN=Alice, OU=Engineering, O=R3, L=London, Country=UK".
+         * "CN=Alice, OU=Engineering, O=R3, L=London, C=GB".
          * Constrains are the same as for [toAttributesMap] plus some additional constrains:
          * - O, L, C are required attributes
          *
