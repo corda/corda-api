@@ -76,6 +76,17 @@ class MemberX500NameTest {
     }
 
     @Test
+    fun `Should parse string containing unspecified country code`() {
+        val name = MemberX500Name.parse("O=Organisation, L=Location, C=ZZ, OU=Org Unit, CN=Service Name")
+        assertEquals("Service Name", name.commonName)
+        assertEquals("Org Unit", name.organisationUnit)
+        assertEquals("Organisation", name.organisation)
+        assertEquals("Location", name.locality)
+        assertEquals("ZZ", name.country)
+        assertNull(name.state)
+    }
+
+    @Test
     fun `Should parse string without state and organisational unit`() {
         val name = MemberX500Name.parse("O=Bank A, L=New York, C=US, CN=Service Name")
         assertEquals("Service Name", name.commonName)

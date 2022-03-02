@@ -50,6 +50,8 @@ class MemberX500Name(
         private const val ATTRIBUTE_STATE = "ST"
         private const val ATTRIBUTE_COUNTRY = "C"
 
+        private const val UNSPECIFIED_COUNTRY = "ZZ"
+
         private val supportedAttributes = setOf(
             ATTRIBUTE_COMMON_NAME,
             ATTRIBUTE_ORGANISATION_UNIT,
@@ -59,7 +61,7 @@ class MemberX500Name(
             ATTRIBUTE_COUNTRY
         )
 
-        private val countryCodes: Set<String> = Locale.getISOCountries().toSet()
+        private val countryCodes: Set<String> = Locale.getISOCountries().toSet() + UNSPECIFIED_COUNTRY
 
         /**
          * Creates an instance of [MemberX500Name] from specified [X500Principal]
