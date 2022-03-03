@@ -57,7 +57,7 @@ internal class CPKImpl(
 
     override fun close() = jarFile.close()
 
-    override val path: Path?
+    override val path: Path
         get() = cpkPath
 
     override val originalFileName: String?
