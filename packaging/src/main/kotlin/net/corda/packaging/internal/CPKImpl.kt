@@ -49,7 +49,7 @@ internal class CPKImpl(
     override val metadata: CPK.Metadata,
     private val jarFile: JarFile,
     private val cpkPath: Path,
-    private val cpkFileName: String?
+    override val originalFileName: String?
 ) : CPK {
     override fun getResourceAsStream(resourceName: String) = jarFile.getJarEntry(resourceName)
         ?.let(jarFile::getInputStream)
@@ -59,9 +59,6 @@ internal class CPKImpl(
 
     override val path: Path
         get() = cpkPath
-
-    override val originalFileName: String?
-        get() = cpkFileName
 }
 
 internal data class CPKFormatVersionImpl(override val major: Int, override val minor: Int) : CPK.FormatVersion {

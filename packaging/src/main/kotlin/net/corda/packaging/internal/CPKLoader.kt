@@ -121,7 +121,7 @@ internal object CPKLoader {
         val libraryMap: NavigableMap<String, SecureHash>,
         var libraryConstraints: NavigableMap<String, SecureHash>,
         var cpkDependencies: NavigableSet<CPK.Identifier>,
-        val cpkFileName: String?
+        val originalCpkFileName: String?
     ) {
         @Suppress("ThrowsCount")
         fun validate() {
@@ -156,7 +156,7 @@ internal object CPKLoader {
                 metadata = metadata,
                 jarFile = JarFile(finalCPKFile, verifySignature),
                 cpkPath = finalCPKFile.toPath(),
-                cpkFileName = cpkFileName
+                originalFileName = originalCpkFileName
             )
         }
 
@@ -311,7 +311,7 @@ internal object CPKLoader {
             } else {
                 { msg: String -> "$msg in CPK at $cpkLocation" }
             },
-            cpkFileName = cpkFileName
+            originalCpkFileName = cpkFileName
         )
         var stream2BeFullyConsumed: InputStream = DigestInputStream(source, ctx.cpkDigest)
         val temporaryCPKFile = ctx.temporaryCPKFile
