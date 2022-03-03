@@ -205,7 +205,7 @@ interface CPK : AutoCloseable {
      * part of the path should not be depended on and probably won't be the
      * original name of the cpk.
      */
-    val path : Path
+    val extractedPath : Path
 
     /**
      * File name of cpk, if known.
