@@ -7,6 +7,7 @@ import net.corda.packaging.VersionComparator
 import net.corda.v5.crypto.SecureHash
 import java.io.IOException
 import java.nio.file.Path
+import java.nio.file.Paths
 import java.security.cert.Certificate
 import java.util.NavigableSet
 import java.util.jar.JarFile
@@ -48,7 +49,6 @@ internal data class CPKMetadataImpl(
 internal class CPKImpl(
     override val metadata: CPK.Metadata,
     private val jarFile: JarFile,
-    private val cpkPath: Path,
     override val originalFileName: String?
 ) : CPK {
     override fun getResourceAsStream(resourceName: String) = jarFile.getJarEntry(resourceName)
@@ -58,7 +58,7 @@ internal class CPKImpl(
     override fun close() = jarFile.close()
 
     override val extractedPath: Path
-        get() = cpkPath
+        get() = Paths.get(jarFile.name)
 }
 
 internal data class CPKFormatVersionImpl(override val major: Int, override val minor: Int) : CPK.FormatVersion {

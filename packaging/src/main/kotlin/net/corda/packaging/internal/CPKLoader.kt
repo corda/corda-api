@@ -155,7 +155,6 @@ internal object CPKLoader {
             return CPKImpl(
                 metadata = metadata,
                 jarFile = JarFile(finalCPKFile, verifySignature),
-                cpkPath = finalCPKFile.toPath(),
                 originalFileName = originalCpkFileName
             )
         }
