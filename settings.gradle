@@ -95,8 +95,6 @@ dependencyResolutionManagement {
     }
 }
 
-
-
 rootProject.name = "corda-api"
 
 includeBuild 'cordapp-configuration'
