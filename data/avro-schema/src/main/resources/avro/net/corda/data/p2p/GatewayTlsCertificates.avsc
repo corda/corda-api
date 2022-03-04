@@ -4,7 +4,7 @@
   "namespace": "net.corda.p2p",
   "fields": [
     {
-      "doc": "The certificates tenant ID",
+      "doc": "The tenant ID under which the keys of the leaf certificate are stored",
       "name": "tenantId",
       "type": "string"
     },
