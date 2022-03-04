@@ -1,0 +1,30 @@
+{
+  "type": "record",
+  "name": "HostingIdentityEntry",
+  "namespace": "net.corda.p2p.test",
+  "fields": [
+    {
+      "doc": "The Holding identity",
+      "name": "holdingIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "doc": "The TLS Tenant ID",
+      "name": "tlsTenantId",
+      "type": "string"
+    },
+    {
+      "doc": "The identity Tenant ID",
+      "name": "identityTenantId",
+      "type": "string"
+    },
+    {
+      "doc": "The TLS certificates (in PEM format)",
+      "name": "tlsCertificates",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}
