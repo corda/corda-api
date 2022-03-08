@@ -73,5 +73,7 @@ class CPITests {
         val expectedCPKs = sequenceOf(workflowCPK, contractCPK).toCollection(TreeSet(Comparator.comparing(CPK.Metadata::id)))
         val actualCPKs = testCPI.cpks.asSequence().map { it.metadata }.toCollection(TreeSet(Comparator.comparing(CPK.Metadata::id)))
         Assertions.assertEquals(expectedCPKs, actualCPKs)
+
+        Assertions.assertEquals(testCPI.metadata.groupPolicy, null)
     }
 }
