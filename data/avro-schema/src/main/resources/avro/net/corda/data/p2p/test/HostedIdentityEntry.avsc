@@ -1,20 +1,20 @@
 {
   "type": "record",
-  "name": "HostingIdentityEntry",
+  "name": "HostedIdentityEntry",
   "namespace": "net.corda.p2p.test",
   "fields": [
     {
-      "doc": "The Holding identity",
+      "doc": "The Holding identity hosted in this node",
       "name": "holdingIdentity",
       "type": "net.corda.data.identity.HoldingIdentity"
     },
     {
-      "doc": "The TLS Tenant ID",
+      "doc": "The tenant ID under which the TLS key is stored",
       "name": "tlsTenantId",
       "type": "string"
     },
     {
-      "doc": "The identity Tenant ID",
+      "doc": "The tenant ID under which the identity key is stored",
       "name": "identityTenantId",
       "type": "string"
     },
