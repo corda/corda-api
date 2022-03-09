@@ -21,6 +21,12 @@
             <column name="signer_summary_hash" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="id_full_hash" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_short_hash" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
             <column name="file_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
