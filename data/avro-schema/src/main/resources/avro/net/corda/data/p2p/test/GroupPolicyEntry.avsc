@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "GroupNetworkMapEntry",
+  "name": "GroupPolicyEntry",
   "namespace": "net.corda.p2p.test",
   "fields": [
     {

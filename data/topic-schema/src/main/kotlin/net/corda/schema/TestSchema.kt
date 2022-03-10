@@ -7,8 +7,8 @@ class TestSchema {
          * P2P Topic Test Schema
          */
         const val CRYPTO_KEYS_TOPIC = "p2p.crypto.keys"
-        const val GROUP_NETWORK_MAP_TOPIC = "p2p.group.netmap"
-        const val IDENTITY_NETWORK_MAP_TOPIC = "p2p.identity.netmap"
+        const val GROUP_POLICIES_TOPIC = "p2p.group.policies"
+        const val MEMBER_INFO_TOPIC = "p2p.members.info"
         const val HOSTED_MAP_TOPIC = "p2p.hosted.identities"
     }
 }

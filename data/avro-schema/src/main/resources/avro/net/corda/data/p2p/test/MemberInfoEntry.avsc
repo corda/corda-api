@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "IdentityNetworkMapEntry",
+  "name": "MemberInfoEntry",
   "namespace": "net.corda.p2p.test",
   "fields": [
     {
