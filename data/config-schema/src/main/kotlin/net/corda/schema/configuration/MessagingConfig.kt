@@ -23,6 +23,8 @@ object MessagingConfig {
         const val BUS = "bus"
         const val BUS_TYPE = "$BUS.busType"
         const val KAFKA_PROPERTIES = "$BUS.kafkaProperties"
+        const val KAFKA_PROPERTIES_COMMON = "$KAFKA_PROPERTIES.common"
+        const val BOOTSTRAP_SERVER = "$KAFKA_PROPERTIES_COMMON.bootstrap.servers"
     }
 
     /**
