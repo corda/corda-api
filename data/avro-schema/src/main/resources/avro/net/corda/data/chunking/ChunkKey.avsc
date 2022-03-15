@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "ChunkKey",
+  "namespace": "net.corda.data.chunking",
+  "doc": "Key object for {@link net.corda.data.chunking.Chunk} objects when sending {@link net.corda.data.chunking.ChunkReceived}",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "unique identifier that indicates the group this chunk belongs to"
+    },
+    {
+      "name": "partNumber",
+      "type": "int",
+      "doc": "number of chunk"
+    }
+  ]
+}
