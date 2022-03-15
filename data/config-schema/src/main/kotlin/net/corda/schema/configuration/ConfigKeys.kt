@@ -42,4 +42,7 @@ object ConfigKeys {
     const val DB_USER = "database.user"
     const val DB_PASS = "database.pass"
     const val DB_POOL_MAX_SIZE = "database.pool.max_size"
+
+    // PLATFORM
+    const val TEMP_DIR = "tmpdir"
 }
