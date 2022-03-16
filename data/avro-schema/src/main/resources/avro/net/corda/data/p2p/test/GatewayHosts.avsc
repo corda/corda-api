@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "GatewayHosts",
+  "namespace": "net.corda.p2p.test",
+  "fields": [
+    {
+      "doc": "The actual gateway hosts (empty for using the identity address)",
+      "name": "gatewayHosts",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

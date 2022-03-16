@@ -22,6 +22,11 @@
       "doc": "The identity address",
       "name": "address",
       "type": "string"
+    },
+    {
+      "doc": "The actual gateway hosts (null for using the identity address)",
+      "name": "gatewayHosts",
+      "type": ["null", "net.corda.p2p.test.GatewayHosts"]
     }
   ]
 }
