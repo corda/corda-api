@@ -44,5 +44,6 @@ object ConfigKeys {
     const val DB_POOL_MAX_SIZE = "database.pool.max_size"
 
     // PLATFORM
-    const val TEMP_DIR = "tmpdir"
+    const val WORKSPACE_DIR = "dir.workspace"
+    const val TEMP_DIR = "dir.tmp"
 }
