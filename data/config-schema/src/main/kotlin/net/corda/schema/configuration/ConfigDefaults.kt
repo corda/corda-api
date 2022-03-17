@@ -14,6 +14,6 @@ object ConfigDefaults {
     const val JDBC_DRIVER = "org.postgresql.Driver"
     const val DB_POOL_MAX_SIZE = 10
 
-    const val WORKSPACE_DIR = "/tmp"
-    const val TEMP_DIR = "/tmp"
+    val WORKSPACE_DIR = System.getProperty("java.io.tmpdir")
+    val TEMP_DIR = System.getProperty("java.io.tmpdir")
 }
