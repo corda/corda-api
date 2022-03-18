@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "ChunkAck",
+  "namespace": "net.corda.data.chunking",
+  "doc": "Upload status of a given requestId for a collection of {@link net.corda.data.chunking.Chunk} objects. There will be one message per chunk. Request id and partnumber are carried by the key {@link net.corda.data.chunking.ChunkAckKey}",
+  "fields": [
+    {
+      "name": "last",
+      "type": "boolean",
+      "doc": "Is this the last chunk, i.e. zero sized?"
+    },
+    {
+      "name": "exception",
+      "type": [
+        "null",
+        "net.corda.data.ExceptionEnvelope"
+      ],
+      "doc": "cause of failure if the request was unsuccessful"
+    }
+  ]
+}
