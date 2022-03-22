@@ -1,8 +1,8 @@
-package net.corda.v5.application.flows.flowservices
+package net.corda.v5.application.flows.messaging
 
 import net.corda.v5.application.flows.FlowSession
-import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.flows.UntrustworthyData
+import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name

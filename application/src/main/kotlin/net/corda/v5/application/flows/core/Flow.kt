@@ -1,4 +1,4 @@
-package net.corda.v5.application.flows
+package net.corda.v5.application.flows.core
 
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.exceptions.CordaRuntimeException

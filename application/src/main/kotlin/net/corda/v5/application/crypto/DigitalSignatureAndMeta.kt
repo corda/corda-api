@@ -2,7 +2,6 @@ package net.corda.v5.application.crypto
 
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.crypto.DigitalSignature
-import net.corda.v5.crypto.PartialMerkleTree
 import java.security.PublicKey
 
 /**
@@ -12,21 +11,13 @@ import java.security.PublicKey
  * @property bytes actual bytes of the cryptographic signature.
  * @property by [PublicKey] of the signer.
  * @property signatureMetadata attached [SignatureMetadata] for this signature.
- * @property partialMerkleTree required when multi-transaction signing is utilised.
  */
 @CordaSerializable
 class DigitalSignatureAndMeta(
     bytes: ByteArray,
     val by: PublicKey,
-    val signatureMetadata: SignatureMetadata,
-    val partialMerkleTree: PartialMerkleTree?
+    val signatureMetadata: SignatureMetadata
 ) : DigitalSignature(bytes) {
-    /**
-     * Construct a [DigitalSignatureAndMeta] with [partialMerkleTree] set to null.
-     * This is the recommended constructor when signing over a single transaction.
-     * */
-    constructor(bytes: ByteArray, by: PublicKey, signatureMetadata: SignatureMetadata)
-            : this(bytes, by, signatureMetadata, null)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

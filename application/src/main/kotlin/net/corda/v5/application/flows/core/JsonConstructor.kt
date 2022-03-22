@@ -1,4 +1,4 @@
-package net.corda.v5.application.flows
+package net.corda.v5.application.flows.core
 
 /**
  * Marks a constructor of a flow indicating that it can be instantiated from a JSON String.

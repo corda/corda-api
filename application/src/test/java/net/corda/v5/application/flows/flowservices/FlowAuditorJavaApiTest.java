@@ -1,5 +1,6 @@
 package net.corda.v5.application.flows.flowservices;
 
+import net.corda.v5.application.flows.audit.FlowAuditor;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

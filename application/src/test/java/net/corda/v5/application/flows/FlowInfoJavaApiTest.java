@@ -1,5 +1,6 @@
 package net.corda.v5.application.flows;
 
+import net.corda.v5.application.flows.messaging.FlowInfo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

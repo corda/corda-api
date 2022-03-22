@@ -1,4 +1,4 @@
-package net.corda.v5.application.flows
+package net.corda.v5.application.flows.messaging
 
 import net.corda.v5.base.annotations.CordaSerializable
 

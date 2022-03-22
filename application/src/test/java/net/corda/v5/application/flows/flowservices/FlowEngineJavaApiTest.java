@@ -4,6 +4,7 @@ import kotlin.jvm.functions.Function0;
 import net.corda.v5.application.flows.Flow;
 import net.corda.v5.application.flows.FlowExternalOperation;
 import net.corda.v5.application.flows.FlowId;
+import net.corda.v5.application.flows.engine.FlowEngine;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;

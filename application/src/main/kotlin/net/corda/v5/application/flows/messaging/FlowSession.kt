@@ -1,6 +1,7 @@
 package net.corda.v5.application.flows
 
-import net.corda.v5.application.flows.flowservices.FlowMessaging
+import net.corda.v5.application.flows.messaging.FlowInfo
+import net.corda.v5.application.flows.messaging.FlowMessaging
 import net.corda.v5.application.identity.AnonymousParty
 import net.corda.v5.application.identity.Party
 import net.corda.v5.base.annotations.DoNotImplement

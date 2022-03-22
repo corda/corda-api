@@ -1,4 +1,4 @@
-package net.corda.v5.application.flows.flowservices
+package net.corda.v5.application.flows.audit
 
 import net.corda.v5.application.flows.FlowException
 import net.corda.v5.application.injection.CordaFlowInjectable
