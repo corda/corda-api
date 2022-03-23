@@ -48,5 +48,6 @@ object MessagingConfig {
     object Publisher {
         const val PUBLISHER = "publisher"
         const val CLOSE_TIMEOUT = "$PUBLISHER.close.timeout"
+        const val TRANSACTIONAL = "$PUBLISHER.transactional"
     }
 }
