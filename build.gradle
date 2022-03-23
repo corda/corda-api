@@ -23,6 +23,7 @@ plugins {
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
     id 'org.jetbrains.dokka'
     id 'com.github.ben-manes.versions' // discover possible dependency version upgrades
+    
 }
 
 def rootProjectDir = rootDir
