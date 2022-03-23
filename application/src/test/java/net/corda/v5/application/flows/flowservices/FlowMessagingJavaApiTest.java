@@ -1,6 +1,6 @@
 package net.corda.v5.application.flows.flowservices;
 
-import net.corda.v5.application.flows.FlowSession;
+import net.corda.v5.application.flows.messaging.FlowSession;
 import net.corda.v5.application.flows.UntrustworthyData;
 import net.corda.v5.application.flows.messaging.FlowMessaging;
 import net.corda.v5.base.types.MemberX500Name;

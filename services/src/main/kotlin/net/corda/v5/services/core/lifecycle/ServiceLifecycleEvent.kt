@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.lifecycle
+package net.corda.v5.services.core.lifecycle
 
 import net.corda.v5.base.annotations.DoNotImplement
 

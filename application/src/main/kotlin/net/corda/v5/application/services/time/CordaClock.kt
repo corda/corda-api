@@ -1,4 +1,4 @@
-package net.corda.v5.application.node
+package net.corda.v5.application.services.time
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
@@ -9,6 +9,13 @@ import java.time.Instant
 import java.time.ZoneId
 
 /** A [Clock] that tokenizes itself when serialized, and delegates to an underlying [Clock] implementation. */
+
+/*
+JH: This could do with a rework. I would turn this into an interface that no longer implements `Clock` and provide some
+functions that mirror the clock functionality.
+
+withZone should be removed as it is deprecated.
+ */
 @DoNotImplement
 abstract class CordaClock : Clock(), SingletonSerializeAsToken, CordaServiceInjectable, CordaFlowInjectable {
     protected abstract val delegateClock: Clock

@@ -2,6 +2,12 @@ package net.corda.v5.application.flows.messaging
 
 import net.corda.v5.base.annotations.CordaSerializable
 
+/*
+JH: This needs a rework, but something like this could be valuable as a header to give some information on the other
+side. I think we should insist that both sides are running the same CPI version though, in which case this might matter
+less.
+ */
+
 /**
  * Version and name of the CorDapp hosting the other side of the flow.
  */

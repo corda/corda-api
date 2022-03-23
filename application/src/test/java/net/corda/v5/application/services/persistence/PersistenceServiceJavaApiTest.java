@@ -1,5 +1,6 @@
 package net.corda.v5.application.services.persistence;
 
+import net.corda.v5.application.query.NamedQueryFilter;
 import net.corda.v5.base.stream.Cursor;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

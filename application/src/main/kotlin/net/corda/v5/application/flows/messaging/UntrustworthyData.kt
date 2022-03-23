@@ -14,15 +14,21 @@ import java.io.Serializable
  * - Are any objects *reachable* from this object mismatched or not what you expected?
  * - Is it suspiciously large or small?
  */
+/*
+JH: Should we keep this? I left it in, and it seems like it could be useful, but I don't know how good our guidance is
+on what to do with the input data.
+ */
 class UntrustworthyData<out T>(@PublishedApi internal val fromUntrustedWorld: T) {
     @Suspendable
     fun <R> unwrap(validator: Validator<T, R>) = validator.validate(fromUntrustedWorld)
 
-    @FunctionalInterface
-    interface Validator<in T, out R> : Serializable {
+    fun interface Validator<in T, out R> : Serializable {
         @Suspendable
         fun validate(data: T): R
     }
 }
 
+/*
+JH: Unless I'm missing something this isn't needed at all?
+ */
 inline fun <T, R> UntrustworthyData<T>.unwrap(validator: (T) -> R): R = validator(fromUntrustedWorld)

@@ -1,12 +1,12 @@
 package net.corda.v5.ledger.notary
 
 import net.corda.v5.application.flows.Flow
-import net.corda.v5.application.flows.FlowSession
-import net.corda.v5.application.injection.CordaInject
+import net.corda.v5.application.flows.messaging.FlowSession
+import net.corda.v5.application.flows.core.CordaInject
 import net.corda.v5.application.identity.Party
 import net.corda.v5.application.services.crypto.KeyManagementService
 import net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNamesFactory
-import net.corda.v5.application.services.MemberLookupService
+import net.corda.v5.application.services.membership.MemberLookupService
 import net.corda.v5.serialization.SingletonSerializeAsToken
 import java.security.PublicKey
 

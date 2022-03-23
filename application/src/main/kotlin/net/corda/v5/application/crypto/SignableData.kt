@@ -12,5 +12,9 @@ import net.corda.v5.crypto.SecureHash
  * @param hash transaction's id or root of multi-transaction Merkle tree in case of multi-transaction signing.
  * @param signatureMetadata meta data required.
  */
+/*
+JH: This shouldn't live here in its current form. It refers to a transaction hash and transaction signature metadata
+currently, but we could opt to make this more generic and push it to crypto instead.
+ */
 @CordaSerializable
 data class SignableData(val hash: SecureHash, val signatureMetadata: SignatureMetadata)

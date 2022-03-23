@@ -5,6 +5,9 @@ package net.corda.v5.application.flows.core
  * Flows that are available to start via the RPC service with [RpcStartFlowRequestParameters]
  * must have a constructor with this annotation.
  */
+/*
+JH: I would like to remove this entirely, but it depends on the StartableByRPC redesign.
+ */
 @Target(AnnotationTarget.CONSTRUCTOR)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class JsonConstructor

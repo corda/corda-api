@@ -1,4 +1,4 @@
-package net.corda.v5.application.cordapp
+package net.corda.v5.application.services.configuration
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
@@ -8,7 +8,7 @@ import net.corda.v5.base.annotations.DoNotImplement
  * Provides access to what the node knows about loaded applications.
  */
 @DoNotImplement
-interface CordappProvider : CordaServiceInjectable, CordaFlowInjectable {
+interface CordappConfigurationProvider : CordaServiceInjectable, CordaFlowInjectable {
 
     /**
      * Exposes the current CorDapp configuration.

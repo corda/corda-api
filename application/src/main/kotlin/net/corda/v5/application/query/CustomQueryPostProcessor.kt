@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.persistence
+package net.corda.v5.application.query
 
 import java.util.stream.Stream
 

@@ -1,12 +1,23 @@
 package net.corda.v5.application.flows.messaging
 
-import net.corda.v5.application.flows.FlowSession
-import net.corda.v5.application.flows.UntrustworthyData
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
 
+/*
+JH: We've already made some changes here to switch to MemberX500Name.
+
+One point of discussion is around allowing custom serialization/alternative serialization schemes in `initiateFlow`.
+This requires a bit of design work, as I think we need to be able to allow cordapps to define objects to inject into
+flows that aren't full services to make this work correctly.
+
+Dan and I discussed a possible API change where we always use the send and receive functions on this class, providing
+both the session and the message, rather than calling send on the session itself. That puts all send/receive operations
+in one place (bulk and single) and makes our lives a bit easier on the implementation side. The argument is put all
+related functionality in one place. The downside is that FlowSession does look a lot like a channel, so calling .send
+or .receive on it feels quite natural.
+ */
 @DoNotImplement
 interface FlowMessaging : CordaFlowInjectable {
 

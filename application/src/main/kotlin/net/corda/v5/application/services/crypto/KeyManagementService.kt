@@ -17,6 +17,9 @@ import java.util.*
  * The [KeyManagementService] is responsible for storing and using private keys to sign things. An implementation of this may, for example,
  * call out to a hardware security module that enforces various auditing and frequency-of-use requirements.
  */
+/*
+JH: Will need some changes depending on how we handle DigitalSignatureAndMeta.
+ */
 @DoNotImplement
 interface KeyManagementService : CordaServiceInjectable, CordaFlowInjectable {
     /**

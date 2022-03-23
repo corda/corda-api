@@ -1,4 +1,4 @@
-package net.corda.v5.application.services
+package net.corda.v5.ledger.identity
 
 import net.corda.v5.application.identity.AbstractParty
 import net.corda.v5.application.identity.AnonymousParty

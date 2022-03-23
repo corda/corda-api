@@ -12,6 +12,9 @@ import kotlin.reflect.KClass
  *
  * @see InitiatingFlow
  */
+/*
+JH: We're looking to re-design this annotation.
+ */
 @Target(CLASS)
 @MustBeDocumented
 annotation class InitiatedBy(val value: KClass<out Flow<*>>)

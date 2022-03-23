@@ -1,9 +1,5 @@
-package net.corda.v5.application.flows
+package net.corda.v5.application.flows.messaging
 
-import net.corda.v5.application.flows.messaging.FlowInfo
-import net.corda.v5.application.flows.messaging.FlowMessaging
-import net.corda.v5.application.identity.AnonymousParty
-import net.corda.v5.application.identity.Party
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
@@ -20,6 +16,9 @@ import net.corda.v5.base.types.MemberX500Name
  *
  * 2. As constructor parameter to [InitiatedBy] flows. This session is the one corresponding to the initiating flow and may be used for
  *    replies.
+ */
+/*
+JH: See FlowMessaging for further comment. I've removed Destination - I don't think this should be controversial.
  */
 @DoNotImplement
 interface FlowSession {
@@ -129,14 +128,3 @@ inline fun <reified R : Any> FlowSession.sendAndReceive(payload: Any): Untrustwo
 inline fun <reified R : Any> FlowSession.receive(): UntrustworthyData<R> {
     return receive(R::class.java)
 }
-
-
-/**
- * An abstraction for flow session destinations. A flow can send to and receive from objects which implement this interface. The specifics
- * of how the messages are routed depend on the implementation.
- *
- * Corda currently only supports a fixed set of destination types, namely [Party] and [AnonymousParty]. New destination types will be added
- * in future releases.
- */
-@DoNotImplement
-interface Destination

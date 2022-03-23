@@ -8,6 +8,11 @@ import net.corda.v5.serialization.SerializedBytes
 /**
  * Handles serialization and deserialization of objects.
  */
+
+/*
+JH: Couple of questions here. Should we remove `SerializedBytes` in favour of `ByteArray`? And does this need to be
+`SingletonSerializeAsToken`?
+ */
 @DoNotImplement
 interface SerializationService : CordaServiceInjectable, CordaFlowInjectable {
 

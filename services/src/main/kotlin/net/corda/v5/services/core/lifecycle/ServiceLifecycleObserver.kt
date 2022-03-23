@@ -1,6 +1,4 @@
-package net.corda.v5.application.services.lifecycle
-
-import net.corda.v5.application.services.CordaService
+package net.corda.v5.services.core.lifecycle
 
 /**
  * Provides lifecycle support to services.

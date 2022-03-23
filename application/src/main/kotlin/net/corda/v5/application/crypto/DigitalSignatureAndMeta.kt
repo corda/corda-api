@@ -12,6 +12,11 @@ import java.security.PublicKey
  * @property by [PublicKey] of the signer.
  * @property signatureMetadata attached [SignatureMetadata] for this signature.
  */
+/*
+JH: I haven't done anything to this class but I don't think it should be here in this form. Options are:
+- Make it transaction specific and move it to ledger
+- Make it more generic and move it to crypto.
+ */
 @CordaSerializable
 class DigitalSignatureAndMeta(
     bytes: ByteArray,

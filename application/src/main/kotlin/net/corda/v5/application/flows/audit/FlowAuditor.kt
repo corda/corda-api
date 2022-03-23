@@ -1,6 +1,6 @@
 package net.corda.v5.application.flows.audit
 
-import net.corda.v5.application.flows.FlowException
+import net.corda.v5.application.flows.error.FlowException
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable

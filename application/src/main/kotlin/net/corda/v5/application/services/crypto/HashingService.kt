@@ -4,14 +4,21 @@ import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.OpaqueBytes
-import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
 
 /**
  * Handles hashing of bytes.
  *
  * Delegates all functionality to [DigestService].
+ */
+/*
+JH: Similar thing to DigitalSignatureAndVerificationService here.
+
+I'm guessing this ties to custom crypto which is why it works this way. I wonder if we should sever the link though, and
+behind the scenes we implement this by picking up a `DigestService` - i.e. move to a has-a rather than is-a relationship
+and move DigestService off this API.
  */
 @DoNotImplement
 interface

@@ -2,6 +2,9 @@ package net.corda.v5.application.flows.error
 
 import net.corda.v5.base.exceptions.CordaRuntimeException
 
+/*
+JH: See comment in FlowException.kt.
+ */
 /**
  * This exception will cause the flow to retry from its previous checkpoint.
  */

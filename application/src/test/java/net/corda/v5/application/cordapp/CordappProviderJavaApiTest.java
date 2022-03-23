@@ -1,5 +1,7 @@
 package net.corda.v5.application.cordapp;
 
+import net.corda.v5.application.services.configuration.CordappConfig;
+import net.corda.v5.application.services.configuration.CordappConfigurationProvider;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +10,7 @@ import static org.mockito.Mockito.when;
 
 public class CordappProviderJavaApiTest {
 
-    private final CordappProvider cordappProvider = mock(CordappProvider.class);
+    private final CordappConfigurationProvider cordappProvider = mock(CordappConfigurationProvider.class);
     private final CordappConfig cordappConfig = mock(CordappConfig.class);
 
     @Test

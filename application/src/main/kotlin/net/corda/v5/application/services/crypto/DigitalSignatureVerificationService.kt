@@ -11,6 +11,13 @@ import java.security.SignatureException
 /**
  * The [DigitalSignatureVerificationService] digital signature verification operations.
  */
+/*
+JH: This shouldn't really be here I think. It's a bit transaction specific right now because of DigitalSignatureAndMeta,
+so the fate of this service depends on what happens to that type. If that goes to crypto this should stay here.
+
+SignatureVerificationService is defined in crypto but isn't injectable. Should it be promoted up to here and made
+injectable?
+ */
 interface DigitalSignatureVerificationService : SignatureVerificationService, CordaServiceInjectable, CordaFlowInjectable {
     /**
      * Verifies a [DigitalSignatureAndMeta].

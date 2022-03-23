@@ -1,15 +1,13 @@
 package net.corda.v5.application.flows.engine
 
-import net.corda.v5.application.flows.Flow
-import net.corda.v5.application.flows.FlowException
-import net.corda.v5.application.flows.FlowExternalOperation
-import net.corda.v5.application.flows.FlowId
+import net.corda.v5.application.flows.core.Flow
 import net.corda.v5.application.flows.core.InitiatingFlow
-import net.corda.v5.application.flows.KilledFlowException
+import net.corda.v5.application.flows.error.FlowException
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import java.time.Duration
+import java.util.UUID
 
 @DoNotImplement
 interface FlowEngine : CordaFlowInjectable {
@@ -17,33 +15,7 @@ interface FlowEngine : CordaFlowInjectable {
      * Returns a wrapped [UUID][java.util.UUID] object that identifies this flow or it's top level instance (i.e. subflows have the same
      * identifier as their parents).
      */
-    val flowId: FlowId
-
-    /**
-     * Returns `true` when the current [Flow] has been killed (has received a command to halt its progress and terminate).
-     *
-     * Check this property in long-running computation loops to exit a flow that has been killed:
-     * ```
-     * while (!isKilled) {
-     *   // do some computation
-     * }
-     * ```
-     *
-     * Ideal usage would include throwing a [KilledFlowException] which will lead to the termination of the flow:
-     * ```
-     * for (item in list) {
-     *   if (isKilled) {
-     *     throw KilledFlowException(flowId)
-     *   }
-     *   // do some computation
-     * }
-     * ```
-     *
-     * Note, once the [isKilled] flag is set to `true` the flow may terminate once it reaches the next API function marked with the
-     * @[Suspendable] annotation. Therefore, it is possible to write a flow that does not interact with the [isKilled] flag while still
-     * terminating correctly.
-     */
-    val isKilled: Boolean
+    val flowId: UUID
 
     /**
      * Invokes the given subflow. This function returns once the subflow completes successfully with the result
@@ -61,45 +33,20 @@ interface FlowEngine : CordaFlowInjectable {
     fun <R> subFlow(subLogic: Flow<R>): R
 
     /**
-     * Helper function that throws a [KilledFlowException] if the current [Flow] has been killed.
-     *
-     * Call this function in long-running computation loops to exit a flow that has been killed:
-     * ```
-     * for (item in list) {
-     *   checkFlowIsNotKilled()
-     *   // do some computation
-     * }
-     * ```
-     *
-     * See the [isKilled] property for more information.
-     */
-    @Suspendable
-    fun checkFlowIsNotKilled()
-
-    /**
-     * Helper function that throws a [KilledFlowException] if the current [Flow] has been killed. The provided message is added to the
-     * thrown [KilledFlowException].
-     *
-     * Call this function in long-running computation loops to exit a flow that has been killed:
-     * ```
-     * for (item in list) {
-     *   checkFlowIsNotKilled { "The flow $flowId was killed while iterating through the list of items" }
-     *   // do some computation
-     * }
-     * ```
-     *
-     * See the [isKilled] property for more information.
-     */
-    @Suspendable
-    fun checkFlowIsNotKilled(lazyMessage: () -> Any)
-
-    /**
      * Suspends the flow and only wakes it up after at least [duration] time has passed.
      *
      * Warning: long sleeps and in general long running flows are highly discouraged, as there is currently no
      * support for flow migration!
      *
      * @throws FlowException if attempted to sleep for longer than 5 minutes.
+     */
+    /*
+    JH: Do we want to offer this? We can make it work (particularly once we've implemented timed wakeup, this could be
+    used to give fine grained control of that), I'm just not certain we should. I think the guarantee would be that
+    we'd sleep for at least as long as the duration, but we may end up sleeping for quite a bit longer depending on load.
+
+    Long sleeps would also break all sessions in the new implementation, so it might be dangerous to offer it. We could
+    of course fix that by throwing if the duration is too long.
      */
     @Suspendable
     fun sleep(duration: Duration)
@@ -111,7 +58,12 @@ interface FlowEngine : CordaFlowInjectable {
      * @param operation The [FlowExternalOperation] to be executed asynchronously.
      * @return The result [R] of [FlowExternalOperation.execute].
      */
-    @Suspendable
-    fun <R : Any> await(operation: FlowExternalOperation<R>): R
+    /*
+    JH: This won't work as written I don't think. It's effectively a form of anonymous service, as we'd have to proxy the request and run it
+    somewhere else. This needs some redesign to figure out how to do it. My proposal is to remove it entirely, but that is dependent on GA
+    requirements.
+     */
+//    @Suspendable
+//    fun <R : Any> await(operation: FlowExternalOperation<R>): R
 }
 

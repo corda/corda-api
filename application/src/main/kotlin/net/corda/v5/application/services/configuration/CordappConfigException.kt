@@ -1,4 +1,4 @@
-package net.corda.v5.application.cordapp
+package net.corda.v5.application.services.configuration
 
 /**
  * Thrown if an exception occurs in accessing or parsing cordapp configuration

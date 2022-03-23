@@ -16,6 +16,10 @@ import java.security.SignatureException
  * @param raw the raw serialized data.
  * @param sig the (unverified) signature for the data.
  */
+/*
+JH: This feels like a crypto thing to me. Is the argument that a user should implement `verifyData`? Looking at it again
+I'm thinking we should just remove it, but worth discussing.
+ */
 @CordaSerializable
 open class SignedData<T : Any>(val raw: SerializedBytes<T>, val sig: DigitalSignature.WithKey) {
     /**

@@ -1,5 +1,7 @@
 package net.corda.v5.application.services.persistence
 
+import net.corda.v5.application.query.NamedQueryFilter
+
 /**
  * Request object for making Query requests on the Persistence Service.
  *

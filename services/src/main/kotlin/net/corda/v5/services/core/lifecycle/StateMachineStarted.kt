@@ -1,6 +1,7 @@
 package net.corda.v5.application.services.lifecycle
 
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.services.core.lifecycle.ServiceLifecycleEvent
 
 /**
  * This event is dispatched when State Machine is fully started.
@@ -11,10 +12,3 @@ import net.corda.v5.base.annotations.DoNotImplement
  */
 @DoNotImplement
 interface StateMachineStarted : ServiceLifecycleEvent
-
-/**
- * Please see [StateMachineStarted] for the purpose of this exception.
- */
-class CordaServiceCriticalFailureException(message : String, cause: Throwable?) : RuntimeException(message, cause) {
-    constructor(message : String) : this(message, null)
-}

@@ -1,6 +1,7 @@
 package net.corda.v5.application.flows;
 
 import net.corda.v5.application.flows.messaging.FlowInfo;
+import net.corda.v5.application.flows.messaging.FlowSession;
 import net.corda.v5.base.types.MemberX500Name;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

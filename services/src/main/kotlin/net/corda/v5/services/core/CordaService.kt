@@ -1,13 +1,11 @@
-package net.corda.v5.application.services
+package net.corda.v5.services.core
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaInject
+import net.corda.v5.application.flows.core.CordaInject
 import net.corda.v5.application.injection.CordaInjectPreStart
 import net.corda.v5.application.injection.CordaServiceInjectable
-import net.corda.v5.application.services.lifecycle.ServiceLifecycleEvent
-import net.corda.v5.application.services.lifecycle.ServiceLifecycleObserver
-import net.corda.v5.application.services.lifecycle.ServiceStart
 import net.corda.v5.serialization.SingletonSerializeAsToken
+import net.corda.v5.services.core.lifecycle.ServiceLifecycleObserver
 
 /**
  * Any class that needs to be a long-lived service within the node, should implement this interface. The constructor will be invoked during

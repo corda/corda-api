@@ -3,14 +3,14 @@ package net.corda.packaging.test.workflow
 import net.corda.systemflows.ReceiveFinalityFlow
 import net.corda.systemflows.SignTransactionFlow
 import net.corda.v5.application.flows.Flow
-import net.corda.v5.application.flows.FlowSession
+import net.corda.v5.application.flows.messaging.FlowSession
 import net.corda.v5.application.flows.core.InitiatedBy
 import net.corda.v5.application.flows.core.InitiatingFlow
 import net.corda.v5.application.flows.core.StartableByRPC
 import net.corda.v5.application.flows.engine.FlowEngine
 import net.corda.v5.application.flows.flowservices.FlowIdentity
 import net.corda.v5.application.flows.messaging.FlowMessaging
-import net.corda.v5.application.injection.CordaInject
+import net.corda.v5.application.flows.core.CordaInject
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.ledger.services.TransactionService
 import net.corda.v5.ledger.services.TransactionVerificationService

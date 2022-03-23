@@ -23,6 +23,9 @@ import kotlin.annotation.AnnotationTarget.CLASS
  *
  * @see InitiatedBy
  */
+/*
+JH: We're looking to redesign this annotation.
+ */
 @Target(CLASS)
 @Inherited
 @MustBeDocumented
