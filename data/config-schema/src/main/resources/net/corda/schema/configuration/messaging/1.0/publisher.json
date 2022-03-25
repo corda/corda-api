@@ -15,6 +15,11 @@
       "description": "True if the publisher should send records as part of transactions. False to send records asynchronously.",
       "type": "boolean",
       "default": true
+    },
+    "clientId": {
+      "description": "True if the publisher should send records as part of transactions. False to send records asynchronously.",
+      "type": "boolean",
+      "default": true
     }
   },
   "additionalProperties": false
