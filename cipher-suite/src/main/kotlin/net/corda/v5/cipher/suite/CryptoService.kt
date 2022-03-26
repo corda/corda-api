@@ -33,15 +33,6 @@ interface CryptoService {
     fun supportedWrappingSchemes(): Array<SignatureScheme>
 
     /**
-     * Check if this [CryptoService] has a private key entry for the input alias.
-     *
-     * @param alias  the key alias to be looked up.
-     *
-     * @throws [CryptoServiceException] for general cryptographic exceptions.
-     */
-    fun containsKey(alias: String): Boolean
-
-    /**
      * Returns the [PublicKey] of the input alias or null if it doesn't exist.
      *
      * @param alias the key alias to be looked up.
