@@ -26,7 +26,7 @@ fun PublicKey.sha256Bytes(): ByteArray = messageDigestSha256().digest(encoded)
 fun PublicKey.toStringShort(): String = "DL" + this.sha256Bytes().toBase58()
 
 /**
- * Calculates HMAC of the [data] [ByteArray] using provided algorithm.
+ * Calculates HMAC using provided secret and algorithm.
  */
 fun ByteArray.hmac(secret: ByteArray, algorithm: String): ByteArray {
     val secretKeySpec = SecretKeySpec(secret, algorithm)
@@ -36,7 +36,7 @@ fun ByteArray.hmac(secret: ByteArray, algorithm: String): ByteArray {
 }
 
 /**
- * Calculates HMAC of the [inputStream] [InputStream] using provided algorithm.
+ * Calculates HMAC using provided secret and algorithm.
  */
 fun InputStream.hmac(secret: ByteArray, algorithm: String): ByteArray {
     val secretKeySpec = SecretKeySpec(secret, algorithm)
