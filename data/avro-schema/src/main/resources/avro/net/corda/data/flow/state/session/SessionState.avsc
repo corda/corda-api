@@ -43,11 +43,6 @@
       "doc": "Identity of party in the session who was initiated."
     },
     {
-      "name": "isInitiator",
-      "type": "boolean",
-      "doc": "True if this party initiated the session, false otherwise"
-    },
-    {
       "name": "sendAck",
       "type": "boolean",
       "doc": "True if there are messages to ack to a counterparty. False if there are no messages received that have not been acked."
