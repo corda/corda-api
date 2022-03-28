@@ -103,9 +103,10 @@ interface CryptoService {
      * @param secret Secret.
      *
      * @return computed alias which must be unique and must be deterministic, e.g. for the same
-     * inputs ([tenantId] and [alias]) always produce the same output.
+     * inputs ([tenantId] and [alias]) always produce the same output. The return value will be passed into the
+     * [generateKeyPair]
      */
-    fun computeHSMAlias(tenantId: String, alias: String, secret: ByteArray): String {
+    fun computeHSMAlias(tenantId: String, alias: String, secret: ByteArray): String? {
         require(tenantId.isNotBlank()) {
             "The tenant id cannot be empty."
         }
