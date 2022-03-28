@@ -2,6 +2,7 @@ package net.corda.v5.cipher.suite
 
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.any
 import org.mockito.kotlin.mock
 import java.security.SecureRandom
@@ -26,6 +27,27 @@ class CryptoServiceTests {
             val bytes = ByteArray(32)
             secureRandom.nextBytes(bytes)
             return bytes
+        }
+    }
+
+    @Test
+    fun `computeHSMAlias should throw IllegalArgumentException for blank tenant id`() {
+        assertThrows<IllegalArgumentException> {
+            service.computeHSMAlias("", UUID.randomUUID().toString(), generateSecret())
+        }
+    }
+
+    @Test
+    fun `computeHSMAlias should throw IllegalArgumentException for blank alias`() {
+        assertThrows<IllegalArgumentException> {
+            service.computeHSMAlias(UUID.randomUUID().toString(), "", generateSecret())
+        }
+    }
+
+    @Test
+    fun `computeHSMAlias should throw IllegalArgumentException for empty secret`() {
+        assertThrows<IllegalArgumentException> {
+            service.computeHSMAlias(UUID.randomUUID().toString(), UUID.randomUUID().toString(), ByteArray(0))
         }
     }
 
