@@ -38,14 +38,14 @@
       "doc": "Unique id for a message sent to a party. sequenceNum is not bidirectional. Each party will track outbound/inbound sequence numbers separately."
     },
     {
-      "name": "sourceIdentity",
+      "name": "initiatingIdentity",
       "type": "net.corda.data.identity.HoldingIdentity",
-      "doc": "Identity of party sending a message."
+      "doc": "Identity of party who started a session."
     },
     {
-      "name": "destinationIdentity",
+      "name": "initiatedIdentity",
       "type": "net.corda.data.identity.HoldingIdentity",
-      "doc": "Identity of party receiving a message."
+      "doc": "Identity of party in the session who was initiated."
     },
     {
       "name": "receivedSequenceNum",
