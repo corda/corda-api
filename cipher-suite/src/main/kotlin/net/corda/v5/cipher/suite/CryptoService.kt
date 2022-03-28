@@ -106,14 +106,14 @@ interface CryptoService {
      * inputs ([tenantId] and [alias]) always produce the same output. The return value will be passed into the
      * [generateKeyPair]
      */
-    fun computeHSMAlias(tenantId: String, alias: String, secret: ByteArray): String? {
+    fun computeHSMAlias(tenantId: String, alias: String, secret: ByteArray?): String? {
         require(tenantId.isNotBlank()) {
             "The tenant id cannot be empty."
         }
         require(alias.isNotBlank()) {
             "The alias cannot be empty."
         }
-        require(secret.isNotEmpty()) {
+        require(secret != null && secret.isNotEmpty()) {
             "The secret cannot be empty."
         }
         return Base32.toBase32String(
