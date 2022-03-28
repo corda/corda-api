@@ -31,7 +31,7 @@
     },
     {
       "name": "aliasSecret",
-      "type": "bytes",
+      "type": [ "null", "bytes" ],
       "doc": "The secret which can be used to compute HSM level alias (like using HMAC)."
     }
   ]
