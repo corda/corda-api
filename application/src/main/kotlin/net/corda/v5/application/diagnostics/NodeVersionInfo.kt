@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.diagnostics
+package net.corda.v5.application.diagnostics
 
 /**
  * Version info about the node. Note that this data should be used for diagnostics purposes only - it is unsafe to rely on this for

@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.configuration
+package net.corda.v5.application.configuration
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable

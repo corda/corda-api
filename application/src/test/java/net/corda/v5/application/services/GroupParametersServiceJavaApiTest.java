@@ -1,6 +1,6 @@
 package net.corda.v5.application.services;
 
-import net.corda.v5.application.services.membership.GroupParametersService;
+import net.corda.v5.application.membership.GroupParametersService;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.membership.GroupParameters;
 import org.assertj.core.api.Assertions;

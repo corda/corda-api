@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.diagnostics
+package net.corda.v5.application.diagnostics
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable

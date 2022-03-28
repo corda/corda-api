@@ -1,7 +1,7 @@
 package net.corda.v5.application.cordapp;
 
-import net.corda.v5.application.services.configuration.CordappConfig;
-import net.corda.v5.application.services.configuration.CordappConfigurationProvider;
+import net.corda.v5.application.configuration.CordappConfig;
+import net.corda.v5.application.configuration.CordappConfigurationProvider;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

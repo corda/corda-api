@@ -1,6 +1,6 @@
 package net.corda.v5.application.services;
 
-import net.corda.v5.application.services.membership.MemberLookupService;
+import net.corda.v5.application.membership.MemberLookupService;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.membership.MemberInfo;
 import org.assertj.core.api.Assertions;

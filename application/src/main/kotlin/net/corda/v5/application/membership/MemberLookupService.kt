@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.membership
+package net.corda.v5.application.membership
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable

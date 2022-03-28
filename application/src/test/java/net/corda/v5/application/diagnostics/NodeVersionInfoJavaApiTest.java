@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.diagnostics;
+package net.corda.v5.application.diagnostics;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
