@@ -33,14 +33,9 @@
       "doc": "Time ([Instant]) in milliseconds of the last message sent to a counterparty"
     },
     {
-      "name": "initiatingIdentity",
+      "name": "counterpartyIdentity",
       "type": "net.corda.data.identity.HoldingIdentity",
-      "doc": "Identity of party who started a session."
-    },
-    {
-      "name": "initiatedIdentity",
-      "type": "net.corda.data.identity.HoldingIdentity",
-      "doc": "Identity of party in the session who was initiated."
+      "doc": "Identity of the counterparty in the session."
     },
     {
       "name": "sendAck",
