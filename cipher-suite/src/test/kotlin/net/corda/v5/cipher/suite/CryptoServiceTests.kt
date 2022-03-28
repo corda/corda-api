@@ -9,6 +9,7 @@ import java.security.SecureRandom
 import java.util.UUID
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
+import kotlin.test.assertNull
 
 class CryptoServiceTests {
     companion object {
@@ -49,6 +50,18 @@ class CryptoServiceTests {
         assertThrows<IllegalArgumentException> {
             service.computeHSMAlias(UUID.randomUUID().toString(), UUID.randomUUID().toString(), ByteArray(0))
         }
+    }
+
+    @Test
+    fun `computeHSMAlias should return null if alias is null`() {
+        val alias = service.computeHSMAlias(UUID.randomUUID().toString(), null, generateSecret())
+        assertNull(alias)
+    }
+
+    @Test
+    fun `computeHSMAlias should return null if alias is null and secret is empty`() {
+        val alias = service.computeHSMAlias(UUID.randomUUID().toString(), null, ByteArray(0))
+        assertNull(alias)
     }
 
     @Test

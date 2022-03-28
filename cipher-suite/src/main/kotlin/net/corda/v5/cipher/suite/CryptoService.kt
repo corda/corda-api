@@ -44,7 +44,10 @@ interface CryptoService {
      * and [failIfExists] is set to true.
      * @throws [CryptoServiceException] for general cryptographic exceptions.
      */
-    fun createWrappingKey(masterKeyAlias: String, failIfExists: Boolean)
+    fun createWrappingKey(
+        masterKeyAlias: String,
+        failIfExists: Boolean
+    )
 
     /**
      * Generate and store an asymmetric key pair.
@@ -52,11 +55,7 @@ interface CryptoService {
      * and their corresponding signature schemes. The main reason for using schemeNumberID and not algorithm OIDs is
      * because some schemes might not be standardised and thus an official OID might for this scheme not exist yet.
      *
-     * @param alias the key alias for the key pair to be generated, if the [alias] is null then a wrapped key must be
-     * generated. Note that if the [alias] is not null then it's up to the implementation to return wrapped or
-     * only a public key owned by the HSM (see [GeneratedPublicKey] and [GeneratedWrappedKey]), it's advisable to
-     * return the public key owned by the HSM [GeneratedPublicKey] for such cases.
-     * @param signatureScheme the scheme of the key pair to be generated.
+     * @param spec parameters to generate key pair, can be [KeyPairAliasSpec] or [KeyPairWrappingSpec].
      * @param context the optional key/value operation context.
      *
      * Returns information about the generated key, could be either [GeneratedPublicKey] or [GeneratedWrappedKey]
@@ -65,8 +64,7 @@ interface CryptoService {
      * @throws [CryptoServiceException] for general cryptographic exceptions.
      */
     fun generateKeyPair(
-        alias: String?,
-        signatureScheme: SignatureScheme,
+        spec: KeyPairGenerationSpec,
         context: Map<String, String>
     ): GeneratedKey
 
@@ -97,21 +95,34 @@ interface CryptoService {
      *
      * The default implementation computes HMAC (HmacSHA256) for concatenation of tenant's id and their alias
      * then transforms it to base32 and takes first 30 characters of that result converting all to lowercase.
+     * If input alias is null then the default implementation returns null.
      *
      * @param tenantId The tenant's id which the [alias] belongs to
-     * @param alias Alias as supplied by the [tenantId]
+     * @param alias Alias as supplied by the [tenantId], if the value is null then it means that the alias is being
+     * computed for a key which requires wrapping. If the HSM natively supports large number of keys the function
+     * may return a not null value which can be used to generate a key owned by the HSM.
      * @param secret Secret.
      *
      * @return computed alias which must be unique and must be deterministic, e.g. for the same
      * inputs ([tenantId] and [alias]) always produce the same output. The return value will be passed into the
      * [generateKeyPair]
+     *
+     * @throws IllegalArgumentException if the tenant is blank or alias is not null but blank or aias is not null but
+     * the secret is empty.
      */
-    fun computeHSMAlias(tenantId: String, alias: String, secret: ByteArray?): String? {
+    fun computeHSMAlias(
+        tenantId: String,
+        alias: String?,
+        secret: ByteArray?
+    ): String? {
         require(tenantId.isNotBlank()) {
             "The tenant id cannot be empty."
         }
+        if(alias == null) {
+            return null
+        }
         require(alias.isNotBlank()) {
-            "The alias cannot be empty."
+            "The alias cannot be empty or null."
         }
         require(secret != null && secret.isNotEmpty()) {
             "The secret cannot be empty."
