@@ -32,6 +32,7 @@ interface CryptoService {
      * @param masterKeyAlias the alias of the key to be used as a wrapping key.
      * @param failIfExists a flag indicating whether the method should fail if a key already exists under
      * the provided alias or return normally without overriding the key.
+     * @param context the optional key/value operation context.
      *
      * @throws [CryptoServiceBadRequestException] if a key already exists under this alias
      * and [failIfExists] is set to true.
@@ -39,7 +40,8 @@ interface CryptoService {
      */
     fun createWrappingKey(
         masterKeyAlias: String,
-        failIfExists: Boolean
+        failIfExists: Boolean,
+        context: Map<String, String>
     )
 
     /**
@@ -62,8 +64,7 @@ interface CryptoService {
      * Sign a byte array using the private key identified by the input arguments.
      * Returns the signature bytes formatted according to the default signature spec.
      *
-     * @param key (either [SigningSpecAlias] or [SigningWrappedSpec]) to be used for signing.
-     * @param signatureScheme the scheme for the signing operation.
+     * @param spec (either [SigningAliasSpec] or [SigningWrappedSpec]) to be used for signing.
      * @param data the data to be signed.
      * @param context the optional key/value operation context.
      *
@@ -72,8 +73,7 @@ interface CryptoService {
      * @throws [CryptoServiceException] for general cryptographic exceptions.
      */
     fun sign(
-        key: SigningSpec,
-        signatureScheme: SignatureScheme,
+        spec: SigningSpec,
         data: ByteArray,
         context: Map<String, String>
     ): ByteArray
