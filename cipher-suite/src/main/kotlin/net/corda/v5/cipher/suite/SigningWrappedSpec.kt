@@ -7,8 +7,8 @@ package net.corda.v5.cipher.suite
  * @property masterKeyAlias The wrapping key's alias which was used for wrapping.
  * @property encodingVersion The encoding version which was used to encode the private key.
  */
-class SigningWrappedKey(
+class SigningWrappedSpec(
     val keyMaterial: ByteArray,
     val masterKeyAlias: String,
     val encodingVersion: Int
-) : SigningKey
+) : SigningSpec
