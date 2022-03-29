@@ -28,11 +28,6 @@ interface CryptoService {
     fun supportedSchemes(): Array<SignatureScheme>
 
     /**
-     * Schemes which this implementation [CryptoService] supports when using a wrapping key.
-     */
-    fun supportedWrappingSchemes(): Array<SignatureScheme>
-
-    /**
      * Generates a new key to be used as a wrapping key. Some implementations may not have the notion of
      * the wrapping key in such cases the implementation should do nothing.
      *
