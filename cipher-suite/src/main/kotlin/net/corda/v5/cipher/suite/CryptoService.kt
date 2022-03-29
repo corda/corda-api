@@ -101,6 +101,7 @@ interface CryptoService {
      * @param alias Alias as supplied by the [tenantId], if the value is null then it means that the alias is being
      * computed for a key which requires wrapping. If the HSM natively supports large number of keys the function
      * may return a not null value which can be used to generate a key owned by the HSM.
+     * @param signatureScheme the scheme for the key generation operation.
      * @param secret Secret.
      *
      * @return computed alias which must be unique and must be deterministic, e.g. for the same
@@ -113,6 +114,7 @@ interface CryptoService {
     fun computeHSMAlias(
         tenantId: String,
         alias: String?,
+        signatureScheme: SignatureScheme,
         secret: ByteArray?
     ): String? {
         require(tenantId.isNotBlank()) {

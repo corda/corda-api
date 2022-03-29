@@ -1,5 +1,6 @@
 package net.corda.v5.cipher.suite
 
+import net.corda.v5.cipher.suite.schemes.ECDSA_SECP256R1_SHA256_TEMPLATE
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -20,7 +21,7 @@ class CryptoServiceTests {
         @JvmStatic
         fun setup() {
             service = mock {
-                on { computeHSMAlias(any(), any(), any()) }.thenCallRealMethod()
+                on { computeHSMAlias(any(), any(), any(), any()) }.thenCallRealMethod()
             }
         }
 
@@ -34,33 +35,58 @@ class CryptoServiceTests {
     @Test
     fun `computeHSMAlias should throw IllegalArgumentException for blank tenant id`() {
         assertThrows<IllegalArgumentException> {
-            service.computeHSMAlias("", UUID.randomUUID().toString(), generateSecret())
+            service.computeHSMAlias(
+                "",
+                UUID.randomUUID().toString(),
+                ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+                generateSecret()
+            )
         }
     }
 
     @Test
     fun `computeHSMAlias should throw IllegalArgumentException for blank alias`() {
         assertThrows<IllegalArgumentException> {
-            service.computeHSMAlias(UUID.randomUUID().toString(), "", generateSecret())
+            service.computeHSMAlias(
+                UUID.randomUUID().toString(),
+                "",
+                ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+                generateSecret()
+            )
         }
     }
 
     @Test
     fun `computeHSMAlias should throw IllegalArgumentException for empty secret`() {
         assertThrows<IllegalArgumentException> {
-            service.computeHSMAlias(UUID.randomUUID().toString(), UUID.randomUUID().toString(), ByteArray(0))
+            service.computeHSMAlias(
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+                ByteArray(0)
+            )
         }
     }
 
     @Test
     fun `computeHSMAlias should return null if alias is null`() {
-        val alias = service.computeHSMAlias(UUID.randomUUID().toString(), null, generateSecret())
+        val alias = service.computeHSMAlias(
+            UUID.randomUUID().toString(),
+            null,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            generateSecret()
+        )
         assertNull(alias)
     }
 
     @Test
     fun `computeHSMAlias should return null if alias is null and secret is empty`() {
-        val alias = service.computeHSMAlias(UUID.randomUUID().toString(), null, ByteArray(0))
+        val alias = service.computeHSMAlias(
+            UUID.randomUUID().toString(),
+            null,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            ByteArray(0)
+        )
         assertNull(alias)
     }
 
@@ -69,9 +95,24 @@ class CryptoServiceTests {
         val tenant = UUID.randomUUID().toString()
         val alias = UUID.randomUUID().toString()
         val secret = generateSecret()
-        val a1 = service.computeHSMAlias(tenant, alias, secret)
-        val a2 = service.computeHSMAlias(tenant, alias, secret)
-        val a3 = service.computeHSMAlias(tenant, alias, secret)
+        val a1 = service.computeHSMAlias(
+            tenant,
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
+        val a2 = service.computeHSMAlias(
+            tenant,
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
+        val a3 = service.computeHSMAlias(
+            tenant,
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
         assertEquals(a1, a2)
         assertEquals(a1, a3)
     }
@@ -80,8 +121,18 @@ class CryptoServiceTests {
     fun `computeHSMAlias should compute different output for different tenants`() {
         val alias = UUID.randomUUID().toString()
         val secret = generateSecret()
-        val a1 = service.computeHSMAlias(UUID.randomUUID().toString(), alias, secret)
-        val a2 = service.computeHSMAlias(UUID.randomUUID().toString(), alias, secret)
+        val a1 = service.computeHSMAlias(
+            UUID.randomUUID().toString(),
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
+        val a2 = service.computeHSMAlias(
+            UUID.randomUUID().toString(),
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
         assertNotEquals(a1, a2)
     }
 
@@ -89,8 +140,18 @@ class CryptoServiceTests {
     fun `computeHSMAlias should compute different output for different aliases`() {
         val tenant = UUID.randomUUID().toString()
         val secret = generateSecret()
-        val a1 = service.computeHSMAlias(tenant, UUID.randomUUID().toString(), secret)
-        val a2 = service.computeHSMAlias(tenant, UUID.randomUUID().toString(), secret)
+        val a1 = service.computeHSMAlias(
+            tenant,
+            UUID.randomUUID().toString(),
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
+        val a2 = service.computeHSMAlias(
+            tenant,
+            UUID.randomUUID().toString(),
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret
+        )
         assertNotEquals(a1, a2)
     }
 
@@ -100,8 +161,18 @@ class CryptoServiceTests {
         val alias = UUID.randomUUID().toString()
         val secret1 = generateSecret()
         val secret2 = generateSecret()
-        val a1 = service.computeHSMAlias(tenant, alias, secret1)
-        val a2 = service.computeHSMAlias(tenant, alias, secret2)
+        val a1 = service.computeHSMAlias(
+            tenant,
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret1
+        )
+        val a2 = service.computeHSMAlias(
+            tenant,
+            alias,
+            ECDSA_SECP256R1_SHA256_TEMPLATE.makeScheme("BC"),
+            secret2
+        )
         assertNotEquals(a1, a2)
     }
 }
