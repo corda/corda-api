@@ -13,12 +13,9 @@
       "name": "request",
       "type": [
         "SignRpcCommand",
-        "SignWithAliasRpcCommand",
-        "SignWithAliasSpecRpcCommand",
         "SignWithSpecRpcCommand",
         "GenerateFreshKeyRpcCommand",
         "GenerateKeyPairCommand",
-        "PublicKeyRpcQuery",
         "FilterMyKeysRpcQuery",
         "SupportedSchemesRpcQuery",
         "AssignedHSMRpcQuery",

@@ -13,7 +13,6 @@
       "name": "response",
       "type": [
         "net.corda.data.crypto.wire.CryptoNoContentValue",
-        "net.corda.data.crypto.wire.CryptoPublicKey",
         "net.corda.data.crypto.wire.CryptoPublicKeys",
         "net.corda.data.crypto.wire.CryptoSignature",
         "net.corda.data.crypto.wire.CryptoSignatureWithKey",
