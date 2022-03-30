@@ -19,7 +19,10 @@
     },
     {
       "name": "payload",
-      "type": "bytes"
+      "type": [
+        "null",
+        "bytes"
+      ]
     }
   ]
 }
