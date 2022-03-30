@@ -25,6 +25,11 @@
         "type": "array",
         "items": "string"
       }
+    },
+    {
+      "doc": "The public key (in PEM format)",
+      "name": "publicKey",
+      "type": "string"
     }
   ]
 }
