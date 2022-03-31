@@ -2,16 +2,16 @@
 
 package net.corda.v5.cipher.suite
 
+import net.corda.v5.base.types.toHexString
 import net.corda.v5.crypto.HMAC_SHA256_ALGORITHM
 import net.corda.v5.crypto.hmac
-import org.bouncycastle.util.encoders.Base32
 
 /**
  * Computes an alias based on the value supplied by the tenant. As the HSM can be shared across several tenants
  * that will provide a level of separation.
  *
  * The default implementation computes HMAC (HmacSHA256) for concatenation of tenant's id and their alias
- * then transforms it to base32 and takes first 30 characters of that result converting all to lowercase.
+ * then transforms it to HEX and takes first 12 characters of that result.
  *
  * @param tenantId The tenant's id which the [alias] belongs to
  * @param alias Alias as supplied by the [tenantId].
@@ -36,7 +36,9 @@ fun computeHSMAlias(
     require(secret.isNotEmpty()) {
         "The secret cannot be empty."
     }
-    return Base32.toBase32String(
-        (tenantId + alias).encodeToByteArray().hmac(secret, HMAC_SHA256_ALGORITHM)
-    ).take(30).toLowerCase()
+    return (tenantId + alias)
+        .encodeToByteArray()
+        .hmac(secret, HMAC_SHA256_ALGORITHM)
+        .toHexString()
+        .take(12)
 }
