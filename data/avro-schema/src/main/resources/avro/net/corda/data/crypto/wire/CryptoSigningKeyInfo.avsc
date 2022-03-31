@@ -1,9 +1,14 @@
 {
   "type": "record",
-  "name": "SigningKeysRecord",
-  "namespace": "net.corda.data.crypto.persistence",
-  "doc": "Defines persistent record for the signing keys. The record is immutable.",
+  "name": "CryptoSigningKeyInfo",
+  "namespace": "net.corda.data.crypto.wire",
+  "doc": "Defines a signing key information.",
   "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "The key's id, base32 encoded string if SHA256 of the encoded public key."
+    },
     {
       "name": "tenantId",
       "type": "string",
@@ -36,14 +41,6 @@
       "doc": "Serialized public key."
     },
     {
-      "name": "privateKeyMaterial",
-      "type": [
-        "null",
-        "bytes"
-      ],
-      "doc": "For wrapped keys only, serialised and encrypted (wrapped) private key."
-    },
-    {
       "name": "schemeCodeName",
       "type": "string",
       "doc": "The key's signature scheme code."
@@ -57,20 +54,12 @@
       "doc": "For wrapped keys only, the master's key alias."
     },
     {
-      "name": "externalId",
-      "type": [
-        "null",
-        "string"
-      ],
-      "doc": "Key's external id."
-    },
-    {
-      "name": "version",
-      "type": "int",
+      "name": "encodingVersion",
+      "type": ["null", "int"],
       "doc": "Encoding protocol version."
     },
     {
-      "name": "timestamp",
+      "name": "created",
       "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
