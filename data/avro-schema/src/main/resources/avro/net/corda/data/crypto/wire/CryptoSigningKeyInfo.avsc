@@ -7,7 +7,7 @@
     {
       "name": "id",
       "type": "string",
-      "doc": "The key's id, base32 encoded string if SHA256 of the encoded public key."
+      "doc": "The key's id."
     },
     {
       "name": "tenantId",
