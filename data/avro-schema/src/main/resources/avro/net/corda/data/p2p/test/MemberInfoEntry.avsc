@@ -9,8 +9,8 @@
       "type": "net.corda.data.identity.HoldingIdentity"
     },
     {
-      "doc": "The public key (in PEM format)",
-      "name": "publicKey",
+      "doc": "The session initiation public key (in PEM format)",
+      "name": "sessionPublicKey",
       "type": "string"
     },
     {
