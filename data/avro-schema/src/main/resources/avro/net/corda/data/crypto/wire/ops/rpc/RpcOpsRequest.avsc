@@ -12,15 +12,13 @@
     {
       "name": "request",
       "type": [
-        "SignRpcCommand",
-        "SignWithSpecRpcCommand",
-        "GenerateFreshKeyRpcCommand",
-        "GenerateKeyPairCommand",
-        "FilterMyKeysRpcQuery",
-        "SupportedSchemesRpcQuery",
-        "AssignedHSMRpcQuery",
-        "HSMKeyInfoByAliasRpcQuery",
-        "HSMKeyInfoByPublicKeyRpcQuery"
+        "net.corda.data.crypto.wire.ops.rpc.commands.GenerateFreshKeyRpcCommand",
+        "net.corda.data.crypto.wire.ops.rpc.commands.GenerateKeyPairCommand",
+        "net.corda.data.crypto.wire.ops.rpc.commands.SignRpcCommand",
+        "net.corda.data.crypto.wire.ops.rpc.commands.SignWithSpecRpcCommand",
+        "net.corda.data.crypto.wire.ops.rpc.queries.AssignedHSMRpcQuery",
+        "net.corda.data.crypto.wire.ops.rpc.queries.FilterMyKeysRpcQuery",
+        "net.corda.data.crypto.wire.ops.rpc.queries.SupportedSchemesRpcQuery"
       ],
       "doc": "Request's payload, depends on the requested operation."
     }
