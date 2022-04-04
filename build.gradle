@@ -202,7 +202,7 @@ subprojects {
         }
     }
 
-    // NOTE: This is a bit hacky but need a way to ensure we do not apply this to project that use CPK plugin
+    // NOTE: Needed to ensure we do not normalize projects which apply CPK plugin
     afterEvaluate {
         if (plugins.hasPlugin("net.corda.plugins.cordapp-cpk") == false) {
             // we do this to allow for Gradle task caching. OSGI attribute Bnd-LastModified breaks gradle caching as it is a timestamp
