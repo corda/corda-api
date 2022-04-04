@@ -17,7 +17,9 @@
         "net.corda.data.crypto.wire.ops.rpc.commands.SignRpcCommand",
         "net.corda.data.crypto.wire.ops.rpc.commands.SignWithSpecRpcCommand",
         "net.corda.data.crypto.wire.ops.rpc.queries.AssignedHSMRpcQuery",
+        "net.corda.data.crypto.wire.ops.rpc.queries.ByIdsRpcQuery",
         "net.corda.data.crypto.wire.ops.rpc.queries.FilterMyKeysRpcQuery",
+        "net.corda.data.crypto.wire.ops.rpc.queries.KeysRpcQuery",
         "net.corda.data.crypto.wire.ops.rpc.queries.SupportedSchemesRpcQuery"
       ],
       "doc": "Request's payload, depends on the requested operation."

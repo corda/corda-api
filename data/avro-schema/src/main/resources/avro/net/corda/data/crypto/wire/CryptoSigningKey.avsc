@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "CryptoSigningKeyInfo",
+  "name": "CryptoSigningKey",
   "namespace": "net.corda.data.crypto.wire",
   "doc": "Defines a signing key information.",
   "fields": [

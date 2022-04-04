@@ -1,0 +1,73 @@
+{
+  "type": "record",
+  "name": "KeysRpcQuery",
+  "namespace": "net.corda.data.crypto.wire.ops.rpc.queries",
+  "doc": "Request to lookup for keys satisfying the filter condition. All filter values are combined as AND.",
+  "fields": [
+    {
+      "name": "skip",
+      "type": "int",
+      "doc": "The response paging information, number of records to skip."
+    },
+    {
+      "name": "take",
+      "type": "int",
+      "doc": "The response paging information, number of records to return, the actual number may be less than requested."
+    },
+    {
+      "name": "orderBy",
+      "type": {
+        "type": "enum",
+        "name": "CryptoKeyOrderBy",
+        "symbols": [
+          "NONE",
+          "CREATED", "CATEGORY", "SCHEME_CODE_NAME", "ALIAS", "MASTER_KEY_ALIAS",
+          "CREATED_DESC", "CATEGORY_DESC", "SCHEME_CODE_NAME_DESC", "ALIAS_DESC", "MASTER_KEY_ALIAS_DESC"
+        ]
+      },
+      "doc": "The order by."
+    },
+    {
+      "name": "category",
+      "type": ["null", "string"],
+      "doc": "The HSM's category which handles the keys."
+    },
+    {
+      "name": "schemeCodeName",
+      "type": ["null", "string"],
+      "doc": "The key's signature scheme name."
+    },
+    {
+      "name": "alias",
+      "type": ["null", "string"],
+      "doc": "The alias which is assigned by the tenant."
+    },
+    {
+      "name": "masterKeyAlias",
+      "type": ["null", "string"],
+      "doc": "The wrapping key alias."
+    },
+    {
+      "name": "createdAfter",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "doc": "Specifies inclusive time after which a key was created."
+    },
+    {
+      "name": "createdBefore",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "doc": "Specifies inclusive time before which a key was created."
+    }
+  ]
+}
