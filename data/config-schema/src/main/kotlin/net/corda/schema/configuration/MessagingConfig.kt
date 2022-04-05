@@ -27,6 +27,8 @@ object MessagingConfig {
         const val BOOTSTRAP_SERVER = "$KAFKA_PROPERTIES_COMMON.bootstrap.servers"
         const val KAFKA_PROPERTIES_CONSUMER = "$KAFKA_PROPERTIES.consumer"
         const val CONSUMER_MAX_POLL_INTERVAL = "$KAFKA_PROPERTIES_CONSUMER.max.poll.interval.ms"
+
+        const val DB_PROPERTIES = "$BUS.dbProperties"
     }
 
     /**
