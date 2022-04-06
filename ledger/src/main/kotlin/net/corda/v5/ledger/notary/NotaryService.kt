@@ -4,7 +4,7 @@ import net.corda.v5.application.flows.Flow
 import net.corda.v5.application.flows.messaging.FlowSession
 import net.corda.v5.application.flows.core.CordaInject
 import net.corda.v5.application.identity.Party
-import net.corda.v5.application.services.crypto.KeyManagementService
+import net.corda.v5.application.crypto.KeyManagementService
 import net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNamesFactory
 import net.corda.v5.application.membership.MemberLookupService
 import net.corda.v5.serialization.SingletonSerializeAsToken

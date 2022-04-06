@@ -3,6 +3,19 @@
 The `application` API module contains interfaces and classes useful for writing flows. It also provides a base set of
 interfaces used elsewhere in the API for higher-level concerns, for example Corda services and the ledger.
 
+## Configuration
+
+The `configuration` package contains definitions of Cordapp configuration access.
+
+## Crypto
+
+The `crypto` package contains services for performing cryptographic operations in flows (e.g. hashing, signing,
+generating key pairs), as well as supporting types for carrying out those operations.
+
+## Diagnostics
+
+The `diagnostics` package contains services for finding out information about the cluster the CorDapp is deployed on.
+
 ## Flows
 
 The `flows` package contains interfaces that are used to define flows, as well as a small set of foundational services
@@ -41,51 +54,30 @@ The `messaging` section of the flows API provides the flow session API for commu
 The `injection` package contains interfaces that declare where services implementing them can be injected. These are
 public API as the service interfaces using them rely on them being available.
 
+## Membership
+
+The `membership` package contains services for accessing the current virtual node's view of the membership group.
+
+## Persistence
+
+The `persistence` package contains services for accessing the database. This includes writing entities to the database,
+reading entities from the database, and generating queries. Named queries and query filters are defined using the types
+in the `query` package.
+
 ## Query
 
 The `query` package contains interfaces that can be implemented to define a named query to be executed against the
 database, as well as filters and post-processors that can be executed before the results are returned.
 
-For executing these queries in flows, see the `persistence` package in `services`.
+For executing these queries in flows, see the `persistence` package.
 
-## Services
+## Serialization
 
-The `services` package contains service interface definitions. These services are provided by the platform and can be
-injected into either flows or user-provided services. The `services` package is subdivided to group similar services
-together, along with errors from those services.
+The `serialization` package contains service definitions for serializing and deserializing types. It includes a generic
+interface applicable to any serialization scheme, and a more specific JSON serialization scheme with some extra
+utilities.
 
-### Configuration
+## Time
 
-The `configuration` section of the `services` API provides a service for accessing the current user-specified 
-configuration for the virtual node.
-
-### Diagnostics
-
-The `diagnostics` section of the `services` API provides information about the current virtual node and cluster, which
-can be used to print diagnostic information.
-
-### JSON
-
-The `json` section of the `services` API provides utilities for serializing types to and from JSON, including a JSON
-serialization service that is properly sandbox aware.
-
-### Membership
-
-The `membership` section of the `services` API provides services for accessing details about the membership group of the
-current virtual node.
-
-### Persistence
-
-The `persistence` section of the `services` API provides a service for writing to the virtual node database, as well as
-functionality for invoking named queries and persisting single entities.
-
-### Serialization
-
-The `serialization` section of the `services` API defines an interface implemented by various serialization schemes used
-by the platform.
-
-### Time
-
-The `time` section of the `services` API defines an interface for retrieving time-based information from the system
-clock. This should be preferred over the standard system clock.
+The `time` package contains a service definition for accessing the system time.
 

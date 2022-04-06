@@ -1,7 +1,7 @@
 package net.corda.v5.application.crypto
 
-import net.corda.v5.application.services.serialization.SerializationService
-import net.corda.v5.application.services.serialization.deserialize
+import net.corda.v5.application.serialization.SerializationService
+import net.corda.v5.application.serialization.deserialize
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.util.uncheckedCast
 import net.corda.v5.crypto.DigitalSignature

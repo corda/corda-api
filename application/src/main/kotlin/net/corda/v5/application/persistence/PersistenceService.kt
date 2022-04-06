@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.persistence
+package net.corda.v5.application.persistence
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable

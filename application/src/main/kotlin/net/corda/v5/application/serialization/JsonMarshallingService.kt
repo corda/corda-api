@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.json
+package net.corda.v5.application.serialization
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable

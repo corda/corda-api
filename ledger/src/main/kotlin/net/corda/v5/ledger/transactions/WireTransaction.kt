@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.transactions
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMeta
-import net.corda.v5.application.services.crypto.DigitalSignatureVerificationService
+import net.corda.v5.application.crypto.DigitalSignatureVerificationService
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.OpaqueBytes

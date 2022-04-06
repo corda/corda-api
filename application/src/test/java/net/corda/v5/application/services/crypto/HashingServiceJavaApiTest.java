@@ -1,5 +1,6 @@
 package net.corda.v5.application.services.crypto;
 
+import net.corda.v5.application.crypto.HashingService;
 import net.corda.v5.base.types.ByteArrays;
 import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.crypto.DigestAlgorithmName;

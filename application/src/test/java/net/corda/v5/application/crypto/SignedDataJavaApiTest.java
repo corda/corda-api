@@ -1,6 +1,6 @@
 package net.corda.v5.application.crypto;
 
-import net.corda.v5.application.services.serialization.SerializationService;
+import net.corda.v5.application.serialization.SerializationService;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SignatureVerificationService;
 import net.corda.v5.serialization.SerializedBytes;

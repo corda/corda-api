@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.serialization;
+package net.corda.v5.application.serialization;
 
 import net.corda.v5.serialization.SerializedBytes;
 import org.assertj.core.api.Assertions;

@@ -2,7 +2,7 @@ package net.corda.v5.ledger.transactions;
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
 import net.corda.v5.application.crypto.SignatureMetadata;
-import net.corda.v5.application.services.crypto.DigitalSignatureVerificationService;
+import net.corda.v5.application.crypto.DigitalSignatureVerificationService;
 import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.crypto.MerkleTree;
 import net.corda.v5.crypto.SecureHash;

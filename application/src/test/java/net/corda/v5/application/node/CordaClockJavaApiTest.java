@@ -1,6 +1,6 @@
 package net.corda.v5.application.node;
 
-import net.corda.v5.application.services.time.CordaClock;
+import net.corda.v5.application.time.CordaClock;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

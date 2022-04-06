@@ -1,4 +1,4 @@
-package net.corda.v5.application.services.crypto
+package net.corda.v5.application.crypto
 
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable

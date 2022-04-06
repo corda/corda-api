@@ -1,5 +1,6 @@
-package net.corda.v5.application.crypto
+package net.corda.v5.ledger.crypto
 
+import net.corda.v5.application.crypto.SignatureMetadata
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.crypto.SecureHash
 

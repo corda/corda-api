@@ -1,6 +1,7 @@
 package net.corda.v5.application.services.crypto;
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
+import net.corda.v5.application.crypto.KeyManagementService;
 import net.corda.v5.application.crypto.SignableData;
 import net.corda.v5.application.crypto.SignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
