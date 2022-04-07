@@ -2,8 +2,9 @@ package net.corda.v5.ledger.transactions;
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
 import net.corda.v5.application.crypto.SignatureMetadata;
-import net.corda.v5.application.services.crypto.DigitalSignatureVerificationService;
+import net.corda.v5.application.crypto.DigitalSignatureVerificationService;
 import net.corda.v5.base.types.OpaqueBytes;
+import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.MerkleTree;
 import net.corda.v5.crypto.SecureHash;
 import org.assertj.core.api.Assertions;
@@ -11,6 +12,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.security.PublicKey;
+import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -121,7 +124,10 @@ public class WireTransactionJavaApiTest {
     @Test
     public void checkSignature() {
         final DigitalSignatureAndMeta digitalSignatureAndMeta =
-                new DigitalSignatureAndMeta("test".getBytes(), publicKey, new SignatureMetadata(1));
+                new DigitalSignatureAndMeta(
+                        new DigitalSignature.WithKey(publicKey, "test".getBytes()),
+                        new SignatureMetadata(Instant.MIN, new HashMap<>())
+                );
         final DigitalSignatureVerificationService digitalSignatureVerificationService = mock(DigitalSignatureVerificationService.class);
         wireTransaction.checkSignature(digitalSignatureVerificationService, digitalSignatureAndMeta);
 

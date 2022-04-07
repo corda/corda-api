@@ -2,6 +2,7 @@ package net.corda.v5.ledger.services;
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
 import net.corda.v5.application.crypto.SignatureMetadata;
+import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.transactions.FilteredTransaction;
 import net.corda.v5.ledger.transactions.SignedTransaction;
@@ -10,7 +11,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.PublicKey;
+import java.time.Instant;
 import java.util.Collections;
+import java.util.HashMap;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -24,8 +27,9 @@ public class TransactionServiceJavaApiTest {
     private final TransactionBuilder transactionBuilder = mock(TransactionBuilder.class);
     private final FilteredTransaction filteredTransaction = mock(FilteredTransaction.class);
     private final PublicKey publicKey = mock(PublicKey.class);
-    private final SignatureMetadata signatureMetadata = new SignatureMetadata(1);
-    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(new byte[]{101}, publicKey, signatureMetadata);
+    private final SignatureMetadata signatureMetadata = new SignatureMetadata(Instant.MIN, new HashMap<>());
+    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(
+            new DigitalSignature.WithKey(publicKey, new byte[]{101}), signatureMetadata);
     private final SecureHash secureHash = SecureHash.create("SHA-256:6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A");
 
     @Test

@@ -2,14 +2,17 @@ package net.corda.v5.ledger.transactions;
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
 import net.corda.v5.application.crypto.SignatureMetadata;
-import net.corda.v5.application.identity.Party;
+import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.contracts.StateRef;
+import net.corda.v5.ledger.identity.Party;
 import net.corda.v5.serialization.SerializedBytes;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.PublicKey;
+import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -29,8 +32,11 @@ public class SignedTransactionJavaApiTest {
     private final List<StateRef> stateRefs = List.of(stateRef);
     private final PublicKey publicKey = mock(PublicKey.class);
     private final Party party = mock(Party.class);
-    private final SignatureMetadata signatureMetadata = new SignatureMetadata(9);
-    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(bytes, publicKey, signatureMetadata);
+    private final SignatureMetadata signatureMetadata = new SignatureMetadata(Instant.MIN, new HashMap<>());
+    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(
+            new DigitalSignature.WithKey(publicKey, bytes),
+            signatureMetadata
+    );
 
     @Test
     public void getTxBits() {
