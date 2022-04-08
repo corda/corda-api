@@ -13,9 +13,6 @@ interface CordappConfigProvider : CordaServiceInjectable, CordaFlowInjectable {
     /**
      * Exposes the current CorDapp configuration.
      *
-     * The calling application is found via stack walking and finding the first class on the stack that matches any class contained within
-     * the automatically resolved [Cordapp]s loaded by the [net.corda.nodeapi.internal.cordapp.CordappLoader]
-     *
      * @return The configuration for the current CorDapp.
      *
      * @throws IllegalStateException When called from a non-app context.

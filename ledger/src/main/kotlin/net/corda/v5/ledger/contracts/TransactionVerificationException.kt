@@ -1,6 +1,6 @@
 package net.corda.v5.ledger.contracts
 
-import net.corda.v5.application.flows.exception.FlowException
+import net.corda.v5.application.flows.exceptions.FlowException
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.exceptions.CordaRuntimeException
 import net.corda.v5.crypto.SecureHash

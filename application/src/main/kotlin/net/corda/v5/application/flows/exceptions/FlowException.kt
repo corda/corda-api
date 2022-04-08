@@ -1,4 +1,4 @@
-package net.corda.v5.application.flows.exception
+package net.corda.v5.application.flows.exceptions
 
 import net.corda.v5.base.exceptions.CordaRuntimeException
 
@@ -23,12 +23,4 @@ open class FlowException(message: String?, cause: Throwable?) :
     constructor(message: String?) : this(message, null)
     constructor(cause: Throwable?) : this(cause?.toString(), cause)
     constructor() : this(null, null)
-}
-/**
- * Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type that we were not expecting),
- * or the other side had an internal error, or the other side terminated when we were waiting for a response.
- */
-class UnexpectedFlowEndException(message: String, cause: Throwable?) :
-    CordaRuntimeException(message, cause) {
-    constructor(message: String) : this(message, null)
 }
