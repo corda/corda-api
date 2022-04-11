@@ -12,7 +12,7 @@ import java.security.SignatureException
  */
 interface DigitalSignatureVerificationService : SignatureVerificationService, CordaServiceInjectable, CordaFlowInjectable {
     /**
-     * Verifies a [DigitalSignatureAndMeta].
+     * Verifies a [DigitalSignatureAndMetadata].
      *
      * Always throws an exception if verification fails.
      *
@@ -24,10 +24,10 @@ interface DigitalSignatureVerificationService : SignatureVerificationService, Co
      * @throws IllegalArgumentException if the signature scheme is not supported or if any of the clear or signature data is empty.
      */
     @Throws(SignatureException::class, InvalidKeyException::class)
-    fun verify(hash: SecureHash, signature: DigitalSignatureAndMeta)
+    fun verify(hash: SecureHash, signature: DigitalSignatureAndMetadata)
 
     /**
-     * Verifies a [DigitalSignatureAndMeta].
+     * Verifies a [DigitalSignatureAndMetadata].
      *
      * Returns `true` if it succeeds and `false` if not. In comparison to [verify] if the key and signature does not match it returns
      * `false` rather than throwing an exception. Normally you should use the function which throws, as it avoids the risk of failing to
@@ -38,5 +38,5 @@ interface DigitalSignatureVerificationService : SignatureVerificationService, Co
      *
      * @return `true` if verification passes or `false` if verification fails.
      */
-    fun isValid(hash: SecureHash, signature: DigitalSignatureAndMeta): Boolean
+    fun isValid(hash: SecureHash, signature: DigitalSignatureAndMetadata): Boolean
 }

@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.transactions;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
-import net.corda.v5.application.crypto.SignatureMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.contracts.StateRef;
@@ -32,10 +32,10 @@ public class SignedTransactionJavaApiTest {
     private final List<StateRef> stateRefs = List.of(stateRef);
     private final PublicKey publicKey = mock(PublicKey.class);
     private final Party party = mock(Party.class);
-    private final SignatureMetadata signatureMetadata = new SignatureMetadata(Instant.MIN, new HashMap<>());
-    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(
+    private final DigitalSignatureMetadata digitalSignatureMetadata = new DigitalSignatureMetadata(Instant.MIN, new HashMap<>());
+    private final DigitalSignatureAndMetadata digitalSignatureAndMetadata = new DigitalSignatureAndMetadata(
             new DigitalSignature.WithKey(publicKey, bytes),
-            signatureMetadata
+            digitalSignatureMetadata
     );
 
     @Test
@@ -120,9 +120,9 @@ public class SignedTransactionJavaApiTest {
 
     @Test
     public void withAdditionalSignature() {
-        when(signedTransaction.withAdditionalSignature(digitalSignatureAndMeta)).thenReturn(signedTransaction);
+        when(signedTransaction.withAdditionalSignature(digitalSignatureAndMetadata)).thenReturn(signedTransaction);
 
-        SignedTransaction result = signedTransaction.withAdditionalSignature(digitalSignatureAndMeta);
+        SignedTransaction result = signedTransaction.withAdditionalSignature(digitalSignatureAndMetadata);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(signedTransaction);
@@ -130,10 +130,10 @@ public class SignedTransactionJavaApiTest {
 
     @Test
     public void withAdditionalSignatures() {
-        final List<DigitalSignatureAndMeta> digitalSignatureAndMetas = List.of(digitalSignatureAndMeta);
-        when(signedTransaction.withAdditionalSignatures(digitalSignatureAndMetas)).thenReturn(signedTransaction);
+        final List<DigitalSignatureAndMetadata> digitalSignatureAndMetadata = List.of(this.digitalSignatureAndMetadata);
+        when(signedTransaction.withAdditionalSignatures(digitalSignatureAndMetadata)).thenReturn(signedTransaction);
 
-        SignedTransaction result = signedTransaction.withAdditionalSignatures(digitalSignatureAndMetas);
+        SignedTransaction result = signedTransaction.withAdditionalSignatures(digitalSignatureAndMetadata);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(signedTransaction);

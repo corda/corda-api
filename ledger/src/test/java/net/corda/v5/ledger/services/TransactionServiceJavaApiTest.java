@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.services;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
-import net.corda.v5.application.crypto.SignatureMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.transactions.FilteredTransaction;
@@ -27,9 +27,9 @@ public class TransactionServiceJavaApiTest {
     private final TransactionBuilder transactionBuilder = mock(TransactionBuilder.class);
     private final FilteredTransaction filteredTransaction = mock(FilteredTransaction.class);
     private final PublicKey publicKey = mock(PublicKey.class);
-    private final SignatureMetadata signatureMetadata = new SignatureMetadata(Instant.MIN, new HashMap<>());
-    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(
-            new DigitalSignature.WithKey(publicKey, new byte[]{101}), signatureMetadata);
+    private final DigitalSignatureMetadata digitalSignatureMetadata = new DigitalSignatureMetadata(Instant.MIN, new HashMap<>());
+    private final DigitalSignatureAndMetadata digitalSignatureAndMetadata = new DigitalSignatureAndMetadata(
+            new DigitalSignature.WithKey(publicKey, new byte[]{101}), digitalSignatureMetadata);
     private final SecureHash secureHash = SecureHash.create("SHA-256:6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A");
 
     @Test
@@ -118,42 +118,42 @@ public class TransactionServiceJavaApiTest {
 
     @Test
     public void createSignatureWithSignedTransactionAndPublicKey() {
-        when(transactionService.createSignature(signedTransaction, publicKey)).thenReturn(digitalSignatureAndMeta);
+        when(transactionService.createSignature(signedTransaction, publicKey)).thenReturn(digitalSignatureAndMetadata);
 
-        DigitalSignatureAndMeta result = transactionService.createSignature(signedTransaction, publicKey);
+        DigitalSignatureAndMetadata result = transactionService.createSignature(signedTransaction, publicKey);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMeta);
+        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMetadata);
     }
 
     @Test
     public void createSignatureWithSignedTransaction() {
-        when(transactionService.createSignature(signedTransaction)).thenReturn(digitalSignatureAndMeta);
+        when(transactionService.createSignature(signedTransaction)).thenReturn(digitalSignatureAndMetadata);
 
-        DigitalSignatureAndMeta result = transactionService.createSignature(signedTransaction);
+        DigitalSignatureAndMetadata result = transactionService.createSignature(signedTransaction);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMeta);
+        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMetadata);
     }
 
     @Test
     public void createSignatureWithFilteredTransactionAndPublicKey() {
-        when(transactionService.createSignature(filteredTransaction, publicKey)).thenReturn(digitalSignatureAndMeta);
+        when(transactionService.createSignature(filteredTransaction, publicKey)).thenReturn(digitalSignatureAndMetadata);
 
-        DigitalSignatureAndMeta result = transactionService.createSignature(filteredTransaction, publicKey);
+        DigitalSignatureAndMetadata result = transactionService.createSignature(filteredTransaction, publicKey);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMeta);
+        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMetadata);
     }
 
     @Test
     public void createSignatureWithFilteredTransaction() {
-        when(transactionService.createSignature(filteredTransaction)).thenReturn(digitalSignatureAndMeta);
+        when(transactionService.createSignature(filteredTransaction)).thenReturn(digitalSignatureAndMetadata);
 
-        DigitalSignatureAndMeta result = transactionService.createSignature(filteredTransaction);
+        DigitalSignatureAndMetadata result = transactionService.createSignature(filteredTransaction);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMeta);
+        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMetadata);
     }
 
     @Test

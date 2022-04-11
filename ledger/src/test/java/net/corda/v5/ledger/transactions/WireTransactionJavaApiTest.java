@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.transactions;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
-import net.corda.v5.application.crypto.SignatureMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureVerificationService;
 import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.crypto.DigitalSignature;
@@ -123,15 +123,15 @@ public class WireTransactionJavaApiTest {
 
     @Test
     public void checkSignature() {
-        final DigitalSignatureAndMeta digitalSignatureAndMeta =
-                new DigitalSignatureAndMeta(
+        final DigitalSignatureAndMetadata digitalSignatureAndMetadata =
+                new DigitalSignatureAndMetadata(
                         new DigitalSignature.WithKey(publicKey, "test".getBytes()),
-                        new SignatureMetadata(Instant.MIN, new HashMap<>())
+                        new DigitalSignatureMetadata(Instant.MIN, new HashMap<>())
                 );
         final DigitalSignatureVerificationService digitalSignatureVerificationService = mock(DigitalSignatureVerificationService.class);
-        wireTransaction.checkSignature(digitalSignatureVerificationService, digitalSignatureAndMeta);
+        wireTransaction.checkSignature(digitalSignatureVerificationService, digitalSignatureAndMetadata);
 
-        verify(wireTransaction, times(1)).checkSignature(digitalSignatureVerificationService, digitalSignatureAndMeta);
+        verify(wireTransaction, times(1)).checkSignature(digitalSignatureVerificationService, digitalSignatureAndMetadata);
     }
 
     @Nested

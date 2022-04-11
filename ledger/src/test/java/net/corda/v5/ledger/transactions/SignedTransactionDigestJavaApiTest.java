@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.transactions;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
-import net.corda.v5.application.crypto.SignatureMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import org.assertj.core.api.Assertions;
@@ -20,12 +20,12 @@ public class SignedTransactionDigestJavaApiTest {
     private final List<String> stringListA = List.of("Some strings");
     private final List<String> stringListB = List.of("Other strings");
     private final PublicKey publicKey = mock(PublicKey.class);
-    private final SignatureMetadata signatureMetadata = new SignatureMetadata(Instant.MIN, new HashMap<>());
-    private final List<DigitalSignatureAndMeta> digitalSignatureAndMeta = List.of(new DigitalSignatureAndMeta(
+    private final DigitalSignatureMetadata digitalSignatureMetadata = new DigitalSignatureMetadata(Instant.MIN, new HashMap<>());
+    private final List<DigitalSignatureAndMetadata> digitalSignatureAndMetadata = List.of(new DigitalSignatureAndMetadata(
             new DigitalSignature.WithKey(publicKey, new byte[1998]),
-            signatureMetadata
+            digitalSignatureMetadata
     ));
-    private final SignedTransactionDigest signedTransactionDigestA = new SignedTransactionDigest(secureHash, stringListA, digitalSignatureAndMeta);
+    private final SignedTransactionDigest signedTransactionDigestA = new SignedTransactionDigest(secureHash, stringListA, digitalSignatureAndMetadata);
     private final SignedTransactionDigest signedTransactionDigestB = new SignedTransactionDigest(secureHash.toString(), stringListA, stringListB);
 
     @Test

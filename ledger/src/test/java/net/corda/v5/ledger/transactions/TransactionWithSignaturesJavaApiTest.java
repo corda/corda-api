@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.transactions;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMeta;
-import net.corda.v5.application.crypto.SignatureMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
+import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,20 +20,20 @@ public class TransactionWithSignaturesJavaApiTest {
     private final TransactionWithSignatures transactionWithSignatures = mock(TransactionWithSignatures.class);
     private final PublicKey publicKey = mock(PublicKey.class);
     private final Set<PublicKey> publicKeys = Set.of(publicKey);
-    private final SignatureMetadata signatureMetadata = new SignatureMetadata(Instant.MIN, new HashMap<>());
+    private final DigitalSignatureMetadata digitalSignatureMetadata = new DigitalSignatureMetadata(Instant.MIN, new HashMap<>());
 
     @Test
     public void getSigs() {
-        final List<DigitalSignatureAndMeta> digitalSignatureAndMetas = List.of(new DigitalSignatureAndMeta(
+        final List<DigitalSignatureAndMetadata> digitalSignatureAndMetadata = List.of(new DigitalSignatureAndMetadata(
                 new DigitalSignature.WithKey(publicKey, new byte[1998]),
-                signatureMetadata
+                digitalSignatureMetadata
         ));
-        when(transactionWithSignatures.getSigs()).thenReturn(digitalSignatureAndMetas);
+        when(transactionWithSignatures.getSigs()).thenReturn(digitalSignatureAndMetadata);
 
-        List<DigitalSignatureAndMeta> result = transactionWithSignatures.getSigs();
+        List<DigitalSignatureAndMetadata> result = transactionWithSignatures.getSigs();
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMetas);
+        Assertions.assertThat(result).isEqualTo(digitalSignatureAndMetadata);
     }
 
     @Test

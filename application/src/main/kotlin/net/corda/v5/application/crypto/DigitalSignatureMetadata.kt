@@ -15,5 +15,5 @@ import java.time.Instant
  * @property properties A set of properties for this signature. Content depends on API layers above application.
  */
 @CordaSerializable
-data class SignatureMetadata(val timestamp: Instant,
-                             val properties: Map<String, String>)
+data class DigitalSignatureMetadata(val timestamp: Instant,
+                                    val properties: Map<String, String>)

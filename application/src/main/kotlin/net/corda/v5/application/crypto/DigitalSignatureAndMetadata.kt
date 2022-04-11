@@ -7,12 +7,12 @@ import net.corda.v5.crypto.DigitalSignature
  * A wrapper over the signature output accompanied by signer's public key and signature metadata.
  *
  * @property signature The signature that was applied.
- * @property metadata attached [SignatureMetadata] for this signature.
+ * @property metadata attached [DigitalSignatureMetadata] for this signature.
  */
 @CordaSerializable
-data class DigitalSignatureAndMeta(
+data class DigitalSignatureAndMetadata(
     val signature: DigitalSignature.WithKey,
-    val metadata: SignatureMetadata
+    val metadata: DigitalSignatureMetadata
 ) {
     val by = signature.by
 }

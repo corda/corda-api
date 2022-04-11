@@ -24,15 +24,15 @@ public class DigitalSignatureVerificationServiceJavaApiTest {
     private final PublicKey publicKey = mock(PublicKey.class);
     private final SecureHash secureHash256 = SecureHash.create("SHA-256:0123456789ABCDE1");
     private final byte[] byteArray = ByteArrays.parseAsHex("0123456789ABCDE1");
-    private final DigitalSignatureAndMeta digitalSignatureAndMeta = new DigitalSignatureAndMeta(
+    private final DigitalSignatureAndMetadata digitalSignatureAndMetadata = new DigitalSignatureAndMetadata(
             new DigitalSignature.WithKey(publicKey, byteArray),
-            new SignatureMetadata(Instant.MIN, new HashMap<>())
+            new DigitalSignatureMetadata(Instant.MIN, new HashMap<>())
     );
 
     @Test
     public void verifySecureHashAndDigitalSignatureAndMeta() throws SignatureException, InvalidKeyException {
-        digitalSignatureVerificationService.verify(secureHash256, digitalSignatureAndMeta);
-        verify(digitalSignatureVerificationService, times(1)).verify(secureHash256, digitalSignatureAndMeta);
+        digitalSignatureVerificationService.verify(secureHash256, digitalSignatureAndMetadata);
+        verify(digitalSignatureVerificationService, times(1)).verify(secureHash256, digitalSignatureAndMetadata);
     }
 
     @Test
@@ -43,9 +43,9 @@ public class DigitalSignatureVerificationServiceJavaApiTest {
 
     @Test
     public void isValidSecureHashAndDigitalSignatureAndMeta() {
-        when(digitalSignatureVerificationService.isValid(secureHash256, digitalSignatureAndMeta)).thenReturn(true);
+        when(digitalSignatureVerificationService.isValid(secureHash256, digitalSignatureAndMetadata)).thenReturn(true);
 
-        boolean result = digitalSignatureVerificationService.isValid(secureHash256, digitalSignatureAndMeta);
+        boolean result = digitalSignatureVerificationService.isValid(secureHash256, digitalSignatureAndMetadata);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isTrue();

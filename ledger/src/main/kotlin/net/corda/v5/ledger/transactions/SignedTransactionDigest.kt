@@ -1,6 +1,6 @@
 package net.corda.v5.ledger.transactions
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMeta
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.util.toBase64
 import net.corda.v5.crypto.SecureHash
@@ -17,6 +17,6 @@ import net.corda.v5.crypto.SecureHash
 data class SignedTransactionDigest(val txId: String, val outputStates: List<String>, val signatures: List<String>) {
 
     /** A utility constructor that avoids the need to format the transaction's ID and signatures. */
-    constructor(txIdUnformatted: SecureHash, outputStates: List<String>, signaturesUnformatted: List<DigitalSignatureAndMeta>) :
+    constructor(txIdUnformatted: SecureHash, outputStates: List<String>, signaturesUnformatted: List<DigitalSignatureAndMetadata>) :
             this(txIdUnformatted.toString(), outputStates, signaturesUnformatted.map { it.signature.bytes.toBase64() })
 }

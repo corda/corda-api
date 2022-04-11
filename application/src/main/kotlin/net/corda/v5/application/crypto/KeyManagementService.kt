@@ -68,11 +68,11 @@ interface KeyManagementService : CordaServiceInjectable, CordaFlowInjectable {
      * previously generated via the [freshKey] method. If the [PublicKey] is actually a [CompositeKey], the first leaf signing key hosted by
      * the node is used.
      *
-     * @return A [DigitalSignatureAndMeta] representing the signed data and the [PublicKey] that belongs to the same [KeyPair] as the
+     * @return A [DigitalSignatureAndMetadata] representing the signed data and the [PublicKey] that belongs to the same [KeyPair] as the
      * [PrivateKey] that signed the data.
      *
      * @throws IllegalArgumentException If the input key is not a member of [keys].
      */
     @Suspendable
-    fun sign(signableData: SignableData, publicKey: PublicKey): DigitalSignatureAndMeta
+    fun sign(signableData: SignableData, publicKey: PublicKey): DigitalSignatureAndMetadata
 }
