@@ -30,5 +30,5 @@ object DbSchema {
 
     const val CRYPTO = "CRYPTO"
     const val CRYPTO_WRAPPING_KEY_TABLE = "crypto_wrapping_key"
-
+    const val CRYPTO_SIGNING_KEY_TABLE = "crypto_signing_key"
 }
