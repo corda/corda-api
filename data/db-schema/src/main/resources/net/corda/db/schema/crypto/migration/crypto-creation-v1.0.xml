@@ -72,5 +72,9 @@
             <column name="tenant_id"/>
             <column name="category"/>
         </createIndex>
+        <createIndex indexName="crypto_signing_key_tenant_alias_idx" tableName="crypto_signing_key">
+            <column name="tenant_id"/>
+            <column name="alias"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>
