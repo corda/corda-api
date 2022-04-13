@@ -59,6 +59,14 @@
       "doc": "Encoding protocol version."
     },
     {
+      "name": "externalId",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "External id associated with the key."
+    },
+    {
       "name": "created",
       "type": {
         "type": "long",
