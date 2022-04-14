@@ -8,10 +8,6 @@
       "type": "net.corda.p2p.crypto.CommonHeader"
     },
     {
-      "name": "initiatorPublicKey",
-      "type": "bytes"
-    },
-    {
       "name": "supportedModes",
       "type": {
         "type": "array",
