@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "FindEntity",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "entity",
+      "type": "bytes",
+      "doc": "the serialized entity"
+    },
+    {
+      "name": "primaryKey",
+      "type": "bytes",
+      "doc": "the primary key"
+    }
+  ]
+}
