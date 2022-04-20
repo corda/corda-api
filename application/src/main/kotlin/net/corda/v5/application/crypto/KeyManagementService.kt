@@ -17,30 +17,19 @@ import java.util.*
  */
 @DoNotImplement
 interface KeyManagementService : CordaServiceInjectable, CordaFlowInjectable {
-    /**
-     * Generates a new random [KeyPair] and adds it to the internal key storage.
-     *
-     * @return The [PublicKey] of the generated [KeyPair].
-     */
-    @Suspendable
-    fun freshKey(): PublicKey
 
     /**
-     * Generates a new random [KeyPair] and adds it to the internal key storage. Associates the public key to an external Id.
+     * Retrieve all public keys for the current member identity.
      *
-     * @return The [PublicKey] of the generated [KeyPair].
+     * The filter may be used to select a subset of the possible keys - for example, to select just those keys belonging
+     * to a particular account, or to ensure that only non-rotated keys are returned.
+     *
+     * @param filter The filter criteria to select keys by. Returned keys will match at least one of the selected tags
+     *               for each parameter provided. (This API is a draft and will be expanded on later.)
+     * @return A list of public keys that match the filter.
      */
     @Suspendable
-    fun freshKey(externalId: UUID): PublicKey
-
-    /**
-     * Filters the input [PublicKey]s down to a collection of keys that this node owns (has private keys for).
-     *
-     * @param candidateKeys The [PublicKey]s to filter.
-     *
-     * @return A collection of [PublicKey]s that this node owns.
-     */
-    fun filterMyKeys(candidateKeys: Iterable<PublicKey>): Iterable<PublicKey>
+    fun findKeys(filter: Map<String, Set<String>>): List<PublicKey>
 
     /**
      * Using the provided signing [PublicKey], internally looks up the matching [PrivateKey] and signs the data.

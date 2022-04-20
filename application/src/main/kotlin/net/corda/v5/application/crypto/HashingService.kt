@@ -3,7 +3,7 @@ package net.corda.v5.application.crypto
 import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
-import net.corda.v5.base.types.OpaqueBytes
+import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
@@ -14,8 +14,7 @@ import net.corda.v5.crypto.SecureHash
  * Delegates all functionality to [DigestService].
  */
 @DoNotImplement
-interface
-HashingService : DigestService, CordaServiceInjectable, CordaFlowInjectable {
+interface HashingService : CordaServiceInjectable, CordaFlowInjectable {
 
     /**
      * Default [DigestAlgorithmName] for this hashing service.
@@ -23,52 +22,42 @@ HashingService : DigestService, CordaServiceInjectable, CordaFlowInjectable {
     val defaultDigestAlgorithmName: DigestAlgorithmName
 
     /**
+     * Computes the digest of the [ByteArray].
+     *
+     * @param bytes The [ByteArray] to hash.
+     * @param digestAlgorithmName The digest algorithm to be used for hashing.
+     */
+    @Suspendable
+    fun hash(bytes: ByteArray, digestAlgorithmName: DigestAlgorithmName): SecureHash
+
+    /**
      * Computes the digest of the [ByteArray] using the default digest algorithm ([DigestAlgorithmName.DEFAULT_ALGORITHM_NAME]).
      *
      * @param bytes The [ByteArray] to hash.
      */
+    @Suspendable
     fun hash(bytes: ByteArray): SecureHash
 
     /**
-     * Computes the digest of the [OpaqueBytes].
+     * Returns the [DigestAlgorithmName] digest length in bytes.
      *
-     * @param opaqueBytes The [OpaqueBytes] to hash.
-     * @param digestAlgorithmName The digest algorithm to be used for hashing.
+     * @param digestAlgorithmName The digest algorithm to get the digest length for.
      */
-    fun hash(opaqueBytes: OpaqueBytes, digestAlgorithmName: DigestAlgorithmName): SecureHash
-
-    /**
-     * Computes the digest of the [OpaqueBytes] using the default digest algorithm ([DigestAlgorithmName.DEFAULT_ALGORITHM_NAME]).
-     *
-     * @param opaqueBytes The [OpaqueBytes] to hash.
-     */
-    fun hash(opaqueBytes: OpaqueBytes): SecureHash
-
-    /**
-     * Computes the digest of the [String]'s UTF-8 byte contents.
-     *
-     * @param str The [String] whose UTF-8 contents will be hashed.
-     * @param digestAlgorithmName The digest algorithm to be used for hashing.
-     */
-    fun hash(str: String, digestAlgorithmName: DigestAlgorithmName): SecureHash
-
-    /**
-     * Computes the digest of the [String]'s UTF-8 byte contents using the default digest algorithm ([DigestAlgorithmName.DEFAULT_ALGORITHM_NAME]).
-     *
-     * @param str The [String] whose UTF-8 contents will be hashed.
-     */
-    fun hash(str: String): SecureHash
+    @Suspendable
+    fun digestLength(digestAlgorithmName: DigestAlgorithmName): Int
 
     /**
      * Re-hashes [secureHash] bytes using its original digest algorithm.
      *
      * @param secureHash The [SecureHash] to re-hash.
      */
+    @Suspendable
     fun reHash(secureHash: SecureHash): SecureHash
 
     /**
      * Generates a random hash value.
      */
+    @Suspendable
     fun randomHash(digestAlgorithmName: DigestAlgorithmName): SecureHash
 
     /**
@@ -78,5 +67,6 @@ HashingService : DigestService, CordaServiceInjectable, CordaFlowInjectable {
      * @param first The first digest in the concatenation.
      * @param second The second digest in the concatenation.
      */
+    @Suspendable
     fun concatenate(first: SecureHash, second: SecureHash): SecureHash
 }
