@@ -145,4 +145,5 @@ fun CPI.Metadata.toAvro() = CPIMetadata.newBuilder().also {
     it.hash = SecureHash(hash.algorithm, ByteBuffer.wrap(hash.bytes))
     it.cpks = cpks.map(CPK.Metadata::toAvro)
     it.groupPolicy = groupPolicy
+    it.version = -1
 }.build()
