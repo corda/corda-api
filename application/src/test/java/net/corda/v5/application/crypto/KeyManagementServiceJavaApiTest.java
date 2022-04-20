@@ -24,32 +24,6 @@ class KeyManagementServiceJavaApiTest {
     private final PublicKey publicKey = mock(PublicKey.class);
 
     @Test
-    void freshKeyTest() {
-        Mockito.when(keyManagementService.freshKey()).thenReturn(publicKey);
-
-        Assertions.assertThat(keyManagementService.freshKey()).isNotNull();
-        Assertions.assertThat(keyManagementService.freshKey()).isEqualTo(publicKey);
-    }
-
-    @Test
-    void freshKeyWithExternalIDTest() {
-        final UUID externalId = UUID.randomUUID();
-        Mockito.when(keyManagementService.freshKey(any())).thenReturn(publicKey);
-
-        Assertions.assertThat(keyManagementService.freshKey(externalId)).isNotNull();
-        Assertions.assertThat(keyManagementService.freshKey(externalId)).isEqualTo(publicKey);
-    }
-
-    @Test
-    void filterMyKeysTest() {
-        final List<PublicKey> keys = new ArrayList<>();
-        Mockito.when(keyManagementService.filterMyKeys(anyList())).thenReturn(Collections.singleton(publicKey));
-
-        Assertions.assertThat(keyManagementService.filterMyKeys(keys)).isNotEmpty();
-        Assertions.assertThat(keyManagementService.filterMyKeys(keys)).isEqualTo(Collections.singleton(publicKey));
-    }
-
-    @Test
     void signWithByteArrayTest() {
         final DigitalSignature.WithKey signatureWithKey = new DigitalSignature.WithKey(publicKey, "test".getBytes());
         Mockito.when(keyManagementService.sign((byte[]) any(), any())).thenReturn(signatureWithKey);

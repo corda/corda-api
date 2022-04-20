@@ -46,48 +46,6 @@ public class HashingServiceJavaApiTest {
     }
 
     @Test
-    public void hashOpaqueBytesAndDigestAlgorithmName() {
-        OpaqueBytes opaqueBytes = OpaqueBytes.of(VALUE_SHA256_A.getBytes(StandardCharsets.UTF_8));
-        when(hashingService.hash(opaqueBytes, SHA2_256)).thenReturn(secureHash256);
-
-        SecureHash result = hashingService.hash(opaqueBytes, SHA2_256);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256);
-    }
-
-    @Test
-    public void hashOpaqueBytes() {
-        OpaqueBytes opaqueBytes = OpaqueBytes.of(VALUE_SHA256_A.getBytes(StandardCharsets.UTF_8));
-        when(hashingService.hash(opaqueBytes)).thenReturn(secureHash256);
-
-        SecureHash result = hashingService.hash(opaqueBytes);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256);
-    }
-
-    @Test
-    public void hashStringAndDigestAlgorithmName() {
-        when(hashingService.hash(VALUE_SHA256_A, SHA2_256)).thenReturn(secureHash256);
-
-        SecureHash result = hashingService.hash(VALUE_SHA256_A, SHA2_256);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256);
-    }
-
-    @Test
-    public void hashString() {
-        when(hashingService.hash(VALUE_SHA256_A)).thenReturn(secureHash256);
-
-        SecureHash result = hashingService.hash(VALUE_SHA256_A);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256);
-    }
-
-    @Test
     public void reHash() {
         when(hashingService.reHash(secureHash256)).thenReturn(secureHash256B);
 
