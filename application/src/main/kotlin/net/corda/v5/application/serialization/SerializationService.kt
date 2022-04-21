@@ -1,7 +1,6 @@
 package net.corda.v5.application.serialization
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.serialization.SerializedBytes
 
@@ -9,7 +8,7 @@ import net.corda.v5.serialization.SerializedBytes
  * Handles serialization and deserialization of objects.
  */
 @DoNotImplement
-interface SerializationService : CordaServiceInjectable, CordaFlowInjectable {
+interface SerializationService : CordaFlowInjectable {
 
     /**
      * Serializes the input [obj].

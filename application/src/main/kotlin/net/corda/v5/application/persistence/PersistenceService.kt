@@ -1,7 +1,6 @@
 package net.corda.v5.application.persistence
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.application.persistence.query.NamedQueryFilter
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
@@ -12,7 +11,7 @@ import net.corda.v5.base.stream.Cursor
  */
 @DoNotImplement
 @Suppress("LongParameterList", "TooManyFunctions")
-interface PersistenceService : CordaFlowInjectable, CordaServiceInjectable {
+interface PersistenceService : CordaFlowInjectable {
     /**
      * Persist a single [entity] in the persistence context in a transaction.
      *

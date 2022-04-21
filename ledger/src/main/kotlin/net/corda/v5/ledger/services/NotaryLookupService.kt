@@ -1,7 +1,6 @@
 package net.corda.v5.ledger.services
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.MemberX500Name
 import net.corda.v5.ledger.NotaryInfo
@@ -12,7 +11,7 @@ import java.security.PublicKey
  *  Lookup of notary services on the network.
  */
 @DoNotImplement
-interface NotaryLookupService : CordaFlowInjectable, CordaServiceInjectable {
+interface NotaryLookupService : CordaFlowInjectable {
     /**
      * A list of notary services available on the network.
      *

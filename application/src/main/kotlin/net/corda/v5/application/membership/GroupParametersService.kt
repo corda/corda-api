@@ -1,7 +1,6 @@
 package net.corda.v5.application.membership
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.membership.GroupParameters
@@ -11,7 +10,7 @@ import net.corda.v5.membership.GroupParameters
  * membership group.
  */
 @DoNotImplement
-interface GroupParametersService : CordaServiceInjectable, CordaFlowInjectable {
+interface GroupParametersService : CordaFlowInjectable {
 
     /**
      * [SecureHash] of the current parameters for the group.

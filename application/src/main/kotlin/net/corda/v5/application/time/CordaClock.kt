@@ -1,7 +1,6 @@
 package net.corda.v5.application.time
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.serialization.SingletonSerializeAsToken
 import java.time.Clock
@@ -9,7 +8,7 @@ import java.time.Instant
 
 /** A [Clock] that tokenizes itself when serialized, and delegates to an underlying [Clock] implementation. */
 @DoNotImplement
-interface CordaClock : SingletonSerializeAsToken, CordaFlowInjectable, CordaServiceInjectable {
+interface CordaClock : SingletonSerializeAsToken, CordaFlowInjectable {
     /**
      * Get the current timestamp.
      *

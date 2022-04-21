@@ -1,7 +1,6 @@
 package net.corda.v5.application.crypto
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.OpaqueBytes
 import net.corda.v5.crypto.DigestAlgorithmName
@@ -15,7 +14,7 @@ import net.corda.v5.crypto.SecureHash
  */
 @DoNotImplement
 interface
-HashingService : DigestService, CordaServiceInjectable, CordaFlowInjectable {
+HashingService : DigestService, CordaFlowInjectable {
 
     /**
      * Default [DigestAlgorithmName] for this hashing service.

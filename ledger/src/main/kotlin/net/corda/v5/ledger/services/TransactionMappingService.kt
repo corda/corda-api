@@ -1,7 +1,6 @@
 package net.corda.v5.ledger.services
 
 import net.corda.v5.application.injection.CordaFlowInjectable
-import net.corda.v5.application.injection.CordaServiceInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.ledger.contracts.AttachmentResolutionException
 import net.corda.v5.ledger.contracts.TransactionResolutionException
@@ -11,7 +10,7 @@ import net.corda.v5.ledger.transactions.WireTransaction
 import java.security.SignatureException
 
 @DoNotImplement
-interface TransactionMappingService : CordaServiceInjectable, CordaFlowInjectable {
+interface TransactionMappingService : CordaFlowInjectable {
 
     /**
      * @throws AttachmentResolutionException if a required attachment was not found in storage.
