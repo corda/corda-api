@@ -24,7 +24,10 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="alias" constraintName="crypto_wrapping_key_pk" tableName="crypto_wrapping_key"/>
+        <addPrimaryKey  columnNames="alias"
+                        constraintName="crypto_wrapping_key_pk"
+                        tableName="crypto_wrapping_key"
+                        schemaName="${schema.name}"/>
         <createTable tableName="crypto_signing_key" schemaName="${schema.name}">
             <column name="tenant_id" type="CHAR(12)">
                 <constraints nullable="false"/>
@@ -63,16 +66,24 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <addPrimaryKey constraintName="crypto_signing_key_pk" tableName="crypto_signing_key"
-                       columnNames="tenant_id, key_id"/>
-        <createIndex indexName="crypto_signing_key_tenant_idx" tableName="crypto_signing_key">
+        <addPrimaryKey constraintName="crypto_signing_key_pk"
+                       tableName="crypto_signing_key"
+                       columnNames="tenant_id, key_id"
+                       schemaName="${schema.name}"/>
+        <createIndex indexName="crypto_signing_key_tenant_idx"
+                     tableName="crypto_signing_key"
+                     schemaName="${schema.name}">
             <column name="tenant_id"/>
         </createIndex>
-        <createIndex indexName="crypto_signing_key_tenant_category_idx" tableName="crypto_signing_key">
+        <createIndex indexName="crypto_signing_key_tenant_category_idx"
+                     tableName="crypto_signing_key"
+                     schemaName="${schema.name}">
             <column name="tenant_id"/>
             <column name="category"/>
         </createIndex>
-        <createIndex indexName="crypto_signing_key_tenant_alias_idx" tableName="crypto_signing_key">
+        <createIndex indexName="crypto_signing_key_tenant_alias_idx"
+                     tableName="crypto_signing_key"
+                     schemaName="${schema.name}">
             <column name="tenant_id"/>
             <column name="alias"/>
         </createIndex>
