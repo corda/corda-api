@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <changeSet author="R3.Corda" id="vnode-crypto-creation-v1.0">
         <createTable tableName="crypto_signing_key">
-            <column name="tenant_id" type="CHAR(12)">
+            <column name="tenant_id" type="VARCHAR(12)">
                 <constraints nullable="false"/>
             </column>
             <column name="key_id" type="CHAR(12)">
