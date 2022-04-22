@@ -2,6 +2,9 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+    Note that some table definitions must be the same in the crypto and vnode_crypto packages
+    -->
     <property name="schema.name" value="CRYPTO"/>
     <changeSet author="R3.Corda" id="crypto-creation-v1.0">
         <sql>
