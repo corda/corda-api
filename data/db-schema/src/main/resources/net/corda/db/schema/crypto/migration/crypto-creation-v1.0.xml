@@ -2,9 +2,6 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
-    <!--
-    Note that some table definitions are defined in 'vnode_crypto' package
-    -->
     <changeSet author="R3.Corda" id="crypto-creation-v1.0">
         <createTable tableName="crypto_wrapping_key">
             <column name="alias" type="VARCHAR(64)">
