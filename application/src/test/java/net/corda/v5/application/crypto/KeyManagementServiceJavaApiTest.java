@@ -33,22 +33,4 @@ class KeyManagementServiceJavaApiTest {
                 .assertThat(keyManagementService.sign("test".getBytes(), publicKey))
                 .isEqualTo(signatureWithKey);
     }
-
-    @Test
-    void signWithSignableDataTest() {
-        final DigitalSignatureMetadata digitalSignatureMetadata = new DigitalSignatureMetadata(Instant.MIN, new HashMap<>());
-        final SecureHash secureHash = new SecureHash("testAlgorithm", new byte[10101]);
-        final DigitalSignatureAndMetadata signatureAndMeta =
-                new DigitalSignatureAndMetadata(
-                        new DigitalSignature.WithKey(publicKey, "test".getBytes()),
-                        digitalSignatureMetadata
-                );
-        SignableData signableData = new SignableData(secureHash, digitalSignatureMetadata);
-        Mockito.when(keyManagementService.sign((SignableData) any(), any())).thenReturn(signatureAndMeta);
-
-        Assertions.assertThat(keyManagementService.sign(signableData, publicKey)).isNotNull();
-        Assertions
-                .assertThat(keyManagementService.sign(signableData, publicKey))
-                .isEqualTo(signatureAndMeta);
-    }
 }

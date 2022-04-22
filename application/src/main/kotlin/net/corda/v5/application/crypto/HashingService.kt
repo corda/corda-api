@@ -45,28 +45,4 @@ interface HashingService : CordaServiceInjectable, CordaFlowInjectable {
      */
     @Suspendable
     fun digestLength(digestAlgorithmName: DigestAlgorithmName): Int
-
-    /**
-     * Re-hashes [secureHash] bytes using its original digest algorithm.
-     *
-     * @param secureHash The [SecureHash] to re-hash.
-     */
-    @Suspendable
-    fun reHash(secureHash: SecureHash): SecureHash
-
-    /**
-     * Generates a random hash value.
-     */
-    @Suspendable
-    fun randomHash(digestAlgorithmName: DigestAlgorithmName): SecureHash
-
-    /**
-     * Appends [second] digest to [first], and then computes the digest of the result. Both digests need to be of the same digest algorithm.
-     * The result digest is of the same digest algorithm as well.
-     *
-     * @param first The first digest in the concatenation.
-     * @param second The second digest in the concatenation.
-     */
-    @Suspendable
-    fun concatenate(first: SecureHash, second: SecureHash): SecureHash
 }

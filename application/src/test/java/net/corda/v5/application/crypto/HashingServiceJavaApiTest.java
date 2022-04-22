@@ -44,35 +44,4 @@ public class HashingServiceJavaApiTest {
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(secureHash256);
     }
-
-    @Test
-    public void reHash() {
-        when(hashingService.reHash(secureHash256)).thenReturn(secureHash256B);
-
-        SecureHash result = hashingService.reHash(secureHash256);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256B);
-    }
-
-
-    @Test
-    public void randomHash() {
-        when(hashingService.randomHash(SHA2_256)).thenReturn(secureHash256);
-
-        SecureHash result = hashingService.randomHash(SHA2_256);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256);
-    }
-
-    @Test
-    public void concatenate() {
-        when(hashingService.concatenate(secureHash256, secureHash256B)).thenReturn(secureHash256C);
-
-        SecureHash result = hashingService.concatenate(secureHash256, secureHash256B);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(secureHash256C);
-    }
 }
