@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "MembershipPersistenceResponse",
+  "namespace": "net.corda.data.membership.db.response",
+  "doc": "Internal response envelope for persistence operations over RPC.",
+  "fields": [
+    {
+      "name": "context",
+      "type": "net.corda.data.membership.db.response.MembershipResponseContext",
+      "doc": "Context for the given request"
+    },
+    {
+      "name": "success",
+      "type": "boolean",
+      "doc": "Indicator as to whether persistence was successful or not"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        "net.corda.data.membership.db.response.query.MemberInfoQueryResponse",
+        "net.corda.data.membership.db.response.query.RegistrationRequestQueryResponse"
+      ],
+      "doc": "Response payload, depends on the requested operation."
+    },
+    {
+      "name": "errorMessage",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "Error message provided in the case of failure."
+    }
+  ]
+}
