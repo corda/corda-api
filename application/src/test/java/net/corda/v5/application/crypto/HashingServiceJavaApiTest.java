@@ -18,11 +18,7 @@ public class HashingServiceJavaApiTest {
     private final HashingService hashingService = mock(HashingService.class);
 
     private final String VALUE_SHA256_A = "6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A";
-    private final String VALUE_SHA256_B = "6B1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581B";
-    private final String VALUE_SHA256_C = "6C1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581C";
     private final SecureHash secureHash256 = SecureHash.create("SHA-256:" + VALUE_SHA256_A);
-    private final SecureHash secureHash256B = SecureHash.create("SHA-256:" + VALUE_SHA256_B);
-    private final SecureHash secureHash256C = SecureHash.create("SHA-256:" + VALUE_SHA256_C);
 
     @Test
     public void getDefaultDigestAlgorithmName() {
@@ -37,9 +33,9 @@ public class HashingServiceJavaApiTest {
     @Test
     public void hashByteArray() {
         byte[] bytes = ByteArrays.parseAsHex(VALUE_SHA256_A);
-        when(hashingService.hash(bytes)).thenReturn(secureHash256);
+        when(hashingService.hash(bytes, SHA2_256)).thenReturn(secureHash256);
 
-        SecureHash result = hashingService.hash(bytes);
+        SecureHash result = hashingService.hash(bytes, SHA2_256);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(secureHash256);

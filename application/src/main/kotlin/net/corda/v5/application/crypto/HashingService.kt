@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
+import java.io.InputStream
 
 /**
  * Handles hashing of bytes.
@@ -31,12 +32,13 @@ interface HashingService : CordaServiceInjectable, CordaFlowInjectable {
     fun hash(bytes: ByteArray, digestAlgorithmName: DigestAlgorithmName): SecureHash
 
     /**
-     * Computes the digest of the [ByteArray] using the default digest algorithm ([DigestAlgorithmName.DEFAULT_ALGORITHM_NAME]).
+     * Computes the digest of the [InputStream].
      *
-     * @param bytes The [ByteArray] to hash.
+     * @param inputStream The [InputStream] to hash.
+     * @param digestAlgorithmName The digest algorithm to be used for hashing.
      */
     @Suspendable
-    fun hash(bytes: ByteArray): SecureHash
+    fun hash(inputStream : InputStream, digestAlgorithmName: DigestAlgorithmName): SecureHash
 
     /**
      * Returns the [DigestAlgorithmName] digest length in bytes.

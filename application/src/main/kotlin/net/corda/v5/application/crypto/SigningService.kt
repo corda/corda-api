@@ -12,11 +12,11 @@ import java.security.PublicKey
 import java.util.*
 
 /**
- * The [KeyManagementService] is responsible for storing and using private keys to sign things. An implementation of this may, for example,
+ * The [SigningService] is responsible for storing and using private keys to sign things. An implementation of this may, for example,
  * call out to a hardware security module that enforces various auditing and frequency-of-use requirements.
  */
 @DoNotImplement
-interface KeyManagementService : CordaServiceInjectable, CordaFlowInjectable {
+interface SigningService : CordaServiceInjectable, CordaFlowInjectable {
 
     /**
      * Using the provided signing [PublicKey], internally looks up the matching [PrivateKey] and signs the data.
