@@ -17,10 +17,7 @@ object ConfigKeys {
     const val RPC_CONFIG = "corda.rpc"
     const val SECRETS_CONFIG = "corda.secrets"
     const val SANDBOX_CONFIG = "corda.sandbox"
-
-    // Lower level config elements
-    //  Messaging
-    const val BOOTSTRAP_SERVERS = "messaging.kafka.common.bootstrap.servers"
+    const val RECONCILIATION_CONFIG = "corda.reconciliation"
 
     //  RPC
     const val RPC_ADDRESS = "address"
@@ -47,6 +44,9 @@ object ConfigKeys {
     const val TEMP_DIR = "dir.tmp"
 
     // Scheduled reconciliation tasks
-    const val RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS = "reconciliation.permissionSummary.intervalMs"
-    const val RECONCILIATION_CPK_WRITE_INTERVAL_MS = "reconciliation.cpkWrite.intervalMs"
+    const val RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS = "permissionSummary.intervalMs"
+    const val RECONCILIATION_CPK_WRITE_INTERVAL_MS = "cpkWrite.intervalMs"
+
+    // Sandbox
+    const val SANDBOX_CACHE_SIZE = "cache.size"
 }
