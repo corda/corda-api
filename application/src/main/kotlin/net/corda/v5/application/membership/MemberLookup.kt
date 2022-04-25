@@ -1,6 +1,5 @@
 package net.corda.v5.application.membership
 
-import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
@@ -15,7 +14,7 @@ import java.security.PublicKey
  *
  */
 @DoNotImplement
-interface MemberLookup : CordaFlowInjectable {
+interface MemberLookup {
 
     /** Returns our own [MemberInfo] **/
     @Suspendable

@@ -2,7 +2,6 @@ package net.corda.v5.ledger.services
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.application.crypto.DigitalSignatureMetadata
-import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.CompositeKey
 import net.corda.v5.crypto.SecureHash
@@ -15,7 +14,7 @@ import java.security.PublicKey
 
 @DoNotImplement
 @Suppress("TooManyFunctions")
-interface TransactionService : TransactionStorage, TransactionMappingService, TransactionVerificationService, CordaFlowInjectable {
+interface TransactionService : TransactionStorage, TransactionMappingService, TransactionVerificationService {
 
     /**
      * Stores the given [SignedTransaction]s in the local transaction storage and then sends them to the vault for further processing if

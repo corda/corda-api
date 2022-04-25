@@ -1,6 +1,5 @@
 package net.corda.v5.application.crypto
 
-import net.corda.v5.application.injection.CordaFlowInjectable
 import net.corda.v5.crypto.SignatureSpec
 import java.security.InvalidKeyException
 import java.security.PublicKey
@@ -9,7 +8,7 @@ import java.security.SignatureException
 /**
  * The [DigitalSignatureVerificationService] digital signature verification operations.
  */
-interface DigitalSignatureVerificationService : CordaFlowInjectable {
+interface DigitalSignatureVerificationService {
     /**
      * Verifies a digital signature by using [signatureSpec].
      * Always throws an exception if verification fails.
