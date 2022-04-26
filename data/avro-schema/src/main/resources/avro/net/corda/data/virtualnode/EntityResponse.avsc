@@ -17,11 +17,6 @@
       "doc": "id of this request for tracking"
     },
     {
-      "name": "className",
-      "type": "string",
-      "doc": "The fully qualified class name that we serialized"
-    },
-    {
       "name": "result",
       "doc": "Result of request",
       "type": [

@@ -17,11 +17,6 @@
       "doc": "The unique ID for tracking the flow status"
     },
     {
-      "name": "className",
-      "type": "string",
-      "doc": "The fully qualified class name that we serialized"
-    },
-    {
       "name": "request",
       "doc": "Entity that we want to persist, merge, or delete",
       "type": [
