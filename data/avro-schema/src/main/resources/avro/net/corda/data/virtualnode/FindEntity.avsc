@@ -4,9 +4,9 @@
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
-      "name": "entity",
-      "type": "bytes",
-      "doc": "the serialized entity"
+      "name": "entityClassName",
+      "type": "string",
+      "doc": "the fully qualified entity class name"
     },
     {
       "name": "primaryKey",
