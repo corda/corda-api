@@ -28,8 +28,8 @@ object DbSchema {
 
     const val DB_MESSAGE_BUS = "DB_MESSAGE_BUS"
 
-    const val CPI_REVERSION_SEQUENCE = "r_db"
-    const val CPI_REVERSION_SEQUENCE_ALLOC_SIZE = 10
+    const val CPI_REVISION_SEQUENCE = "r_db"
+    const val CPI_REVISION_SEQUENCE_ALLOC_SIZE = 10
 
     const val CRYPTO = "CRYPTO"
     const val CRYPTO_WRAPPING_KEY_TABLE = "crypto_wrapping_key"
