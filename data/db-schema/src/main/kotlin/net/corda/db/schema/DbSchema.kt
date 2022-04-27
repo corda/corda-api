@@ -27,4 +27,11 @@ object DbSchema {
     const val VNODE_CERTIFICATE_DB_TABLE = "vnode_certificate"
 
     const val DB_MESSAGE_BUS = "DB_MESSAGE_BUS"
+
+    const val CPI_REVERSION_SEQUENCE = "r_db"
+    const val CPI_REVERSION_SEQUENCE_ALLOC_SIZE = 10
+
+    const val CRYPTO = "CRYPTO"
+    const val CRYPTO_WRAPPING_KEY_TABLE = "crypto_wrapping_key"
+    const val CRYPTO_SIGNING_KEY_TABLE = "crypto_signing_key"
 }
