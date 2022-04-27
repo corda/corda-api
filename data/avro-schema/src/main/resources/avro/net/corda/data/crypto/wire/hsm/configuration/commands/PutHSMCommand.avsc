@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "PutHSMCommand",
+  "namespace": "net.corda.data.crypto.wire.hsm.configuration.commands",
+  "doc": "Request to add new HSM configuration.",
+  "fields": [
+    {
+      "name": "config",
+      "type": "net.corda.data.crypto.config.HSMConfig",
+      "doc": "The HSM configuration"
+    }
+  ]
+}

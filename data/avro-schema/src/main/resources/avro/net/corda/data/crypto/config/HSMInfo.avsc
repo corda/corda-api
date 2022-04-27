@@ -51,7 +51,7 @@
         "type": "array",
         "items": "string"
       },
-      "doc": "Categories, like TLS, LEDGER, FRESH_KEYS, etc., the HSM can be used for."
+      "doc": "Categories, like TLS, LEDGER, etc., the HSM can be used for."
     },
     {
       "name": "retries",

@@ -17,7 +17,7 @@
     {
       "name": "category",
       "type": "string",
-      "doc": "Which category, like TLS, LEDGER, FRESH_KEY, etc., the association is made for."
+      "doc": "Which category, like TLS, LEDGER, etc., the association is made for."
     },
     {
       "name": "defaultScheme",
