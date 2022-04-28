@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "config",
-      "type": "net.corda.data.crypto.config.HSMConfig",
+      "type": "net.corda.data.crypto.wire.hsm.HSMConfig",
       "doc": "The HSM configuration"
     }
   ]

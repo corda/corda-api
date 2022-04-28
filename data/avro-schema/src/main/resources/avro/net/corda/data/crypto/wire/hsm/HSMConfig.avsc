@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "HSMConfig",
-  "namespace": "net.corda.data.crypto.config",
+  "namespace": "net.corda.data.crypto.wire.hsm",
   "doc": "Defines complete persistent record for the HSM configuration.",
   "fields": [
     {

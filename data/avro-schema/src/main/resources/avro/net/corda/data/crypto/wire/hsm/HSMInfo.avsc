@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "HSMInfo",
-  "namespace": "net.corda.data.crypto.config",
+  "namespace": "net.corda.data.crypto.wire.hsm",
   "doc": "Defines persistent record for the HSM common configuration parameters.",
   "fields": [
     {
@@ -23,7 +23,7 @@
       "doc": "Ever increasing on each update version of the record, the initial value is 1."
     },
     {
-      "name": "hsmLabel",
+      "name": "workerLabel",
       "type": "string",
       "doc": "Label associated with HSM worker to partition for HSMs which don't support more than one HSM per process/VM. The default value is 'default'."
     },
@@ -35,7 +35,7 @@
     {
       "name": "serviceName",
       "type": "string",
-      "doc": "Name of the CryptoServiceProvider which is sued to create interface to the HSM."
+      "doc": "Name of the CryptoServiceProvider which is used to create interface to the HSM."
     },
     {
       "name": "byoTenantId",
