@@ -51,14 +51,6 @@
       "doc": "If wrappingKeyPolicy=SHARED then this filed must be specified with the wrapping key name."
     },
     {
-      "name": "aliasSecret",
-      "type": [
-        "null",
-        "string"
-      ],
-      "doc": "Alias secret that can be used to generate the HSM aliases using such algorithm as HMAC based on the tenant id and tenant supplied alias."
-    },
-    {
       "name": "byoTenantId",
       "type": [
         "null",

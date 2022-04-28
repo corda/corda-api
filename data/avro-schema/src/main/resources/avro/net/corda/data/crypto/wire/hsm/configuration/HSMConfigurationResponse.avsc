@@ -12,7 +12,8 @@
     {
       "name": "response",
       "type": [
-        "net.corda.data.crypto.wire.CryptoNoContentValue"
+        "net.corda.data.crypto.wire.CryptoNoContentValue",
+        "net.corda.data.crypto.wire.hsm.HSMInfos"
       ],
       "doc": "Response's payload, depends on the requested operation."
     }
