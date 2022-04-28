@@ -30,7 +30,7 @@ object DbSchema {
 
     // The values here are placeholders, until reasonable values are determined.
     const val CPI_REVISION_SEQUENCE = "r_db"
-    const val CPI_REVISION_SEQUENCE_ALLOC_SIZE = 10
+    const val CPI_REVISION_SEQUENCE_ALLOC_SIZE = 1
 
     const val CRYPTO = "CRYPTO"
     const val CRYPTO_WRAPPING_KEY_TABLE = "crypto_wrapping_key"
