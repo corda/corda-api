@@ -33,38 +33,17 @@
       "doc": "The human readable description of the HSM instance, like 'HSM on the first floor' or anything which helps tp understand what HSM is allocated."
     },
     {
-      "name": "serviceName",
-      "type": "string",
-      "doc": "Name of the CryptoServiceProvider which is used to create interface to the HSM."
-    },
-    {
-      "name": "wrappingKeyPolicy",
-      "type": "WrappingKeyPolicy",
+      "name": "masterKeyPolicy",
+      "type": "MasterKeyPolicy",
       "doc": "How to generate wrapping key on the HSM registration."
     },
     {
-      "name": "wrappingKey",
+      "name": "masterKeyAlias",
       "type": [
         "null",
         "string"
       ],
-      "doc": "If wrappingKeyPolicy=SHARED then this filed must be specified with the wrapping key name."
-    },
-    {
-      "name": "byoTenantId",
-      "type": [
-        "null",
-        "string"
-      ],
-      "doc": "The tenant id which owns the HSM instance. That HSM can be made available only for that tenant."
-    },
-    {
-      "name": "categories",
-      "type": {
-        "type": "array",
-        "items": "string"
-      },
-      "doc": "Categories, like TLS, LEDGER, etc., the HSM can be used for."
+      "doc": "If masterKeyPolicy=SHARED then this filed must be specified with the wrapping key name."
     },
     {
       "name": "retries",
@@ -83,6 +62,16 @@
         "items": "string"
       },
       "doc": "List of supported signature scheme codes, must be a subset of schemes defined in the cipher suite."
+    },
+    {
+      "name": "serviceName",
+      "type": "string",
+      "doc": "Name of the CryptoServiceProvider which is used to create interface to the HSM."
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "doc": "Maximum number of tenants that the instance can be assigned to (the actual allocations may exceed slightly that number). -1 means there is no limit"
     }
   ]
 }
