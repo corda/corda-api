@@ -47,11 +47,13 @@ object DevFeatures {
 
         val systemPropertyValue: String? = System.getProperty(this)
         if(systemPropertyValue != null) {
+            log.debug { "Non-empty system property value for: '$this' - '$systemPropertyValue'." }
             return parseBoolean(systemPropertyValue)
         }
 
         val osEnvValue: String? = System.getenv(this)
         if(osEnvValue != null) {
+            log.debug { "Non-empty environment variable value for: '$this' - '$osEnvValue'." }
             return parseBoolean(osEnvValue)
         }
 
