@@ -13,6 +13,14 @@
       "doc": "If provided then the key will be associated with that id."
     },
     {
+      "name": "schemeCodeName",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The key's scheme describing which type of the key to generate."
+    },
+    {
       "name": "context",
       "type": "net.corda.data.KeyValuePairList",
       "doc": "The optional key/value operation specific context."

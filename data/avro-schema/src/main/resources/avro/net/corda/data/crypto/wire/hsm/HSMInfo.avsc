@@ -24,8 +24,11 @@
     },
     {
       "name": "workerLabel",
-      "type": "string",
-      "doc": "Label associated with HSM worker to partition for HSMs which don't support more than one HSM per process/VM. The default value is 'default'."
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Label associated with HSM worker to partition for HSMs which don't support more than one HSM per process/VM."
     },
     {
       "name": "description",
