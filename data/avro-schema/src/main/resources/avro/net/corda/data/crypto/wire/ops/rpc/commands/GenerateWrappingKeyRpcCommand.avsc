@@ -5,9 +5,14 @@
   "doc": "Request to generate new wrapped key (fresh key) pair.",
   "fields": [
     {
+      "name": "configId",
+      "type": "string",
+      "doc": "The HSM's configuration id which the key is generated in."
+    },
+    {
       "name": "masterKeyAlias",
       "type": "string",
-      "doc": "the alias of the key to be used as a wrapping key."
+      "doc": "The alias of the key to be used as a wrapping key."
     },
     {
       "name": "failIfExists",
