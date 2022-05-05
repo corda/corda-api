@@ -2,7 +2,7 @@
   "type": "record",
   "name": "HSMInfo",
   "namespace": "net.corda.data.crypto.wire.hsm",
-  "doc": "Defines persistent record for the HSM common configuration parameters.",
+  "doc": "Defines information for HSM common configuration parameters.",
   "fields": [
     {
       "name": "id",

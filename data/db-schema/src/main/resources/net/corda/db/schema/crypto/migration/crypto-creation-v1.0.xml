@@ -82,9 +82,6 @@
             <column name="timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="version" type="INT">
-                <constraints nullable="false"/>
-            </column>
             <column name="master_key_alias" type="VARCHAR(30)">
                 <constraints nullable="true"/>
             </column>
@@ -141,6 +138,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="key_policy" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
