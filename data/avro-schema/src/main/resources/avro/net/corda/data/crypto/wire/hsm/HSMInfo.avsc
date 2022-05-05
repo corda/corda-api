@@ -18,11 +18,6 @@
       "doc": "Time ([Instant]) in milliseconds when the record was updated or added."
     },
     {
-      "name": "version",
-      "type": "int",
-      "doc": "Ever increasing on each update version of the record, the initial value is 1."
-    },
-    {
       "name": "workerLabel",
       "type": [
         "null",

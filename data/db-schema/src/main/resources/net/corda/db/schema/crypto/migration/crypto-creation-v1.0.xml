@@ -31,9 +31,6 @@
             <column name="timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="version" type="INT">
-                <constraints nullable="false"/>
-            </column>
             <column name="worker_label" type="VARCHAR(512)">
                 <constraints nullable="true"/>
             </column>
