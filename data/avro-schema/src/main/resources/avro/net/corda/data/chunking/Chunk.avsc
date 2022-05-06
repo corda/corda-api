@@ -35,7 +35,12 @@
     {
       "name": "data",
       "type": "bytes",
-      "doc": "the binary chunk"
+      "doc": "the binary data fop the chunk. Zero data has a special meaning, signaling the last chunk in the sequence"
+    },
+    {
+      "name": "forceUpload",
+      "type": "boolean",
+      "doc": "whether to force uploading of the chunk sequence even if the data with the same version already exist"
     }
   ]
 }
