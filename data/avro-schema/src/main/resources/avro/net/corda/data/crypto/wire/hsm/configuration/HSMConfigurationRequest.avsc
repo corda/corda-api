@@ -12,7 +12,10 @@
     {
       "name": "request",
       "type": [
-        "net.corda.data.crypto.wire.hsm.configuration.commands.PutHSMCommand"
+        "net.corda.data.crypto.wire.hsm.configuration.commands.LinkHSMCategoriesCommand",
+        "net.corda.data.crypto.wire.hsm.configuration.commands.PutHSMCommand",
+        "net.corda.data.crypto.wire.hsm.configuration.queries.HSMLinkedCategoriesQuery",
+        "net.corda.data.crypto.wire.hsm.configuration.queries.HSMQuery"
       ],
       "doc": "Request's payload, depends on the requested operation."
     }

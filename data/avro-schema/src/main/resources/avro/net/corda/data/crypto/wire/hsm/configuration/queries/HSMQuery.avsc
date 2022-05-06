@@ -2,6 +2,6 @@
   "type": "record",
   "name": "HSMQuery",
   "namespace": "net.corda.data.crypto.wire.hsm.configuration.queries",
-  "doc": "Request to get all configured HSMs (except Soft HSMs).",
+  "doc": "Request to get all configured HSMs.",
   "fields": []
 }
