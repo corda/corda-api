@@ -40,7 +40,7 @@ pluginManagement {
         id "com.github.davidmc24.gradle.plugin.avro-base" version avroGradlePluginVersion
         id 'com.github.ben-manes.versions' version gradleVersions
         id "org.gradle.test-retry" version gradleTestRetryPluginVersion
-        id "com.jfrog.artifactory" version "4.28.2"
+        id "com.jfrog.artifactory" version artifactoryPluginVersion
     }
 }
 plugins {
