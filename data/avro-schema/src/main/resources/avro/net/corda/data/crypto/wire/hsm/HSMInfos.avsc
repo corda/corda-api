@@ -5,7 +5,7 @@
   "doc": "Defines a collection of HSMInfo",
   "fields": [
     {
-      "name": "keys",
+      "name": "items",
       "type": {
         "type": "array",
         "items": "HSMInfo"
