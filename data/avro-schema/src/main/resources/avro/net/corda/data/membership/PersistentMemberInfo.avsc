@@ -7,7 +7,7 @@
     {
       "name": "viewOwningMember",
       "doc": "Holding identity of the member owning the data view.",
-      "type": "net.corda.data.identity.HoldingIdentity"
+      "type": ["null", "net.corda.data.identity.HoldingIdentity"]
     },
     {
       "name": "signedMemberInfo",
