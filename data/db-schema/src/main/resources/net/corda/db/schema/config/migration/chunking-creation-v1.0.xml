@@ -34,6 +34,9 @@
             <column name="data" type="VARBINARY(8388608)">
                 <constraints nullable="true"/>
             </column>
+            <column name="force_upload" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <addPrimaryKey tableName="${table.name}" columnNames="request_id, part_nr" constraintName="${table.name}_pk"
