@@ -35,7 +35,6 @@ data class CordappManifest(
 
         const val CORDAPP_CONTRACTS = "Corda-Contract-Classes"
         const val CORDAPP_FLOWS = "Corda-Flow-Classes"
-        const val CORDAPP_SERVICES = "Corda-Service-Classes"
         const val CORDAPP_WHITELISTS = "Corda-SerializationWhitelist-Classes"
         const val CORDAPP_SCHEMAS = "Corda-MappedSchema-Classes"
         const val CORDAPP_SERIALIZERS = "Corda-SerializationCustomSerializer-Classes"
@@ -44,6 +43,7 @@ data class CordappManifest(
         const val CORDAPP_CUSTOM_QUERY_PROCESSORS = "Corda-CustomQueryPostProcessor-Classes"
         const val CORDAPP_NOTARIES = "Corda-NotaryService-Classes"
         const val CORDAPP_DIGEST_ALGORITHM_FACTORIES = "Corda-DigestAlgorithmFactory-Classes"
+        const val CORDAPP_ENTITIES = "Corda-Entity-Classes"
 
         private operator fun Manifest.get(key: String): String? = mainAttributes.getValue(key)
 
@@ -101,16 +101,6 @@ data class CordappManifest(
         } catch (e: NumberFormatException) {
             throw CordappManifestException("Attribute $attribute is not a valid integer.", e)
         }
-
-        /**
-         * Parses an [attribute] from the [manifest] to [Int], or returns the default if the attribute is missing.
-         * Throws [CordappManifestException] if the attribute cannot be parsed.
-         */
-        private fun parseInt(manifest: Manifest, attribute: String) = try {
-            manifest[attribute]?.toInt()
-        } catch (e: NumberFormatException) {
-            throw CordappManifestException("Attribute $attribute is not a valid positive integer.", e)
-        }
     }
 
     /**
@@ -125,7 +115,6 @@ data class CordappManifest(
 
     val contracts: Set<String> get() = parseSet(CORDAPP_CONTRACTS)
     val flows: Set<String> get() = parseSet(CORDAPP_FLOWS)
-    val services: Set<String> get() = parseSet(CORDAPP_SERVICES)
     val whitelists: Set<String> get() = parseSet(CORDAPP_WHITELISTS)
     val schemas: Set<String> get() = parseSet(CORDAPP_SCHEMAS)
     val serializers: Set<String> get() = parseSet(CORDAPP_SERIALIZERS)
@@ -134,11 +123,6 @@ data class CordappManifest(
         get() = parseSet(CORDAPP_STATE_AND_REF_PROCESSORS) + parseSet(CORDAPP_CUSTOM_QUERY_PROCESSORS)
     val notaryProtocols: Set<String> get() = parseSet(CORDAPP_NOTARIES)
     val digestAlgorithmFactories: Set<String> get() = parseSet(CORDAPP_DIGEST_ALGORITHM_FACTORIES)
+    val entities: Set<String> get() = parseSet(CORDAPP_ENTITIES)
 }
 
-/** Information on a contract or workflow CorDapp in a [CordappManifest]. */
-data class ManifestCordappInfo(
-        val shortName: String?,
-        val vendor: String?,
-        val versionId: Int?,
-        val licence: String?)

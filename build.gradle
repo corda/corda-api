@@ -17,8 +17,7 @@ plugins {
     id 'io.gitlab.arturbosch.detekt' apply false
     id "org.gradle.test-retry" apply false
     id 'org.ajoberstar.grgit' // used for GIT interaction (e.g. extract commit hash)
-    id 'com.r3.internal.gradle.plugins.r3ArtifactoryPublish'
-    id 'maven-publish'
+    id 'corda.root-publish'
     id 'jacoco' // test coverage
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
     id 'org.jetbrains.dokka'
@@ -148,34 +147,30 @@ subprojects {
         tasks.withType(KotlinCompile).configureEach {
             kotlinOptions {
                 allWarningsAsErrors = true
-                languageVersion = '1.4'
-                apiVersion = '1.4'
+                languageVersion = '1.6'
+                apiVersion = '1.6'
                 verbose = true
                 jvmTarget = javaVersion
                 freeCompilerArgs += [
                     "-Xjvm-default=all",
-                    // Prevent Kotlin from warning about kotlin.* classes inside the OSGi bundle.
-                    "-Xskip-runtime-version-check",
                     "-java-parameters"
                 ]
             }
         }
 
-        detekt {
-            baseline = file("$projectDir/detekt-baseline.xml")
-            config.setFrom(files("$rootProjectDir/detekt-config.yml"))
+        tasks.named("detekt").configure {
+            if(file("$projectDir/detekt-baseline.xml").exists()){
+                baseline = file("$projectDir/detekt-baseline.xml")
+            }
+            config.setFrom(files("$rootDir/detekt-config.yml"))
             parallel = true
             reports {
-                xml {
-                    enabled = true
-                    destination = file("$projectDir/build/detekt-report.xml")
+                xml{
+                    outputLocation.set(file("$projectDir/build/detekt-report.xml"))
                 }
-                html {
-                    enabled = false
-                }
-                txt {
-                    enabled = false
-                }
+                txt.required.set(false)
+                sarif.required.set(false)
+                html.required.set(false)
             }
         }
 
