@@ -19,10 +19,10 @@
     },
     {
       "name": "timeWindowUpperBound",
-      "type": ["null", {
+      "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
-      }]
+      }
     }
   ]
 }
