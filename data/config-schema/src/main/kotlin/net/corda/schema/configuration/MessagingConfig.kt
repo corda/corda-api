@@ -6,17 +6,6 @@ package net.corda.schema.configuration
 object MessagingConfig {
 
     /**
-     * Configuration paths that should be merged into the messaging config block from the boot config.
-     *
-     * Note that these do not appear directly in the user-facing schema, as they are properties provided to the process
-     * on start.
-     */
-    object Boot {
-        const val INSTANCE_ID = "instance.id"
-        const val TOPIC_PREFIX = "topic.prefix"
-    }
-
-    /**
      * Configuration for connecting to the underlying message bus.
      */
     object Bus {
@@ -37,7 +26,7 @@ object MessagingConfig {
         //kafka values
         const val KAFKA_PROPERTIES = "$BUS.kafkaProperties"
         const val KAFKA_PROPERTIES_COMMON = "$KAFKA_PROPERTIES.common"
-        const val BOOTSTRAP_SERVER = "$KAFKA_PROPERTIES_COMMON.bootstrap.servers"
+        const val KAFKA_BOOTSTRAP_SERVER = "$KAFKA_PROPERTIES_COMMON.bootstrap.servers"
         const val KAFKA_PROPERTIES_CONSUMER = "$KAFKA_PROPERTIES.consumer"
         const val KAFKA_PROPERTIES_PRODUCER = "$KAFKA_PROPERTIES.producer"
         const val KAFKA_CONSUMER_MAX_POLL_INTERVAL = "$KAFKA_PROPERTIES_CONSUMER.$MAX_POLL_INTERVAL"

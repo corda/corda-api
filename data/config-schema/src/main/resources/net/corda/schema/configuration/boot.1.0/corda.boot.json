@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/boot/1.0/corda.boot.json",
+  "title": "Corda Boot Configuration Schema",
+  "description": "Configuration schema for the boot config. This configures stores the values the worker is bootstrapped with.",
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "description": "Unique ID for this worker.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "bootstrapServers": {
+      "description": "Comma separated list of Kafka bootstrap servers.",
+      "type": "string"
+    },
+    "topicPrefix": {
+      "description": "Topic prefix to apply when connecting to topics.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
