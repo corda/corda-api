@@ -10,13 +10,19 @@
       "type": "integer",
       "minimum": 0
     },
-    "bootstrapServers": {
-      "description": "Comma separated list of Kafka bootstrap servers.",
-      "type": "string"
-    },
     "topicPrefix": {
       "description": "Topic prefix to apply when connecting to topics.",
       "type": "string"
+    },
+    "kafka": {
+      "description": "Configuration options specific to kafka backend.",
+      "$ref": "kafka-boot.json",
+      "default": {}
+    },
+    "db": {
+      "description": "Configuration options specific to DB backend.",
+      "$ref": "db-boot.json",
+      "default": {}
     }
   },
   "additionalProperties": false
