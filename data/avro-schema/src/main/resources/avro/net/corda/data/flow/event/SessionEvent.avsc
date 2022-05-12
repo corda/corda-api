@@ -61,6 +61,11 @@
       "doc": "The sequence numbers of events received with a value greater than the last contiguous event received. i.e out of order messages received with a value greater than the receivedSequenceNum."
     },
     {
+      "name": "headers",
+      "type": "bytes",
+      "doc": "Serialized layered property map of user and platform provided headers for this session."
+    },
+    {
       "name": "payload",
       "type": [
         "net.corda.data.flow.event.session.SessionInit",
