@@ -40,7 +40,7 @@
             <column name="external_id" type="VARCHAR(64)">
                 <constraints nullable="true"/>
             </column>
-            <column name="associationId" type="VARCHAR(36)">
+            <column name="association-id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
