@@ -44,9 +44,6 @@
 
         <createTable tableName="${table.name}_props" schemaName="${schema.name}"
                      remarks="Holds properties for a file upload">
-            <column name="id" type="VARCHAR(36)">
-                <constraints nullable="false"/>
-            </column>
             <column name="update_ts" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
@@ -60,10 +57,8 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <addPrimaryKey tableName="${table.name}_props" columnNames="id" constraintName="${table.name}_props_pkey"
+        <addPrimaryKey tableName="${table.name}_props" columnNames="request_id, key" constraintName="${table.name}_props_pkey"
                        schemaName="${schema.name}"/>
-        <addUniqueConstraint tableName="${table.name}_props" columnNames="request_id, key" constraintName="${table.name}_props_uc1"
-                             schemaName="${schema.name}"/>
 
         <addForeignKeyConstraint baseTableName="${table.name}_props" baseColumnNames="request_id"
                                  referencedTableName="${table.name}" referencedColumnNames="request_id"
