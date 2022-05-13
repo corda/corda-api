@@ -14,7 +14,8 @@
       "type": [
         "net.corda.data.crypto.wire.hsm.registration.commands.AssignHSMCommand",
         "net.corda.data.crypto.wire.hsm.registration.commands.AssignSoftHSMCommand",
-        "net.corda.data.crypto.wire.hsm.registration.queries.AssignedHSMQuery"
+        "net.corda.data.crypto.wire.hsm.registration.queries.AssignedHSMQuery",
+        "net.corda.data.crypto.wire.hsm.registration.queries.HSMAssociationQuery"
       ],
       "doc": "Request's payload, depends on the requested operation."
     }
