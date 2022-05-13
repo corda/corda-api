@@ -53,9 +53,6 @@
             <column name="request_id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="part_nr" type="INT">
-                <constraints nullable="false"/>
-            </column>
             <column name="key" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
@@ -65,11 +62,11 @@
         </createTable>
         <addPrimaryKey tableName="${table.name}_props" columnNames="id" constraintName="${table.name}_props_pkey"
                        schemaName="${schema.name}"/>
-        <addUniqueConstraint tableName="${table.name}_props" columnNames="request_id, part_nr, key" constraintName="${table.name}_props_uc1"
+        <addUniqueConstraint tableName="${table.name}_props" columnNames="request_id, key" constraintName="${table.name}_props_uc1"
                              schemaName="${schema.name}"/>
 
-        <addForeignKeyConstraint baseTableName="${table.name}_props" baseColumnNames="request_id, part_nr"
-                                 referencedTableName="${table.name}" referencedColumnNames="request_id, part_nr"
+        <addForeignKeyConstraint baseTableName="${table.name}_props" baseColumnNames="request_id"
+                                 referencedTableName="${table.name}" referencedColumnNames="request_id"
                                  constraintName="FK__${table.name}_props__req"
                                  onDelete="CASCADE"
                                  baseTableSchemaName="${schema.name}"
