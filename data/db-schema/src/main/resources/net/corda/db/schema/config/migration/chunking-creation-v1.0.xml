@@ -57,7 +57,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="value" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
         <addPrimaryKey tableName="${table.name}_props" columnNames="id" constraintName="${table.name}_props_pkey"
