@@ -39,11 +39,11 @@
     },
     {
       "name": "properties",
-      "type": {
-        "type": "array",
-        "items": "net.corda.data.chunking.Property"
-      },
-      "doc": "List of chunk properties."
+      "type": [
+        "null",
+        "net.corda.data.KeyValuePairList"
+      ],
+      "doc": "Optional list of chunk properties."
     }
   ]
 }
