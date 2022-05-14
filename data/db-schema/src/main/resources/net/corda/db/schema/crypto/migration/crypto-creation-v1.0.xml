@@ -114,8 +114,8 @@
             <column name="timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="deprecated_at" type="TIMESTAMP">
-                <constraints nullable="true"/>
+            <column name="deprecated_at" type="BIGINT">
+                <constraints nullable="false"/>
             </column>
         </createTable>
         <addPrimaryKey  columnNames="id"
