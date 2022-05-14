@@ -111,6 +111,9 @@
             <column name="timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="deprecated_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
         <addPrimaryKey  columnNames="id"
                         tableName="crypto_hsm_category_association"

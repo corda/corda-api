@@ -5,6 +5,11 @@
   "doc": "Request to generate new wrapped key (fresh key) pair.",
   "fields": [
     {
+      "name": "category",
+      "type": "string",
+      "doc": "The category, like CI, ACCOUNTS, etc., which needs assignment."
+    },
+    {
       "name": "externalId",
       "type": [
         "null",
