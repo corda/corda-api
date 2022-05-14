@@ -121,12 +121,9 @@
         <addPrimaryKey  columnNames="id"
                         tableName="crypto_hsm_category_association"
                         constraintName="crypto_hsm_category_association_pk"/>
-        <addUniqueConstraint columnNames="category, hsm_association_id"
-                             tableName="crypto_hsm_category_association"
-                             constraintName="crypto_hsm_category_association_uc1"/>
         <addUniqueConstraint columnNames="tenant_id, category, deprecated_at"
                              tableName="crypto_hsm_category_association"
-                             constraintName="crypto_hsm_category_association_uc2"/>
+                             constraintName="crypto_hsm_category_association_uc"/>
         <addForeignKeyConstraint  baseColumnNames="hsm_association_id"
                                   baseTableName="crypto_hsm_category_association"
                                   referencedColumnNames="id"
