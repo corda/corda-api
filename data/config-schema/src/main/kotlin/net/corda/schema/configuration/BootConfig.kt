@@ -10,6 +10,7 @@ object BootConfig {
     const val BOOT_KAFKA = "kafka"
 
     const val BOOT_KAFKA_COMMON = "$BOOT_KAFKA.common"
+    const val BOOT_CRYPTO = "crypto"
     const val BOOT_DB = "db"
 
     const val BOOT_DB_PARAMS = "$BOOT_DB.params"
