@@ -41,7 +41,7 @@
         "null",
         "string"
       ],
-      "doc": "If masterKeyPolicy=SHARED then this filed must be specified with the wrapping key name."
+      "doc": "If masterKeyPolicy=SHARED then this field must be specified with the wrapping key name."
     },
     {
       "name": "retries",
