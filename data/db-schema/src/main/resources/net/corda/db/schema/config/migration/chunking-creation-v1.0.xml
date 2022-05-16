@@ -61,13 +61,6 @@
         <addPrimaryKey tableName="${table.name}_props" columnNames="request_id, key" constraintName="${table.name}_props_pkey"
                        schemaName="${schema.name}"/>
 
-        <addForeignKeyConstraint baseTableName="${table.name}_props" baseColumnNames="request_id"
-                                 referencedTableName="${table.name}" referencedColumnNames="request_id"
-                                 constraintName="FK__${table.name}_props__req"
-                                 onDelete="CASCADE"
-                                 baseTableSchemaName="${schema.name}"
-                                 referencedTableSchemaName="${schema.name}"/>
-
         <createIndex tableName="${table.name}_props" indexName="${table.name}_props_reqId__idx" schemaName="${schema.name}">
             <column name="request_id"/>
         </createIndex>
