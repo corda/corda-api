@@ -1,0 +1,17 @@
+topics:
+  VirtualNodeCreationRequestTopic:
+    name: "virtual.node.creation.request"
+    consumers:
+    producers:
+    config:
+  VirtualNodeCreationRequestResponseTopic:
+    name: "virtual.node.creation.request.resp"
+    consumers:
+    producers:
+    config:
+  VirtualNodeInfoTopic:
+    name: "virtual.node.info"
+    consumers:
+    producers:
+    config:
+      cleanup.policy: compact

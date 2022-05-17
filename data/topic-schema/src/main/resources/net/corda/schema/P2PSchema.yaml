@@ -1,0 +1,16 @@
+topics:
+  P2PInTopic:
+    name: "p2p.in"
+    consumers:
+    producers:
+    config:
+  P2POutTopic:
+    name: "p2p.out"
+    consumers:
+    producers:
+    config:
+  P2POutMarkerTopic:
+    name: "p2p.out.markers"
+    consumers:
+    producers:
+    config:

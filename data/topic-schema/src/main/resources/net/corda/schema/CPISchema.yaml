@@ -1,0 +1,17 @@
+topics:
+  CPIInfoTopic:
+    name: "cpi.info"
+    consumers:
+    producers:
+    config:
+      cleanup.policy: "compact"
+  CPIUploadTopic:
+    name: "cpi.upload"
+    consumers:
+    producers:
+    config:
+  CPIStatusTopic:
+    name: "cpi.upload.status"
+    consumers:
+    producers:
+    config:
