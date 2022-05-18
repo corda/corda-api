@@ -1,5 +1,6 @@
 package net.corda.v5.application.crypto;
 
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SignatureSpec;
 import org.assertj.core.api.Assertions;
@@ -19,17 +20,36 @@ class SigningServiceJavaApiTest {
     private final SignatureSpec spec = new SignatureSpec("mock", null, null);
 
     @Test
-    void signWithByteArrayTest() {
+    void signWithByteArrayAndSignatureSpecTest() {
         final DigitalSignature.WithKey signatureWithKey = new DigitalSignature.WithKey(
             publicKey,
             "test".getBytes(),
             new HashMap<>()
         );
-        Mockito.when(signingService.sign((byte[]) any(), any(), any())).thenReturn(signatureWithKey);
+        Mockito.when(signingService.sign(any(), any(), any(SignatureSpec.class))).thenReturn(signatureWithKey);
 
         Assertions.assertThat(signingService.sign("test".getBytes(), publicKey, spec)).isNotNull();
         Assertions
                 .assertThat(signingService.sign("test".getBytes(), publicKey, spec))
+                .isEqualTo(signatureWithKey);
+    }
+
+    @Test
+    void signWithByteArrayAndDigestTest() {
+        final DigitalSignature.WithKey signatureWithKey = new DigitalSignature.WithKey(
+                publicKey,
+                "test".getBytes(),
+                new HashMap<>()
+        );
+        Mockito.when(
+                signingService.sign(any(), any(), any(DigestAlgorithmName.class))
+        ).thenReturn(signatureWithKey);
+
+        Assertions.assertThat(
+                signingService.sign("test".getBytes(), publicKey, DigestAlgorithmName.SHA2_256)
+        ).isNotNull();
+        Assertions
+                .assertThat(signingService.sign("test".getBytes(), publicKey, DigestAlgorithmName.SHA2_256))
                 .isEqualTo(signatureWithKey);
     }
 }
