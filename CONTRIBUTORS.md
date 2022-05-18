@@ -9,9 +9,9 @@ omissions, and create a pull request if you wish to
 see changes to this list.
 
 * Adel El-Beik (R3)
+* Alan Barclay (R3)
 * Alexey Kadyrov (R3)
 * Andrei Palade (R3)
-* Barry (R3)
 * Barry Lapthorn (R3)
 * Ben McMahon (R3)
 * Charlie Crean (R3)
@@ -21,7 +21,6 @@ see changes to this list.
 * Connel McGovern (R3)
 * Dan Newton (R3)
 * Dimos Raptis (R3)
-* DrAlanBarclay (R3)
 * Dries Samyn (R3)
 * Florian Friemel (R3)
 * James Higgs (R3)
@@ -41,7 +40,6 @@ see changes to this list.
 * Viktor Kolomeyko (R3)
 * Waldemar Zurowski (R3)
 * Walter Oggioni (R3)
-* Will Vigor (R3)
 * William Vigor (R3)
 * Yash Nabar (R3)
 * Yiftach Kaplan (R3)
