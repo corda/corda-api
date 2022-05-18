@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -77,11 +78,13 @@ public class CryptoUtilsJavaApiTest {
     public void byKeysShouldReturnSetOfAllPublicKeysOfDigitalSignatureWithKeyCollection() {
         var signature1 = new DigitalSignature.WithKey(
             CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(),
-            "abc".getBytes()
+            "abc".getBytes(),
+            new HashMap<>()
         );
         var signature2 = new DigitalSignature.WithKey(
             CryptoTestUtils.generateKeyPair(CryptoTestUtils.getECDSA_SECP256K1_SPEC()).getPublic(),
-            "abc".getBytes()
+            "abc".getBytes(),
+            new HashMap<>()
         );
         var signatures = new ArrayList<DigitalSignature.WithKey>();
         signatures.add(signature1);
