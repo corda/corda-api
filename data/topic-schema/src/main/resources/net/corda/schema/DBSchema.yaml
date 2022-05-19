@@ -1,8 +1,0 @@
-topics:
-  DBSchameTopic:
-    name: "db.entity.processor"
-    consumers:
-      - test1
-    producers:
-      - test2
-    config:

@@ -1,7 +1,0 @@
-topics:
-  CPKFileTopic:
-    name: "cpk.file"
-    consumers:
-    producers:
-    config:
-      cleanup.policy: "compact"

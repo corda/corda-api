@@ -1,0 +1,41 @@
+topics:
+  CryptoHSMLabelTopic:
+    name: crypto.HSM.label
+    consumers:
+    producers:
+    config:
+  CryptoHSMRPCRegistrationTopic:
+    name: crypto.hsm.rpc.registration
+    consumers:
+    producers:
+    config:
+  CryptoHSMRPCRegistrationRespTopic:
+    name: crypto.hsm.rpc.registration.resp
+    consumers:
+    producers:
+    config:
+  CryptoHSMRPCConfigurationTopic:
+    name: crypto.hsm.rpc.configuration
+    consumers:
+    producers:
+    config:
+  CryptoHSMRPCConfigurationRespTopic:
+    name: crypto.hsm.rpc.configuration.resp
+    consumers:
+    producers:
+    config:
+  CryptoOpsFlowTopic:
+    name: crypto.ops.flow
+    consumers:
+    producers:
+    config:
+  CryptoOpsRpcTopic:
+    name: crypto.ops.rpc
+    consumers:
+    producers:
+    config:
+  CryptoOpsRpcRespTopic:
+    name: crypto.ops.rpc.resp
+    consumers:
+    producers:
+    config:

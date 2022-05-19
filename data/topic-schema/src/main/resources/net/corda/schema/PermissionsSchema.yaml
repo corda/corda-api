@@ -1,7 +1,0 @@
-topics:
-  PermissionsUserSummaryTopic:
-    name: "permissions.user.summary"
-    consumers:
-    producers:
-    config:
-      cleanup.policy: compact
