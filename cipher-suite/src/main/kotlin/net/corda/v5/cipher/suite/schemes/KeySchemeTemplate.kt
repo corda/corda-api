@@ -17,7 +17,7 @@ import java.security.spec.AlgorithmParameterSpec
  * if the [algSpec] is not specified, if [algSpec] and [keySize] are bth null then default initialization is used.
  */
 @Suppress("LongParameterList")
-class KeySchemeTemplate(
+data class KeySchemeTemplate(
     val codeName: String,
     val algorithmOIDs: List<AlgorithmIdentifier>,
     val algorithmName: String,
