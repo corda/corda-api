@@ -32,7 +32,7 @@ class SignatureSpecTests {
 
     @Test
     fun `getSigningData should returned passed byte array for standard digest calculation`() {
-        val spec = ECDSA_SECP256K1_SHA256_SIGNATURE_SPEC
+        val spec = ECDSA_SHA256_SIGNATURE_SPEC
         val data = UUID.randomUUID().toString().toByteArray()
         assertFalse(spec.precalculateHash)
         assertArrayEquals(data, spec.getSigningData(digestService, data))

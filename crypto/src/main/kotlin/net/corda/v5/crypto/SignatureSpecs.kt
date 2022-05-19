@@ -2,6 +2,9 @@
 
 package net.corda.v5.crypto
 
+import java.security.spec.MGF1ParameterSpec
+import java.security.spec.PSSParameterSpec
+
 @JvmField
 val NaSignatureSpec: SignatureSpec = SignatureSpec(
     signatureName = "na"
@@ -13,13 +16,64 @@ val RSA_SHA256_SIGNATURE_SPEC = SignatureSpec(
 )
 
 @JvmField
-val ECDSA_SECP256K1_SHA256_SIGNATURE_SPEC = SignatureSpec(
+val RSA_SHA384_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA384withRSA"
+)
+
+@JvmField
+val RSA_SHA512_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA512withRSA"
+)
+
+@JvmField
+val RSASSA_PSS_SHA256_SIGNATURE_SPEC = SignatureSpec(
+    "RSASSA-PSS",
+    PSSParameterSpec(
+        "SHA-256",
+        "MGF1",
+        MGF1ParameterSpec.SHA256,
+        32,
+        1
+    )
+)
+
+@JvmField
+val RSASSA_PSS_SHA384_SIGNATURE_SPEC = SignatureSpec(
+    "RSASSA-PSS",
+    PSSParameterSpec(
+        "SHA-384",
+        "MGF1",
+        MGF1ParameterSpec.SHA384,
+        32,
+        1
+    )
+)
+
+@JvmField
+val RSASSA_PSS_SHA512_SIGNATURE_SPEC = SignatureSpec(
+    "RSASSA-PSS",
+    PSSParameterSpec(
+        "SHA-512",
+        "MGF1",
+        MGF1ParameterSpec.SHA512,
+        32,
+        1
+    )
+)
+
+@JvmField
+val ECDSA_SHA256_SIGNATURE_SPEC = SignatureSpec(
     signatureName = "SHA256withECDSA"
 )
 
 @JvmField
-val ECDSA_SECP256R1_SHA256_SIGNATURE_SPEC = SignatureSpec(
-    signatureName = "SHA256withECDSA"
+val ECDSA_SHA384_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA384withECDSA"
+)
+
+@JvmField
+val ECDSA_SHA512_SIGNATURE_SPEC = SignatureSpec(
+    signatureName = "SHA512withECDSA"
 )
 
 @JvmField
