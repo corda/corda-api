@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CryptoServiceContextJavaApiTest {
     @Test
-    public void constsTest() {
+    public void constantsTest() {
         assertNotNull(CryptoServiceContext.CRYPTO_CATEGORY);
         assertNotNull(CryptoServiceContext.CRYPTO_TENANT_ID);
     }
