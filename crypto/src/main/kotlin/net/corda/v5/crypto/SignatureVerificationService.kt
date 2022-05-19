@@ -35,9 +35,13 @@ interface SignatureVerificationService {
      * @param signatureData the signatureData on a message.
      * @param digest is used together with the [PublicKey] to infer the [SignatureSpec] to use when verifying this signature.
      * @param clearData the clear data/message that was signed (usually the Merkle root).
+     *
      * @throws InvalidKeyException if the key is invalid.
      * @throws SignatureException  if verification fails.
-     * @throws IllegalArgumentException if the signature scheme is not supported or if any of the clear or signature data is empty.
+     * @throws IllegalArgumentException if the signature scheme is not supported or if any of the clear
+     * or signature data is empty or if the [SignatureSpec] cannot be inferred
+     * from the parameters - e.g. EdDSA supports only 'NONEwithEdDSA' signatures so if the SHA-256 will be passed as the parameter
+     * that will result in the exception.
      */
     fun verify(publicKey: PublicKey, digest: DigestAlgorithmName, signatureData: ByteArray, clearData: ByteArray)
 
@@ -65,7 +69,13 @@ interface SignatureVerificationService {
      * @param signatureData the signatureData on a message.
      * @param digest is used together with the [PublicKey] to infer the [SignatureSpec] to use when verifying this signature.
      * @param clearData the clear data/message that was signed (usually the Merkle root).
+     *
      * @return true if verification passes or false if verification fails.
+     *
+     * @throws IllegalArgumentException if the signature scheme is not supported or if any of the clear
+     * or signature data is empty or if the [SignatureSpec] cannot be inferred
+     * from the parameters - e.g. EdDSA supports only 'NONEwithEdDSA' signatures so if the SHA-256 will be passed as the parameter
+     * that will result in the exception.
      */
     fun isValid(publicKey: PublicKey, digest: DigestAlgorithmName, signatureData: ByteArray, clearData: ByteArray): Boolean
 }

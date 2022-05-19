@@ -81,7 +81,8 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
      * Infers the signature spec form the [PublicKey] and [DigestAlgorithmName]. If the [publicKey] is 'EdDSA'
      * then the [digest] is ignored and signatureName is set to "EdDSA".
      *
-     * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA".
+     * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
+     * otherwise null.
      */
-    fun inferSignatureSpec(publicKey: PublicKey, digest: DigestAlgorithmName): SignatureSpec
+    fun inferSignatureSpec(publicKey: PublicKey, digest: DigestAlgorithmName): SignatureSpec?
 }
