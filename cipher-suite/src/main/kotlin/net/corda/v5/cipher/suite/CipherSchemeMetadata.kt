@@ -39,12 +39,12 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     /**
      * The list of all available key schemes for the cipher suite.
      */
-    val schemes: Array<KeyScheme>
+    val schemes: List<KeyScheme>
 
     /**
      * The list of all available digest algorithms for the cipher suite with the provider name which implements it.
      */
-    val digests: Array<DigestScheme>
+    val digests: List<DigestScheme>
 
     /** Get an instance of [SecureRandom] */
     val secureRandom: SecureRandom

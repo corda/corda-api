@@ -26,9 +26,9 @@ class CryptoUtilsTests {
         private val secureRandom = SecureRandom()
 
         @JvmStatic
-        fun publicKeys(): Array<PublicKey> = specs.values.map {
+        fun publicKeys(): List<PublicKey> = specs.values.map {
             generateKeyPair(it).public
-        }.toTypedArray()
+        }
 
         private fun generateSecret(): ByteArray {
             val bytes = ByteArray(32)
