@@ -1,6 +1,7 @@
 package net.corda.v5.cipher.suite
 
 import net.corda.v5.cipher.suite.schemes.KeyScheme
+import net.corda.v5.crypto.SignatureSpec
 
 /**
  * Parameters for signing operation when using the wrapped key.
@@ -10,10 +11,12 @@ import net.corda.v5.cipher.suite.schemes.KeyScheme
  * could still be null for HSMs which use built-in wrapping keys.
  * @property encodingVersion The encoding version which was used to encode the private key.
  * @property keyScheme The scheme for the key used for signing operation.
+ * @property signatureSpec The signature spec to use for signing, such as SHA256withECDSA, etc.
  */
 class SigningWrappedSpec(
     val keyMaterial: ByteArray,
     val masterKeyAlias: String?,
     val encodingVersion: Int,
-    override val keyScheme: KeyScheme
+    override val keyScheme: KeyScheme,
+    override val signatureSpec: SignatureSpec
 ) : SigningSpec
