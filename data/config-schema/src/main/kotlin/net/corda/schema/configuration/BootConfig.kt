@@ -1,5 +1,9 @@
 package net.corda.schema.configuration
 
+import net.corda.schema.configuration.ReconciliationConfig.RECONCILIATION_CPI_INFO_INTERVAL_MS
+import net.corda.schema.configuration.ReconciliationConfig.RECONCILIATION_CPK_WRITE_INTERVAL_MS
+import net.corda.schema.configuration.ReconciliationConfig.RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS
+
 
 /**
  * Configuration paths for values used to bootstrap the worker
@@ -24,8 +28,7 @@ object BootConfig {
 
     const val BOOT_RPC = "rpc"
     const val BOOT_RECONCILIATION = "reconciliation"
-    const val PERMISSION_SUMMARY_INTERVAL = "permissionSummaryIntervalMs"
-    const val BOOT_PERMISSION_SUMMARY_INTERVAL = "$BOOT_RECONCILIATION.$PERMISSION_SUMMARY_INTERVAL"
-    const val CPK_WRITE_INTERVAL = "cpkWriteIntervalMs"
-    const val BOOT_CPK_WRITE_INTERVAL = "$BOOT_RECONCILIATION.$CPK_WRITE_INTERVAL"
+    const val BOOT_PERMISSION_SUMMARY_INTERVAL = "$BOOT_RECONCILIATION.$RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS"
+    const val BOOT_CPK_WRITE_INTERVAL = "$BOOT_RECONCILIATION.$RECONCILIATION_CPK_WRITE_INTERVAL_MS"
+    const val BOOT_CPI_INFO_INTERVAL = "$BOOT_RECONCILIATION.$RECONCILIATION_CPI_INFO_INTERVAL_MS"
 }

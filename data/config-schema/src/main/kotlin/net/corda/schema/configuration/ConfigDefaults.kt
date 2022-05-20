@@ -15,6 +15,7 @@ object ConfigDefaults {
     const val DB_POOL_MAX_SIZE = 10
     const val RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS_DEFAULT: Long = 60000L
     const val RECONCILIATION_CPK_WRITE_INTERVAL_MS_DEFAULT: Long = 10000L
+    const val RECONCILIATION_CPI_INFO_INTERVAL_MS_DEFAULT: Long = 10000L
 
     val WORKSPACE_DIR = "${System.getProperty("java.io.tmpdir")}/corda/workspace"
     val TEMP_DIR = "${System.getProperty("java.io.tmpdir")}/corda/tmp"
