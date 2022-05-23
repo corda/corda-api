@@ -78,11 +78,22 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     fun findKeyFactory(scheme: KeyScheme): KeyFactory
 
     /**
-     * Infers the signature spec form the [PublicKey] and [DigestAlgorithmName]. If the [publicKey] is 'EdDSA'
+     * Infers the signature spec from the [PublicKey] and [DigestAlgorithmName]. If the [publicKey] is 'EdDSA'
      * then the [digest] is ignored and signatureName is set to "EdDSA".
      *
      * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
      * otherwise null.
      */
     fun inferSignatureSpec(publicKey: PublicKey, digest: DigestAlgorithmName): SignatureSpec?
+
+    /**
+     * Returns list of the non-custom signature specs for the given [KeyScheme] with the signatureName
+     * formatted like "SHA256withECDSA" .
+     */
+    fun supportedSignatureSpec(scheme: KeyScheme): List<SignatureSpec>
+
+    /**
+     * Returns list of the [DigestAlgorithmName] for the given [KeyScheme] from which [SignatureSpec] can be inferred.
+     */
+    fun inferableDigestNames(scheme: KeyScheme): List<DigestAlgorithmName>
 }
