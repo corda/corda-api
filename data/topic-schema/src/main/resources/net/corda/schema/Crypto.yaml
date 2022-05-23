@@ -1,6 +1,31 @@
 topics:
+  CryptoConfigHSMTopic:
+    name: crypto.config.hsm
+    consumers:
+    producers:
+    config:
+  CryptoConfigHSMLabelTopic:
+    name: crypto.config.hsm.label
+    consumers:
+    producers:
+    config:
+  CryptoConfigMemberTopic:
+    name: crypto.config.member
+    consumers:
+    producers:
+    config:
+  CryptoKeyInfoTopic:
+    name: crypto.key.info
+    consumers:
+    producers:
+    config:
+  CryptoKeySoftTopic:
+    name: crypto.key.soft
+    consumers:
+    producers:
+    config:
   CryptoHSMLabelTopic:
-    name: crypto.HSM.label
+    name: crypto.hsm.label
     consumers:
     producers:
     config:
@@ -34,8 +59,8 @@ topics:
     consumers:
     producers:
     config:
-  CryptoOpsRpcRespTopic:
-    name: crypto.ops.rpc.resp
+  CryptoRegistrationHSMTopic:
+    name: crypto.registration.hsm
     consumers:
     producers:
     config:

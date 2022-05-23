@@ -1,0 +1,11 @@
+topics:
+  GatewayTLSCertsTopic:
+    name: gateway.tls.certs
+    consumers:
+    producers:
+    config:
+  GatewayTLSTruststoresTopic:
+    name: gateway.tls.truststores
+    consumers:
+    producers:
+    config:

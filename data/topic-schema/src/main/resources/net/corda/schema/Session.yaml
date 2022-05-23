@@ -1,0 +1,6 @@
+topics:
+  SessionOutPartitionsTopic:
+    name: session.out.partitions
+    consumers:
+    producers:
+    config:

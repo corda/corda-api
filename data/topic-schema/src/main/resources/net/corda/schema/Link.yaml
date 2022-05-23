@@ -1,11 +1,11 @@
 topics:
-  P2PInTopic:
-    name: p2p.in
+  LinkInTopic:
+    name: link.in
     consumers:
     producers:
     config:
-  P2POutTopic:
-    name: p2p.out
+  LinkOutTopic:
+    name: link.out
     consumers:
     producers:
     config:

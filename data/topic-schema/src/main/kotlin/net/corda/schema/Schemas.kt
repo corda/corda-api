@@ -70,9 +70,12 @@ class Schemas {
             const val SIGNING_KEY_PERSISTENCE_TOPIC = "crypto.key.info"
             const val SOFT_HSM_PERSISTENCE_TOPIC = "crypto.key.soft"
             const val EVENT_TOPIC = "crypto.event"
-            const val HSM_CONFIGURATION_LABEL_TOPIC = "crypto.config.hsm.label"
+            const val HSM_CONFIGURATION_LABEL_TOPIC = "crypto.hsm.label"
+            const val HSM_CONFIGURATION_HSM_LABEL_TOPIC = "crypto.config.hsm.label"
             const val RPC_HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.hsm.rpc.registration"
+            const val RPC_HSM_REGISTRATION_MESSAGE_RESPONSE_TOPIC = "crypto.hsm.rpc.registration.resp"
             const val RPC_HSM_CONFIGURATION_MESSAGE_TOPIC = "crypto.hsm.rpc.configuration"
+            const val RPC_HSM_CONFIGURATION_MESSAGE_RESPONSE_TOPIC = "crypto.hsm.rpc.configuration.resp"
         }
     }
 
@@ -102,6 +105,7 @@ class Schemas {
             const val CPI_WHITELIST_TOPIC = "membership.group.cpi.whitelists"
             const val PROPOSAL_TOPIC = "membership.proposals"
             const val MEMBERSHIP_RPC_TOPIC = "membership.rpc.ops"
+            const val MEMBERSHIP_RPC_RESPONSE_TOPIC = "membership.rpc.ops.resp"
 
             // Member messaging topics
             const val UPDATE_TOPIC = "membership.update"
@@ -116,7 +120,6 @@ class Schemas {
         companion object {
             const val P2P_OUT_TOPIC = "p2p.out"
             const val P2P_IN_TOPIC = "p2p.in"
-            const val P2P_OUT_MARKERS = "p2p.out.markers"
             const val LINK_OUT_TOPIC = "link.out"
             const val LINK_IN_TOPIC = "link.in"
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
@@ -155,6 +158,7 @@ class Schemas {
         companion object {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
+            const val VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = "virtual.node.creation.request.resp"
             const val CPI_INFO_TOPIC = "cpi.info"
             const val CPI_UPLOAD_TOPIC = "cpi.upload"
             const val CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status"
