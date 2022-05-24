@@ -1,5 +1,7 @@
-package net.corda.v5.crypto
+package net.corda.v5.cipher.suite
 
+import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.crypto.SignatureSpec
 import java.security.InvalidKeyException
 import java.security.PublicKey
 import java.security.SignatureException
