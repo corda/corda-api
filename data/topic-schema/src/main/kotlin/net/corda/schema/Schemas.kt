@@ -46,18 +46,6 @@ class Schemas {
     }
 
     /**
-     * CPI topic schema
-     */
-
-    class CPI {
-        companion object {
-            const val CPI_INFO_TOPIC = "cpi.info"
-            const val CPI_UPLOAD_TOPIC = "cpi.upload"
-            const val CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status"
-        }
-    }
-
-    /**
      * Crypto topic schema
      */
     class Crypto {
@@ -119,6 +107,7 @@ class Schemas {
     class P2P {
         companion object {
             const val P2P_OUT_TOPIC = "p2p.out"
+            const val P2P_OUT_MARKERS = "p2p.out.markers"
             const val P2P_IN_TOPIC = "p2p.in"
             const val LINK_OUT_TOPIC = "link.out"
             const val LINK_IN_TOPIC = "link.in"

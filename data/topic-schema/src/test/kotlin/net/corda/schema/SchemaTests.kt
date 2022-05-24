@@ -8,6 +8,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.io.File
+import kotlin.reflect.KCallable
 import kotlin.reflect.full.companionObject
 
 class SchemaTests {
@@ -24,7 +25,7 @@ class SchemaTests {
     )
 
     @Suppress("UNCHECKED_CAST")
-    private val yamlFileData by lazy {
+    private val yamlFileData: Map<String, Map<String, Map<String, Map<String, *>>>> by lazy {
         // Scan resources in classpath to find all the yaml files to scan
         this::class.java.classLoader.getResources("net/corda/schema")
             .toList()
@@ -33,31 +34,48 @@ class SchemaTests {
             .filter { it.isDirectory }
             .flatMap { it.listFiles()!!.toList() }
             .filter { it.name.endsWith("yaml") || it.endsWith("yml") }
-            .map { mapper.readValue(it.readText()) as Map<String, *> }
-            as List<Map<String, Map<String, Map<String, *>>>>
+            .associate { it.name to mapper.readValue(it.readText()) as Map<String, *> }
+            as Map<String, Map<String, Map<String, Map<String, *>>>>
     }
 
     // Scan companion objects for constant definitions
-    private val memberMap by lazy {
-        val schemaCompanions = Schemas::class.nestedClasses.mapNotNull {
-            it.companionObject
-        }
-        val members = schemaCompanions.flatMap {
-            it.members
-        }.filter { it.isFinal }
-        val memberValueMap = members.map {
-            it.name to it.call(emptyList<Any>()) as String
+    private val memberMap: Map<String, List<String>> by lazy {
+        val schemaCompanions = Schemas::class.nestedClasses
+            .filter { it.simpleName != null && it.companionObject != null }
+            .associate {
+                it.simpleName!! to it.companionObject!!.members.filter { member -> member.isFinal }
+            }
+        val memberValueMap = schemaCompanions.map { (className: String, members: List<KCallable<*>>) ->
+            className to members.map {
+                it.call(emptyList<Any>()) as String
+            }
         }
 
-        memberValueMap.toMap()
+        return@lazy memberValueMap.toMap()
+    }
+
+    @Test
+    fun `Ensure every schema class has a yaml file`() {
+        val classes = memberMap.keys
+        val filesWithoutExtensions = yamlFileData.keys.map { it.substringBeforeLast(".") }
+        assertThat(filesWithoutExtensions).containsExactlyInAnyOrderElementsOf(classes)
+    }
+
+    @Test
+    fun `Ensure every yaml file has a schema class`() {
+        val classes = memberMap.keys
+        val filesWithoutExtensions = yamlFileData.keys.map { it.substringBeforeLast(".") }
+        assertThat(classes).containsExactlyInAnyOrderElementsOf(filesWithoutExtensions)
     }
 
     @Test
     fun `Validate that all yaml topics have matching code value`() {
-        @Suppress("UNCHECKED_CAST")
-        val yamlTopics = yamlFileData.flatMap { it.values.flatMap { it.values } }.map { it["name"] } as List<String>
-        val codeTopics = memberMap.values.toList()
-        assertThat(yamlTopics).containsExactlyInAnyOrderElementsOf(codeTopics)
-        assertThat(codeTopics).containsExactlyInAnyOrderElementsOf(yamlTopics)
+        yamlFileData.forEach { (fileName: String, topics: Map<String, Map<String, *>>) ->
+            println("Testing: $fileName")
+            val potentialClass = fileName.substringBeforeLast(".")
+            val yamlTopicNames = topics["topics"]!!.toMap().map { it.value["name"] }
+            val kotlinTopicNames = memberMap[potentialClass]
+            assertThat(yamlTopicNames).containsExactlyInAnyOrderElementsOf(kotlinTopicNames)
+        }
     }
 }

@@ -1,6 +1,0 @@
-topics:
-  DatabaseEntityTopic:
-    name: db.entity.processor
-    consumers:
-    producers:
-    config:
