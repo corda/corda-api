@@ -23,16 +23,19 @@
                   "type": "string"
                 }
               },
+              "additionalProperties": false,
               "required": [
                 "encryptedSecret"
               ]
             }
           },
+          "additionalProperties": false,
           "required": [
             "configSecret"
           ]
         }
       },
+      "additionalProperties": false,
       "required": [
         "salt",
         "passphrase"
@@ -81,16 +84,19 @@
                   "type": "string"
                 }
               },
+              "additionalProperties": false,
               "required": [
                 "encryptedSecret"
               ]
             }
           },
+          "additionalProperties": false,
           "required": [
             "configSecret"
           ]
         }
       },
+      "additionalProperties": false,
       "required": [
         "salt",
         "passphrase"
@@ -112,7 +118,8 @@
           "minimum": 0,
           "default": 100
         }
-      }
+      },
+      "additionalProperties": false
     },
     "hsmPersistence": {
       "description": "Settings used by HSM configuration persistence layer.",
@@ -136,9 +143,11 @@
           "minimum": 3,
           "default": 3
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
+  "additionalProperties": false,
   "required": [
     "rootKey",
     "softPersistence",
