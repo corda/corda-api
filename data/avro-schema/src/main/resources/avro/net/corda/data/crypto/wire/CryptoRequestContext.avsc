@@ -24,8 +24,8 @@
     },
     {
       "name": "tenantId",
-      "type": "string",
-      "doc": "Tenant id on which behalf the request is made."
+      "type": "CryptoTenant",
+      "doc": "Tenant on which behalf the request is made."
     },
     {
       "name": "other",

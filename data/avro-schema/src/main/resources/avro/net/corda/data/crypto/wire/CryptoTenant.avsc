@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "CryptoTenant",
+  "namespace": "net.corda.data.crypto.wire",
+  "doc": "Defines a signing key information.",
+  "fields": [
+    {
+      "name": "identity",
+      "type": ["string", "net.corda.data.identity.HoldingIdentity"],
+      "doc": "The tenant's id, for members it must be HoldingIdentity, for cluster level the string - like p2p or rpc-api."
+    }
+  ]
+}
