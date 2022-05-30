@@ -23,7 +23,7 @@
       "doc": "Request id which can be used to track the request progress."
     },
     {
-      "name": "tenantId",
+      "name": "tenant",
       "type": "CryptoTenant",
       "doc": "Tenant on which behalf the request is made."
     },

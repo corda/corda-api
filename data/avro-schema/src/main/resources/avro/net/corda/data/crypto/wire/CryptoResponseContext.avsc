@@ -31,9 +31,9 @@
       "doc": "Time ([Instant]) in milliseconds of the response."
     },
     {
-      "name": "tenantId",
-      "type": "string",
-      "doc": "Tenant id on which behalf the request is made, copied from the corresponding request."
+      "name": "tenant",
+      "type": "CryptoTenant",
+      "doc": "Tenant id on which behalf the request was made, copied from the corresponding request."
     },
     {
       "name": "other",
