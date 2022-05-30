@@ -111,7 +111,7 @@
             </column>
         </createTable>
 
-        <addPrimaryKey tableName="cpk_file" columnNames="file_checksum" constraintName="cpk_pk"
+        <addPrimaryKey tableName="cpk_file" columnNames="file_checksum" constraintName="cpk_file_pk"
                        schemaName="${schema.name}"/>
 
         <addForeignKeyConstraint baseTableName="cpk_file" baseColumnNames="file_checksum"
