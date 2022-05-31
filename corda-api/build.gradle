@@ -16,7 +16,7 @@ dependencies {
         api project(':data:config-schema')
         api project(':data:topic-schema')
         api project(':data:db-schema')
-        api project(':ledger')
+        api project(':ledger-obsolete')
         api project(':membership')
         api project(':persistence')
         api project(':serialization')
