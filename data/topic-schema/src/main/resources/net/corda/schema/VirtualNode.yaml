@@ -46,6 +46,11 @@ topics:
     consumers:
     producers:
     config:
+  VirtualNodeManagementTopic:
+    name: virtual.node.management
+    consumers:
+    producers:
+    config:
   VirtualNodeCreationRequestTopic:
     name: virtual.node.creation.request
     consumers:
