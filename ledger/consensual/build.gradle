@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
 }
 
-description 'Corda Ledger - Old'
+description 'Corda Consensual Ledger'
 
 dependencies {
     api platform(project(':corda-api'))
@@ -30,3 +30,4 @@ dependencies {
     testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
     testImplementation "org.assertj:assertj-core:$assertjVersion"
 }
+
