@@ -11,5 +11,15 @@
             </column>
         </createTable>
         <addPrimaryKey columnNames="holding_identity_id" constraintName="vnode_vault_pk" tableName="vnode_vault"/>
+
+        <createTable tableName="vnode_certificate">
+            <column name="alias" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="raw_certificate" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="alias" constraintName="vnode_certificate_pk" tableName="vnode_certificate"/>
     </changeSet>
 </databaseChangeLog>
