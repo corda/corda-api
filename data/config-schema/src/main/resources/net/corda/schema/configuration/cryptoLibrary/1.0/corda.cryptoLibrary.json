@@ -125,7 +125,7 @@
           "default": 120
         },
         "vnodeNumberLimit": {
-          "description": "Maximum number of items in the key tenant's cache.",
+          "description": "Maximum number of items in the key tenant's  cache.",
           "type": "integer",
           "minimum": 0,
           "default": 100
