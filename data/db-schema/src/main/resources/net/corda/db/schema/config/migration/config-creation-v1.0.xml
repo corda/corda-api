@@ -15,6 +15,9 @@
             <column name="section" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
             <column name="config" type="TEXT">
                 <constraints nullable="false"/>
             </column>
@@ -22,12 +25,6 @@
                 <constraints nullable="false"/>
             </column>
             <column name="schema_version_minor" type="INT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="version" type="INT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="is_deleted" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="DATETIME">
