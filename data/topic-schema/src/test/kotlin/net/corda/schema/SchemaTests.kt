@@ -27,9 +27,36 @@ class SchemaTests {
     @Suppress("UNCHECKED_CAST")
     private val yamlFileData: Map<String, Map<String, Map<String, Map<String, *>>>> by lazy {
         // Scan resources in classpath to find all the yaml files to scan
-        val sep = File.separator
-        println("net${sep}corda${sep}schema")
-        this::class.java.classLoader.getResources("net${sep}corda${sep}schema")
+        //        val sep = File.pathSeparatorChar
+        println(this::class.java.classLoader.getResources("net/corda/schema")
+            .toList()
+            .filterNotNull()
+            .map { File(it.file) }
+            .filter { it.isDirectory }
+            .flatMap { it.listFiles()!!.toList() })
+        println(this::class.java.classLoader.getResources("net/corda/schema")
+            .toList()
+            .filterNotNull()
+            .map { File(it.file) }
+            .filter { it.isDirectory }
+            .flatMap { it.listFiles()!!.toList() }
+            .map{ it.exists() })
+        println(this::class.java.classLoader.getResources("net/corda/schema")
+            .toList()
+            .filterNotNull()
+            .map { File(it.file) }
+            .filter { it.isDirectory }
+            .flatMap { it.listFiles()!!.toList() }
+            .filter { it.name.endsWith("yaml") || it.endsWith("yml") })
+        println(this::class.java.classLoader.getResources("net/corda/schema")
+            .toList()
+            .filterNotNull()
+            .map { File(it.file) }
+            .filter { it.isDirectory }
+            .flatMap { it.listFiles()!!.toList() }
+            .filter { it.name.endsWith("yaml") || it.endsWith("yml") }
+            .map{ it.exists() })
+        this::class.java.classLoader.getResources("net/corda/schema")
             .toList()
             .filterNotNull()
             .map { File(it.file) }
