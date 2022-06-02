@@ -27,7 +27,8 @@ class SchemaTests {
     @Suppress("UNCHECKED_CAST")
     private val yamlFileData: Map<String, Map<String, Map<String, Map<String, *>>>> by lazy {
         // Scan resources in classpath to find all the yaml files to scan
-        val sep = File.pathSeparator
+        val sep = File.separator
+        println("net${sep}corda${sep}schema")
         this::class.java.classLoader.getResources("net${sep}corda${sep}schema")
             .toList()
             .filterNotNull()
