@@ -11,7 +11,6 @@ import java.io.File
 import kotlin.reflect.KCallable
 import kotlin.reflect.full.companionObject
 
-
 class SchemaTests {
     // Setup jackson mapper to support yaml with null values
     private val mapper = ObjectMapper(YAMLFactory()).registerModule(
