@@ -11,6 +11,7 @@ import java.io.File
 import kotlin.reflect.KCallable
 import kotlin.reflect.full.companionObject
 
+
 class SchemaTests {
     // Setup jackson mapper to support yaml with null values
     private val mapper = ObjectMapper(YAMLFactory()).registerModule(
@@ -30,7 +31,7 @@ class SchemaTests {
         this::class.java.classLoader.getResources("net/corda/schema")
             .toList()
             .filterNotNull()
-            .map { File(it.file) }
+            .map { File(it.toURI() ) }
             .filter { it.isDirectory }
             .flatMap { it.listFiles()!!.toList() }
             .filter { it.name.endsWith("yaml") || it.endsWith("yml") }
