@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.obsolete.transactions
 
-import net.corda.v5.crypto.PartialMerkleTree
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.exceptions.CordaRuntimeException
@@ -9,6 +8,7 @@ import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.obsolete.contracts.Command
 import net.corda.v5.ledger.obsolete.contracts.ComponentGroupEnum
 import net.corda.v5.ledger.obsolete.contracts.StateRef
+import net.corda.v5.ledger.obsolete.merkle.PartialMerkleTree
 import java.security.PublicKey
 
 /**

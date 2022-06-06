@@ -1,9 +1,11 @@
-package net.corda.v5.crypto
+package net.corda.v5.ledger.obsolete.merkle
 
 import net.corda.v5.base.annotations.CordaInternal
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.types.OpaqueBytes
-import net.corda.v5.crypto.exceptions.MerkleTreeException
+import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.crypto.DigestService
+import net.corda.v5.crypto.SecureHash
 import java.util.*
 
 /**

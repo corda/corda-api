@@ -3,8 +3,8 @@ package net.corda.v5.ledger.obsolete.crypto
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.DigestAlgorithmName
-import net.corda.v5.crypto.MerkleTree
 import net.corda.v5.crypto.SecureHash
+import net.corda.v5.ledger.obsolete.merkle.MerkleTree
 
 /**
  * A class that holds a map of digest services used for hashing transaction components and

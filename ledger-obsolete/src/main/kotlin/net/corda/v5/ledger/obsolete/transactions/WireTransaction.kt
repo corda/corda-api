@@ -5,8 +5,8 @@ import net.corda.v5.application.crypto.DigitalSignatureVerificationService
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.OpaqueBytes
-import net.corda.v5.crypto.MerkleTree
 import net.corda.v5.crypto.SecureHash
+import net.corda.v5.ledger.obsolete.merkle.MerkleTree
 import java.security.PublicKey
 import java.util.function.Predicate
 

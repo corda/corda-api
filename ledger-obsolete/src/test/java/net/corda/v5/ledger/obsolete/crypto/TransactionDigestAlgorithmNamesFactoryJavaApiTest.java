@@ -2,9 +2,8 @@ package net.corda.v5.ledger.obsolete.crypto;
 
 import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.DigestService;
-import net.corda.v5.crypto.MerkleTree;
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.obsolete.crypto.TransactionDigestAlgorithmNames;
+import net.corda.v5.ledger.obsolete.merkle.MerkleTree;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
