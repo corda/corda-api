@@ -50,10 +50,20 @@ topics:
     consumers:
     producers:
     config:
+  MembershipOpsRpcTopic:
+    name: membership.ops.rpc
+    consumers:
+    producers:
+  MembershipOpsRpcRespTopic:
+    name: membership.ops.rpc.resp
+    consumers:
+    producers:
+    config:
   MembershipCertificatesRpcOpsTopic:
     name: membership.rpc.certificates.ops
     consumers:
     producers:
+    config:
   MembershipCertificatesRpcOpsRespTopic:
     name: membership.rpc.certificates.ops.resp
     consumers:
