@@ -1,7 +1,11 @@
-package net.corda.v5.crypto
+package net.corda.v5.ledger.obsolete.merkle
 
-import net.corda.v5.crypto.exceptions.MerkleTreeException
-import net.corda.v5.crypto.mocks.DigestServiceMock
+import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.crypto.DigestService
+import net.corda.v5.crypto.SecureHash
+import net.corda.v5.crypto.getZeroHash
+import net.corda.v5.crypto.create
+import net.corda.v5.ledger.obsolete.crypto.mocks.DigestServiceMock
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -43,7 +47,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should throw MerkleTreeException when building Merkle tree with empty list of leaves`() {
-        assertFailsWith<MerkleTreeException> { MerkleTree.getMerkleTree(emptyList(), DigestAlgorithmName.SHA2_256, digestService) }
+        assertFailsWith<MerkleTreeException> { MerkleTree.getMerkleTree(emptyList(),
+            DigestAlgorithmName.SHA2_256, digestService
+        ) }
     }
 
     @Test
@@ -80,7 +86,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of one leaf with SHA256 using SHA256 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(oneLeaf(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_256, digestService)
+        val merkle = MerkleTree.getMerkleTree(oneLeaf(DigestAlgorithmName.SHA2_256),
+            DigestAlgorithmName.SHA2_256, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue(merkle.right is MerkleTree.Leaf)
@@ -91,7 +99,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of one leaf with SHA384 using SHA256 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(oneLeaf(DigestAlgorithmName.SHA2_384), DigestAlgorithmName.SHA2_256, digestService)
+        val merkle = MerkleTree.getMerkleTree(oneLeaf(DigestAlgorithmName.SHA2_384),
+            DigestAlgorithmName.SHA2_256, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue(merkle.right is MerkleTree.Leaf)
@@ -102,7 +112,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of one leaf with SHA256 using SHA384 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(oneLeaf(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_384, digestService)
+        val merkle = MerkleTree.getMerkleTree(oneLeaf(DigestAlgorithmName.SHA2_256),
+            DigestAlgorithmName.SHA2_384, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue(merkle.right is MerkleTree.Leaf)
@@ -116,7 +128,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of two leaves with SHA256 using SHA256 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_256, digestService)
+        val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_256),
+            DigestAlgorithmName.SHA2_256, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue(merkle.right is MerkleTree.Leaf)
@@ -127,7 +141,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of two leaves with SHA384 using SHA256 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_384), DigestAlgorithmName.SHA2_256, digestService)
+        val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_384),
+            DigestAlgorithmName.SHA2_256, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue(merkle.right is MerkleTree.Leaf)
@@ -138,7 +154,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of two leaves with SHA256 using SHA384 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_384, digestService)
+        val merkle = MerkleTree.getMerkleTree(twoLeaves(DigestAlgorithmName.SHA2_256),
+            DigestAlgorithmName.SHA2_384, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Leaf)
         assertTrue(merkle.right is MerkleTree.Leaf)
@@ -152,7 +170,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of three leaves with SHA256 using SHA256 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(threeLeaves(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_256, digestService)
+        val merkle = MerkleTree.getMerkleTree(threeLeaves(DigestAlgorithmName.SHA2_256),
+            DigestAlgorithmName.SHA2_256, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Node)
         assertTrue(merkle.right is MerkleTree.Node)
@@ -169,7 +189,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of three leaves with SHA384 using SHA256 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(threeLeaves(DigestAlgorithmName.SHA2_384), DigestAlgorithmName.SHA2_256, digestService)
+        val merkle = MerkleTree.getMerkleTree(threeLeaves(DigestAlgorithmName.SHA2_384),
+            DigestAlgorithmName.SHA2_256, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Node)
         assertTrue(merkle.right is MerkleTree.Node)
@@ -186,7 +208,9 @@ class MerkleTreeTests {
 
     @Test
     fun `Should create MerkleTree out of three leaves with SHA256 using SHA384 for nodes`() {
-        val merkle = MerkleTree.getMerkleTree(threeLeaves(DigestAlgorithmName.SHA2_256), DigestAlgorithmName.SHA2_384, digestService)
+        val merkle = MerkleTree.getMerkleTree(threeLeaves(DigestAlgorithmName.SHA2_256),
+            DigestAlgorithmName.SHA2_384, digestService
+        )
         assertTrue(merkle is MerkleTree.Node)
         assertTrue((merkle as MerkleTree.Node).left is MerkleTree.Node)
         assertTrue(merkle.right is MerkleTree.Node)
