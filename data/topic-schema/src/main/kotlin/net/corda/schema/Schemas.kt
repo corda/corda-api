@@ -97,8 +97,6 @@ class Schemas {
             const val PROPOSAL_TOPIC = "membership.proposals"
             const val MEMBERSHIP_RPC_TOPIC = "membership.rpc.ops"
             const val MEMBERSHIP_RPC_RESPONSE_TOPIC = "membership.rpc.ops.resp"
-            const val MEMBERSHIP_RPC_CERTIFICATES_TOPIC = "membership.rpc.certificates.ops"
-            const val MEMBERSHIP_RPC_CERTIFICATES_RESPONSE_TOPIC = "membership.rpc.certificates.ops.resp"
             const val MEMBERSHIP_OPS_RPC_TOPIC = "membership.ops.rpc"
             const val MEMBERSHIP_OPS_RPC_RESPONSE_TOPIC = "membership.ops.rpc.resp"
 
@@ -106,6 +104,11 @@ class Schemas {
             const val UPDATE_TOPIC = "membership.update"
             const val EVENT_TOPIC = "membership.event"
         }
+    }
+
+    object Certificates {
+        const val CERTIFICATES_RPC_TOPIC = "certificates.rpc.ops"
+        const val CERTIFICATES_RPC_RESPONSE_TOPIC = "certificates.rpc.ops.resp"
     }
 
     /**

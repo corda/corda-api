@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "CertificateRpcResponse",
-  "namespace": "net.corda.data.membership.rpc.certificates.response",
+  "namespace": "net.corda.data.certificates.rpc.response",
   "doc": "RPC response regarding certificates.",
   "fields": [
     {

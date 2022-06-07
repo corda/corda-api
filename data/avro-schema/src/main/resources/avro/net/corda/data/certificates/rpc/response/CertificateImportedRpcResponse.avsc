@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "CertificateImportedRpcResponse",
-  "namespace": "net.corda.data.membership.rpc.certificates.response",
+  "namespace": "net.corda.data.certificates.rpc.response",
   "doc": "RPC operations response after successfully imported certificate.",
   "fields": []
 }

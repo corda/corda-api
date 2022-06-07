@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "CertificateRpcRequest",
-  "namespace": "net.corda.data.membership.rpc.certificates.request",
+  "namespace": "net.corda.data.certificates.rpc.request",
   "doc": "RPC request regarding certificates.",
   "fields": [
     {
