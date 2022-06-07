@@ -18,7 +18,7 @@ public class SignatureSpecsJavaApiTest {
         assertNotNull(SignatureSpecs.ECDSA_SHA256_SIGNATURE_SPEC);
         assertNotNull(SignatureSpecs.ECDSA_SHA384_SIGNATURE_SPEC);
         assertNotNull(SignatureSpecs.ECDSA_SHA512_SIGNATURE_SPEC);
-        assertNotNull(SignatureSpecs.EDDSA_ED25519_NONE_SIGNATURE_SPEC);
+        assertNotNull(SignatureSpecs.EDDSA_ED25519_SIGNATURE_SPEC);
         assertNotNull(SignatureSpecs.GOST3410_GOST3411_SIGNATURE_SPEC);
         assertNotNull(SignatureSpecs.SPHINCS256_SHA512_SIGNATURE_SPEC);
     }

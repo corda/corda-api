@@ -41,7 +41,7 @@ val RSA_SHA512_SIGNATURE_SPEC = SignatureSpec(
  * RSASSA-PSS with SHA256 [SignatureSpec]
  */
 @JvmField
-val RSASSA_PSS_SHA256_SIGNATURE_SPEC = SignatureSpec(
+val RSASSA_PSS_SHA256_SIGNATURE_SPEC = ParameterizedSignatureSpec(
     "RSASSA-PSS",
     PSSParameterSpec(
         "SHA-256",
@@ -56,7 +56,7 @@ val RSASSA_PSS_SHA256_SIGNATURE_SPEC = SignatureSpec(
  * RSASSA-PSS with SHA384 [SignatureSpec]
  */
 @JvmField
-val RSASSA_PSS_SHA384_SIGNATURE_SPEC = SignatureSpec(
+val RSASSA_PSS_SHA384_SIGNATURE_SPEC = ParameterizedSignatureSpec(
     "RSASSA-PSS",
     PSSParameterSpec(
         "SHA-384",
@@ -71,7 +71,7 @@ val RSASSA_PSS_SHA384_SIGNATURE_SPEC = SignatureSpec(
  * RSASSA-PSS with SHA512 [SignatureSpec]
  */
 @JvmField
-val RSASSA_PSS_SHA512_SIGNATURE_SPEC = SignatureSpec(
+val RSASSA_PSS_SHA512_SIGNATURE_SPEC = ParameterizedSignatureSpec(
     "RSASSA-PSS",
     PSSParameterSpec(
         "SHA-512",
@@ -110,7 +110,7 @@ val ECDSA_SHA512_SIGNATURE_SPEC = SignatureSpec(
  * EdDSA [SignatureSpec]
  */
 @JvmField
-val EDDSA_ED25519_NONE_SIGNATURE_SPEC = SignatureSpec(
+val EDDSA_ED25519_SIGNATURE_SPEC = SignatureSpec(
     signatureName = "EdDSA"
 )
 

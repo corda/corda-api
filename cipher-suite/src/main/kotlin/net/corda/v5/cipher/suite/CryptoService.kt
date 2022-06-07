@@ -1,6 +1,7 @@
 package net.corda.v5.cipher.suite
 
 import net.corda.v5.cipher.suite.schemes.KeyScheme
+import net.corda.v5.crypto.SignatureSpec
 import net.corda.v5.crypto.exceptions.CryptoServiceBadRequestException
 import net.corda.v5.crypto.exceptions.CryptoServiceException
 
@@ -15,36 +16,14 @@ import net.corda.v5.crypto.exceptions.CryptoServiceException
  */
 interface CryptoService {
     /**
-     * Returns true if the createWrappingKey operation is required and the HSM supports key wrapping.
-     * The wrapping key may not be required in situations when HSM supports the wrapped keys natively or
-     * wrapping key is global.
+     * Returns list of crypto service extensions, such as REQUIRE_WRAPPING_KEY, DELETE_KEYS.
      */
-    fun requiresWrappingKey(): Boolean
+    val extensions: List<CryptoServiceExtensions>
 
     /**
-     * Signature schemes which this implementation of [CryptoService] supports.
-     * */
-    fun supportedSchemes(): List<KeyScheme>
-
-    /**
-     * Generates a new key to be used as a wrapping key. Some implementations may not have the notion of
-     * the wrapping key in such cases the implementation should do nothing (note that [requiresWrappingKey] should
-     * return false for such implementations).
-     *
-     * @param masterKeyAlias the alias of the key to be used as a wrapping key.
-     * @param failIfExists a flag indicating whether the method should fail if a key already exists under
-     * the provided alias or return normally without overriding the key.
-     * @param context the optional key/value operation context.
-     *
-     * @throws [CryptoServiceBadRequestException] if a key already exists under this alias
-     * and [failIfExists] is set to true.
-     * @throws [CryptoServiceException] for general cryptographic exceptions.
+     * Key schemes and signature specs for each key which this implementation of [CryptoService] supports.
      */
-    fun createWrappingKey(
-        masterKeyAlias: String,
-        failIfExists: Boolean,
-        context: Map<String, String>
-    )
+    val supportedSchemes: Map<KeyScheme, List<SignatureSpec>>
 
     /**
      * Generates and optionally stores an asymmetric key pair.
@@ -82,4 +61,37 @@ interface CryptoService {
         data: ByteArray,
         context: Map<String, String>
     ): ByteArray
+
+    /**
+     * Generates a new key to be used as a wrapping key. Some implementations may not have the notion of
+     * the wrapping key in such cases the implementation should do nothing (note that REQUIRE_WRAPPING_KEY should not
+     * be listed for such implementations).
+     *
+     * @param masterKeyAlias the alias of the key to be used as a wrapping key.
+     * @param failIfExists a flag indicating whether the method should fail if a key already exists under
+     * the provided alias or return normally without overriding the key.
+     * @param context the optional key/value operation context.
+     *
+     * @throws [CryptoServiceBadRequestException] if a key already exists under this alias
+     * and [failIfExists] is set to true.
+     * @throws [CryptoServiceException] for general cryptographic exceptions.
+     * @throws NotImplementedError if the operation is not supported.
+     */
+    fun createWrappingKey(
+        masterKeyAlias: String,
+        failIfExists: Boolean,
+        context: Map<String, String>
+    )
+
+    /**
+     * Deletes the key corresponding to the input alias of the service supports the operations .
+     * This method doesn't throw if the alias is not found. The services which support that operation must list that
+     * in the [CryptoServiceExtensions].
+     * @param context the optional key/value operation context. The context will have at least two variables defined -
+     * 'tenantId' and 'keyType'.
+     *
+     * @throws CryptoServiceException if the key cannot be removed.
+     * @throws NotImplementedError if the operation is not supported.
+     */
+    fun delete(alias: String, context: Map<String, String>)
 }
