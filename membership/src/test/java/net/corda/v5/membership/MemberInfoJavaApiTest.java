@@ -69,6 +69,19 @@ public class MemberInfoJavaApiTest {
     }
 
     @Test
+    public void getSessionKey() {
+        PublicKey testPublicKey = mock(PublicKey.class);
+        when(memberInfo.getSessionInitiationKey()).thenReturn(testPublicKey);
+
+        PublicKey result = memberInfo.getSessionInitiationKey();
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(testPublicKey);
+
+        verify(memberInfo, times(1)).getSessionInitiationKey();
+    }
+
+    @Test
     public void getPlatformVersion() {
         int test = 5;
         when(memberInfo.getPlatformVersion()).thenReturn(test);
