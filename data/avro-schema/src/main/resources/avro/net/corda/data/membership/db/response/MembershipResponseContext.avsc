@@ -14,8 +14,11 @@
     },
     {
       "name": "requestId",
-      "type": "string",
-      "doc": "Request id which can be used to track the request progress."
+      "doc": "Request id which can be used to track the request progress.",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
     },
     {
       "name": "responseTimestamp",
