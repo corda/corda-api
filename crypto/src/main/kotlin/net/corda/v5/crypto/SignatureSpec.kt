@@ -22,14 +22,4 @@ open class SignatureSpec(
     open fun getSigningData(hashingService: DigestService, data: ByteArray): ByteArray = data
 
     override fun toString(): String = signatureName
-
-    override fun hashCode(): Int = signatureName.hashCode()
-
-    override fun equals(other: Any?): Boolean {
-        if(other == null) return false
-        if (this === other) return true
-        if (other !is SignatureSpec) return false
-        if (signatureName != other.signatureName) return false
-        return true
-    }
 }

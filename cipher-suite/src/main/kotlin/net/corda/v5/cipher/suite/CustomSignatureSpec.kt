@@ -40,21 +40,4 @@ class CustomSignatureSpec(
     } else {
         "$signatureName:$customDigestName"
     }
-
-    override fun hashCode(): Int {
-        var result = signatureName.hashCode()
-        result = 31 * result + customDigestName.hashCode()
-        result = 31 * result + (params?.hashCode() ?: 0)
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if(other == null) return false
-        if (this === other) return true
-        if (other !is CustomSignatureSpec) return false
-        if (signatureName != other.signatureName) return false
-        if (customDigestName != other.customDigestName) return false
-        if (params != other.params) return false
-        return true
-    }
 }

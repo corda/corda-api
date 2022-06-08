@@ -19,19 +19,4 @@ class ParameterizedSignatureSpec(
     val params: AlgorithmParameterSpec
 ) : SignatureSpec(signatureName) {
     override fun toString(): String = "$signatureName:${params::class.java.simpleName}"
-
-    override fun hashCode(): Int {
-        var result = signatureName.hashCode()
-        result = 31 * result + params.hashCode()
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if(other == null) return false
-        if (this === other) return true
-        if (other !is ParameterizedSignatureSpec) return false
-        if (signatureName != other.signatureName) return false
-        if (params != other.params) return false
-        return true
-    }
 }
