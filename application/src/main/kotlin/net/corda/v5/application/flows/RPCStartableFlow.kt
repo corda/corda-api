@@ -14,7 +14,7 @@ import net.corda.v5.base.annotations.Suspendable
  * Flows implementing this interface must have a no-arg constructor. The flow invocation will fail if this constructor
  * does not exist.
  */
-interface RPCStartableFlow<out T> : Flow<T> {
+interface RPCStartableFlow {
 
     /**
      * The business logic for this flow should be written here.
@@ -27,13 +27,4 @@ interface RPCStartableFlow<out T> : Flow<T> {
      */
     @Suspendable
     fun call(requestBody: String) : String
-
-    /**
-     * By default, RPC startable flows will fail if invoked as a subflow. However, it is possible to implement the
-     * normal flow call method, which allows the flow to also be invoked as a subflow.
-     */
-    @Suspendable
-    override fun call(): T {
-        throw IllegalStateException("This flow is only eligible to be started via RPC.")
-    }
 }

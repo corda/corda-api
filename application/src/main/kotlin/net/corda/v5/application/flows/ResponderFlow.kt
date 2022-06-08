@@ -12,7 +12,7 @@ import net.corda.v5.base.annotations.Suspendable
  *
  * Note that an initiated flow cannot return a value.
  */
-interface ResponderFlow<out T> : Flow<T> {
+interface ResponderFlow {
 
     /**
      * The business logic for the flow should be written here.
@@ -24,12 +24,4 @@ interface ResponderFlow<out T> : Flow<T> {
      */
     @Suspendable
     fun call(session: FlowSession)
-
-    /**
-     * By default this flow cannot be invoked as a subflow. Implement this to override this behaviour.
-     */
-    @Suspendable
-    override fun call(): T {
-        throw IllegalArgumentException("Responder flows cannot be invoked as a subflow by default")
-    }
 }
