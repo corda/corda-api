@@ -26,5 +26,5 @@ interface RPCStartableFlow {
      * @return A JSON encoded string to be supplied to the flow status on flow completion as the result.
      */
     @Suspendable
-    fun call(requestBody: String) : String
+    fun call(requestBody: RPCRequestData) : String
 }
