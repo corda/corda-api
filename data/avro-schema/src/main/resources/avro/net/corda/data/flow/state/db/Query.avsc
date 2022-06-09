@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "Query",
+  "namespace": "net.corda.data.flow.state.db",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "Unique ID of a single Query. The Id remains the same for each resend."
+    },
+    {
+      "name": "sendTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Timestamp of when to send a message. If this time is in the past, then the message needs to be (re)sent."
+    },
+    {
+      "name": "request",
+      "doc": "The 'request' that we wish to make to the persistence API.",
+      "type": "net.corda.data.persistence.EntityRequest"
+    },
+    {
+      "name": "response",
+      "doc": "The response we receive from the persistence API. Null if the response has not been returned yet.",
+      "type": [
+        "null",
+        "net.corda.data.persistence.EntityResponse"
+      ]
+    }
+  ]
+}

@@ -25,6 +25,12 @@
       "doc": "A set of attributes used to record the current state of the flow's execution."
     },
     {
+      "name": "query",
+      "type": ["null", "net.corda.data.flow.state.db.Query"],
+      "default": null,
+      "doc": "Active DB query. Null if there are no queries in progress."
+    },
+    {
       "name": "sessions",
       "type": {
         "type": "array",

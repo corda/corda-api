@@ -53,6 +53,19 @@
           "default": 60000
         }
       }
+    },
+    "db": {
+      "description": "Settings for db interactions within a flow",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "messageResendWindow": {
+          "description": "Length of time to wait before resending unacknowledged db query messages, in milliseconds",
+          "type": "integer",
+          "minimum": 100,
+          "default": 5000
+        }
+      }
     }
   }
 }
