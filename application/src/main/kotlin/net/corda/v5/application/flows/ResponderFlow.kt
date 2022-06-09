@@ -11,6 +11,9 @@ import net.corda.v5.base.annotations.Suspendable
  * created by the platform and communicates with the party that initiated the session.
  *
  * Note that an initiated flow cannot return a value.
+ *
+ * Flows implementing this interface must have a no-arg constructor. The flow invocation will fail if this constructor
+ * does not exist.
  */
 interface ResponderFlow {
 
