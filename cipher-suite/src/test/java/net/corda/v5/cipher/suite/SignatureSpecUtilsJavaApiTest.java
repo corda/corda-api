@@ -4,7 +4,7 @@ import net.corda.v5.crypto.SignatureSpec;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SignatureSpecUtilsJavaApiTests {
+public class SignatureSpecUtilsJavaApiTest {
     @Test
     public void shouldCallGetParamsSafely() {
         var spec = new SignatureSpec("SHA256withECDSA");
