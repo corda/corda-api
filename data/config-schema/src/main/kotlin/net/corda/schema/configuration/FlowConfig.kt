@@ -2,6 +2,7 @@ package net.corda.schema.configuration
 
 object FlowConfig {
         const val DB_MESSAGE_RESEND_WINDOW = "db.messageResendWindow"
+        const val DB_MAX_RETRIES = "db.maxRetries"
         const val SESSION_MESSAGE_RESEND_WINDOW = "session.messageResendWindow"
         const val SESSION_HEARTBEAT_TIMEOUT_WINDOW = "session.heartbeatTimeout"
         const val SESSION_P2P_TTL = "session.p2pTTL"

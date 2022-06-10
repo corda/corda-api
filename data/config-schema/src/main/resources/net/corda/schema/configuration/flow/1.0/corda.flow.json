@@ -64,6 +64,12 @@
           "type": "integer",
           "minimum": 100,
           "default": 5000
+        },
+        "maxRetries": {
+          "description": "The maximum amount of times to retry a request before returning an exception to the user code.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 5
         }
       }
     }

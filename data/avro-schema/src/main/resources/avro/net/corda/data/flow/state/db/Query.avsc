@@ -22,6 +22,12 @@
       "type": "net.corda.data.persistence.EntityRequest"
     },
     {
+      "name": "retries",
+      "doc": "The amount of times the request has been sent.",
+      "type": "int",
+      "default": 0
+    },
+    {
       "name": "response",
       "doc": "The response we receive from the persistence API. Null if the response has not been returned yet.",
       "type": [
