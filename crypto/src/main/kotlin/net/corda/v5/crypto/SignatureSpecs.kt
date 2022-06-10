@@ -86,19 +86,19 @@ val RSASSA_PSS_SHA512_SIGNATURE_SPEC = ParameterizedSignatureSpec(
  * RSASSA-PSS with SHA256 and MGF1 [SignatureSpec]
  */
 @JvmField
-val RSA_SHA256_WITH_MGF1 = SignatureSpec("SHA256WITHRSAANDMGF1")
+val RSA_SHA256_WITH_MGF1_SIGNATURE_SPEC = SignatureSpec("SHA256WITHRSAANDMGF1")
 
 /**
  * RSASSA-PSS with SHA384 and MGF1 [SignatureSpec]
  */
 @JvmField
-val RSA_SHA384_WITH_MGF1 = SignatureSpec("SHA384WITHRSAANDMGF1")
+val RSA_SHA384_WITH_MGF1_SIGNATURE_SPEC = SignatureSpec("SHA384WITHRSAANDMGF1")
 
 /**
  * RSASSA-PSS with SHA512 and MGF1 [SignatureSpec]
  */
 @JvmField
-val RSA_SHA512_WITH_MGF1 = SignatureSpec("SHA512WITHRSAANDMGF1")
+val RSA_SHA512_WITH_MGF1_SIGNATURE_SPEC = SignatureSpec("SHA512WITHRSAANDMGF1")
 
 /**
  * SHA256withECDSA [SignatureSpec]
