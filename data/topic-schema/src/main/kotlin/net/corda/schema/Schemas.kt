@@ -125,6 +125,7 @@ class Schemas {
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
             const val GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores"
             const val GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs"
+            const val HOSTED_MAP_TOPIC = "p2p.hosted.identities"
         }
     }
 
