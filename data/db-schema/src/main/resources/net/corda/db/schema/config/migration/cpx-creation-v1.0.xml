@@ -232,8 +232,5 @@
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
 
-        <addUniqueConstraint tableName="cpi_cpk" columnNames="cpk_file_checksum" constraintName="db_cpi_cpk_uc1"
-                             schemaName="${schema.name}"/>
-
     </changeSet>
 </databaseChangeLog>
