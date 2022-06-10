@@ -26,6 +26,7 @@ private val comparators = mapOf<Class<*>, BiPredicate<Any, Any>>(
     }
 )
 
+@Suppress("ComplexMethod")
 fun SignatureSpec?.equal(right: SignatureSpec?): Boolean =
     if (this == null) {
         right == null

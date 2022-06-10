@@ -11,12 +11,12 @@ import net.corda.v5.crypto.exceptions.CryptoServiceException
  * aliases for public and private keys, in such cases their names have to be derived from the single key pair alias.
  * It could be suffixes or whatever internal naming scheme is used.
  *
- * Also note that's not required to keep a public key in the HSM as that will be kept by the upstream Crypto Services.
+ * Also note that it is not required to keep a public key in the HSM as that will be kept by the upstream Crypto Services.
  *
  * Exception handling.
  *
- * As the service instances are decorated with decorators taking care about the timeout, throttling handling,
- * exception normalisation the exceptions listed for each method are as expected be thrown by the decorators.
+ * As the service instances are decorated with decorators taking care of the timeout, throttling handling,
+ * and exception normalisation the exceptions listed for each method are as expected to be thrown by the decorators.
  *
  * The service should throw the most appropriate exception as it sees it, e.g. if the input parameters are wrong it
  * should be [IllegalArgumentException] or if the internal state is wrong for an operation then the most appropriate
@@ -26,7 +26,7 @@ import net.corda.v5.crypto.exceptions.CryptoServiceException
  * of concrete implementations of [CSLThrottlingException] (such as [CSLExponentialThrottlingException]) so the
  * library can handle it appropriately.
  *
- * The next exceptions are retried - [TimeoutException], [CryptoServiceLibraryException] (with the isRecoverable flage
+ * The following exceptions are retried - [TimeoutException], [CryptoServiceLibraryException] (with the isRecoverable flage
  * set to true), [javax.persistence.LockTimeoutException], [javax.persistence.QueryTimeoutException],
  * [javax.persistence.OptimisticLockException], [javax.persistence.PessimisticLockException].
  * Throw [TimeoutException] only if the service want's that to be handled before the decorator detects it.
