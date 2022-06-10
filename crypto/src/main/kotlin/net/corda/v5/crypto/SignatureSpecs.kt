@@ -83,6 +83,24 @@ val RSASSA_PSS_SHA512_SIGNATURE_SPEC = ParameterizedSignatureSpec(
 )
 
 /**
+ * RSASSA-PSS with SHA256 and MGF1 [SignatureSpec]
+ */
+@JvmField
+val RSA_SHA256_WITH_MGF1 = SignatureSpec("SHA256WITHRSAANDMGF1")
+
+/**
+ * RSASSA-PSS with SHA384 and MGF1 [SignatureSpec]
+ */
+@JvmField
+val RSA_SHA384_WITH_MGF1 = SignatureSpec("SHA384WITHRSAANDMGF1")
+
+/**
+ * RSASSA-PSS with SHA512 and MGF1 [SignatureSpec]
+ */
+@JvmField
+val RSA_SHA512_WITH_MGF1 = SignatureSpec("SHA512WITHRSAANDMGF1")
+
+/**
  * SHA256withECDSA [SignatureSpec]
  */
 @JvmField
@@ -129,6 +147,12 @@ val SPHINCS256_SHA512_SIGNATURE_SPEC = SignatureSpec(
 val SM2_SM3_SIGNATURE_SPEC = SignatureSpec(
     signatureName = "SM3withSM2"
 )
+
+/**
+ * SHA256withSM2 [SignatureSpec]
+ */
+@JvmField
+val SM2_SHA256_SIGNATURE_SPEC = SignatureSpec("SHA256withSM2")
 
 /**
  * GOST3411withGOST3410 [SignatureSpec]
