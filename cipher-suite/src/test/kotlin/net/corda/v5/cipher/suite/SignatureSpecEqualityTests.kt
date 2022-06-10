@@ -14,6 +14,7 @@ class SignatureSpecEqualityTests {
     companion object {
         private val SIGNATURE_SPEC_1 = SignatureSpec("SHA256withRSA")
         private val SIGNATURE_SPEC_10 = SignatureSpec("SHA256withRSA")
+        private val SIGNATURE_SPEC_100 = SignatureSpec("sha256WITHrsa")
         private val SIGNATURE_SPEC_2 = SignatureSpec("SHA384withRSA")
         private val PARAMETERIZED_SIGNATURE_SPEC_1 = ParameterizedSignatureSpec(
             "RSASSA-PSS",
@@ -31,6 +32,16 @@ class SignatureSpecEqualityTests {
                 "SHA-256",
                 "MGF1",
                 MGF1ParameterSpec.SHA256,
+                32,
+                1
+            )
+        )
+        private val PARAMETERIZED_SIGNATURE_SPEC_100 = ParameterizedSignatureSpec(
+            "rsassa-pss",
+            PSSParameterSpec(
+                "sha-256",
+                "mgf1",
+                MGF1ParameterSpec("sha-256"),
                 32,
                 1
             )
@@ -77,6 +88,10 @@ class SignatureSpecEqualityTests {
             "RSA/NONE/PKCS1Padding",
             DigestAlgorithmName.SHA2_256
         )
+        private val CUSTOM_SIGNATURE_SPEC_100 = CustomSignatureSpec(
+            "rsa/NONE/pkcs1Padding",
+            DigestAlgorithmName("sha-256")
+        )
         private val CUSTOM_SIGNATURE_SPEC_2 = CustomSignatureSpec(
             "RSA/NONE/PKCS1Padding",
             DigestAlgorithmName.SHA2_384
@@ -99,6 +114,17 @@ class SignatureSpecEqualityTests {
                 "SHA-256",
                 "MGF1",
                 MGF1ParameterSpec.SHA256,
+                48,
+                1
+            )
+        )
+        private val CUSTOM_SIGNATURE_SPEC_300 = CustomSignatureSpec(
+            "RSA/none/PKCS1PADDING",
+            DigestAlgorithmName("sha-256"),
+            PSSParameterSpec(
+                "sha-256",
+                "MGF1",
+                MGF1ParameterSpec("sha-256"),
                 48,
                 1
             )
@@ -141,7 +167,7 @@ class SignatureSpecEqualityTests {
     }
 
     @Test
-    fun `Should be equal when comparing equal object`() {
+    fun `Should be equal when comparing equal objects`() {
         assertTrue(SIGNATURE_SPEC_1.equal(SIGNATURE_SPEC_10))
         assertTrue(SIGNATURE_SPEC_10.equal(SIGNATURE_SPEC_1))
         assertTrue(PARAMETERIZED_SIGNATURE_SPEC_1.equal(PARAMETERIZED_SIGNATURE_SPEC_10))
@@ -150,6 +176,18 @@ class SignatureSpecEqualityTests {
         assertTrue(CUSTOM_SIGNATURE_SPEC_10.equal(CUSTOM_SIGNATURE_SPEC_1))
         assertTrue(CUSTOM_SIGNATURE_SPEC_3.equal(CUSTOM_SIGNATURE_SPEC_30))
         assertTrue(CUSTOM_SIGNATURE_SPEC_30.equal(CUSTOM_SIGNATURE_SPEC_3))
+    }
+
+    @Test
+    fun `Should be equal when comparing equal objects regardless string casing`() {
+        assertTrue(SIGNATURE_SPEC_1.equal(SIGNATURE_SPEC_100))
+        assertTrue(SIGNATURE_SPEC_100.equal(SIGNATURE_SPEC_1))
+        assertTrue(PARAMETERIZED_SIGNATURE_SPEC_1.equal(PARAMETERIZED_SIGNATURE_SPEC_100))
+        assertTrue(PARAMETERIZED_SIGNATURE_SPEC_100.equal(PARAMETERIZED_SIGNATURE_SPEC_1))
+        assertTrue(CUSTOM_SIGNATURE_SPEC_1.equal(CUSTOM_SIGNATURE_SPEC_100))
+        assertTrue(CUSTOM_SIGNATURE_SPEC_100.equal(CUSTOM_SIGNATURE_SPEC_1))
+        assertTrue(CUSTOM_SIGNATURE_SPEC_3.equal(CUSTOM_SIGNATURE_SPEC_300))
+        assertTrue(CUSTOM_SIGNATURE_SPEC_300.equal(CUSTOM_SIGNATURE_SPEC_3))
     }
 
     @Test

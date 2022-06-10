@@ -17,11 +17,11 @@ private val comparators = mapOf<Class<*>, BiPredicate<Any, Any>>(
         } else {
             val leftMgf = left.mgfParameters as MGF1ParameterSpec
             val rightMgf = right.mgfParameters as MGF1ParameterSpec
-            left.digestAlgorithm == right.digestAlgorithm &&
-                    left.mgfAlgorithm == right.mgfAlgorithm &&
+            left.digestAlgorithm.equals(right.digestAlgorithm, true) &&
+                    left.mgfAlgorithm.equals(right.mgfAlgorithm, true) &&
                     left.saltLength == right.saltLength &&
                     left.trailerField == right.trailerField &&
-                    leftMgf.digestAlgorithm == rightMgf.digestAlgorithm
+                    leftMgf.digestAlgorithm.equals(rightMgf.digestAlgorithm, true)
         }
     }
 )
@@ -36,7 +36,7 @@ fun SignatureSpec?.equal(right: SignatureSpec?): Boolean =
         true
     } else if (this::class.java != right::class.java ) {
         false
-    } else if(signatureName != right.signatureName) {
+    } else if(!signatureName.equals(right.signatureName, true)) {
         false
     } else {
         when(this) {
