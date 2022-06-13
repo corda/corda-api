@@ -101,9 +101,11 @@
       "default": {}
     },
     "maxAllowedMessageSize": {
-      "description": "Maxiumum allowed size, in bytes, for publishing Messages. This configuration does _not_ change the Kafka configuration itself.",
+      "description": "Maximum allowed size, in bytes, for publishing Messages. This configuration is used by the platform as a guide and does _not_ change the underlying bus settings.",
       "type": "number",
-      "default": 972800
+      "default": 972800,
+      "minimum": 512000,
+      "maximum": 8388608
     }
   },
   "additionalProperties": false
