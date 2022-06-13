@@ -1,6 +1,7 @@
 package net.corda.v5.ledger.consensual
 
 import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.base.annotations.DoNotImplement
 
 /**
  * A consensual state (or just "state") contains opaque data used by a consensual ledger. It can be thought of as a disk
@@ -9,6 +10,7 @@ import net.corda.v5.base.annotations.CordaSerializable
  * Consensual states cannot be updated (consumed).
  */
 @CordaSerializable
+@DoNotImplement
 interface ConsensualState {
     /**
      * A _participant_ is any party whose consent is needed to make a Consensual State valid and final.
