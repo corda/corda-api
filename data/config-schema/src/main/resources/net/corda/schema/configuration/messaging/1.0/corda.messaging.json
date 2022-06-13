@@ -99,6 +99,11 @@
       "description": "Settings for publishers that write messages to the underlying bus",
       "$ref": "publisher.json",
       "default": {}
+    },
+    "maxAllowedMessageSize": {
+      "description": "Maxiumum allowed size, in bytes, for publishing Messages. This configuration does _not_ change the Kafka configuration itself.",
+      "type": "number",
+      "default": 972800
     }
   },
   "additionalProperties": false
