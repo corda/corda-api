@@ -18,6 +18,11 @@
       "doc": "The unique ID for tracking the flow. Responses will be returned on this key."
     },
     {
+      "name": "flowKey",
+      "type": "net.corda.data.flow.FlowKey",
+      "doc": "The unique ID for tracking the flow status"
+    },
+    {
       "name": "request",
       "doc": "The 'request' that we wish to make to the persistence API.",
       "type": [
