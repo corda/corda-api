@@ -126,6 +126,13 @@ class Schemas {
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
             const val GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores"
             const val GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs"
+
+            /**
+             * Topics for (temporary) stub components.
+             */
+            const val CRYPTO_KEYS_TOPIC = "p2p.crypto.keys"
+            const val GROUP_POLICIES_TOPIC = "p2p.group.policies"
+            const val MEMBER_INFO_TOPIC = "p2p.members.info"
         }
     }
 
