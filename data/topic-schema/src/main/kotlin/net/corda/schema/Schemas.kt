@@ -118,6 +118,7 @@ class Schemas {
         companion object {
             const val P2P_OUT_TOPIC = "p2p.out"
             const val P2P_OUT_MARKERS = "p2p.out.markers"
+            const val P2P_OUT_MARKERS_STATE = "p2p.out.markers.state"
             const val P2P_IN_TOPIC = "p2p.in"
             const val P2P_HOSTED_IDENTITIES_TOPIC = "p2p.hosted.identities"
             const val LINK_OUT_TOPIC = "link.out"
