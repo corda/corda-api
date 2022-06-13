@@ -1,6 +1,6 @@
 package net.corda.v5.application.flows
 
-import net.corda.v5.application.serialization.JsonMarshallingService
+import net.corda.v5.application.marshalling.JsonMarshallingService
 
 /**
  * A wrapper around the request data for RPC started flows.
