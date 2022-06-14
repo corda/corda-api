@@ -32,7 +32,7 @@ interface FlowEngine {
      * [Flow]s it communicated with. The subflow can be retried by catching this exception.
      */
     @Suspendable
-    fun <R> subFlow(subLogic: Flow<R>): R
+    fun <R> subFlow(subLogic: Subflow<R>): R
 
     /**
      * Suspends the flow and only wakes it up after at least [duration] time has passed.
