@@ -25,6 +25,11 @@ topics:
       min.compaction.lag.ms: 60000
       max.compaction.lag.ms: 300000
       min.cleanable.dirty.ratio: 0.5
+  P2POutMarkersDlqTopic:
+    name: p2p.out.markers.dlq
+    consumers:
+    producers:
+    config:
   P2PHostedIdentitiesTopic:
     name: p2p.hosted.identities
     consumers:
