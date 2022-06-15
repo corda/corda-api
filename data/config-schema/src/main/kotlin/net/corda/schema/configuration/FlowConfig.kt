@@ -1,6 +1,7 @@
 package net.corda.schema.configuration
 
 object FlowConfig {
+        const val PERSISTENCE_RESEND_BUFFER = "persistence.messageResendWindowBuffer"
         const val PERSISTENCE_MESSAGE_RESEND_WINDOW = "persistence.messageResendWindow"
         const val PERSISTENCE_MAX_RETRIES = "persistence.maxRetries"
         const val SESSION_MESSAGE_RESEND_WINDOW = "session.messageResendWindow"
