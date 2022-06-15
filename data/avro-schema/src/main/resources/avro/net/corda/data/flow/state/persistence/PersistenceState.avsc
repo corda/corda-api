@@ -1,12 +1,12 @@
 {
   "type": "record",
-  "name": "Query",
-  "namespace": "net.corda.data.flow.state.db",
+  "name": "PersistenceState",
+  "namespace": "net.corda.data.flow.state.persistence",
   "fields": [
     {
       "name": "requestId",
       "type": "string",
-      "doc": "Unique ID of a single Query. The Id remains the same for each resend."
+      "doc": "Unique ID of the last query. The Id remains the same for each resend."
     },
     {
       "name": "sendTimestamp",
