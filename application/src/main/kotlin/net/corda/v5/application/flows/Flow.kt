@@ -1,5 +1,7 @@
 package net.corda.v5.application.flows
 
+import net.corda.v5.base.annotations.DoNotImplement
+
 /**
  * Marker interface from which all flow types inherit.
  *
@@ -7,6 +9,7 @@ package net.corda.v5.application.flows
  * should be implemented:
  * - [RPCStartableFlow] for flows that can be started via RPC
  * - [ResponderFlow] for flows that can be started via a session
- * - [Subflow] for flows that can be started from another flow
+ * - [SubFlow] for flows that can be started from another flow
  */
+@DoNotImplement
 interface Flow
