@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.obsolete.crypto.mocks
+package net.corda.v5.ledger.obsolete.mocks
 
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.DigestService
