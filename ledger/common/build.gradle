@@ -14,10 +14,6 @@ dependencies {
     api 'org.slf4j:slf4j-api'
 
     compileOnly 'org.osgi:osgi.annotation'
-    // We only need Hibernate for its annotations.
-    compileOnly("org.hibernate:hibernate-osgi:$hibernateVersion") {
-        exclude group: 'org.osgi'
-    }
 
     api project(":application")
     api project(":crypto")
