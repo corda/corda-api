@@ -61,6 +61,6 @@ inline fun <reified T> MarshallingService.parse(input: String) : T {
  *
  * @return A new list of [T].
  */
-inline fun <reified T> JsonMarshallingService.parseList(input: String): List<T> {
+inline fun <reified T> MarshallingService.parseList(input: String): List<T> {
     return parseList(input, T::class.java)
 }
