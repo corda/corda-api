@@ -3,10 +3,10 @@ package net.corda.v5.crypto.exceptions
 import net.corda.v5.base.annotations.CordaSerializable
 
 /**
- * Signals that there is a problem with configuration, either it's missing or misconfigured.
+ * Base exception to signal that some crypto provider is not found.
  */
 @CordaSerializable
-class CryptoConfigurationException : CryptoException {
+open class CryptoProviderException : CryptoException {
     constructor(message: String) : super(message)
 
     constructor(message: String, cause: Throwable?) : super(message, cause)
