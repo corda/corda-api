@@ -3,5 +3,5 @@
   "name": "LinkManagerReplayMarker",
   "namespace": "net.corda.p2p.markers",
   "fields": [],
-  "doc": "The message was processed by the sending Link Manager."
+  "doc": "The message was replayed by the sending Link Manager."
 }
