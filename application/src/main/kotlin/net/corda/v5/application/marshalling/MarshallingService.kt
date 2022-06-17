@@ -30,6 +30,16 @@ interface MarshallingService {
      * @return An instance of the required type containing the input data
      */
     fun <T> parse(input: String, clazz: Class<T>) : T
+
+    /**
+     * Deserializes the [input] into a list of instances of [T].
+     *
+     * @param input The input string to parse.
+     * @param clazz The [Class] type to parse into.
+     *
+     * @return A new list of [T].
+     */
+    fun <T> parseList(input: String, clazz: Class<T>): List<T>
 }
 
 /**
@@ -42,4 +52,15 @@ interface MarshallingService {
  */
 inline fun <reified T> MarshallingService.parse(input: String) : T {
     return this.parse(input, T::class.java)
+}
+
+/**
+ * Deserializes the [input] into a list of instances of [T].
+ *
+ * @param input The input string to deserialize.
+ *
+ * @return A new list of [T].
+ */
+inline fun <reified T> JsonMarshallingService.parseList(input: String): List<T> {
+    return parseList(input, T::class.java)
 }
