@@ -8,7 +8,7 @@ import net.corda.v5.base.annotations.CordaSerializable
  * @property tenantId the tenant id which was not found.
  */
 @CordaSerializable
-class CryptoTenantNotFoundException : CryptoException {
+class CryptoTenantNotFoundException : CryptoResourceNotFoundException {
     val tenantId: String
 
     constructor(tenantId: String, message: String) : super(message) {

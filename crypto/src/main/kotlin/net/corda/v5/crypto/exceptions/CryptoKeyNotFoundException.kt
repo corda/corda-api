@@ -11,7 +11,7 @@ import net.corda.v5.base.annotations.CordaSerializable
  * their alias as used by the HSM.
  */
 @CordaSerializable
-class CryptoKeyNotFoundException : CryptoException {
+class CryptoKeyNotFoundException : CryptoResourceNotFoundException {
     val tenantId: String
     val key: String
 
