@@ -12,7 +12,7 @@ import net.corda.v5.base.exceptions.CordaRuntimeException
  * the specific Crypto Library exceptions only to convey additional context about the conditions which lead to
  * the exception.
  *
- * @property isRecoverable teh flag specifying whenever the operation throwing the exception could be retried
+ * @property isRecoverable the flag specifying whenever the operation throwing the exception could be retried
  * without any intervention by application-level functionality.
  */
 @CordaSerializable

@@ -2,9 +2,7 @@ package net.corda.v5.cipher.suite
 
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.SignatureSpec
-import java.security.InvalidKeyException
 import java.security.PublicKey
-import java.security.SignatureException
 
 /**
  * Signature verification operations.
@@ -18,10 +16,9 @@ interface SignatureVerificationService {
      * @param signatureSpec the signature spec.
      * @param clearData the clear data/message that was signed (usually the Merkle root).
      *
-     * @throws InvalidKeyException if the key is invalid.
-     * @throws SignatureException  if verification fails.
-     * @throws IllegalArgumentException if any of the clear or signature data is empty.
-     * @throws net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException if the signature scheme is not supported.
+     * @throws net.corda.v5.crypto.exceptions.CryptoSignatureException if verification fails.
+     * @throws IllegalArgumentException if any of the clear or signature data is empty, key is invalid,
+     * the signature scheme is not supported or in general arguments are wrong
      */
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
 
@@ -34,13 +31,11 @@ interface SignatureVerificationService {
      * @param digest is used together with the [PublicKey] to infer the [SignatureSpec] to use when verifying this signature.
      * @param clearData the clear data/message that was signed (usually the Merkle root).
      *
-     * @throws InvalidKeyException if the key is invalid.
-     * @throws SignatureException  if verification fails.
-     * @throws IllegalArgumentException if any of the clear or signature data is empty or
-     * @throws net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException if the signature scheme is not supported.
-     * @throws net.corda.v5.crypto.exceptions.CryptoSignatureSpecUnsupportedException if the [SignatureSpec] cannot
+     * @throws net.corda.v5.crypto.exceptions.CryptoSignatureException if verification fails.
+     * @throws IllegalArgumentException if any of the clear or signature data is empty, key is invalid,
+     * the signature scheme is not supported, the [SignatureSpec] cannot
      * be inferred from the parameters - e.g. EdDSA supports only 'NONEwithEdDSA' signatures so if the SHA-256 will
-     * be passed as the parameter that will result in the exception.
+     * be passed as the parameter that will result in the exception or in general arguments are wrong.
      */
     fun verify(publicKey: PublicKey, digest: DigestAlgorithmName, signatureData: ByteArray, clearData: ByteArray)
 
@@ -56,9 +51,8 @@ interface SignatureVerificationService {
      *
      * @return true if verification passes or false if verification fails.
      *
-     * @throws InvalidKeyException if the key is invalid.
-     * @throws IllegalArgumentException if any of the clear or signature data is empty.
-     * @throws net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException if the signature scheme is not supported.
+     * @throws IllegalArgumentException if any of the clear or signature data is empty, key is invalid,
+     * the signature scheme is not supported or in general arguments are wrong
      */
     fun isValid(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray): Boolean
 
@@ -74,12 +68,10 @@ interface SignatureVerificationService {
      *
      * @return true if verification passes or false if verification fails.
      *
-     * @throws InvalidKeyException if the key is invalid.
-     * @throws IllegalArgumentException if any of the clear or signature data is empty or
-     * @throws net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException if the signature scheme is not supported.
-     * @throws net.corda.v5.crypto.exceptions.CryptoSignatureSpecUnsupportedException if the [SignatureSpec] cannot
+     * @throws IllegalArgumentException if any of the clear or signature data is empty, key is invalid,
+     * the signature scheme is not supported, the [SignatureSpec] cannot
      * be inferred from the parameters - e.g. EdDSA supports only 'NONEwithEdDSA' signatures so if the SHA-256 will
-     * be passed as the parameter that will result in the exception.
+     * be passed as the parameter that will result in the exception or in general arguments are wrong.
      */
     fun isValid(publicKey: PublicKey, digest: DigestAlgorithmName, signatureData: ByteArray, clearData: ByteArray): Boolean
 }

@@ -3,10 +3,10 @@ package net.corda.v5.crypto.exceptions
 import net.corda.v5.base.annotations.CordaSerializable
 
 /**
- * Signals that there is a problem with configuration, either it's missing or misconfigured.
+ * Signals that the signature verification has failed.
  */
 @CordaSerializable
-class CryptoConfigurationException : CryptoException {
+class CryptoSignatureException : CryptoException {
     constructor(message: String) : super(message)
 
     constructor(message: String, cause: Throwable?) : super(message, cause)

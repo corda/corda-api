@@ -10,16 +10,16 @@ interface KeyEncodingService {
     /**
      * Decodes public key from byte array.
      *
-     * @throws [net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException] if the key scheme is not supported.
-     * @throws [net.corda.v5.crypto.exceptions.CryptoException] for general cryptographic exceptions.
+     * @throws IllegalArgumentException if the key scheme is not supported.
+     * @throws net.corda.v5.crypto.exceptions.CryptoException for general cryptographic exceptions.
      */
     fun decodePublicKey(encodedKey: ByteArray): PublicKey
 
     /**
      * Decodes public key from PEM encoded string.
      *
-     * @throws [net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException] if the key scheme is not supported.
-     * @throws [net.corda.v5.crypto.exceptions.CryptoException] for general cryptographic exceptions.
+     * @throws IllegalArgumentException if the key scheme is not supported.
+     * @throws net.corda.v5.crypto.exceptions.CryptoException for general cryptographic exceptions.
      */
     fun decodePublicKey(encodedKey: String): PublicKey
 
@@ -27,24 +27,24 @@ interface KeyEncodingService {
      * Encodes public key to byte array.
      * The default implementation returns the [PublicKey.getEncoded]
      *
-     * @throws [net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException] if the key scheme is not supported.
-     * @throws [net.corda.v5.crypto.exceptions.CryptoException] for general cryptographic exceptions.
+     * @throws IllegalArgumentException if the key scheme is not supported.
+     * @throws net.corda.v5.crypto.exceptions.CryptoException for general cryptographic exceptions.
      */
     fun encodeAsByteArray(publicKey: PublicKey): ByteArray = publicKey.encoded
 
     /**
      * Encodes public key to PEM encoded string.
      *
-     * @throws [net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException] if the key scheme is not supported.
-     * @throws [net.corda.v5.crypto.exceptions.CryptoException] for general cryptographic exceptions.
+     * @throws IllegalArgumentException if the key scheme is not supported.
+     * @throws net.corda.v5.crypto.exceptions.CryptoException for general cryptographic exceptions.
      */
     fun encodeAsString(publicKey: PublicKey): String
 
     /**
      * Convert a public key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.
      *
-     * @throws [net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException] if the key scheme is not supported.
-     * @throws [net.corda.v5.crypto.exceptions.CryptoException] for general cryptographic exceptions.
+     * @throws IllegalArgumentException if the key scheme is not supported.
+     * @throws net.corda.v5.crypto.exceptions.CryptoException for general cryptographic exceptions.
      */
     fun toSupportedPublicKey(key: PublicKey): PublicKey
 }

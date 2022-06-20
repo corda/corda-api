@@ -18,10 +18,8 @@ import net.corda.v5.crypto.SignatureSpec
  * and exception normalisation the exceptions listed for each method bellow are as expected to be thrown by the decorators.
  *
  * The service should throw the most appropriate exception as it sees it, e.g.:
- * - [net.corda.v5.crypto.exceptions.CryptoKeyNotFoundException] if the key is not found
- * - [net.corda.v5.crypto.exceptions.CryptoKeySchemeUnsupportedException] if the key scheme is not supported
- * - [net.corda.v5.crypto.exceptions.CryptoSignatureSpecUnsupportedException] if the signature spec is not supported
- * - if the input parameters are wrong it should be [IllegalArgumentException]
+ * - [IllegalArgumentException] if the key is not found, the key scheme is not supported, the signature spec
+ * is not supported or in general the input parameters are wrong
  * - if the internal state is wrong for an operation then the most appropriate exception would be [IllegalStateException]
  * - any other what is appropriate for the condition.
  *
@@ -59,6 +57,7 @@ interface CryptoService {
      * Returns information about the generated key, could be either [GeneratedPublicKey] or [GeneratedWrappedKey]
      * depending on the generated key type.
      *
+     * @throws IllegalArgumentException the key scheme is not supported or in general the input parameters are wrong
      * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
      */
     fun generateKeyPair(
@@ -75,6 +74,8 @@ interface CryptoService {
      * @param context the optional key/value operation context. The context will have at least one variable defined -
      * 'tenantId'.
      *
+     * @throws IllegalArgumentException if the key is not found, the key scheme is not supported, the signature spec
+     * is not supported or in general the input parameters are wrong
      * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
      */
     fun sign(
@@ -93,6 +94,8 @@ interface CryptoService {
      * the provided alias or return normally without overriding the key.
      * @param context the optional key/value operation context.
      *
+     * @throws IllegalArgumentException if the [failIfExists] is set to true and the key exists
+     * @throws UnsupportedOperationException if the operation is not supported
      * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
      */
     fun createWrappingKey(
@@ -103,12 +106,16 @@ interface CryptoService {
 
     /**
      * Deletes the key corresponding to the input alias of the service supports the operations .
-     * This method doesn't throw if the alias is not found. The services which support that operation must list that
-     * in the [CryptoServiceExtensions].
+     * This method doesn't throw if the alias is not found, instead it has to return 'false'.
+     *
+     * @param alias the alias (as it stored in HSM) of the key being deleted.
      * @param context the optional key/value operation context. The context will have at least two variables defined -
      * 'tenantId' and 'keyType'.
      *
+     * @return true if the key was deleted false otherwise
+     *
+     * @throws UnsupportedOperationException if the operation is not supported
      * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
      */
-    fun delete(alias: String, context: Map<String, String>)
+    fun delete(alias: String, context: Map<String, String>): Boolean
 }

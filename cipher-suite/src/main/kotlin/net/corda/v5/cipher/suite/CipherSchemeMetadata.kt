@@ -52,7 +52,7 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     /**
      * Find the corresponding [KeyScheme] based on its [AlgorithmIdentifier]
      *
-     * @throws CryptoKeySchemeUnsupportedException if the scheme is not supported
+     * @throws IllegalArgumentException if the scheme is not supported
      */
     fun findKeyScheme(algorithm: AlgorithmIdentifier): KeyScheme
 
