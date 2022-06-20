@@ -1,6 +1,6 @@
 package net.corda.v5.ledger.obsolete.contracts;
 
-import net.corda.v5.ledger.obsolete.contracts.Amount;
+import net.corda.v5.ledger.obsolete.contracts.TokenizableAssetInfoJavaApiTest.TestAsset;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,8 +8,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Currency;
 import java.util.List;
-
-import net.corda.v5.ledger.obsolete.contracts.TokenizableAssetInfoJavaApiTest.TestAsset;
 
 public class AmountJavaApiTest {
 

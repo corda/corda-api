@@ -2,9 +2,6 @@ package net.corda.v5.ledger.obsolete.identity;
 
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.base.types.OpaqueBytes;
-import net.corda.v5.ledger.obsolete.identity.AbstractParty;
-import net.corda.v5.ledger.obsolete.identity.Party;
-import net.corda.v5.ledger.obsolete.identity.PartyAndReference;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

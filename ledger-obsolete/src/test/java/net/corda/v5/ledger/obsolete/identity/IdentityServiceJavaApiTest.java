@@ -1,9 +1,6 @@
 package net.corda.v5.ledger.obsolete.identity;
 
 import net.corda.v5.base.types.MemberX500Name;
-import net.corda.v5.ledger.obsolete.identity.AnonymousParty;
-import net.corda.v5.ledger.obsolete.identity.IdentityService;
-import net.corda.v5.ledger.obsolete.identity.Party;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

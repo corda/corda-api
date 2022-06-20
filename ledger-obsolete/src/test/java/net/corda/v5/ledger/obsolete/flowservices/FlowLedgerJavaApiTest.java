@@ -2,7 +2,6 @@ package net.corda.v5.ledger.obsolete.flowservices;
 
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.obsolete.contracts.StateRef;
-import net.corda.v5.ledger.obsolete.flowservices.FlowLedger;
 import net.corda.v5.ledger.obsolete.transactions.SignedTransaction;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

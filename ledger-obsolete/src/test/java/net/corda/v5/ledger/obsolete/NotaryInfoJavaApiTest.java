@@ -1,8 +1,6 @@
 package net.corda.v5.ledger.obsolete;
 
 import net.corda.v5.ledger.obsolete.identity.Party;
-import net.corda.v5.ledger.obsolete.NotaryInfo;
-import net.corda.v5.ledger.obsolete.identity.Party;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

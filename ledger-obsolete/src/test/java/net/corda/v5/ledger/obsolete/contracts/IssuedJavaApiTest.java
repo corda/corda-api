@@ -3,8 +3,6 @@ package net.corda.v5.ledger.obsolete.contracts;
 import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.ledger.obsolete.identity.AbstractParty;
 import net.corda.v5.ledger.obsolete.identity.PartyAndReference;
-import net.corda.v5.ledger.obsolete.contracts.Amount;
-import net.corda.v5.ledger.obsolete.contracts.Issued;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

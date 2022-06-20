@@ -1,7 +1,6 @@
 package net.corda.v5.ledger.obsolete.contracts;
 
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.obsolete.contracts.PackageIdWithDependencies;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

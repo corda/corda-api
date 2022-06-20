@@ -3,7 +3,6 @@ package net.corda.v5.ledger.obsolete.services;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.ledger.obsolete.NotaryInfo;
 import net.corda.v5.ledger.obsolete.identity.Party;
-import net.corda.v5.ledger.obsolete.services.NotaryLookupService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

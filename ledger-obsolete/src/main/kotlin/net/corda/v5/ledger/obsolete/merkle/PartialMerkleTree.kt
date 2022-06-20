@@ -6,7 +6,6 @@ import net.corda.v5.base.types.OpaqueBytes
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
-import java.util.*
 
 /**
  * Building and verification of Partial Merkle Tree.

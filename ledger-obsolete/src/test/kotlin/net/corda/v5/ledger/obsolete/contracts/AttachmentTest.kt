@@ -1,9 +1,9 @@
 package net.corda.v5.ledger.obsolete.contracts
 
+import org.junit.jupiter.api.Test
 import org.mockito.kotlin.doAnswer
 import org.mockito.kotlin.spy
 import org.mockito.kotlin.whenever
-import org.junit.jupiter.api.Test
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.OutputStream

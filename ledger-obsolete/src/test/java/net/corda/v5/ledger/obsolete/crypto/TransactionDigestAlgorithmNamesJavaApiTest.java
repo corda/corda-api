@@ -1,7 +1,5 @@
 package net.corda.v5.ledger.obsolete.crypto;
 
-import net.corda.v5.ledger.obsolete.crypto.TransactionDigestAlgorithmNames;
-import net.corda.v5.ledger.obsolete.crypto.TransactionDigestAlgorithmNamesFactory;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

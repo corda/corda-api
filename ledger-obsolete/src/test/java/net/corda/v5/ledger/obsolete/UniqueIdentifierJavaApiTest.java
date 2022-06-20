@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.obsolete;
 
-import net.corda.v5.ledger.obsolete.UniqueIdentifier;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

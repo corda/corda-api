@@ -4,7 +4,6 @@ import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.obsolete.transactions.SignedTransactionDigest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

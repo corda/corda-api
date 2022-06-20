@@ -3,8 +3,8 @@ package net.corda.v5.ledger.obsolete.merkle
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
-import net.corda.v5.crypto.getZeroHash
 import net.corda.v5.crypto.create
+import net.corda.v5.crypto.getZeroHash
 import net.corda.v5.ledger.obsolete.mocks.DigestServiceMock
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals

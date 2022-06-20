@@ -1,6 +1,8 @@
 package net.corda.v5.ledger.obsolete.services.vault
 
 import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.ledger.obsolete.services.vault.RelevancyStatus.NOT_RELEVANT
+import net.corda.v5.ledger.obsolete.services.vault.RelevancyStatus.RELEVANT
 
 /**
  * If the querying node is a participant in a state then it is classed as [RELEVANT].

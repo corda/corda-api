@@ -3,8 +3,6 @@ package net.corda.v5.ledger.obsolete.transactions;
 import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.ledger.obsolete.crypto.TransactionDigestAlgorithmNames;
 import net.corda.v5.ledger.obsolete.identity.Party;
-import net.corda.v5.ledger.obsolete.transactions.NotaryChangeLedgerTransaction;
-import net.corda.v5.ledger.obsolete.transactions.NotaryChangeWireTransaction;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

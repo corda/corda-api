@@ -4,7 +4,6 @@ package net.corda.v5.ledger.obsolete.notary;
 import net.corda.v5.application.flows.ResponderFlow;
 import net.corda.v5.application.flows.SubFlow;
 import net.corda.v5.application.messaging.FlowSession;
-import net.corda.v5.ledger.obsolete.notary.NotaryService;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,6 @@
 package net.corda.v5.ledger.obsolete.serialization;
 
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.obsolete.serialization.MissingAttachmentsException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

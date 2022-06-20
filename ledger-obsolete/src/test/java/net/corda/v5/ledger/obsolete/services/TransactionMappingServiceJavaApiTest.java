@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.obsolete.services;
 
-import net.corda.v5.ledger.obsolete.services.TransactionMappingService;
 import net.corda.v5.ledger.obsolete.transactions.LedgerTransaction;
 import net.corda.v5.ledger.obsolete.transactions.SignedTransaction;
 import net.corda.v5.ledger.obsolete.transactions.WireTransaction;

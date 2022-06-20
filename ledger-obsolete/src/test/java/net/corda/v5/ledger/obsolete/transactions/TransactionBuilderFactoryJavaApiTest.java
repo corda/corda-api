@@ -1,7 +1,5 @@
 package net.corda.v5.ledger.obsolete.transactions;
 
-import net.corda.v5.ledger.obsolete.transactions.TransactionBuilder;
-import net.corda.v5.ledger.obsolete.transactions.TransactionBuilderFactory;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

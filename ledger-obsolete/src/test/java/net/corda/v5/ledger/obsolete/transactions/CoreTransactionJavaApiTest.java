@@ -7,8 +7,6 @@ import net.corda.v5.ledger.obsolete.contracts.ContractState;
 import net.corda.v5.ledger.obsolete.contracts.ContractStateData;
 import net.corda.v5.ledger.obsolete.contracts.StateRef;
 import net.corda.v5.ledger.obsolete.identity.AbstractParty;
-import net.corda.v5.ledger.obsolete.transactions.CoreTransaction;
-import net.corda.v5.ledger.obsolete.transactions.LedgerTransaction;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;

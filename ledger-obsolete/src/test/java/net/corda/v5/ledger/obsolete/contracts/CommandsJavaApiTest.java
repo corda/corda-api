@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.obsolete.contracts;
 
-import net.corda.v5.ledger.obsolete.contracts.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

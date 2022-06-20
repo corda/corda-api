@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.obsolete.services;
 
-import net.corda.v5.ledger.obsolete.services.TransactionVerificationService;
 import net.corda.v5.ledger.obsolete.transactions.SignedTransaction;
 import net.corda.v5.ledger.obsolete.transactions.TransactionWithSignatures;
 import org.junit.jupiter.api.Test;

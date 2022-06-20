@@ -4,8 +4,6 @@ import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.obsolete.services.StatesToRecord;
-import net.corda.v5.ledger.obsolete.services.TransactionService;
 import net.corda.v5.ledger.obsolete.transactions.FilteredTransaction;
 import net.corda.v5.ledger.obsolete.transactions.SignedTransaction;
 import net.corda.v5.ledger.obsolete.transactions.TransactionBuilder;

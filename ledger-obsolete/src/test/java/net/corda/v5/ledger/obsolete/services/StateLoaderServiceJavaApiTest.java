@@ -13,7 +13,6 @@ import net.corda.v5.ledger.obsolete.contracts.StaticPointer;
 import net.corda.v5.ledger.obsolete.contracts.TransactionState;
 import net.corda.v5.ledger.obsolete.identity.AbstractParty;
 import net.corda.v5.ledger.obsolete.identity.Party;
-import net.corda.v5.ledger.obsolete.services.StateLoaderService;
 import net.corda.v5.ledger.obsolete.transactions.LedgerTransaction;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;

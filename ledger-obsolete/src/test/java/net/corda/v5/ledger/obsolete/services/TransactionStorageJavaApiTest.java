@@ -1,7 +1,6 @@
 package net.corda.v5.ledger.obsolete.services;
 
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.obsolete.services.TransactionStorage;
 import net.corda.v5.ledger.obsolete.transactions.SignedTransaction;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

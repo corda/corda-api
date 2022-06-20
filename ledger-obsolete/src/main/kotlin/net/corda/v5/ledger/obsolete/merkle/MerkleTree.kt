@@ -3,8 +3,6 @@ package net.corda.v5.ledger.obsolete.merkle
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
-import java.util.ArrayList
-import java.util.*
 
 /**
  * Creation and verification of a Merkle tree.

@@ -1,8 +1,5 @@
 package net.corda.v5.ledger.obsolete.contracts;
 
-import net.corda.v5.ledger.obsolete.contracts.Amount;
-import net.corda.v5.ledger.obsolete.contracts.AmountTransfer;
-import net.corda.v5.ledger.obsolete.contracts.SourceAndAmount;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
