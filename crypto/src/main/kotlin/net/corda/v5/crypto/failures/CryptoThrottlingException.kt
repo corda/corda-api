@@ -1,9 +1,11 @@
-package net.corda.v5.crypto.exceptions
+package net.corda.v5.crypto.failures
 
 import net.corda.v5.base.annotations.CordaSerializable
 
 /**
  * Signals that there is a throttling by a downstream service, such as HSM or any other.
+ * The exception and its concrete implementation are not designed to be passed other
+ * process boundaries (over the message bus).
  */
 @CordaSerializable
 abstract class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {

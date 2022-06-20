@@ -1,4 +1,4 @@
-package net.corda.v5.crypto.exceptions
+package net.corda.v5.crypto.failures
 
 /**
  * Strategy to handle transient faults by retrying.

@@ -19,7 +19,7 @@ interface CryptoServiceProvider<T : Any> {
      * Returns an instance of the [CryptoService].
      * @param config crypto service configuration
      *
-     * @throws [net.corda.v5.crypto.exceptions.CryptoException] for general cryptographic exceptions.
+     * @throws [net.corda.v5.crypto.failures.CryptoException] for general cryptographic exceptions.
      */
     fun getInstance(config: T): CryptoService
 }

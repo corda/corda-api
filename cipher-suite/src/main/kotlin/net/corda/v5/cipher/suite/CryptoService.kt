@@ -24,12 +24,12 @@ import net.corda.v5.crypto.SignatureSpec
  * - any other what is appropriate for the condition.
  *
  * If service encountered throttling situation and the downstream library doesn't handle that then it should throw one
- * of concrete implementations of [net.corda.v5.crypto.exceptions.CryptoThrottlingException]
- * (such as [net.corda.v5.crypto.exceptions.CryptoExponentialThrottlingException]) so the upstream service
+ * of concrete implementations of [net.corda.v5.crypto.failures.CryptoThrottlingException]
+ * (such as [net.corda.v5.crypto.failures.CryptoExponentialThrottlingException]) so the upstream service
  * can handle it appropriately.
  *
  * The following exceptions are retried - [java.util.concurrent.TimeoutException],
- * [net.corda.v5.crypto.exceptions.CryptoException] (with the isRecoverable flag set to true),
+ * [net.corda.v5.crypto.failures.CryptoException] (with the isRecoverable flag set to true),
  * some persistence exceptions like [javax.persistence.LockTimeoutException], [javax.persistence.QueryTimeoutException],
  * [javax.persistence.OptimisticLockException], [javax.persistence.PessimisticLockException] and some others.
  * Throw [java.util.concurrent.TimeoutException] only if the service want's that to be handled before
@@ -58,7 +58,7 @@ interface CryptoService {
      * depending on the generated key type.
      *
      * @throws IllegalArgumentException the key scheme is not supported or in general the input parameters are wrong
-     * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
+     * @throws net.corda.v5.crypto.failures.CryptoException, non-recoverable
      */
     fun generateKeyPair(
         spec: KeyGenerationSpec,
@@ -76,7 +76,7 @@ interface CryptoService {
      *
      * @throws IllegalArgumentException if the key is not found, the key scheme is not supported, the signature spec
      * is not supported or in general the input parameters are wrong
-     * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
+     * @throws net.corda.v5.crypto.failures.CryptoException, non-recoverable
      */
     fun sign(
         spec: SigningSpec,
@@ -96,7 +96,7 @@ interface CryptoService {
      *
      * @throws IllegalArgumentException if the [failIfExists] is set to true and the key exists
      * @throws UnsupportedOperationException if the operation is not supported
-     * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
+     * @throws net.corda.v5.crypto.failures.CryptoException, non-recoverable
      */
     fun createWrappingKey(
         masterKeyAlias: String,
@@ -115,7 +115,7 @@ interface CryptoService {
      * @return true if the key was deleted false otherwise
      *
      * @throws UnsupportedOperationException if the operation is not supported
-     * @throws net.corda.v5.crypto.exceptions.CryptoException, non-recoverable
+     * @throws net.corda.v5.crypto.failures.CryptoException, non-recoverable
      */
     fun delete(alias: String, context: Map<String, String>): Boolean
 }

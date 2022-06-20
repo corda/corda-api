@@ -1,6 +1,5 @@
-package net.corda.v5.crypto;
+package net.corda.v5.crypto.failures;
 
-import net.corda.v5.crypto.exceptions.CryptoRetryStrategy;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

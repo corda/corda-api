@@ -1,4 +1,4 @@
-package net.corda.v5.crypto.exceptions
+package net.corda.v5.crypto.failures
 
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.exceptions.CordaRuntimeException

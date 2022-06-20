@@ -1,6 +1,6 @@
-package net.corda.v5.crypto.exceptions
+package net.corda.v5.crypto.failures
 
-import net.corda.v5.crypto.exceptions.CryptoExponentialThrottlingException.Companion.DEFAULT_THROTTLE_INITIAL_BACKOFF
+import net.corda.v5.crypto.failures.CryptoExponentialRetryStrategy.Companion.DEFAULT_THROTTLE_INITIAL_BACKOFF
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
