@@ -47,6 +47,11 @@
         "logicalType": "timestamp-millis"
       },
       "doc": "Time ([Instant]) in milliseconds when the record was updated or added."
+    },
+    {
+      "name": "virtualNodeState",
+      "type": ["string"],
+      "doc": "The current maintenance state of the virtual node"
     }
   ]
 }
