@@ -16,7 +16,7 @@
     },
     {
       "name": "memberRegistrationRequest",
-      "doc": "The full registration request as received from a registering member. Optional as it may be persisted after initial processing.",
+      "doc": "The full registration request as received from a registering member.",
       "type": "net.corda.data.membership.p2p.MembershipRegistrationRequest"
     }
   ]
