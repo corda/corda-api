@@ -17,6 +17,11 @@
         "name": "RegistrationAction",
         "symbols": ["REQUEST_JOIN"]
       }
+    },
+    {
+      "name": "context",
+      "doc": "User provided context for registration",
+      "type" : "net.corda.data.KeyValuePairList"
     }
   ]
 }
