@@ -26,6 +26,3 @@ dependencies {
     testImplementation "org.assertj:assertj-core:$assertjVersion"
 }
 
-tasks.named('jar', Jar) {
-    archiveBaseName = 'corda-ledger-common'
-}
