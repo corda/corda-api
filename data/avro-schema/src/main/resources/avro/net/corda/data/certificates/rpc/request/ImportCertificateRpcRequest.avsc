@@ -10,7 +10,7 @@
       "type": "string"
     },
     {
-      "name": "certificate",
+      "name": "certificates",
       "doc": "The certificates in PEM format.",
       "type": "string"
     }
