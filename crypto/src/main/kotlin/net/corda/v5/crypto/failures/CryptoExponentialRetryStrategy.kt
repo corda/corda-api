@@ -6,7 +6,7 @@ class CryptoExponentialRetryStrategy(
     private val backoffMultiplier: Long = DEFAULT_THROTTLE_BACKOFF_MULTIPLIER
 ) : CryptoRetryStrategy {
     companion object {
-        const val DEFAULT_THROTTLE_MAX_ATTEMPTS: Int = 5
+        const val DEFAULT_THROTTLE_MAX_ATTEMPTS: Int = 6
         const val DEFAULT_THROTTLE_INITIAL_BACKOFF: Long = 1_000L
         const val DEFAULT_THROTTLE_BACKOFF_MULTIPLIER: Long = 2
     }
@@ -21,11 +21,9 @@ class CryptoExponentialRetryStrategy(
      * and then give up.
      */
     override fun getBackoff(attempt: Int, currentBackoffMillis: Long): Long =
-        if(attempt < 1 || attempt > maxAttempts) {
-            -1
-        } else if(attempt == 1) {
-            initialBackoff
-        } else {
-            currentBackoffMillis * backoffMultiplier
+        when {
+            attempt < 1 || attempt >= maxAttempts -> -1
+            attempt == 1 -> initialBackoff
+            else -> currentBackoffMillis * backoffMultiplier
         }
 }

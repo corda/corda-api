@@ -29,7 +29,7 @@ class CryptoExponentialThrottlingExceptionTests {
             "Something wrong.",
             3_000L,
             3L,
-            4,
+            5,
             RuntimeException()
         )
         var backOff = 0L
