@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "VirtualNodeCreationRequest",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "x500Name",
+      "type": "string"
+    },
+    {
+      "name": "updateActor",
+      "type": "string",
+      "doc": "ID of RPC user that requested the virtual node creation."
+    }
+  ]
+}

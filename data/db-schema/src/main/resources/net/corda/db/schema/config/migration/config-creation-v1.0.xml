@@ -241,7 +241,7 @@
             <column name="cpi_signer_summary_hash" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="node_state" type="string">
+            <column name="node_state" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <!-- audit -->
