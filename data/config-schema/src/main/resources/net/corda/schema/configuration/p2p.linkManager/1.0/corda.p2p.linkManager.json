@@ -8,10 +8,11 @@
     "maxMessageSize": {
       "description": "The maximal message size in bytes.",
       "type": "integer",
-      "default": 1000000
+      "default": 1000000,
+      "minimum": 1000
     },
     "replayAlgorithm": {
-      "description": "The maximal message size in bytes.",
+      "description": "The algorithm used to schedule messages for replay.",
       "type": "object",
       "default": {
         "constant": {
@@ -26,12 +27,14 @@
             "baseReplayPeriod": {
               "description": "The message replay period base in milliseconds.",
               "type": "integer",
-              "default": 2000
+              "default": 2000,
+              "minimum": 500
             },
             "replayPeriodCutoff": {
-              "description": "The message replay period base in milliseconds.",
+              "description": "The message replay period cutoff in milliseconds.",
               "type": "integer",
-              "default": 10000
+              "default": 10000,
+              "minimum": 500
             }
           },
           "additionalProperties": false
@@ -43,7 +46,8 @@
             "messageReplayPeriod": {
               "description": "The message replay period in milliseconds.",
               "type": "integer",
-              "default": 2000
+              "default": 2000,
+              "minimum": 500
             }
           },
           "additionalProperties": false
@@ -70,22 +74,26 @@
     "maxReplayingMessages": {
       "description": "The maximum number of replaying messages between two peers.",
       "type": "integer",
-      "default": 100
+      "default": 100,
+      "minimum": 1
     },
     "heartbeatMessagePeriod": {
       "description": "Heartbeat message period in milli seconds.",
       "type": "integer",
-      "default": 2000
+      "default": 2000,
+      "minimum": 500
     },
     "sessionTimeout": {
       "description": "Session timeout in milliseconds.",
       "type": "integer",
-      "default": 10000
+      "default": 10000,
+      "minimum": 500
     },
     "sessionsPerPeer": {
       "description": "The number of sessions between two peers.",
       "type": "integer",
-      "default": 4
+      "default": 4,
+      "minimum": 1
     }
   },
   "additionalProperties": false
