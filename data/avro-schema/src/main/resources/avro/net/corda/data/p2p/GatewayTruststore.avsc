@@ -4,6 +4,16 @@
   "namespace": "net.corda.p2p",
   "fields": [
     {
+      "doc": "The source identity's x500 name",
+      "name": "sourceIdentityX500Name",
+      "type": "string"
+    },
+    {
+      "doc": "The destination group",
+      "name": "destinationGroupId",
+      "type": "string"
+    },
+    {
       "doc": "Collection of certificates in PEM format",
       "name": "trustedCertificates",
       "type": {
