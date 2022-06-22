@@ -42,13 +42,6 @@
           "minimum": 100,
           "default": 5000
         },
-        "messageResendWindowBuffer": {
-          "description": "Buffer within which a timestamp is considered in the past, when comparing to current time",
-          "type": "integer",
-          "minimum": 10,
-          "maximum": 500,
-          "default": 100
-        },
         "heartbeatTimeout": {
           "description": "Length of time to wait when no message has been received from a counterparty before causing the session to error, in milliseconds",
           "type": "integer",
@@ -73,6 +66,13 @@
           "type": "integer",
           "minimum": 100,
           "default": 5000
+        },
+        "messageResendWindowBuffer": {
+          "description": "Buffer within which a timestamp is considered in the past, when comparing to current time",
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 500,
+          "default": 100
         },
         "maxRetries": {
           "description": "The maximum amount of times to retry a request before returning an exception to the user code.",
