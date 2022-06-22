@@ -37,6 +37,11 @@
       "doc": "ID of HSM connection. Null value means that HSM is not used."
     },
     {
+      "name": "virtualNodeState",
+      "type": ["string"],
+      "doc": "The current maintenance state of the virtual node"
+    },
+    {
       "name": "version",
       "type": "int"
     },
@@ -47,11 +52,6 @@
         "logicalType": "timestamp-millis"
       },
       "doc": "Time ([Instant]) in milliseconds when the record was updated or added."
-    },
-    {
-      "name": "virtualNodeState",
-      "type": ["string"],
-      "doc": "The current maintenance state of the virtual node"
     }
   ]
 }

@@ -204,9 +204,6 @@
             <column name="hsm_connection_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
-            <column name="virtual_node_state" type="string">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
         <addPrimaryKey columnNames="holding_identity_id" constraintName="holding_identity_pk" tableName="holding_identity"
                        schemaName="${schema.name}"/>
@@ -242,6 +239,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="cpi_signer_summary_hash" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="node_state" type="string">
                 <constraints nullable="false"/>
             </column>
             <!-- audit -->
