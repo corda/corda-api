@@ -5,7 +5,6 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.CompositeKey
 import net.corda.v5.crypto.DigitalSignature
 import net.corda.v5.crypto.SignatureSpec
-import net.corda.v5.crypto.exceptions.CryptoServiceLibraryException
 import java.security.KeyPair
 import java.security.PrivateKey
 import java.security.PublicKey
@@ -42,7 +41,8 @@ interface SigningService {
     *
     * Decodes public key from PEM encoded string.
     *
-    * @throws [CryptoServiceLibraryException] for general cryptographic exceptions.
+    * @throws IllegalArgumentException if the key scheme is not supported.
+    * @throws net.corda.v5.crypto.failures.CryptoException for general cryptographic exceptions.
     */
     @Suspendable
     fun decodePublicKey(encodedKey: String): PublicKey
