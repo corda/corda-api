@@ -5,6 +5,7 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.CompositeKey
 import net.corda.v5.crypto.DigitalSignature
 import net.corda.v5.crypto.SignatureSpec
+import net.corda.v5.crypto.exceptions.CryptoServiceLibraryException
 import java.security.KeyPair
 import java.security.PrivateKey
 import java.security.PublicKey
@@ -35,4 +36,14 @@ interface SigningService {
      */
     @Suspendable
     fun sign(bytes: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithKey
+
+    /**
+    * TODO Remove this API from C5. Added as a temporary API for testing until MGM code is fully integrated.
+    *
+    * Decodes public key from PEM encoded string.
+    *
+    * @throws [CryptoServiceLibraryException] for general cryptographic exceptions.
+    */
+    @Suspendable
+    fun decodePublicKey(encodedKey: String): PublicKey
 }
