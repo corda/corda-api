@@ -15,7 +15,7 @@ import net.corda.v5.crypto.SignatureSpec
  * Exception handling.
  *
  * As the service instances are decorated with decorators taking care of the timeout, throttling handling,
- * and exception normalisation the exceptions listed for each method bellow are as expected to be thrown by the decorators.
+ * and exception normalisation the exceptions listed for each method below are as expected to be thrown by the decorators.
  *
  * The service should throw the most appropriate exception as it sees it, e.g.:
  * - [IllegalArgumentException] if the key is not found, the key scheme is not supported, the signature spec
