@@ -6,7 +6,7 @@
   "type": "object",
   "properties": {
     "maxMessageSize": {
-      "description": "The maximal message size in bytes.",
+      "description": "The maximum message size in bytes.",
       "type": "integer",
       "default": 1000000,
       "minimum": 1000
@@ -90,7 +90,7 @@
       "minimum": 500
     },
     "sessionsPerPeer": {
-      "description": "The number of sessions between two peers.",
+      "description": "The number of actively maintained sessions between two peers.",
       "type": "integer",
       "default": 4,
       "minimum": 1
