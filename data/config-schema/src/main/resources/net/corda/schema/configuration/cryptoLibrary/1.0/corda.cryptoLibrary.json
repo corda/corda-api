@@ -63,16 +63,6 @@
           "minimum": 1,
           "default": 1
         },
-        "waitBetweenMills": {
-          "description": "Wait in between for each attempt, if the array size less than number of attempts then the last value is repeated for consequent waits.",
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "minItems": 1,
-          "default": [100]
-        },
         "attemptTimeoutMills": {
           "description": "Timeout in milliseconds for each attempt when calling the SOFT HSM, it should be kept fairly big as RSA key generation may take a few seconds in a shared computing environment, that value is copied to the corresponding HSM configuration.",
           "type": "integer",
@@ -206,7 +196,7 @@
                     "minimum": 0
                   },
                   "minItems": 1,
-                  "default": [100]
+                  "default": [200]
                 }
               },
               "additionalProperties": false
@@ -229,7 +219,7 @@
                     "minimum": 0
                   },
                   "minItems": 1,
-                  "default": [100]
+                  "default": [200]
                 }
               },
               "additionalProperties": false
@@ -252,7 +242,7 @@
                     "minimum": 0
                   },
                   "minItems": 1,
-                  "default": [100]
+                  "default": [200]
                 }
               },
               "additionalProperties": false
@@ -275,7 +265,7 @@
                     "minimum": 0
                   },
                   "minItems": 1,
-                  "default": [100]
+                  "default": [200]
                 }
               },
               "additionalProperties": false
