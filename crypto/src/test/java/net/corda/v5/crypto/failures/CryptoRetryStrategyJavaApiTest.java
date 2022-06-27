@@ -2,6 +2,8 @@ package net.corda.v5.crypto.failures;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -23,7 +25,7 @@ public class CryptoRetryStrategyJavaApiTest {
         assertNotNull(CryptoRetryStrategy.createExponentialBackoff());
         assertNotNull(CryptoRetryStrategy.createExponentialBackoff(2, 100));
         assertNotNull(CryptoRetryStrategy.createLinearBackoff());
-        assertNotNull(CryptoRetryStrategy.createBackoff(2, 100));
+        assertNotNull(CryptoRetryStrategy.createBackoff(2, List.of(100L)));
     }
 
     @Test

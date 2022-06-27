@@ -11,7 +11,7 @@ fun interface CryptoRetryStrategy {
          */
         @JvmStatic
         fun createLinearBackoff(): CryptoRetryStrategy =
-            createBackoff(3, 200L)
+            createBackoff(3, listOf(200L))
 
         /**
          * Creates default backoff array for exponential retry strategy of 6 max attempts
@@ -41,7 +41,7 @@ fun interface CryptoRetryStrategy {
          * the last values is repeated.
          */
         @JvmStatic
-        fun createBackoff(maxAttempts: Int, vararg backoff: Long): CryptoRetryStrategy {
+        fun createBackoff(maxAttempts: Int, backoff: List<Long>): CryptoRetryStrategy {
             if (backoff.isEmpty()) {
                 return Default(emptyArray())
             }

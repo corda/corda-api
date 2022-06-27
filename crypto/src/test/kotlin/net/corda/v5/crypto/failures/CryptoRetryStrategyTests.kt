@@ -21,7 +21,7 @@ class CryptoRetryStrategyTests {
 
     @Test
     fun `Should return customizes backoff`() {
-        val strategy =  createBackoff(3, 100, 200)
+        val strategy =  createBackoff(3, listOf(100, 200))
         var backoff = 0L
         backoff = strategy.getBackoff(1, backoff)
         assertEquals(100L, backoff)
@@ -33,7 +33,7 @@ class CryptoRetryStrategyTests {
 
     @Test
     fun `Should return customizes backoff with repeating value`() {
-        val strategy = createBackoff(3, 300)
+        val strategy = createBackoff(3, listOf(300))
         var backoff = 0L
         backoff = strategy.getBackoff(1, backoff)
         assertEquals(300L, backoff)
