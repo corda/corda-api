@@ -17,6 +17,22 @@ public class CryptoRetryStrategyJavaApiTest {
         assertEquals(1000, backoff);
     }
 
+    @Test
+    public void canCreateExponentialBackoff() {
+        var defaultBackoff = CryptoRetryStrategy.createExponentialBackoff();
+        assertEquals(5, defaultBackoff.length);
+        var backoff = CryptoRetryStrategy.createExponentialBackoff(2, 100);
+        assertEquals(1, backoff.length);
+    }
+
+    @Test
+    public void canCreateLinearBackoff() {
+        var defaultBackoff = CryptoRetryStrategy.createLinearBackoff();
+        assertEquals(2, defaultBackoff.length);
+        var backoff = CryptoRetryStrategy.createBackoff(2, 100);
+        assertEquals(1, backoff.length);
+    }
+
     private long callee(int attempt, long current, CryptoRetryStrategy strategy) {
         return strategy.getBackoff(attempt, current);
     }
