@@ -17,6 +17,7 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
          * and default exponential backoff of 6 max attempts with 1s, 2s, 4s, 8s and 16s wait time in between
          */
         @JvmStatic
+        @Suppress("SpreadOperator")
         fun createExponential(message: String): CryptoThrottlingException =
             CryptoThrottlingException(message, *createExponentialBackoff())
 
@@ -25,6 +26,7 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
          * and default exponential backoff of 6 max attempts with 1s, 2s, 4s, 8s and 16s wait time in between
          */
         @JvmStatic
+        @Suppress("SpreadOperator")
         fun createExponential(message: String, cause: Throwable?): CryptoThrottlingException =
             CryptoThrottlingException(message, cause, *createExponentialBackoff())
 
@@ -32,6 +34,7 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
          * Creates an instance of the exception with the message and customized exponential backoff
          */
         @JvmStatic
+        @Suppress("SpreadOperator")
         fun createExponential(message: String, maxAttempts: Int, initialBackoff: Long): CryptoThrottlingException =
             CryptoThrottlingException(message, *createExponentialBackoff(maxAttempts, initialBackoff))
 
