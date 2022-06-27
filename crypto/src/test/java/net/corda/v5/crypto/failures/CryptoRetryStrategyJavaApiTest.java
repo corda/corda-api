@@ -3,12 +3,13 @@ package net.corda.v5.crypto.failures;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CryptoRetryStrategyJavaApiTest {
     @Test
     public void canBeUsedAsLambda() {
         var backoff = callee(1, 1000, ((attempt, currentBackoffMillis) -> {
-            if(attempt == 1) {
+            if (attempt == 1) {
                 return currentBackoffMillis;
             } else {
                 return -1;
@@ -18,19 +19,16 @@ public class CryptoRetryStrategyJavaApiTest {
     }
 
     @Test
-    public void canCreateExponentialBackoff() {
-        var defaultBackoff = CryptoRetryStrategy.createExponentialBackoff();
-        assertEquals(5, defaultBackoff.length);
-        var backoff = CryptoRetryStrategy.createExponentialBackoff(2, 100);
-        assertEquals(1, backoff.length);
+    public void canCreateBackoff() {
+        assertNotNull(CryptoRetryStrategy.createExponentialBackoff());
+        assertNotNull(CryptoRetryStrategy.createExponentialBackoff(2, 100));
+        assertNotNull(CryptoRetryStrategy.createLinearBackoff());
+        assertNotNull(CryptoRetryStrategy.createBackoff(2, 100));
     }
 
     @Test
-    public void canCreateLinearBackoff() {
-        var defaultBackoff = CryptoRetryStrategy.createLinearBackoff();
-        assertEquals(2, defaultBackoff.length);
-        var backoff = CryptoRetryStrategy.createBackoff(2, 100);
-        assertEquals(1, backoff.length);
+    public void canCreateDefaultImplementationDirectly() {
+        new CryptoRetryStrategy.Default(new Long[]{100L, 200L});
     }
 
     private long callee(int attempt, long current, CryptoRetryStrategy strategy) {
