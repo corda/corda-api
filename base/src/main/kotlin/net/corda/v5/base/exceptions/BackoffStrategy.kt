@@ -1,28 +1,28 @@
 package net.corda.v5.base.exceptions
 
 /**
- * Strategy to handle transient faults by retrying.
+ * Strategy to provide backoff delays when handling transient faults by retrying.
  */
 fun interface BackoffStrategy {
     companion object {
         /**
-         * Creates default backoff array for linear retry strategy of 3 max attempts
-         * with 200 milliseconds wait time in between
+         * Creates default linear backoff strategy of 3 max attempts
+         * with 200 milliseconds wait time in between.
          */
         @JvmStatic
         fun createLinearBackoff(): BackoffStrategy =
             createBackoff(3, listOf(200L))
 
         /**
-         * Creates default backoff array for exponential retry strategy of 6 max attempts
-         * with 1s, 2s, 4s, 8s and 16s wait time in between
+         * Creates default exponential backoff strategy of 6 max attempts
+         * with 1s, 2s, 4s, 8s and 16s wait time in between.
          */
         @JvmStatic
         fun createExponentialBackoff(): BackoffStrategy =
             createExponentialBackoff(6, 1000L)
 
         /**
-         * Creates backoff array for exponential retry strategy.
+         * Creates exponential backoff strategy.
          */
         @JvmStatic
         fun createExponentialBackoff(maxAttempts: Int, initialBackoff: Long): BackoffStrategy = when {
@@ -40,8 +40,8 @@ fun interface BackoffStrategy {
         }
 
         /**
-         * Creates backoff array for linear retry strategy. If the number of attempts is less than max attempts then
-         * the last values is repeated.
+         * Creates backoff strategy. If the number of attempts is less than max attempts then
+         * the last values is repeated. If the backoff is empty then the time is set to zero.
          */
         @JvmStatic
         fun createBackoff(maxAttempts: Int, backoff: List<Long>): BackoffStrategy = when {
@@ -60,10 +60,10 @@ fun interface BackoffStrategy {
     }
 
     /**
-     * Returns the next wait period in milliseconds for the given attempt and current waiting period.
-     * The return value of -1 would mean that the operations is deemed unrecoverable so no further attempts to retry.
+     * Returns the next wait period in milliseconds for the given attempt.
+     * The return value of -1 would mean that there is no further attempts to retry.
      *
-     * @param attempt - the current attempt which failed, starts at 1
+     * @param attempt - the current attempt which failed, starts at 1.
      */
     fun getBackoff(attempt: Int): Long
 
