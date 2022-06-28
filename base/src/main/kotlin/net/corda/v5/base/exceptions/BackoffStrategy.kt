@@ -1,16 +1,16 @@
-package net.corda.v5.crypto.failures
+package net.corda.v5.base.exceptions
 
 /**
  * Strategy to handle transient faults by retrying.
  */
-fun interface CryptoRetryStrategy {
+fun interface BackoffStrategy {
     companion object {
         /**
          * Creates default backoff array for linear retry strategy of 3 max attempts
          * with 200 milliseconds wait time in between
          */
         @JvmStatic
-        fun createLinearBackoff(): CryptoRetryStrategy =
+        fun createLinearBackoff(): BackoffStrategy =
             createBackoff(3, listOf(200L))
 
         /**
@@ -18,14 +18,14 @@ fun interface CryptoRetryStrategy {
          * with 1s, 2s, 4s, 8s and 16s wait time in between
          */
         @JvmStatic
-        fun createExponentialBackoff(): CryptoRetryStrategy =
+        fun createExponentialBackoff(): BackoffStrategy =
             createExponentialBackoff(6, 1000L)
 
         /**
          * Creates backoff array for exponential retry strategy.
          */
         @JvmStatic
-        fun createExponentialBackoff(maxAttempts: Int, initialBackoff: Long): CryptoRetryStrategy = when {
+        fun createExponentialBackoff(maxAttempts: Int, initialBackoff: Long): BackoffStrategy = when {
             maxAttempts <= 1 -> Default(emptyArray())
             else -> {
                 var next = initialBackoff
@@ -44,7 +44,7 @@ fun interface CryptoRetryStrategy {
          * the last values is repeated.
          */
         @JvmStatic
-        fun createBackoff(maxAttempts: Int, backoff: List<Long>): CryptoRetryStrategy = when {
+        fun createBackoff(maxAttempts: Int, backoff: List<Long>): BackoffStrategy = when {
             maxAttempts <= 1 -> Default(emptyArray())
             backoff.isEmpty() -> createBackoff(maxAttempts, listOf(0L))
             else -> Default(
@@ -64,19 +64,18 @@ fun interface CryptoRetryStrategy {
      * The return value of -1 would mean that the operations is deemed unrecoverable so no further attempts to retry.
      *
      * @param attempt - the current attempt which failed, starts at 1
-     * @param currentBackoffMillis - the current backoff time
      */
-    fun getBackoff(attempt: Int, currentBackoffMillis: Long): Long
+    fun getBackoff(attempt: Int): Long
 
     /**
-     * Default implementation of the [CryptoRetryStrategy]
+     * Default implementation of the [BackoffStrategy]
      *
      * @property backoff defines the wait times between each attempt, the number of max attempts is backoff size plus 1.
      */
     class Default(
         private val backoff: Array<Long>
-    ) : CryptoRetryStrategy {
-        override fun getBackoff(attempt: Int, currentBackoffMillis: Long): Long =
+    ) : BackoffStrategy {
+        override fun getBackoff(attempt: Int): Long =
             if (attempt < 1 || attempt > backoff.size) {
                 -1
             } else {

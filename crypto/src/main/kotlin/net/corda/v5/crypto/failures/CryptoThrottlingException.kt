@@ -1,8 +1,9 @@
 package net.corda.v5.crypto.failures
 
 import net.corda.v5.base.annotations.CordaSerializable
-import net.corda.v5.crypto.failures.CryptoRetryStrategy.Companion.createExponentialBackoff
-import net.corda.v5.crypto.failures.CryptoRetryStrategy.Companion.createLinearBackoff
+import net.corda.v5.base.exceptions.BackoffStrategy
+import net.corda.v5.base.exceptions.BackoffStrategy.Companion.createExponentialBackoff
+import net.corda.v5.base.exceptions.BackoffStrategy.Companion.createLinearBackoff
 
 /**
  * Signals that there is a throttling by a downstream service, such as HSM or any other.
@@ -10,7 +11,7 @@ import net.corda.v5.crypto.failures.CryptoRetryStrategy.Companion.createLinearBa
  * process boundaries (over the message bus).
  */
 @CordaSerializable
-open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
+open class CryptoThrottlingException : CryptoException, BackoffStrategy {
     companion object {
         /**
          * Creates an instance of the exception with the message
@@ -48,7 +49,7 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
             CryptoThrottlingException(message, cause, createExponentialBackoff(maxAttempts, initialBackoff))
     }
 
-    private val strategy: CryptoRetryStrategy
+    private val strategy: BackoffStrategy
 
     /**
      * Creates an instance of the exception with the message
@@ -63,7 +64,7 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
      * and specified backoff, the number of max attempts would be the size of the array plus 1
      */
     constructor(message: String, vararg backoff: Long) : super(message, true) {
-        strategy = CryptoRetryStrategy.Default(backoff.toTypedArray())
+        strategy = BackoffStrategy.Default(backoff.toTypedArray())
     }
 
     /**
@@ -79,10 +80,10 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
      * and specified backoff, the number of max attempts would be the size of the array plus 1
      */
     constructor(message: String, cause: Throwable?, vararg backoff: Long) : super(message, true, cause) {
-        strategy = CryptoRetryStrategy.Default(backoff.toTypedArray())
+        strategy = BackoffStrategy.Default(backoff.toTypedArray())
     }
 
-    private constructor(message: String, cause: Throwable?, strategy: CryptoRetryStrategy) : super(
+    private constructor(message: String, cause: Throwable?, strategy: BackoffStrategy) : super(
         message,
         true,
         cause
@@ -90,6 +91,6 @@ open class CryptoThrottlingException : CryptoException, CryptoRetryStrategy {
         this.strategy = strategy
     }
 
-    override fun getBackoff(attempt: Int, currentBackoffMillis: Long): Long =
-        strategy.getBackoff(attempt, currentBackoffMillis)
+    override fun getBackoff(attempt: Int): Long =
+        strategy.getBackoff(attempt)
 }
