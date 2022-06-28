@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "VirtualNodeManagementResponseSuccess",
+  "doc": "An {@link VirtualNodeManagementRequest} has been successful.  A return type of `null` can be considered success and/or no results.  See also:  {@link VirtualNodeManagementResponseFailure} and {@link VirtualNodeManagementResponseSuccess}",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "result",
+      "doc": "Result of request, either null (success or no results), or {@link VirtualNodeInfo}",
+      "type": [
+        "net.corda.data.virtualnode.VirtualNodeInfo"
+      ]
+    }
+  ]
+}

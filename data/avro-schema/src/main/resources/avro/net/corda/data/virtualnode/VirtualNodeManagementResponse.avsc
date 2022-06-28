@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "VirtualNodeResponse",
-  "doc": "The response to an {@link VirtualNodeRequest}.  On success the {@link VirtualNodeResponse#responseType} is {@link EntityResponseSuccess}, on failure it is {@link EntityResponseFailure}",
+  "name": "VirtualNodeManagementResponse",
+  "doc": "The response to an {@link VirtualNodeRequest}.  On success the {@link VirtualNodeResponse#responseType} is {@link VirtualNodeManagementResponseSuccess}, on failure it is {@link VirtualNodeManagementResponseFailure}",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
@@ -16,8 +16,8 @@
       "name": "responseType",
       "doc": "Result of request, either a success or failure message",
       "type": [
-        "net.corda.data.virtualnode.VirtualNodeResponseSuccess",
-        "net.corda.data.virtualnode.VirtualNodeResponseFailure"
+        "net.corda.data.virtualnode.VirtualNodeManagementResponseSuccess",
+        "net.corda.data.virtualnode.VirtualNodeManagementResponseFailure"
       ]
     }
   ]
