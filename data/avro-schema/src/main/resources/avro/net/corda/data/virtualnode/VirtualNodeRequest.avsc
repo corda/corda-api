@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "VirtualNodeRequest",
+  "doc": "Make a request for some virtual node type. The action is determined by the type of the {@link VirtualNodeRequest#request} payload.  See also: {@link VirtualNodeResponse}, {@link CreateVirtualNode}, {@link VirtualNodeInfo}, {@link UpdateVirtualNodeState}",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ({@link java.time.Instant}) in milliseconds when the record was created."
+    },
+    {
+      "name": "request",
+      "doc": "The 'request' that we wish to make to the persistence API.",
+      "type": [
+        "net.corda.data.virtualnode.VirtualNodeCreate",
+        "net.corda.data.virtualnode.VirtualNodeInfo"
+      ]
+    }
+  ]
+}

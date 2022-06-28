@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "VirtualNodeCreationRequest",
+  "name": "VirtualNodeCreate",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {

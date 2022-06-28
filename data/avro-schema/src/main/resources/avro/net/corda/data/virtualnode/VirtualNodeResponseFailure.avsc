@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "VirtualNodeResponseFailure",
+  "doc": "The response when an {@link VirtualNodeRequest} has failed. The failure type may be further categorised by the {@link Error} enumeration. See also: {@link VirtualNodeResponseSuccess} and {@link VirtualNodeResponse}",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "errorType",
+      "doc": "Error type",
+      "type": {
+        "name": "Error",
+        "type": "enum",
+        "doc": "",
+        "symbols": [
+          "FATAL",
+          "NOT_READY",
+          "DATABASE",
+          "VIRTUAL_NODE"
+        ]
+      }
+    },
+    {
+      "name": "exception",
+      "doc": "Exception information",
+      "type": "net.corda.data.ExceptionEnvelope"
+    }
+  ]
+}
