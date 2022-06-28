@@ -44,6 +44,30 @@ class CryptoRetryStrategyTests {
     }
 
     @Test
+    fun `Should return customizes backoff for attempts 0 and empty list`() {
+        val strategy =  createBackoff(0, emptyList())
+        val backoff = strategy.getBackoff(1, 0L)
+        assertEquals(-1L, backoff)
+    }
+
+    @Test
+    fun `Should return customizes backoff for attempts 1 and empty list`() {
+        val strategy =  createBackoff(1, emptyList())
+        val backoff = strategy.getBackoff(1, 0L)
+        assertEquals(-1L, backoff)
+    }
+
+    @Test
+    fun `Should return customizes backoff for attempts 2 and empty list`() {
+        val strategy =  createBackoff(2, emptyList())
+        var backoff = 0L
+        backoff = strategy.getBackoff(1, backoff)
+        assertEquals(0L, backoff)
+        backoff = strategy.getBackoff(2, backoff)
+        assertEquals(-1L, backoff)
+    }
+
+    @Test
     fun `Should return default exponential backoff`() {
         val strategy = createExponentialBackoff()
         var backoff = 0L
@@ -73,5 +97,19 @@ class CryptoRetryStrategyTests {
         assertEquals(12000L, backoff)
         backoff = strategy.getBackoff(4, backoff)
         assertEquals(-1, backoff)
+    }
+
+    @Test
+    fun `Should return customizes exponential backoff for attempts 0`() {
+        val strategy =  createExponentialBackoff(0, 1000L)
+        val backoff = strategy.getBackoff(1, 0L)
+        assertEquals(-1L, backoff)
+    }
+
+    @Test
+    fun `Should return customizes exponential backoff for attempts 1`() {
+        val strategy =  createExponentialBackoff(1, 1000L)
+        val backoff = strategy.getBackoff(1, 0L)
+        assertEquals(-1L, backoff)
     }
 }

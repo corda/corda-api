@@ -25,15 +25,18 @@ fun interface CryptoRetryStrategy {
          * Creates backoff array for exponential retry strategy.
          */
         @JvmStatic
-        fun createExponentialBackoff(maxAttempts: Int, initialBackoff: Long): CryptoRetryStrategy {
-            var next = initialBackoff
-            return Default(
-                Array(maxAttempts - 1) {
-                    val current = next
-                    next *= 2
-                    current
-                }
-            )
+        fun createExponentialBackoff(maxAttempts: Int, initialBackoff: Long): CryptoRetryStrategy = when {
+            maxAttempts <= 1 -> Default(emptyArray())
+            else -> {
+                var next = initialBackoff
+                Default(
+                    Array(maxAttempts - 1) {
+                        val current = next
+                        next *= 2
+                        current
+                    }
+                )
+            }
         }
 
         /**
@@ -41,19 +44,18 @@ fun interface CryptoRetryStrategy {
          * the last values is repeated.
          */
         @JvmStatic
-        fun createBackoff(maxAttempts: Int, backoff: List<Long>): CryptoRetryStrategy {
-            if (backoff.isEmpty()) {
-                return Default(emptyArray())
-            }
-            return Default(
-                Array(maxAttempts - 1) {
-                    if (it < backoff.size) {
-                        backoff[it]
-                    } else {
-                        backoff[backoff.size - 1]
+        fun createBackoff(maxAttempts: Int, backoff: List<Long>): CryptoRetryStrategy = when {
+            maxAttempts <= 1 -> Default(emptyArray())
+            backoff.isEmpty() -> createBackoff(maxAttempts, listOf(0L))
+            else -> Default(
+                    Array(maxAttempts - 1) {
+                        if (it < backoff.size) {
+                            backoff[it]
+                        } else {
+                            backoff[backoff.size - 1]
+                        }
                     }
-                }
-            )
+                )
         }
     }
 
