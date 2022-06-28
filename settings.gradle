@@ -96,7 +96,9 @@ include 'data:avro-schema'
 include 'data:config-schema'
 include 'data:db-schema'
 include 'data:topic-schema'
-include 'ledger'
+include 'ledger-obsolete'
+include 'ledger:ledger-common'
+include 'ledger:ledger-consensual'
 include 'membership'
 include 'persistence'
 include 'serialization'
@@ -118,7 +120,8 @@ gradleEnterprise {
     }
     buildCache {
         local {
-            enabled = false
+            enabled = true
+            removeUnusedEntriesAfterDays = 14  // Garbage collect if a cache item is not used in 2 weeks.
         }
         remote(HttpBuildCache) {
             url = "${gradleEnterpriseUrl}/cache/"
@@ -132,7 +135,7 @@ gradleEnterprise {
                 enabled = true
             } else {
                 push = false
-                enabled = true
+                enabled = false
             }
         }
     }
