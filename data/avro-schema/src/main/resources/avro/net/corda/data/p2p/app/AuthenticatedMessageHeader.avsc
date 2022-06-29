@@ -25,7 +25,7 @@
       "type": "string"
     },
     {
-      "doc": "A trace identifier. The semantics of this field can vary based on the use-case of the upstream user, but it can be used to trace together multiple instances of the same message (e.g. in cases where the upstream user also performs replays, it can assign the same trace ID to all the instances of the same replayed message.)",
+      "doc": "A trace identifier. The semantics of this field can vary based on the use-case of the upstream user, but it can be used to trace together multiple instances of the same message (e.g. in cases where the upstream user also performs replays, it can assign the same trace ID to all the instances of the same replayed message).",
       "name": "traceId",
       "type": "string"
     },
