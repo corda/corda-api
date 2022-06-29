@@ -14,7 +14,7 @@
       "type": "net.corda.data.identity.HoldingIdentity"
     },
     {
-      "doc": "A (time-to-live) timestamp after which this message will be dropped from the p2p layer. If no ttl is specified, the p2p layer will continue replaying this message infinitely until it is delivered.",
+      "doc": "A (time-to-live) unix timestamp (in milliseconds) after which this message will be dropped from the p2p layer. If no ttl is specified, the p2p layer will continue replaying this message infinitely until it is delivered.",
       "name": "ttl",
       "type": ["null", "long"]
     },
