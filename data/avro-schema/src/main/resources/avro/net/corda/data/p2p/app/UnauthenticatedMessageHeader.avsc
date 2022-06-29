@@ -1,7 +1,6 @@
 {
   "type": "record",
   "name": "UnauthenticatedMessageHeader",
-  "doc": "A message that will be delivered by the p2p layer directly (without using an end-to-end session).",
   "namespace": "net.corda.p2p.app",
   "fields": [
     {
