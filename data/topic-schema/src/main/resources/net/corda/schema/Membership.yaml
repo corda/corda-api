@@ -70,3 +70,8 @@ topics:
     consumers:
     producers:
     config:
+  MembershipVerificationTopic:
+    name: membership.verification
+    consumers:
+    producers:
+    config:

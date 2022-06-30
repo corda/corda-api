@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "name": "VerificationRequest",
+  "namespace": "net.corda.data.membership.p2p",
+  "doc": "Request from MGM to verify our identity's membership data.",
+  "fields": [
+    {
+      "name": "destination",
+      "doc": "Holding identity of the member who needs to be verified.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "source",
+      "doc": "Holding identity of the MGM.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "requestId",
+      "doc": "ID of the request.",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "requestTimestamp",
+      "doc": "Time ([Instant]) in milliseconds when the request was issued.",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "payload",
+      "doc": "Request's payload.",
+      "type": "net.corda.data.KeyValuePairList"
+    }
+  ]
+}

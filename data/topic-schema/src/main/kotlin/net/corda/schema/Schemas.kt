@@ -97,6 +97,7 @@ class Schemas {
             const val MEMBERSHIP_RPC_RESPONSE_TOPIC = "membership.rpc.ops.resp"
             const val MEMBERSHIP_DB_RPC_TOPIC = "membership.db.rpc.ops"
             const val MEMBERSHIP_DB_RPC_RESPONSE_TOPIC = "membership.db.rpc.ops.resp"
+            const val MEMBERSHIP_VERIFICATION_TOPIC = "membership.verification"
 
             const val UPDATE_TOPIC = "membership.update"
             const val EVENT_TOPIC = "membership.event"

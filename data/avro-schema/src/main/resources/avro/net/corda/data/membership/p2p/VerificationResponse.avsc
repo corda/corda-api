@@ -1,0 +1,37 @@
+{
+  "type": "record",
+  "name": "VerificationResponse",
+  "namespace": "net.corda.data.membership.p2p",
+  "doc": "Response to the verification request coming from the MGM side.",
+  "fields": [
+    {
+      "name": "requestId",
+      "doc": "ID of the request.",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "requestTimestamp",
+      "doc": "Time ([Instant]) in milliseconds when the request was issued.",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "responseTimestamp",
+      "doc": "Time ([Instant]) in milliseconds when the response was issued.",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "payload",
+      "doc": "Response's payload.",
+      "type": "net.corda.data.KeyValuePairList"
+    }
+  ]
+}
