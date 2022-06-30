@@ -3,7 +3,7 @@ package net.corda.v5.crypto.merkle
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.SecureHash
 
-interface MerkleService {
+interface MerkleTreeFactory {
     fun createTree(
         leaves: List<ByteArray>,
         digestProvider: MerkleTreeHashDigestProvider
