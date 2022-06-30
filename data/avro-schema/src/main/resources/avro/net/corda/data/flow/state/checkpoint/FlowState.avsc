@@ -32,7 +32,7 @@
       "name": "flowStackItems",
       "type": {
         "type": "array",
-        "items": "net.corda.data.flow.FlowStackItem"
+        "items": "net.corda.data.flow.state.checkpoint.FlowStackItem"
       },
       "doc": "Used to track calls to sub-flows and their relationship to sessions."
     },

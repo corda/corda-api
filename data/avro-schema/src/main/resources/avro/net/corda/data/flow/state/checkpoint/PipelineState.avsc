@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "retryState",
-      "type": ["null", "net.corda.data.flow.state.RetryState"],
+      "type": ["null", "net.corda.data.flow.state.checkpoint.RetryState"],
       "default": null,
       "doc": "Optional retry information for a failed flow event. Setting this field marks the flow as retrying."
     },
