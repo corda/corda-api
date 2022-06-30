@@ -8,7 +8,8 @@
       "name": "result",
       "doc": "Result of request, either null (success or no results), or {@link VirtualNodeInfo}",
       "type": [
-        "net.corda.data.virtualnode.VirtualNodeInfo"
+        "net.corda.data.virtualnode.VirtualNodeInfo",
+        "net.corda.data.virtualnode.VirtualNodeCreateResponse"
       ]
     }
   ]
