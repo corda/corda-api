@@ -5,27 +5,11 @@
   "doc": "Response to the verification request coming from the MGM side.",
   "fields": [
     {
-      "name": "requestId",
-      "doc": "ID of the request.",
+      "name": "registrationId",
+      "doc": "ID of the registration we can associate the verification response with.",
       "type": {
         "type": "string",
         "logicalType": "uuid"
-      }
-    },
-    {
-      "name": "requestTimestamp",
-      "doc": "Time ([Instant]) in milliseconds when the request was issued.",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      }
-    },
-    {
-      "name": "responseTimestamp",
-      "doc": "Time ([Instant]) in milliseconds when the response was issued.",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
       }
     },
     {
