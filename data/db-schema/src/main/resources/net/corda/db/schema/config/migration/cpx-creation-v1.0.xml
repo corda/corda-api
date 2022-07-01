@@ -195,9 +195,6 @@
             <column name="cpk_signer_summary_hash" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="cpk_file_checksum" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
             <column name="cpk_file_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
@@ -214,7 +211,8 @@
             </column>
         </createTable>
 
-        <addPrimaryKey tableName="cpi_cpk" columnNames="cpi_name, cpi_version, cpi_signer_summary_hash, cpk_file_checksum"
+        <addPrimaryKey tableName="cpi_cpk"
+                       columnNames="cpi_name, cpi_version, cpi_signer_summary_hash, cpk_name, cpk_version, cpk_signer_summary_hash"
                        constraintName="cpi_cpk_pk" schemaName="${schema.name}"/>
 
         <addForeignKeyConstraint baseTableName="cpi_cpk" baseColumnNames="cpi_name, cpi_version, cpi_signer_summary_hash"
