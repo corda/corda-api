@@ -102,10 +102,7 @@ subprojects {
             toolchain {
                 languageVersion = of(javaVersion.majorVersion.toInteger())
             }
-
-            if (releaseType != 'GA' && releaseType != 'RC') {
-                withSourcesJar()
-            }
+            withSourcesJar()
         }
     }
 
