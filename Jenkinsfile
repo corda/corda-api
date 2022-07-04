@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0') _
+@Library('corda-shared-build-pipeline-steps@home-town-hero') _
 
 cordaPipeline(
     runIntegrationTests: false,
@@ -7,5 +7,6 @@ cordaPipeline(
     javadocJar: true,
     // always use -beta-9999999999999 for local publication as this is used for the version compatibility checks,
     //  This is a PR gate, so we want to check the "post merge" state before publication for real.
-    localPublishVersionSuffixOverride: '-beta-9999999999999'
+    localPublishVersionSuffixOverride: '-beta-9999999999999',
+    enableNotifications: false
     )
