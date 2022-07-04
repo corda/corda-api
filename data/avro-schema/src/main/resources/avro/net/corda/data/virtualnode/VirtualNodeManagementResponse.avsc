@@ -16,7 +16,8 @@
       "name": "responseType",
       "doc": "Result of request, either a success or failure message",
       "type": [
-        "net.corda.data.virtualnode.VirtualNodeManagementResponseSuccess",
+        "net.corda.data.virtualnode.VirtualNodeInfo",
+        "net.corda.data.virtualnode.VirtualNodeCreateResponse",
         "net.corda.data.virtualnode.VirtualNodeManagementResponseFailure"
       ]
     }
