@@ -5,16 +5,6 @@
   "doc": "Request from an MGM to verify a member's data supplied in the registration request.",
   "fields": [
     {
-      "name": "destination",
-      "doc": "Holding identity of the member who needs to be verified.",
-      "type": "net.corda.data.identity.HoldingIdentity"
-    },
-    {
-      "name": "source",
-      "doc": "Holding identity of the MGM.",
-      "type": "net.corda.data.identity.HoldingIdentity"
-    },
-    {
       "name": "registrationId",
       "doc": "ID of the registration we can associate the verification request with.",
       "type": {
