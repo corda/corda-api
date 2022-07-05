@@ -1,10 +1,13 @@
 package net.corda.v5.crypto.merkle
 
 import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.base.annotations.Suspendable
 
 /**
  * [MerkleTreeFactory] creates [MerkleTree]s, [MerkleProof]s and [MerkleTreeHashDigestProvider].
  */
+@DoNotImplement
 interface MerkleTreeFactory {
     /**
      * Creates a [MerkleTree]
@@ -14,6 +17,7 @@ interface MerkleTreeFactory {
      *
      * @return A new [MerkleTree] instance.
      */
+    @Suspendable
     fun createTree(
         leaves: List<ByteArray>,
         digestProvider: MerkleTreeHashDigestProvider
@@ -28,9 +32,10 @@ interface MerkleTreeFactory {
      *
      * @return A new [MerkleTreeHashDigestProvider] instance.
      */
+    @Suspendable
     fun createHashDigestProvider(
         merkleTreeHashDigestProviderName: String,
         digestAlgorithmName: DigestAlgorithmName,
-        options: HashMap<String, Any>? = null,
+        options: Map<String, Any> = emptyMap(),
     ) : MerkleTreeHashDigestProvider
 }
