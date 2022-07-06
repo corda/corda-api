@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "VirtualNodeManagementResponseFailure",
-  "doc": "The response when an {@link VirtualNodeManagementRequest} has failed. The failure type may be further categorised by the {@link Error} enumeration. See also: {@link VirtualNodeManagementResponseSuccess}",
+  "doc": "The response when an {@link VirtualNodeManagementRequest} has failed. See also: {@link VirtualNodeManagementResponseSuccess}",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {

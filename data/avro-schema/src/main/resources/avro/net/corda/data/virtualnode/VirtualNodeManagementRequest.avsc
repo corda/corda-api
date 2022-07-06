@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "VirtualNodeManagementRequest",
-  "doc": "Make a request for some virtual node type. The action is determined by the type of the {@link VirtualNodeRequest#request} payload.  See also: {@link VirtualNodeResponse}, {@link CreateVirtualNode}, {@link VirtualNodeInfo}, {@link UpdateVirtualNodeState}",
+  "doc": "Make a request for some virtual node type. The action is determined by the type of the {@link VirtualNodeRequest#request} payload.  See also: {@link VirtualNodeResponse}, {@link VirtualNodeCreateResponse}",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
