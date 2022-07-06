@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UpdateMemberAndRequestResponse",
+  "name": "UpdateMemberAndRegistrationRequestResponse",
   "namespace": "net.corda.data.membership.db.response.query",
   "doc": "Response to a successful update of member and request",
   "fields": [
