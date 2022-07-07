@@ -91,6 +91,16 @@ interface PersistenceService {
     fun <T : Any> find(entityClass: Class<T>, primaryKeys: List<Any>): List<T>
 
     /**
+     * Find all entities of the same type from the persistence context in a single transaction.
+     *
+     * @param entityClass the type of the entities to find.
+     * @return list of entities found. Empty list if none were found.
+     * @throws CordaPersistenceException if an error happens during find operation
+     */
+    @Suspendable
+    fun <R : Any, S : List<R>> findAll(entityClass: Class<R>, containerClass: Class<S>): S?
+
+    /**
      * Execute a named query in a single transaction. Casts results to the specified type [R].
      *
      * @param queryName the name of the named query registered in the persistence context.
@@ -191,3 +201,12 @@ inline fun <reified T : Any> PersistenceService.find(primaryKey: Any): T? {
 inline fun <reified T : Any> PersistenceService.find(primaryKeys: List<Any>): List<T> {
     return this.find(T::class.java, primaryKeys)
 }
+
+/**
+ * Find all entities of the same type in a single transaction.
+ *
+ * @param T the type of the entities to find.
+ * @return list of entities found. Empty list if none were found.
+ */
+inline fun <reified T : Any> PersistenceService.findAll(): List<T> = TODO()
+
