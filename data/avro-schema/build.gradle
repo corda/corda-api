@@ -43,7 +43,14 @@ sourceSets {
     }
 }
 
+def cleanAvero = tasks.register("cleanAvero", Delete) {
+    group = "codeGeneration"
+    delete generatedAvroDir
+}
+
 def generateAvro = tasks.register("generateAvro", GenerateAvroJavaTask) {
+    dependsOn cleanAvero
+    outputs.cacheIf { false }
     group = "codeGeneration"
     source("src/main/resources/avro")
     outputDir = generatedAvroDir
@@ -58,7 +65,9 @@ avro {
 // generate through Avro
 
 def generateOSGiPackageInfo = tasks.register("generateOSGiPackageInfo", Task) {
+    outputs.cacheIf { false }
     group = "codeGeneration"
+
     def packages = [] as Set<String>
     def classes = [] as Set<String>
 
