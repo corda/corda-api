@@ -34,7 +34,7 @@
               {"const": "HARD_FAIL", "title": "Opposite of SOFT_FAIL - i.e. most rigorous check. Among other things, this check requires that CRL checking URL is available on every level of certificate chain."},
               {"const": "OFF", "title": "Switch CRL check off."}
             ],
-            "default": "OFF"
+            "default": "SOFT_FAIL"
            }
           }
         },
@@ -42,12 +42,12 @@
       }
     },
     "connectionConfig": {
-      "description": "Controls the connection pool.",
+      "description": "Controls the TCP connection pool to peer gateways",
       "type": "object",
       "default": {},
       "properties": {
         "maxClientConnections": {
-          "description": "Maximum size of the connection cache.",
+          "description": "Maximum size of the connection pool.",
           "type": "integer",
           "default": 100,
           "minimum": 1,
@@ -88,8 +88,8 @@
           "minimum": 1,
           "maximum": 3000
         },
-        "maximalReconnectionDelay": {
-          "description": "The maximal time (in seconds) to delay before trying to reconnect.",
+        "maxReconnectionDelay": {
+          "description": "The maximum time (in seconds) to delay before trying to reconnect.",
           "type": "integer",
           "default": 16,
           "minimum": 1,
