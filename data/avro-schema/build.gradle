@@ -43,13 +43,13 @@ sourceSets {
     }
 }
 
-def cleanAvero = tasks.register("cleanAvero", Delete) {
+def cleanAvro = tasks.register("cleanAvro", Delete) {
     group = "codeGeneration"
     delete generatedAvroDir
 }
 
 def generateAvro = tasks.register("generateAvro", GenerateAvroJavaTask) {
-    dependsOn cleanAvero
+    dependsOn cleanAvro
     outputs.cacheIf { false }
     group = "codeGeneration"
     source("src/main/resources/avro")
