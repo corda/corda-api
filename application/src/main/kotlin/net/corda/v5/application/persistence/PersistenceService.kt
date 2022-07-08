@@ -98,7 +98,7 @@ interface PersistenceService {
      * @throws CordaPersistenceException if an error happens during find operation
      */
     @Suspendable
-    fun <R : Any> findAll(entityClass: Class<R>): List<R>
+    fun <T : Any> findAll(entityClass: Class<T>): List<T>
 
     /**
      * Execute a named query in a single transaction. Casts results to the specified type [R].
