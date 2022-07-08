@@ -8,6 +8,7 @@
     "hostAddress": {
       "description": "The host name or IP address where the HTTP server will bind.",
       "type": "string",
+      "format": "hostname",
       "default": "0.0.0.0"
     },
     "hostPort": {
