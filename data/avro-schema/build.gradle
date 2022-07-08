@@ -67,7 +67,6 @@ avro {
 def generateOSGiPackageInfo = tasks.register("generateOSGiPackageInfo", Task) {
     outputs.cacheIf { false }
     group = "codeGeneration"
-
     def packages = [] as Set<String>
     def classes = [] as Set<String>
 
