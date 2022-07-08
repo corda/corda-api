@@ -42,7 +42,7 @@
       }
     },
     "connectionConfig": {
-      "description": "Controls the TCP connection pool to peer gateways",
+      "description": "Controls the TCP connection pool to peer gateways.",
       "type": "object",
       "default": {},
       "properties": {
