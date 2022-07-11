@@ -13,22 +13,13 @@
       }
     },
     {
-      "name": "registrationStatus",
-      "doc": "Status of the registration request.",
-      "type": {
-        "type": "enum",
-        "name": "RegistrationStatus",
-        "symbols": ["SUBMITTED", "NOT_SUBMITTED"]
-      }
-    },
-    {
-      "name": "registrationProtocolVersion",
-      "doc": "Registration protocol number.",
-      "type": "int"
-    },
-    {
       "name": "memberProvidedContext",
-      "doc": "Member provided context submitted for registration.",
+      "doc": "Member provided context requested.",
+      "type": "net.corda.data.KeyValuePairList"
+    },
+    {
+      "name": "mgmProvidedContext",
+      "doc": "MGM provided context requested.",
       "type": "net.corda.data.KeyValuePairList"
     },
     {
