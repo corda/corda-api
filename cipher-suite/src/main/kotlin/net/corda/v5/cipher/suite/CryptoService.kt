@@ -2,7 +2,6 @@ package net.corda.v5.cipher.suite
 
 import net.corda.v5.cipher.suite.schemes.KeyScheme
 import net.corda.v5.crypto.SignatureSpec
-import java.security.PublicKey
 
 /**
  * Crypto service which can sign as well as create new key pairs.
@@ -125,8 +124,7 @@ interface CryptoService {
      * and [otherPublicKey], note that the key schemes of the [publicKey] and [otherPublicKey] must be the same and
      * the scheme must support the key agreement secret derivation.
      *
-     * @param publicKey the public key of the key pair
-     * @param otherPublicKey the public of the "other" party which should be used to derive the secret
+     * @param spec the operation parameters, see [SharedSecretAliasSpec] and [SharedSecretWrappedSpec]
      * @param context the optional key/value operation context. The context will have at least one variable defined -
      * 'tenantId'.
      *
@@ -139,8 +137,7 @@ interface CryptoService {
      * @throws net.corda.v5.crypto.failures.CryptoException, non-recoverable
      */
     fun deriveSharedSecret(
-        publicKey: PublicKey,
-        otherPublicKey: PublicKey,
+        spec: SharedSecretSpec,
         context: Map<String, String>
     ): ByteArray
 }
