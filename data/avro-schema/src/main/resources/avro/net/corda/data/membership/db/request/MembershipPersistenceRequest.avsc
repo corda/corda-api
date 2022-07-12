@@ -15,7 +15,9 @@
         "net.corda.data.membership.db.request.command.PersistRegistrationRequest",
         "net.corda.data.membership.db.request.command.PersistMemberInfo",
         "net.corda.data.membership.db.request.command.PersistGroupPolicyRequest",
-        "net.corda.data.membership.db.request.query.QueryMemberInfo"
+        "net.corda.data.membership.db.request.command.UpdateMemberAndRegistrationRequestToApproved",
+        "net.corda.data.membership.db.request.query.QueryMemberInfo",
+        "net.corda.data.membership.db.request.query.QueryMemberSignature"
       ],
       "doc": "Request's payload, depends on the requested operation."
     }
