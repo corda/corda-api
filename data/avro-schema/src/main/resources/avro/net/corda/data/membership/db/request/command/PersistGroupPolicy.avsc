@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "PersistGroupPolicyRequest",
+  "name": "PersistGroupPolicy",
   "namespace": "net.corda.data.membership.db.request.command",
   "doc": "Persist new group policy version.",
   "fields": [

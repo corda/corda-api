@@ -74,10 +74,10 @@
                        tableName="vnode_member_info"/>
 
         <createTable tableName="vnode_group_policy">
-            <column name="schema_version" type="INT" autoIncrement="true">
+            <column name="version" type="INT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="effective_from" type="TIMESTAMP">
+            <column name="created_at" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="properties" type="VARBINARY(1048576)">

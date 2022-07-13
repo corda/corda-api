@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "PersistGroupPolicyResponse",
-  "namespace": "net.corda.data.membership.db.response.query",
+  "namespace": "net.corda.data.membership.db.response.command",
   "doc": "Response to a persist group policy request",
   "fields": [
     {
