@@ -3,15 +3,15 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
-    <changeSet author="R3.Corda" id="dogs-creation-v1.0">
-        <createTable tableName="dog">
-            <column name="id" type="uuid">
+    <changeSet author="R3.Corda" id="cats-creation-v1.0">
+        <createTable tableName="incomingchatmessage">
+            <column name="sender" type="VARCHAR(65535)">
                 <constraints nullable="false"/>
             </column>
-            <column name="name" type="VARCHAR(255)"/>
-            <column name="birthdate" type="DATETIME"/>
-            <column name="owner" type="VARCHAR(255)"/>
+            <column name="message" type="VARCHAR(65535)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
-        <addPrimaryKey columnNames="id" constraintName="dog_id" tableName="dog"/>
+        <addPrimaryKey columnNames="sender" constraintName="chat_sender" tableName="incomingchatmessage"/>
     </changeSet>
 </databaseChangeLog>
