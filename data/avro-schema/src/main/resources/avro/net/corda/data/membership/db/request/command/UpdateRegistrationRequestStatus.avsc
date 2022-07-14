@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "registrationId",
-      "doc": "UUID identifying this registration request",
+      "doc": "UUID identifying this registration request.",
       "type": {
         "type": "string",
         "logicalType": "uuid"
@@ -14,7 +14,7 @@
     },
     {
       "name": "registrationStatus",
-      "doc": "The new status for this registration request",
+      "doc": "The new status for this registration request.",
       "type": "net.corda.data.membership.db.request.command.RegistrationStatus"
     }
   ]

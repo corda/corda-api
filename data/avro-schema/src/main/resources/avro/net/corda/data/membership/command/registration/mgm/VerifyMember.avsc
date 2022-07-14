@@ -16,7 +16,7 @@
     },
     {
       "name": "registrationId",
-      "doc": "UUID identifying the registration request",
+      "doc": "UUID identifying the registration request.",
       "type": {
         "type": "string",
         "logicalType": "uuid"
