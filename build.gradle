@@ -64,8 +64,8 @@ def releaseType = System.getenv('RELEASE_TYPE') ?: "SNAPSHOT"
 def javaVersion = VERSION_11
 
 logger.quiet("********************** CORDA BUILD **********************")
-if (JavaVersion.current() != javaVersion) {
-    throw new GradleException("The java version used ${JavaVersion.current()} is not the expected version ${javaVersion}.")
+if (!JavaVersion.current().isCompatibleWith(javaVersion)) {
+    throw new GradleException("The java version used ${JavaVersion.current()} is not compatible with the expected version ${javaVersion}.")
 }
 logger.quiet("SDK version: {}", JavaVersion.current())
 logger.quiet("JAVA HOME {}", System.getProperty("java.home"))
@@ -156,8 +156,8 @@ subprojects {
         tasks.withType(KotlinCompile).configureEach {
             kotlinOptions {
                 allWarningsAsErrors = true
-                languageVersion = '1.6'
-                apiVersion = '1.6'
+                languageVersion = '1.7'
+                apiVersion = '1.7'
                 verbose = true
                 jvmTarget = javaVersion
                 freeCompilerArgs += [
