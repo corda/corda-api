@@ -19,3 +19,7 @@ interface MerkleTreeHashDigestProvider {
     fun leafHash(index: Int, nonce: ByteArray?, bytes: ByteArray): SecureHash
     fun nodeHash(depth: Int, left: SecureHash, right: SecureHash): SecureHash
 }
+
+interface MerkleTreeHashDigestProviderWithSizeProofSupport : MerkleTreeHashDigestProvider {
+    fun getSizeProof(leaves: List<ByteArray>): MerkleProof
+}
