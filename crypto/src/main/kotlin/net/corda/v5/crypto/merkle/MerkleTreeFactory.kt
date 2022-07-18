@@ -34,8 +34,8 @@ interface MerkleTreeFactory {
      */
     @Suspendable
     fun createHashDigestProvider(
-        merkleTreeHashDigestProviderName: String,
+        merkleTreeHashDigestProviderName: MerkleTreeHashDigestProviderName,
         digestAlgorithmName: DigestAlgorithmName,
-        options: Map<String, Any> = emptyMap(),
+        options: Map<MerkleTreeHashDigestProviderOption, Any> = emptyMap(),
     ) : MerkleTreeHashDigestProvider
 }
