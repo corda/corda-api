@@ -1,14 +1,10 @@
 package net.corda.v5.application.persistence
 
-import net.corda.v5.application.persistence.query.NamedQueryFilter
-
 /**
  * Request object for making Query requests on the Persistence Service.
  *
  * @param queryName the name of the named query registered in the persistence context.
  * @param namedParameters the named parameters to be set in the named query.
- * @param postFilter the filter to be applied after named query execution.
- * @param postProcessorName the name of the post-processor that will process named query results.
  */
 data class PersistenceQueryRequest(
     /**
@@ -20,45 +16,33 @@ data class PersistenceQueryRequest(
      */
     val namedParameters: Map<String, Any>,
     /**
-     * The filter to be applied after named query execution.
+     * The index of the first result in the query to return.
+     * Default is 0.
      */
-    val postFilter: NamedQueryFilter?,
+    val offset: Int,
     /**
-     * The name of the post-processor that will process named query results.
+     * The maximum number of results to return.
+     * Default is "all records".
      */
-    val postProcessorName: String?
+    val limit: Int
 ) {
     /**
-     * Request object for making query requests on the Persistence Service
+     * Request object for making query requests on the Persistence Service without offset and limit values.
      *
      * @param queryName the name of the named query registered in the persistence context.
      * @param namedParameters the named parameters to be set in the named query.
      */
-    constructor(queryName: String, namedParameters: Map<String, Any>)
-            : this(queryName, namedParameters, null, null)
-
-    /**
-     * Request object for making query requests on the Persistence Service
-     *
-     * @param queryName the name of the named query registered in the persistence context.
-     * @param namedParameters the named parameters to be set in the named query.
-     * @param postFilter the filter to be applied after named query execution.
-     */
-    constructor(
-        queryName: String,
-        namedParameters: Map<String, Any>,
-        postFilter: NamedQueryFilter?
-    )
-            : this(queryName, namedParameters, postFilter, null)
+    constructor(queryName: String, namedParameters: Map<String, Any>) :
+        this(queryName, namedParameters, 0, Int.MAX_VALUE)
 
     class Builder(private val queryName: String, private val namedParameters: Map<String, Any>) {
-        private var postFilter: NamedQueryFilter? = null
-        private var postProcessorName: String? = null
+        private var offset: Int = 0
+        private var limit: Int = Int.MAX_VALUE
 
-        fun build() = PersistenceQueryRequest(queryName, namedParameters, postFilter, postProcessorName)
+        fun build() = PersistenceQueryRequest(queryName, namedParameters, offset, limit)
 
-        fun withPostFilter(postFilter: NamedQueryFilter): Builder = apply { this.postFilter = postFilter }
+        fun withOffset(offset: Int): Builder = apply { this.offset = offset }
 
-        fun withPostProcessor(postProcessorName: String): Builder = apply { this.postProcessorName = postProcessorName }
+        fun withLimit(limit: Int): Builder = apply { this.limit = limit }
     }
 }

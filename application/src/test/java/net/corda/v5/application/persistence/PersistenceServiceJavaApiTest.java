@@ -1,6 +1,5 @@
 package net.corda.v5.application.persistence;
 
-import net.corda.v5.application.persistence.query.NamedQueryFilter;
 import net.corda.v5.base.stream.Cursor;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -94,7 +93,7 @@ public class PersistenceServiceJavaApiTest {
     }
 
     @Test
-    public void queryWithTwo() {
+    public void queryWithDefaults() {
         when(persistenceService.query("test", Map.of("testKey", "testValue"))).thenReturn(cursor);
 
         Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"));
@@ -104,32 +103,20 @@ public class PersistenceServiceJavaApiTest {
     }
 
     @Test
-    public void queryWithThree() {
-        NamedQueryFilter namedQueryFilter = mock(NamedQueryFilter.class);
-        when(persistenceService.query("test", Map.of("testKey", "testValue"), namedQueryFilter)).thenReturn(cursor);
+    public void queryWithLimit() {
+        when(persistenceService.query("test", Map.of("testKey", "testValue"), 123)).thenReturn(cursor);
 
-        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), namedQueryFilter);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(cursor);
-    }
-
-    @Test
-    public void queryWithThreeParameters() {
-        when(persistenceService.query("test", Map.of("testKey", "testValue"), "postProcessorName")).thenReturn(cursor);
-
-        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), "postProcessorName");
+        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), 123);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(cursor);
     }
 
     @Test
-    public void queryWithFour() {
-        NamedQueryFilter namedQueryFilter = mock(NamedQueryFilter.class);
-        when(persistenceService.query("test", Map.of("testKey", "testValue"), namedQueryFilter, "postProcessorName")).thenReturn(cursor);
+    public void queryWithOffsetAndLimit() {
+        when(persistenceService.query("test", Map.of("testKey", "testValue"), 123, 456)).thenReturn(cursor);
 
-        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), namedQueryFilter, "postProcessorName");
+        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), 123, 456);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(cursor);
@@ -137,7 +124,7 @@ public class PersistenceServiceJavaApiTest {
 
     @Test
     public void queryWithPersistenceQueryRequest() {
-        PersistenceQueryRequest persistenceQueryRequest = new PersistenceQueryRequest("test", Map.of("testKey", "testValue"), null, null);
+        PersistenceQueryRequest persistenceQueryRequest = new PersistenceQueryRequest("test", Map.of("testKey", "testValue"));
         when(persistenceService.query(persistenceQueryRequest)).thenReturn(cursor);
 
         Cursor<Object> result = persistenceService.query(persistenceQueryRequest);

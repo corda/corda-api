@@ -1,6 +1,5 @@
 package net.corda.v5.application.persistence;
 
-import net.corda.v5.application.persistence.query.NamedQueryFilter;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,13 +8,11 @@ import java.util.Map;
 import static org.mockito.Mockito.mock;
 
 public class PersistenceQueryRequestJavaApiTest {
-
-    final private NamedQueryFilter namedQueryFilter = mock(NamedQueryFilter.class);
+    final private int offset = 123;
+    final private int limit = 456;
     final private PersistenceQueryRequest persistenceQueryRequest =
-            new PersistenceQueryRequest("test", Map.of("key", "value"), namedQueryFilter, "demo");
-    final private PersistenceQueryRequest persistenceQueryRequestA =
-            new PersistenceQueryRequest("test", Map.of("key", "value"), namedQueryFilter);
-    final private PersistenceQueryRequest persistenceQueryRequestB =
+            new PersistenceQueryRequest("test", Map.of("key", "value"), offset, limit);
+    final private PersistenceQueryRequest persistenceQueryRequestDefault =
             new PersistenceQueryRequest("test", Map.of("key", "value"));
 
     @Test
@@ -35,19 +32,35 @@ public class PersistenceQueryRequestJavaApiTest {
     }
 
     @Test
-    public void getPostFilter() {
-        NamedQueryFilter result = persistenceQueryRequest.getPostFilter();
+    public void getOffset() {
+        int result = persistenceQueryRequest.getOffset();
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(namedQueryFilter);
+        Assertions.assertThat(result).isEqualTo(offset);
     }
 
     @Test
-    public void getPostProcessorName() {
-        String result = persistenceQueryRequest.getPostProcessorName();
+    public void getDefaultOffset() {
+        int result = persistenceQueryRequestDefault.getOffset();
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo("demo");
+        Assertions.assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void getLimit() {
+        int result = persistenceQueryRequest.getLimit();
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(limit);
+    }
+
+    @Test
+    public void getDefaultLimit() {
+        int result = persistenceQueryRequestDefault.getLimit();
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(Integer.MAX_VALUE);
     }
 
     @Test
@@ -57,30 +70,30 @@ public class PersistenceQueryRequestJavaApiTest {
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result.getQueryName()).isEqualTo("test");
         Assertions.assertThat(result.getNamedParameters()).isEqualTo(Map.of());
-        Assertions.assertThat(result.getPostProcessorName()).isNull();
-        Assertions.assertThat(result.getPostFilter()).isNull();
+        Assertions.assertThat(result.getOffset()).isEqualTo(0);
+        Assertions.assertThat(result.getLimit()).isEqualTo(Integer.MAX_VALUE);
     }
 
     @Test
-    public void withPostFilter() {
+    public void withOffset() {
         PersistenceQueryRequest result =
-                new PersistenceQueryRequest.Builder("test", Map.of()).withPostFilter(namedQueryFilter).build();
+                new PersistenceQueryRequest.Builder("test", Map.of()).withOffset(offset).build();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result.getQueryName()).isEqualTo("test");
         Assertions.assertThat(result.getNamedParameters()).isEqualTo(Map.of());
-        Assertions.assertThat(result.getPostProcessorName()).isNull();
-        Assertions.assertThat(result.getPostFilter()).isEqualTo(namedQueryFilter);
+        Assertions.assertThat(result.getOffset()).isEqualTo(offset);
+        Assertions.assertThat(result.getLimit()).isEqualTo(Integer.MAX_VALUE);
     }
 
     @Test
-    public void withPostProcessor() {
-        PersistenceQueryRequest result = new PersistenceQueryRequest.Builder("test", Map.of()).withPostProcessor("demo").build();
+    public void withLimit() {
+        PersistenceQueryRequest result = new PersistenceQueryRequest.Builder("test", Map.of()).withLimit(limit).build();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result.getQueryName()).isEqualTo("test");
         Assertions.assertThat(result.getNamedParameters()).isEqualTo(Map.of());
-        Assertions.assertThat(result.getPostProcessorName()).isEqualTo("demo");
-        Assertions.assertThat(result.getPostFilter()).isNull();
+        Assertions.assertThat(result.getOffset()).isEqualTo(0);
+        Assertions.assertThat(result.getLimit()).isEqualTo(limit);
     }
 }
