@@ -1,6 +1,5 @@
 package net.corda.v5.application.persistence;
 
-import net.corda.v5.base.stream.Cursor;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ public class PersistenceServiceJavaApiTest {
 
     final private PersistenceService persistenceService = mock(PersistenceService.class);
     @SuppressWarnings("unchecked")
-    Cursor<Object> cursor = mock(Cursor.class);
+    List<Object> result = mock(List.class);
 
     @Test
     public void persist() {
@@ -94,54 +93,54 @@ public class PersistenceServiceJavaApiTest {
 
     @Test
     public void queryWithDefaults() {
-        when(persistenceService.query("test", Map.of("testKey", "testValue"))).thenReturn(cursor);
+        when(persistenceService.query("test", Map.of("testKey", "testValue"))).thenReturn(result);
 
-        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"));
+        List<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"));
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(cursor);
+        Assertions.assertThat(result).isEqualTo(this.result);
     }
 
     @Test
     public void queryWithLimit() {
-        when(persistenceService.query("test", Map.of("testKey", "testValue"), 123)).thenReturn(cursor);
+        when(persistenceService.query("test", Map.of("testKey", "testValue"), 123)).thenReturn(result);
 
-        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), 123);
+        List<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), 123);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(cursor);
+        Assertions.assertThat(result).isEqualTo(this.result);
     }
 
     @Test
     public void queryWithOffsetAndLimit() {
-        when(persistenceService.query("test", Map.of("testKey", "testValue"), 123, 456)).thenReturn(cursor);
+        when(persistenceService.query("test", Map.of("testKey", "testValue"), 123, 456)).thenReturn(result);
 
-        Cursor<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), 123, 456);
+        List<Object> result = persistenceService.query("test", Map.of("testKey", "testValue"), 123, 456);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(cursor);
+        Assertions.assertThat(result).isEqualTo(this.result);
     }
 
     @Test
     public void queryWithPersistenceQueryRequest() {
         PersistenceQueryRequest persistenceQueryRequest = new PersistenceQueryRequest("test", Map.of("testKey", "testValue"));
-        when(persistenceService.query(persistenceQueryRequest)).thenReturn(cursor);
+        when(persistenceService.query(persistenceQueryRequest)).thenReturn(result);
 
-        Cursor<Object> result = persistenceService.query(persistenceQueryRequest);
+        List<Object> result = persistenceService.query(persistenceQueryRequest);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(cursor);
+        Assertions.assertThat(result).isEqualTo(this.result);
     }
 
     @Test
     public void queryWithPersistenceQueryRequestBuilder() {
         PersistenceQueryRequest.Builder builder = new PersistenceQueryRequest.Builder("test", Map.of("testKey", "testValue'"));
         PersistenceQueryRequest persistenceQueryRequest = builder.build();
-        when(persistenceService.query(persistenceQueryRequest)).thenReturn(cursor);
+        when(persistenceService.query(persistenceQueryRequest)).thenReturn(result);
 
-        Cursor<Object> result = persistenceService.query(persistenceQueryRequest);
+        List<Object> result = persistenceService.query(persistenceQueryRequest);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(cursor);
+        Assertions.assertThat(result).isEqualTo(this.result);
     }
 }

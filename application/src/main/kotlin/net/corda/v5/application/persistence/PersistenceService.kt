@@ -2,7 +2,6 @@ package net.corda.v5.application.persistence
 
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.base.stream.Cursor
 import net.corda.v5.persistence.CordaPersistenceException
 
 /**
@@ -105,14 +104,14 @@ interface PersistenceService {
      * @param queryName the name of the named query registered in the persistence context.
      * @param namedParameters the named parameters to be set in the named query.
      * @param R the type of the results.
-     * @return Cursor configured to poll data for this named query.
+     * @return list of entities found. Empty list if none were found.
      * @throws CordaPersistenceException if an error happens during query operation
      */
     @Suspendable
     fun <R> query(
         queryName: String,
         namedParameters: Map<String, Any>
-    ): Cursor<R>
+    ): List<R>
 
     /**
      * Execute a named query in a single transaction and limit the number of returned results. Casts results to the specified type [R].
@@ -121,7 +120,7 @@ interface PersistenceService {
      * @param namedParameters the named parameters to be set in the named query.
      * @param R the type of the results.
      * @param limit the maximum number of results to return.
-     * @return Cursor configured to poll data for this named query.
+     * @return list of entities found. Empty list if none were found.
      * @throws CordaPersistenceException if an error happens during query operation
      */
     @Suspendable
@@ -129,7 +128,7 @@ interface PersistenceService {
         queryName: String,
         namedParameters: Map<String, Any>,
         limit: Int,
-    ): Cursor<R>
+    ): List<R>
 
     /**
      * Execute a named query in a single transaction, skip results to the specified [offset] and limit the number of returned results. Casts results to the specified type [R].
@@ -139,7 +138,7 @@ interface PersistenceService {
      * @param R the type of the results.
      * @param offset the index of the first result in the query to return.
      * @param limit the maximum number of results to return.
-     * @return Cursor configured to poll data for this named query.
+     * @return list of entities found. Empty list if none were found.
      * @throws CordaPersistenceException if an error happens during query operation
      */
     @Suspendable
@@ -148,18 +147,18 @@ interface PersistenceService {
         namedParameters: Map<String, Any>,
         offset: Int,
         limit: Int,
-    ): Cursor<R>
+    ): List<R>
 
     /**
      * Execute a named query in a single transaction with optional offset and limit applied to the results. Casts results to the specified type [R].
      *
      * @param persistenceQueryRequest the request containing information to execute named queries with optional filtering and post-processing
      * @param R the type of the results
-     * @return Cursor configured to poll data for this named query.
+     * @return list of entities found. Empty list if none were found.
      * @throws CordaPersistenceException if an error happens during query operation
      */
     @Suspendable
-    fun <R> query(persistenceQueryRequest: PersistenceQueryRequest): Cursor<R>
+    fun <R> query(persistenceQueryRequest: PersistenceQueryRequest): List<R>
 }
 
 /**
