@@ -4,23 +4,5 @@
   "namespace": "net.corda.data.membership.command.registration.mgm",
   "doc": "Command issued when a member registration request has been validated and the MGM must communication with the member for verify information provided.",
   "fields": [
-    {
-      "name": "destination",
-      "doc": "Holding identity of the registering member.",
-      "type": "net.corda.data.identity.HoldingIdentity"
-    },
-    {
-      "name": "source",
-      "doc": "Holding identity of the MGM.",
-      "type": "net.corda.data.identity.HoldingIdentity"
-    },
-    {
-      "name": "registrationId",
-      "doc": "UUID identifying the registration request.",
-      "type": {
-        "type": "string",
-        "logicalType": "uuid"
-      }
-    }
   ]
 }
