@@ -5,44 +5,9 @@
   "doc": "MGM Group Policy Response",
   "fields": [
     {
-      "name": "fileFormatVersion",
-      "doc": "File Format Version",
-      "type": "int"
-    },
-    {
-      "name": "groupId",
-      "doc": "Group Id",
+      "name": "groupPolicy",
+      "doc": "The full group policy JSON string.",
       "type": "string"
-    },
-    {
-      "name": "registrationProtocol",
-      "doc": "Registration Protocol",
-      "type": "string"
-    },
-    {
-      "name": "synchronisationProtocol",
-      "doc": "Synchronisation Protocol",
-      "type": "string"
-    },
-    {
-      "name": "protocolParameters",
-      "doc": "Protocol Parameters",
-      "type": "net.corda.data.KeyValuePairList"
-    },
-    {
-      "name": "p2pParameters",
-      "doc": "P2P Parameters",
-      "type": "net.corda.data.KeyValuePairList"
-    },
-    {
-      "name": "mgmInfo",
-      "doc": "MGM Info",
-      "type": "net.corda.data.KeyValuePairList"
-    },
-    {
-      "name": "cipherSuite",
-      "doc": "Cipher Suite",
-      "type": "net.corda.data.KeyValuePairList"
     }
   ]
 }
