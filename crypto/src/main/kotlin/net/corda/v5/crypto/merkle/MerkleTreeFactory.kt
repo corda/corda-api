@@ -10,7 +10,7 @@ import net.corda.v5.base.annotations.Suspendable
 const val HASH_DIGEST_PROVIDER_DEFAULT_NAME = "DefaultHashDigestProvider"
 
 /**
- * A merkle tree digest that one-way derives a set of per-leaf nonces from a 16-byte entropy input. The nonces are
+ * A merkle tree digest that one-way derives a set of per-leaf nonces from a 32-byte entropy input. The nonces are
  * pre-hashed with the leaf data before forming a standard merkle tree.
  * This allows low entropy inputs to be used in the merkle tree.
  * Requires [HASH_DIGEST_PROVIDER_ENTROPY_OPTION]
