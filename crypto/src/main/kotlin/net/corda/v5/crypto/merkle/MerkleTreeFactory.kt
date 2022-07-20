@@ -40,17 +40,17 @@ const val HASH_DIGEST_PROVIDER_NONCE_SIZE_ONLY_VERIFY_NAME = "NonceHashDigestPro
 const val HASH_DIGEST_PROVIDER_TWEAKABLE_NAME = "TweakableHashDigestProvider"
 
 /**
- * Tweakable hash digest providers require a ByteArray leaf prefix option.
+ * Tweakable hash digest providers require a non-empty ByteArray leaf prefix option.
  */
 const val HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION = "leafPrefix"
 
 /**
- * Tweakable hash digest providers require a ByteArray node prefix option.
+ * Tweakable hash digest providers require a non-empty ByteArray node prefix option.
  */
 const val HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION = "nodePrefix"
 
 /**
- * Nonce hash digest providers require a ByteArray entropy option.
+ * Nonce hash digest providers require a 32 bytes long ByteArray entropy option.
  */
 const val HASH_DIGEST_PROVIDER_ENTROPY_OPTION = "entropy"
 
