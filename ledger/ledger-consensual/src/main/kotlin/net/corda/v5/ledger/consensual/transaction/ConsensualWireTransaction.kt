@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.consensual.transaction
 
+import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.crypto.merkle.HASH_DIGEST_PROVIDER_TWEAKABLE_NAME
@@ -9,6 +10,7 @@ import java.security.PublicKey
 import java.time.Instant
 
 @DoNotImplement
+@CordaSerializable
 interface ConsensualWireTransaction {
     val id: SecureHash
     val privacySalt: PrivacySalt
