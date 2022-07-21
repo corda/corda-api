@@ -139,6 +139,15 @@ interface PersistenceService {
      *      .setOffset(200)
      * // execute the query and return the results as a List
      * List<Dog> result = pagedQuery.execute();
+     *
+     * // create a named query setting parameters as Map, that returns the second page of up to 100 records
+     * ParameterisedQuery<Dog> paramQuery = persistenceService
+     *      .query("find_by_name_and_age", Dog.class)
+     *      .setParameters(Map.of("name", "Felix", "maxAge", 5))
+     *      .setLimit(100)
+     *      .setOffset(200)
+     * // execute the query and return the results as a List
+     * List<Dog> result = pagedQuery.execute();
      * ```
      * @param queryName the name of the named query registered in the persistence context.
      * @param entityClass the type of the entities to find.
