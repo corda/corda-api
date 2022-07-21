@@ -89,7 +89,18 @@ interface PersistenceService {
     fun <T : Any> find(entityClass: Class<T>, primaryKeys: List<Any>): List<T>
 
     /**
-     * Find all entities of the same type from the persistence context in a single transaction.
+     * Create a [PagedQuery] to find all entities of the same type from the persistence context in a single transaction.
+     *
+     * Example usage:
+     * ```java
+     * // create a query that returns the second page of up to 100 Dog objects:
+     * PagedQuery<Dog> pagedQuery = persistenceService
+     *      .findAll(Dog.class)
+     *      .setLimit(100)
+     *      .setOffset(200)
+     * // execute the query and return the results as a List
+     * List<Foo> result = pagedQuery.execute();
+     * ```
      *
      * @param entityClass the type of the entities to find.
      * @return a [PagedQuery] that returns the list of entities found.
@@ -99,8 +110,36 @@ interface PersistenceService {
     fun <T : Any> findAll(entityClass: Class<T>): PagedQuery<T>
 
     /**
-     * Execute a named query in a single transaction. Casts results to the specified type [T].
+     * Create a [ParameterisedQuery] to support a named query to return a list of entities of the given type in a single transaction. Casts results to the specified type [T].
+     * Example usage:
+     * ```java
+     * // For JPA Entity:
+     * @CordaSerializable
+     * @Entity
+     * @Table(name="DOGS")
+     * @NamedQuery(name="find_by_name_and_age", query="SELECT d FROM Dog d WHERE d.name = :name AND d.age <= :maxAge")
+     * public class Dog {
+     *  @Id
+     *  private UUID id;
+     *  @Column(name="DOG_NAME", length=50, nullable=false, unique=false)
+     *  private String name;
+     *  @Column(name="DOG_AGE")
+     *  private Int age;
      *
+     * // getters and setters
+     * ...
+     * }
+     *
+     * // create a named query setting parameters one-by-one, that returns the second page of up to 100 records
+     * ParameterisedQuery<Dog> paramQuery = persistenceService
+     *      .query("find_by_name_and_age", Dog.class)
+     *      .setParameter("name", "Felix")
+     *      .setParameter("maxAge", 5)
+     *      .setLimit(100)
+     *      .setOffset(200)
+     * // execute the query and return the results as a List
+     * List<Dog> result = pagedQuery.execute();
+     * ```
      * @param queryName the name of the named query registered in the persistence context.
      * @param entityClass the type of the entities to find.
      * @param T the type of the results.
