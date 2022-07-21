@@ -5,6 +5,7 @@ import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.merkle.MerkleTreeFactory
 import net.corda.v5.ledger.common.transactions.PrivacySalt
 import net.corda.v5.ledger.consensual.ConsensualState
+import net.corda.v5.ledger.consensual.Party
 import java.security.PublicKey
 import java.security.SecureRandom
 import java.time.Instant
@@ -16,9 +17,6 @@ interface ConsensualTransactionBuilder {
 
     val timeStamp: Instant?
     fun withTimeStamp(timeStamp: Instant): ConsensualTransactionBuilder
-
-    val requiredSigners: List<PublicKey>
-    fun withRequiredSigner(requiredSigner: PublicKey) : ConsensualTransactionBuilder
 
     val consensualStates: List<ConsensualState>
     fun withConsensualState(consensualState: ConsensualState) : ConsensualTransactionBuilder
