@@ -8,6 +8,7 @@ package net.corda.v5.application.persistence
 interface PagedQuery<R> : Query<R> {
     /**
      * Set the maximum number of results to return.
+     * If no limit is set, all records will be returned.
      *
      * @param limit maximum number of results to return.
      * @return the same [Query] instance.
@@ -16,6 +17,7 @@ interface PagedQuery<R> : Query<R> {
 
     /**
      * Set the index of the first result in the query to return.
+     * A default of `0` will be used in case it is not set.
      *
      * @param offset the index of the first result in the query to return.
      * @return the same [Query] instance.
