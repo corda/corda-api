@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.consensual.transaction
 
+import net.corda.v5.application.serialization.SerializationService
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.merkle.MerkleTreeFactory
@@ -24,6 +25,7 @@ interface ConsensualTransactionBuilder {
     fun build(
         merkleTreeFactory: MerkleTreeFactory,
         digestService: DigestService,
-        secureRandom: SecureRandom
+        secureRandom: SecureRandom,
+        serializer: SerializationService
     ): ConsensualWireTransaction
 }
