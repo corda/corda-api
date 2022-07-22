@@ -5,11 +5,6 @@
   "doc": "Membership data package which will be distributed on the wire across members.",
   "fields": [
     {
-      "name": "viewOwningMember",
-      "doc": "Holding identity of the member owning the data view.",
-      "type": "net.corda.data.identity.HoldingIdentity"
-    },
-    {
       "name": "distributionType",
       "doc": "Distribution type for this data package. Could be a standard MGM update, or a response to a requested synchronisation.",
       "type": {
