@@ -5,7 +5,7 @@
   "doc": "Request to generate new wrapped key (fresh key) pair.",
   "fields": [
     {
-      "name": "configId",
+      "name": "workerSetId",
       "type": "string",
       "doc": "The HSM's configuration id which the key is generated in."
     },
