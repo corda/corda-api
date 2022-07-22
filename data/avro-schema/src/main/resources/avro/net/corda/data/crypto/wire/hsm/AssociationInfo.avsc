@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "AssociationInfo",
+  "namespace": "net.corda.data.crypto.wire.hsm",
+  "doc": "Defines information for HSM association.",
+  "fields": [
+    {
+      "name": "workerSetId",
+      "type": "string",
+      "doc": "Worker set id which handles the keys for this association."
+    },
+    {
+      "name": "deprecatedAt",
+      "type": "long",
+      "doc": "If greater than 0 - when the association was deprecated."
+    }
+  ]
+}
