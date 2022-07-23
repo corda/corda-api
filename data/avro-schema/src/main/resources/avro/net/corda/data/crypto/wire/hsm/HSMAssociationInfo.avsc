@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "AssociationInfo",
+  "name": "HSMAssociationInfo",
   "namespace": "net.corda.data.crypto.wire.hsm",
   "doc": "Defines information for HSM association.",
   "fields": [
