@@ -47,7 +47,7 @@
         <addPrimaryKey  columnNames="id"
                         tableName="crypto_hsm_association"
                         constraintName="crypto_hsm_association_pk"/>
-        <addUniqueConstraint columnNames="tenant_id, config_id"
+        <addUniqueConstraint columnNames="tenant_id, worker_set_id"
                              tableName="crypto_hsm_association"
                              constraintName="crypto_hsm_association_uc"/>
 
