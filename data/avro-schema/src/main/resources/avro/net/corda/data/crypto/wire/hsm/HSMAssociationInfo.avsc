@@ -5,9 +5,9 @@
   "doc": "Defines information for HSM association.",
   "fields": [
     {
-      "name": "workerSetId",
+      "name": "hsmId",
       "type": "string",
-      "doc": "Worker set id which handles the keys for this association."
+      "doc": "HSM id which handles the keys for this association."
     },
     {
       "name": "deprecatedAt",
