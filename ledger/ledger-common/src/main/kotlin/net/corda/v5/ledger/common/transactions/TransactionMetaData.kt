@@ -12,5 +12,5 @@ import net.corda.v5.base.annotations.DoNotImplement
 interface TransactionMetaData {
     val ledgerModel: String
     val ledgerVersion: String
-    val CpkIdentifiers: List<CpkIdentifier>
+    val cpkIdentifiers: List<CpkIdentifier>
 }
