@@ -87,7 +87,7 @@
     {
       "name": "virtualNodeState",
       "type": "string",
-      "doc": "The current maintenance state of the virtual node"
+      "doc": "The current maintenance state of the virtual node."
     }
   ]
 }
