@@ -3,6 +3,7 @@ package net.corda.v5.ledger.common.transactions
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
+import kotlin.reflect.KClass
 
 @DoNotImplement
 @CordaSerializable
@@ -12,4 +13,6 @@ interface WireTransaction {
     val componentGroupLists: List<List<ByteArray>>
 
     fun getComponentGroupList(componentGroupId: Int): List<ByteArray>
+
+    fun getWrapperLedgerTransactionClass(): String
 }
