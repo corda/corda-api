@@ -12,5 +12,5 @@ interface Party {
     val name: MemberX500Name
     val owningKey: PublicKey
 
-    fun description() = "$name (owningKey = ${owningKey.toStringShort()})"
+    val description: String get() = "$name (owningKey = ${owningKey.toStringShort()})"
 }
