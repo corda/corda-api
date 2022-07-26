@@ -40,9 +40,6 @@
             <column name="master_key_alias" type="VARCHAR(30)">
                 <constraints nullable="true"/>
             </column>
-            <column name="alias_secret" type="VARBINARY(1048576)">
-                <constraints nullable="true"/>
-            </column>
         </createTable>
         <addPrimaryKey  columnNames="id"
                         tableName="crypto_hsm_association"
