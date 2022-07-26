@@ -4,6 +4,7 @@ import net.corda.v5.application.serialization.SerializationService
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.merkle.MerkleTreeFactory
+import net.corda.v5.ledger.common.transactions.WireTransaction
 import net.corda.v5.ledger.consensual.ConsensualState
 import java.security.SecureRandom
 import java.time.Instant
@@ -24,5 +25,5 @@ interface ConsensualTransactionBuilder {
         digestService: DigestService,
         secureRandom: SecureRandom,
         serializer: SerializationService
-    ): ConsensualWireTransaction
+    ): WireTransaction
 }
