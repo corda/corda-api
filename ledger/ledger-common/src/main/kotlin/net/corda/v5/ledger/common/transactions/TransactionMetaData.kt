@@ -3,14 +3,10 @@ package net.corda.v5.ledger.common.transactions
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 
-/**
- * TODO(Design question: Maybe just a simple map to make future changes easier?, Or just adding an options map to it?)
- */
-
 @DoNotImplement
 @CordaSerializable
-interface TransactionMetaData {
-    val ledgerModel: String
-    val ledgerVersion: String
-    val cpkIdentifiers: List<CpkIdentifier>
-}
+interface TransactionMetaData : Map<String, Any>
+
+const val TRANSACTION_META_DATA_LEDGER_MODEL_KEY = "ledgerModel"
+const val TRANSACTION_META_DATA_LEDGER_VERSION_KEY = "ledgerVersion"
+const val TRANSACTION_META_DATA_CPK_IDENTIFIERS_KEY = "cpkIdentifiers"

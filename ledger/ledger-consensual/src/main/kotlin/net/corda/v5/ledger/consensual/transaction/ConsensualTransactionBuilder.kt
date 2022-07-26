@@ -11,9 +11,6 @@ import java.time.Instant
 
 @DoNotImplement
 interface ConsensualTransactionBuilder {
-    val metadata: ConsensualTransactionMetaData?
-    fun withMetadata(metadata: ConsensualTransactionMetaData): ConsensualTransactionBuilder
-
     val timeStamp: Instant?
     fun withTimeStamp(timeStamp: Instant): ConsensualTransactionBuilder
 

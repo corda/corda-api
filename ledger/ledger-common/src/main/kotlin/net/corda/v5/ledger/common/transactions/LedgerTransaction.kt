@@ -10,4 +10,5 @@ interface LedgerTransaction {
     val id: SecureHash
     val privacySalt: PrivacySalt
     val wireTransaction: WireTransaction
+    val metadata: TransactionMetaData
 }
