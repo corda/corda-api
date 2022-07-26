@@ -28,5 +28,5 @@ dependencies {
 
     testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
-    testImplementation "org.assertj:assertj-core:$assertjVersion"
+    testImplementation "org.assertj:assertj-core:$assertjVersion" // modified
 }
