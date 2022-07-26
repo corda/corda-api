@@ -4,10 +4,7 @@ import net.corda.v5.application.serialization.SerializationService
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.merkle.MerkleTreeFactory
-import net.corda.v5.ledger.common.transactions.PrivacySalt
 import net.corda.v5.ledger.consensual.ConsensualState
-import net.corda.v5.ledger.consensual.Party
-import java.security.PublicKey
 import java.security.SecureRandom
 import java.time.Instant
 
