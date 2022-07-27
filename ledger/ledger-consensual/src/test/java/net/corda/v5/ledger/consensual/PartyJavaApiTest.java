@@ -36,9 +36,9 @@ public class PartyJavaApiTest {
     @Test
     public void description() {
         String test = "test";
-        when(party.description()).thenReturn(test);
+        when(party.getDescription()).thenReturn(test);
 
-        String result = party.description();
+        String result = party.getDescription();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(test);
