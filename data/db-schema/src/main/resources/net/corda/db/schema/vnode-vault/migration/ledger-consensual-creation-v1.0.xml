@@ -12,7 +12,7 @@
             <column name="privacy_salt" type="VARBINARY(64)">
                 <constraints nullable="false"/>
             </column>
-            <column name="account_id" type="BIGINT">
+            <column name="account_id" type="VARCHAR(64)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
@@ -46,6 +46,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <addPrimaryKey columnNames="transaction_id, signature_idx"
+                       constraintName="consensual_transaction_signature_pkey"
+                       tableName="consensual_transaction_signature"/>
 
         <createTable tableName="consensual_transaction_component">
             <column name="transaction_id" type="BIGINT">
@@ -55,6 +58,12 @@
                 <constraints nullable="false"/>
             </column>
             <column name="leaf_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hash" type="VARCHAR(64)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
