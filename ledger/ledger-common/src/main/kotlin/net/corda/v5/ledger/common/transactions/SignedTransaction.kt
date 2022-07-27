@@ -1,10 +1,12 @@
 package net.corda.v5.ledger.common.transactions
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
+import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import java.security.PublicKey
 
 @DoNotImplement
+@CordaSerializable
 interface SignedTransaction {
     val wireTransaction: WireTransaction
     val ledgerTransaction: LedgerTransaction //TODO(do we need this? Or rather delegate some properties through?)
