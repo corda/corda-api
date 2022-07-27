@@ -5,7 +5,10 @@ import net.corda.v5.base.annotations.DoNotImplement
 
 @DoNotImplement
 @CordaSerializable
-interface TransactionMetaData : Map<String, Any>
+interface TransactionMetaData{
+    operator fun get(key: String): Any?
+    val entries: Set<Map.Entry<String, Any>>
+}
 
 const val TRANSACTION_META_DATA_LEDGER_MODEL_KEY = "ledgerModel"
 const val TRANSACTION_META_DATA_LEDGER_VERSION_KEY = "ledgerVersion"
