@@ -13,5 +13,5 @@ interface WireTransaction {
 
     fun getComponentGroupList(componentGroupId: Int): List<ByteArray>
 
-    fun getWrapperLedgerTransactionClass(): String
+    fun getWrappedLedgerTransactionClassName(): String
 }
