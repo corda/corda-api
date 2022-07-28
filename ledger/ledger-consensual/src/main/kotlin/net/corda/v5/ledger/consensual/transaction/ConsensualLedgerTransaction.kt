@@ -9,5 +9,4 @@ import java.time.Instant
 interface ConsensualLedgerTransaction: LedgerTransaction {
     val timestamp: Instant
     val consensualStates: List<ConsensualState>
-    val consensualStateTypes: List<String>
 }
