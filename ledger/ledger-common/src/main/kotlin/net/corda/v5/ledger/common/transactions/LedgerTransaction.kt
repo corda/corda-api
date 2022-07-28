@@ -8,6 +8,5 @@ import java.security.PublicKey
 interface LedgerTransaction {
     val id: SecureHash
     val wireTransaction: WireTransaction
-    val metadata: TransactionMetaData
     val requiredSigningKeys: List<PublicKey>
 }
