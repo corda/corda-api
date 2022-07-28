@@ -8,8 +8,10 @@ import net.corda.v5.base.annotations.DoNotImplement
 interface TransactionMetaData{
     operator fun get(key: String): Any?
     val entries: Set<Map.Entry<String, Any>>
-}
 
-const val TRANSACTION_META_DATA_LEDGER_MODEL_KEY = "ledgerModel"
-const val TRANSACTION_META_DATA_LEDGER_VERSION_KEY = "ledgerVersion"
-const val TRANSACTION_META_DATA_CPK_IDENTIFIERS_KEY = "cpkIdentifiers"
+    companion object {
+        const val LEDGER_MODEL_KEY = "ledgerModel"
+        const val LEDGER_VERSION_KEY = "ledgerVersion"
+        const val CPK_IDENTIFIERS_KEY = "cpkIdentifiers"
+    }
+}
