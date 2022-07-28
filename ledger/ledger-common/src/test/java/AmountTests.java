@@ -121,5 +121,12 @@ public class AmountTests {
         Assertions.assertThat(amount.getQuantity()).isEqualTo(BigInteger.valueOf(12345));
         Assertions.assertThat(amount.getItem()).isEqualTo(currency);
     }
+
+    public void blazh() {
+        Currency currency = Currency.getInstance("GBP");
+        Amount<Currency> amount = Amount.fromCurrency(BigDecimal.valueOf(123.45), currency);
+
+        amount.toBigDecimal();
+    }
 }
 

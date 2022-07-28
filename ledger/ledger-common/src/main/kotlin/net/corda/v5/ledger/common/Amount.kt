@@ -3,7 +3,7 @@ package net.corda.v5.ledger.common
 import net.corda.v5.base.annotations.CordaSerializable
 import java.math.BigDecimal
 import java.math.BigInteger
-import java.util.Currency
+import java.util.*
 
 /**
  * Represents an amount, which can be described as a positive quantity of an item.
@@ -338,10 +338,19 @@ data class Amount<T : Any>(val quantity: BigInteger, val item: T) : Comparable<A
     /**
      * Returns a [BigDecimal] that represents the current [Amount].
      *
+     * @return Returns a [BigDecimal] that represents the current [Amount].
+     */
+    fun toBigDecimal(): BigDecimal {
+        return toBigDecimal(0)
+    }
+
+    /**
+     * Returns a [BigDecimal] that represents the current [Amount].
+     *
      * @param scale The scale to apply to the [BigDecimal] value.
      * @return Returns a [BigDecimal] that represents the current [Amount].
      */
-    fun toBigDecimal(scale: Int = 0): BigDecimal {
+    fun toBigDecimal(scale: Int): BigDecimal {
         return quantity.toBigDecimal(scale)
     }
 
