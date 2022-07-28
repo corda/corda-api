@@ -9,7 +9,6 @@ import java.security.PublicKey
 @CordaSerializable // TODO(???)
 interface LedgerTransaction {
     val id: SecureHash
-    val privacySalt: PrivacySalt
     val wireTransaction: WireTransaction
     val metadata: TransactionMetaData
     val requiredSigningKeys: List<PublicKey>
