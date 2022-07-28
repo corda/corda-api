@@ -25,5 +25,5 @@ interface ConsensualTransactionBuilder {
     val consensualStates: List<ConsensualState>
     fun withConsensualState(consensualState: ConsensualState) : ConsensualTransactionBuilder
 
-    fun sign(publicKey: PublicKey): SignedTransaction
+    fun signInitial(publicKey: PublicKey): SignedTransaction
 }
