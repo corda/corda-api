@@ -24,8 +24,14 @@ interface ConsensualState {
     val participants: List<Party>
 
     /**
-     * TODO(doc)
+     * This needs to be provided to let the State verify its internal state and other parts of the encapsulating
+     * Transaction.
      * TODO(make services injectable (crypto, etc...)
+     *
+     * @param consensualLedgerTransaction encapsulating transaction
+     *
+     * @return result of the verification
+     *
      */
     fun verify(consensualLedgerTransaction: ConsensualLedgerTransaction): Boolean
 }
