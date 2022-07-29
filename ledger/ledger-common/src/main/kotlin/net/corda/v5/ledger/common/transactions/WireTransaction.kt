@@ -14,6 +14,6 @@ interface WireTransaction {
 
     fun getComponentGroupList(componentGroupId: Int): List<ByteArray>
 
-    fun getWrappedLedgerTransactionClassName(): String
+    fun getWrappedLedgerTransactionClassName(serializer: SerializationService): String
     fun getMetadata(serializer: SerializationService): TransactionMetaData
 }

@@ -1,6 +1,7 @@
 package net.corda.v5.ledger.common.transactions
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
+import net.corda.v5.application.serialization.SerializationService
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import java.security.PublicKey
@@ -11,7 +12,7 @@ interface SignedTransaction {
     val wireTransaction: WireTransaction
     val sigs: List<DigitalSignatureAndMetadata>
 
-    fun <T: LedgerTransaction>toLedgerTransaction(clazz: Class<T>): T
+    fun <T: LedgerTransaction>toLedgerTransaction(serializer: SerializationService): T
 
     /** Specifies all the public keys that require signatures for the transaction to be valid. */
     val requiredSigningKeys: List<PublicKey> //TODO(was a set previously.)
