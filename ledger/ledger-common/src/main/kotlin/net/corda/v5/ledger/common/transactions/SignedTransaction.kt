@@ -16,9 +16,6 @@ interface SignedTransaction {
 
     fun <T: LedgerTransaction>toLedgerTransaction(serializer: SerializationService): T
 
-    /** Specifies all the public keys that require signatures for the transaction to be valid. */
-    val requiredSigningKeys: List<PublicKey> //TODO(was a set previously.)
-
     /** Returns the same transaction but with an additional (unchecked) signature. */
     fun withAdditionalSignature(sig: DigitalSignatureAndMetadata): SignedTransaction
 
