@@ -7,6 +7,5 @@ import java.security.PublicKey
 @DoNotImplement
 interface LedgerTransaction {
     val id: SecureHash
-    val wireTransaction: WireTransaction // TODO(to be removed if wireTx gets private)
     val requiredSigningKeys: List<PublicKey>
 }
