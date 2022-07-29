@@ -22,12 +22,11 @@ interface SignedTransaction {
     /** Returns the same transaction but with an additional (unchecked) signatures. */
     fun withAdditionalSignatures(sigList: Iterable<DigitalSignatureAndMetadata>): SignedTransaction
 
-    /** Alias for [withAdditionalSignature] to let you use Kotlin operator overloading. */
-    operator fun plus(sig: DigitalSignatureAndMetadata) = withAdditionalSignature(sig)
-
-    /** Alias for [withAdditionalSignatures] to let you use Kotlin operator overloading. */
-    operator fun plus(sigList: Collection<DigitalSignatureAndMetadata>) = withAdditionalSignatures(sigList)
-
     //TODO(DP1: missingSigningKeys() and missingSigningKeys()
-
 }
+
+/** Alias for [SignedTransaction.withAdditionalSignature] to let you use Kotlin operator overloading. */
+operator fun SignedTransaction.plus(sig: DigitalSignatureAndMetadata) = withAdditionalSignature(sig)
+
+/** Alias for [SignedTransaction.withAdditionalSignatures] to let you use Kotlin operator overloading. */
+operator fun SignedTransaction.plus(sigList: Collection<DigitalSignatureAndMetadata>) = withAdditionalSignatures(sigList)
