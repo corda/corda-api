@@ -9,9 +9,9 @@ import java.security.PublicKey
 @CordaSerializable
 interface SignedTransaction {
     val wireTransaction: WireTransaction
-    val ledgerTransaction: LedgerTransaction //TODO(do we need this? Or rather delegate some properties through?)
-
     val sigs: List<DigitalSignatureAndMetadata>
+
+    fun <T: LedgerTransaction>toLedgerTransaction(clazz: Class<T>): T
 
     /** Specifies all the public keys that require signatures for the transaction to be valid. */
     val requiredSigningKeys: List<PublicKey> //TODO(was a set previously.)
