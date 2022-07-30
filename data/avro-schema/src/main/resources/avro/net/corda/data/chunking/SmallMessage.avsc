@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "SmallMessage",
+  "namespace": "net.corda.data.chunking",
+  "doc": "A wrapper on a topic that supports chunking that indicates that a message is unchunked; it fits in a single contiguous byte range of the underlying transport",
+  "fields": [
+    {
+      "name": "data",
+      "type": "bytes",
+      "doc": "the binary data for the underlying message."
+    }
+  ]
+}
