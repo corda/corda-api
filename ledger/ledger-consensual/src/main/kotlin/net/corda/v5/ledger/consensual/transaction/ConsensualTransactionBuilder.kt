@@ -5,7 +5,6 @@ import net.corda.v5.application.serialization.SerializationService
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.merkle.MerkleTreeFactory
-import net.corda.v5.ledger.common.transactions.SignedTransaction
 import net.corda.v5.ledger.consensual.ConsensualState
 import java.security.PublicKey
 import java.security.SecureRandom
@@ -25,5 +24,5 @@ interface ConsensualTransactionBuilder {
     val states: List<ConsensualState>
     fun withState(state: ConsensualState) : ConsensualTransactionBuilder
 
-    fun signInitial(publicKey: PublicKey): SignedTransaction
+    fun signInitial(publicKey: PublicKey): ConsensualSignedTransaction
 }
