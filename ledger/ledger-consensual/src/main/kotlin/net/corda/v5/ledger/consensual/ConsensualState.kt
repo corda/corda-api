@@ -28,10 +28,10 @@ interface ConsensualState {
      * Transaction.
      * TODO(make services injectable (crypto, etc...)
      *
-     * @param consensualLedgerTransaction encapsulating transaction
+     * @param ledgerTransaction encapsulating transaction
      *
      * @return result of the verification
      *
      */
-    fun verify(consensualLedgerTransaction: ConsensualLedgerTransaction): Boolean
+    fun verify(ledgerTransaction: ConsensualLedgerTransaction): Boolean
 }

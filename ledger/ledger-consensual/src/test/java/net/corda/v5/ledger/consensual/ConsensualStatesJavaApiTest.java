@@ -47,7 +47,7 @@ public class ConsensualStatesJavaApiTest {
         }
 
         @Override
-        public boolean verify(@NotNull ConsensualLedgerTransaction consensualLedgerTransaction) {
+        public boolean verify(@NotNull ConsensualLedgerTransaction ledgerTransaction) {
             return true;
         }
     }

@@ -8,5 +8,5 @@ import java.time.Instant
 @DoNotImplement
 interface ConsensualLedgerTransaction: LedgerTransaction {
     val timestamp: Instant
-    val consensualStates: List<ConsensualState>
+    val states: List<ConsensualState>
 }

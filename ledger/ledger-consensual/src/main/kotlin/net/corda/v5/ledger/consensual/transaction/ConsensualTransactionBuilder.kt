@@ -22,8 +22,8 @@ interface ConsensualTransactionBuilder {
     val timeStamp: Instant?
     fun withTimeStamp(timeStamp: Instant): ConsensualTransactionBuilder
 
-    val consensualStates: List<ConsensualState>
-    fun withConsensualState(consensualState: ConsensualState) : ConsensualTransactionBuilder
+    val states: List<ConsensualState>
+    fun withState(state: ConsensualState) : ConsensualTransactionBuilder
 
     fun signInitial(publicKey: PublicKey): SignedTransaction
 }
