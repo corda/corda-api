@@ -10,7 +10,6 @@ import java.security.PublicKey
 @DoNotImplement
 @CordaSerializable
 interface SignedTransaction {
-    val wireTransaction: WireTransaction
     val id: SecureHash
     val sigs: List<DigitalSignatureAndMetadata>
 
