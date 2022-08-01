@@ -7,5 +7,5 @@ import java.security.PublicKey
 @DoNotImplement
 interface LedgerTransaction {
     val id: SecureHash
-    val requiredSigningKeys: List<PublicKey>
+    val requiredSigningKeys: Set<PublicKey>
 }
