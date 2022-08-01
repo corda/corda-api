@@ -21,6 +21,22 @@
         "items": "string"
       },
       "doc": "List of any session IDs associated with this flow."
+    },
+    {
+      "name": "contextUserProperties",
+      "type": {
+        "type": "map",
+        "values": "string"
+       },
+      "doc": "The context user properties"
+    },
+    {
+      "name": "contextPlatformProperties",
+      "type": {
+        "type": "map",
+        "values": "string"
+       },
+      "doc": "The context platform properties"
     }
   ]
 }
