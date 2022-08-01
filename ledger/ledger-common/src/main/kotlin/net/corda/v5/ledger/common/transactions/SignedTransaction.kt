@@ -5,7 +5,6 @@ import net.corda.v5.application.serialization.SerializationService
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
-import java.security.PublicKey
 
 @DoNotImplement
 @CordaSerializable
