@@ -26,7 +26,7 @@ interface ConsensualState {
     /**
      * This needs to be provided to let the State verify its internal state and other parts of the encapsulating
      * Transaction.
-     * TODO(make services injectable (crypto, etc...)
+     * TODO(make services injectable (crypto, etc... CORE-5995)
      *
      * @param ledgerTransaction encapsulating transaction
      *
