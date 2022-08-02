@@ -28,7 +28,7 @@
         "type": "map",
         "values": "string"
        },
-      "doc": "The context user properties"
+      "doc": "The context user properties associated with this level in the Flow stack."
     },
     {
       "name": "contextPlatformProperties",
@@ -36,7 +36,7 @@
         "type": "map",
         "values": "string"
        },
-      "doc": "The context platform properties"
+      "doc": "The context platform properties associated with this level in the Flow stack."
     }
   ]
 }
