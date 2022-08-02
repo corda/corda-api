@@ -60,7 +60,7 @@
             <column name="leaf_idx" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="data" type="BLOB">
+            <column name="data" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
             <column name="hash" type="VARCHAR(64)">
@@ -87,7 +87,7 @@
             <column name="version" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="data" type="BLOB">
+            <column name="data" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
