@@ -62,22 +62,6 @@
         "string"
       ],
       "doc": "What the previous request was that caused the flow to suspend. Null if no suspension has happened. Used for diagnostic purposes."
-    },
-    {
-      "name": "initialContextUserProperties",
-      "type": {
-        "type": "map",
-        "values": "string"
-       },
-      "doc": "The initial context user properties when the flow starts"
-    },
-    {
-      "name": "initialContextPlatformProperties",
-      "type": {
-        "type": "map",
-        "values": "string"
-       },
-      "doc": "The initial context platform properties when the flow starts"
     }
   ]
 }
