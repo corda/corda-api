@@ -41,7 +41,10 @@
     },
     {
       "name": "startArgs",
-      "type": ["null", "string"],
+      "type": [
+        "null",
+        "string"
+      ],
       "default": null,
       "doc": "The body of the request provided when the flow was started if this flow was started via RPC. Null otherwise."
     },
