@@ -24,18 +24,12 @@
     },
     {
       "name": "contextUserProperties",
-      "type": {
-        "type": "map",
-        "values": "string"
-       },
+      "type": "net.corda.data.KeyValuePairList",
       "doc": "The context user properties associated with this level in the Flow stack."
     },
     {
       "name": "contextPlatformProperties",
-      "type": {
-        "type": "map",
-        "values": "string"
-       },
+      "type": "net.corda.data.KeyValuePairList",
       "doc": "The context platform properties associated with this level in the Flow stack."
     }
   ]
