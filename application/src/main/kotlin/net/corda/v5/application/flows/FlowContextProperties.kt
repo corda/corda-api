@@ -34,13 +34,13 @@ interface FlowContextProperties {
      * @return The property value
      */
     operator fun get(key: String): String?
-
-    /**
-     * Puts a user value into the context property store.
-     * Opens up [] operator access for setting values in Kotlin.
-     *
-     * @param key The property key
-     * @param value The property value
-     */
-    operator fun set(key: String, value: String)
 }
+
+/**
+ * Puts a user value into the context property store.
+ * Opens up [] operator access for setting values in Kotlin.
+ *
+ * @param key The property key
+ * @param value The property value
+ */
+operator fun FlowContextProperties.set(key: String, value: String) = put(key, value)
