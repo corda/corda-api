@@ -47,7 +47,8 @@
     },
     {
       "name": "contextPlatformProperties",
-      "type": ["null",
+      "type": [
+        "null",
         {
           "type": "map",
           "values": "string"

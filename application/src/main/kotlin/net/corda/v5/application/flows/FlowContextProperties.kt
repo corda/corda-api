@@ -5,8 +5,8 @@ package net.corda.v5.application.flows
  * set by the platform when a [Flow] is started, and those which are added by the CorDapp developer during the execution
  * of their flow. The latter set are referred to as user context properties. All context properties are immutable once
  * set.
- * Where keys exist as platform properties already, setting user properties is an effective no-o as they will always be
- * ignored in preference for the platform value.
+ * Where keys exist as platform properties already, setting user properties will always be ignored, only the platform
+ * property is ever returned.
  * Both sets of context properties are passed from the originating [Flow] to sub-flows, initiated flows, and services.
  * Where sub-flows and initiated flows have extra user properties added, these are only visible in the scope of those
  * flows and any of their sub-flows, initiated flows or services, but not back up the flow stack to any flows which
@@ -31,6 +31,7 @@ interface FlowContextProperties {
      * Also opens up [] operator access for getting values in Kotlin.
      *
      * @param key The property key
+     * @return The property value
      */
     operator fun get(key: String): String?
 
