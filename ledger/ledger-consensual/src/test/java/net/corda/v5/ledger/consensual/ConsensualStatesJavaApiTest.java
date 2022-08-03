@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.consensual;
 
+import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
@@ -43,6 +44,11 @@ public class ConsensualStatesJavaApiTest {
         @Override
         public List<Party> getParticipants() {
             return participants;
+        }
+
+        @Override
+        public boolean verify(@NotNull ConsensualLedgerTransaction ledgerTransaction) {
+            return true;
         }
     }
 }

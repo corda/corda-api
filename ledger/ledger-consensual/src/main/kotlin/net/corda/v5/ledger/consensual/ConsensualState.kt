@@ -1,6 +1,7 @@
 package net.corda.v5.ledger.consensual
 
 import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction
 
 /**
  * A consensual state (or just "state") contains opaque data used by a consensual ledger. It can be thought of as a disk
@@ -21,4 +22,16 @@ interface ConsensualState {
      * The participants list should normally be derived from the contents of the state.
      */
     val participants: List<Party>
+
+    /**
+     * This needs to be provided to let the State verify its internal state and other parts of the encapsulating
+     * Transaction.
+     * TODO(make services injectable (crypto, etc... CORE-5995)
+     *
+     * @param ledgerTransaction encapsulating transaction
+     *
+     * @return result of the verification
+     *
+     */
+    fun verify(ledgerTransaction: ConsensualLedgerTransaction): Boolean
 }
