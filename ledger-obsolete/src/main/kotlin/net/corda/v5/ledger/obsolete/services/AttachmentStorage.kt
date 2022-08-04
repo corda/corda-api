@@ -9,6 +9,8 @@ import java.nio.file.FileAlreadyExistsException
 
 typealias AttachmentId = SecureHash
 
+// Modifying to test SNYK Delta - not to be merged
+
 /**
  * An attachment store records potentially large binary objects, identified by their hash.
  */
