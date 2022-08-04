@@ -2,6 +2,8 @@ package net.corda.v5.crypto
 
 import net.corda.v5.base.annotations.CordaSerializable
 
+// Modifying to test SNYK Delta - not to be merged
+
 /**
  * Custom class for holding signature data. This exists for later extension work to provide a standardised cross-platform
  * serialization format.
