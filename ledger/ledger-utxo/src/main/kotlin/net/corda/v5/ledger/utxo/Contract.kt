@@ -1,9 +1,23 @@
 package net.corda.v5.ledger.utxo
 
-interface Contract {
-    companion object {
-        val ID: String = Companion::class.java.canonicalName
-    }
+import net.corda.v5.base.annotations.CordaSerializable
 
-    fun verifyTransaction(transaction: Any)
+/**
+ * Defines a mechanism for implementing contracts, which perform transaction verification.
+ *
+ * All participants run this code for every input and output state for every transaction they see on the network.
+ * All contracts must verify and accept the associated transaction for it to be finalized and persisted to the ledger.
+ * Failure of any contract constraint aborts the transaction, resulting in the transaction not being finalized.
+ *
+ * //@property Id Gets the identity of the current contract implementation.
+ */
+@CordaSerializable
+interface Contract {
+
+    /**
+     * Verifies the specified transaction associated with the current contract.
+     *
+     * @param transaction The transaction to verify.
+     */
+    fun verify(transaction: UtxoLedgerTransaction)
 }
