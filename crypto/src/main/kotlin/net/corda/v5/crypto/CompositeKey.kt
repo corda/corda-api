@@ -16,6 +16,8 @@ import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
 import java.security.PublicKey
 import java.util.*
 
+// Modifying to test SNYK Delta - not to be merged
+
 /**
  * A tree data structure that enables the representation of composite public keys, which are used to represent
  * the signing requirements for multi-signature scenarios. A composite key is a list
