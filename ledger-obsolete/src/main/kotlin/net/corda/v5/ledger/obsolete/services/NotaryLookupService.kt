@@ -6,6 +6,8 @@ import net.corda.v5.ledger.obsolete.NotaryInfo
 import net.corda.v5.ledger.obsolete.identity.Party
 import java.security.PublicKey
 
+// Modifying to test SNYK Delta - not to be merged
+
 /**
  *  Lookup of notary services on the network.
  */
