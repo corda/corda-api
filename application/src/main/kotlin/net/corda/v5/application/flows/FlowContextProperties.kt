@@ -44,9 +44,16 @@ interface FlowContextProperties {
 
 /**
  * Puts a user value into the context property store.
+ * If an existing user value exists anywhere in the current context stack, this value will overwrite it from this
+ * point on down, but not up, the context stack.
+ * If an existing platform value exists anywhere in the context stack, the value is ignored in preference for the
+ * platform value.
+ *
  * Opens up [] operator access for setting values in Kotlin.
  *
  * @param key The property key
  * @param value The property value
+ * @throws IllegalArgumentException if a platform property already exists for this key or if the key is prefixed by
+ * "corda."
  */
 operator fun FlowContextProperties.set(key: String, value: String) = put(key, value)
