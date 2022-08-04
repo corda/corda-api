@@ -6,6 +6,8 @@ import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.obsolete.merkle.MerkleTree
 
+// Modifying to test SNYK Delta - not to be merged
+
 /**
  * A class that holds a map of digest services used for hashing transaction components and
  * label the transaction's Merkle tree leaves and nodes.
