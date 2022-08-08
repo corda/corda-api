@@ -7,19 +7,7 @@
         CockroachDB, we follow the guidance regarding doing each change individually where
         possible, and not running in transactions. See
         (https://www.cockroachlabs.com/docs/v21.1/liquibase.html#liquibase-and-transactions)-->
-
     <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-1" runInTransaction="false">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <primaryKeyExists primaryKeyName="primary" tableName="DATABASECHANGELOG"/>
-            </not>
-        </preConditions>
-        <addPrimaryKey columnNames="id"
-                       constraintName="primary"
-                       tableName="DATABASECHANGELOG"/>
-    </changeSet>
-
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-2" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="uniqueness_state_details"/>
@@ -44,7 +32,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-3" runInTransaction="false">
+    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-2" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
             <not>
                 <primaryKeyExists primaryKeyName="uniqueness_state_details_pkey" tableName="uniqueness_state_details"/>
@@ -55,7 +43,7 @@
                        tableName="uniqueness_state_details"/>
     </changeSet>
 
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-4" runInTransaction="false">
+    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-3" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="uniqueness_tx_details"/>
@@ -66,9 +54,12 @@
                 <constraints nullable="false"/>
             </column>
             <column name="tx_id" type="VARBINARY(64)">
-                <constraints nullable="false"/>
+                <constraints nullable="false"/>s
             </column>
             <column name="expiry_datetime" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commit_timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="result" type="CHAR">
@@ -77,7 +68,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-5" runInTransaction="false">
+    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-4" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
             <not>
                 <primaryKeyExists primaryKeyName="uniqueness_tx_details_pkey" tableName="uniqueness_tx_details"/>
@@ -88,7 +79,7 @@
                        tableName="uniqueness_tx_details"/>
     </changeSet>
 
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-6" runInTransaction="false">
+    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-5" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="uniqueness_rejected_txs"/>
@@ -108,7 +99,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-7" runInTransaction="false">
+    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-6" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
             <not>
                 <primaryKeyExists primaryKeyName="uniqueness_rejected_txs_pkey" tableName="uniqueness_rejected_txs"/>
