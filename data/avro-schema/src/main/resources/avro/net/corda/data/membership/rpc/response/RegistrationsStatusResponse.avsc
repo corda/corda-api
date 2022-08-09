@@ -9,7 +9,7 @@
       "doc": "The requests statuses.",
       "type": {
         "type": "array",
-        "items": "net.corda.data.membership.rpc.response.RegistrationStatus"
+        "items": "RegistrationStatusDetails"
       }
     }
   ]

@@ -8,7 +8,7 @@
       "name": "status",
       "doc": "The requests status (or null if could not find).",
       "type": [
-        "RegistrationStatus",
+        "RegistrationStatusDetails",
         "null"
      ]
     }

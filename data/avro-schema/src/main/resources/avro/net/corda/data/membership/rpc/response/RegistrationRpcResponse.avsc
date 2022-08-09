@@ -7,7 +7,7 @@
     {
       "name": "status",
       "doc": "Time registration status.",
-      "type": "RegistrationStatus"
+      "type": "RegistrationStatusDetails"
     }
   ]
 }
