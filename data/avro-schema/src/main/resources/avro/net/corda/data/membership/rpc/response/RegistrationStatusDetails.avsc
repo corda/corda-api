@@ -13,6 +13,14 @@
       }
     },
     {
+      "name": "registrationLastModified",
+      "doc": "Time ([Instant]) in milliseconds when the registration request was modified.",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
       "name": "registrationStatus",
       "doc": "Status of the registration request.",
       "type": "RegistrationStatus"
