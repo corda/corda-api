@@ -31,11 +31,6 @@
       "name": "memberProvidedContext",
       "doc": "Member provided context submitted for registration.",
       "type": "net.corda.data.KeyValuePairList"
-    },
-    {
-      "name": "additionalInfo",
-      "doc": "A map of generic additional information to help the Group Manager build the final signed MemberInfo. May include role and CPI version related information.",
-      "type": "net.corda.data.KeyValuePairList"
     }
   ]
 }
