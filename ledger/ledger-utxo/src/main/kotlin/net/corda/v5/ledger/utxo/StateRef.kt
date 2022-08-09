@@ -13,9 +13,30 @@ import net.corda.v5.crypto.SecureHash
 data class StateRef(val transactionHash: SecureHash, val index: Int) {
 
     /**
+     * @property DELIMITER Represents the delimiter that is used to split the transaction hash and index.
+     */
+    companion object {
+        const val DELIMITER = ':'
+
+        /**
+         * Parses the specified value into a [StateRef].
+         *
+         * @param value The value to parse.
+         * @return Returns a [StateRef] representing the specified value.
+         */
+        @JvmStatic
+        fun parse(value: String): StateRef {
+            val transactionHash = value.substringBefore(DELIMITER)
+            val index = value.substringAfterLast(DELIMITER)
+
+            return StateRef(SecureHash.create(transactionHash), index.toInt())
+        }
+    }
+
+    /**
      * Returns a string that represents the current object.
      *
      * @return Returns a string that represents the current object.
      */
-    override fun toString(): String = "$transactionHash:$index"
+    override fun toString(): String = "$transactionHash$DELIMITER$index"
 }

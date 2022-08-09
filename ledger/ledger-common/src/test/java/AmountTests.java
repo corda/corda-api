@@ -108,7 +108,7 @@ public class AmountTests {
         Currency currency = Currency.getInstance("GBP");
         Amount<Currency> amount = Amount.fromCurrency(BigDecimal.TEN, currency);
 
-        Assertions.assertThat(amount.getQuantity()).isEqualTo(BigInteger.TEN);
+        Assertions.assertThat(amount.getQuantity()).isEqualTo(BigInteger.valueOf(1000));
         Assertions.assertThat(amount.getItem()).isEqualTo(currency);
     }
 

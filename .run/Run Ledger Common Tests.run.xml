@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run Ledger Common Tests" type="JUnit" factoryName="JUnit">
+  <configuration default="false" name="Run Common Ledger Tests" type="JUnit" factoryName="JUnit">
     <module name="corda-api.ledger.ledger-common.test" />
     <option name="PACKAGE_NAME" value="" />
     <option name="MAIN_CLASS_NAME" value="AmountTests" />

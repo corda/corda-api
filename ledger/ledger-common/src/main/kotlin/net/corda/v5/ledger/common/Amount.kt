@@ -5,6 +5,8 @@ import java.math.BigDecimal
 import java.math.BigInteger
 import java.util.*
 
+// TODO : Possible removal of Amount<T>
+
 /**
  * Represents an amount, which can be described as a positive quantity of an item.
  *
@@ -15,6 +17,7 @@ import java.util.*
  * @property item The item being quantified by the current amount.
  * @property isDivisible Determines whether the current amount can be subdivided into smaller amounts.
  */
+@Suppress("TooManyFunctions")
 @CordaSerializable
 data class Amount<T : Any>(val quantity: BigInteger, val item: T) : Comparable<Amount<T>> {
 
