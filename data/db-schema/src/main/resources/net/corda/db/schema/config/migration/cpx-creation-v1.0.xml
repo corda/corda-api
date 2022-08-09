@@ -229,5 +229,17 @@
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
 
+        <createTable tableName="cpi_trusted_certificate" schemaName="${schema.name}">
+            <column name="alias" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="raw_certificate" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="cpi_trusted_certificate" columnNames="alias" constraintName="cpi_trusted_certificate_pk"
+                       schemaName="${schema.name}"/>
+
     </changeSet>
 </databaseChangeLog>
