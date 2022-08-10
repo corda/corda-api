@@ -7,8 +7,8 @@ import java.time.Instant
 
 @DoNotImplement
 interface ConsensualTransactionBuilder {
-    val timeStamp: Instant?
-    fun withTimeStamp(timeStamp: Instant): ConsensualTransactionBuilder
+    val timestamp: Instant?
+    fun withTimestamp(timestamp: Instant): ConsensualTransactionBuilder
 
     val states: List<ConsensualState>
     fun withState(state: ConsensualState) : ConsensualTransactionBuilder
