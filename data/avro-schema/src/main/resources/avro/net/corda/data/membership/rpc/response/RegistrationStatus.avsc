@@ -2,7 +2,7 @@
   "type": "enum",
   "name": "RegistrationStatus",
   "namespace": "net.corda.data.membership.rpc.response",
-  "doc": "Registration statuses.",
+  "doc": "Registration request status.",
   "symbols": [
     "NEW",
     "PENDING_MEMBER_VERIFICATION",
