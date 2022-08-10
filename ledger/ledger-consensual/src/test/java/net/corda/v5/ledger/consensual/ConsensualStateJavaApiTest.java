@@ -8,21 +8,36 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class ConsensualStatesJavaApiTest {
+public class ConsensualStateJavaApiTest {
     private final Party Party = mock(Party.class);
     private final List<Party> participants = List.of(Party);
+    private final ConsensualState consensualState = mock(ConsensualState.class);
 
     @Test
     public void participants() {
+        when(consensualState.getParticipants()).thenReturn(participants);
 
-        final ConsensualState ConsensualState = mock(ConsensualState.class);
-        when(ConsensualState.getParticipants()).thenReturn(participants);
+        final List<Party> result = consensualState.getParticipants();
 
-        final List<Party> participants1 = ConsensualState.getParticipants();
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(participants);
+        verify(consensualState, times(1)).getParticipants();
+    }
 
-        Assertions.assertThat(participants).isEqualTo(participants1);
+    @Test
+    public void verifyMethod() {
+        final ConsensualLedgerTransaction mockLedgerTx = mock(ConsensualLedgerTransaction.class);
+        when(consensualState.verify(mockLedgerTx)).thenReturn(true);
+
+        final Boolean result = consensualState.verify(mockLedgerTx);
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(true);
+        verify(consensualState, times(1)).verify(mockLedgerTx);
     }
 
     @Test

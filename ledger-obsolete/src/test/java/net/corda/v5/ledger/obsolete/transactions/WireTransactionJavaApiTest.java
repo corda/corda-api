@@ -7,7 +7,7 @@ import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.obsolete.merkle.MerkleTree;
-import net.corda.v5.ledger.common.transactions.PrivacySalt;
+import net.corda.v5.ledger.common.transaction.PrivacySalt;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

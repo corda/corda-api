@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.obsolete.transactions;
 
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.common.transactions.PrivacySalt;
+import net.corda.v5.ledger.common.transaction.PrivacySalt;
 import net.corda.v5.ledger.obsolete.contracts.BelongsToContract;
 import net.corda.v5.ledger.obsolete.contracts.CPKConstraint;
 import net.corda.v5.ledger.obsolete.contracts.Command;
