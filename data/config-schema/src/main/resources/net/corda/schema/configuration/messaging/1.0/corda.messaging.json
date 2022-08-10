@@ -58,7 +58,7 @@
                         "type": "integer",
                         "minimum": 1,
                         "maximum": 100000,
-                        "default": 5
+                        "default": 100
                       }
                     },
                     "additionalProperties": false
