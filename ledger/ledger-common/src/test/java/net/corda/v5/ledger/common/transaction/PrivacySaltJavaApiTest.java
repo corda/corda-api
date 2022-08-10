@@ -1,11 +1,7 @@
-package net.corda.v5.ledger.common.transactions;
+package net.corda.v5.ledger.common.transaction;
 
-import net.corda.v5.membership.MemberContext;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
-import java.util.Set;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
