@@ -43,7 +43,7 @@ public class ConsensualLedgerTransactionJavaApiTest {
     }
 
     @Test
-    public void getTimeStamp() {
+    public void getTimestamp() {
         Instant timestamp = Instant.now();
         when(consensualLedgerTransaction.getTimestamp()).thenReturn(timestamp);
 
