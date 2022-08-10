@@ -31,6 +31,11 @@
       "type": "string"
     },
     {
+      "name": "registrationProtocolVersion",
+      "doc": "Registration protocol number.",
+      "type": "int"
+    },
+    {
       "name": "memberProvidedContext",
       "doc": "Member provided context submitted for registration.",
       "type": "net.corda.data.KeyValuePairList"
