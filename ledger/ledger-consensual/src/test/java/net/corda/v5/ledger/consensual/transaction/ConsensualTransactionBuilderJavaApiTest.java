@@ -39,7 +39,7 @@ public class ConsensualTransactionBuilderJavaApiTest {
     }
 
     @Test
-    public void withWithTimestamp() {
+    public void withTimestamp() {
         final Instant instant = Instant.now();
         final ConsensualTransactionBuilder mockTransactionBuilder = mock(ConsensualTransactionBuilder.class);
         when(consensualTransactionBuilder.withTimestamp(instant)).thenReturn(mockTransactionBuilder);
@@ -64,7 +64,7 @@ public class ConsensualTransactionBuilderJavaApiTest {
     }
 
     @Test
-    public void withStates() {
+    public void withState() {
         final ConsensualState consensualState = mock(ConsensualState.class);
         final ConsensualTransactionBuilder mockTransactionBuilder = mock(ConsensualTransactionBuilder.class);
         when(consensualTransactionBuilder.withState(consensualState)).thenReturn(mockTransactionBuilder);

@@ -28,7 +28,7 @@ public class PartyJavaApiTest {
     }
 
     @Test
-    void owningKeyTest() {
+    void getOwningKey() {
         final PublicKey publicKey = mock(PublicKey.class);
         Mockito.when(party.getOwningKey()).thenReturn(publicKey);
 
@@ -40,7 +40,7 @@ public class PartyJavaApiTest {
     }
     
     @Test
-    public void description() {
+    public void getDescription() {
         String test = "test";
         when(party.getDescription()).thenReturn(test);
 

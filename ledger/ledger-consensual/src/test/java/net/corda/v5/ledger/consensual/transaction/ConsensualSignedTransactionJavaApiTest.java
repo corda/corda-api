@@ -38,7 +38,7 @@ public class ConsensualSignedTransactionJavaApiTest {
     }
 
     @Test
-    public void getSigs() {
+    public void getSignatures() {
         when(consensualSignedTransaction.getSignatures()).thenReturn(List.of(signatureWithMetaData));
 
         List<DigitalSignatureAndMetadata> result = consensualSignedTransaction.getSignatures();
@@ -62,7 +62,7 @@ public class ConsensualSignedTransactionJavaApiTest {
     }
 
     @Test
-    public void withAdditionalSignature() {
+    public void addSignature() {
         final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
         when(consensualSignedTransaction.addSignature(signatureWithMetaData)).thenReturn(consensualSignedTransaction);
 
@@ -74,7 +74,7 @@ public class ConsensualSignedTransactionJavaApiTest {
     }
 
     @Test
-    public void withAdditionalSignatures() {
+    public void addSignatures() {
         final Iterable<DigitalSignatureAndMetadata> digitalSignatureAndMetadataList = List.of(signatureWithMetaData);
         final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
         when(consensualSignedTransaction.addSignatures(digitalSignatureAndMetadataList)).thenReturn(consensualSignedTransaction);
@@ -87,7 +87,7 @@ public class ConsensualSignedTransactionJavaApiTest {
     }
 
     @Test
-    public void missingSigningKeys() {
+    public void getMissingSigningKeys() {
         final SerializationService mockSerializationService = mock(SerializationService.class);
         final Set<PublicKey> publicKeys = Set.of(mock(PublicKey.class));
         when(consensualSignedTransaction.getMissingSigningKeys(mockSerializationService)).thenReturn(publicKeys);
