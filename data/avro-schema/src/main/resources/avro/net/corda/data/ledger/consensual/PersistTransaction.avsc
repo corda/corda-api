@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "PersistTransaction",
+  "doc": "Persist the specified consensual ledger transaction.  See also {@link EntityRequest#request}",
+  "namespace": "net.corda.data.ledger.consensual",
+  "fields": [
+    {
+      "name": "merkleTree",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "componentGroup",
+          "doc": "a Merkle tree component group",
+          "type": "array",
+          "items": {
+            "name": "componentLeaf",
+            "doc": "the serialized contents of a Merkle tree leaf",
+            "type": "bytes"
+          }
+        }
+      }
+    }
+  ]
+}
