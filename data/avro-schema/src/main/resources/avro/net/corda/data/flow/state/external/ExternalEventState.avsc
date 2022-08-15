@@ -25,9 +25,9 @@
       "default": 0
     },
     {
-      "name": "handlerClassName",
+      "name": "factoryClassName",
       "type": "string",
-      "doc": "The name of the handler to use when resuming the flow."
+      "doc": "The name of the factory to use when resuming the flow."
     },
     {
       "name": "sendTimestamp",
