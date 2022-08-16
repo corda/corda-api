@@ -8,8 +8,8 @@ sealed class UniquenessCheckResult {
     data class Success(val signature: DigitalSignatureAndMetadata) : UniquenessCheckResult()
 
     /** Indicates that the transaction has not been committed. */
-    // TODO, this should not be a `String` in the future, however,
-    //  we'd need to move the `UniquenessCheckInternalError` class
-    //  from corda-runtime-os to API for a proper representation
+    // TODO CORE-6243 this potentially should not be a `String`
+    //  in the future, however, we'd need to create a "common"
+    //  Uniqueness error class in the Corda API
     data class Failure(val error: String) : UniquenessCheckResult()
 }
