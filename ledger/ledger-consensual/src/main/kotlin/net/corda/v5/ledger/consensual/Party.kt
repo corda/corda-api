@@ -24,9 +24,4 @@ interface Party {
      * @property owningKey The [PublicKey] owned by the party.
      */
     val owningKey: PublicKey
-
-    /**
-     * Concise, readable String representation of a Party.
-     */
-    val description: String get() = "$name (owningKey = ${owningKey.toStringShort()})"
 }
