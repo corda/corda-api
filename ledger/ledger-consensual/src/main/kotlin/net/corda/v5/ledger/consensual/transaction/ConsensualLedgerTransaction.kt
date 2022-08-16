@@ -14,7 +14,6 @@ import java.time.Instant
  *  - It does not have direct access to the signatures.
  *  - It requires a serializer.
  *
- *  //TODO(below docs are from obsolete part, review them.)
  * [ConsensualLedgerTransaction] is an abstraction that is meant to be used during the transaction verification stage.
  * It needs full access to its states that might be in transactions that are encrypted and unavailable for code running
  * outside the secure enclave.

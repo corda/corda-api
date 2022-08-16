@@ -8,7 +8,6 @@ import java.time.Instant
 /**
  * Defines a builder for [ConsensualSignedTransaction]s.
  *
- * //TODO(below docs are from obsolete part, review them.)
  * It is a transaction class that's mutable (unlike the others which are all immutable). It is
  * intended to be passed around parties that may edit it by adding new states. Then, once the states
  * are right, this class can be used as a holding bucket to gather signatures from multiple parties.

@@ -15,7 +15,6 @@ import java.security.PublicKey
  *  - It has direct access to the signatures.
  *  - It does not require a serializer.
  *
- * //TODO(below docs are from obsolete part, review them.)
  * [ConsensualSignedTransaction] wraps the wire representation of the transaction. It contains one or more signatures,
  * each one for a public key (including composite keys) that is mentioned inside a transaction state.
  * [ConsensualSignedTransaction] is frequently passed around the network and stored. The identity of a transaction is
