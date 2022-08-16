@@ -34,12 +34,12 @@ interface ConsensualTransactionBuilder {
     val states: List<ConsensualState>
 
     /**
-     * Adds the specified [ConsensualState] to the [ConsensualTransactionBuilder].
+     * Adds the specified [ConsensualState]s to the [ConsensualTransactionBuilder].
      *
-     * @param state The state of the output to add to the current [ConsensualTransactionBuilder].
-     * @return Returns a new [ConsensualTransactionBuilder] with the specified output state.
+     * @param states The states of the output to add to the current [ConsensualTransactionBuilder].
+     * @return Returns a new [ConsensualTransactionBuilder] with the specified output states.
      */
-    fun withState(state: ConsensualState) : ConsensualTransactionBuilder
+    fun withStates(vararg states: ConsensualState) : ConsensualTransactionBuilder
 
     /**
      * 1. Verifies the content of the [ConsensualTransactionBuilder]
