@@ -9,7 +9,7 @@
       "doc": "The requests statuses.",
       "type": {
         "type": "array",
-        "items": "RegistrationStatusDetails"
+        "items": "net.corda.data.membership.common.RegistrationStatusDetails"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "RegistrationStatusDetails",
-  "namespace": "net.corda.data.membership.rpc.response",
+  "namespace": "net.corda.data.membership.common",
   "doc": "Registration status.",
   "fields": [
     {

@@ -1,7 +1,7 @@
 {
   "type": "enum",
   "name": "RegistrationStatus",
-  "namespace": "net.corda.data.membership.rpc.response",
+  "namespace": "net.corda.data.membership.common",
   "doc": "Registration request status.",
   "symbols": [
     "NEW",

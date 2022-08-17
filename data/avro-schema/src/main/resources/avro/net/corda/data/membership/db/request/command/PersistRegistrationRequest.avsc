@@ -7,7 +7,7 @@
     {
       "name": "status",
       "doc": "Indicator of the current status of the request.",
-      "type": "net.corda.data.membership.rpc.response.RegistrationStatus"
+      "type": "net.corda.data.membership.common.RegistrationStatus"
     },
     {
       "name": "registeringHoldingIdentity",

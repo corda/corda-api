@@ -15,7 +15,7 @@
     {
       "name": "newStatus",
       "doc": "The new registration status.",
-      "type": "net.corda.data.membership.rpc.response.RegistrationStatus"
+      "type": "net.corda.data.membership.common.RegistrationStatus"
     }
   ]
 }
