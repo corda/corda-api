@@ -31,35 +31,10 @@
     "hsm": {
       "description": "HSM settings and capabilities",
       "type": "object",
-      "default": {},
       "properties": {
         "name": {
           "description": "HSM provider name",
           "type": "string"
-        },
-        "masterKeyPolicy": {
-          "description": "Wrapping key policy, NONE - no wrapping key is required, SHARED - wrapping key shared by all tenants, UNIQUE - wrapping key unique for each tenant",
-          "enum": [
-            "NONE",
-            "SHARED",
-            "UNIQUE"
-          ]
-        },
-        "masterKeyAlias": {
-          "description": "If the masterKeyPolicy is SHARED then this specifies the alias of the shared key and as such is required",
-          "type": "string"
-        },
-        "capacity": {
-          "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
-          "type": "integer"
-        },
-        "supportedSchemes": {
-          "description": "Key schemes that are supported by the HSM",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string"
-          }
         },
         "categories": {
           "description": "Categories which the HSM can be used for",
@@ -86,6 +61,30 @@
               "policy"
             ],
             "additionalProperties": false
+          }
+        },
+        "masterKeyPolicy": {
+          "description": "Wrapping key policy, NONE - no wrapping key is required, SHARED - wrapping key shared by all tenants, UNIQUE - wrapping key unique for each tenant",
+          "enum": [
+            "NONE",
+            "SHARED",
+            "UNIQUE"
+          ]
+        },
+        "masterKeyAlias": {
+          "description": "If the masterKeyPolicy is SHARED then this specifies the alias of the shared key and as such is required",
+          "type": "string"
+        },
+        "capacity": {
+          "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
+          "type": "integer"
+        },
+        "supportedSchemes": {
+          "description": "Key schemes that are supported by the HSM",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
           }
         }
       },
@@ -231,7 +230,15 @@
             },
             "additionalProperties": false
           }
-        }
+        },
+        "required": [
+          "name",
+          "masterKeyPolicy",
+          "capacity",
+          "supportedSchemes",
+          "categories",
+          "cfg"
+        ]
       },
       "else": {
         "properties": {
@@ -240,17 +247,16 @@
             "type": "object",
             "additionalProperties": true
           }
-        }
-      },
-      "required": [
-        "name",
-        "masterKeyPolicy",
-        "capacity",
-        "supportedSchemes",
-        "categories",
-        "cfg"
-      ],
-      "additionalProperties": false
+        },
+        "required": [
+          "name",
+          "masterKeyPolicy",
+          "capacity",
+          "supportedSchemes",
+          "categories",
+          "cfg"
+        ]
+      }
     }
   },
   "additionalProperties": false
