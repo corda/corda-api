@@ -230,15 +230,7 @@
             },
             "additionalProperties": false
           }
-        },
-        "required": [
-          "name",
-          "masterKeyPolicy",
-          "capacity",
-          "supportedSchemes",
-          "categories",
-          "cfg"
-        ]
+        }
       },
       "else": {
         "properties": {
@@ -247,16 +239,16 @@
             "type": "object",
             "additionalProperties": true
           }
-        },
-        "required": [
-          "name",
-          "masterKeyPolicy",
-          "capacity",
-          "supportedSchemes",
-          "categories",
-          "cfg"
-        ]
-      }
+        }
+      },
+      "required": [
+        "name",
+        "masterKeyPolicy",
+        "capacity",
+        "supportedSchemes",
+        "categories",
+        "cfg"
+      ]
     }
   },
   "additionalProperties": false
