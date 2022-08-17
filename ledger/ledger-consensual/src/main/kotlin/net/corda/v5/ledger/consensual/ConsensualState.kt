@@ -24,14 +24,18 @@ interface ConsensualState {
     val participants: List<Party>
 
     /**
-     * This needs to be provided to let the State verify its internal state and other parts of the encapsulating
-     * Transaction.
+     * An override of this function needs to be provided to:
+     *  - verify the state's well-formedness
+     *  - verify compatibility with the other states of the encapsulating transaction
+     *  - check required signing keys
+     *  - check the transaction's timestamp.
+     *
      * TODO(make services injectable (crypto, etc... CORE-5995)
      *
      * @param ledgerTransaction encapsulating transaction
      *
-     * @return result of the verification
+     * @throws [IllegalArgumentException] if the verification failed.
      *
      */
-    fun verify(ledgerTransaction: ConsensualLedgerTransaction): Boolean
+    fun verify(ledgerTransaction: ConsensualLedgerTransaction): Unit
 }
