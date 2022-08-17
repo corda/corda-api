@@ -38,17 +38,4 @@ public class PartyJavaApiTest {
         Assertions.assertThat(result).isEqualTo(publicKey);
         verify(party, times(1)).getOwningKey();
     }
-    
-    @Test
-    public void getDescription() {
-        String test = "test";
-        when(party.getDescription()).thenReturn(test);
-
-        String result = party.getDescription();
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(test);
-        verify(party, times(1)).getDescription();
-
-    }
 }
