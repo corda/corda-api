@@ -7,13 +7,20 @@ package net.corda.v5.application.flows
  * set.
  */
 interface FlowContextProperties {
+    companion object {
+        /**
+         * A constant containing the Corda reserved prefix.
+         */
+        const val CORDA_RESERVED_PREFIX = "corda." // constant must be lowercase
+    }
+
     /**
      * Puts a user value into the context property store.
      *
      * Where keys exist as platform properties already, setting user properties with the same key will throw. It is
      * highly advisable to scope user property keys with some unique prefix, e.g. package name. Corda's platform keys
-     * will usually be prefixed with "corda." which is reserved, meaning that an attempt to prefix a user key with
-     * "corda." will also throw whether it exists already or not.
+     * will usually be prefixed with [CORDA_RESERVED_PREFIX] which is reserved, meaning that an attempt to prefix a user
+     * key with [CORDA_RESERVED_PREFIX] will also throw whether it exists already or not.
      *
      * Both sets of context properties are propagated automatically from the originating [Flow] to all sub-flows
      * initiated flows, and services. Where sub-flows and initiated flows have extra user properties added, these are
@@ -45,8 +52,8 @@ interface FlowContextProperties {
  *
  * Where keys exist as platform properties already, setting user properties with the same key will throw. It is highly
  * advisable to scope user property keys with some unique prefix, e.g. package name. Corda's platform keys will usually
- * be prefixed with "corda." which is reserved, meaning that an attempt to prefix a user key with "corda." will also
- * throw whether it exists already or not.
+ * be prefixed with [CORDA_RESERVED_PREFIX] which is reserved, meaning that an attempt to prefix a user key with
+ * [CORDA_RESERVED_PREFIX] will also throw whether it exists already or not.
  *
  * Both sets of context properties are propagated automatically from the originating [Flow] to all sub-flows, initiated
  * flows, and services. Where sub-flows and initiated flows have extra user properties added, these are only visible in
