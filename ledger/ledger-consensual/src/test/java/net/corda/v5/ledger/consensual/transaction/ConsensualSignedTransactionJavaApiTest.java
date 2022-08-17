@@ -50,15 +50,14 @@ public class ConsensualSignedTransactionJavaApiTest {
 
     @Test
     public void toLedgerTransaction() {
-        final SerializationService mockSerializationService = mock(SerializationService.class);
         final ConsensualLedgerTransaction consensualLedgerTransaction = mock(ConsensualLedgerTransaction.class);
-        when(consensualSignedTransaction.toLedgerTransaction(mockSerializationService)).thenReturn(consensualLedgerTransaction);
+        when(consensualSignedTransaction.toLedgerTransaction()).thenReturn(consensualLedgerTransaction);
 
-        final ConsensualLedgerTransaction result = consensualSignedTransaction.toLedgerTransaction(mockSerializationService);
+        final ConsensualLedgerTransaction result = consensualSignedTransaction.toLedgerTransaction();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(consensualLedgerTransaction);
-        verify(consensualSignedTransaction, times(1)).toLedgerTransaction(mockSerializationService);
+        verify(consensualSignedTransaction, times(1)).toLedgerTransaction();
     }
 
     @Test

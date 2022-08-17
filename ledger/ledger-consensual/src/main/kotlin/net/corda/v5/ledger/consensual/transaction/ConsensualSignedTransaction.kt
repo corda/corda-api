@@ -41,10 +41,9 @@ interface ConsensualSignedTransaction {
     /**
      * Converts the current [ConsensualSignedTransaction] into a [ConsensualLedgerTransaction].
      *
-     * @param serializer The [SerializationService] required to convert the current transaction.
      * @return Returns a [ConsensualLedgerTransaction] from the current signed transaction.
      */
-    fun toLedgerTransaction(serializer: SerializationService): ConsensualLedgerTransaction
+    fun toLedgerTransaction(): ConsensualLedgerTransaction
 
     /**
      * Sign the current [ConsensualSignedTransaction] with the specified key.
