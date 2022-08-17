@@ -32,8 +32,13 @@ interface ConsensualTransactionBuilder {
      * 2.b signs
      * 2.c and returns a [ConsensualSignedTransaction]
      *
+     * Calling this function once renders the current [ConsensualTransactionBuilder] immutable.
+     *
      * @param publicKey The key for signing the [ConsensualSignedTransaction].
      * @return Returns a new [ConsensualSignedTransaction] with the specified details.
+     *
+     * @throws [UnsupportedOperationException] when called second time on the same object to prevent duplicate
+     *      transactions accidentally.
      */
     fun signInitial(publicKey: PublicKey): ConsensualSignedTransaction
 }
