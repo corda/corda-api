@@ -37,5 +37,5 @@ interface ConsensualState {
      * @throws [IllegalArgumentException] if the verification failed.
      *
      */
-    fun verify(ledgerTransaction: ConsensualLedgerTransaction): Unit
+    fun verify(ledgerTransaction: ConsensualLedgerTransaction)
 }
