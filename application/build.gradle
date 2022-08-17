@@ -15,6 +15,7 @@ dependencies {
     api project(":crypto")
     api project(":membership")
     api project(":serialization")
+    api project(":data:avro-schema")
 
     compileOnly 'org.osgi:osgi.core'
     compileOnly 'org.osgi:osgi.annotation'

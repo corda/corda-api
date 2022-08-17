@@ -1,6 +1,6 @@
 package net.corda.v5.application.uniqueness.client
 
-import net.corda.v5.application.uniqueness.result.UniquenessCheckResult
+import net.corda.data.uniqueness.UniquenessCheckResponse
 import net.corda.v5.base.annotations.DoNotImplement
 import java.time.Instant
 import java.util.concurrent.Future
@@ -51,5 +51,5 @@ interface UniquenessCheckerClientService {
         numberOfOutputStates: Int,
         timeWindowLowerBound: Instant?,
         timeWindowUpperBound: Instant,
-    ): Future<UniquenessCheckResult>
+    ): Future<UniquenessCheckResponse>
 }
