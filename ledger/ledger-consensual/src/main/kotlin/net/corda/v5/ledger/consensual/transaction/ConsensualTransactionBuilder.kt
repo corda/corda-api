@@ -32,7 +32,8 @@ interface ConsensualTransactionBuilder {
      * 2.b signs
      * 2.c and returns a [ConsensualSignedTransaction]
      *
-     * Calling this function once renders the current [ConsensualTransactionBuilder] immutable.
+     * Calling this function once consumes the [ConsensualTransactionBuilder], so it cannot be used again.
+     * Therefore, if you want to build two transactions you need two builders.
      *
      * @param publicKey The private counterpart of the specified public key will be used for signing the
      *      [ConsensualSignedTransaction].
