@@ -31,10 +31,13 @@
     },
     {
       "name": "sendTimestamp",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
       "doc": "Timestamp of when to send a message. If this time is in the past, then the message needs to be (re)sent."
     },
     {
