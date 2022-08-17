@@ -58,10 +58,9 @@ interface ConsensualSignedTransaction {
     /**
      * Gets the signing keys for any missing transaction signatures.
      *
-     * @param serializer The [SerializationService] required to obtain the missing keys.
      * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
      */
-    fun getMissingSigningKeys(serializer: SerializationService): Set<PublicKey>
+    fun getMissingSigningKeys(): Set<PublicKey>
 }
 
 /** Alias for [ConsensualSignedTransaction.addSignature] to let you use Kotlin operator overloading. */

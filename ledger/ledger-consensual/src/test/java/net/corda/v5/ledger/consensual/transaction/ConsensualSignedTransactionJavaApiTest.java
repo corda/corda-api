@@ -76,14 +76,13 @@ public class ConsensualSignedTransactionJavaApiTest {
 
     @Test
     public void getMissingSigningKeys() {
-        final SerializationService mockSerializationService = mock(SerializationService.class);
         final Set<PublicKey> publicKeys = Set.of(mock(PublicKey.class));
-        when(consensualSignedTransaction.getMissingSigningKeys(mockSerializationService)).thenReturn(publicKeys);
+        when(consensualSignedTransaction.getMissingSigningKeys()).thenReturn(publicKeys);
 
-        final Set<PublicKey> result = consensualSignedTransaction.getMissingSigningKeys(mockSerializationService);
+        final Set<PublicKey> result = consensualSignedTransaction.getMissingSigningKeys();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(publicKeys);
-        verify(consensualSignedTransaction, times(1)).getMissingSigningKeys(mockSerializationService);
+        verify(consensualSignedTransaction, times(1)).getMissingSigningKeys();
     }
 }
