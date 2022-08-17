@@ -54,7 +54,7 @@
       "type": "object",
       "default": {},
       "properties": {
-        "downstreamMaxAttempts":{
+        "downstreamMaxAttempts": {
           "description": "Number of attempts to call downstream services to ensure consistency when assigning an HSM",
           "type": "integer",
           "default": 3
@@ -81,7 +81,9 @@
               "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
               "type": "array",
               "minItems": 1,
-              "default": [ 200 ],
+              "default": [
+                200
+              ],
               "items": {
                 "type": "integer"
               }
@@ -103,7 +105,9 @@
               "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
               "type": "array",
               "minItems": 1,
-              "default": [ 200 ],
+              "default": [
+                200
+              ],
               "items": {
                 "type": "integer"
               }
@@ -125,7 +129,9 @@
               "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
               "type": "array",
               "minItems": 1,
-              "default": [ 200 ],
+              "default": [
+                200
+              ],
               "items": {
                 "type": "integer"
               }
@@ -145,12 +151,11 @@
       "description": "Settings for all available HSMs",
       "type": "object",
       "default": {},
-      "allOf": [
-        {
-            "description": "Settings and information about specific HSM",
-            "$ref": "file:hsm-config.json"
+      "patternProperties": {
+        ".": {
+          "$ref": "file:hsm-config.json"
         }
-      ]
+      }
     }
   },
   "additionalProperties": false
