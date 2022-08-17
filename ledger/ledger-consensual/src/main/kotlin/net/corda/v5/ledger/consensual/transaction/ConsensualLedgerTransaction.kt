@@ -40,7 +40,7 @@ interface ConsensualLedgerTransaction {
     val requiredSigningKeys: Set<PublicKey>
 
     /**
-     * @property timestamp The timestamp of the transaction.
+     * @property timestamp The timestamp of the transaction. (When it got signed initially.)
      */
     val timestamp: Instant
 

@@ -24,31 +24,6 @@ public class ConsensualTransactionBuilderJavaApiTest {
     private final DigitalSignatureAndMetadata signatureWithMetaData = new DigitalSignatureAndMetadata(signature, signatureMetadata);
 
     @Test
-    public void getTimestamp() {
-        Instant timestamp = Instant.now();
-        when(consensualTransactionBuilder.getTimestamp()).thenReturn(timestamp);
-
-        Instant result = consensualTransactionBuilder.getTimestamp();
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(timestamp);
-        verify(consensualTransactionBuilder, times(1)).getTimestamp();
-    }
-
-    @Test
-    public void withTimestamp() {
-        final Instant instant = Instant.now();
-        final ConsensualTransactionBuilder mockTransactionBuilder = mock(ConsensualTransactionBuilder.class);
-        when(consensualTransactionBuilder.withTimestamp(instant)).thenReturn(mockTransactionBuilder);
-
-        final ConsensualTransactionBuilder result = consensualTransactionBuilder.withTimestamp(instant);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(mockTransactionBuilder);
-        verify(consensualTransactionBuilder, times(1)).withTimestamp(instant);
-    }
-
-    @Test
     public void getStates() {
         ConsensualState consensualState = mock(ConsensualState.class);
         when(consensualTransactionBuilder.getStates()).thenReturn(List.of(consensualState));

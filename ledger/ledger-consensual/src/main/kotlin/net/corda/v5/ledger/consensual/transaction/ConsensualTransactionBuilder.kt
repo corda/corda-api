@@ -3,7 +3,6 @@ package net.corda.v5.ledger.consensual.transaction
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.ledger.consensual.ConsensualState
 import java.security.PublicKey
-import java.time.Instant
 
 /**
  * Defines a builder for [ConsensualSignedTransaction]s.
@@ -14,19 +13,6 @@ import java.time.Instant
  */
 @DoNotImplement
 interface ConsensualTransactionBuilder {
-    /**
-     * @property timestamp The timestamp of the [ConsensualTransactionBuilder].
-     */
-    val timestamp: Instant?
-
-    /**
-     * Sets the specific timestamp to the [ConsensualTransactionBuilder].
-     *
-     * @param timestamp The timestamp to be set to the current [ConsensualTransactionBuilder].
-     * @return Returns a new [ConsensualTransactionBuilder] with the specified timestamp.
-     */
-    fun withTimestamp(timestamp: Instant): ConsensualTransactionBuilder
-
     /**
      * @property states The output [ConsensualState]s of the [ConsensualTransactionBuilder].
      */
