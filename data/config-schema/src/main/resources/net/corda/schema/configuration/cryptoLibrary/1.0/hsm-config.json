@@ -87,145 +87,44 @@
             ],
             "additionalProperties": false
           }
-        },
-        "cfg": {
-          "description": "HSM specific configuration",
-          "type": "object",
-          "allOf": [
-            {
-              "if": {
+        }
+      },
+      "if": {
+        "properties": { "name": { "const": "SOFT" } }
+      },
+      "then": {
+        "properties": {
+          "cfg": {
+            "description": "HSM specific configuration",
+            "type": "object",
+            "properties": {
+              "keyMap": {
+                "description": "Settings for the private keys map",
+                "type": "object",
+                "default": {},
                 "properties": {
                   "name": {
-                    "const": "SOFT"
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "keyMap": {
-                    "description": "Settings for the private keys map",
-                    "type": "object",
-                    "default": {},
-                    "properties": {
-                      "name": {
-                        "description": "Map type, CACHING - the key are cached, TRANSIENT - there is no caching",
-                        "enum": [
-                          "CACHING",
-                          "TRANSIENT"
-                        ],
-                        "default": "CACHING"
-                      },
-                      "cache": {
-                        "description": "Settings for the cache if the type is CACHING",
-                        "type": "object",
-                        "default": {},
-                        "properties": {
-                          "expireAfterAccessMins": {
-                            "description": "Expiration time for cached keys",
-                            "type": "integer",
-                            "default": 60
-                          },
-                          "maximumSize": {
-                            "description": "Maximum number of keys in the cache",
-                            "type": "integer",
-                            "default": 1000
-                          }
-                        },
-                        "additionalProperties": false
-                      }
-                    },
-                    "additionalProperties": false
+                    "description": "Map type, CACHING - the key are cached, TRANSIENT - there is no caching",
+                    "enum": [
+                      "CACHING",
+                      "TRANSIENT"
+                    ],
+                    "default": "CACHING"
                   },
-                  "wrappingKeyMap": {
-                    "description": "Settings for the wrapping keys map",
+                  "cache": {
+                    "description": "Settings for the cache if the type is CACHING",
                     "type": "object",
                     "default": {},
                     "properties": {
-                      "name": {
-                        "description": "Map type, CACHING - the key are cached, TRANSIENT - there is no caching",
-                        "enum": [
-                          "CACHING",
-                          "TRANSIENT"
-                        ],
-                        "default": "CACHING"
+                      "expireAfterAccessMins": {
+                        "description": "Expiration time for cached keys",
+                        "type": "integer",
+                        "default": 60
                       },
-                      "salt": {
-                        "description": "Salt for the root master wrapping key",
-                        "type": "string"
-                      },
-                      "passphrase": {
-                        "description": "Passphrase for the root master wrapping key",
-                        "type": "object",
-                        "properties": {
-                          "configSecret": {
-                            "type": "object",
-                            "properties": {
-                              "encryptedSecret": {
-                                "type": "string"
-                              }
-                            },
-                            "additionalProperties": false,
-                            "required": [
-                              "encryptedSecret"
-                            ]
-                          }
-                        },
-                        "additionalProperties": false,
-                        "required": [
-                          "configSecret"
-                        ]
-                      },
-                      "cache": {
-                        "description": "Settings for the cache if the type is CACHING",
-                        "type": "object",
-                        "default": {},
-                        "properties": {
-                          "expireAfterAccessMins": {
-                            "description": "Expiration time for cached keys",
-                            "type": "integer",
-                            "default": 60
-                          },
-                          "maximumSize": {
-                            "description": "Maximum number of keys in the cache",
-                            "type": "integer",
-                            "default": 1000
-                          }
-                        },
-                        "additionalProperties": false
-                      }
-                    },
-                    "additionalProperties": false
-                  },
-                  "wrapping": {
-                    "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
-                    "type": "object",
-                    "default": {},
-                    "properties": {
-                      "name": {
-                        "description": "Wrapping type, DEFAULT - the wrapping key are stored in database, HSM - there is additional single master key defined in the HSM",
-                        "enum": [
-                          "DEFAULT",
-                          "HSM"
-                        ],
-                        "default": "DEFAULT"
-                      },
-                      "hsm": {
-                        "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
-                        "type": "object",
-                        "default": {},
-                        "properties": {
-                          "name": {
-                            "description": "HSM provider name",
-                            "type": "string"
-                          },
-                          "cfg": {
-                            "description": "HSM specific configuration",
-                            "type": "object",
-                            "default": {},
-                            "additionalProperties": true
-                          }
-                        },
-                        "additionalProperties": false
+                      "maximumSize": {
+                        "description": "Maximum number of keys in the cache",
+                        "type": "integer",
+                        "default": 1000
                       }
                     },
                     "additionalProperties": false
@@ -233,12 +132,111 @@
                 },
                 "additionalProperties": false
               },
-              "else": {
-                "$comment": "Settings for any other HSM are open",
-                "additionalProperties": true
+              "wrappingKeyMap": {
+                "description": "Settings for the wrapping keys map",
+                "type": "object",
+                "default": {},
+                "properties": {
+                  "name": {
+                    "description": "Map type, CACHING - the key are cached, TRANSIENT - there is no caching",
+                    "enum": [
+                      "CACHING",
+                      "TRANSIENT"
+                    ],
+                    "default": "CACHING"
+                  },
+                  "salt": {
+                    "description": "Salt for the root master wrapping key",
+                    "type": "string"
+                  },
+                  "passphrase": {
+                    "description": "Passphrase for the root master wrapping key",
+                    "type": "object",
+                    "properties": {
+                      "configSecret": {
+                        "type": "object",
+                        "properties": {
+                          "encryptedSecret": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                          "encryptedSecret"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "configSecret"
+                    ]
+                  },
+                  "cache": {
+                    "description": "Settings for the cache if the type is CACHING",
+                    "type": "object",
+                    "default": {},
+                    "properties": {
+                      "expireAfterAccessMins": {
+                        "description": "Expiration time for cached keys",
+                        "type": "integer",
+                        "default": 60
+                      },
+                      "maximumSize": {
+                        "description": "Maximum number of keys in the cache",
+                        "type": "integer",
+                        "default": 1000
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "wrapping": {
+                "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
+                "type": "object",
+                "default": {},
+                "properties": {
+                  "name": {
+                    "description": "Wrapping type, DEFAULT - the wrapping key are stored in database, HSM - there is additional single master key defined in the HSM",
+                    "enum": [
+                      "DEFAULT",
+                      "HSM"
+                    ],
+                    "default": "DEFAULT"
+                  },
+                  "hsm": {
+                    "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
+                    "type": "object",
+                    "default": {},
+                    "properties": {
+                      "name": {
+                        "description": "HSM provider name",
+                        "type": "string"
+                      },
+                      "cfg": {
+                        "description": "HSM specific configuration",
+                        "type": "object",
+                        "default": {},
+                        "additionalProperties": true
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
               }
-            }
-          ]
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "cfg": {
+            "$comment": "Settings for any other HSM are open",
+            "additionalProperties": true
+          }
         }
       },
       "required": [
