@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/cryptoLibrary/1.0/corda.cryptoLibrary.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/cryptoLibrary/1.0/hsm-config.json",
   "title": "Corda Crypto Library Configuration Schema",
   "description": "Configuration schema for an HSM.",
   "type": "object",
@@ -90,12 +90,14 @@
         }
       },
       "if": {
-        "properties": { "name": { "const": "SOFT" } }
+        "properties": {
+          "name": { "const": "SOFT" }
+        }
       },
       "then": {
         "properties": {
           "cfg": {
-            "description": "HSM specific configuration",
+            "description": "SOFT HSM specific configuration",
             "type": "object",
             "properties": {
               "keyMap": {
@@ -235,6 +237,7 @@
         "properties": {
           "cfg": {
             "$comment": "Settings for any other HSM are open",
+            "type": "object",
             "additionalProperties": true
           }
         }
