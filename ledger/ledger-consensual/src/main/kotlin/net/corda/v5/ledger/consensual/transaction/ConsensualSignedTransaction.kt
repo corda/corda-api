@@ -47,20 +47,13 @@ interface ConsensualSignedTransaction {
     fun toLedgerTransaction(serializer: SerializationService): ConsensualLedgerTransaction
 
     /**
-     * Adds the specified signature to the current [ConsensualSignedTransaction].
+     * Sign the current [ConsensualSignedTransaction] with the specified key.
      *
-     * @param signature The signature and metadata to add to the current [ConsensualSignedTransaction].
+     * @param publicKey The private counterpart of the specified public key will be used for signing the
+     *      [ConsensualSignedTransaction].
      * @return Returns a new [ConsensualSignedTransaction] containing the applied signature.
      */
-    fun addSignature(signature: DigitalSignatureAndMetadata): ConsensualSignedTransaction
-
-    /**
-     * Adds the specified signatures to the current [ConsensualSignedTransaction].
-     *
-     * @param signatures The signatures and metadata to add to the current [ConsensualSignedTransaction].
-     * @return Returns a new [ConsensualSignedTransaction] containing the applied signatures.
-     */
-    fun addSignatures(signatures: Iterable<DigitalSignatureAndMetadata>): ConsensualSignedTransaction
+    fun addSignature(publicKey: PublicKey): ConsensualSignedTransaction
 
     /**
      * Gets the signing keys for any missing transaction signatures.
@@ -72,7 +65,5 @@ interface ConsensualSignedTransaction {
 }
 
 /** Alias for [ConsensualSignedTransaction.addSignature] to let you use Kotlin operator overloading. */
-operator fun ConsensualSignedTransaction.plus(sig: DigitalSignatureAndMetadata) = addSignature(sig)
+operator fun ConsensualSignedTransaction.plus(publicKey: PublicKey) = addSignature(publicKey)
 
-/** Alias for [ConsensualSignedTransaction.addSignatures] to let you use Kotlin operator overloading. */
-operator fun ConsensualSignedTransaction.plus(sigList: Collection<DigitalSignatureAndMetadata>) = addSignatures(sigList)

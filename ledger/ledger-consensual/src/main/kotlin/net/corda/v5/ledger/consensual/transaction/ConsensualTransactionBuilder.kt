@@ -34,7 +34,8 @@ interface ConsensualTransactionBuilder {
      *
      * Calling this function once renders the current [ConsensualTransactionBuilder] immutable.
      *
-     * @param publicKey The key for signing the [ConsensualSignedTransaction].
+     * @param publicKey The private counterpart of the specified public key will be used for signing the
+     *      [ConsensualSignedTransaction].
      * @return Returns a new [ConsensualSignedTransaction] with the specified details.
      *
      * @throws [UnsupportedOperationException] when called second time on the same object to prevent duplicate
