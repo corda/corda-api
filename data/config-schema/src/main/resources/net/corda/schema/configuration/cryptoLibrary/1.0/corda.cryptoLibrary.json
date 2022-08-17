@@ -5,6 +5,153 @@
   "description": "Configuration schema for the crypto library subsection.",
   "type": "object",
   "properties": {
-    "additionalProperties": true
-  }
+    "cryptoConnectionFactory": {
+      "description": "Settings for database connections factory's cache of EntityManagerFactory(s)",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "expireAfterAccessMins": {
+          "description": "Expiration time in minutes for cached EntityManagerFactory",
+          "type": "integer",
+          "default": 5
+        },
+        "maximumSize": {
+          "description": "Maximum number of cached EntityManagerFactory",
+          "type": "integer",
+          "default": 3
+        }
+      },
+      "additionalProperties": false
+    },
+    "signingService": {
+      "description": "Settings for SigningService",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "cache": {
+          "description": "Settings for key metadata cache",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "expireAfterAccessMins": {
+              "description": "Expiration time in minutes for cached key metadata",
+              "type": "integer",
+              "default": 10000
+            },
+            "maximumSize": {
+              "description": "Maximum number of cached key metadata",
+              "type": "integer",
+              "default": 60
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "hsmService": {
+      "description": "Settings for HSMService",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "downstreamMaxAttempts":{
+          "description": "Number of attempts to call downstream services to ensure consistency when assigning an HSM",
+          "type": "integer",
+          "default": 3
+        }
+      },
+      "additionalProperties": false
+    },
+    "busProcessors": {
+      "description": "Settings for crypto messages processors",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "ops": {
+          "description": "Settings for crypto ops messages processor",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "maxAttempts": {
+              "description": "Maximum attempts to process a message",
+              "type": "integer",
+              "default": 3
+            },
+            "waitBetweenMills": {
+              "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
+              "type": "array",
+              "minItems": 1,
+              "default": [ 200 ],
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "flow": {
+          "description": "Settings for crypto flow ops messages processor",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "maxAttempts": {
+              "description": "Maximum attempts to process a message",
+              "type": "integer",
+              "default": 3
+            },
+            "waitBetweenMills": {
+              "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
+              "type": "array",
+              "minItems": 1,
+              "default": [ 200 ],
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "registration": {
+          "description": "Settings for HSM registration messages processor",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "maxAttempts": {
+              "description": "Maximum attempts to process a message",
+              "type": "integer",
+              "default": 3
+            },
+            "waitBetweenMills": {
+              "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
+              "type": "array",
+              "minItems": 1,
+              "default": [ 200 ],
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "hsmId": {
+      "description": "The HSM's id which is handled by this instance, the value must match one of the keys in the hsmMap",
+      "type": "string",
+      "default": "SOFT"
+    },
+    "hsmMap": {
+      "description": "Settings for all available HSMs",
+      "type": "object",
+      "default": {},
+      "allOf": [
+        {
+            "description": "Settings and information about specific HSM",
+            "$ref": "file:hsm-config.json"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
 }
