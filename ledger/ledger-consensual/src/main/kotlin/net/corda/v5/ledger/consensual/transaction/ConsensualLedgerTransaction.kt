@@ -22,7 +22,7 @@ import java.time.Instant
  * Because of this, trying to create or use a [ConsensualLedgerTransaction] for any other purpose then transaction
  * verification can result in unexpected exceptions, which need de be handled.
  *
- * [ConsensualSignedTransaction]s should never be instantiated directly from client code, but rather via
+ * [ConsensualLedgerTransaction]s should never be instantiated directly from client code, but rather via
  * net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction.toLedgerTransaction
  *
  */
