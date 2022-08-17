@@ -61,6 +61,4 @@ interface ConsensualSignedTransaction {
     fun getMissingSigningKeys(): Set<PublicKey>
 }
 
-/** Alias for [ConsensualSignedTransaction.addSignature] to let you use Kotlin operator overloading. */
-operator fun ConsensualSignedTransaction.plus(publicKey: PublicKey) = addSignature(publicKey)
 
