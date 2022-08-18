@@ -126,7 +126,7 @@
               "default": 3
             },
             "waitBetweenMills": {
-              "description": "Timeouts between attempts in milliseconds, if the number of value less than intervals then the last item is repeated",
+              "description": "Time between attempts in milliseconds, if the number of values is less than attempts then the last item is repeated",
               "type": "array",
               "minItems": 1,
               "default": [
