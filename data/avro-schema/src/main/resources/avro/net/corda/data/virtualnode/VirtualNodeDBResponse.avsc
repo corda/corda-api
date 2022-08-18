@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "VirtualNodeDBResponse",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "holdingIdentityShortHash",
+      "type": "string"
+    }
+  ]
+}
