@@ -12,9 +12,9 @@ import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction
 @CordaSerializable
 interface ConsensualState {
     /**
-     * A _participant_ is any party whose consent is needed to make a Consensual State valid and final.
+     * @property participants A _participant_ is any party whose consent is needed to make a Consensual State valid and final.
      *
-     * Participants are the main and only verification points for Consensual ConsensualState.kt since they do not have contract code.
+     * Participants are the main and only verification points for Consensual state since they do not have contract code.
      * Every participant has to be involved and approve the transaction
      * so that they receive the updated state, and don't end up in a situation where they can no longer use a state
      * they possess.
@@ -24,14 +24,18 @@ interface ConsensualState {
     val participants: List<Party>
 
     /**
-     * This needs to be provided to let the State verify its internal state and other parts of the encapsulating
-     * Transaction.
+     * An override of this function needs to be provided to:
+     *  - verify the state's well-formedness
+     *  - verify compatibility with the other states of the encapsulating transaction
+     *  - check required signing keys
+     *  - check the transaction's timestamp.
+     *
      * TODO(make services injectable (crypto, etc... CORE-5995)
      *
      * @param ledgerTransaction encapsulating transaction
      *
-     * @return result of the verification
+     * @throws [net.corda.v5.ledger.common.transaction.TransactionVerificationException] if the verification failed.
      *
      */
-    fun verify(ledgerTransaction: ConsensualLedgerTransaction): Boolean
+    fun verify(ledgerTransaction: ConsensualLedgerTransaction)
 }

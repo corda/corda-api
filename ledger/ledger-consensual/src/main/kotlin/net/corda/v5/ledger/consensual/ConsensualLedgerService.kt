@@ -9,6 +9,9 @@ import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder
  */
 @DoNotImplement
 interface ConsensualLedgerService {
+    /**
+     * Returns an empty [ConsensualTransactionBuilder] instance
+     */
     @Suspendable
     fun getTransactionBuilder(): ConsensualTransactionBuilder
 

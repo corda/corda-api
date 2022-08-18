@@ -28,7 +28,7 @@ public class PartyJavaApiTest {
     }
 
     @Test
-    void owningKeyTest() {
+    void getOwningKey() {
         final PublicKey publicKey = mock(PublicKey.class);
         Mockito.when(party.getOwningKey()).thenReturn(publicKey);
 
@@ -37,18 +37,5 @@ public class PartyJavaApiTest {
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(publicKey);
         verify(party, times(1)).getOwningKey();
-    }
-    
-    @Test
-    public void description() {
-        String test = "test";
-        when(party.getDescription()).thenReturn(test);
-
-        String result = party.getDescription();
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(test);
-        verify(party, times(1)).getDescription();
-
     }
 }

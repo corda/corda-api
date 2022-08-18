@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -31,12 +32,10 @@ public class ConsensualStateJavaApiTest {
     @Test
     public void verifyMethod() {
         final ConsensualLedgerTransaction mockLedgerTx = mock(ConsensualLedgerTransaction.class);
-        when(consensualState.verify(mockLedgerTx)).thenReturn(true);
+        doNothing().when(consensualState).verify(mockLedgerTx);
 
-        final Boolean result = consensualState.verify(mockLedgerTx);
+        consensualState.verify(mockLedgerTx);
 
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(true);
         verify(consensualState, times(1)).verify(mockLedgerTx);
     }
 
@@ -62,8 +61,7 @@ public class ConsensualStateJavaApiTest {
         }
 
         @Override
-        public boolean verify(@NotNull ConsensualLedgerTransaction ledgerTransaction) {
-            return true;
+        public void verify(@NotNull ConsensualLedgerTransaction ledgerTransaction) {
         }
     }
 }

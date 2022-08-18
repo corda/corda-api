@@ -2,7 +2,6 @@ package net.corda.v5.ledger.consensual.transaction;
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
-import net.corda.v5.application.serialization.SerializationService;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import org.assertj.core.api.Assertions;
@@ -38,64 +37,50 @@ public class ConsensualSignedTransactionJavaApiTest {
     }
 
     @Test
-    public void getSigs() {
-        when(consensualSignedTransaction.getSigs()).thenReturn(List.of(signatureWithMetaData));
+    public void getSignatures() {
+        when(consensualSignedTransaction.getSignatures()).thenReturn(List.of(signatureWithMetaData));
 
-        List<DigitalSignatureAndMetadata> result = consensualSignedTransaction.getSigs();
+        List<DigitalSignatureAndMetadata> result = consensualSignedTransaction.getSignatures();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(List.of(signatureWithMetaData));
-        verify(consensualSignedTransaction, times(1)).getSigs();
+        verify(consensualSignedTransaction, times(1)).getSignatures();
     }
 
     @Test
     public void toLedgerTransaction() {
-        final SerializationService mockSerializationService = mock(SerializationService.class);
         final ConsensualLedgerTransaction consensualLedgerTransaction = mock(ConsensualLedgerTransaction.class);
-        when(consensualSignedTransaction.toLedgerTransaction(mockSerializationService)).thenReturn(consensualLedgerTransaction);
+        when(consensualSignedTransaction.toLedgerTransaction()).thenReturn(consensualLedgerTransaction);
 
-        final ConsensualLedgerTransaction result = consensualSignedTransaction.toLedgerTransaction(mockSerializationService);
+        final ConsensualLedgerTransaction result = consensualSignedTransaction.toLedgerTransaction();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(consensualLedgerTransaction);
-        verify(consensualSignedTransaction, times(1)).toLedgerTransaction(mockSerializationService);
+        verify(consensualSignedTransaction, times(1)).toLedgerTransaction();
     }
 
     @Test
-    public void withAdditionalSignature() {
+    public void addSignature() {
+        PublicKey mockPublicKey = mock(PublicKey.class);
         final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualSignedTransaction.withAdditionalSignature(signatureWithMetaData)).thenReturn(consensualSignedTransaction);
+        when(consensualSignedTransaction.addSignature(mockPublicKey)).thenReturn(consensualSignedTransaction);
 
-        final ConsensualSignedTransaction result = consensualSignedTransaction.withAdditionalSignature(signatureWithMetaData);
+        final ConsensualSignedTransaction result = consensualSignedTransaction.addSignature(mockPublicKey);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(consensualSignedTransaction);
-        verify(consensualSignedTransaction, times(1)).withAdditionalSignature(signatureWithMetaData);
+        verify(consensualSignedTransaction, times(1)).addSignature(mockPublicKey);
     }
 
     @Test
-    public void withAdditionalSignatures() {
-        final Iterable<DigitalSignatureAndMetadata> digitalSignatureAndMetadataList = List.of(signatureWithMetaData);
-        final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualSignedTransaction.withAdditionalSignatures(digitalSignatureAndMetadataList)).thenReturn(consensualSignedTransaction);
-
-        final ConsensualSignedTransaction result = consensualSignedTransaction.withAdditionalSignatures(digitalSignatureAndMetadataList);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(consensualSignedTransaction);
-        verify(consensualSignedTransaction, times(1)).withAdditionalSignatures(digitalSignatureAndMetadataList);
-    }
-
-    @Test
-    public void missingSigningKeys() {
-        final SerializationService mockSerializationService = mock(SerializationService.class);
+    public void getMissingSigningKeys() {
         final Set<PublicKey> publicKeys = Set.of(mock(PublicKey.class));
-        when(consensualSignedTransaction.missingSigningKeys(mockSerializationService)).thenReturn(publicKeys);
+        when(consensualSignedTransaction.getMissingSigningKeys()).thenReturn(publicKeys);
 
-        final Set<PublicKey> result = consensualSignedTransaction.missingSigningKeys(mockSerializationService);
+        final Set<PublicKey> result = consensualSignedTransaction.getMissingSigningKeys();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(publicKeys);
-        verify(consensualSignedTransaction, times(1)).missingSigningKeys(mockSerializationService);
+        verify(consensualSignedTransaction, times(1)).getMissingSigningKeys();
     }
 }
