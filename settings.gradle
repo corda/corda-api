@@ -101,7 +101,6 @@ include 'ledger:ledger-common'
 include 'ledger:ledger-consensual'
 include 'ledger:ledger-utxo'
 include 'membership'
-include 'persistence'
 include 'serialization'
 
 
