@@ -30,6 +30,7 @@ interface UniquenessCheckerClientService {
      *
      * @param timeWindowUpperBound The latest date/time until the transaction is considered valid.
      */
+    @Suppress("LongParameterList")
     fun requestUniquenessCheck(
         txId: String,
         inputStates: List<String>,
