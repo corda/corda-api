@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "tenantId",
-      "doc": "'p2p', 'rpc-api', or holding identity identity ID.",
+      "doc": "'p2p', 'rpc-api', 'codesigner', or holding identity identity ID.",
       "type": "string"
     },
     {

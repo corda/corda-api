@@ -2,15 +2,15 @@
   "type": "record",
   "name": "CertificateRetrievalRpcResponse",
   "namespace": "net.corda.data.certificates.rpc.response",
-  "doc": "RPC operations response with a certificate chain.",
+  "doc": "RPC operations response with a collection of certificates.",
   "fields": [
     {
       "name": "certificates",
-      "doc": "The certificates in PEM format.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "doc": "Collection of certificates encoded in PEM format.",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
     }
   ]
 }

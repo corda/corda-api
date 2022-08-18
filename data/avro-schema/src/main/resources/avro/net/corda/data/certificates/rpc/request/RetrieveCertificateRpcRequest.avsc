@@ -6,8 +6,11 @@
   "fields": [
     {
       "name": "alias",
-      "doc": "The certificate alias.",
-      "type": "string"
+      "doc": "The certificate alias. If null, all certificates (for specified tenant) will be retrieved",
+      "type": [
+        "string",
+        "null"
+      ]
     }
   ]
 }
