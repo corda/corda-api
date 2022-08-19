@@ -64,7 +64,7 @@ interface UtxoTransactionBuilder {
      * @param commandAndSignatories The command and signatories to add to the current [UtxoTransactionBuilder].
      * @return Returns a new [UtxoTransactionBuilder] with the specified command and signatories.
      */
-    fun withCommand(commandAndSignatories: CommandAndSignatories): UtxoTransactionBuilder
+    fun withCommand(commandAndSignatories: CommandAndSignatories<*>): UtxoTransactionBuilder
 
     /**
      * Adds the specified commands to the UTXO transaction.
@@ -72,5 +72,5 @@ interface UtxoTransactionBuilder {
      * @param commandsAndSignatories The commands and signatories to add to the current [UtxoTransactionBuilder].
      * @return Returns a new [UtxoTransactionBuilder] with the specified commands and signatories.
      */
-    fun withCommands(commandsAndSignatories: Iterable<CommandAndSignatories>): UtxoTransactionBuilder
+    fun withCommands(commandsAndSignatories: Iterable<CommandAndSignatories<*>>): UtxoTransactionBuilder
 }

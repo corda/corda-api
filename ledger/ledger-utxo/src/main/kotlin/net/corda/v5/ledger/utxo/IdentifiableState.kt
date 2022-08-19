@@ -5,8 +5,8 @@ import java.util.*
 /**
  * Defines a contract state that is identifiable.
  *
- * The expectation is that identifiable state implementations will evolve by superseding previous versions of themselves
- * whilst sharing a common identifier (id).
+ * The expectation is that identifiable state implementations will evolve by superseding previous versions of
+ * themselves whilst sharing a common identifier (id).
  *
  * @property id The identifier of the current state.
  */
