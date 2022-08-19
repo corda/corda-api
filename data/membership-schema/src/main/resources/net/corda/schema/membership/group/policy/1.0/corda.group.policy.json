@@ -217,7 +217,7 @@
           "description": "The type of end to end session to use.",
           "enum": [
             "Authentication",
-            "Authentication_Encryption"
+            "Authenticated_Encryption"
           ]
         }
       },

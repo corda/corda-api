@@ -82,7 +82,7 @@
       "type": "string",
       "examples": [
         "Authentication",
-        "Authentication_Encryption"
+        "Authenticated_Encryption"
       ]
     }
   },
