@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "ConsensualLedgerRequest",
+  "doc": "Make a persistence request on a consensual ledger.  The action is determined by the type of the {@link ConsensualLedgerRequest#request} payload.  See also: {@link EntityResponse}, {@link PersistTransaction}",
+  "namespace": "net.corda.data.persistence",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ({@link java.time.Instant}) in milliseconds when the record was created."
+    },
+    {
+      "name": "flowId",
+      "type": "string",
+      "doc": "The unique ID for tracking the flow. Responses will be returned on this key."
+    },
+    {
+      "name": "holdingIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity",
+      "doc": "The holding identity of the user making the DB request."
+    },
+    {
+      "name": "request",
+      "doc": "The 'request' that we wish to make to the consensual ledger persistence API.",
+      "type": [
+        "net.corda.data.ledger.consensual.PersistTransaction"
+      ]
+    }
+  ]
+}
