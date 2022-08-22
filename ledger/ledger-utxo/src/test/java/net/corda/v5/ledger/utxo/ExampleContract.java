@@ -17,21 +17,21 @@ public class ExampleContract implements Contract {
     public static class Create implements ExampleContractCommand {
 
         @Override
-        public void verify(@NotNull UtxoLedgerTransaction transaction, @NotNull Iterable<? extends PublicKey> signatories) {
+        public void verify(@NotNull UtxoLedgerTransaction transaction, @NotNull Iterable<? extends PublicKey> signingKeys) {
         }
     }
 
     public static class Update implements ExampleContractCommand {
 
         @Override
-        public void verify(@NotNull UtxoLedgerTransaction transaction, @NotNull Iterable<? extends PublicKey> signatories) {
+        public void verify(@NotNull UtxoLedgerTransaction transaction, @NotNull Iterable<? extends PublicKey> signingKeys) {
         }
     }
 
     public static class Delete implements ExampleContractCommand {
 
         @Override
-        public void verify(@NotNull UtxoLedgerTransaction transaction, @NotNull Iterable<? extends PublicKey> signatories) {
+        public void verify(@NotNull UtxoLedgerTransaction transaction, @NotNull Iterable<? extends PublicKey> signingKeys) {
         }
     }
 }

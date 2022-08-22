@@ -7,23 +7,23 @@ import java.security.PublicKey
 /**
  * Represents a command, and the signing keys associated with the specified command.
  *
- * @constructor Creates a new instance of the [CommandAndSignatories] data class.
+ * @constructor Creates a new instance of the [CommandAndSigningKeys] data class.
  * @property command The command to verify.
- * @property signatories The signatory signing keys associated with the specified command.
+ * @property signingKeys The signing keys associated with the specified command.
  */
 @CordaSerializable
-data class CommandAndSignatories<out T : Command>(val command: T, val signatories: Set<PublicKey>) {
+data class CommandAndSigningKeys<out T : Command>(val command: T, val signingKeys: Set<PublicKey>) {
 
     /**
-     * Creates a new instance of the [CommandAndSignatories] data class.
+     * Creates a new instance of the [CommandAndSigningKeys] data class.
      *
      * @param command The command to verify.
-     * @param signatories The signatory signing keys associated with the specified command.
+     * @param signingKeys The signing keys associated with the specified command.
      */
-    constructor(command: T, vararg signatories: PublicKey) : this(command, signatories.toSet())
+    constructor(command: T, vararg signingKeys: PublicKey) : this(command, signingKeys.toSet())
 
     init {
-        require(signatories.isNotEmpty()) { "The set of signatories must not be empty." }
+        require(signingKeys.isNotEmpty()) { "The set of signing keys must not be empty." }
     }
 
     /**
@@ -33,7 +33,7 @@ data class CommandAndSignatories<out T : Command>(val command: T, val signatorie
      */
     override fun toString(): String {
         val command = command.toString().let { if ('@' in it) it.replace('$', '.').split('@')[0] else it }
-        val keys = signatories.joinToString { it.toStringShort() }
+        val keys = signingKeys.joinToString { it.toStringShort() }
         return "$command with signing keys $keys"
     }
 }

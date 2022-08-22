@@ -6,7 +6,7 @@ package net.corda.v5.ledger.utxo
  * @property TRANSACTION_PARAMETERS The transaction parameters component group. Ordinal = 0.
  * @property MEMBERSHIP_PARAMETERS The membership parameters component group. Ordinal = 1.
  * @property PACKAGES The packages component group. Ordinal = 2.
- * @property SIGNATORIES The signatories component group. Ordinal = 3.
+ * @property SIGNING_KEYS The signing keys component group. Ordinal = 3.
  * @property ATTACHMENTS The attachments component group. Ordinal = 4.
  * @property NOTARY The notary component group. Ordinal = 5.
  * @property TIME_WINDOW The time window component group. Ordinal = 6.
@@ -23,7 +23,7 @@ enum class ComponentGroup {
     TRANSACTION_PARAMETERS,
     MEMBERSHIP_PARAMETERS,
     PACKAGES,
-    SIGNATORIES,
+    SIGNING_KEYS,
     ATTACHMENTS,
     NOTARY,
     TIME_WINDOW,
