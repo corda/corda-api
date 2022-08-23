@@ -19,10 +19,10 @@ class SecureHash(val algorithm: String, bytes: ByteArray) : OpaqueBytes(bytes) {
         /**
          * Creates a [SecureHash].
          *
-         * This function does not validate the length of the created digest. Prefer using [DigestService.create] for a safer mechanism
-         * for creating [SecureHash]es.
+         * This function does not validate the length of the created digest. Prefer using
+         * [net.corda.v5.application.crypto.HashingService.create] for a safer mechanism for creating [SecureHash]es.
          *
-         * @see DigestService.create
+         * @see net.corda.v5.application.crypto.HashingService.create
          */
         @JvmStatic
         fun create(str: String): SecureHash {
