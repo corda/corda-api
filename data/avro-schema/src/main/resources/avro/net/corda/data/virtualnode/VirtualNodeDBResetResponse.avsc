@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "VirtualNodeDBResponse",
+  "name": "VirtualNodeDBResetResponse",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {

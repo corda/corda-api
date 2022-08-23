@@ -18,7 +18,7 @@
       "type": [
         "net.corda.data.virtualnode.VirtualNodeCreateRequest",
         "net.corda.data.virtualnode.VirtualNodeStateChangeRequest",
-        "net.corda.data.virtualnode.VirtualNodeDBRequest"
+        "net.corda.data.virtualnode.VirtualNodeDBResetRequest"
       ]
     }
   ]

@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "VirtualNodeDBRequest",
+  "name": "VirtualNodeDBResetRequest",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
