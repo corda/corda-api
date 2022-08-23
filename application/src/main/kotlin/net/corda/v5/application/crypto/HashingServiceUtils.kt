@@ -18,6 +18,7 @@ import net.corda.v5.crypto.SecureHash
  *
  * @see SecureHash.create
  */
+@Suppress("TooGenericExceptionCaught")
 fun HashingService.create(str: String): SecureHash {
     val idx = str.indexOf(SecureHash.DELIMITER)
     return if (idx == -1) {
@@ -27,7 +28,7 @@ fun HashingService.create(str: String): SecureHash {
         val value = str.substring(idx + 1)
         try {
             decode(value, DigestAlgorithmName((algorithm)))
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             throw IllegalArgumentException("Failed to create ${SecureHash::class.simpleName}: ${e.message}", e)
         }
     }
