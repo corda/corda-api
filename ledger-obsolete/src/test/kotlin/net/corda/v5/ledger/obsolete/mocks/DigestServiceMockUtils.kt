@@ -2,8 +2,8 @@
 
 package net.corda.v5.ledger.obsolete.mocks
 
+import net.corda.v5.cipher.suite.DigestService
 import net.corda.v5.crypto.DigestAlgorithmName
-import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SecureHash
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentMap
