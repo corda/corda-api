@@ -9,17 +9,17 @@ import net.corda.v5.crypto.SecureHash
 /**
  * Converts a digest represented as a {algorithm:}hexadecimal [String] into a [SecureHash].
  *
- * This function validates the length of the created digest. Prefer the usage of this function over [SecureHash.create].
+ * This function validates the length of the created digest. Prefer the usage of this function over [SecureHash.parse].
  *
  * @param str The algorithm name followed by a delimiter and the sequence of hexadecimal digits that represents a digest.
  *
  * @throws IllegalArgumentException The input string does not contain the expected number of hexadecimal digits, or it contains
  * incorrectly-encoded characters.
  *
- * @see SecureHash.create
+ * @see SecureHash.parse
  */
 @Suppress("TooGenericExceptionCaught")
-fun HashingService.create(str: String): SecureHash {
+fun HashingService.parse(str: String): SecureHash {
     val idx = str.indexOf(SecureHash.DELIMITER)
     return if (idx == -1) {
         throw IllegalArgumentException("Provided string should be of format algorithm:hexadecimal")

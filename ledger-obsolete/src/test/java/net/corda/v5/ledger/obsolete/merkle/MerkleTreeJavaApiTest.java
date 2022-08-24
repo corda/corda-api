@@ -44,7 +44,7 @@ public class MerkleTreeJavaApiTest {
             DigestServiceMockUtils.getZeroHash(digestService, DigestAlgorithmName.SHA2_256)
         );
         assertEquals(
-            SecureHash.create("SHA-256:2D1CEDB13469F32862568007BBCE1930A4924E1F68AE0B29A5B0B8056F79061E"),
+            SecureHash.parse("SHA-256:2D1CEDB13469F32862568007BBCE1930A4924E1F68AE0B29A5B0B8056F79061E"),
             merkle.getHash()
         );
     }

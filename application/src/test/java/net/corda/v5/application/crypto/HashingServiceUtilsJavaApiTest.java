@@ -29,7 +29,7 @@ public class HashingServiceUtilsJavaApiTest {
                 -39, 108, 36, 45, 42, 121, 39, 35, -29, -3, 111, -48, 97, -7, -43, -49, -47, 59, -113, -106, 19, 88,
                 -26, -83, -70, 74
         };
-        var cut = HashingServiceUtils.create(digestService, str);
+        var cut = HashingServiceUtils.parse(digestService, str);
         assertEquals(DigestAlgorithmName.SHA2_384.getName(), cut.getAlgorithm());
         assertArrayEquals(expectedBytes, cut.getBytes());
     }
