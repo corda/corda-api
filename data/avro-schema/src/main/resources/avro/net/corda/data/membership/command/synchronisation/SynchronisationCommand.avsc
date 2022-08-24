@@ -5,11 +5,6 @@
   "doc": "Synchronisation event type",
   "fields": [
     {
-      "name": "viewOwningMember",
-      "doc": "Holding identity of the view owning member. Used to select the appropriate instance of SynchronisationService.",
-      "type": "net.corda.data.identity.HoldingIdentity"
-    },
-    {
       "name": "command",
       "doc": "Indicator of the type of synchronisation command that was issued.",
       "type": [
