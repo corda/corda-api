@@ -5,12 +5,12 @@
   "namespace": "net.corda.data.persistence",
   "fields": [
     {
-      "name": "result",
-      "doc": "Result of request, either null (success or no results), or (amqp) serialized bytes",
-      "type": [
-        "null",
-        "bytes"
-      ]
+      "name": "results",
+      "doc": "Result of request, as a list of AMQP-formatted user defined objects, which may be empty or have 1 element for certain persistence operations",
+      "type": {
+        "type" : "array",
+        "items": "bytes"
+      }
     }
   ]
 }
