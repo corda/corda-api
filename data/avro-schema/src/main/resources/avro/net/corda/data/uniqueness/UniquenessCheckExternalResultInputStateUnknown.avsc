@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UniquenessCheckResultReferenceStateUnknown",
+  "name": "UniquenessCheckExternalResultInputStateUnknown",
   "namespace": "net.corda.data.uniqueness",
   "fields": [
     {

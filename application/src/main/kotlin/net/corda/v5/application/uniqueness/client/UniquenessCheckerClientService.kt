@@ -1,7 +1,8 @@
 package net.corda.v5.application.uniqueness.client
 
-import net.corda.data.uniqueness.UniquenessCheckResponse
+import net.corda.v5.application.uniqueness.model.UniquenessCheckResponse
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.base.annotations.Suspendable
 import java.time.Instant
 import java.util.concurrent.Future
 
@@ -31,12 +32,13 @@ interface UniquenessCheckerClientService {
      * @param timeWindowUpperBound The latest date/time until the transaction is considered valid.
      */
     @Suppress("LongParameterList")
+    @Suspendable
     fun requestUniquenessCheck(
         txId: String,
         inputStates: List<String>,
         referenceStates: List<String>,
         numOutputStates: Int,
         timeWindowLowerBound: Instant?,
-        timeWindowUpperBound: Instant,
+        timeWindowUpperBound: Instant
     ): Future<UniquenessCheckResponse>
 }

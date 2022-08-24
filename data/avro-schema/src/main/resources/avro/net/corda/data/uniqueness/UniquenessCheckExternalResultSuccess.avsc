@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UniquenessCheckResultSuccess",
+  "name": "UniquenessCheckExternalResultSuccess",
   "namespace": "net.corda.data.uniqueness",
   "fields": [
     {
