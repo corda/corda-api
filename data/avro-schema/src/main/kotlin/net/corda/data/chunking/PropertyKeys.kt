@@ -7,4 +7,5 @@ object PropertyKeys {
      */
     const val FORCE_UPLOAD = "forceUpload"
     const val RESET_DB = "resetDb"
+    const val ACTOR = "actor"
 }
