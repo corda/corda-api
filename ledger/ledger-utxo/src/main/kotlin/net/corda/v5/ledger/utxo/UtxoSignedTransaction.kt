@@ -37,12 +37,12 @@ interface UtxoSignedTransaction {
     fun addSignatures(signatures: Iterable<DigitalSignatureAndMetadata>): UtxoSignedTransaction
 
     /**
-     * Gets the signing keys for any missing transaction signatures.
+     * Gets the missing signatories from the current [UtxoSignedTransaction].
      *
      * @param serializer The [SerializationService] required to obtain missing signed transaction signatures.
-     * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
+     * @return Returns a [Set] of [PublicKey] representing the missing signatories from the current [UtxoSignedTransaction].
      */
-    fun getMissingSigningKeys(serializer: SerializationService): Set<PublicKey>
+    fun getMissingSignatories(serializer: SerializationService): Set<PublicKey>
 
     /**
      * Converts the current [UtxoSignedTransaction] into a [UtxoLedgerTransaction].

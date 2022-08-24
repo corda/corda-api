@@ -61,16 +61,16 @@ interface UtxoTransactionBuilder {
     /**
      * Adds the specified command to the UTXO transaction.
      *
-     * @param commandAndSigningKeys The command and signing keys to add to the current [UtxoTransactionBuilder].
-     * @return Returns a new [UtxoTransactionBuilder] with the specified command and signing keys.
+     * @param commandAndSignatories The command and signatories to add to the current [UtxoTransactionBuilder].
+     * @return Returns a new [UtxoTransactionBuilder] with the specified [CommandAndSignatories].
      */
-    fun withCommand(commandAndSigningKeys: CommandAndSigningKeys<*>): UtxoTransactionBuilder
+    fun withCommand(commandAndSignatories: CommandAndSignatories<*>): UtxoTransactionBuilder
 
     /**
      * Adds the specified commands to the UTXO transaction.
      *
-     * @param commandAndSigningKeys The commands and signing keys to add to the current [UtxoTransactionBuilder].
-     * @return Returns a new [UtxoTransactionBuilder] with the specified commands and signing keys.
+     * @param commandAndSignatories The commands and signatories to add to the current [UtxoTransactionBuilder].
+     * @return Returns a new [UtxoTransactionBuilder] with the specified [CommandAndSignatories].
      */
-    fun withCommands(commandAndSigningKeys: Iterable<CommandAndSigningKeys<*>>): UtxoTransactionBuilder
+    fun withCommands(commandAndSignatories: Iterable<CommandAndSignatories<*>>): UtxoTransactionBuilder
 }

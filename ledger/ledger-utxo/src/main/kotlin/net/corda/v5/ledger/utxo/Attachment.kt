@@ -24,7 +24,7 @@ import java.util.jar.JarInputStream
  *
  * @property id The unique hash of the attachment.
  * @property size The size of the attachment in bytes.
- * @property signingKeys The keys that have been used to sign the attachment, or empty if the attachment does not require signing.
+ * @property signatories The keys that have been used to sign the attachment, or empty if the attachment does not require signing.
  */
 @CordaSerializable
 @DoNotImplement
@@ -32,7 +32,7 @@ interface Attachment {
 
     val id: SecureHash
     val size: Int
-    val signingKeys: Set<PublicKey>
+    val signatories: Set<PublicKey>
 
     /**
      * Finds the specified file (case insensitively) within the attachment and copies it to the specified output stream.

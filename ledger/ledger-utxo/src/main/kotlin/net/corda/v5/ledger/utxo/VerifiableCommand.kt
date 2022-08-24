@@ -11,7 +11,7 @@ interface VerifiableCommand : Command {
      * Verifies the specified transaction associated with the current contract command.
      *
      * @param transaction The transaction to verify.
-     * @param signingKeys The signing keys associated with the current contract command.
+     * @param signatories The signatories associated with the current contract command.
      */
-    fun verify(transaction: UtxoLedgerTransaction, signingKeys: Iterable<PublicKey>)
+    fun verify(transaction: UtxoLedgerTransaction, signatories: Iterable<PublicKey>)
 }

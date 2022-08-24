@@ -10,13 +10,21 @@ import java.util.function.Predicate
 @DoNotImplement
 interface UtxoLedgerTransaction {
 
-    val outputs: List<TransactionState<*>>
-    val outputStates: List<ContractState> get() = outputs.map { it.contractState }
-    val inputStates: List<ContractState>
-    val referenceStates: List<ContractState>
-    val commands: List<CommandAndSigningKeys<*>>
+    val commands: List<CommandAndSignatories<*>>
     val attachments: List<Attachment>
     val timeWindow: TimeWindow?
+
+    val inputStateAndRefs: List<StateAndRef<*>>
+    val inputTransactionStates: List<TransactionState<*>> get() = inputStateAndRefs.map { it.state }
+    val inputContractStates: List<ContractState> get() = inputTransactionStates.map { it.contractState }
+
+    val referenceInputStateAndRefs: List<StateAndRef<*>>
+    val referenceInputTransactionStates: List<TransactionState<*>> get() = referenceInputStateAndRefs.map { it.state }
+    val referenceInputContractStates: List<ContractState> get() = referenceInputTransactionStates.map { it.contractState }
+
+    val outputStateAndRefs: List<StateAndRef<*>>
+    val outputTransactionStates: List<TransactionState<*>> get() = outputStateAndRefs.map { it.state }
+    val outputContractStates: List<ContractState> get() = outputTransactionStates.map { it.contractState }
 
     fun verify()
 
@@ -106,13 +114,13 @@ interface UtxoLedgerTransaction {
 
     // region Commands
 
-    fun <T : Command> getCommandAndSigningKeys(type: Class<T>): CommandAndSigningKeys<T>
-    fun <T : Command> getCommandAndSigningKeys(type: Class<T>, index: Int): CommandAndSigningKeys<T>
-    fun <T : Command> getCommandAndSigningKeys(type: Class<T>, predicate: Predicate<T>): CommandAndSigningKeys<T>
+    fun <T : Command> getCommandAndSignatories(type: Class<T>): CommandAndSignatories<T>
+    fun <T : Command> getCommandAndSignatories(type: Class<T>, index: Int): CommandAndSignatories<T>
+    fun <T : Command> getCommandAndSignatories(type: Class<T>, predicate: Predicate<T>): CommandAndSignatories<T>
 
-    fun <T : Command> getCommandsAndSigningKeys(type: Class<T>): List<CommandAndSigningKeys<T>>
-    fun <T : Command> getCommandsAndSigningKeys(type: Class<T>, index: Int): List<CommandAndSigningKeys<T>>
-    fun <T : Command> getCommandsAndSigningKeys(type: Class<T>, predicate: Predicate<T>): List<CommandAndSigningKeys<T>>
+    fun <T : Command> getCommandsAndSignatories(type: Class<T>): List<CommandAndSignatories<T>>
+    fun <T : Command> getCommandsAndSignatories(type: Class<T>, index: Int): List<CommandAndSignatories<T>>
+    fun <T : Command> getCommandsAndSignatories(type: Class<T>, predicate: Predicate<T>): List<CommandAndSignatories<T>>
 
     // endregion
 
