@@ -2,6 +2,7 @@
   "type": "record",
   "name": "ExternalEventStateStatus",
   "namespace": "net.corda.data.flow.state.external",
+  "doc": "The status of the {@link ExternalEventState}.",
   "fields": [
     {
       "name": "type",

@@ -2,6 +2,7 @@
   "type": "record",
   "name": "ExternalEventState",
   "namespace": "net.corda.data.flow.state.external",
+  "doc": "ExternalEventState contains the information required to send an external event and receive a response.",
   "fields": [
     {
       "name": "requestId",
