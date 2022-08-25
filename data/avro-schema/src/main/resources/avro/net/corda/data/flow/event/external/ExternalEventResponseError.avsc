@@ -10,11 +10,11 @@
       "type": {
         "name": "ExternalEventResponseErrorType",
         "type": "enum",
-        "doc": "RETRY: A retriable error.\nPLATFORM: An error that should be propagated to the calling flow.\nFATAL: A fatal error.",
+        "doc": "TRANSIENT: A transient error.\nPLATFORM: An error that should be propagated to the calling flow.\nFATAL: A fatal error.",
         "symbols": [
-          "RETRY",
-          "PLATFORM_ERROR",
-          "FATAL_ERROR"
+          "TRANSIENT",
+          "PLATFORM",
+          "FATAL"
         ]
       }
     },

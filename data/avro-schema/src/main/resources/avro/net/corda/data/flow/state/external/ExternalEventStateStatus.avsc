@@ -10,7 +10,7 @@
       "type": {
         "name": "ExternalEventStateType",
         "type": "enum",
-        "doc": "OK: The state is ok.\nRETRY: The state received a retriable error.\nPLATFORM_ERROR: The state received an error that should be propagated to the calling flow.\nFATAL_ERROR: The state received a fatal error.",
+        "doc": "OK: The state is ok.\nRETRY: The state received a transient error.\nPLATFORM_ERROR: The state received an error that should be propagated to the calling flow.\nFATAL_ERROR: The state received a fatal error.",
         "symbols": [
           "OK",
           "RETRY",
