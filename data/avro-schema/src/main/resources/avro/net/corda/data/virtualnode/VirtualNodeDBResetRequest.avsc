@@ -4,8 +4,11 @@
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
-      "name": "holdingIdentityShortHash",
-      "type": "string"
+      "name": "holdingIdentityShortHashs",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
     },
     {
       "name": "updateActor",
