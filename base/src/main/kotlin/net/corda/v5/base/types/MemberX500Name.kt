@@ -1,5 +1,7 @@
 package net.corda.v5.base.types
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonValue
 import net.corda.v5.base.annotations.CordaSerializable
 import java.util.Locale
 import java.util.Objects
@@ -93,6 +95,7 @@ class MemberX500Name(
          * the name is improperly specified.
          */
         @JvmStatic
+        @JsonCreator
         fun parse(name: String): MemberX500Name = parse(toAttributesMap(name))
 
         /**
@@ -247,6 +250,7 @@ class MemberX500Name(
     /**
      * Returns the string equivalent of this name where the order of RDNs is CN, OU, O, L, ST, C
      */
+    @JsonValue
     override fun toString(): String = x500Principal.toString()
     override fun compareTo(other: MemberX500Name): Int {
         return comparator.compare(this, other)
