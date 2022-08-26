@@ -7,7 +7,7 @@
     {
       "name": "requestId",
       "type": "string",
-      "doc": "Unique ID of a single crypto request. The Id remains the same for each resend."
+      "doc": "Unique ID of a single request. The ID remains the same for each resend."
     },
     {
       "name": "status",
