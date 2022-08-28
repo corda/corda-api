@@ -47,7 +47,7 @@ public class ConsensualStateJavaApiTest {
         Assertions.assertThat(customConsensualState.getParticipants()).isEqualTo(participants);
     }
 
-    class CustomConsensualState implements ConsensualState {
+    static class CustomConsensualState implements ConsensualState {
         private final List<Party> participants;
 
         public CustomConsensualState(List<Party> participants) {

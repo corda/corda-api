@@ -1,7 +1,7 @@
 plugins {
     id 'corda-api.common-library'
     id 'corda.common-publishing'
-    id 'org.jetbrains.kotlin.jvm'
+    id 'corda.java-only'
 }
 
 description 'Corda Ledger Common'
@@ -9,7 +9,6 @@ description 'Corda Ledger Common'
 dependencies {
     api platform(project(':corda-api'))
 
-    api 'net.corda.kotlin:kotlin-stdlib-jdk8-osgi'
     api 'javax.persistence:javax.persistence-api'
     api 'org.slf4j:slf4j-api'
 
@@ -21,7 +20,6 @@ dependencies {
     implementation project(":serialization")
 
     testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
-    testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation "org.assertj:assertj-core:$assertjVersion"
 }
-

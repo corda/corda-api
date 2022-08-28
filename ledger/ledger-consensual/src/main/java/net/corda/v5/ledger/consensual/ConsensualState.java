@@ -1,7 +1,11 @@
-package net.corda.v5.ledger.consensual
+package net.corda.v5.ledger.consensual;
 
-import net.corda.v5.base.annotations.CordaSerializable
-import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction
+import net.corda.v5.base.annotations.CordaSerializable;
+import net.corda.v5.ledger.common.transaction.TransactionVerificationException;
+import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  * A consensual state (or just "state") contains opaque data used by a consensual ledger. It can be thought of as a disk
@@ -10,9 +14,9 @@ import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction
  * Consensual states cannot be consumed.
  */
 @CordaSerializable
-interface ConsensualState {
+public interface ConsensualState {
     /**
-     * @property participants A _participant_ is any party whose consent is needed to make a Consensual State valid and final.
+     * @return participants A <i>participant</i> is any party whose consent is needed to make a Consensual State valid and final.
      *
      * Participants are the main and only verification points for Consensual state since they do not have contract code.
      * Every participant has to be involved and approve the transaction
@@ -21,7 +25,8 @@ interface ConsensualState {
      *
      * The participants list should normally be derived from the contents of the state.
      */
-    val participants: List<Party>
+    @NotNull
+    List<Party> getParticipants();
 
     /**
      * An override of this function needs to be provided to:
@@ -34,8 +39,8 @@ interface ConsensualState {
      *
      * @param ledgerTransaction encapsulating transaction
      *
-     * @throws [net.corda.v5.ledger.common.transaction.TransactionVerificationException] if the verification failed.
+     * @throws TransactionVerificationException if the verification failed.
      *
      */
-    fun verify(ledgerTransaction: ConsensualLedgerTransaction)
+    void verify(@NotNull ConsensualLedgerTransaction ledgerTransaction) throws TransactionVerificationException;
 }
