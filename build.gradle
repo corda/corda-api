@@ -269,18 +269,18 @@ subprojects {
     tasks.register('allDependencyInsight', DependencyInsightReportTask)
     tasks.register('allDependencies', DependencyReportTask)
 
-    tasks.register('releasable'){
+    tasks.register('releasable') {
         description = "Prints a list of all modules which will be released externally"
         group = "Release"
-        if(project.hasProperty('releasable') && project.releasable){
+        if (project.hasProperty('releasable') && project.releasable) {
             logArtifacts(project)
         }
     }
 
-    tasks.register('unReleasable'){
+    tasks.register('unReleasable') {
         description = "Prints a list of all modules which will not be released externally"
         group = "Release"
-        if(!project.hasProperty('releasable') || !project.releasable){
+        if (!project.hasProperty('releasable') || !project.releasable) {
             logArtifacts(project)
         }
     }

@@ -1,5 +1,6 @@
-// Allow us to publish to S3 bucket if this plugin is applied to a specific pluign
-if (project.hasProperty('maven.repo.s3') && project.hasProperty('releasable') ){
+// Allow us to publish to S3 bucket if this plugin is applied to a specific plugin
+// for use in projects which do not use corda.common-publishing plugin
+if (project.hasProperty('maven.repo.s3') && project.hasProperty('releasable')) {
     publishing {
         repositories {
             maven {
