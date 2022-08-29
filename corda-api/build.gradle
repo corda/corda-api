@@ -94,7 +94,7 @@ publishing {
     }
 }
 
-if (project.hasProperty('maven.repo.s3')){
+if (project.hasProperty('maven.repo.s3') && project.hasProperty('releasable') ){
     publishing {
         repositories {
             maven {
