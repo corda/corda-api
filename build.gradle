@@ -95,7 +95,7 @@ subprojects {
     }
 
     ext {
-        releasable = true // all corda-api jars are for external comsumtion
+        releasable = true // all corda-api jars are for external consumption
     }
 
     version rootProject.version
