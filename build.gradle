@@ -95,7 +95,7 @@ subprojects {
     }
 
     ext {
-        releasable = true // all corda-api jars are for external consumption
+        releasable = true // all corda-api jars are for external consumable
     }
 
     version rootProject.version
@@ -273,12 +273,7 @@ subprojects {
         description = "Prints a list of all modules which will be released externally"
         group = "Release"
         if(project.hasProperty('releasable') && project.releasable){
-            project.publishing.publications.each { publication ->
-                logger.quiet("\n${publication.groupId}:${publication.artifactId}:${publication.version} [${project.path}]")
-                publication.artifacts.each { artifact ->
-                    logger.quiet(" * ${artifact.file.name}")
-                }
-            }
+            logArtifacts(project)
         }
     }
 
@@ -286,12 +281,17 @@ subprojects {
         description = "Prints a list of all modules which will not be released externally"
         group = "Release"
         if(!project.hasProperty('releasable') || !project.releasable){
-            project.publishing.publications.each { publication ->
-                logger.quiet("\n${publication.groupId}:${publication.artifactId}:${publication.version} [${project.path}]")
-                publication.artifacts.each { artifact ->
-                    logger.quiet(" * ${artifact.file.name}")
-                }
-            }
+            logArtifacts(project)
+        }
+    }
+}
+
+// helper to log Artifacts we will or will not publish during a release process
+def logArtifacts(Project project) {
+    project.publishing.publications.each { publication ->
+        logger.quiet("\n${publication.groupId}:${publication.artifactId}:${publication.version} [${project.path}]")
+        publication.artifacts.each { artifact ->
+            logger.quiet(" * ${artifact.file.name}")
         }
     }
 }
