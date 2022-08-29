@@ -95,7 +95,7 @@ subprojects {
     }
 
     ext {
-        releasable = true // all corda-api jars are for external consumable
+        releasable = true // all corda-api jars are externally consumable
     }
 
     version rootProject.version
@@ -269,18 +269,18 @@ subprojects {
     tasks.register('allDependencyInsight', DependencyInsightReportTask)
     tasks.register('allDependencies', DependencyReportTask)
 
-    tasks.register('releasable') {
+    tasks.register('releasableArtifacts') {
         description = "Prints a list of all modules which will be released externally"
         group = "Release"
-        if (project.hasProperty('releasable') && project.releasable) {
+        if (project.hasProperty('releasable') && project.releasable.toBoolean()) {
             logArtifacts(project)
         }
     }
 
-    tasks.register('unReleasable') {
+    tasks.register('unReleasableArtifacts') {
         description = "Prints a list of all modules which will not be released externally"
         group = "Release"
-        if (!project.hasProperty('releasable') || !project.releasable) {
+        if (!project.hasProperty('releasable') || !project.releasable.toBoolean()) {
             logArtifacts(project)
         }
     }
