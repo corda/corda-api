@@ -286,7 +286,7 @@ subprojects {
     }
 }
 
-// helper to log Artifacts we will or will not publish during a release process
+// helper to log artifacts we will or will not publish during a release process
 def logArtifacts(Project project) {
     project.publishing.publications.each { publication ->
         logger.quiet("\n${publication.groupId}:${publication.artifactId}:${publication.version} [${project.path}]")
