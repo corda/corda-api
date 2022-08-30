@@ -12,7 +12,9 @@ import org.apache.avro.specific.SpecificRecord
 import java.time.Instant
 
 /**
- * TODO Rewrite KDocs
+ * Representation of the result of a uniqueness check request. This representation
+ * is agnostic to both the message bus API and any DB schema that may be used to
+ * persist data by the backing store.
  */
 sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
     companion object {

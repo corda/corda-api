@@ -6,7 +6,13 @@ import net.corda.v5.base.annotations.CordaSerializable
 import java.time.Instant
 
 /**
- * TODO Rewrite KDocs
+ * Representation of errors that can be raised by the uniqueness checker. These errors are returned
+ * through the uniqueness client service as well. This representation is agnostic to both the message
+ * bus API and any DB schema that may be used to persist data by the backing store.
+ *
+ * Unfortunately since this is a sealed class with multiple implementations we need to tell Jackson
+ * what types to look for. Hence the annotations. This will be removed when we start using standard
+ * Corda serialization.
  */
 @CordaSerializable
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
