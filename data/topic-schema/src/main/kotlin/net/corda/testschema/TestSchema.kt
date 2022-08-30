@@ -1,4 +1,4 @@
-package net.corda.schema
+package net.corda.testschema
 
 class TestSchema {
     companion object {

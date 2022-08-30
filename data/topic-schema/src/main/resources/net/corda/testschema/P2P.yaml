@@ -1,0 +1,6 @@
+topics:
+  P2PInTopic:
+    name: p2p.app.received_msg
+    consumers:
+    producers:
+    config:
