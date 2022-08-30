@@ -1,4 +1,4 @@
-package net.corda.v5.application.uniqueness.model
+package net.corda.v5.uniqueness.model
 
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
@@ -53,5 +53,15 @@ sealed class UniquenessCheckError {
         val evaluationTimestamp: Instant,
         val timeWindowLowerBound: Instant?,
         val timeWindowUpperBound: Instant
+    ) : UniquenessCheckError()
+
+    /** Occurs when the received request is malformed. */
+    data class MalformedRequest(
+        val errorText: String
+    ) : UniquenessCheckError()
+
+    /** Occurs when the received response from the uniqueness checker is unknown. */
+    data class UnknownAvroResponse(
+        val avroResponseType: String
     ) : UniquenessCheckError()
 }

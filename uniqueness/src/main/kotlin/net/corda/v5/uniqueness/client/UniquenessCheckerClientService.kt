@@ -1,8 +1,8 @@
-package net.corda.v5.application.uniqueness.client
+package net.corda.v5.uniqueness.client
 
-import net.corda.v5.application.uniqueness.model.UniquenessCheckResponse
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.uniqueness.model.UniquenessCheckResponse
 import java.time.Instant
 import java.util.concurrent.Future
 

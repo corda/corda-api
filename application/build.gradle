@@ -13,7 +13,6 @@ dependencies {
     api platform(project(':corda-api'))
     api project(":base")
     api project(":crypto")
-    api project(":data:avro-schema")
     api project(":membership")
     api project(":serialization")
 

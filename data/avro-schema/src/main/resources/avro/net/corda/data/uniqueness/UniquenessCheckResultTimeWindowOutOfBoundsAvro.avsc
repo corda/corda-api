@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UniquenessCheckExternalResultTimeWindowOutOfBounds",
+  "name": "UniquenessCheckResultTimeWindowOutOfBoundsAvro",
   "namespace": "net.corda.data.uniqueness",
   "fields": [
     {

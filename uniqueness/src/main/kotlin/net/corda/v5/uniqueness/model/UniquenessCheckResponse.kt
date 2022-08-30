@@ -1,4 +1,4 @@
-package net.corda.v5.application.uniqueness.model
+package net.corda.v5.uniqueness.model
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 

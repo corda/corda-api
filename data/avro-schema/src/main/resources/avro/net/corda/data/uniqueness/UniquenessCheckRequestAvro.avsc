@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UniquenessCheckExternalRequest",
+  "name": "UniquenessCheckRequestAvro",
   "namespace": "net.corda.data.uniqueness",
   "fields": [
     {

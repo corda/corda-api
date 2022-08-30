@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UniquenessCheckExternalResultMalformedRequest",
+  "name": "UniquenessCheckResultMalformedRequestAvro",
   "namespace": "net.corda.data.uniqueness",
   "fields": [
     {

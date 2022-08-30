@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "UniquenessCheckExternalResultInputStateConflict",
+  "name": "UniquenessCheckResultInputStateConflictAvro",
   "namespace": "net.corda.data.uniqueness",
   "fields": [
     {

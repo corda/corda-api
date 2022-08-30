@@ -1,12 +1,13 @@
-package net.corda.v5.application.uniqueness.model
+package net.corda.v5.uniqueness.model
 
-import net.corda.data.uniqueness.UniquenessCheckExternalResponse
-import net.corda.data.uniqueness.UniquenessCheckExternalResultInputStateConflict
-import net.corda.data.uniqueness.UniquenessCheckExternalResultInputStateUnknown
-import net.corda.data.uniqueness.UniquenessCheckExternalResultMalformedRequest
-import net.corda.data.uniqueness.UniquenessCheckExternalResultReferenceStateConflict
-import net.corda.data.uniqueness.UniquenessCheckExternalResultReferenceStateUnknown
-import net.corda.data.uniqueness.UniquenessCheckExternalResultTimeWindowOutOfBounds
+import net.corda.data.uniqueness.UniquenessCheckResponseAvro
+import net.corda.data.uniqueness.UniquenessCheckResultInputStateConflictAvro
+import net.corda.data.uniqueness.UniquenessCheckResultInputStateUnknownAvro
+import net.corda.data.uniqueness.UniquenessCheckResultMalformedRequestAvro
+import net.corda.data.uniqueness.UniquenessCheckResultReferenceStateConflictAvro
+import net.corda.data.uniqueness.UniquenessCheckResultReferenceStateUnknownAvro
+import net.corda.data.uniqueness.UniquenessCheckResultSuccessAvro
+import net.corda.data.uniqueness.UniquenessCheckResultTimeWindowOutOfBoundsAvro
 import net.corda.v5.base.exceptions.CordaRuntimeException
 import org.apache.avro.specific.SpecificRecord
 import java.time.Instant
@@ -22,12 +23,11 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
         const val RESULT_REJECTED_REPRESENTATION = 'R'
 
         /**
-         * Converts an Avro error to a [Failure]. Since there's no common superclass
-         * for avro classes, the parameter can be anything, hence the [Any] type.
+         * Converts an Avro response to a [UniquenessCheckResult].
          */
-        fun fromExternalError(avroResponse: UniquenessCheckExternalResponse): Failure {
+        fun fromAvroResponse(avroResponse: UniquenessCheckResponseAvro): UniquenessCheckResult {
             return when (val avroResult = avroResponse.result) {
-                is UniquenessCheckExternalResultInputStateConflict -> {
+                is UniquenessCheckResultInputStateConflictAvro -> {
                     Failure(
                         Instant.now(),
                         UniquenessCheckError.InputStateConflict(avroResult.conflictingStates.map {
@@ -36,7 +36,7 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
                         })
                     )
                 }
-                is UniquenessCheckExternalResultInputStateUnknown -> {
+                is UniquenessCheckResultInputStateUnknownAvro -> {
                     Failure(
                         Instant.now(),
                         UniquenessCheckError.InputStateUnknown(avroResult.unknownStates.map {
@@ -44,7 +44,7 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
                         })
                     )
                 }
-                is UniquenessCheckExternalResultReferenceStateConflict -> {
+                is UniquenessCheckResultReferenceStateConflictAvro -> {
                     Failure(
                         Instant.now(),
                         UniquenessCheckError.ReferenceStateConflict(avroResult.conflictingStates.map {
@@ -53,7 +53,7 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
                         })
                     )
                 }
-                is UniquenessCheckExternalResultReferenceStateUnknown -> {
+                is UniquenessCheckResultReferenceStateUnknownAvro -> {
                     Failure(
                         Instant.now(),
                         UniquenessCheckError.ReferenceStateUnknown(avroResult.unknownStates.map {
@@ -61,7 +61,7 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
                         })
                     )
                 }
-                is UniquenessCheckExternalResultTimeWindowOutOfBounds -> {
+                is UniquenessCheckResultTimeWindowOutOfBoundsAvro -> {
                     Failure(
                         Instant.now(),
                         UniquenessCheckError.TimeWindowOutOfBounds(
@@ -71,13 +71,26 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
                         )
                     )
                 }
-                is UniquenessCheckExternalResultMalformedRequest -> {
-                    // FIXME This should be handled differently
-                    throw CordaRuntimeException("")
+                is UniquenessCheckResultMalformedRequestAvro -> {
+                    Failure(
+                        Instant.now(),
+                        UniquenessCheckError.MalformedRequest(
+                            avroResult.errorText
+                        )
+                    )
+                }
+                is UniquenessCheckResultSuccessAvro -> {
+                    Success(
+                        Instant.now()
+                    )
                 }
                 else -> {
-                    // TODO should this be handled differently?
-                    throw CordaRuntimeException("")
+                    Failure(
+                        Instant.now(),
+                        UniquenessCheckError.UnknownAvroResponse(
+                            avroResult.javaClass.typeName
+                        )
+                    )
                 }
             }
         }
@@ -101,29 +114,40 @@ sealed class UniquenessCheckResult(val commitTimestamp: Instant) {
         fun toExternalError(): SpecificRecord {
             return when (error) {
                 is UniquenessCheckError.InputStateConflict ->
-                    UniquenessCheckExternalResultInputStateConflict(
+                    UniquenessCheckResultInputStateConflictAvro(
                         error.conflictingStates.map { it.stateRef.toString() }
                     )
                 is UniquenessCheckError.InputStateUnknown ->
-                    UniquenessCheckExternalResultInputStateUnknown(
+                    UniquenessCheckResultInputStateUnknownAvro(
                         error.unknownStates.map { it.toString() }
                     )
                 is UniquenessCheckError.ReferenceStateConflict ->
-                    UniquenessCheckExternalResultReferenceStateConflict(
+                    UniquenessCheckResultReferenceStateConflictAvro(
                         error.conflictingStates.map { it.stateRef.toString() }
                     )
                 is UniquenessCheckError.ReferenceStateUnknown ->
-                    UniquenessCheckExternalResultReferenceStateUnknown(
+                    UniquenessCheckResultReferenceStateUnknownAvro(
                         error.unknownStates.map { it.toString() }
                     )
                 is UniquenessCheckError.TimeWindowOutOfBounds ->
                     with(error) {
-                        UniquenessCheckExternalResultTimeWindowOutOfBounds(
+                        UniquenessCheckResultTimeWindowOutOfBoundsAvro(
                             evaluationTimestamp,
                             timeWindowLowerBound,
                             timeWindowUpperBound
                         )
                     }
+                is UniquenessCheckError.MalformedRequest ->
+                    UniquenessCheckResultMalformedRequestAvro(
+                        error.errorText
+                    )
+                is UniquenessCheckError.UnknownAvroResponse ->
+                    // TODO This scenario should never happen because `UnknownAvroResponse` is only
+                    //  created when reading from the message bus, however, toExternalError will not
+                    //  be called after that point. However, there might be a better way to handle this.
+                    throw CordaRuntimeException(
+                        "Unknown avro response error cannot be mapped as external error."
+                    )
             }
         }
     }
