@@ -14,28 +14,28 @@
       "default": 30000
     },
     "cpkWriteIntervalMs": {
-      "description": "",
+      "description": "Interval in ms between updating Kafka with missing CPKs compared to CPKs existing in the DB.",
       "type": "integer",
       "minimum": 5000,
       "maximum": 2147483647,
       "default": 10000
     },
     "cpiInfoIntervalMs": {
-      "description": "",
+      "description": "Interval in ms between updating Kafka with missing CPI metadata compared to CPI metadata existing in the DB.",
       "type": "integer",
       "minimum": 5000,
       "maximum": 2147483647,
       "default": 30000
     },
     "vnodeInfoIntervalMs": {
-      "description": "",
+      "description": "Interval in ms between updating Kafka with missing CPI metadata compared to CPI metadata existing in the DB.",
       "type": "integer",
       "minimum": 5000,
       "maximum": 2147483647,
       "default": 30000
     },
     "configIntervalMs": {
-      "description": "",
+      "description": "Interval in ms between updating Kafka with missing Configuration sections compared to Configuration sections existing in the DB.",
       "type": "integer",
       "minimum": 5000,
       "maximum": 2147483647,
