@@ -5,7 +5,7 @@ import java.lang.annotation.Inherited
 /**
  * This annotation is a marker to indicate that a class is permitted and intended to be serialized as part of Node messaging.
  *
- * Strictly speaking, it is critical to identifying that a class is intended to be deserialized by the node, to avoid
+ * Strictly speaking, it is critical to identifying that a class is intended to be deserialized by Corda, to avoid
  * a security compromise later when a vulnerability is discovered in the deserialisation of a class that just happens to
  * be on the classpath, perhaps from a 3rd party library, as has been witnessed elsewhere.
  *
