@@ -1,9 +1,11 @@
 @file:JvmName("FlowSessionUtils")
+
 package net.corda.v5.application.messaging
 
 import net.corda.v5.application.flows.FlowContextProperties
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.base.exceptions.CordaRuntimeException
 import net.corda.v5.base.types.MemberX500Name
 
 /**
@@ -50,10 +52,8 @@ interface FlowSession {
      * If this session was passed to an initiated flow by Corda, the context properties are associated with the
      * initiating flow at the other end of the connection. They differ from the [FlowContextProperties] available to all
      * flows via the [FlowEngine] in that they are not a description of the context of the currently executing flow, but
-     * instead the flow which initiated it. Any calls to modify these contextProperties will throw, they should be
-     * considered immutable.
-     *
-     * @throws Execption if modification is attempted to context properties of an initiated flow's instigating session.
+     * instead the flow which initiated it. Any calls to modify these contextProperties will throw a
+     * [CordaRuntimeException], they should be considered immutable.
      */
     val contextProperties: FlowContextProperties
 
