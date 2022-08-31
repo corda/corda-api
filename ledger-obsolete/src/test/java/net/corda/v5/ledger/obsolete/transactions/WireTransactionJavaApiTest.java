@@ -7,6 +7,7 @@ import net.corda.v5.base.types.OpaqueBytes;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.obsolete.merkle.MerkleTree;
+import net.corda.v5.ledger.common.transaction.PrivacySalt;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -28,17 +29,13 @@ public class WireTransactionJavaApiTest {
 
     private final WireTransaction wireTransaction = mock(WireTransaction.class);
     private final PublicKey publicKey = mock(PublicKey.class);
-    private final SecureHash secureHash = SecureHash.create("SHA-256:6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A");
+    private final SecureHash secureHash = SecureHash.parse("SHA-256:6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A");
     private final List<SecureHash> secureHashes = List.of(secureHash);
     private final Map<Integer, List<SecureHash>> availableComponent = Map.of(1, secureHashes);
 
-    private final static Integer PRIVACY_SALT_MINIMUM_SIZE = 32;
-
     @Test
     public void getPrivacySalt() {
-        byte[] bytes = new byte[PRIVACY_SALT_MINIMUM_SIZE];
-        bytes[0] = 1;
-        final PrivacySalt privacySalt = new PrivacySalt(bytes);
+        final PrivacySalt privacySalt = mock(PrivacySalt.class);
         doReturn(privacySalt).when(wireTransaction).getPrivacySalt();
 
         PrivacySalt result = wireTransaction.getPrivacySalt();

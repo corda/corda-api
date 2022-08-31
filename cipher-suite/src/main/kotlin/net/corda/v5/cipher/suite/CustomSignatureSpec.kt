@@ -1,7 +1,6 @@
 package net.corda.v5.cipher.suite
 
 import net.corda.v5.crypto.DigestAlgorithmName
-import net.corda.v5.crypto.DigestService
 import net.corda.v5.crypto.SignatureSpec
 import java.security.spec.AlgorithmParameterSpec
 
@@ -27,13 +26,11 @@ import java.security.spec.AlgorithmParameterSpec
 class CustomSignatureSpec(
     signatureName: String,
     val customDigestName: DigestAlgorithmName,
-    val params: AlgorithmParameterSpec? = null
+    val params: AlgorithmParameterSpec?
 ) : SignatureSpec(signatureName) {
-    /**
-     * Returns signing data, does hashing of required
-     */
-    override fun getSigningData(hashingService: DigestService, data: ByteArray): ByteArray =
-            hashingService.hash(data, customDigestName).bytes
+
+    constructor(signatureName: String, customDigestName: DigestAlgorithmName)
+        : this(signatureName, customDigestName, null)
 
     override fun toString(): String = if(params != null) {
         "$signatureName:$customDigestName:${params::class.java.simpleName}"
