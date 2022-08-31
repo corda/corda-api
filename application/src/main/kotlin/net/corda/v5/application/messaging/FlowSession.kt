@@ -35,20 +35,24 @@ interface FlowSession {
     val counterparty: MemberX500Name
 
     /**
-     * Session local [FlowContextProperties]. Any properties set against the session will be propagated to initiated
-     * flows and all that flow's initiated flows and sub flows down the stack. These properties are in addition to the
-     * current parent context properties which are always propagated see [FlowContextProperties]. Note that the first
-     * use of this property snapshots the entire set of parent context to the session, and from then on only these
-     * session local properties are propagated. Further changes to the parent context will not be reflected in the local
-     * session context and will not be sent to the initiated flow. If this property is never accessed, the parent
-     * context is snapshotted the first time a session is opened, which is when the first call to either send or receive
-     * a message is made.
+     * Session local [FlowContextProperties].
      *
-     * Sessions passed to initiated flows by Corda have no session specific context, these flows should always get the
-     * non-session local context from the FlowEngine. Attempting to access this property in initiated flows will throw
-     * [IllegalStateException].
+     * If this session is part of an initiating flow, i.e. was obtained from [FlowMessaging] then any properties set
+     * against the session's context will be propagated to initiated flows and all that flow's initiated flows and sub
+     * flows down the stack. These properties are in addition to the current parent context properties which are always
+     * propagated see [FlowContextProperties]. Note that the first use of this property snapshots the entire set of
+     * parent context to the session, and from then on only these session local properties are propagated. Further
+     * changes to the parent context will not be reflected in the local session context and will not be sent to the
+     * initiated flow. If this property is never accessed, the parent context is snapshotted the first time a session is
+     * opened, which is when the first call to either send or receive message is made.
      *
-     * @throws IllegalStateException if this is an initiated flow
+     * If this session was passed to an initiated flow by Corda, the context properties are associated with the
+     * initiating flow at the other end of the connection. They differ from the [FlowContextProperties] available to all
+     * flows via the [FlowEngine] in that they are not a description of the context of the currently executing flow, but
+     * instead the flow which initiated it. Any calls to modify these contextProperties will throw, they should be
+     * considered immutable.
+     *
+     * @throws Execption if modification is attempted to context properties of an initiated flow's instigating session.
      */
     val contextProperties: FlowContextProperties
 
