@@ -22,8 +22,4 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
      * @return the same [ParameterisedQuery] instance.
      */
     fun setParameters(parameters: Map<String, Any>): ParameterisedQuery<R>
-
-    override fun setOffset(offset: Int): ParameterisedQuery<R>
-
-    override fun setLimit(limit: Int): ParameterisedQuery<R>
 }
