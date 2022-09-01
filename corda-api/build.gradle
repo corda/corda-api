@@ -2,6 +2,7 @@ plugins {
     id 'java-platform'
     id 'maven-publish'
     id 'com.jfrog.artifactory'
+    id 'corda.s3-publish'
 }
 
 description = 'Declares the Corda API component versions.'
@@ -12,6 +13,7 @@ dependencies {
         api project(':base')
         api project(':cipher-suite')
         api project(':crypto')
+        api project(':crypto-extensions')
         api project(':data:avro-schema')
         api project(':data:config-schema')
         api project(':data:topic-schema')
