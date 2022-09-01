@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
-      "name": "holdingIdentityShortHashs",
+      "name": "holdingIdentityShortHashes",
       "type": {
         "type": "array",
         "items": "string"
@@ -13,7 +13,7 @@
     {
       "name": "updateActor",
       "type": "string",
-      "doc": "ID of RPC user that requested the virtual node state update.."
+      "doc": "ID of RPC user that requested the virtual node state update."
     }
   ]
 }

@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
-      "name": "holdingIdentityShortHashs",
+      "name": "holdingIdentityShortHashes",
       "type": {
         "type": "array",
         "items": "string"
