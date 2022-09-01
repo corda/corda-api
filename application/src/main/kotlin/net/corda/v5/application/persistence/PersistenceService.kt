@@ -110,7 +110,7 @@ interface PersistenceService {
     fun <T : Any> findAll(entityClass: Class<T>): PagedQuery<T>
 
     /**
-     * Create a [ParameterizedQuery] to support a named query to return a list of entities of the given type in a single transaction. Casts results to the specified type [T].
+     * Create a [ParameterisedQuery] to support a named query to return a list of entities of the given type in a single transaction. Casts results to the specified type [T].
      * Example usage:
      * ```java
      * // For JPA Entity:
@@ -131,7 +131,7 @@ interface PersistenceService {
      * }
      *
      * // create a named query setting parameters one-by-one, that returns the second page of up to 100 records
-     * ParameterizedQuery<Dog> paramQuery = persistenceService
+     * ParameterisedQuery<Dog> paramQuery = persistenceService
      *      .query("find_by_name_and_age", Dog.class)
      *      .setParameter("name", "Felix")
      *      .setParameter("maxAge", 5)
@@ -141,7 +141,7 @@ interface PersistenceService {
      * List<Dog> result = pagedQuery.execute();
      *
      * // create a named query setting parameters as Map, that returns the second page of up to 100 records
-     * ParameterizedQuery<Dog> paramQuery = persistenceService
+     * ParameterisedQuery<Dog> paramQuery = persistenceService
      *      .query("find_by_name_and_age", Dog.class)
      *      .setParameters(Map.of("name", "Felix", "maxAge", 5))
      *      .setLimit(100)
@@ -152,14 +152,14 @@ interface PersistenceService {
      * @param queryName the name of the named query registered in the persistence context.
      * @param entityClass the type of the entities to find.
      * @param T the type of the results.
-     * @return a [ParameterizedQuery] that returns the list of entities found. Empty list if none were found.
+     * @return a [ParameterisedQuery] that returns the list of entities found. Empty list if none were found.
      * @throws CordaPersistenceException if an error happens during query operation
      */
     @Suspendable
     fun <T : Any> query(
         queryName: String,
         entityClass: Class<T>
-    ): ParameterizedQuery<T>
+    ): ParameterisedQuery<T>
 }
 
 /**

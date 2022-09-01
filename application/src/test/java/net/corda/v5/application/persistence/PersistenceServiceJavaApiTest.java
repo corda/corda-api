@@ -93,7 +93,7 @@ public class PersistenceServiceJavaApiTest {
     @Test
     public void query() {
         List<Integer> expectedResult = List.of(1, 2, 3, 4);
-        ParameterizedQuery<Integer> query = mock(ParameterizedQuery.class);
+        ParameterisedQuery<Integer> query = mock(ParameterisedQuery.class);
         when(query.execute()).thenReturn(expectedResult);
         doReturn(query).when(persistenceService).query("test", Integer.class);
 

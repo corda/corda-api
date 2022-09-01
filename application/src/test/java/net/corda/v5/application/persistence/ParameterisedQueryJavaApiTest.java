@@ -7,13 +7,13 @@ import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
-public class ParameterizedQueryJavaApiTest {
+public class ParameterisedQueryJavaApiTest {
 
     class TestObject {
         public int foo;
     }
 
-    final private ParameterizedQuery<TestObject> query = mock(ParameterizedQuery.class);
+    final private ParameterisedQuery<TestObject> query = mock(ParameterisedQuery.class);
 
     @Test
     public void setParameterChain() {
