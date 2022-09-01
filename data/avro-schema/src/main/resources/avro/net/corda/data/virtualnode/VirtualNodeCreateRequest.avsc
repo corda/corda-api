@@ -35,17 +35,12 @@
     {
       "name": "uniquenessDdlConnection",
       "type": ["null", "string"],
-      "doc": "Connection details for virtual node Uniqueness DB to be used for DDL operations. If null is passed for both uniqueness connections, cluster DB will be used if createDefaultUniquenessDb is true."
+      "doc": "Connection details for virtual node Uniqueness DB to be used for DDL operations. If null is passed for both uniqueness connections, cluster DB will be used."
     },
     {
       "name": "uniquenessDmlConnection",
       "type": ["null", "string"],
-      "doc": "Connection details for virtual node Uniqueness DB to be used for DML operations. If null is passed for both uniqueness connections, cluster DB will be used if createDefaultUniquenessDb is true."
-    },
-    {
-      "name": "createDefaultUniquenessDb",
-      "type": ["null", "boolean"],
-      "doc": "Whether to create a Uniqueness DB schema in the cluster DB. Assumed to be false if not specified, and ignored if either uniqueness connection is specified."
+      "doc": "Connection details for virtual node Uniqueness DB to be used for DML operations. If null is passed for both uniqueness connections, cluster DB will be used."
     },
     {
       "name": "updateActor",
