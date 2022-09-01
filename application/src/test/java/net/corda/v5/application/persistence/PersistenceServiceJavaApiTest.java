@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
@@ -94,7 +93,7 @@ public class PersistenceServiceJavaApiTest {
     @Test
     public void query() {
         List<Integer> expectedResult = List.of(1, 2, 3, 4);
-        ParameterisedQuery<Integer> query = mock(ParameterisedQuery.class);
+        ParameterizedQuery<Integer> query = mock(ParameterizedQuery.class);
         when(query.execute()).thenReturn(expectedResult);
         doReturn(query).when(persistenceService).query("test", Integer.class);
 
