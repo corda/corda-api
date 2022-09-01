@@ -131,7 +131,7 @@ interface PersistenceService {
      * }
      *
      * // create a named query setting parameters one-by-one, that returns the second page of up to 100 records
-     * ParameterisedQuery<Dog> paramQuery = persistenceService
+     * ParameterizedQuery<Dog> paramQuery = persistenceService
      *      .query("find_by_name_and_age", Dog.class)
      *      .setParameter("name", "Felix")
      *      .setParameter("maxAge", 5)
@@ -141,7 +141,7 @@ interface PersistenceService {
      * List<Dog> result = pagedQuery.execute();
      *
      * // create a named query setting parameters as Map, that returns the second page of up to 100 records
-     * ParameterisedQuery<Dog> paramQuery = persistenceService
+     * ParameterizedQuery<Dog> paramQuery = persistenceService
      *      .query("find_by_name_and_age", Dog.class)
      *      .setParameters(Map.of("name", "Felix", "maxAge", 5))
      *      .setLimit(100)
