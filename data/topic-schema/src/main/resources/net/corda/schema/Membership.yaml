@@ -1,4 +1,9 @@
 topics:
+  MembershipEventTopic:
+    name: membership.event
+    consumers:
+    producers:
+    config:
   MembershipRegistrationTopic:
     name: membership.registration
     consumers:
