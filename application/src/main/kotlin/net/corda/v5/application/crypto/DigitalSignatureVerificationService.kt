@@ -19,7 +19,8 @@ interface DigitalSignatureVerificationService {
      * @param clearData the clear data/message that was signed (usually the Merkle root).
      * @throws InvalidKeyException if the key is invalid.
      * @throws SignatureException  if verification fails.
-     * @throws IllegalArgumentException if the signature scheme is not supported or if any of the clear or signature data is empty.
+     * @throws IllegalArgumentException if the signature scheme is not supported or if any of the clear or signature
+     * data is empty.
      */
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
 }

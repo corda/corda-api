@@ -9,6 +9,46 @@ import net.corda.v5.base.annotations.DoNotImplement
  * Corda provides a number of marshalling services for converting between string data in different formats. Users should
  * not ask for a [MarshallingService] directly but should instead use one of the specialized services that declare
  * what format to work with (e.g. [JsonMarshallingService] for working with JSON data).
+ *
+ * Example usage:
+ *
+ * - Kotlin:
+ *
+ * ```kotlin
+ * class MyFlow : RPCStartableFlow {
+ *
+ *     @CordaInject
+ *     lateinit var jsonMarshallingService: JsonMarshallingService
+ *
+ *     override fun call(requestBody: RPCRequestData): String {
+ *         val request = requestBody.getRequestBodyAs<MyFlowRequest>(jsonMarshallingService)
+ *
+ *         return request.name
+ *     }
+ *
+ *     data class MyFlowRequest(val name: String)
+ * }
+ * ```
+ *
+ * - Java:
+ *
+ * ```java
+ * class MyFlow implements RPCStartableFlow {
+ *
+ *     @CordaInject
+ *     public JsonMarshallingService jsonMarshallingService;
+ *
+ *     @Override
+ *     public String call(RPCRequestData requestBody) {
+ *         MyFlowRequest request = requestBody.getRequestBodyAs(jsonMarshallingService, MyFlowRequest.class);
+ *         return request.name;
+ *     }
+ *
+ *     class MyFlowRequest {
+ *         public String name;
+ *     }
+ * }
+ * ```
  */
 @DoNotImplement
 interface MarshallingService {
@@ -24,7 +64,8 @@ interface MarshallingService {
     /**
      * Parse input strings to strongly typed objects.
      *
-     * This method will throw an exception if the provided string does not conform to the expected format of the service.
+     * This method will throw an exception if the provided string does not conform to the expected format of the
+     * service.
      *
      * @param input The input string to parse
      * @param clazz The type to try and parse the data into

@@ -6,6 +6,58 @@ import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
 
+/*
+ * The [FlowMessaging] API allows a flow to initiate and communicate with one or more 3rd party flows.
+ *
+ * A [Flow] can initiate one or more flows other counterparties within the network, when a new flow is initiated a
+ * [FlowSession] is created. The [FlowSession] represents the connection to an initiated flow and can be used to send
+ * and receive data between the two flows.
+ *
+ * Example usage:
+ *
+ * - Kotlin:
+ *
+ * ```kotlin
+ * class MyFlow : RPCStartableFlow {
+ *    @CordaInject
+ *    lateinit var flowMessaging: FlowMessaging
+ *
+ *    override fun call(requestBody: RPCRequestData): String {
+ *        val counterparty = parse("CN=Alice, O=Alice Corp, L=LDN, C=GB")
+ *
+ *        val session = flowMessaging.initiateFlow(counterparty)
+ *
+ *        val result = session.sendAndReceive<String>("hello")
+ *
+ *        session.close()
+ *
+ *        return result.unwrap { it }
+ *    }
+ *  }
+ * ```
+ *
+ * - Java:
+ *
+ * ```java
+ * class MyFlow implements RPCStartableFlow {
+ *
+ *    @CordaInject
+ *    public FlowMessaging flowMessaging;
+ *
+ *    @Override
+ *    public String call(RPCRequestData requestBody) {
+ *        MemberX500Name counterparty = MemberX500Name.parse("CN=Alice, O=Alice Corp, L=LDN, C=GB");
+ *        FlowSession session = flowMessaging.initiateFlow(counterparty);
+ *
+ *        UntrustworthyData<String> result = session.sendAndReceive(String.class, "hello");
+ *
+ *        session.close();
+ *
+ *        return result.unwrap(x -> x);
+ *    }
+ *}
+ * ```
+ */
 @DoNotImplement
 interface FlowMessaging {
 
