@@ -9,7 +9,7 @@ import net.corda.v5.crypto.SecureHash
  * // TODO : Properties...
  */
 @DoNotImplement
-//@Suppress("LongParameterList")
+@Suppress("TooManyFunctions")
 interface UtxoLedgerTransaction {
 
     val timeWindow: TimeWindow?

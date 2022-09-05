@@ -30,8 +30,11 @@ data class StateRef(val transactionHash: SecureHash, val index: Int) {
                 val transactionHash = value.substringBeforeLast(DELIMITER)
                 val index = value.substringAfterLast(DELIMITER)
                 return StateRef(SecureHash.parse(transactionHash), index.toInt())
-            } catch (ex: Exception) {
-                val exceptionMessage = "Could not parse the specified string value into a StateRef: $value"
+            } catch (ex: IllegalArgumentException) {
+                val exceptionMessage = "The hash component of the specified value could not be parsed into a StateRef: $value."
+                throw IllegalArgumentException(exceptionMessage, ex)
+            } catch (ex: NumberFormatException) {
+                val exceptionMessage = "The index component of the specified value could not be parsed into a StateRef: $value."
                 throw IllegalArgumentException(exceptionMessage, ex)
             }
         }
