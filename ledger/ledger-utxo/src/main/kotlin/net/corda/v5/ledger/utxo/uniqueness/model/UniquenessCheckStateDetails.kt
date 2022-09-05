@@ -1,4 +1,4 @@
-package net.corda.v5.uniqueness.model
+package net.corda.v5.ledger.utxo.uniqueness.model
 
 import net.corda.v5.crypto.SecureHash
 
@@ -8,7 +8,8 @@ import net.corda.v5.crypto.SecureHash
  * client service. This representation is agnostic to both the message bus API and any
  * DB schema that may be used to persist data by the backing store.
  */
-data class UniquenessCheckStateDetails(
-    val stateRef: UniquenessCheckStateRef,
+interface UniquenessCheckStateDetails {
+    val stateRef: UniquenessCheckStateRef
     val consumingTxId: SecureHash?
-)
+}
+
