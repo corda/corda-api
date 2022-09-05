@@ -37,3 +37,28 @@ data class CommandAndSignatories<out T : Command>(val command: T, val signatorie
         return "$command with signatories $keys"
     }
 }
+
+/**
+ * Casts the current [CommandAndSignatories] to the specified type.
+ *
+ * @param T The underlying type of the [Command].
+ * @param type The type of the [Command] to cast.
+ * @return Returns a new [CommandAndSignatories] instance cast to the specified type.
+ * @throws IllegalArgumentException if the current [Command] cannot be cast to the specified type.
+ */
+fun <T : Command> CommandAndSignatories<*>.cast(type: Class<T>): CommandAndSignatories<T> {
+    return if (!command.javaClass.isAssignableFrom(type)) {
+        throw IllegalArgumentException("Command of type ${command.javaClass.canonicalName} cannot be cast to type ${type.canonicalName}.")
+    } else CommandAndSignatories(type.cast(command), signatories)
+}
+
+/**
+ * Casts the current [CommandAndSignatories] to the specified type.
+ *
+ * @param T The underlying type of the [Command].
+ * @return Returns a new [CommandAndSignatories] instance cast to the specified type.
+ * @throws IllegalArgumentException if the current [Command] cannot be cast to the specified type.
+ */
+inline fun <reified T : Command> CommandAndSignatories<*>.cast(): CommandAndSignatories<T> {
+    return cast(T::class.java)
+}

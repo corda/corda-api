@@ -16,4 +16,12 @@ interface UtxoLedgerService {
      */
     @Suspendable
     fun getTransactionBuilder(): UtxoTransactionBuilder
+
+    // TODO : As per ledger conversation - we should have a service to resolve StateRef -> StateAndRef<T>
+    @Suspendable
+    fun <T : ContractState> resolve(stateRefs: List<StateRef>): List<StateAndRef<T>>
+
+    // TODO : As per ledger conversation - we should have a service to verify state refs
+    @Suspendable
+    fun <T : ContractState> verify(stateAndRefs: List<StateAndRef<T>>)
 }

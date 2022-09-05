@@ -29,7 +29,7 @@ data class StateRef(val transactionHash: SecureHash, val index: Int) {
             try {
                 val transactionHash = value.substringBeforeLast(DELIMITER)
                 val index = value.substringAfterLast(DELIMITER)
-                return StateRef(SecureHash.create(transactionHash), index.toInt())
+                return StateRef(SecureHash.parse(transactionHash), index.toInt())
             } catch (ex: Exception) {
                 val exceptionMessage = "Could not parse the specified string value into a StateRef: $value"
                 throw IllegalArgumentException(exceptionMessage, ex)
