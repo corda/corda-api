@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -35,7 +36,7 @@ public class FlowMessagingJavaApiTest {
     @Test
     public void initiateFlowPartyWithMutator() {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
-        when(flowMessaging.initiateFlow(counterparty, any())).thenReturn(flowSession);
+        when(flowMessaging.initiateFlow(eq(counterparty), any())).thenReturn(flowSession);
 
         FlowSession result = flowMessaging.initiateFlow(counterparty, (contextProperties) -> contextProperties.put("key", "value"));
 
