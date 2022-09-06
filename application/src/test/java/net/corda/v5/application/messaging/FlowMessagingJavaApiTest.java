@@ -34,7 +34,7 @@ public class FlowMessagingJavaApiTest {
     }
 
     @Test
-    public void initiateFlowPartyWithMutator() {
+    public void initiateFlowPartyWithBuilder() {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
         when(flowMessaging.initiateFlow(eq(counterparty), any())).thenReturn(flowSession);
 

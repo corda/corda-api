@@ -14,10 +14,10 @@ interface FlowMessaging {
      * Note that this function does not communicate in itself, the counter-flow will be kicked off by the first
      * send/receive.
      *
-     * Initiated flows are initiated with context based on the context of the initiating flow. The context of the
-     * initiating flow is snapshotted by the returned session when this method is called. Altering the parent context
-     * has no effect on the context of the session after this point, and therefore it has no effect on the context of
-     * the initiated flow either.
+     * Initiated flows are initiated with context based on the context of the initiating flow at the point in time this
+     * method is called. The context of the initiating flow is snapshotted by the returned session. Altering the flow
+     * context has no effect on the context of the session after this point, and therefore it has no effect on the
+     * context of the initiated flow either.
      *
      * @param x500Name The X500 name of the member to communicate with.
      *
@@ -31,23 +31,25 @@ interface FlowMessaging {
      * Note that this function does not communicate in itself, the counter-flow will be kicked off by the first
      * send/receive.
      *
-     * This overload takes a mutator of context properties. Any properties set or modified against the context passed to
-     * this mutator will be propagated to initiated flows and all that flow's initiated flows and sub flows down the
-     * stack. The properties passed to the mutator are pre-populated with the parent context properties, see
-     * [FlowContextProperties].
+     * This overload takes a builder of context properties. Any properties set or modified against the context passed to
+     * this builder will be propagated to initiated flows and all that flow's initiated flows and sub flows down the
+     * stack. The properties passed to the builder are pre-populated with the current flow context properties, see
+     * [FlowContextProperties]. Altering the current flow context has no effect on the context of the session after the
+     * builder is applied and the session returned by this method, and therefore it has no effect on the context of the
+     * initiated flow either.
      *
      * @param x500Name The X500 name of the member to communicate with.
-     * @param flowContextPropertiesMutator A mutator of context properties.
+     * @param flowContextPropertiesBuilder A builder of context properties.
      *
      * @return The session.
      *
-     * @throws IllegalArgumentException if the mutator tries to set a property for which a platform property already
+     * @throws IllegalArgumentException if the builder tries to set a property for which a platform property already
      * exists or if the key is prefixed by [CORDA_RESERVED_PREFIX]. See also [FlowContextProperties]. Any other
-     * exception thrown by the mutator will also be thrown through here and should be avoided in the provided
-     * implementation, see [FlowContextPropertiesMutator].
+     * exception thrown by the builder will also be thrown through here and should be avoided in the provided
+     * implementation, see [FlowContextPropertiesBuilder].
      */
     @Suspendable
-    fun initiateFlow(x500Name: MemberX500Name, flowContextPropertiesMutator: FlowContextPropertiesMutator): FlowSession
+    fun initiateFlow(x500Name: MemberX500Name, flowContextPropertiesBuilder: FlowContextPropertiesBuilder): FlowSession
 
     /** Suspends until a message has been received for each session in the specified [sessions].
      *
@@ -116,10 +118,10 @@ interface FlowMessaging {
 }
 
 /**
- * Mutator of context properties. Instances of this interface can optionally be passed to [FlowMessaging] when sessions
+ * Builder of context properties. Instances of this interface can optionally be passed to [FlowMessaging] when sessions
  * are initiated if there are requirements to modify context properties which are sent to the initiated flow.
  */
-fun interface FlowContextPropertiesMutator {
+fun interface FlowContextPropertiesBuilder {
     /**
      * Every exception thrown in the implementation of this method will be propagated back through the [FlowMessaging]
      * call to initiate the session. It is recommended not to do anything in this method except set context properties.
