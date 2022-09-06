@@ -40,7 +40,7 @@ interface MemberInfo {
     /**
      * List of current and previous (rotated) ledger keys, which member can still use to sign unspent
      * transactions on ledger.
-     * Key at index 0 is always the currently active ledger key.
+     * Key at index 0 is always the latest added ledger key.
      */
     val ledgerKeys: List<PublicKey>
 
