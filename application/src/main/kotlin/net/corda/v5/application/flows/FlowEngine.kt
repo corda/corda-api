@@ -41,7 +41,7 @@ interface FlowEngine {
      * - The result executing of [SubFlow.call].
      * - An exception thrown by [SubFlow.call].
      *
-     * Any open [FlowSession]s created within an initiating [SubFlow] are sent:
+     * Any open [FlowSession]s created within a [SubFlow] annotated with [InitiatingFlow] are sent:
      *
      * - Session close messages after successfully completing the [SubFlow].
      * - Session error messages when an exception is thrown from the [SubFlow].
