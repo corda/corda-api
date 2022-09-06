@@ -18,7 +18,7 @@ public class LedgerGroupParametersJavaApiTest {
 
     @Test
     public void getNotaryServiceParty() {
-        String notariesKey = "corda.notary";
+        String notariesKey = "corda.notaries";
         when(groupParameters.parseList(eq(notariesKey), eq(NotaryInfo.class))).thenReturn(notaryInfoList);
 
         var result = LedgerGroupParameters.getNotaries(groupParameters);

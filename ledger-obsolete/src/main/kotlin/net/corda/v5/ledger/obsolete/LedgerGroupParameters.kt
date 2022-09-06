@@ -4,7 +4,7 @@ package net.corda.v5.ledger.obsolete
 
 import net.corda.v5.membership.GroupParameters
 
-private const val NOTARIES_KEY = "corda.notary"
+private const val NOTARIES_KEY = "corda.notaries"
 
 /**
  * A list of all available notaries in the group.
