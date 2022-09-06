@@ -19,6 +19,7 @@ interface FlowMessaging {
      * the initiated flow either.
      *
      * @param x500Name The X500 name of the member to communicate with.
+     *
      * @return The session.
      */
     @Suspendable
@@ -35,7 +36,8 @@ interface FlowMessaging {
      * [FlowContextProperties].
      *
      * @param x500Name The X500 name of the member to communicate with.
-     * @param flowContextPropertiesMutator A mutator of context properties
+     * @param flowContextPropertiesMutator A mutator of context properties.
+     *
      * @return The session.
      */
     @Suspendable
