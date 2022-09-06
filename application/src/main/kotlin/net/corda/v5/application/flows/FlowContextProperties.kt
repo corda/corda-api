@@ -15,7 +15,8 @@ interface FlowContextProperties {
         /**
          * A constant containing the Corda reserved prefix.
          */
-        const val CORDA_RESERVED_PREFIX = "corda." // constant must be lowercase
+        @JvmField
+        val CORDA_RESERVED_PREFIX = "corda." // constant must be lowercase
     }
 
     /**
