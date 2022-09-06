@@ -1,5 +1,6 @@
 package net.corda.v5.application.messaging
 
+import net.corda.v5.application.flows.FlowContextProperties
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
@@ -8,11 +9,37 @@ import net.corda.v5.base.types.MemberX500Name
 interface FlowMessaging {
 
     /**
-     * Creates a communication session with [party]. Subsequently you may send/receive using this session object. Note
-     * that this function does not communicate in itself, the counter-flow will be kicked off by the first send/receive.
+     * Creates a communication session with another member. Subsequently you may send/receive using this session object.
+     * Note that this function does not communicate in itself, the counter-flow will be kicked off by the first
+     * send/receive.
+     *
+     * Initiated flows are initiated with context based on the context of the initiating flow. The context of the
+     * initiating flow is snapshotted by the returned session when this method is called. Altering the parent context
+     * has no effect on the context of the session after this point, and therefore it has no effect on the context of
+     * the initiated flow either.
+     *
+     * @param x500Name The X500 name of the member to communicate with.
+     * @return The session.
      */
     @Suspendable
     fun initiateFlow(x500Name: MemberX500Name): FlowSession
+
+    /**
+     * Creates a communication session with another member. Subsequently you may send/receive using this session object.
+     * Note that this function does not communicate in itself, the counter-flow will be kicked off by the first
+     * send/receive.
+     *
+     * This overload takes a mutator of context properties. Any properties set or modified against the context passed to
+     * this mutator will be propagated to initiated flows and all that flow's initiated flows and sub flows down the
+     * stack. The properties passed to the mutator are pre-populated with the parent context properties, see
+     * [FlowContextProperties].
+     *
+     * @param x500Name The X500 name of the member to communicate with.
+     * @param flowContextPropertiesMutator A mutator of context properties
+     * @return The session.
+     */
+    @Suspendable
+    fun initiateFlow(x500Name: MemberX500Name, flowContextPropertiesMutator: FlowContextPropertiesMutator): FlowSession
 
     /** Suspends until a message has been received for each session in the specified [sessions].
      *
@@ -78,4 +105,16 @@ interface FlowMessaging {
      */
     @Suspendable
     fun close(sessions: Set<FlowSession>)
+}
+
+/**
+ * Mutator of context properties. Instances of this interface can optionally be passed to [FlowMessaging] when sessions
+ * are initiated if there are requirements to modify context properties which are sent to the initiated flow.
+ */
+fun interface FlowContextPropertiesMutator {
+    /**
+     * @param flowContextProperties A set of modifiable context properties. Change these properties in the body of the
+     * function as required. The modified set will be the ones used to determine the context of the initiated session.
+     */
+    fun apply(flowContextProperties: FlowContextProperties)
 }
