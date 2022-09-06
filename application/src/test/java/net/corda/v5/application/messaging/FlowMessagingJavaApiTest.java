@@ -32,6 +32,17 @@ public class FlowMessagingJavaApiTest {
     }
 
     @Test
+    public void initiateFlowPartyWithMutator() {
+        final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
+        when(flowMessaging.initiateFlow(counterparty)).thenReturn(flowSession);
+
+        FlowSession result = flowMessaging.initiateFlow(counterparty, (mutator) -> mutator.put("key", "value"));
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(flowSession);
+    }
+
+    @Test
     public void receiveAllMap() {
         UntrustworthyData<String> untrustworthyData = new UntrustworthyData<>("data sent from other party");
         Map<FlowSession, UntrustworthyData<String>> mockedResult = Map.of(flowSession, untrustworthyData);

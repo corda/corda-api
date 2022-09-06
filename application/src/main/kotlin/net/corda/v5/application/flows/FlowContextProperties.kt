@@ -1,5 +1,8 @@
 @file:JvmName("FlowUtils")
+
 package net.corda.v5.application.flows
+
+import net.corda.v5.application.flows.FlowContextProperties.Companion.CORDA_RESERVED_PREFIX
 
 /**
  * Context properties of a [Flow] are key value pairs of Strings. They are comprised of two sets of properties, those
@@ -31,10 +34,11 @@ interface FlowContextProperties {
      * flow, and also any further down the chain. When execution returns to a flow higher up the stack (a parent or one
      * that initiated it) the overwritten properties are not visible.
      *
-     * @param key The property key
-     * @param value The property value
+     * @param key The property key.
+     * @param value The property value.
+     *
      * @throws IllegalArgumentException if a platform property already exists for this key or if the key is prefixed by
-     * "corda."
+     * [CORDA_RESERVED_PREFIX].
      */
     fun put(key: String, value: String)
 
@@ -42,8 +46,9 @@ interface FlowContextProperties {
      * Gets a value from the context property store.
      * Also opens up [] operator access for getting values in Kotlin.
      *
-     * @param key The property key
-     * @return The property value
+     * @param key The property key.
+     *
+     * @return The property value.
      */
     operator fun get(key: String): String?
 }
@@ -66,9 +71,10 @@ interface FlowContextProperties {
  *
  * Opens up [] operator access for setting values in Kotlin.
  *
- * @param key The property key
- * @param value The property value
+ * @param key The property key.
+ * @param value The property value.
+ *
  * @throws IllegalArgumentException if a platform property already exists for this key or if the key is prefixed by
- * "corda."
+ * [CORDA_RESERVED_PREFIX].
  */
 operator fun FlowContextProperties.set(key: String, value: String) = put(key, value)

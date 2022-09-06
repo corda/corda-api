@@ -1,6 +1,7 @@
 package net.corda.v5.application.messaging
 
 import net.corda.v5.application.flows.FlowContextProperties
+import net.corda.v5.application.flows.FlowContextProperties.Companion.CORDA_RESERVED_PREFIX
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
@@ -39,6 +40,11 @@ interface FlowMessaging {
      * @param flowContextPropertiesMutator A mutator of context properties.
      *
      * @return The session.
+     *
+     * @throws IllegalArgumentException if the mutator tries to set a property for which a platform property already
+     * exists or if the key is prefixed by [CORDA_RESERVED_PREFIX]. See also [FlowContextProperties]. Any other
+     * exception thrown by the mutator will also be thrown through here and should be avoided in the provided
+     * implementation, see [FlowContextPropertiesMutator].
      */
     @Suspendable
     fun initiateFlow(x500Name: MemberX500Name, flowContextPropertiesMutator: FlowContextPropertiesMutator): FlowSession
@@ -115,6 +121,9 @@ interface FlowMessaging {
  */
 fun interface FlowContextPropertiesMutator {
     /**
+     * Every exception thrown in the implementation of this method will be propagated back through the [FlowMessaging]
+     * call to initiate the session. It is recommended not to do anything in this method except set context properties.
+     *
      * @param flowContextProperties A set of modifiable context properties. Change these properties in the body of the
      * function as required. The modified set will be the ones used to determine the context of the initiated session.
      */
