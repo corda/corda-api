@@ -2,8 +2,8 @@ package net.corda.v5.crypto
 
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.types.OpaqueBytes
-import net.corda.v5.base.types.parseAsHex
-import net.corda.v5.base.types.toHexString
+import net.corda.v5.base.util.parseAsHex
+import net.corda.v5.base.util.toHexString
 import java.nio.ByteBuffer
 
 /**

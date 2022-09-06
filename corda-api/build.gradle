@@ -10,7 +10,9 @@ description = 'Declares the Corda API component versions.'
 dependencies {
     constraints {
         api project(':application')
+        api project(':application:application-utils')
         api project(':base')
+        api project(':base:base-utils')
         api project(':cipher-suite')
         api project(':crypto')
         api project(':crypto-extensions')

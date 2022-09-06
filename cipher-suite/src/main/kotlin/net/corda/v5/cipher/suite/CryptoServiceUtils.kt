@@ -2,7 +2,7 @@
 
 package net.corda.v5.cipher.suite
 
-import net.corda.v5.base.types.toHexString
+import net.corda.v5.base.util.toHexString
 import net.corda.v5.crypto.HMAC_SHA256_ALGORITHM
 import net.corda.v5.crypto.hmac
 
@@ -63,9 +63,5 @@ fun computeHSMAlias(
     require(take in 12..32) {
         "The take must be inclusively between 12 and 32."
     }
-    return (tenantId + alias)
-        .encodeToByteArray()
-        .hmac(secret, HMAC_SHA256_ALGORITHM)
-        .toHexString()
-        .take(take)
+    return (tenantId + alias).encodeToByteArray().hmac(secret, HMAC_SHA256_ALGORITHM).toHexString().take(take)
 }

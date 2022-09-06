@@ -14,6 +14,7 @@ dependencies {
 
     api platform(project(':corda-api'))
     api project(':base')
+    api project(':base:base-utils')
 
     testImplementation "org.bouncycastle:bcprov-jdk15on:$bouncycastleVersion"
     testImplementation "org.bouncycastle:bcpkix-jdk15on:$bouncycastleVersion"
