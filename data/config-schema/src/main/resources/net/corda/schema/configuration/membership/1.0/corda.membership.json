@@ -7,7 +7,7 @@
   "default": {},
   "properties": {
     "maxDurationBetweenSyncRequestsMinutes": {
-      "description": "Maximal duration in minutes between member list synchronization requests.",
+      "description": "Maximum duration in minutes between member list synchronization requests.",
       "type": "integer",
       "minimum": 10,
       "maximum": 2880,
