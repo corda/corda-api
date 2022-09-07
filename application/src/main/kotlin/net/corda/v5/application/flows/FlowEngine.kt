@@ -4,6 +4,7 @@ import java.util.UUID
 import net.corda.v5.application.messaging.FlowSession
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.base.exceptions.CordaRuntimeException
 import net.corda.v5.base.types.MemberX500Name
 
 /**
@@ -32,8 +33,6 @@ interface FlowEngine {
     val flowContextProperties: FlowContextProperties
 
     /**
-     * TODO
-     *
      * Executes the given [SubFlow].
      *
      * This function returns once the [SubFlow] completes, returning either:
@@ -46,14 +45,15 @@ interface FlowEngine {
      * - Session close messages after successfully completing the [SubFlow].
      * - Session error messages when an exception is thrown from the [SubFlow].
      *
-     *
-     * If the subflow is not an initiating flow (i.e. not annotated with [InitiatingFlow]) then it will continue to use
-     * the existing sessions this flow has created with its counterparties. This allows for subflows which can act as
-     * building blocks for other flows, for example removing the boilerplate of common sequences of sends and receives.
-     *
      * @param subFlow The [SubFlow] to execute.
+     * @param R The type returned by [subFlow].
+     *
+     * @return The result of executing [SubFlow.call].
+     *
+     * @throws CordaRuntimeException General type of exception thrown by most Corda APIs.
+     *
+     * @see SubFlow
      */
     @Suspendable
     fun <R> subFlow(subFlow: SubFlow<R>): R
 }
-

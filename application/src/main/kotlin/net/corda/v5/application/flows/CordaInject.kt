@@ -20,6 +20,7 @@ import kotlin.annotation.AnnotationTarget.FIELD
  *     @CordaInject
  *     lateinit var flowMessaging: FlowMessaging
  *
+ *     @Suspendable
  *     override fun call(requestBody: RPCRequestData): String {
  *         // logic
  *     }
@@ -37,6 +38,7 @@ import kotlin.annotation.AnnotationTarget.FIELD
  *     @CordaInject
  *     public FlowMessaging flowMessaging;
  *
+ *     @Suspendable
  *     @Override
  *     public String call(RPCRequestData requestBody) {
  *         // logic
