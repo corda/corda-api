@@ -9,12 +9,9 @@ object ConfigKeys {
     const val CRYPTO_CONFIG = "corda.cryptoLibrary"
     const val DB_CONFIG = "corda.db"
     const val FLOW_CONFIG = "corda.flow"
-    const val IDENTITY_CONFIG = "corda.identity"
     const val MESSAGING_CONFIG = "corda.messaging"
     const val P2P_LINK_MANAGER_CONFIG = "corda.p2p.linkManager"
     const val P2P_GATEWAY_CONFIG = "corda.p2p.gateway"
-    const val PLATFORM_CONFIG = "corda.platform"
-    const val POLICY_CONFIG = "corda.policy"
     const val RPC_CONFIG = "corda.rpc"
     const val SECRETS_CONFIG = "corda.secrets"
     const val SANDBOX_CONFIG = "corda.sandbox"
@@ -34,13 +31,6 @@ object ConfigKeys {
     // Secrets Service
     const val SECRETS_PASSPHRASE = "passphrase"
     const val SECRETS_SALT = "salt"
-
-    // DB
-    const val JDBC_DRIVER = "database.jdbc.driver"
-    const val JDBC_URL = "database.jdbc.url"
-    const val DB_USER = "database.user"
-    const val DB_PASS = "database.pass"
-    const val DB_POOL_MAX_SIZE = "database.pool.max_size"
 
     const val WORKSPACE_DIR = "dir.workspace"
     const val TEMP_DIR = "dir.tmp"

@@ -1,3 +1,4 @@
+@file:JvmName("PublicKeyUtils")
 package net.corda.v5.crypto
 
 import net.corda.v5.base.types.toHexString
@@ -19,6 +20,8 @@ fun PublicKey.publicKeyId(): String =
  * Container for a public key hash value.
  * Provides utilities for generating a public key hash by calculating it from a given [PublicKey], or by parsing a given
  * [String] or [ByteArray] input.
+ *
+ * @property value hexadecimal string representing SHA-256 of the public key
  */
 class PublicKeyHash private constructor(
     val value: String
@@ -31,6 +34,7 @@ class PublicKeyHash private constructor(
          * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
          * @throws IllegalArgumentException if size of [bytes] is not 32.
          */
+        @JvmStatic
         fun parse(bytes: ByteArray): PublicKeyHash {
             require(bytes.size == 32) {
                 "Input must be 32 bytes long for SHA-256 hash."
@@ -45,6 +49,7 @@ class PublicKeyHash private constructor(
          * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
          * @throws IllegalArgumentException if length of [str] is not 64, or if [str] is not a valid Hex string.
          */
+        @JvmStatic
         fun parse(str: String): PublicKeyHash {
             require(str.length == 64) {
                 "Input must be 64 characters long for Hex of SHA-256 hash."
@@ -61,6 +66,7 @@ class PublicKeyHash private constructor(
          * @param publicKey The public key whose hash is to be generated.
          * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
          */
+        @JvmStatic
         fun calculate(publicKey: PublicKey): PublicKeyHash =
             PublicKeyHash(value = publicKey.sha256Bytes().toHexString())
 
@@ -70,12 +76,13 @@ class PublicKeyHash private constructor(
          * @param publicKey The public key whose hash is to be generated.
          * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
          */
+        @JvmStatic
         fun calculate(publicKey: ByteArray): PublicKeyHash =
             PublicKeyHash(value = publicKey.sha256Bytes().toHexString())
     }
 
     /**
-     * Returns the id as the first 12 characters of the value which is SHA-256 hash of the public key.
+     * Returns the id as the first 12 characters of the [value] which is SHA-256 hash of the public key.
      */
     val id: String by lazy(LazyThreadSafetyMode.PUBLICATION) { value.substring(0, 12) }
 

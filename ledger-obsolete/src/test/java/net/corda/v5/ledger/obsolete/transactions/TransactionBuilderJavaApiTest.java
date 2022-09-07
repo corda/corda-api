@@ -1,6 +1,7 @@
 package net.corda.v5.ledger.obsolete.transactions;
 
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.common.transaction.PrivacySalt;
 import net.corda.v5.ledger.obsolete.contracts.BelongsToContract;
 import net.corda.v5.ledger.obsolete.contracts.CPKConstraint;
 import net.corda.v5.ledger.obsolete.contracts.Command;
@@ -34,7 +35,7 @@ public class TransactionBuilderJavaApiTest {
 
     private final TransactionBuilder builderA = mock(TransactionBuilder.class);
     private final TransactionBuilder builderB = mock(TransactionBuilder.class);
-    private final SecureHash secureHash = SecureHash.create("SHA-256:6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A");
+    private final SecureHash secureHash = SecureHash.parse("SHA-256:6A1687C143DF792A011A1E80670A4E4E0C25D0D87A39514409B1ABFC2043581A");
     private final StateRef stateRef = new StateRef(secureHash, 1);
     private final List<StateRef> stateRefs = List.of(stateRef);
     private final PublicKey publicKey = mock(PublicKey.class);
@@ -378,8 +379,7 @@ public class TransactionBuilderJavaApiTest {
 
     @Test
     public void setPrivacySalt() {
-        byte[] bytes = "6D1687C143DF792A011A1E80670A4E4E".getBytes();
-        final PrivacySalt privacySaltA = new PrivacySalt(bytes);
+        final PrivacySalt privacySaltA = mock(PrivacySalt.class);
         when(builderA.setPrivacySalt(privacySaltA)).thenReturn(builderB);
 
         TransactionBuilder result = builderA.setPrivacySalt(privacySaltA);

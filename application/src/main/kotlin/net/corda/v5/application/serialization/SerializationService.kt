@@ -1,3 +1,4 @@
+@file:JvmName("SerializationUtils")
 package net.corda.v5.application.serialization
 
 import net.corda.v5.base.annotations.DoNotImplement
@@ -34,7 +35,7 @@ interface SerializationService {
      *
      * @param bytes The [ByteArray] to deserialize.
      * @param clazz [Class] containing the type [T] to deserialize to.
-     * @param <T> The type to deserialize to.
+     * @param T The type to deserialize to.
      *
      * @return A new instance of type [T] created from the input [bytes].
      */
