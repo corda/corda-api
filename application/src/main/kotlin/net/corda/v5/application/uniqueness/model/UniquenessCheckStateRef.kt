@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.utxo.uniqueness.model
+package net.corda.v5.application.uniqueness.model
 
 import net.corda.v5.crypto.SecureHash
 
