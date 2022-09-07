@@ -7,8 +7,8 @@ import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
  * if the request was processed successfully.
  *
  * @property result The result produced by the uniqueness checker
- * @property signature Contains the signature provided by the uniqueness checker. Might be `null`
- * if the result is a failure.
+ * @property signature Contains the signature provided by the uniqueness checker. Will be `null` if the
+ * result is a failure.
  */
 interface UniquenessCheckResponse {
     val result: UniquenessCheckResult

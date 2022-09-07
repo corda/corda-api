@@ -4,7 +4,8 @@ import java.time.Instant
 
 /**
  * Representation of errors that can be raised by the uniqueness checker. These errors are returned
- * through the uniqueness client service.
+ * by the uniqueness checker back to the uniqueness client service, which propagates the errors to
+ * callers.
  */
 interface UniquenessCheckError
 
