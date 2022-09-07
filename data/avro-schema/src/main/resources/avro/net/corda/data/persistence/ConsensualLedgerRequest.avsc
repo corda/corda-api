@@ -13,11 +13,6 @@
       "doc": "Time ({@link java.time.Instant}) in milliseconds when the record was created."
     },
     {
-      "name": "flowId",
-      "type": "string",
-      "doc": "The unique ID for tracking the flow. Responses will be returned on this key."
-    },
-    {
       "name": "holdingIdentity",
       "type": "net.corda.data.identity.HoldingIdentity",
       "doc": "The holding identity of the user making the DB request."
@@ -28,6 +23,11 @@
       "type": [
         "net.corda.data.ledger.consensual.PersistTransaction"
       ]
+    },
+    {
+      "name": "flowExternalEventContext",
+      "type": "net.corda.data.flow.event.external.ExternalEventContext",
+      "doc": "The context of the external event that this request was sent from."
     }
   ]
 }
