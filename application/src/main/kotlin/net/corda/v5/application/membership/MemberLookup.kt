@@ -7,7 +7,7 @@ import net.corda.v5.membership.MemberInfo
 import java.security.PublicKey
 
 /**
- * The [MemberLookup] API allows flows to lookup the [MemberInfo] for any member of the network, including itself.
+ * [MemberLookup] allows flows to lookup the [MemberInfo] for any member of the network, including itself.
  */
 @DoNotImplement
 interface MemberLookup {
@@ -22,8 +22,9 @@ interface MemberLookup {
     /**
      * Gets the [MemberInfo] by X500 name.
      *
-     * @param name the [MemberX500Name] name of the member to lookup.
-     * @return an instance of [MemberInfo] for the given [MemberX500Name] name or null if no member found.
+     * @param name The [MemberX500Name] name of the member to lookup.
+     *
+     * @return An instance of [MemberInfo] for the given [MemberX500Name] name or null if no member found.
      */
     @Suspendable
     fun lookup(name: MemberX500Name): MemberInfo?
@@ -31,15 +32,17 @@ interface MemberLookup {
     /**
      * Gets the [MemberInfo] by members public key.
      *
-     * @param key the [PublicKey] of the member to lookup.
-     * @return an instance of [MemberInfo] for the given [PublicKey] name or null if no member found.
+     * @param key The [PublicKey] of the member to lookup.
+     *
+     * @return An instance of [MemberInfo] for the given [PublicKey] name or null if no member found.
      */
     @Suspendable
     fun lookup(key: PublicKey): MemberInfo?
 
     /**
-     * Gets a list [MemberInfo] for all members in the network
-     * @return a list of [MemberInfo].
+     * Gets a list [MemberInfo] for all members in the network.
+     *
+     * @return A list of [MemberInfo].
      */
     @Suspendable
     fun lookup(): List<MemberInfo>

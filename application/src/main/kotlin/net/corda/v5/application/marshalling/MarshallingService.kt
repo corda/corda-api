@@ -4,7 +4,7 @@ package net.corda.v5.application.marshalling
 import net.corda.v5.base.annotations.DoNotImplement
 
 /**
- * Handles conversion of string data to and from strongly typed objects.
+ * [MarshallingService] marshalls to and from formatting string data.
  *
  * Corda provides a number of marshalling services for converting between string data in different formats. Users should
  * not ask for a [MarshallingService] directly but should instead use one of the specialized services that declare
