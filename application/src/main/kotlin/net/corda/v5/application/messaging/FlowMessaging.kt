@@ -38,6 +38,19 @@ interface FlowMessaging {
      * builder is applied and the session returned by this method, and therefore it has no effect on the context of the
      * initiated flow either.
      *
+     * Example of use in Kotlin.
+     * ```Kotlin
+     * val flowSession = flowMessaging.initiateFlow(virtualNodeName) { flowContextProperties ->
+     *      flowContextProperties["key"] = "value"
+     * }
+     * ```
+     * Example of use in Java.
+     * ```Java
+     * FlowSession flowSession = flowMessaging.initiateFlow(virtualNodeName, (flowContextProperties) -> {
+     *      flowContextProperties.put("key", "value");
+     * });
+     * ```
+     *
      * @param x500Name The X500 name of the member to communicate with.
      * @param flowContextPropertiesBuilder A builder of context properties.
      *
@@ -115,19 +128,4 @@ interface FlowMessaging {
      */
     @Suspendable
     fun close(sessions: Set<FlowSession>)
-}
-
-/**
- * Builder of context properties. Instances of this interface can optionally be passed to [FlowMessaging] when sessions
- * are initiated if there are requirements to modify context properties which are sent to the initiated flow.
- */
-fun interface FlowContextPropertiesBuilder {
-    /**
-     * Every exception thrown in the implementation of this method will be propagated back through the [FlowMessaging]
-     * call to initiate the session. It is recommended not to do anything in this method except set context properties.
-     *
-     * @param flowContextProperties A set of modifiable context properties. Change these properties in the body of the
-     * function as required. The modified set will be the ones used to determine the context of the initiated session.
-     */
-    fun apply(flowContextProperties: FlowContextProperties)
 }
