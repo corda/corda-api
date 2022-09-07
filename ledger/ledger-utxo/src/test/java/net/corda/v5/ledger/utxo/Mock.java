@@ -1,6 +1,8 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.common.Party;
 import org.mockito.Mockito;
 
 import java.math.BigDecimal;
@@ -33,6 +35,8 @@ abstract class Mock {
     protected final VerifiableCommand verifiableCommand = Mockito.mock(VerifiableCommand.class); // TODO ???
 
     // Mock Data
+    protected final MemberX500Name notaryMemberX500Name = MemberX500Name.parse("O=Notary, L=London, C=GB");
+    protected final Party notaryParty = new Party(notaryMemberX500Name, notary);
     protected final Set<PublicKey> participants = Set.of(alice, bob);
     protected final BigDecimal quantity = BigDecimal.valueOf(123.45);
     protected final UUID id = UUID.fromString("66870685-0e1e-43a1-88c9-0aeb6cc10b18");
@@ -61,7 +65,7 @@ abstract class Mock {
     }
 
     protected <T extends ContractState> TransactionState<T> makeTransactionState(T state) {
-        return new TransactionState<>(state, "TEST_CONTRACT_ID", notary);
+        return new TransactionState<>(state, "fictional.contractId", notaryParty);
     }
 
     protected <T extends ContractState> StateAndRef<T> makeStateAndRef(T state, int index) {

@@ -16,7 +16,6 @@ dependencies {
     compileOnly 'org.osgi:osgi.annotation'
 
     api project(":application")
-    api project(":crypto")
     api project(":cipher-suite")
     implementation project(":membership")
     implementation project(":serialization")

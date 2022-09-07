@@ -13,6 +13,16 @@ import net.corda.v5.base.annotations.CordaSerializable
 data class StateAndRef<out T : ContractState>(val state: TransactionState<T>, val ref: StateRef)
 
 /**
+ * Creates a [ReferencedStateAndRef] from the current [StateAndRef] instance.
+ *
+ * @param T The underlying type of the [ContractState].
+ * @return Returns a [ReferencedStateAndRef] from the current [StateAndRef] instance.
+ */
+fun <T : ContractState> StateAndRef<T>.toReferencedStateAndRef(): ReferencedStateAndRef<T> {
+    return ReferencedStateAndRef(this)
+}
+
+/**
  * Casts the current [StateAndRef] to the specified type.
  *
  * @param T The underlying type of the [ContractState].

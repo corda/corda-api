@@ -25,10 +25,10 @@ interface CpkConstraint {
         // TODO : Docs!
 
         @JvmStatic
-        val alwaysAcceptCpkConstraint: CpkConstraint get() = AlwaysAcceptCpkConstraint
+        val ALWAYS_ACCEPT: CpkConstraint get() = AlwaysAcceptCpkConstraint
 
         @JvmStatic
-        val automaticPlaceholderCpkConstraint: CpkConstraint get() = AutomaticPlaceholderCpkConstraint
+        val AUTOMATIC_PLACEHOLDER: CpkConstraint get() = AutomaticPlaceholderCpkConstraint
 
         /**
          * Represents a CPK constraint that is always accepted.

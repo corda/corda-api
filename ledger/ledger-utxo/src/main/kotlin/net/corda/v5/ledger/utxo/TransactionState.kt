@@ -1,7 +1,7 @@
 package net.corda.v5.ledger.utxo
 
 import net.corda.v5.base.annotations.CordaSerializable
-import java.security.PublicKey
+import net.corda.v5.ledger.common.Party
 
 /**
  * Represents a transaction state, composed of a [ContractState] and associated [TransactionStateInformation].
@@ -18,52 +18,52 @@ data class TransactionState<out T : ContractState>(val contractState: T, val inf
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
-     * @param contract The class name of the contract associated with the transaction state.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param contractId The class name of the contract associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      * @param encumbrance The index of an associated, encumbered state, or null if no encumbrance applies to the associated transaction state.
      * @param constraint The [CpkConstraint] associated with the transaction state.
      */
-    constructor(contractState: T, contract: String, notary: PublicKey, encumbrance: Int?, constraint: CpkConstraint) :
-            this(contractState, TransactionStateInformation(contract, notary, encumbrance, constraint))
+    constructor(contractState: T, contractId: String, notary: Party, encumbrance: Int?, constraint: CpkConstraint) :
+            this(contractState, TransactionStateInformation(contractId, notary, encumbrance, constraint))
 
     /**
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      * @param encumbrance The index of an associated, encumbered state, or null if no encumbrance applies to the associated transaction state.
      * @param constraint The [CpkConstraint] associated with the transaction state.
      */
-    constructor(contractState: T, notary: PublicKey, encumbrance: Int?, constraint: CpkConstraint) :
+    constructor(contractState: T, notary: Party, encumbrance: Int?, constraint: CpkConstraint) :
             this(contractState, contractState.getContractClassNameOrThrow(), notary, encumbrance, constraint)
 
     /**
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      */
-    constructor(contractState: T, notary: PublicKey) :
-            this(contractState, notary, null, CpkConstraint.automaticPlaceholderCpkConstraint)
+    constructor(contractState: T, notary: Party) :
+            this(contractState, notary, null, CpkConstraint.AUTOMATIC_PLACEHOLDER)
 
     /**
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      * @param encumbrance The index of an associated, encumbered state, or null if no encumbrance applies to the associated transaction state.
      */
-    constructor(contractState: T, notary: PublicKey, encumbrance: Int) :
-            this(contractState, notary, encumbrance, CpkConstraint.automaticPlaceholderCpkConstraint)
+    constructor(contractState: T, notary: Party, encumbrance: Int) :
+            this(contractState, notary, encumbrance, CpkConstraint.AUTOMATIC_PLACEHOLDER)
 
     /**
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      * @param constraint The [CpkConstraint] associated with the transaction state.
      */
-    constructor(contractState: T, notary: PublicKey, constraint: CpkConstraint) :
+    constructor(contractState: T, notary: Party, constraint: CpkConstraint) :
             this(contractState, notary, null, constraint)
 
     /**
@@ -71,31 +71,31 @@ data class TransactionState<out T : ContractState>(val contractState: T, val inf
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
      * @param contract The class name of the contract associated with the transaction state.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      */
-    constructor(contractState: T, contract: String, notary: PublicKey) :
-            this(contractState, contract, notary, null, CpkConstraint.automaticPlaceholderCpkConstraint)
+    constructor(contractState: T, contract: String, notary: Party) :
+            this(contractState, contract, notary, null, CpkConstraint.AUTOMATIC_PLACEHOLDER)
 
     /**
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
      * @param contract The class name of the contract associated with the transaction state.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      * @param encumbrance The index of an associated, encumbered state, or null if no encumbrance applies to the associated transaction state.
      */
-    constructor(contractState: T, contract: String, notary: PublicKey, encumbrance: Int) :
-            this(contractState, contract, notary, encumbrance, CpkConstraint.automaticPlaceholderCpkConstraint)
+    constructor(contractState: T, contract: String, notary: Party, encumbrance: Int) :
+            this(contractState, contract, notary, encumbrance, CpkConstraint.AUTOMATIC_PLACEHOLDER)
 
     /**
      * Creates a new instance of the [TransactionState] data class.
      *
      * @param contractState The [ContractState] component of the current [TransactionState] instance.
      * @param contract The class name of the contract associated with the transaction state.
-     * @param notary The [PublicKey] of the notary associated with the transaction state.
+     * @param notary The [Party] of the notary associated with the transaction state.
      * @param constraint The [CpkConstraint] associated with the transaction state.
      */
-    constructor(contractState: T, contract: String, notary: PublicKey, constraint: CpkConstraint) :
+    constructor(contractState: T, contract: String, notary: Party, constraint: CpkConstraint) :
             this(contractState, contract, notary, null, constraint)
 }
 
