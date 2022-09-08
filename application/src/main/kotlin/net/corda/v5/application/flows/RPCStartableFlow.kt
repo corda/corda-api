@@ -47,7 +47,7 @@ import net.corda.v5.application.marshalling.JsonMarshallingService
  *     public String call(RPCRequestData requestBody) {
  *         MyFlowParameters parameters = requestBody.getRequestBodyAs(jsonMarshallingService, MyFlowParameters.class);
  *         ...
- *         return jsonMarshallingService.format(parameters)
+ *         return jsonMarshallingService.format(parameters);
  *     }
  * }
  * ```
