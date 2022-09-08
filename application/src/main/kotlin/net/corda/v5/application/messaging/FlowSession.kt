@@ -18,22 +18,18 @@ import net.corda.v5.base.types.MemberX500Name
  * There are two ways of obtaining such a session:
  *
  * 1. Calling [FlowMessaging.initiateFlow]. This will create a [FlowSession] object on which the first send/receive
- * operation will attempt to kick off a corresponding [InitiatedBy] flow on the counterparty's node.
+ * operation will attempt to kick off a corresponding [ResponderFlow] flow on the counterpart's node.
  *
- * 2. As constructor parameter to [InitiatedBy] flows. This session is the one corresponding to the initiating flow
+ * 2. As constructor parameter to [ResponderFlow] flows. This session is the one corresponding to the initiating flow
  * and may be used for replies.
+ *
+ * @see FlowMessaging
  */
 @DoNotImplement
 interface FlowSession {
 
     /**
-     * If the destination on the other side of this session is a [Party] then returns that, otherwise throws
-     * [IllegalStateException].
-     *
-     * Only use this method if it's known the other side is a [Party], otherwise use [destination].
-     *
-     * @throws IllegalStateException if the other side is not a [Party].
-     * @see destination
+     * The [MemberX500Name] of the counterparty this session is connected to.
      */
     val counterparty: MemberX500Name
 

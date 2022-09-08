@@ -56,8 +56,9 @@ interface MarshallingService {
     /**
      * Format the input data into the service's output format.
      *
-     * @param data The object to convert on input
-     * @return String representation of the data formatted according to the provided service
+     * @param data The object to convert on input.
+     *
+     * @return String representation of the data formatted according to the provided service.
      */
     fun format(data: Any): String
 
@@ -67,9 +68,10 @@ interface MarshallingService {
      * This method will throw an exception if the provided string does not conform to the expected format of the
      * service.
      *
-     * @param input The input string to parse
-     * @param clazz The type to try and parse the data into
-     * @return An instance of the required type containing the input data
+     * @param input The input string to parse.
+     * @param clazz The type to try and parse the data into.
+     *
+     * @return An instance of the required type containing the input data.
      */
     fun <T> parse(input: String, clazz: Class<T>) : T
 
@@ -89,8 +91,9 @@ interface MarshallingService {
  *
  * This method will throw an exception if the provided string does not conform to the expected format of the service.
  *
- * @param input The input string to parse
- * @return An instance of the required type containing the input data
+ * @param input The input string to parse.
+ *
+ * @return An instance of the required type containing the input data.
  */
 inline fun <reified T> MarshallingService.parse(input: String) : T {
     return this.parse(input, T::class.java)

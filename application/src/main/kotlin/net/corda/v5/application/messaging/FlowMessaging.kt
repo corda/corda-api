@@ -8,6 +8,7 @@ import net.corda.v5.base.types.MemberX500Name
 
 /*
  * [FlowMessaging] allows a flow to initiate and communicate with one or more 3rd party flows.
+ * The platform will provide an instance of [FlowMessaging] to flows via property injection.
  *
  * A [Flow] can initiate one or more flows other counterparties within the network, when a new flow is initiated a
  * [FlowSession] is created. The [FlowSession] represents the connection to an initiated flow and can be used to send
@@ -62,9 +63,9 @@ import net.corda.v5.base.types.MemberX500Name
 interface FlowMessaging {
 
     /**
-     * Creates a communication session with another member. Subsequently you may send/receive using this session object.
-     * Note that this function does not communicate in itself, the counter-flow will be kicked off by the first
-     * send/receive.
+     * Creates a communication session with a counterpart's [ResponderFlow]. Subsequently, you may send/receive using
+     * this session object. Note that this function does not communicate in itself, the counter-flow will be kicked off
+     * by the first send/receive.
      *
      * Initiated flows are initiated with context based on the context of the initiating flow at the point in time this
      * method is called. The context of the initiating flow is snapshotted by the returned session. Altering the flow

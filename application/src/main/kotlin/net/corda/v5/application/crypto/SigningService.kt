@@ -15,6 +15,7 @@ import java.util.*
 /**
  * [SigningService] is responsible for storing and using private keys to sign things. An implementation of this may,
  * for example, call out to a hardware security module that enforces various auditing and frequency-of-use requirements.
+ * The platform will provide an instance of [SigningService] to flows via property injection.
  */
 @DoNotImplement
 interface SigningService {
@@ -24,7 +25,7 @@ interface SigningService {
      *
      * @param bytes The data to sign over using the chosen key.
      * @param publicKey The [PublicKey] partner to an internally held [PrivateKey], either derived from the node's
-     * primary identity, or previously generated via the [freshKey] method. If the [PublicKey] is actually
+     * primary identity, or previously generated via the freshKey method. If the [PublicKey] is actually
      * a [CompositeKey], the first leaf signing key hosted by the node is used.
      * @param signatureSpec The [SignatureSpec] to use when producing this signature.
      *
