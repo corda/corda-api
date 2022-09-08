@@ -14,6 +14,43 @@ import net.corda.v5.application.marshalling.JsonMarshallingService
  *
  * Flows implementing this interface must have a no-arg constructor. The flow invocation will fail if this constructor
  * does not exist.
+ *
+ * Example usage:
+ *
+ * - Kotlin:
+ *
+ * ```kotlin
+ * class MyFlow : RPCStartableFlow {
+ *
+ *     @CordaInject
+ *     lateinit var jsonMarshallingService: JsonMarshallingService
+ *
+ *     @Suspendable
+ *     override fun call(requestBody: RPCRequestData): String {
+ *         val parameters = requestBody.getRequestBodyAs<MyFlowParameters>(jsonMarshallingService)
+ *         ...
+ *         return jsonMarshallingService.format(parameters)
+ *     }
+ * }
+ * ```
+ *
+ * - Java:
+ *
+ * ```java
+ * public class MyFlow implements RPCStartableFlow {
+ *
+ *     @CordaInject
+ *     public JsonMarshallingService jsonMarshallingService;
+ *
+ *     @Suspendable
+ *     @Override
+ *     public String call(RPCRequestData requestBody) {
+ *         MyFlowParameters parameters = requestBody.getRequestBodyAs(jsonMarshallingService, MyFlowParameters.class);
+ *         ...
+ *         return jsonMarshallingService.format(parameters)
+ *     }
+ * }
+ * ```
  */
 interface RPCStartableFlow : Flow {
 
@@ -30,3 +67,18 @@ interface RPCStartableFlow : Flow {
     @Suspendable
     fun call(requestBody: RPCRequestData) : String
 }
+
+//class MyFlow10 : RPCStartableFlow {
+//
+//    @CordaInject
+//    lateinit var jsonMarshallingService: JsonMarshallingService
+//
+//    @Suspendable
+//    override fun call(requestBody: RPCRequestData): String {
+//        val parameters = requestBody.getRequestBodyAs<MyFlowParameters>(jsonMarshallingService)
+////            ...
+//        return jsonMarshallingService.format(parameters)
+//    }
+//}
+//
+//class MyFlowParameters(val content: String)
