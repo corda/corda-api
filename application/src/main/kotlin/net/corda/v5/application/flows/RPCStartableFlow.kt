@@ -67,18 +67,3 @@ interface RPCStartableFlow : Flow {
     @Suspendable
     fun call(requestBody: RPCRequestData) : String
 }
-
-//class MyFlow10 : RPCStartableFlow {
-//
-//    @CordaInject
-//    lateinit var jsonMarshallingService: JsonMarshallingService
-//
-//    @Suspendable
-//    override fun call(requestBody: RPCRequestData): String {
-//        val parameters = requestBody.getRequestBodyAs<MyFlowParameters>(jsonMarshallingService)
-////            ...
-//        return jsonMarshallingService.format(parameters)
-//    }
-//}
-//
-//class MyFlowParameters(val content: String)

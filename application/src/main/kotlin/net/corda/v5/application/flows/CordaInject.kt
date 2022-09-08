@@ -22,7 +22,7 @@ import kotlin.annotation.AnnotationTarget.FIELD
  *
  *     @Suspendable
  *     override fun call(requestBody: RPCRequestData): String {
- *         // logic
+ *         ...
  *     }
  * }
  * ```
@@ -41,7 +41,7 @@ import kotlin.annotation.AnnotationTarget.FIELD
  *     @Suspendable
  *     @Override
  *     public String call(RPCRequestData requestBody) {
- *         // logic
+ *         ...
  *     }
  * }
  * ```
