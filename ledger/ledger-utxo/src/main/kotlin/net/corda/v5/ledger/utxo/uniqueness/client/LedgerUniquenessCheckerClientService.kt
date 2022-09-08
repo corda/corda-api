@@ -3,6 +3,7 @@ package net.corda.v5.ledger.utxo.uniqueness.client
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.application.uniqueness.model.UniquenessCheckResponse
+import net.corda.v5.application.uniqueness.model.UniquenessCheckStateRef
 import java.time.Instant
 import java.util.concurrent.Future
 
@@ -42,3 +43,25 @@ interface LedgerUniquenessCheckerClientService {
         timeWindowUpperBound: Instant
     ): UniquenessCheckResponse
 }
+
+/**
+ * An extension function that can be called using actual [UniquenessCheckStateRef] objects as input and
+ * reference states rather than [String]s.
+ */
+@Suppress("LongParameterList")
+@Suspendable
+fun LedgerUniquenessCheckerClientService.requestUniquenessCheck(
+    txId: String,
+    inputStates: List<UniquenessCheckStateRef>,
+    referenceStates: List<UniquenessCheckStateRef>,
+    numOutputStates: Int,
+    timeWindowLowerBound: Instant?,
+    timeWindowUpperBound: Instant
+) = requestUniquenessCheck(
+    txId,
+    inputStates.map { it.toString() },
+    referenceStates.map { it.toString() },
+    numOutputStates,
+    timeWindowLowerBound,
+    timeWindowUpperBound
+)
