@@ -2,6 +2,8 @@
 package net.corda.v5.application.messaging
 
 import net.corda.v5.application.flows.FlowContextProperties
+import net.corda.v5.application.flows.FlowEngine
+import net.corda.v5.application.flows.ResponderFlow
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.exceptions.CordaRuntimeException
@@ -59,7 +61,13 @@ interface FlowSession {
      * Note that this function is not just a simple send+receive pair: it is more efficient and more correct to use this
      * when you expect to do a message swap than do use [send] and then [receive] in turn.
      *
-     * @return an [UntrustworthyData] wrapper around the received object.
+     * @param R The data type received from the counterparty.
+     * @param receiveType The data type received from the counterparty.
+     * @param payload The data sent to the counterparty.
+     *
+     * @return An [UntrustworthyData] wrapper around the received object.
+     *
+     * @throws [CordaRuntimeException] if the session is closed or in a failed state.
      */
     @Suspendable
     fun <R : Any> sendAndReceive(receiveType: Class<R>, payload: Any): UntrustworthyData<R>
@@ -72,7 +80,12 @@ interface FlowSession {
      * verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly
      * corrupted data in order to exploit your code.
      *
-     * @return an [UntrustworthyData] wrapper around the received object.
+     * @param R The data type received from the counterparty.
+     * @param receiveType The data type received from the counterparty.
+     *
+     * @return An [UntrustworthyData] wrapper around the received object.
+     *
+     * @throws [CordaRuntimeException] if the session is closed or in a failed state.
      */
     @Suspendable
     fun <R : Any> receive(receiveType: Class<R>): UntrustworthyData<R>
@@ -84,6 +97,10 @@ interface FlowSession {
      * Note that the other party may receive the message at some arbitrary later point or not at all: if [counterparty]
      * is offline then message delivery will be retried until it comes back or until the message is older than the
      * network's event horizon time.
+     *
+     * @param payload The data sent to the counterparty.
+     *
+     * @throws [CordaRuntimeException] if the session is closed or in a failed state.
      */
     @Suspendable
     fun send(payload: Any)
@@ -98,12 +115,9 @@ interface FlowSession {
      *
      * A closed session cannot be used anymore, e.g. to send or receive messages. So, you have to ensure you are calling
      * this method only when the session is not going to be used anymore. As a result, any operations on a closed
-     * session will fail with an [UnexpectedFlowEndException].
+     * session will fail with an [CordaRuntimeException].
      *
      * When a session is closed, the other side is informed and the session is closed there too eventually.
-     *
-     * To prevent misuse of the API, if there is an attempt to close an uninitialised session the invocation will fail
-     * with an [IllegalStateException].
      */
     @Suspendable
     fun close()
@@ -120,7 +134,10 @@ interface FlowSession {
  * Note that this function is not just a simple send+receive pair: it is more efficient and more correct to use this
  * when you expect to do a message swap than do use [FlowSession.send] and then [FlowSession.receive] in turn.
  *
- * @return an [UntrustworthyData] wrapper around the received object.
+ * @param R The data type received from the counterparty.
+ * @param payload The data sent to the counterparty.
+ *
+ * @return An [UntrustworthyData] wrapper around the received object.
  */
 @Suspendable
 inline fun <reified R : Any> FlowSession.sendAndReceive(payload: Any): UntrustworthyData<R> {
@@ -133,6 +150,10 @@ inline fun <reified R : Any> FlowSession.sendAndReceive(payload: Any): Untrustwo
  * Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly
  * verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted
  * data in order to exploit your code.
+ *
+ * @param R The data type received from the counterparty.
+ *
+ * @return An [UntrustworthyData] wrapper around the received object.
  */
 @Suspendable
 inline fun <reified R : Any> FlowSession.receive(): UntrustworthyData<R> {

@@ -8,6 +8,7 @@ import java.security.SignatureException
 
 /**
  * [DigitalSignatureVerificationService] allows flows to verify digital signatures.
+ *
  * The platform will provide an instance of [DigitalSignatureVerificationService] to flows via property injection.
  */
 @DoNotImplement

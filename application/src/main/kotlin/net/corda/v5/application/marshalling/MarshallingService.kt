@@ -1,6 +1,7 @@
 @file:JvmName("MarshallingUtils")
 package net.corda.v5.application.marshalling
 
+import net.corda.v5.application.flows.RPCStartableFlow
 import net.corda.v5.base.annotations.DoNotImplement
 
 /**
@@ -11,44 +12,7 @@ import net.corda.v5.base.annotations.DoNotImplement
  * what format to work with (e.g. [JsonMarshallingService] for working with JSON data).
  *
  * Example usage:
- *
- * - Kotlin:
- *
- * ```kotlin
- * class MyFlow : RPCStartableFlow {
- *
- *     @CordaInject
- *     lateinit var jsonMarshallingService: JsonMarshallingService
- *
- *     override fun call(requestBody: RPCRequestData): String {
- *         val request = requestBody.getRequestBodyAs<MyFlowRequest>(jsonMarshallingService)
- *
- *         return request.name
- *     }
- *
- *     data class MyFlowRequest(val name: String)
- * }
- * ```
- *
- * - Java:
- *
- * ```java
- * class MyFlow implements RPCStartableFlow {
- *
- *     @CordaInject
- *     public JsonMarshallingService jsonMarshallingService;
- *
- *     @Override
- *     public String call(RPCRequestData requestBody) {
- *         MyFlowRequest request = requestBody.getRequestBodyAs(jsonMarshallingService, MyFlowRequest.class);
- *         return request.name;
- *     }
- *
- *     class MyFlowRequest {
- *         public String name;
- *     }
- * }
- * ```
+ * @see RPCStartableFlow
  */
 @DoNotImplement
 interface MarshallingService {

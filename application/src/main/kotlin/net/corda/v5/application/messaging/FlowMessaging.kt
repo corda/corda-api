@@ -2,12 +2,14 @@ package net.corda.v5.application.messaging
 
 import net.corda.v5.application.flows.FlowContextProperties
 import net.corda.v5.application.flows.FlowContextProperties.Companion.CORDA_RESERVED_PREFIX
+import net.corda.v5.application.flows.ResponderFlow
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
 
 /*
  * [FlowMessaging] allows a flow to initiate and communicate with one or more 3rd party flows.
+ *
  * The platform will provide an instance of [FlowMessaging] to flows via property injection.
  *
  * A [Flow] can initiate one or more flows other counterparties within the network, when a new flow is initiated a
@@ -63,7 +65,7 @@ import net.corda.v5.base.types.MemberX500Name
 interface FlowMessaging {
 
     /**
-     * Creates a communication session with a counterpart's [ResponderFlow]. Subsequently, you may send/receive using
+     * Creates a communication session with a counterparty's [ResponderFlow]. Subsequently, you may send/receive using
      * this session object. Note that this function does not communicate in itself, the counter-flow will be kicked off
      * by the first send/receive.
      *

@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.Suspendable
 /**
  * [PersistenceService] allows a flow to insert, find, update and delete custom entities in the persistent
  * store provided by the platform.
+ *
  * The platform will provide an instance of [PersistenceService] to flows via property injection.
  */
 @DoNotImplement

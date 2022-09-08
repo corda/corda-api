@@ -8,6 +8,7 @@ import java.security.PublicKey
 
 /**
  * [MemberLookup] allows flows to lookup the [MemberInfo] for any member of the network, including itself.
+ *
  * The platform will provide an instance of [MemberLookup] to flows via property injection.
  */
 @DoNotImplement
