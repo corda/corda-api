@@ -1,6 +1,5 @@
 package net.corda.v5.application.messaging;
 
-import net.corda.v5.application.messaging.FlowInfo;
 import net.corda.v5.base.types.MemberX500Name;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,17 +23,6 @@ public class FlowSessionJavaApiTest {
 
         Assertions.assertThat(partyTest).isNotNull();
         Assertions.assertThat(partyTest).isEqualTo(counterparty);
-    }
-
-    @Test
-    public void getCounterpartyFlowInfo() {
-        final FlowInfo flowInfo = new FlowInfo(5, "corda");
-        when(flowSession.getCounterpartyFlowInfo()).thenReturn(flowInfo);
-
-        final FlowInfo flowInfoTest = flowSession.getCounterpartyFlowInfo();
-
-        Assertions.assertThat(flowInfoTest).isNotNull();
-        Assertions.assertThat(flowInfoTest).isEqualTo(flowInfo);
     }
 
     @Test
