@@ -40,20 +40,17 @@ interface FlowSession {
     /**
      * Session local [FlowContextProperties].
      *
-     * If this session is part of an initiating flow, i.e. was obtained from [FlowMessaging] then any properties set
-     * against the session's context will be propagated to initiated flows and all that flow's initiated flows and sub
-     * flows down the stack. These properties are in addition to the current parent context properties which are always
-     * propagated see [FlowContextProperties]. Note that the first use of this property snapshots the entire set of
-     * parent context to the session, and from then on only these session local properties are propagated. Further
-     * changes to the parent context will not be reflected in the local session context and will not be sent to the
-     * initiated flow. If this property is never accessed, the parent context is snapshotted the first time a session is
-     * opened, which is when the first call to either send or receive message is made.
+     * If this session is part of an initiating flow, i.e. was obtained from [FlowMessaging] then this is a read only
+     * set of context properties which will be used to determine context on the initiated side. Modifying this set is
+     * only possible when session are initiated, see [FlowMessaging].
      *
      * If this session was passed to an initiated flow by Corda, the context properties are associated with the
      * initiating flow at the other end of the connection. They differ from the [FlowContextProperties] available to all
      * flows via the [FlowEngine] in that they are not a description of the context of the currently executing flow, but
-     * instead the flow which initiated it. Any calls to modify these contextProperties will throw a
-     * [CordaRuntimeException], they should be considered immutable.
+     * instead the flow which initiated it.
+     *
+     * Any calls to modify these contextProperties will throw a [CordaRuntimeException], they should be considered
+     * immutable.
      */
     val contextProperties: FlowContextProperties
 
