@@ -8,7 +8,7 @@ import net.corda.v5.crypto.SecureHash
  * model and is agnostic to both the message bus API and any DB schema that may be used to persist data
  * by the backing store.
  *
- * T0DO: This class can be removed once the UTXO ledger model gets merged
+ * T0DO CORE-6629: This class can be removed once the UTXO ledger model gets merged
  */
 interface UniquenessCheckStateRef {
     val txHash: SecureHash
