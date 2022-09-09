@@ -298,17 +298,7 @@
                           },
                           "passphrase": {
                             "description": "Passphrase for the root master wrapping key",
-                            "type": "object",
-                            "properties": {
-                              "configSecret": {
-                                "type": ["object", "string"],
-                                "additionalProperties": true
-                              }
-                            },
-                            "additionalProperties": false,
-                            "required": [
-                              "configSecret"
-                            ]
+                            "type": "string"
                           },
                           "cache": {
                             "description": "Settings for the cache if the type is CACHING",
@@ -329,7 +319,11 @@
                             "additionalProperties": false
                           }
                         },
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "required": [
+                          "salt",
+                          "passphrase"
+                        ]
                       },
                       "wrapping": {
                         "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
