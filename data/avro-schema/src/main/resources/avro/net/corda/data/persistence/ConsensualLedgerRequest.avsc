@@ -21,7 +21,8 @@
       "name": "request",
       "doc": "The 'request' that we wish to make to the consensual ledger persistence API.",
       "type": [
-        "net.corda.data.ledger.consensual.PersistTransaction"
+        "net.corda.data.ledger.consensual.PersistTransaction",
+        "net.corda.data.ledger.consensual.FindTransaction"
       ]
     },
     {
