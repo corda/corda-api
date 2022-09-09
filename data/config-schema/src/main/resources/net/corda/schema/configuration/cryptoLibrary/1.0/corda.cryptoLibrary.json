@@ -142,11 +142,6 @@
       },
       "additionalProperties": false
     },
-    "hsmId": {
-      "description": "The HSM's id which is handled by this instance, the value must match one of the keys in the hsmMap",
-      "type": "string",
-      "default": "SOFT"
-    },
     "hsmMap": {
       "description": "Settings for all available HSMs",
       "type": "object",
@@ -306,16 +301,8 @@
                             "type": "object",
                             "properties": {
                               "configSecret": {
-                                "type": "object",
-                                "properties": {
-                                  "encryptedSecret": {
-                                    "type": "string"
-                                  }
-                                },
-                                "additionalProperties": false,
-                                "required": [
-                                  "encryptedSecret"
-                                ]
+                                "type": ["object", "string"],
+                                "additionalProperties": true
                               }
                             },
                             "additionalProperties": false,
