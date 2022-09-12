@@ -22,6 +22,6 @@ class FlowMessagingFlowKotlinExample : RPCStartableFlow  {
 
         session.close()
 
-        return result.unwrap { it }
+        return result
     }
 }

@@ -17,10 +17,10 @@ public class FlowMessagingFlowJavaExample implements RPCStartableFlow {
         MemberX500Name counterparty = MemberX500Name.parse("CN=Alice, O=Alice Corp, L=LDN, C=GB");
         FlowSession session = flowMessaging.initiateFlow(counterparty);
 
-        UntrustworthyData<String> result = session.sendAndReceive(String.class, "hello");
+        String result = session.sendAndReceive(String.class, "hello");
 
         session.close();
 
-        return result.unwrap(x -> x);
+        return result;
     }
 }
