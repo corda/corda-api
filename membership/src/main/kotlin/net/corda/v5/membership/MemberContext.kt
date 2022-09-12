@@ -8,6 +8,12 @@ import net.corda.v5.base.types.LayeredPropertyMap
  *
  * Contains information such as the node's endpoints, x500 name, key information, etc.
  *
+ * Example usages:
+ *
+ * ```java
+ *
+ * ```
+ *
  * Properties are exposed either through properties on interfaces in the public APIs, or internally through extension
  * properties.
  *
