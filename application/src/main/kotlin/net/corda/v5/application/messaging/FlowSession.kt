@@ -65,12 +65,12 @@ interface FlowSession {
      * @param receiveType The data type received from the counterparty.
      * @param payload The data sent to the counterparty.
      *
-     * @return An [UntrustworthyData] wrapper around the received object.
+     * @return The received data [R]
      *
      * @throws [CordaRuntimeException] if the session is closed or in a failed state.
      */
     @Suspendable
-    fun <R : Any> sendAndReceive(receiveType: Class<R>, payload: Any): UntrustworthyData<R>
+    fun <R : Any> sendAndReceive(receiveType: Class<R>, payload: Any): R
 
 
     /**
@@ -83,12 +83,12 @@ interface FlowSession {
      * @param R The data type received from the counterparty.
      * @param receiveType The data type received from the counterparty.
      *
-     * @return An [UntrustworthyData] wrapper around the received object.
+     * @return The received data [R]
      *
      * @throws [CordaRuntimeException] if the session is closed or in a failed state.
      */
     @Suspendable
-    fun <R : Any> receive(receiveType: Class<R>): UntrustworthyData<R>
+    fun <R : Any> receive(receiveType: Class<R>): R
 
 
     /**
@@ -137,10 +137,10 @@ interface FlowSession {
  * @param R The data type received from the counterparty.
  * @param payload The data sent to the counterparty.
  *
- * @return An [UntrustworthyData] wrapper around the received object.
+ * @return The received data [R]
  */
 @Suspendable
-inline fun <reified R : Any> FlowSession.sendAndReceive(payload: Any): UntrustworthyData<R> {
+inline fun <reified R : Any> FlowSession.sendAndReceive(payload: Any): R {
     return sendAndReceive(R::class.java, payload)
 }
 
@@ -153,9 +153,9 @@ inline fun <reified R : Any> FlowSession.sendAndReceive(payload: Any): Untrustwo
  *
  * @param R The data type received from the counterparty.
  *
- * @return An [UntrustworthyData] wrapper around the received object.
+ * @return The received data [R]
  */
 @Suspendable
-inline fun <reified R : Any> FlowSession.receive(): UntrustworthyData<R> {
+inline fun <reified R : Any> FlowSession.receive(): R {
     return receive(R::class.java)
 }
