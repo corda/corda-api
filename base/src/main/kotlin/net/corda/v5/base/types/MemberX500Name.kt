@@ -147,7 +147,7 @@ class MemberX500Name(
                     }
                 }
             } catch (e: InvalidNameException) {
-                throw IllegalArgumentException(e)
+                throw IllegalArgumentException(e.message, e)
             }
             if (supportedAttributes.isNotEmpty()) {
                 (result.keys - supportedAttributes).let { unsupported ->
@@ -251,7 +251,7 @@ class MemberX500Name(
             }
             X500Principal(LdapName(rdns).toString())
         } catch (e: InvalidNameException) {
-            throw IllegalArgumentException(e)
+            throw IllegalArgumentException(e.message, e)
         }
     }
 
