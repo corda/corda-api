@@ -22,18 +22,16 @@ package net.corda.v5.base.types
  * The default implementation of the [LayeredPropertyMap] is extendable by supplying implementations of custom
  * converters using OSGi. Out of box it supports conversion to simple types like Int, Boolean,
  * as well as MemberX500Name.
+ *
+ * @property entries Returns [Set] of all entries in the underlying map.
  */
 interface LayeredPropertyMap {
+    val entries: Set<Map.Entry<String, String?>>
 
     /**
      * Returns the value of the given key or null if the key doesn't exist.
      */
     operator fun get(key: String): String?
-
-    /**
-     * Returns [Set] of all entries in the underlying map.
-     */
-    val entries: Set<Map.Entry<String, String?>>
 
     /**
      * Converts the value of the given key to the specified type.

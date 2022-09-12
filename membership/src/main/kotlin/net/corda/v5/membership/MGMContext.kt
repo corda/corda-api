@@ -10,5 +10,10 @@ import net.corda.v5.base.types.LayeredPropertyMap
  *
  * Properties are exposed either through properties on interfaces in the public APIs, or internally through extension
  * properties.
+ *
+ * @property entries Returns [Set] of all entries in the underlying map.
+ *
+ * @author Nikolett Nagy
+ * @since DP2
  */
 interface MGMContext: LayeredPropertyMap
