@@ -33,5 +33,7 @@ import net.corda.v5.base.types.LayeredPropertyMap
  *
  * @author Nikolett Nagy
  * @since DP2
+ *
+ * @see [LayeredPropertyMap] For further information on the properties and functions.
  */
 interface MGMContext: LayeredPropertyMap

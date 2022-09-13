@@ -5,9 +5,10 @@ import net.corda.v5.base.types.MemberX500Name
 import java.security.PublicKey
 
 /**
- * The member information consist of two parts:
- * Member provided context: Parameters added and signed by member as part of the initial MemberInfo proposal.
- * MGM provided context: Parameters added by MGM as a part of member acceptance.
+ * The member information consists of two parts:
+ * - Member provided context: Parameters added and signed by member as part of the initial MemberInfo proposal.
+ * - MGM provided context: Parameters added by MGM as a part of member acceptance.
+ *
  * Internally visible properties are accessible via extension properties.
  *
  * Example usages:
@@ -40,8 +41,8 @@ import java.security.PublicKey
  * @property mgmProvidedContext Context representing the MGM set data regarding this members information.
  * Required data from this context is parsed and returned via other class properties or extension properties
  * internally.
- * @property name Member's X.500 name.
- * x.500 name is unique within the group and cannot be changed while the membership exists.
+ * @property name Member's X500 name.
+ * X500 name is unique within the group and cannot be changed while the membership exists.
  * @property sessionInitiationKey Member's session initiation key.
  * @property ledgerKeys List of current and previous (rotated) ledger keys, which member can still use to sign unspent
  * transactions on ledger.
