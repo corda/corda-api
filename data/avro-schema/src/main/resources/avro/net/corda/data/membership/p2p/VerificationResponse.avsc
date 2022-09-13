@@ -13,6 +13,11 @@
       }
     },
     {
+        "name": "failureReason",
+        "doc": "null if verification was successfull, or the reason if the verification failed.",
+        "type": ["null", "string"]
+    },
+    {
       "name": "payload",
       "doc": "Response's payload.",
       "type": "net.corda.data.KeyValuePairList"
