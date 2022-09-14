@@ -9,7 +9,7 @@ import net.corda.v5.crypto.SecureHash
  *  - Leaf Nonce
  *  - Leaf Hash
  *  - Node Hash calculation methods
- *  - Base Digest Algorithm.
+ *  - Base Digest Algorithm
  */
 
 interface MerkleTreeHashDigestProvider {
@@ -20,15 +20,15 @@ interface MerkleTreeHashDigestProvider {
 
     /**
      * Calculates the nonce for a leaf.
-     * @param index the leaf's index.
+     * @param index The leaf's index.
      */
     fun leafNonce(index: Int): ByteArray?
 
     /**
      * Calculates the hash of a leaf.
-     * @param index the leaf's index.
-     * @param nonce the leaf's nonce.
-     * @param bytes the leaf's content bytes.
+     * @param index The leaf's index.
+     * @param nonce The leaf's nonce.
+     * @param bytes The leaf's content bytes.
      */
     fun leafHash(index: Int, nonce: ByteArray?, bytes: ByteArray): SecureHash
 
@@ -47,7 +47,7 @@ interface MerkleTreeHashDigestProvider {
 interface MerkleTreeHashDigestProviderWithSizeProofSupport : MerkleTreeHashDigestProvider {
     /**
      * Returns a size proof.
-     * @param leaves the tree's leaves.
+     * @param leaves The tree's leaves.
      */
     fun getSizeProof(leaves: List<ByteArray>): MerkleProof
 }

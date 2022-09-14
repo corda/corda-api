@@ -10,7 +10,7 @@ import net.corda.v5.crypto.SecureHash
  */
 interface MerkleTree {
     /**
-     * @property leaves are the input data elements. Usually the hashes of something larger deterministically serialized.
+     * @property leaves The input data elements. Usually the hashes of something larger deterministically serialized.
      */
     val leaves: List<ByteArray>
 
