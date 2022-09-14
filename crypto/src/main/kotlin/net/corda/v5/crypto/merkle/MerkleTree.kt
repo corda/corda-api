@@ -25,7 +25,7 @@ interface MerkleTree {
     val root: SecureHash
 
     /**
-     * [createAuditProof] can be used to create a [MerkleProof] for a set of leaves
+     * Creates a [MerkleProof] for a set of leaves.
      * @param leafIndices whose leaf's inclusion is to be proven by the proof.
      */
     fun createAuditProof(leafIndices: List<Int>): MerkleProof

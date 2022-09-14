@@ -29,7 +29,7 @@ interface MerkleProof {
     val hashes: List<SecureHash>
 
     /**
-     * [verify] can be used to check if the [MerkleProof] has been generated from a [MerkleTree] with the given [root].
+     * Checks if the [MerkleProof] has been generated from a [MerkleTree] with the given [root].
      */
     fun verify(
         root: SecureHash,
