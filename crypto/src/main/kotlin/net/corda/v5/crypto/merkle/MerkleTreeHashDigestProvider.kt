@@ -46,7 +46,7 @@ interface MerkleTreeHashDigestProvider {
  */
 interface MerkleTreeHashDigestProviderWithSizeProofSupport : MerkleTreeHashDigestProvider {
     /**
-     * Returns a size proof.
+     * Returns a size proof that reveals the number of leaves in the Merkle tree, but not the content of the leaves.
      * @param leaves The tree's leaves.
      */
     fun getSizeProof(leaves: List<ByteArray>): MerkleProof
