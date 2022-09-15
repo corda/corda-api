@@ -50,9 +50,6 @@ import java.security.PublicKey
  * @property platformVersion Corda platform version that the member is running on.
  * @property serial An arbitrary number incremented each time the [MemberInfo] is changed.
  * @property isActive True if the member is active. Otherwise, false.
- *
- * @author Nikolett Nagy
- * @since DP2
  */
 @CordaSerializable
 interface MemberInfo {

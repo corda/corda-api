@@ -140,9 +140,6 @@ fun <T> Class<T>.castIfPossible(obj: Any): T? = if (isInstance(obj)) cast(obj) e
  * the [T] is different from it was called for the first time.
  *
  * @return The parsed values for given type.
- *
- * @author Alexey Kadyrov
- * @since DP2
  */
 inline fun <reified T> LayeredPropertyMap.parse(key: String): T {
     return parse(key, T::class.java)
@@ -158,9 +155,6 @@ inline fun <reified T> LayeredPropertyMap.parse(key: String): T {
  * the [T] is different from it was called for the first time.
  *
  * @return The parsed values for given type or null if the key doesn't exist.
- *
- * @author Alexey Kadyrov
- * @since DP2
  */
 inline fun <reified T> LayeredPropertyMap.parseOrNull(key: String): T? {
     return parseOrNull(key, T::class.java)
@@ -186,9 +180,6 @@ inline fun <reified T> LayeredPropertyMap.parseOrNull(key: String): T? {
  *  corda.endpoints.3.protocolVersion = 1
  *
  * @return A parsed list of elements for given type.
- *
- * @author Alexey Kadyrov
- * @since DP2
  */
 inline fun <reified T> LayeredPropertyMap.parseList(itemKeyPrefix: String): List<T> {
     return parseList(itemKeyPrefix, T::class.java)
@@ -211,9 +202,6 @@ inline fun <reified T> LayeredPropertyMap.parseList(itemKeyPrefix: String): List
  *  corda.ledgerKeyHashes.3 = <hash value of ledger key 3>
  *
  * @return A parsed set of elements for given type.
- *
- * @author Yash Nabar
- * @since DP2
  */
 inline fun <reified T> LayeredPropertyMap.parseSet(itemKeyPrefix: String): Set<T> {
     return parseSet(itemKeyPrefix, T::class.java)

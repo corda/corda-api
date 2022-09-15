@@ -42,9 +42,6 @@ package net.corda.v5.base.types
  * as well as [MemberX500Name].
  *
  * @property entries Returns [Set] of all entries in the underlying map.
- *
- * @author Alexey Kadyrov
- * @since DP2
  */
 interface LayeredPropertyMap {
     val entries: Set<Map.Entry<String, String?>>
@@ -55,9 +52,6 @@ interface LayeredPropertyMap {
      * @param key Key for the entry we are looking for.
      *
      * @return The value of the given key or null if the key doesn't exist.
-     *
-     * @author Alexey Kadyrov
-     * @since DP2
      */
     operator fun get(key: String): String?
 
@@ -73,9 +67,6 @@ interface LayeredPropertyMap {
      * the [T] is different from it was called for the first time.
      *
      * @return The parsed values for given type.
-     *
-     * @author Alexey Kadyrov
-     * @since DP2
      */
     fun <T> parse(key: String, clazz: Class<out T>): T
 
@@ -91,9 +82,6 @@ interface LayeredPropertyMap {
      * the [T] is different from it was called for the first time.
      *
      * @return The parsed values for given type or null if the key doesn't exist.
-     *
-     * @author Alexey Kadyrov
-     * @since DP2
      * */
     fun <T> parseOrNull(key: String, clazz: Class<out T>): T?
 
@@ -118,9 +106,6 @@ interface LayeredPropertyMap {
      *  corda.endpoints.3.protocolVersion = 1
      *
      *  @return A parsed list of elements for given type.
-     *
-     *  @author Alexey Kadyrov
-     *  @since DP2
      */
     fun <T> parseList(itemKeyPrefix: String, clazz: Class<out T>): List<T>
 
@@ -142,9 +127,6 @@ interface LayeredPropertyMap {
      *  corda.ledgerKeyHashes.3 = <hash value of ledger key 3>
      *
      * @return A parsed set of elements for given type.
-     *
-     * @author Yash Nabar
-     * @since DP2
      */
     fun <T> parseSet(itemKeyPrefix: String, clazz: Class<out T>): Set<T>
 }

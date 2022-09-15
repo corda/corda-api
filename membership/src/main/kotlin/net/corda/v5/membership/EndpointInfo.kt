@@ -24,9 +24,6 @@ import net.corda.v5.base.annotations.CordaSerializable
  * @property url Full virtual node endpoint URL.
  * @property protocolVersion Version of end-to-end authentication protocol. If multiple versions are supported, multiple instances of
  * [EndpointInfo] can be created, each using a different protocol version.
- *
- * @author Charlie Crean
- * @since DP2
  */
 @CordaSerializable
 interface EndpointInfo {

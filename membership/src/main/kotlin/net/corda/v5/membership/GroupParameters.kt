@@ -32,9 +32,6 @@ import java.time.Instant
  * @property modifiedTime The [Instant] representing the last time the group parameters were modified.
  * @property epoch An [Int] representing the version of the group parameters. This is incremented on each modification to the
  * group parameters.
- *
- * @author Charlie Crean
- * @since DP2
  */
 @CordaSerializable
 interface GroupParameters : LayeredPropertyMap {

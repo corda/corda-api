@@ -79,9 +79,6 @@ import javax.security.auth.x500.X500Principal
  * val map = MemberX500Name.toAttributesMap("CN=alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US")
  * ```
  *
- * @author Alexey Kadyrov
- * @since DP2
- *
  * @param commonName Summary name by which the entity is usually known. Corresponds to the "CN" attribute type.
  * @param organisationUnit Name of a unit within the [organisation], typically the department, or business unit.
  * Corresponds to the "OU" attribute type.
@@ -177,9 +174,6 @@ class MemberX500Name(
          * @throws [IllegalArgumentException] if required attributes are missing, constrains are not satisfied.
          *
          * @return [MemberX500Name] based on param.
-         *
-         * @author Alexey Kadyrov
-         * @since DP2
          */
         @JvmStatic
         fun build(principal: X500Principal): MemberX500Name = parse(toAttributesMap(principal))
@@ -196,9 +190,6 @@ class MemberX500Name(
          * the name is improperly specified.
          *
          * @return [MemberX500Name] based on param.
-         *
-         * @author Alexey Kadyrov
-         * @since DP2
          */
         @JvmStatic
         fun parse(name: String): MemberX500Name = parse(toAttributesMap(name))
@@ -218,9 +209,6 @@ class MemberX500Name(
          * the name is improperly specified.
          *
          * @return The attribute map parsed from the param.
-         *
-         * @author Alexey Kadyrov
-         * @since DP2
          */
         @JvmStatic
         fun toAttributesMap(name: String): Map<String, String> {

@@ -31,9 +31,6 @@ import net.corda.v5.base.types.LayeredPropertyMap
  *
  * @property entries Returns [Set] of all entries in the underlying map.
  *
- * @author Nikolett Nagy
- * @since DP2
- *
  * @see [LayeredPropertyMap] For further information on the properties and functions.
  */
 interface MemberContext: LayeredPropertyMap
