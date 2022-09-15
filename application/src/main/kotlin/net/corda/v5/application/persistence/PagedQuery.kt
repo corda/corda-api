@@ -8,8 +8,10 @@ import net.corda.v5.base.annotations.Suspendable
  * @param R The type of the results.
  */
 interface PagedQuery<R> {
+
     /**
-     * Set the maximum number of results to return.
+     * Sets the maximum number of results to return.
+     *
      * If no limit is set, all records will be returned.
      *
      * @param limit maximum number of results to return.
@@ -20,7 +22,8 @@ interface PagedQuery<R> {
     fun setLimit(limit: Int): PagedQuery<R>
 
     /**
-     * Set the index of the first result in the query to return.
+     * Sets the index of the first result in the query to return.
+     *
      * A default of `0` will be used in case it is not set.
      *
      * @param offset The index of the first result in the query to return.
@@ -31,7 +34,7 @@ interface PagedQuery<R> {
     fun setOffset(offset: Int): PagedQuery<R>
 
     /**
-     * Execute the [PagedQuery]
+     * Executes the [PagedQuery]
      *
      * @return List of entities found. Empty list if none were found.
      *
