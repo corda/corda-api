@@ -9,22 +9,27 @@ import javax.naming.ldap.Rdn
 import javax.security.auth.x500.X500Principal
 
 /**
- * X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
+ * X.500 distinguished name data type customised to how Corda membership uses names. This restricts the attributes to those Corda
  * supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
  * the underlying attribute type definitions.
  *
  * The class also guaranties the reliable equality comparison regardless which order the attributes are specified when
  * parsing from the string or X500principal as well outputs the attributes to string in predictable order.
  *
+ * There may be additional network specific requirements which need to be taken into account when creating a name.
+ * For example, the network operator may require a particular format for names so that they can issue suitable certificates.
+ *
+ * The order of attributes for building the names is the following: CN, OU, O, L, ST, C
+ *
  * Example usages:
  *
  * ```java
- * String commonName = "commonName";
- * String organisationUnit = "organisationUnit";
- * String organization = "organization";
- * String locality = "London";
- * String state = "state";
- * String country = "GB";
+ * String commonName = "Alice";
+ * String organisationUnit = "Accounting";
+ * String organization = "R3";
+ * String locality = "New York";
+ * String state = "New York";
+ * String country = "US";
  *
  *
  * MemberX500Name exampleNameFirst = new MemberX500Name(organization, locality, country);
@@ -48,12 +53,12 @@ import javax.security.auth.x500.X500Principal
  * ```
  *
  * ```kotlin
- * val commonName = "commonName"
- * val organisationUnit = "organisationUnit"
- * val organization = "organization"
- * val locality = "London"
- * val state = "state"
- * val country = "GB"
+ * val commonName = "Alice"
+ * val organisationUnit = "Accounting"
+ * val organization = "R3"
+ * val locality = "New York"
+ * val state = "New York"
+ * val country = "US"
  *
  * val exampleNameFirst = MemberX500Name(organization, locality, country)
  * val exampleNameSecond = MemberX500Name(commonName, organisationUnit, organization, locality, state, country)
@@ -77,12 +82,11 @@ import javax.security.auth.x500.X500Principal
  * @author Alexey Kadyrov
  * @since DP2
  *
- * @param commonName Optional name by which the entity is usually known. Used only for services (for
- * organisations, the [organisation] property is the name). Corresponds to the "CN" attribute type.
- * @param organisationUnit Optional name of a unit within the [organisation]. Corresponds to the "OU" attribute type.
- * @param organisation Name of the organisation. Corresponds to the "O" attribute type.
- * @param locality Locality of the organisation, typically the nearest major city. For distributed services this would be
- * where one of the organisations is based. Corresponds to the "L" attribute type.
+ * @param commonName Summary name by which the entity is usually known. Corresponds to the "CN" attribute type.
+ * @param organisationUnit Name of a unit within the [organisation], typically the department, or business unit.
+ * Corresponds to the "OU" attribute type.
+ * @param organisation Name of the organisation, typically the company name. Corresponds to the "O" attribute type.
+ * @param locality Locality of the organisation, typically the nearest major city. Corresponds to the "L" attribute type.
  * @param state The full name of the state or province the organisation is based in. Corresponds to the "ST"
  * attribute type.
  * @param country Country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
@@ -92,31 +96,33 @@ import javax.security.auth.x500.X500Principal
 @CordaSerializable
 class MemberX500Name(
     /**
-     * Optional name by which the entity is usually known. Used only for services (for
-     * organisations, the [organisation] property is the name). Corresponds to the "CN" attribute type.
+     * Optional field, summary name by which the entity is usually known. Corresponds to the "CN" attribute type.
+     * Null, if not provided.
      */
     val commonName: String?,
     /**
-     * Optional name of a unit within the [organisationn]. Corresponds to the "OU" attribute type.
+     * Optional field, name of a unit within the [organisation], typically the department, or business unit.
+     * Corresponds to the "OU" attribute type. Null, if not provided.
      */
     val organisationUnit: String?,
     /**
-     * Name of the organisation. Corresponds to the "O" attribute type.
+     * Mandatory field, name of the organisation, typically the company name. Corresponds to the "O" attribute type.
+     * Must be provided.
      */
     val organisation: String,
     /**
-     * Locality of the organisation, typically the nearest major city. For distributed services this would be
-     * where one of the organisations is based. Corresponds to the "L" attribute type.
+     * Mandatory field, locality of the organisation, typically the nearest major city. Corresponds to the "L" attribute type.
+     * Must be provided.
      */
     val locality: String,
     /**
-     * The full name of the state or province the organisation is based in. Corresponds to the "ST"
-     * attribute type.
+     * Optional field, the full name of the state or province the organisation is based in. Corresponds to the "ST"
+     * attribute type. Null, if not provided.
      */
     val state: String?,
     /**
-     * Country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
-     * attribute type.
+     * Mandatory field, country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
+     * attribute type. Must be provided.
      */
     val country: String
 ) : Comparable<MemberX500Name> {
@@ -266,11 +272,9 @@ class MemberX500Name(
     }
 
     /**
-     * @param commonName Optional name by which the entity is usually known. Used only for services (for
-     * organisations, the [organisation] property is the name). Corresponds to the "CN" attribute type.
-     * @param organisation Name of the organisation. Corresponds to the "O" attribute type.
-     * @param locality Locality of the organisation, typically the nearest major city. For distributed services this would be
-     * where one of the organisations is based. Corresponds to the "L" attribute type.
+     * @param commonName Summary name by which the entity is usually known.
+     * @param organisation Name of the organisation, typically the company name. Corresponds to the "O" attribute type.
+     * @param locality Locality of the organisation, typically the nearest major city. Corresponds to the "L" attribute type.
      * @param country Country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
      * attribute type.
      */
@@ -285,9 +289,8 @@ class MemberX500Name(
             )
 
     /**
-     * @param organisation Name of the organisation. Corresponds to the "O" attribute type.
-     * @param locality Locality of the organisation, typically the nearest major city. For distributed services this would be
-     * where one of the organisations is based. Corresponds to the "L" attribute type.
+     * @param organisation Name of the organisation, typically the company name. Corresponds to the "O" attribute type.
+     * @param locality Locality of the organisation, typically the nearest major city. Corresponds to the "L" attribute type.
      * @param country Country the organisation is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C"
      * attribute type.
      */
