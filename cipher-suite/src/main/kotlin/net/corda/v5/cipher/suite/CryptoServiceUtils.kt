@@ -18,7 +18,7 @@ import net.corda.v5.crypto.hmac
  * @param secret Secret.
  *
  * @return A computed alias that must be unique and deterministic. The same inputs ([tenantId] and [alias])
- * always produce the same output
+ * always produce the same output.
  *
  * @throws IllegalArgumentException if the tenant, alias or secret are empty.
  */
