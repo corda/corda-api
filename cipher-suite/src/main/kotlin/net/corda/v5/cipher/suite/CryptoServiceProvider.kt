@@ -22,7 +22,7 @@ interface CryptoServiceProvider<T : Any> {
      * @param secrets provides access to decrypting the configuration secrets
      *
      * The secrets have to be declared as Map in the corresponding POJO, the JSON will look like
-     * in the example bellow for the property called 'passphrase'
+     * the example below for the property called 'passphrase'
      *
      * POJO (Kotlin):
      *```
