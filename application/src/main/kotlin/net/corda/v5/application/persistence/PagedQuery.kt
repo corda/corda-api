@@ -18,7 +18,7 @@ interface PagedQuery<R> {
      *
      * @return The same [PagedQuery] instance.
      *
-     * @throws IllegalArgumentException if [limit] is negative.
+     * @throws IllegalArgumentException If [limit] is negative.
      */
     fun setLimit(limit: Int): PagedQuery<R>
 
@@ -31,7 +31,7 @@ interface PagedQuery<R> {
      *
      * @return The same [PagedQuery] instance.
      *
-     * @throws IllegalArgumentException if [offset] is negative.
+     * @throws IllegalArgumentException If [offset] is negative.
      */
     fun setOffset(offset: Int): PagedQuery<R>
 

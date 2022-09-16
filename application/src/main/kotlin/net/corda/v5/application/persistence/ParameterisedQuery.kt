@@ -16,7 +16,7 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
      *
      * @return The same [ParameterisedQuery] instance.
      *
-     * @throws IllegalArgumentException if [limit] is negative.
+     * @throws IllegalArgumentException If [limit] is negative.
      *
      * @see PagedQuery.setLimit
      */
@@ -31,7 +31,7 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
      *
      * @return The same [ParameterisedQuery] instance.
      *
-     * @throws IllegalArgumentException if [offset] is negative.
+     * @throws IllegalArgumentException If [offset] is negative.
      *
      * @see PagedQuery.setOffset
      */
