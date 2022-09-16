@@ -3,6 +3,12 @@ package net.corda.v5.base.exceptions
 import java.util.Arrays
 import java.util.Objects
 
+/**
+ * Base class for all exceptions used for runtime error conditions in Corda
+ *
+ * This is the exception class that is used to throw and handle all exceptions you should
+ * encounter at runtime in a flow.
+ */
 open class CordaRuntimeException(
     override var originalExceptionClassName: String?,
     private var _message: String?,
