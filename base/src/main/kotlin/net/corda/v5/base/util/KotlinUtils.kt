@@ -1,13 +1,10 @@
 @file:JvmName("KotlinUtils")
 package net.corda.v5.base.util
 
-import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.types.LayeredPropertyMap
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.Duration
-import java.util.function.Supplier
-import kotlin.reflect.KProperty
 
 //
 // READ ME FIRST:
@@ -126,8 +123,6 @@ private class TransientProperty<out T>(private val initializer: Supplier<T>) : P
 
 @Suppress("UNCHECKED_CAST")
 fun <T, U : T> uncheckedCast(obj: T) = obj as U
-
-fun <T> Class<T>.castIfPossible(obj: Any): T? = if (isInstance(obj)) cast(obj) else null
 
 /**
  * Function for reading and parsing the String values stored in the values to actual objects.
