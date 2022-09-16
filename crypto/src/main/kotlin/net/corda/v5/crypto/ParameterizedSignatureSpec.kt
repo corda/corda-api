@@ -16,10 +16,6 @@ import java.security.spec.AlgorithmParameterSpec
  */
 class ParameterizedSignatureSpec(
     signatureName: String,
-    /**
-     * The signature parameters, like if RSASSA-PSS is being used then in order to avoid
-     * using the default SHA1 you must specify the signature parameters explicitly.
-     */
     val params: AlgorithmParameterSpec
 ) : SignatureSpec(signatureName) {
     /**
