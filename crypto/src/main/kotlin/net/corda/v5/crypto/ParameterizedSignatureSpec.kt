@@ -9,7 +9,7 @@ import java.security.spec.AlgorithmParameterSpec
  * @param signatureName a signature-scheme name as required to create [java.security.Signature]
  * objects (e.g. "SHA256withECDSA")
  * @param params Signature parameters. For example, if using RSASSA-PSS, to avoid
- * using the default SHA1 you must specify the signature parameters explicitly.
+ * using the default SHA1, you must specify the signature parameters explicitly.
  *
  * When used for signing the [signatureName] must match the corresponding key scheme, e.g. you cannot use
  * "SHA256withECDSA" with "RSA" keys.
