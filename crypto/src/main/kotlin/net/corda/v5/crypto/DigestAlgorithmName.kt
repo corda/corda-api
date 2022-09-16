@@ -61,7 +61,7 @@ class DigestAlgorithmName(
     override fun hashCode(): Int = name.uppercase().hashCode()
 
     /**
-     * Compares the two given instances of the [DigestAlgorithmName] based on the content.
+     * Returns a Boolean to indicate if the two specified instances of the [DigestAlgorithmName] are the same based on their content.
      */
     override fun equals(other: Any?): Boolean {
         if(other == null) return false
