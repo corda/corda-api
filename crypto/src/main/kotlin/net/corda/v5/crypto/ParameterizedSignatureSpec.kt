@@ -6,7 +6,7 @@ import java.security.spec.AlgorithmParameterSpec
  * This class is used to define a digital signature scheme which has the additional algorithm parameters,
  * such as RSASSA-PSS
  *
- * @param signatureName a signature-scheme name as required to create [java.security.Signature]
+ * @param signatureName A signature-scheme name as required to create [java.security.Signature]
  * objects (e.g. "SHA256withECDSA")
  * @param params Signature parameters. For example, if using RSASSA-PSS, to avoid
  * using the default SHA1, you must specify the signature parameters explicitly.
