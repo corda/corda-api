@@ -34,7 +34,7 @@ open class CryptoException : CordaRuntimeException {
     }
 
     /**
-     * Constructs a new exception with the specified detail message and whenever it's recoverable.
+     * Constructs a new exception with the specified detail message and when it's recoverable.
      *
      * @param message The detailed message.
      * @param isRecoverable The flag specifying whenever the operation throwing the exception could be retried
