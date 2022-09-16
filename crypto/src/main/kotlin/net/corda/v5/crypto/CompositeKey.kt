@@ -161,7 +161,7 @@ class CompositeKey private constructor(val threshold: Int, children: List<NodeAn
         }
 
         /**
-         * Compares this object with the specified object for order. Returns zero if this object is equal to
+         * Compares the order of this object with the order of the specified object. Returns zero if this object is equal to
          * the specified [other] object, a negative number if it's less than [other],
          * or a positive number if it's greater than [other].
          * The method compares the [weight] and the binary encoding of the [node].
