@@ -9,7 +9,7 @@ import net.corda.v5.crypto.SecureHash
  * tree without revealing the remaining data.
  *
  * @property leaves The input data elements. Usually something deterministically serialized.
- * @property digestProvider [MerkleTreeHashDigestProvider] used to construct the tree's node and leaf hashes.
+ * @property digestProvider The [MerkleTreeHashDigestProvider] used to construct the tree's node and leaf hashes.
  * @property root The root element of the tree which is essentially the fingerprint of the whole tree/data set.
  *
  */
