@@ -15,7 +15,7 @@ interface DigestAlgorithmFactory {
     val algorithm: String
 
     /**
-     * The factory method. The method have to return a new instance on each call. The method must be thread safe.
+     * The factory method. The method must return a new instance on each call. The method must be thread safe.
      */
     fun getInstance(): DigestAlgorithm
 }
