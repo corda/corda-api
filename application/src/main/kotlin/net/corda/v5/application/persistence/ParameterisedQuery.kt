@@ -12,7 +12,7 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
      *
      * If no limit is set, all records will be returned.
      *
-     * @param limit maximum number of results to return.
+     * @param limit The maximum number of results to return.
      * @return The same [PagedQuery] instance.
      *
      * @throws IllegalArgumentException if [limit] is negative.
