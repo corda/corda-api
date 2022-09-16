@@ -24,7 +24,7 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
     /**
      * Sets the index of the first result in the query to return.
      *
-     * A default of `0` will be used in case it is not set.
+     * A default of `0` will be used if it is not set.
      *
      * @param offset The index of the first result in the query to return.
      * @return The same [PagedQuery] instance.
