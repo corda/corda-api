@@ -67,7 +67,7 @@ class CompositeKey private constructor(val threshold: Int, children: List<NodeAn
     }
 
     /**
-     * List of children keys with their weight. Τhe order of the children may not be the same to what
+     * List of children keys with their weight. Τhe order of the children may not be the same as that
      * was provided in the builder.
      */
     val children: List<NodeAndWeight> = children.sortedWith(descWeightComparator)
