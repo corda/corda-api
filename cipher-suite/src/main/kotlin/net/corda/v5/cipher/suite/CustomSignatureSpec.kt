@@ -37,7 +37,7 @@ class CustomSignatureSpec(
      * Creates an instance of the [CustomSignatureSpec] with specified signature name and the digest name,
      * [params] are set to null value.
      *
-     * @param signatureName a signature-scheme name as required to create [java.security.Signature]
+     * @param signatureName A signature-scheme name as required to create [java.security.Signature]
      * objects, note that the signatureName should not contain the digest (e.g. "NONEwithECDSA").
      * @param customDigestName digest algorithm name (e.g. "SHA512")
      */
