@@ -13,7 +13,8 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
      * If no limit is set, all records will be returned.
      *
      * @param limit The maximum number of results to return.
-     * @return The same [PagedQuery] instance.
+     *
+     * @return The same [ParameterisedQuery] instance.
      *
      * @throws IllegalArgumentException if [limit] is negative.
      *
@@ -27,7 +28,8 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
      * A default of `0` will be used if it is not set.
      *
      * @param offset The index of the first result in the query to return.
-     * @return The same [PagedQuery] instance.
+     *
+     * @return The same [ParameterisedQuery] instance.
      *
      * @throws IllegalArgumentException if [offset] is negative.
      *
@@ -38,8 +40,9 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
     /**
      * Sets the parameter with given [name].
      *
-     * @param name of the parameter in the [Query].
-     * @param value of the parameter to use in the [Query].
+     * @param name The name of the parameter in the [ParameterisedQuery].
+     * @param value The value of the parameter to use in the [ParameterisedQuery].
+     *
      * @return the same [ParameterisedQuery] instance.
      */
     fun setParameter(name: String, value: Any): ParameterisedQuery<R>
@@ -47,8 +50,9 @@ interface ParameterisedQuery<R> : PagedQuery<R> {
     /**
      * Sets the parameters as a [Map].
      *
-     * @param parameters to be used in the [Query]
-     * @return the same [ParameterisedQuery] instance.
+     * @param parameters To parameters be used in the [ParameterisedQuery]
+     *
+     * @return The same [ParameterisedQuery] instance.
      */
     fun setParameters(parameters: Map<String, Any>): ParameterisedQuery<R>
 }
