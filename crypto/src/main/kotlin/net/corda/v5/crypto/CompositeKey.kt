@@ -175,7 +175,7 @@ class CompositeKey private constructor(val threshold: Int, children: List<NodeAn
 
         /**
          * Method providing a primitive representation of this object suitable for encoding.
-         * @return a primitive representation of this object.
+         * @return A primitive representation of this object.
          */
         override fun toASN1Primitive(): ASN1Primitive {
             val vector = ASN1EncodableVector()
