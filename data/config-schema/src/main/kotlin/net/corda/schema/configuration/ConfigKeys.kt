@@ -16,6 +16,7 @@ object ConfigKeys {
     const val SECRETS_CONFIG = "corda.secrets"
     const val SANDBOX_CONFIG = "corda.sandbox"
     const val RECONCILIATION_CONFIG = "corda.reconciliation"
+    const val MEMBERSHIP_CONFIG = "corda.membership"
     const val SECURITY_CONFIG = "corda.security"
 
     //  RPC
@@ -27,6 +28,7 @@ object ConfigKeys {
     const val RPC_AZUREAD_CLIENT_ID = "sso.azureAd.clientId"
     const val RPC_AZUREAD_CLIENT_SECRET = "sso.azureAd.clientSecret"
     const val RPC_AZUREAD_TENANT_ID = "sso.azureAd.tenantId"
+    const val RPC_WEBSOCKET_CONNECTION_IDLE_TIMEOUT_MS = "websocket.idleTimeoutMs"
 
     // Secrets Service
     const val SECRETS_PASSPHRASE = "passphrase"
