@@ -76,6 +76,8 @@ public class AbstractMockTestHarness {
     protected final Instant midpoint = Instant.EPOCH;
     protected final Duration duration = Duration.between(minInstant, maxInstant);
     protected final String contractId = "com.example.contract.id";
+    protected final StaticPointer<ContractState> staticPointer = StaticPointer.create(stateRef, ContractState.class, false);
+    protected final IdentifiablePointer<IdentifiableState> identifiablePointer = IdentifiablePointer.create(id, IdentifiableState.class, false);
 
     protected AbstractMockTestHarness() {
         initializeParties();
