@@ -7,8 +7,8 @@ package net.corda.v5.base.types
  * The layered property map provides simple conversions to a possibly complex objects which can use several keys in
  * dot-notation. Take as an example of the map:
  *
- * - "corda.name" to "CN=me, O=R3, L=Dublin, C=Ireland",
- * - "corda.sessionKey" to "ABCDEF...",
+ * - "corda.name" to "CN=me, O=R3, L=Dublin, C=IE",
+ * - "corda.sessionKey" to "-----BEGIN PUBLIC KEY-----Base64–encoded public key-----END PUBLIC KEY-----",
  * - "corda.endpoints.0.url" to "localhost",
  * - "corda.endpoints.0.protocolVersion" to "1",
  * - "corda.endpoints.1.url" to "localhost",

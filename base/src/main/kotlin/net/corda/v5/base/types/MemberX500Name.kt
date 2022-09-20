@@ -175,7 +175,7 @@ class MemberX500Name(
          *
          * @throws [IllegalArgumentException] if required attributes are missing, constrains are not satisfied.
          *
-         * @return [MemberX500Name] based on param.
+         * @return [MemberX500Name] based on [X500Principal] param.
          */
         @JvmStatic
         fun build(principal: X500Principal): MemberX500Name = parse(toAttributesMap(principal))
@@ -191,7 +191,7 @@ class MemberX500Name(
          * @throws [IllegalArgumentException] if required attributes are missing, constrains are not satisfied or
          * the name is improperly specified.
          *
-         * @return [MemberX500Name] based on param.
+         * @return [MemberX500Name] based on [String] param.
          */
         @JvmStatic
         fun parse(name: String): MemberX500Name = parse(toAttributesMap(name))
@@ -210,7 +210,7 @@ class MemberX500Name(
          * @throws [IllegalArgumentException] if required attributes are missing, constrains are not satisfied or
          * the name is improperly specified.
          *
-         * @return The attribute map parsed from the param.
+         * @return The attribute map parsed from the [Map] param.
          */
         @JvmStatic
         fun toAttributesMap(name: String): Map<String, String> {
