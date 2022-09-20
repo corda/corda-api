@@ -4,9 +4,9 @@ import java.util.Arrays
 import java.util.Objects
 
 /**
- * Base class for all exceptions used for runtime error conditions in Corda
+ * Base class for all exceptions used for runtime error conditions in Corda.
  *
- * This is the exception class that is used to throw and handle all exceptions you should
+ * This is the exception class that is used to throw and handle all exceptions you could
  * encounter at runtime in a flow. This class and subclasses can be serialized by Corda
  * so are safe to throw in flows.
  *

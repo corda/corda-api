@@ -176,7 +176,7 @@ class MemberX500Name(
          *
          * @param principal The X500 principal used for building [MemberX500Name].
          *
-         * @param principal X500Principal to build X500 name from
+         * @param principal X500Principal to build X500 name from.
          * @throws [IllegalArgumentException] if required attributes are missing, constrains are not satisfied.
          *
          * @return [MemberX500Name] based on [principal].
@@ -206,10 +206,10 @@ class MemberX500Name(
          *
          * The key is the attributes keys, like CN, O, etc.
          * Constraints:
-         * - the RDNs cannot be multivalued
-         * - the attributes must have single value
-         * - the only supported attributes are C, ST, L, O, OU, CN
-         * - attributes cannot be duplicated
+         * - The RDNs cannot be multivalued
+         * - The attributes must have single value
+         * - The only supported attributes are C, ST, L, O, OU, CN
+         * - Attributes cannot be duplicated
          *
          * @param name The string representation to build the attribute map from.
          *
@@ -340,7 +340,7 @@ class MemberX500Name(
 
     /**
      * Returns the [X500Principal] equivalent of this name where the order of RDNs is
-     * C, ST, L, O, OU, CN (the printing order would be reversed)
+     * C, ST, L, O, OU, CN (the printing order would be reversed).
      *
      * @throws IllegalArgumentException If a valid RDN cannot be constructed using the given attributes.
      */
@@ -367,12 +367,12 @@ class MemberX500Name(
     }
 
     /**
-     * Returns the string equivalent of this name where the order of RDNs is CN, OU, O, L, ST, C
+     * Returns the string equivalent of this name where the order of RDNs is CN, OU, O, L, ST, C.
      */
     override fun toString(): String = x500Principal.toString()
 
     /**
-     * Compares this X500 names to another MemberX500Name
+     * Compares this X500 names to another MemberX500Name.
      */
     override fun compareTo(other: MemberX500Name): Int {
         return comparator.compare(this, other)

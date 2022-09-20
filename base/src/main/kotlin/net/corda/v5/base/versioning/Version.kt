@@ -9,7 +9,7 @@ package net.corda.v5.base.versioning
 data class Version(val major: Int, val minor: Int) {
 
     /**
-     * Print the version as a string in the form of <major>.<minor>.
+     * Prints the version as a string in the form of <major>.<minor>.
      */
     override fun toString(): String {
         return "$major.$minor"
@@ -20,7 +20,7 @@ data class Version(val major: Int, val minor: Int) {
         /**
          * Parses a version objet out of a string.
          *
-         * @param versionString Version string to be parsed
+         * @param versionString A string containing the version to be parsed.
          * @throws IllegalArgumentException An IllegalArgumentException is thrown if the string is not a well-formed
          * version string.
          */
