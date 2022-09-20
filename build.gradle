@@ -112,6 +112,7 @@ subprojects {
 
     apply plugin: "org.gradle.test-retry"
 
+
     pluginManager.withPlugin('org.jetbrains.kotlin.jvm') {
         apply plugin: 'io.gitlab.arturbosch.detekt'
         apply plugin: 'jacoco'
@@ -205,6 +206,13 @@ subprojects {
             archiveClassifier.set("javadoc")
             from(dokkaHtml.outputDirectory)
         }
+    }
+
+    // required until detekt plugin updates it's internal version of snakeYaml, not fixed as of detekt version 1.21
+    pluginManager.withPlugin('io.gitlab.arturbosch.detekt') {
+      dependencies {
+            detekt "org.yaml:snakeyaml:1.31"
+      }
     }
 
     // we do this to allow for Gradle task caching. OSGI attribute Bnd-LastModified breaks gradle caching as it is a timestamp
