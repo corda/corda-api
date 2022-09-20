@@ -16,8 +16,10 @@ import javax.security.auth.x500.X500Principal
  * The class also guaranties the reliable equality comparison regardless which order the attributes are specified when
  * parsing from the string or X500principal as well outputs the attributes to string in predictable order.
  *
- * There may be additional network specific requirements which need to be taken into account when creating a name.
- * For example, the network operator may require a particular format for names so that they can issue suitable certificates.
+ * There may be additional network specific requirements which need to be taken into account when creating a name by the
+ * user.
+ * For example, the network operator may require a particular format for names so that they can issue suitable
+ * certificates. Finding and giving a suitable name will be the user's responsibility.
  *
  * The order of attributes for building the names is the following: CN, OU, O, L, ST, C
  *
