@@ -18,7 +18,7 @@ data class Version(val major: Int, val minor: Int) {
     companion object {
 
         /**
-         * Parses a version objet out of a string.
+         * Parses a version object from a string.
          *
          * @param versionString A string containing the version to be parsed.
          * @throws IllegalArgumentException An IllegalArgumentException is thrown if the string is not a well-formed

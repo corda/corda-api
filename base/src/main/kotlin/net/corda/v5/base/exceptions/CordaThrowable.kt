@@ -6,7 +6,7 @@ import net.corda.v5.base.annotations.CordaSerializable
  * Base interface for exceptions that are serializable in Corda. Do not use directly, use [CordaRuntimeException]
  * instead.
  *
- * @property originalExceptionClassName The ame of an exception that isn't serializable and therefore has been caught
+ * @property originalExceptionClassName The name of an exception that isn't serializable and therefore has been caught
  * and converted to an exception in the Corda hierarchy.
  * @property originalMessage Message of the original exception
  */
