@@ -112,7 +112,6 @@ subprojects {
 
     apply plugin: "org.gradle.test-retry"
 
-
     pluginManager.withPlugin('org.jetbrains.kotlin.jvm') {
         apply plugin: 'io.gitlab.arturbosch.detekt'
         apply plugin: 'jacoco'
