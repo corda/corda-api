@@ -48,8 +48,8 @@ public class MissingSerializerException extends NotSerializableException {
     }
 
     /**
-     * Returns the type descriptor stored in this exception
-     * @return the type descriptor stored in this exception
+     * Returns the type descriptor stored in this exception.
+     * @return The type descriptor stored in this exception.
      */
     @Nullable
     public String getTypeDescriptor() {
@@ -57,7 +57,7 @@ public class MissingSerializerException extends NotSerializableException {
     }
 
     /**
-     * Returns the type names stored in this exception
+     * Returns the type names stored in this exception.
      * @return The type names stored in this exception.
      */
     @NotNull
