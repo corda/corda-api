@@ -20,7 +20,7 @@ public final class SerializedBytes<T> extends OpaqueBytes {
 
     /**
      * Returns a text description of this SerializedBytes object
-     * @return description of this SerializedBytes object
+     * @return Text description of this SerializedBytes object.
      */
     @NotNull
     public String getSummary() {
