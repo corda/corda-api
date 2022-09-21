@@ -39,7 +39,7 @@ public class MissingSerializerException extends NotSerializableException {
     }
 
     /**
-     * Constructs a MissingSerializerException with the specified message and type names
+     * Constructs a MissingSerializerException with the specified message and type names.
      * @param message Error message describing the exception.
      * @param typeNames type names to help diagnose the exception
      */
