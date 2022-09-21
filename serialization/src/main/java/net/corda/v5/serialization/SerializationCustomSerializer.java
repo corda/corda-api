@@ -24,7 +24,7 @@ public interface SerializationCustomSerializer<OBJ, PROXY> {
     /**
      * Facilitates the conversion of the proxy object into a new instance of the
      * unserializable type
-     * @param proxy object from AMQP
+     * @param proxy Object from AMQP.
      * @return original object recreated from {@code proxy}
      */
     @NotNull
