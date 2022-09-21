@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
 public interface SerializationCustomSerializer<OBJ, PROXY> {
     /**
      * Facilitates the conversion of the third party object into the serializable
-     * local class specified by {@code PROXY}
-     * @param obj original object for serialization
+     * local class specified by {@code PROXY}.
+     * @param obj Original object for serialization.
      * @return proxy object to be written to AMQP.
      */
     @NotNull
@@ -23,7 +23,7 @@ public interface SerializationCustomSerializer<OBJ, PROXY> {
 
     /**
      * Facilitates the conversion of the proxy object into a new instance of the
-     * unserializable type
+     * unserializable type.
      * @param proxy Object from AMQP.
      * @return original object recreated from {@code proxy}
      */

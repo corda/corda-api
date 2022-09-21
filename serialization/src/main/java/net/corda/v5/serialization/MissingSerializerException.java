@@ -58,7 +58,7 @@ public class MissingSerializerException extends NotSerializableException {
 
     /**
      * Returns the type names stored in this exception
-     * @return the type names stored in this exception
+     * @return The type names stored in this exception.
      */
     @NotNull
     public List<String> getTypeNames() {
