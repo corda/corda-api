@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public final class SerializedBytes<T> extends OpaqueBytes {
     /**
      * Constructs a SerializedBytes holding the specified bytes
-     * @param bytes byte array holding serialized form of type T
+     * @param bytes Byte array holding serialized form of type T.
      */
     public SerializedBytes(@NotNull byte[] bytes) {
         super(bytes);
