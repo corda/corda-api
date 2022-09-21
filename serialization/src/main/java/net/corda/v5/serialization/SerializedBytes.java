@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 @CordaSerializable
 public final class SerializedBytes<T> extends OpaqueBytes {
     /**
-     * Constructs a SerializedBytes holding the specified bytes
+     * Constructs a SerializedBytes holding the specified bytes.
      * @param bytes Byte array holding serialized form of type T.
      */
     public SerializedBytes(@NotNull byte[] bytes) {
