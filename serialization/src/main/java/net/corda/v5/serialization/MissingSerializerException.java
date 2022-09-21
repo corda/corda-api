@@ -31,7 +31,7 @@ public class MissingSerializerException extends NotSerializableException {
     /**
      * Constructs a MissingSerializerException with the specified message and type descriptor
      * @param message error message describing exception
-     * @param typeDescriptor type descriptor to help diagnose the exception
+     * @param typeDescriptor Type descriptor to help diagnose the exception.
      */
     public MissingSerializerException(@NotNull String message, @NotNull String typeDescriptor) {
         this(message, typeDescriptor, emptyList());
