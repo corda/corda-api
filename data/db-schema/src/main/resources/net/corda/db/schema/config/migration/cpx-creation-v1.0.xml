@@ -176,6 +176,34 @@
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
 
+        <createTable tableName="cpk_db_change_log_audit" schemaName="${schema.name}">
+            <column name="cpk_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpk_version" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpk_signer_summary_hash" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpk_file_checksum" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_path" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="insert_ts" type="TIMESTAMP"
+                    defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
         <createTable tableName="cpi_cpk" schemaName="${schema.name}">
             <column name="cpi_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
