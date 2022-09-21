@@ -6,15 +6,6 @@ buildscript {
     ext {
         vcsUrl = System.getenv('GIT_URL') ?: 'https://github.com/corda/corda-api.git'
     }
-    
-    dependencies {
-        classpath "org.jetbrains.dokka:dokka-core:$dokkaVersion"
-        constraints {
-            classpath("org.jsoup:jsoup:1.15.3") {
-                because "required until dokka plugin updates it's internal version of jsoup, not fixed as of dokka 1.7.10"
-            }
-        }
-    }
 }
 
 plugins {
@@ -143,6 +134,7 @@ subprojects {
             testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
             detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektPluginVersion"
+
         }
 
         // Making all persistence entity open and with an empty constructor to allow Hibernate to work.
@@ -159,6 +151,12 @@ subprojects {
         configurations {
             [ compileClasspath, testCompileClasspath, runtimeClasspath, testRuntimeClasspath ].forEach { cfg ->
                 configureKotlinForOSGi(cfg)
+            }
+        }
+
+        configurations.all {
+            resolutionStrategy.dependencySubstitution {
+                substitute module('org.jsoup:jsoup:1.14.3') using module('org.jsoup:jsoup:1.15.3')
             }
         }
 
