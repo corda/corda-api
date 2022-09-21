@@ -134,7 +134,6 @@ subprojects {
             testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
             detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektPluginVersion"
-
         }
 
         // Making all persistence entity open and with an empty constructor to allow Hibernate to work.
