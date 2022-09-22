@@ -121,10 +121,10 @@ interface LayeredPropertyMap {
      * the [T] is different from it was called for the first time.
      *
      * Here is an example of what a set will look like
-     * (the [itemKeyPrefix] has to be "corda.ledgerKeyHashes" or "corda.ledgerKeyHashes."):
-     *  corda.ledgerKeyHashes.1 = <hash value of ledger key 1>
-     *  corda.ledgerKeyHashes.2 = <hash value of ledger key 2>
-     *  corda.ledgerKeyHashes.3 = <hash value of ledger key 3>
+     * (the [itemKeyPrefix] has to be "corda.ledger.keys" or "corda.ledger.keys."):
+     *  corda.ledger.keys.1.hash = <hash value of ledger key 1>
+     *  corda.ledger.keys.2.hash = <hash value of ledger key 2>
+     *  corda.ledger.keys.3.hash = <hash value of ledger key 3>
      *
      * @return A parsed set of elements for given type.
      */
