@@ -4,11 +4,11 @@ import net.corda.v5.crypto.DigestAlgorithmName
 
 /**
  * Different use cases require different [MerkleTree] calculations.
- * [MerkleTreeHashDigestFactory]s let us specify such implementations.
+ * [MerkleTreeHashDigest]s let us specify such implementations.
  *
  *  @property digestAlgorithmName Specifies the digest algorithm.
  */
 
-interface MerkleTreeHashDigestFactory {
+interface MerkleTreeHashDigest {
     val digestAlgorithmName: DigestAlgorithmName
 }

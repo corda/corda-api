@@ -5,10 +5,10 @@ import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.extensions.merkle.MerkleTreeHashDigestProvider
 import net.corda.v5.crypto.merkle.MerkleTree
-import net.corda.v5.crypto.merkle.MerkleTreeHashDigestFactory
+import net.corda.v5.crypto.merkle.MerkleTreeHashDigest
 
 /**
- * [MerkleTreeProvider] creates [MerkleTree]s and [MerkleTreeHashDigestFactory]s.
+ * [MerkleTreeProvider] creates [MerkleTree]s and [MerkleTreeHashDigest]s.
  */
 @DoNotImplement
 interface MerkleTreeProvider {
@@ -27,13 +27,13 @@ interface MerkleTreeProvider {
     ) : MerkleTree
 
     /**
-     * Creates a [MerkleTreeHashDigestFactory].
+     * Creates a [MerkleTreeHashDigest].
      *
      * @param merkleTreeHashDigestProviderName name of the Hash Digest Provider class
      * @param digestAlgorithmName name of the base Hash algorithm
      * @param options Hash Digest provider specific options
      *
-     * @return A new [MerkleTreeHashDigestFactory] instance.
+     * @return A new [MerkleTreeHashDigest] instance.
      */
     @Suspendable
     fun createHashDigestProvider(

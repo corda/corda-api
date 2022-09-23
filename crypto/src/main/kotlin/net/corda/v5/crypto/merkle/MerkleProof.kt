@@ -31,6 +31,6 @@ interface MerkleProof {
      */
     fun verify(
         root: SecureHash,
-        digestProvider: MerkleTreeHashDigestFactory
+        digestProvider: MerkleTreeHashDigest
     ): Boolean
 }

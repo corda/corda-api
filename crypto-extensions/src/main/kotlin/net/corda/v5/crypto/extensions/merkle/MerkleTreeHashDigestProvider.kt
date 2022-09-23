@@ -3,7 +3,7 @@ package net.corda.v5.crypto.extensions.merkle
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.crypto.merkle.MerkleProof
 import net.corda.v5.crypto.merkle.MerkleTree
-import net.corda.v5.crypto.merkle.MerkleTreeHashDigestFactory
+import net.corda.v5.crypto.merkle.MerkleTreeHashDigest
 
 /**
  * Different use cases require different [MerkleTree] calculations.
@@ -16,7 +16,7 @@ import net.corda.v5.crypto.merkle.MerkleTreeHashDigestFactory
  *  @property digestAlgorithmName Specifies the digest algorithm.
  */
 
-interface MerkleTreeHashDigestProvider : MerkleTreeHashDigestFactory  {
+interface MerkleTreeHashDigestProvider : MerkleTreeHashDigest  {
     /**
      * Calculates the nonce for a leaf.
      * @param index The leaf's index.
