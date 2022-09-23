@@ -13,17 +13,10 @@ import net.corda.v5.crypto.RSA_CODE_NAME
 import net.corda.v5.crypto.SM2_CODE_NAME
 import net.corda.v5.crypto.SPHINCS256_CODE_NAME
 import net.corda.v5.crypto.X25519_CODE_NAME
-import org.bouncycastle.asn1.ASN1Integer
 import org.bouncycastle.asn1.ASN1ObjectIdentifier
 import org.bouncycastle.asn1.DLSequence
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers
 import org.bouncycastle.jcajce.spec.EdDSAParameterSpec
 import org.bouncycastle.jce.ECNamedCurveTable
 import org.bouncycastle.jce.spec.GOST3410ParameterSpec
@@ -56,7 +49,7 @@ val SHA512_256 = DLSequence(arrayOf(NISTObjectIdentifiers.id_sha512_256))
 @JvmField
 val RSA_TEMPLATE = KeySchemeTemplate(
     codeName = RSA_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("rsaEncryption", listOf())),
     algorithmName = "RSA",
     algSpec = null,
     keySize = 3072,
@@ -69,7 +62,7 @@ val RSA_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val ECDSA_SECP256K1_TEMPLATE = KeySchemeTemplate(
     codeName = ECDSA_SECP256K1_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("secp256k1"))),
     algorithmName = "EC",
     algSpec = ECNamedCurveTable.getParameterSpec("secp256k1"),
     keySize = null,
@@ -82,7 +75,7 @@ val ECDSA_SECP256K1_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val ECDSA_SECP256R1_TEMPLATE = KeySchemeTemplate(
     codeName = ECDSA_SECP256R1_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256r1)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("secp256r1"))),
     algorithmName = "EC",
     algSpec = ECNamedCurveTable.getParameterSpec("secp256r1"),
     keySize = null,
@@ -95,7 +88,7 @@ val ECDSA_SECP256R1_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val EDDSA_ED25519_TEMPLATE = KeySchemeTemplate(
     codeName = EDDSA_ED25519_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(ID_CURVE_25519PH, null)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("ID_CURVE_25519PH", listOf())),
     algorithmName = "Ed25519",
     algSpec = EdDSAParameterSpec(EdDSAParameterSpec.Ed25519),
     keySize = null,
@@ -109,7 +102,7 @@ val EDDSA_ED25519_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val X25519_TEMPLATE = KeySchemeTemplate(
     codeName = X25519_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(ID_CURVE_X25519, null)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("ID_CURVE_X25519", listOf())),
     algorithmName = "X25519",
     algSpec = null,
     keySize = null,
@@ -122,7 +115,7 @@ val X25519_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val SPHINCS256_TEMPLATE = KeySchemeTemplate(
     codeName = SPHINCS256_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(BCObjectIdentifiers.sphincs256, DLSequence(arrayOf(ASN1Integer(0), SHA512_256)))),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("sphincs256", listOf("0", "SHA512_256"))),
     algorithmName = "SPHINCS256",
     algSpec = SPHINCS256KeyGenParameterSpec(SPHINCS256KeyGenParameterSpec.SHA512_256),
     keySize = null,
@@ -135,7 +128,7 @@ val SPHINCS256_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val SM2_TEMPLATE = KeySchemeTemplate(
     codeName = SM2_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, GMObjectIdentifiers.sm2p256v1)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("sm2p256v1"))),
     algorithmName = "EC",
     algSpec = ECNamedCurveTable.getParameterSpec("sm2p256v1"),
     keySize = null,
@@ -148,16 +141,7 @@ val SM2_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val GOST3410_GOST3411_TEMPLATE = KeySchemeTemplate(
     codeName = GOST3410_GOST3411_CODE_NAME,
-    algorithmOIDs = listOf(
-        AlgorithmIdentifier(
-            CryptoProObjectIdentifiers.gostR3410_94, DLSequence(
-                arrayOf(
-                    CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A,
-                    CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet
-                )
-            )
-        )
-    ),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("gostR3410_94", listOf("gostR3410_94_CryptoPro_A", "gostR3411_94_CryptoProParamSet"))),
     algorithmName = "GOST3410",
     algSpec = GOST3410ParameterSpec(CryptoProObjectIdentifiers.gostR3410_94_CryptoPro_A.id),
     keySize = null,
@@ -170,7 +154,7 @@ val GOST3410_GOST3411_TEMPLATE = KeySchemeTemplate(
 @JvmField
 val COMPOSITE_KEY_TEMPLATE = KeySchemeTemplate(
     codeName = COMPOSITE_KEY_CODE_NAME,
-    algorithmOIDs = listOf(AlgorithmIdentifier(OID_COMPOSITE_KEY_IDENTIFIER)),
+    algorithmIDs = listOf(CordaAlgorithmIdentifier("OID_COMPOSITE_KEY_IDENTIFIER", listOf())),
     algorithmName = CompositeKey.KEY_ALGORITHM,
     algSpec = null,
     keySize = null,

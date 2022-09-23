@@ -1,6 +1,5 @@
 package net.corda.v5.cipher.suite.schemes
 
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier
 import java.security.spec.AlgorithmParameterSpec
 
 /**
@@ -8,7 +7,7 @@ import java.security.spec.AlgorithmParameterSpec
  *
  * @param codeName Unique code name for this key scheme (e.g. CORDA.RSA, CORDA.ECDSA.SECP256K1, CORDA.ECDSA_SECP256R1,
  * CORDA.EDDSA.ED25519, CORDA.SPHINCS-256).
- * @param algorithmOIDs ASN.1 algorithm identifiers for keys which are used to match keys
+ * @param algorithmIDs strings identifying algorithms for keys, and parameters, which are used to match keys
  * to their schemes. There must be at least one defined.
  * @param algorithmName Key algorithm (e.g. RSA, ECDSA. EdDSA, SPHINCS-256).
  * @param algSpec Parameter specs for the underlying algorithm. Note that RSA is defined by the key size
@@ -26,7 +25,7 @@ data class KeySchemeTemplate(
     /**
      * ASN.1 algorithm identifiers for the key scheme.
      */
-    val algorithmOIDs: List<AlgorithmIdentifier>,
+    val algorithmIDs: List<CordaAlgorithmIdentifier>,
     /**
      * Key's algorithm name.
      */
@@ -47,7 +46,7 @@ data class KeySchemeTemplate(
     init {
         require(codeName.isNotBlank()) { "The codeName must not be blank." }
         require(algorithmName.isNotBlank()) { "The algorithmName must not be blank." }
-        require(algorithmOIDs.isNotEmpty()) { "The algorithmOIDs must not be empty." }
+        require(algorithmIDs.isNotEmpty()) { "The algorithmOIDs must not be empty." }
         require(capabilities.isNotEmpty()) { "There must be defined at least one capability." }
     }
 
@@ -57,7 +56,7 @@ data class KeySchemeTemplate(
     fun makeScheme(providerName: String): KeyScheme = KeyScheme(
         providerName = providerName,
         codeName = codeName,
-        algorithmOIDs = algorithmOIDs.toList(),
+        algorithmIDs = algorithmIDs,
         algorithmName = algorithmName,
         algSpec = algSpec,
         keySize = keySize,

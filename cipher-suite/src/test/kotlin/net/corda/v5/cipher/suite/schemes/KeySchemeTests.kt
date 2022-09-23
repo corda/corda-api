@@ -1,11 +1,10 @@
 package net.corda.v5.cipher.suite.schemes
 
 import net.corda.v5.crypto.ECDSA_SECP256K1_CODE_NAME
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+
+
 
 class KeySchemeTests {
     @Test
@@ -13,7 +12,7 @@ class KeySchemeTests {
         assertThrows<IllegalArgumentException> {
             KeyScheme(
                 codeName = "  ",
-                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("secp256k1"))),
                 providerName = "provider",
                 algorithmName = "EC",
                 algSpec = null,
@@ -24,11 +23,11 @@ class KeySchemeTests {
     }
 
     @Test
-    fun `Should throw IllegalArgumentException when initializing with empty algorithmOIDs`() {
+    fun `Should throw IllegalArgumentException when initializing with empty algorithmIDs`() {
         assertThrows<IllegalArgumentException> {
             KeyScheme(
                 codeName = ECDSA_SECP256K1_CODE_NAME,
-                algorithmOIDs = emptyList(),
+                algorithmIDs = emptyList(),
                 providerName = "provider",
                 algorithmName = "EC",
                 algSpec = null,
@@ -43,7 +42,7 @@ class KeySchemeTests {
         assertThrows<IllegalArgumentException> {
             KeyScheme(
                 codeName = ECDSA_SECP256K1_CODE_NAME,
-                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("secp256k1"))),
                 providerName = "  ",
                 algorithmName = "EC",
                 algSpec = null,
@@ -58,7 +57,7 @@ class KeySchemeTests {
         assertThrows<IllegalArgumentException> {
             KeyScheme(
                 codeName = ECDSA_SECP256K1_CODE_NAME,
-                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("secp256k1"))),
                 providerName = "provider",
                 algorithmName = "  ",
                 algSpec = null,
@@ -73,7 +72,7 @@ class KeySchemeTests {
         assertThrows<IllegalArgumentException> {
             KeyScheme(
                 codeName = ECDSA_SECP256K1_CODE_NAME,
-                algorithmOIDs = listOf(AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey, SECObjectIdentifiers.secp256k1)),
+                algorithmIDs = listOf(CordaAlgorithmIdentifier("id_ecPublicKey", listOf("secp256k1"))),
                 providerName = "provider",
                 algorithmName = "some-algorithm",
                 algSpec = null,
