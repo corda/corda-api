@@ -13,10 +13,6 @@ public class AbstractMockTestHarness {
     protected final PublicKey aliceKey = Mockito.mock(PublicKey.class);
     protected final PublicKey bobKey = Mockito.mock(PublicKey.class);
     protected final ContractState contractState = Mockito.mock(ContractState.class);
-    protected final IdentifiableState identifiableState = Mockito.mock(IdentifiableState.class);
-    protected final FungibleState<BigDecimal> fungibleState = Mockito.mock(FungibleState.class);
-    protected final IssuableState issuableState = Mockito.mock(IssuableState.class);
-    protected final BearableState bearableState = Mockito.mock(BearableState.class);
 
     // Mocked Data
     protected final Set<PublicKey> participants = Set.of(aliceKey, bobKey);
@@ -25,33 +21,9 @@ public class AbstractMockTestHarness {
 
     protected AbstractMockTestHarness() {
         initializeContractState();
-        initializeIdentifiableState();
-        initializeFungibleState();
-        initializeIssuableState();
-        initializeBearableState();
     }
 
     private void initializeContractState() {
         Mockito.when(contractState.getParticipants()).thenReturn(participants);
-    }
-
-    private void initializeIdentifiableState() {
-        Mockito.when(identifiableState.getId()).thenReturn(id);
-        Mockito.when(identifiableState.getParticipants()).thenReturn(participants);
-    }
-
-    private void initializeFungibleState() {
-        Mockito.when(fungibleState.getQuantity()).thenReturn(quantity);
-        Mockito.when(fungibleState.getParticipants()).thenReturn(participants);
-    }
-
-    private void initializeIssuableState() {
-        Mockito.when(issuableState.getIssuer()).thenReturn(aliceKey);
-        Mockito.when(issuableState.getParticipants()).thenReturn(participants);
-    }
-
-    private void initializeBearableState() {
-        Mockito.when(bearableState.getBearer()).thenReturn(bobKey);
-        Mockito.when(bearableState.getParticipants()).thenReturn(participants);
     }
 }

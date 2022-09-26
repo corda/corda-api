@@ -20,9 +20,3 @@ interface Contract {
      */
     fun verify(transaction: UtxoLedgerTransaction)
 }
-
-/**
- * Defines a marker interface which must be implemented by all [Contract] commands.
- */
-@CordaSerializable
-interface Command
