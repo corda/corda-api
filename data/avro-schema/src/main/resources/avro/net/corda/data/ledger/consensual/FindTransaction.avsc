@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "FindTransaction",
-  "doc": "Retrieve the specified consensual ledger transaction, specified by id. One of several types of ledger persistence request {@link ConsensualLedgerRequest}",
+  "doc": "Retrieve the specified consensual signed transaction, specified by id. One of several types of ledger persistence request {@link ConsensualLedgerRequest}",
   "namespace": "net.corda.data.ledger.consensual",
   "fields": [
     {
