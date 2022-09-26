@@ -15,27 +15,27 @@ interface MerkleTreeFactory {
      * Creates a [MerkleTree]
      *
      * @param leaves The leaves of the tree.
-     * @param digestProvider Merkle Tree Hash digest provider used to construct the tree's node and leaf hashes.
+     * @param digest Merkle Tree Hash digest used to construct the tree's node and leaf hashes.
      *
      * @return A new [MerkleTree] instance.
      */
     @Suspendable
     fun createTree(
         leaves: List<ByteArray>,
-        digestProvider: MerkleTreeHashDigest
+        digest: MerkleTreeHashDigest
     ) : MerkleTree
 
     /**
      * Creates a [MerkleTreeHashDigest].
      *
-     * @param merkleTreeHashDigestProviderName name of the Hash Digest Provider class
-     * @param digestAlgorithmName name of the base Hash algorithm
-     * @param options Hash Digest provider specific options
+     * @param merkleTreeHashDigestProviderName name of the hash digest provider class
+     * @param digestAlgorithmName name of the base hash algorithm
+     * @param options Hash digest provider specific options
      *
      * @return A new [MerkleTreeHashDigest] instance.
      */
     @Suspendable
-    fun createHashDigestProvider(
+    fun createHashDigest(
         merkleTreeHashDigestProviderName: String,
         digestAlgorithmName: DigestAlgorithmName,
         options: Map<String, Any> = emptyMap(),
