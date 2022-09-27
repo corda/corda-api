@@ -207,7 +207,7 @@
             </column>
         </createTable>
 
-        <addPrimaryKey tableName="cpk_db_change_log_audit" columnNames="cpk_name, cpk_version, cpk_signer_summary_hash, cpk_file_checksum, file_path, entity_version"
+        <addPrimaryKey tableName="cpk_db_change_log_audit" columnNames="cpk_name, cpk_version, cpk_signer_summary_hash, cpk_file_checksum, entity_version"
                        constraintName="cpk_db_change_log_audit_pk" schemaName="${schema.name}"/>
 
         <createTable tableName="cpi_cpk" schemaName="${schema.name}">
