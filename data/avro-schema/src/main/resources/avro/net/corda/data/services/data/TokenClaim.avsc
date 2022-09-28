@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "TokenClaim",
+  "namespace": "net.corda.data.services.data",
+  "doc": "The set of tokens claimed by a query",
+  "fields": [
+      {
+        "name": "claimRequestId",
+        "type": "string",
+        "doc": "The flow request ID used to claim the tokens"
+      },
+      {
+        "name": "claimedTokenStateRefs",
+        "type": {
+          "type": "array",
+          "items": "string"
+        },
+        "doc": "The List of state refs for the claimed tokens"
+      }
+  ]
+}

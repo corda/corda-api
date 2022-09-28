@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "name": "TokenCacheState",
+  "namespace": "net.corda.data.services.state",
+  "doc": "The current state of a token cache pool",
+  "fields": [
+      {
+        "name": "poolKey",
+        "type": "net.corda.data.services.key.TokenCachePoolKey",
+        "doc": "The key of the cache pool the state is for"
+      },
+      {
+        "name": "tokenClaims",
+        "type": {
+          "type": "array",
+          "items": "net.corda.data.services.data.TokenClaim"
+         },
+         "doc": "List of active token claims for the cache pool"
+      },
+      {
+        "name": "availableTokens",
+        "type": {
+          "type": "array",
+          "items": "net.corda.data.services.data.Token",
+          "doc": "List of all available unclaimed tokens"
+         }
+      }
+    ]
+}

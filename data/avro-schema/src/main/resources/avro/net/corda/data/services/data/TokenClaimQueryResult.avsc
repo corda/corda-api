@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "TokenClaimQueryResult",
+  "namespace": "net.corda.data.services.data",
+  "doc": "Represents the result of a claim query, sent back to the flow",
+  "fields": [
+      {
+        "name": "requestContext",
+        "type": "net.corda.data.flow.event.external.ExternalEventContext",
+        "doc": "Flow request context data for the query"
+      },
+      {
+        "name": "poolKey",
+        "type": "net.corda.data.services.key.TokenCachePoolKey",
+        "doc": "Key for the pool the tokens were claimed from"
+      },
+      {
+        "name": "resultType",
+        "type": {
+          "name": "TokenClaimResultStatus",
+          "type": "enum",
+          "symbols": ["SUCCESS","NONE_AVAILABLE","AVAILABLE_CLAIMED"]
+        },
+        "doc": "The type of result for the claim query"
+      },
+      {
+        "name": "claimedTokens",
+        "type": {
+          "type": "array",
+          "items": "net.corda.data.services.data.Token",
+          "doc": "List of tokens in this claim"
+         }
+      }
+  ]
+}
