@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "VirtualNodeCpiUpgradeRequest",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "virtualNodeShortId",
+      "type": "string",
+      "doc": "Short hash of the virtual node / holding identity."
+    },
+    {
+      "name": "cpiFileChecksum",
+      "type": "string",
+      "doc": "The checksum of the CPI file."
+    },
+    {
+      "name": "updateActor",
+      "type": "string",
+      "doc": "ID of RPC user that requested the virtual node creation."
+    }
+  ]
+}
