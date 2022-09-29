@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TokenClaimQuery",
-  "namespace": "net.corda.data.services.data",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
   "doc": "Represents the query criteria for a query against a token cache pool",
   "fields": [
       {
@@ -11,12 +11,12 @@
       },
       {
         "name": "poolKey",
-        "type": "net.corda.data.services.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
         "doc": "Token cache pool the query is for"
       },
       {
         "name": "targetAmount",
-        "type": "net.corda.data.services.data.TokenAmount",
+        "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
         "doc": "The target amount to be claimed."
       },
       {

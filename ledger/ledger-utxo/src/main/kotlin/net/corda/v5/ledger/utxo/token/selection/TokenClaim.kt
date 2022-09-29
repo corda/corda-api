@@ -1,9 +1,10 @@
-package net.corda.v5.application.services
+package net.corda.v5.ledger.utxo.token.selection
 
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.base.annotations.Suspendable
 
 /**
- * [TokenClaim] is a claimed set of tokens returned by a call to [TokenCache.tryClaim].
+ * [TokenClaim] is a claimed set of tokens returned by a call to [TokenSelection.tryClaim].
  *
  * The claimed [ClaimedToken] list is exclusively locked by the flow that made the claim and are unavailable to any
  * other flows. Once a flow has either spent some or all of the claimed tokens it should call [TokenClaim.useAndRelease]
@@ -27,5 +28,6 @@ interface TokenClaim {
      *
      * @param usedTokensRefs List of state refs to mark as used in the <TX_ID>:<STATE_NUM> format.
      */
+    @Suspendable
     fun useAndRelease(usedTokensRefs: List<String>)
 }

@@ -1,4 +1,4 @@
-package net.corda.v5.application.services;
+package net.corda.v5.ledger.utxo.token.selection;
 
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
@@ -33,7 +33,7 @@ public class TokenCacheJavaAPITest {
         Assertions.assertThat(result.getClaimedTokens()).isEmpty();
     }
 
-    public class TokenCacheTestImpl implements TokenCache{
+    public class TokenCacheTestImpl implements TokenSelection {
 
         @Nullable
         @Override

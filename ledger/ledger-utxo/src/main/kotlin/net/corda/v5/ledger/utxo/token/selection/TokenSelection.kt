@@ -1,20 +1,21 @@
-package net.corda.v5.application.services
+package net.corda.v5.ledger.utxo.token.selection
 
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.base.annotations.Suspendable
+
 /**
- * [TokenCache] allows flows to query the token cache and claim a list of [ClaimedToken]s to spend.
+ * [TokenSelection] allows flows to query the token cache and claim a list of [ClaimedToken]s to spend.
  *
- * The [TokenCache] maintains a cache of current unspent states stored in the ledger. The API allows a flow to query for
- * a target amount of a given state/token type it wishes to spend. If available a set of tokens will be selected that
- * sum to at least the target amount specified. The tokens will be locked in the cache to prevent other flows from
- * selecting them.
+ * The API allows a flow to query for a target amount of a given state/token type it wishes to spend. If available a set
+ * of tokens will be selected that sum to at least the target amount specified. The tokens will be locked in the cache
+ * to prevent other flows from selecting them.
  *
- * The platform will provide an instance of [TokenCache] to flows via property injection.
+ * The platform will provide an instance of [TokenSelection] to flows via property injection.
  *
  * Example of use in Kotlin.
  * ```Kotlin
  * @CordaInject
- * var tokenCache: TokenCache? = null
+ * lateinit var tokenSelection: TokenSelection
  *
  * override fun call(requestBody: RPCRequestData): String {
  *     // Create a criteria describing the tokens to be selected and
@@ -28,7 +29,7 @@ import net.corda.v5.base.annotations.DoNotImplement
  *     )
  *
  *     // Call the token selection API to try and claim the tokens.
- *     val claim = tokenCache!!.tryClaim(criteria)
+ *     val claim = tokenSelection.tryClaim(criteria)
  *
  *     if (claim == null) {
  *         // Not enough tokens could be claimed to satisfy the request.
@@ -49,24 +50,23 @@ import net.corda.v5.base.annotations.DoNotImplement
  * Example of use in Java.
  * ```Java
  * @CordaInject
- * public TokenCache tokenCache;
+ * public TokenSelection tokenSelection;
  *
  * @Override
  * public String call(RPCRequestData requestBody) {
  *
  *     // Create a criteria describing the tokens to be selected and
  *     // the target amount to be claimed.
- *     TokenClaimCriteria criteria = new TokenClaimCriteria
- *             (
- *                     "Currency",
- *                     getIssuerHash(),
- *                     getNotaryX500Name(),
- *                     "USD",
- *                     new BigDecimal(100)
- *             );
+ *     TokenClaimCriteria criteria = new TokenClaimCriteria (
+ *         "Currency",
+ *         getIssuerHash(),
+ *         getNotaryX500Name(),
+ *         "USD",
+ *         new BigDecimal(100)
+ *     );
  *
  *     // Call the token selection API to try and claim the tokens.
- *     TokenClaim claim = tokenCache.tryClaim(criteria);
+ *     TokenClaim claim = tokenSelection.tryClaim(criteria);
  *
  *     if (claim == null) {
  *         // Not enough tokens could be claimed to satisfy the request.
@@ -85,7 +85,7 @@ import net.corda.v5.base.annotations.DoNotImplement
  * ```
  */
 @DoNotImplement
-interface TokenCache {
+interface TokenSelection {
 
     /**
      * Attempts to claim a set of tokens from the cache that satisfies the supplied [TokenClaimCriteria]
@@ -95,6 +95,7 @@ interface TokenCache {
      * @return [TokenClaim] if enough tokens were claimed to satisfy the [TokenClaimCriteria.targetAmount]. null If the
      * [TokenClaimCriteria.targetAmount] could not be reached.
      */
+    @Suspendable
     fun tryClaim(criteria: TokenClaimCriteria): TokenClaim?
 }
 

@@ -1,6 +1,6 @@
 @file:Suppress("UNUSED_PARAMETER")
 
-package net.corda.v5.application.services
+package net.corda.v5.ledger.utxo.token.selection
 
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.RPCRequestData
@@ -15,7 +15,7 @@ import java.math.BigDecimal
 class TokenCacheFlowKotlinExample : RPCStartableFlow {
 
     @CordaInject
-    var tokenCache: TokenCache? = null
+    lateinit var tokenCache: TokenSelection
 
     override fun call(requestBody: RPCRequestData): String {
         // Create a criteria describing the tokens to be selected and
@@ -26,10 +26,14 @@ class TokenCacheFlowKotlinExample : RPCStartableFlow {
             getNotaryX500Name(),
             "USD",
             BigDecimal(100)
-        )
+        ).apply {
+            // Set optional criteria
+            ownerHash = getOwnerHash()
+            tagRegex = "(test)"
+        }
 
         // Call the token selection API to try and claim the tokens.
-        val claim = tokenCache!!.tryClaim(criteria)
+        val claim = tokenCache.tryClaim(criteria)
 
         if (claim == null) {
             // Not enough tokens could be claimed to satisfy the request.
@@ -47,6 +51,10 @@ class TokenCacheFlowKotlinExample : RPCStartableFlow {
     }
 
     private fun getIssuerHash(): SecureHash{
+        TODO()
+    }
+
+    private fun getOwnerHash(): SecureHash{
         TODO()
     }
 

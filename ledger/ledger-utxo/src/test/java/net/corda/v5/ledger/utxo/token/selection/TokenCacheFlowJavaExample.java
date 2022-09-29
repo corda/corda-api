@@ -1,10 +1,8 @@
-package net.corda.v5.application.services;
+package net.corda.v5.ledger.utxo.token.selection;
 
 import net.corda.v5.application.flows.CordaInject;
 import net.corda.v5.application.flows.RPCRequestData;
 import net.corda.v5.application.flows.RPCStartableFlow;
-import net.corda.v5.application.messaging.FlowMessaging;
-import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +15,7 @@ import java.util.List;
  */
 public class TokenCacheFlowJavaExample implements RPCStartableFlow {
     @CordaInject
-    public TokenCache tokenCache;
+    public TokenSelection tokenCache;
 
     @Override
     @NotNull
@@ -25,14 +23,17 @@ public class TokenCacheFlowJavaExample implements RPCStartableFlow {
 
         // Create a criteria describing the tokens to be selected and
         // the target amount to be claimed.
-        TokenClaimCriteria criteria = new TokenClaimCriteria
-                (
-                        "Currency",
-                        getIssuerHash(),
-                        getNotaryX500Name(),
-                        "USD",
-                        new BigDecimal(100)
-                );
+        TokenClaimCriteria criteria = new TokenClaimCriteria(
+                "Currency",
+                getIssuerHash(),
+                getNotaryX500Name(),
+                "USD",
+                new BigDecimal(100)
+        );
+
+        // Set optional criteria
+        criteria.setOwnerHash(getOwnerHash());
+        criteria.setTagRegex("(test)");
 
         // Call the token selection API to try and claim the tokens.
         TokenClaim claim = tokenCache.tryClaim(criteria);
@@ -54,6 +55,11 @@ public class TokenCacheFlowJavaExample implements RPCStartableFlow {
 
     @NotNull
     private SecureHash getIssuerHash() {
+        return null;
+    }
+
+    @NotNull
+    private SecureHash getOwnerHash() {
         return null;
     }
 

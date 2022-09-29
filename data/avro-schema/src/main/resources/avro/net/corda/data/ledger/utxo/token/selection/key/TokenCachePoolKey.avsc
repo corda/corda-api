@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TokenCachePoolKey",
-  "namespace": "net.corda.data.services.key",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.key",
   "doc": "Represents a unique key for a pool of tokens in the cache",
   "fields": [
       {

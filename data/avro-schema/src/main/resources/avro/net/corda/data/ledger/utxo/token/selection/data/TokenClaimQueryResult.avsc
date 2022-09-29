@@ -1,17 +1,12 @@
 {
   "type": "record",
   "name": "TokenClaimQueryResult",
-  "namespace": "net.corda.data.services.data",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
   "doc": "Represents the result of a claim query, sent back to the flow",
   "fields": [
       {
-        "name": "requestContext",
-        "type": "net.corda.data.flow.event.external.ExternalEventContext",
-        "doc": "Flow request context data for the query"
-      },
-      {
         "name": "poolKey",
-        "type": "net.corda.data.services.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
         "doc": "Key for the pool the tokens were claimed from"
       },
       {

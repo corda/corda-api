@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TokenClaimRelease",
-  "namespace": "net.corda.data.services.data",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
   "doc": "Represents a request to release an existing claim",
   "fields": [
       {
@@ -11,7 +11,7 @@
       },
       {
         "name": "poolKey",
-        "type": "net.corda.data.services.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
         "doc": "The key of the cache pool for the existing claim"
       },
       {

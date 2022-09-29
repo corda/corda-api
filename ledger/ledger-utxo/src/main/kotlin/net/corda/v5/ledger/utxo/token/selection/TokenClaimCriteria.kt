@@ -1,11 +1,11 @@
-package net.corda.v5.application.services
+package net.corda.v5.ledger.utxo.token.selection
 
 import net.corda.v5.base.types.MemberX500Name
 import net.corda.v5.crypto.SecureHash
 import java.math.BigDecimal
 
 /**
- * [TokenClaimCriteria] describes the selection criteria for a token selection query using the [TokenCache] API.
+ * [TokenClaimCriteria] describes the selection criteria for a token selection query using the [TokenSelection] API.
  *
  * @property tokenType The type of tokens to be selected.
  * @property issuerHash The [SecureHash] of issuer of tokens to be selected.

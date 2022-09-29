@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TokenClaim",
-  "namespace": "net.corda.data.services.data",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
   "doc": "The set of tokens claimed by a query",
   "fields": [
       {

@@ -1,19 +1,19 @@
 {
   "type": "record",
   "name": "TokenCacheEvent",
-  "namespace": "net.corda.data.services.event",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.event",
   "doc": "Represents an inbound event to a token cache pool",
   "fields": [
       {
         "name": "poolKey",
-        "type": "net.corda.data.services.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
         "doc": "The key of the cache pool the event is for"
       },
       {
         "name": "payload",
         "type": [
-          "net.corda.data.services.data.TokenClaimQuery",
-          "net.corda.data.services.data.TokenClaimRelease"
+          "net.corda.data.ledger.utxo.token.selection.data.TokenClaimQuery",
+          "net.corda.data.ledger.utxo.token.selection.data.TokenClaimRelease"
         ],
         "doc": "Represents the specific type and data of inbound event"
       }
