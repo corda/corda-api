@@ -175,7 +175,7 @@
                                  constraintName="FK_cpk_db_change_log_cpk_metadata"
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
-
+        <!-- Write only audit table for the cpk_db_change_logs -->
         <createTable tableName="cpk_db_change_log_audit" schemaName="${schema.name}">
             <column name="cpk_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
