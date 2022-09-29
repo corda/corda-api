@@ -2,17 +2,17 @@
   "type": "record",
   "name": "StateRef",
   "namespace": "net.corda.data.ledger.utxo",
-  "doc": "Unique identifier for a state in the ledger",
+  "doc": "Represents a reference to a state",
   "fields": [
       {
         "name": "txHash",
         "type": "net.corda.data.crypto.SecureHash",
-        "doc": "Secure hash of the transaction ID"
+        "doc": "The hash of the transaction in which the referenced state was created"
       },
       {
         "name": "stateIndex",
         "type": "int",
-        "doc": "Transaction state index"
+        "doc": "The index of the state in the transaction's outputs in which the referenced state was created"
       }
     ]
 }
