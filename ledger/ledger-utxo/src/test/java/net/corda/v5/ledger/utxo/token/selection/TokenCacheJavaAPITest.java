@@ -2,6 +2,7 @@ package net.corda.v5.ledger.utxo.token.selection;
 
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.utxo.StateRef;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +30,6 @@ public class TokenCacheJavaAPITest {
         result.useAndRelease(new ArrayList<>());
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result.getClaimId()).isEqualTo("id");
         Assertions.assertThat(result.getClaimedTokens()).isEmpty();
     }
 
@@ -40,16 +40,17 @@ public class TokenCacheJavaAPITest {
         public TokenClaim tryClaim(@NotNull TokenClaimCriteria criteria) {
             return new TokenClaimTestImpl();
         }
+
+        /**
+         * TESTING API - This is a temporary API to support testing until we have ledger integration, this will be removed
+         * when CORE-5722 is implemented
+         */
+        @Override
+        public void pushTokenUpdates(@NotNull List<? extends ClaimedToken> newTokens, @NotNull List<? extends ClaimedToken> consumedTokens) {
+        }
     }
 
     public class TokenClaimTestImpl implements TokenClaim{
-
-        @NotNull
-        @Override
-        public String getClaimId() {
-            return "id";
-        }
-
         @NotNull
         @Override
         public List<ClaimedToken> getClaimedTokens() {
@@ -57,7 +58,7 @@ public class TokenCacheJavaAPITest {
         }
 
         @Override
-        public void useAndRelease(@NotNull List<String> usedTokensRefs) {
+        public void useAndRelease(@NotNull List<StateRef> usedTokensRefs) {
         }
     }
 }

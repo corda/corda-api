@@ -1,9 +1,9 @@
 package net.corda.v5.ledger.utxo.token.selection
 
-import net.corda.v5.application.uniqueness.model.UniquenessCheckStateRef
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.types.MemberX500Name
 import net.corda.v5.crypto.SecureHash
+import net.corda.v5.ledger.utxo.StateRef
 import java.math.BigDecimal
 
 /**
@@ -21,7 +21,7 @@ import java.math.BigDecimal
 @DoNotImplement
 interface ClaimedToken {
 
-    val stateRef: UniquenessCheckStateRef
+    val stateRef: StateRef
 
     val tokenType: String
 

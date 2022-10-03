@@ -11,8 +11,13 @@
       },
       {
         "name": "poolKey",
-        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenPoolCacheKey",
         "doc": "The key of the cache pool for the existing claim"
+      },
+      {
+       "name": "claimId",
+       "type": "string",
+       "doc": "Unique identifier for the claim"
       },
       {
         "name": "usedTokenStateRefs",

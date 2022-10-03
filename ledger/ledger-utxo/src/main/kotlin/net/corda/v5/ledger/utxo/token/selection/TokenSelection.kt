@@ -73,7 +73,7 @@ import net.corda.v5.base.annotations.Suspendable
  *         // take alternative action.
  *     } else {
  *         // Tokens we successfully claimed and can now be spent.
- *         List<String> spentTokenRefs = spendTokens(claim.getClaimedTokens());
+ *         List<StateRef> spentTokenRefs = spendTokens(claim.getClaimedTokens());
  *
  *         // Release the claim by notifying the cache which tokens where spent. Any unspent tokens will be released
  *         // for other flows to claim.
@@ -97,5 +97,12 @@ interface TokenSelection {
      */
     @Suspendable
     fun tryClaim(criteria: TokenClaimCriteria): TokenClaim?
+
+    /**
+     * TESTING API - This is a temporary API to support testing until we have ledger integration, this will be removed
+     * when CORE-5722 is implemented
+     */
+    @Suspendable
+    fun pushTokenUpdates(newTokens:List<ClaimedToken>, consumedTokens: List<ClaimedToken>)
 }
 

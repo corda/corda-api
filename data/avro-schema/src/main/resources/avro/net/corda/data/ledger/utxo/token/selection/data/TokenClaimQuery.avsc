@@ -11,7 +11,7 @@
       },
       {
         "name": "poolKey",
-        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenPoolCacheKey",
         "doc": "Token cache pool the query is for"
       },
       {
@@ -21,7 +21,7 @@
       },
       {
         "name": "ownerHash",
-        "type": ["null", "net.corda.data.crypto.SecureHash"],
+        "type": ["null", "string"],
         "default": null,
         "doc": "Optional owner hash to match on, null will match all"
       },

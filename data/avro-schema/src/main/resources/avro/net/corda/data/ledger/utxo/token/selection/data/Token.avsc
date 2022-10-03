@@ -6,17 +6,17 @@
   "fields": [
       {
         "name": "stateRef",
-        "type": "net.corda.data.ledger.utxo.StateRef",
+        "type": "string",
         "doc": "The unique ID of the token state"
       },
       {
         "name": "amount",
-        "type": "net.corda.data.services.data.TokenAmount",
+        "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
         "doc": "The amount of the token"
       },
       {
         "name": "ownerHash",
-        "type": ["null", "net.corda.data.crypto.SecureHash"],
+        "type": ["null", "string"],
         "doc": "Optional owner of the token"
       },
       {

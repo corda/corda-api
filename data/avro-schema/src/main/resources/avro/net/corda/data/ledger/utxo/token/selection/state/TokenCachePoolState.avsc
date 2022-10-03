@@ -1,12 +1,12 @@
 {
   "type": "record",
-  "name": "TokenCacheState",
+  "name": "TokenPoolCacheState",
   "namespace": "net.corda.data.ledger.utxo.token.selection.state",
   "doc": "The current state of a token cache pool",
   "fields": [
       {
         "name": "poolKey",
-        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenCachePoolKey",
+        "type": "net.corda.data.ledger.utxo.token.selection.key.TokenPoolCacheKey",
         "doc": "The key of the cache pool the state is for"
       },
       {

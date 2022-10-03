@@ -5,6 +5,7 @@ import net.corda.v5.application.flows.RPCRequestData;
 import net.corda.v5.application.flows.RPCStartableFlow;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.utxo.StateRef;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
@@ -43,7 +44,7 @@ public class TokenCacheFlowJavaExample implements RPCStartableFlow {
             // take alternative action.
         } else {
             // Tokens we successfully claimed and can now be spent.
-            List<String> spentTokenRefs = spendTokens(claim.getClaimedTokens());
+            List<StateRef> spentTokenRefs = spendTokens(claim.getClaimedTokens());
 
             // Release the claim by notifying the cache which tokens where spent. Any unspent tokens will be released
             // for other flows to claim.
@@ -69,7 +70,7 @@ public class TokenCacheFlowJavaExample implements RPCStartableFlow {
     }
 
     @NotNull
-    private List<String> spendTokens(List<ClaimedToken> claimedTokens) {
+    private List<StateRef> spendTokens(List<ClaimedToken> claimedTokens) {
         return null;
     }
 }

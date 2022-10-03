@@ -2,6 +2,7 @@ package net.corda.v5.ledger.utxo.token.selection
 
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.utxo.StateRef
 
 /**
  * [TokenClaim] is a claimed set of tokens returned by a call to [TokenSelection.tryClaim].
@@ -13,21 +14,18 @@ import net.corda.v5.base.annotations.Suspendable
  *
  * consumed notification from the vault or the claim timeout elapses.
  *
- * @property claimId The unique identifier of the claim.
  * @property claimedTokens List of [ClaimedToken] claimed.
  */
 @DoNotImplement
 interface TokenClaim {
-
-    val claimId: String
 
     val claimedTokens: List<ClaimedToken>
 
     /**
      * Removes any used tokens from the cache and unlocks any remaining tokens for other flows to claim.
      *
-     * @param usedTokensRefs List of state refs to mark as used in the <TX_ID>:<STATE_NUM> format.
+     * @param usedTokensRefs List of state refs to mark as used.
      */
     @Suspendable
-    fun useAndRelease(usedTokensRefs: List<String>)
+    fun useAndRelease(usedTokensRefs: List<StateRef>)
 }

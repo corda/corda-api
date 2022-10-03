@@ -5,9 +5,9 @@
   "doc": "The set of tokens claimed by a query",
   "fields": [
       {
-        "name": "claimRequestId",
+        "name": "claimId",
         "type": "string",
-        "doc": "The flow request ID used to claim the tokens"
+        "doc": "Unique identifier for the claim"
       },
       {
         "name": "claimedTokenStateRefs",

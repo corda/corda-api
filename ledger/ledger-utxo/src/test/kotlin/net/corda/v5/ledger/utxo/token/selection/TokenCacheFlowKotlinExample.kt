@@ -7,6 +7,7 @@ import net.corda.v5.application.flows.RPCRequestData
 import net.corda.v5.application.flows.RPCStartableFlow
 import net.corda.v5.base.types.MemberX500Name
 import net.corda.v5.crypto.SecureHash
+import net.corda.v5.ledger.utxo.StateRef
 import java.math.BigDecimal
 
 /**
@@ -44,7 +45,7 @@ class TokenCacheFlowKotlinExample : RPCStartableFlow {
 
             // Release the claim by notifying the cache which tokens where spent. Any unspent tokens will be released
             // for other flows to claim.
-            claim.useAndRelease(spentTokenRefs!!)
+            claim.useAndRelease(spentTokenRefs)
         }
 
         return "Done"
@@ -62,7 +63,7 @@ class TokenCacheFlowKotlinExample : RPCStartableFlow {
         TODO()
     }
 
-    private fun spendTokens(claimedTokens: List<ClaimedToken>): List<String>? {
+    private fun spendTokens(claimedTokens: List<ClaimedToken>): List<StateRef> {
         TODO()
     }
 }

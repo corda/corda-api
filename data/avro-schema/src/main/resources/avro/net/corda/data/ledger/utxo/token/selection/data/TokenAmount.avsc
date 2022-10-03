@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TokenAmount",
-  "namespace": "net.corda.data.ledger.utxo.token.selection.data,
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
   "doc": "The amount of a given token",
   "fields": [
       {

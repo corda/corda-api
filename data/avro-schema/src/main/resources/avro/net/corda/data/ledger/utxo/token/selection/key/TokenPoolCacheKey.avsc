@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "TokenCachePoolKey",
+  "name": "TokenPoolCacheKey",
   "namespace": "net.corda.data.ledger.utxo.token.selection.key",
   "doc": "Represents a unique key for a pool of tokens in the cache",
   "fields": [
@@ -16,7 +16,7 @@
       },
       {
         "name": "issuerHash",
-        "type": "net.corda.data.crypto.SecureHash",
+        "type": "string",
         "doc": "Issuer of the tokens within the pool"
       },
       {
