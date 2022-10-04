@@ -1,4 +1,4 @@
-package net.corda.v5.application.marshalling;
+package net.corda.v5.application.marshalling.json;
 
 import org.junit.jupiter.api.Test;
 

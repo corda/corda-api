@@ -1,4 +1,4 @@
-package net.corda.v5.application.marshalling
+package net.corda.v5.application.marshalling.json
 
 import net.corda.v5.base.annotations.DoNotImplement
 import java.io.InputStream

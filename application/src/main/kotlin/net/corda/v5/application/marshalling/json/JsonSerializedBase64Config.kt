@@ -1,4 +1,4 @@
-package net.corda.v5.application.marshalling
+package net.corda.v5.application.marshalling.json
 
 /**
  * When objects are serialized to Json using custom serializers and they require to be encoded into base64 encoded, this

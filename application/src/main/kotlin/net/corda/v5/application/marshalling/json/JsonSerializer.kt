@@ -1,4 +1,4 @@
-package net.corda.v5.application.marshalling
+package net.corda.v5.application.marshalling.json
 
 /**
  * An interface to a custom serializer of objects of the specified type T into Json.
