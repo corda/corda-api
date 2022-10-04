@@ -1,5 +1,6 @@
 package net.corda.v5.application.marshalling.json
 
+import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.base.annotations.DoNotImplement
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -323,22 +324,6 @@ interface JsonNodeReader {
     fun asObject(): JsonNodeReader
 
     /**
-     * Returns true if this node represents a Java object (POJO) which was serialized and can be extracted as an already
-     * deserialized Java object.
-     *
-     * @return true if a Java (POJO) object, false otherwise
-     */
-    fun isPojo(): Boolean
-
-    /**
-     * If this node represents a Java object (POJO) which was serialized and can be extracted as an already deserialized
-     * Java object, this method returns that Java object. If this node does not represent a Java object, returns null.
-     *
-     * @return A Java object or null if this node does not represent a Java object.
-     */
-    fun asPojo(): Any
-
-    /**
      * Returns true if this node represents a string in the Json which contains a base64 encoded byte array.
      *
      * @returns true if this node represents a string in the Json which contains a base64 encoded byte array.
@@ -372,4 +357,19 @@ interface JsonNodeReader {
      * @returns true if null, otherwise false.
      */
     fun isNull(): Boolean
+
+    /**
+     * Parse this [JsonNodeReader] to strongly typed objects. Will deserialize using default deserializers or any custom
+     * Json deserializers registered. This method can be used if during custom deserialization of one class type, the
+     * deserializer expects a field's value to contain an object which can be deserialized to another class type which
+     * is already known to either be default deserializable, or for which other custom deserializers are registered.
+     * It is the equivalent of calling the [JsonMarshallingService] parse method on a Json string representation of this
+     * node.
+     *
+     * @param clazz The type to try and parse this node into.
+     *
+     * @return An instance of the required type or null if this node does not represent a Json serialized version of
+     * that type.
+     */
+    fun <T> parse(clazz: Class<T>): T?
 }
