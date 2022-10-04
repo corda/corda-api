@@ -2,7 +2,6 @@ package net.corda.v5.application.crypto
 
 import net.corda.v5.crypto.CompositeKey
 import net.corda.v5.crypto.CompositeKeyNodeAndWeight
-import net.corda.v5.crypto.exceptions.CryptoSignatureException
 import java.security.PublicKey
 
 
