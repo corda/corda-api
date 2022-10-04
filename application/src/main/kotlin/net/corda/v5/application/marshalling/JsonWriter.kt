@@ -1,5 +1,6 @@
 package net.corda.v5.application.marshalling
 
+import net.corda.v5.base.annotations.DoNotImplement
 import java.io.InputStream
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -22,6 +23,7 @@ import java.math.BigInteger
  * the [writeRawValue] methods, which will assume whatever is passed is a valid Json value.
  */
 @Suppress("TooManyFunctions")
+@DoNotImplement
 interface JsonWriter {
     /**
      * Writes the marker denoting the start of an object.
