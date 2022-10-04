@@ -21,6 +21,7 @@ import java.math.BigInteger
  * whatever you pass directly into the Json output unchanged. To write raw content with validation instead call one of
  * the [writeRawValue] methods, which will assume whatever is passed is a valid Json value.
  */
+@Suppress("TooManyFunctions")
 interface JsonWriter {
     /**
      * Writes the marker denoting the start of an object.
@@ -212,7 +213,7 @@ interface JsonWriter {
     fun writeObjectField(fieldName: String, pojo: Any)
 
     /**
-     * Writes a field that will contain a Json object value, including the marker denoting the beginning of an onject.
+     * Writes a field that will contain a Json object value, including the marker denoting the beginning of an object.
      *
      * @param fieldName The name of the field.
      *
