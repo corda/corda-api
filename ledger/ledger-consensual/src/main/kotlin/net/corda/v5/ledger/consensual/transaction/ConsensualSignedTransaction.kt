@@ -24,10 +24,6 @@ import net.corda.v5.crypto.SecureHash
  * Thus adding or removing a signature does not change it.
  */
 @DoNotImplement
-// Why do we make it illegal to have a custom serializer for a corda serializable annotated class/interface?
-// This seems very dangerous moving forward if we need to provide custom serializers for existing code
-// net.corda.internal.serialization.amqp.CachingCustomSerializerRegistry - Illegal custom serializer detected for interface net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction: net.corda.internal.serialization.amqp.standard.CustomSerializer.Proxy
-//@CordaSerializable
 interface ConsensualSignedTransaction {
     /**
      * @property id The ID of the transaction.
