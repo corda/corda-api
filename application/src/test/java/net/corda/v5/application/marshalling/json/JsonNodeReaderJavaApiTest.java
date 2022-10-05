@@ -41,10 +41,15 @@ public class JsonNodeReaderJavaApiTest {
 
     @Test
     void callEveryMethod() {
+        JsonNodeReaderType type = jnr.getType();
+        
+        boolean isObject = jnr.isObject();
         Iterator<Map.Entry<String, JsonNodeReader>> fieldIt = jnr.fields();
         boolean hasField = jnr.hasField(TEST_STRING);
         JsonNodeReader getField = jnr.getField(TEST_STRING);
-        JsonNodeReaderType type = jnr.getType();
+
+        boolean isArray = jnr.isArray();
+        Iterator<JsonNodeReader> arrayIt = jnr.asArray();
 
         boolean isBoolean = jnr.isBoolean();
         boolean asBoolean = jnr.asBoolean();
@@ -86,14 +91,8 @@ public class JsonNodeReaderJavaApiTest {
         String asTest = jnr.asText();
         String asTestDefault = jnr.asText(TEST_STRING);
 
-        boolean isObject = jnr.isObject();
-        Object object = jnr.asObject();
-
         boolean isBinary = jnr.isBinary();
         byte[] binaryValue = jnr.binaryValue();
-
-        boolean isArray = jnr.isArray();
-        Iterator<JsonNodeReader> arrayIt = jnr.asArray();
 
         boolean isNull = jnr.isNull();
 
