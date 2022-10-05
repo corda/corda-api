@@ -1,7 +1,10 @@
 package net.corda.v5.crypto.merkle
 
 import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.crypto.DigitalSignature
 import net.corda.v5.crypto.SecureHash
+import net.corda.v5.crypto.SignatureSpec
+import java.security.PublicKey
 
 /**
  * [MerkleProof]s can be used to verify if some specific data is part of a [MerkleTree].
@@ -32,5 +35,22 @@ interface MerkleProof {
     fun verify(
         root: SecureHash,
         digest: MerkleTreeHashDigest
+    ): Boolean
+
+    /**
+     * Calculates the root hash of the [MerkleProof] and returns whether the [signature] signs
+     * that with the given publicKey.
+     * @param signature The signature of the root of the tree to be verified.
+     * @param publicKey Public key of the signature.
+     * @param signatureSpec The [SignatureSpec] to use when verifying this signature.
+     * @param digest The tree's digest.
+     *
+     * @returns Result of the verification.
+     */
+    fun verify(
+       signature: DigitalSignature,
+       publicKey: PublicKey,
+       signatureSpec: SignatureSpec,
+       digest: MerkleTreeHashDigest
     ): Boolean
 }
