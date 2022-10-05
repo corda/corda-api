@@ -26,7 +26,7 @@
     },
     {
       "name": "cpiId",
-      "type": "string",
+      "type": "net.corda.data.packaging.CpiIdentifier",
       "doc": "The CPI ID for the package containing the flow."
     },
     {
