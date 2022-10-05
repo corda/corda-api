@@ -25,5 +25,6 @@ data class TransactionSignature(
     constructor(signature: DigitalSignature.WithKey, metadata: DigitalSignatureMetadata):
             this( signature, metadata, null)
 
-    val by: PublicKey = signature.by
+    val by: PublicKey
+        get() = signature.by
 }
