@@ -20,7 +20,10 @@ import net.corda.v5.crypto.merkle.MerkleProof
 data class TransactionSignature(
     val signature: DigitalSignature.WithKey,
     val metadata: DigitalSignatureMetadata,
-    val batchProof: MerkleProof? = null
+    val batchProof: MerkleProof?
 ) {
+    constructor(signature: DigitalSignature.WithKey, metadata: DigitalSignatureMetadata):
+            this( signature, metadata, null)
+
     val by: PublicKey = signature.by
 }

@@ -1,6 +1,6 @@
 package net.corda.v5.ledger.consensual.transaction;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
+import net.corda.v5.ledger.common.transaction.TransactionSignature;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
@@ -22,7 +22,7 @@ public class ConsensualSignedTransactionJavaApiTest {
     private final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
     private final DigitalSignature.WithKey signature = new DigitalSignature.WithKey(mock(PublicKey.class), "0".getBytes(), Map.of());
     private final DigitalSignatureMetadata signatureMetadata = new DigitalSignatureMetadata(Instant.now(), Map.of());
-    private final DigitalSignatureAndMetadata signatureWithMetaData = new DigitalSignatureAndMetadata(signature, signatureMetadata);
+    private final TransactionSignature transactionSignature = new TransactionSignature(signature, signatureMetadata);
 
     @Test
     public void getId() {
@@ -38,12 +38,12 @@ public class ConsensualSignedTransactionJavaApiTest {
 
     @Test
     public void getSignatures() {
-        when(consensualSignedTransaction.getSignatures()).thenReturn(List.of(signatureWithMetaData));
+        when(consensualSignedTransaction.getSignatures()).thenReturn(List.of(transactionSignature));
 
-        List<DigitalSignatureAndMetadata> result = consensualSignedTransaction.getSignatures();
+        List<TransactionSignature> result = consensualSignedTransaction.getSignatures();
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(List.of(signatureWithMetaData));
+        Assertions.assertThat(result).isEqualTo(List.of(transactionSignature));
         verify(consensualSignedTransaction, times(1)).getSignatures();
     }
 
