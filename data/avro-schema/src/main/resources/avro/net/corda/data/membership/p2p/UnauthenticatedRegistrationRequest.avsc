@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "UnauthenticatedRegistrationRequest",
+  "namespace": "net.corda.data.membership.p2p",
+  "doc": "",
+  "fields": [
+    {
+      "name": "header",
+      "type": "UnauthenticatedRegistrationRequestHeader"
+    },
+    {
+      "name": "payload",
+      "type": "bytes"
+    }
+  ]
+}

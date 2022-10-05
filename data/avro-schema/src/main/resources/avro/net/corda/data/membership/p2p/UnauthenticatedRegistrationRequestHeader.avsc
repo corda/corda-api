@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "UnauthenticatedRegistrationRequestHeader",
+  "namespace": "net.corda.data.membership.p2p",
+  "doc": "",
+  "fields": [
+    {
+      "name": "protocolVersion",
+      "type": "int"
+    },
+    {
+      "name": "timestamp",
+      "doc": "Time ([Instant]) in milliseconds of the response.",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "keyId",
+      "doc": "ID of the ECDH key.",
+      "type": "string"
+    }
+  ]
+}
