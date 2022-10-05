@@ -24,9 +24,10 @@ interface JsonNodeReader {
     /**
      * Get an iterator to all field names and values.
      *
-     * @return An iterator to a pair consisting of field name and value, where value is represented by a [JsonNodeReader].
+     * @return An iterator to a map entry consisting of field name and value, where value is represented by a
+     * [JsonNodeReader].
      */
-    fun fields(): Iterator<Pair<String, JsonNodeReader>>
+    fun fields(): Iterator<Map.Entry<String, JsonNodeReader>>
 
     /**
      * Determine whether this [JsonNodeReader] has a field specified.
@@ -49,7 +50,7 @@ interface JsonNodeReader {
     /**
      * The type of this node.
      *
-     * @returns The type as a value from [JsonNodeReaderType].
+     * @return The type as a value from [JsonNodeReaderType].
      */
     fun getType(): JsonNodeReaderType
 
@@ -63,7 +64,7 @@ interface JsonNodeReader {
     /**
      * This method attempts to convert the underlying Json for this node to a Boolean type.
      *
-     * @returns the value of the underlying Json if it is a Boolean type, or false if it is a different type.
+     * @return the value of the underlying Json if it is a Boolean type, or false if it is a different type.
      */
     fun asBoolean(): Boolean
 
@@ -72,7 +73,7 @@ interface JsonNodeReader {
      *
      * @param defaultValue The value to return if the underlying Json type is not a Boolean.
      *
-     * @returns the value of the underlying Json if it is a Boolean type, or [defaultValue] if it is a different type.
+     * @return the value of the underlying Json if it is a Boolean type, or [defaultValue] if it is a different type.
      */
     fun asBoolean(defaultValue: Boolean): Boolean
 
@@ -86,7 +87,7 @@ interface JsonNodeReader {
     /**
      * This method attempts to convert the underlying Json for this node to a Number type.
      *
-     * @returns the value of the underlying Json if it is a Number type, or null if it is a different type.
+     * @return the value of the underlying Json if it is a Number type, or null if it is a different type.
      */
     fun asNumber(): Number?
 
@@ -95,14 +96,14 @@ interface JsonNodeReader {
      *
      * @param defaultValue The value to return if the underlying Json type is not a Number.
      *
-     * @returns the value of the underlying Json if it is a Number type, or [defaultValue] if it is a different type.
+     * @return the value of the underlying Json if it is a Number type, or [defaultValue] if it is a different type.
      */
     fun asNumber(defaultValue: Number): Number
 
     /**
      * Returns true if this node represents a Number in the underlying Json which is not an integer.
      *
-     * @returns true if this is floating point number.
+     * @return true if this is floating point number.
      */
     fun isFloatingPointNumber(): Boolean
 
@@ -119,7 +120,7 @@ interface JsonNodeReader {
      * To convert other types to Double see [asDouble]. When the underlying Json represents a number which does not fit
      * in a Double type, it is converted using Java coercion.
      *
-     * @returns the value of the underlying Json Number as a Double or 0.0 if the Json is not a Number.
+     * @return the value of the underlying Json Number as a Double or 0.0 if the Json is not a Number.
      */
     fun doubleValue(): Double
 
@@ -128,7 +129,7 @@ interface JsonNodeReader {
      * Booleans are converted to 0.0 for false and 1.0 for true. Strings are also parsed and converted as per standard
      * Java rules. Where conversion is not possible 0.0 is returned.
      *
-     * @returns the value of the underlying Json as a Double or 0.0 if that is not possible.
+     * @return the value of the underlying Json as a Double or 0.0 if that is not possible.
      */
     fun asDouble(): Double
 
@@ -139,7 +140,7 @@ interface JsonNodeReader {
      *
      * @param defaultValue The value to return if the underlying Json cannot be converted to a Double.
      *
-     * @returns the value of the underlying Json as a Double or [defaultValue] if that is not possible.
+     * @return the value of the underlying Json as a Double or [defaultValue] if that is not possible.
      */
     fun asDouble(defaultValue: Double): Double
 
@@ -157,7 +158,7 @@ interface JsonNodeReader {
      * When the underlying Json represents a number which does not fit in a Float type, it is converted using Java
      * coercion.
      *
-     * @returns the value of the underlying Json Number as a Double or 0.0 if the Json is not a Number.
+     * @return the value of the underlying Json Number as a Double or 0.0 if the Json is not a Number.
      */
     fun floatValue(): Float
 
@@ -183,7 +184,7 @@ interface JsonNodeReader {
      * Booleans are converted to 0 for false and 1 for true. Strings are also parsed and converted as per standard
      * Java rules. Where conversion is not possible 0 is returned.
      *
-     * @returns the value of the underlying Json as an Int or 0 if that is not possible.
+     * @return the value of the underlying Json as an Int or 0 if that is not possible.
      */
     fun asInt(): Int
 
@@ -194,7 +195,7 @@ interface JsonNodeReader {
      *
      * @param defaultValue The value to return if the underlying Json cannot be converted to an Int.
      *
-     * @returns the value of the underlying Json as an Int or [defaultValue] if that is not possible.
+     * @return the value of the underlying Json as an Int or [defaultValue] if that is not possible.
      */
     fun asInt(defaultValue: Int): Int
 
@@ -220,7 +221,7 @@ interface JsonNodeReader {
      * Booleans are converted to 0 for false and 1 for true. Strings are also parsed and converted as per standard
      * coercion Java rules. Where conversion is not possible 0 is returned.
      *
-     * @returns the value of the underlying Json as a Long or 0 if that is not possible.
+     * @return the value of the underlying Json as a Long or 0 if that is not possible.
      */
     fun asLong(): Long
 
@@ -231,7 +232,7 @@ interface JsonNodeReader {
      *
      * @param defaultValue The value to return if the underlying Json cannot be converted to a Long.
      *
-     * @returns the value of the underlying Json as a Long or [defaultValue] if that is not possible.
+     * @return the value of the underlying Json as a Long or [defaultValue] if that is not possible.
      */
     fun asLong(defaultValue: Long): Long
 
@@ -249,7 +250,7 @@ interface JsonNodeReader {
      * When the underlying Json represents a number which does not fit in a Short type, it is converted using Java
      * coercion.
      *
-     * @returns the value of the underlying Json Number as a Short or 0 if the Json is not a Number.
+     * @return the value of the underlying Json Number as a Short or 0 if the Json is not a Number.
      */
     fun shortValue(): Short
 
@@ -264,7 +265,7 @@ interface JsonNodeReader {
      * If this node represents a Json Number type, this method returns the value as a BigInteger. When the underlying
      * Json represents a number which does not fit in a Short type, it is converted using Java coercion.
      *
-     * @returns the value of the underlying Json Number as a BigInteger or 0 if the Json is not a Number.
+     * @return the value of the underlying Json Number as a BigInteger or 0 if the Json is not a Number.
      */
     fun bigIntegerValue(): BigInteger
 
@@ -278,7 +279,7 @@ interface JsonNodeReader {
     /**
      * If this node represents a Json Number type, this method returns the value as a BigDecimal.
      *
-     * @returns the value of the underlying Json Number as a BigDecimal or 0 if the Json is not a Number.
+     * @return the value of the underlying Json Number as a BigDecimal or 0 if the Json is not a Number.
      */
     fun bigDecimalValue(): BigDecimal
 
@@ -306,7 +307,7 @@ interface JsonNodeReader {
      *
      * @return the value as a String or defaultValue
      */
-    fun asText(defaultValue: String)
+    fun asText(defaultValue: String): String
 
     /**
      * Returns true if this node represents an object in the Json.
@@ -326,35 +327,35 @@ interface JsonNodeReader {
     /**
      * Returns true if this node represents a string in the Json which contains a base64 encoded byte array.
      *
-     * @returns true if this node represents a string in the Json which contains a base64 encoded byte array.
+     * @return true if this node represents a string in the Json which contains a base64 encoded byte array.
      */
     fun isBinary(): Boolean
 
     /**
      * Returns a byte array if this node represents a string in the Json which contains a base64 encoded byte array.
      *
-     * @returns the base64 decoded byte array if this node represents that, or null if it represents other types.
+     * @return the base64 decoded byte array if this node represents that, or null if it represents other types.
      */
     fun binaryValue(): ByteArray?
 
     /**
      * Returns true if this node represents an array in the Json.
      *
-     * @returns true if a Json array, false otherwise
+     * @return true if a Json array, false otherwise
      */
     fun isArray(): Boolean
 
     /**
      * Returns an iterator to [JsonNodeReader]s each of which represents the next value in the array.
      *
-     * @returns an iterator or null if this node type does not represent a Json array.
+     * @return an iterator or null if this node type does not represent a Json array.
      */
     fun asArray(): Iterator<JsonNodeReader>?
 
     /**
      * Returns true if this node represents the value of "null" in the underlying Json.
      *
-     * @returns true if null, otherwise false.
+     * @return true if null, otherwise false.
      */
     fun isNull(): Boolean
 
