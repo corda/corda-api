@@ -36,4 +36,19 @@ open class DigitalSignature(
          */
         val context: Map<String, String>
     ) : DigitalSignature(bytes)
+
+    class WithMetadata(
+        /**
+         * Public key which corresponding private key was used to sign the data (as if an instance
+         * of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
+         * the member).
+         */
+        by: PublicKey,
+        bytes: ByteArray,
+        /**
+         * The metadata which was used by the signing operation, note that the metadata **is signed over**.
+         * The format will be stable and consistent. The actual signing data is concatenation of the serialised metadata and the  payload data.
+         */
+        metadata: Map<String, String>,
+    ) : WithKey(by, bytes, context)
 }

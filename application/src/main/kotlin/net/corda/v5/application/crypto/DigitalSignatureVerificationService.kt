@@ -22,14 +22,14 @@ interface DigitalSignatureVerificationService {
      *
      * @param payload The payload/message that may be in clear data that was signed (e.g. the Merkle root).
      * @param signatureData The signature data and public key, which should have been earlier produced by [SigningService.sign].
-     *
+     * @param publicKey A verified public key aginst which to verify the signature.
      * @return The metadata associated with the signature, passed in to [SigningService.sign]
      *
      * @throws CryptoSignatureException If verification of the digital signature fails.
      * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
      * data is empty.
      */
-    fun verify(payload: ByteArray, signatureData: DigitalSignature.WithKey,  digestAlgorithmName: DigestAlgorithmName?): Map<String, String>
+    fun verify(payload: ByteArray, signatureData: DigitalSignature.WithMetadata, publicKey: PublicKey, digestAlgorithmName: DigestAlgorithmName?): Map<String, String>
 
     /**
      *
@@ -39,11 +39,12 @@ interface DigitalSignatureVerificationService {
      *
      * @param payload The payload/message that may be in clear data that was signed (e.g. the Merkle root).
      * @param signatureData The signature data and public key, which should have been earlier produced by [SigningService.sign].
+     * @param publicKey A verified public key aginst which to verify the signature.
      * @param signatureSpec The expected specific signature spec.
      *
      * @throws CryptoSignatureException If verification of the digital signature fails.
      * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
      * data is empty.
      */
-    fun verify(payload: ByteArray, signatureData: DigitalSignature.WithKey, signatureSpec: SignatureSpec): Map<String, String>
+    fun verify(payload: ByteArray, signatureData: DigitalSignature.WithMetadata, publicKey: PublicKey, signatureSpec: SignatureSpec): Map<String, String>
 }

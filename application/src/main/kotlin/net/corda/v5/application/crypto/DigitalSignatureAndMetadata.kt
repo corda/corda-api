@@ -13,6 +13,8 @@ import net.corda.v5.crypto.DigitalSignature
  *
  * @constructor Creates a [DigitalSignatureAndMetadata].
  */
+// TODO - remove this since public key should be handled separately from the signature, and not simply extracted from it
+@Deprecated
 @CordaSerializable
 data class DigitalSignatureAndMetadata(
     val signature: DigitalSignature.WithKey,

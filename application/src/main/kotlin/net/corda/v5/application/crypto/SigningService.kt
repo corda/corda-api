@@ -40,7 +40,7 @@ interface SigningService {
      * @throws [CordaRuntimeException] If the input key is not a member of [keys].
      */
     @Suspendable
-    fun sign(payload: ByteArray, metadata: Map<String, String>?, publicKey: PublicKey, digestAlgorithmName: DigestAlgorithmName?): DigitalSignature.WithKey
+    fun sign(payload: ByteArray, metadata: Map<String, String>?, publicKey: PublicKey, digestAlgorithmName: DigestAlgorithmName?): DigitalSignature.WithMetadata
 
     /**
      * Using the provided signing [PublicKey], internally looks up the matching [PrivateKey] and signs the data.
@@ -62,7 +62,7 @@ interface SigningService {
      * @throws [CordaRuntimeException] If the input key is not a member of [keys].
      */
     @Suspendable
-    fun sign(payload: ByteArray, metadata: Map<String, String>?, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithKey
+    fun sign(payload: ByteArray, metadata: Map<String, String>?, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithMetadata
 
     /**
      * Work out the best [SignatureSpec] to use for a given public key and possibly a specific digest algorithm
