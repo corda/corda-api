@@ -6,9 +6,9 @@
   "type": "object",
   "patternProperties": {
     "^corda.roles.[0-9]+$": {
-      "description": "The member role. Can be multiple specified by index.",
+      "description": "The member roles. Can be multiple specified by index.",
       "type": "string",
-      "enum": ["notary", "member"],
+      "enum": ["notary"],
       "examples": [
         "notary"
       ]
