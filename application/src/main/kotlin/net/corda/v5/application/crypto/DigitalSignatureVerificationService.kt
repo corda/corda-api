@@ -1,6 +1,8 @@
 package net.corda.v5.application.crypto
 
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.crypto.DigestAlgorithmName
+import net.corda.v5.crypto.DigitalSignature
 import net.corda.v5.crypto.SignatureSpec
 import net.corda.v5.crypto.exceptions.CryptoSignatureException
 import java.security.PublicKey
@@ -13,17 +15,35 @@ import java.security.PublicKey
 @DoNotImplement
 interface DigitalSignatureVerificationService {
     /**
-     * Verifies a digital signature by using [signatureSpec].
-     * Always throws an exception if verification fails.
      *
-     * @param publicKey The signer's [PublicKey].
-     * @param signatureSpec The signature spec.
-     * @param signatureData The signatureData on a message.
-     * @param clearData The clear data/message that was signed (usually the Merkle root).
+     * Check a payload and signature, and optionally a digest algorithm, check the signature matches using a specific public key.
+     * This overload is preferable so that calling code does not need to assume specific cryptographic algorithms, since
+     * the best choices change over time.
+     *
+     * @param payload The payload/message that may be in clear data that was signed (e.g. the Merkle root).
+     * @param signatureData The signature data and public key, which should have been earlier produced by [SigningService.sign].
+     *
+     * @return The metadata associated with the signature, passed in to [SigningService.sign]
      *
      * @throws CryptoSignatureException If verification of the digital signature fails.
      * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
      * data is empty.
      */
-    fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
+    fun verify(payload: ByteArray, signatureData: DigitalSignature.WithKey,  digestAlgorithmName: DigestAlgorithmName?): Map<String, String>
+
+    /**
+     *
+     * Check a payload and signature, and optionally a digest algorithm, check the signature matches using a specific public key.
+     * This overload allows the called to precisely select an algorithm when control is required. In most cases please use
+     * the overload above so that the currently most appropriate algorithm can be chosen by the serivce.
+     *
+     * @param payload The payload/message that may be in clear data that was signed (e.g. the Merkle root).
+     * @param signatureData The signature data and public key, which should have been earlier produced by [SigningService.sign].
+     * @param signatureSpec The expected specific signature spec.
+     *
+     * @throws CryptoSignatureException If verification of the digital signature fails.
+     * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
+     * data is empty.
+     */
+    fun verify(payload: ByteArray, signatureData: DigitalSignature.WithKey, signatureSpec: SignatureSpec): Map<String, String>
 }
