@@ -10,6 +10,11 @@
       "doc": "The holding identity of the user making the db request."
     },
     {
+      "name": "cpiIdentifier",
+      "type": "net.corda.data.packaging.CpiIdentifier"
+      "doc": "The identifier of the CPI from which a sandbox should be created."
+    },
+    {
       "name": "request",
       "doc": "The 'request' that we wish to make to the persistence API.",
       "type": [
