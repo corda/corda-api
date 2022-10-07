@@ -94,6 +94,12 @@
       "type": "integer",
       "default": 4,
       "minimum": 1
+    },
+    "sessionRefreshThreshold": {
+      "description": "Session refresh threshold in milliseconds - *important* do not change",
+      "type": "integer",
+      "default": 432000000,
+      "minimum": 432000000
     }
   },
   "additionalProperties": false
