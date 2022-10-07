@@ -19,7 +19,7 @@
     },
     {
       "name": "cpiId",
-      "type": "string"
+      "type": "net.corda.data.packaging.CpiIdentifier"
     },
     {
       "name": "flowId",
