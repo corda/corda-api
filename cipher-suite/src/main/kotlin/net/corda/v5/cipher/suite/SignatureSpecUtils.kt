@@ -12,7 +12,6 @@ import java.security.spec.AlgorithmParameterSpec
  */
 fun SignatureSpec.getParamsSafely(): AlgorithmParameterSpec? =
     when(this) {
-        is CustomSignatureSpec -> params
         is ParameterizedSignatureSpec -> params
         else -> null
     }

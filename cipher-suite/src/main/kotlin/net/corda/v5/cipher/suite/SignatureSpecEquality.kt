@@ -45,10 +45,6 @@ fun SignatureSpec?.equal(right: SignatureSpec?): Boolean =
         false
     } else {
         when(this) {
-            is CustomSignatureSpec -> {
-                right as CustomSignatureSpec
-                customDigestName == right.customDigestName && params.paramsAreEqual(right.params)
-            }
             is ParameterizedSignatureSpec -> {
                 right as ParameterizedSignatureSpec
                 params.paramsAreEqual(right.params)

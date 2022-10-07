@@ -1,6 +1,5 @@
 package net.corda.v5.cipher.suite
 
-import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.ParameterizedSignatureSpec
 import net.corda.v5.crypto.SignatureSpec
 import org.junit.jupiter.api.Assertions.assertNull
@@ -29,31 +28,5 @@ class SignatureSpecUtilsTests {
             )
         )
         assertSame(spec.params, spec.getParamsSafely())
-    }
-
-    @Test
-    fun `getParamsSafely should return params for CustomSignatureSpec when they are set`() {
-        val spec = CustomSignatureSpec(
-            "RSA/NONE/PKCS1Padding",
-            DigestAlgorithmName.SHA2_256,
-            PSSParameterSpec(
-                "SHA-256",
-                "MGF1",
-                MGF1ParameterSpec.SHA256,
-                32,
-                1
-            )
-        )
-        assertSame(spec.params, spec.getParamsSafely())
-    }
-
-    @Test
-    fun `getParamsSafely should return null for CustomSignatureSpec when they are not set`() {
-        val spec = CustomSignatureSpec(
-            "RSA/NONE/PKCS1Padding",
-            DigestAlgorithmName.SHA2_256,
-            null
-        )
-        assertNull(spec.getParamsSafely())
     }
 }
