@@ -42,7 +42,7 @@ public class JsonNodeReaderJavaApiTest {
     @Test
     void callEveryMethod() {
         JsonNodeReaderType type = jnr.getType();
-        
+
         boolean isObject = jnr.isObject();
         Iterator<Map.Entry<String, JsonNodeReader>> fieldIt = jnr.fields();
         boolean hasField = jnr.hasField(TEST_STRING);
@@ -56,8 +56,7 @@ public class JsonNodeReaderJavaApiTest {
         boolean asBooleanDefault = jnr.asBoolean(true);
 
         boolean isNumber = jnr.isNumber();
-        Number asNumber = jnr.asNumber();
-        Number asNumberDefault = jnr.asNumber(TEST_NUMBER);
+        Number asNumber = jnr.numberValue();
 
         boolean isFloatingPointNumber = jnr.isFloatingPointNumber();
 
@@ -66,7 +65,6 @@ public class JsonNodeReaderJavaApiTest {
         double asDouble = jnr.asDouble();
         double asDoubleDefault = jnr.asDouble(1.1);
 
-        Boolean isFloat = jnr.isFloat();
         float floatValue = jnr.floatValue();
 
         boolean isInt = jnr.isInt();
@@ -74,24 +72,19 @@ public class JsonNodeReaderJavaApiTest {
         int asInt = jnr.asInt();
         int asIntDefault = jnr.asInt(0);
 
-        boolean isLong = jnr.isLong();
         boolean canConvertToLong = jnr.canConvertToLong();
         long asLong = jnr.asLong();
         long asLongDefault = jnr.asLong(0L);
 
-        boolean isShort = jnr.isShort();
         short shortValue = jnr.shortValue();
 
-        boolean isBigInteger = jnr.isBigInteger();
         BigInteger bigInteger = jnr.bigIntegerValue();
-        boolean isBigDecimal = jnr.isBigDecimnal();
         BigDecimal bigDecimal = jnr.bigDecimalValue();
 
         boolean isText = jnr.isText();
         String asTest = jnr.asText();
         String asTestDefault = jnr.asText(TEST_STRING);
 
-        boolean isBinary = jnr.isBinary();
         byte[] binaryValue = jnr.binaryValue();
 
         boolean isNull = jnr.isNull();
