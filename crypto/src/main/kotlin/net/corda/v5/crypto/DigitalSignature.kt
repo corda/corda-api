@@ -11,7 +11,7 @@ import java.security.PublicKey
  * @param bytes The signature.
  */
 @CordaSerializable
-open class DigitalSignature(
+class DigitalSignature(
     bytes: ByteArray
 ) : OpaqueBytes(bytes) {
     /**
