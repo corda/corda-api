@@ -43,7 +43,8 @@ interface CipherSuiteBase : SecureRandomProvider {
 
     /**
      * Returns a registered [VerifySignatureHandler] for the given key scheme or null if none is registered.
-     */    fun findVerifySignatureHandler(schemeCodeName: String): VerifySignatureHandler?
+     */
+    fun findVerifySignatureHandler(schemeCodeName: String): VerifySignatureHandler?
 
     /**
      * Returns a registered [KeyEncodingHandler] for the given key scheme or null if none is registered.
@@ -54,4 +55,9 @@ interface CipherSuiteBase : SecureRandomProvider {
      * Returns all registered handlers in the ranking order without duplication.
      */
     fun getAllKeyEncodingHandlers(): List<KeyEncodingHandler>
+
+    /**
+     * Returns information about supported key schemes.
+     */
+    fun getAllSupportedKeySchemes(): List<KeySchemeInfo>
 }
