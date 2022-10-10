@@ -59,5 +59,5 @@ interface KeyEncodingHandler : CipherSuiteHandler {
      * @throws IllegalArgumentException if the key scheme is not supported.
      * @throws net.corda.v5.crypto.exceptions.CryptoException for general cryptographic exceptions.
      */
-    fun encodeAsPem(scheme: KeyScheme, publicKey: PublicKey): String
+    fun encodeAsPem(publicKey: PublicKey): String
 }
