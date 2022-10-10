@@ -20,7 +20,7 @@
             <column name="issue_tx_id" type="VARBINARY(64)">
                 <constraints nullable="false"/>
             </column>
-            <column name="issue_tx_output_idx" type="bigint">
+            <column name="issue_tx_output_idx" type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="consuming_tx_id_algo" type="VARCHAR(8)">
