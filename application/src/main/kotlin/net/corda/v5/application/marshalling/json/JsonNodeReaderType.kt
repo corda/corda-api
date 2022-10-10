@@ -10,11 +10,6 @@ enum class JsonNodeReaderType {
     ARRAY,
 
     /**
-     * Binary data as bytes.
-     */
-    BINARY,
-
-    /**
      * Boolean, either true or false.
      */
     BOOLEAN,
@@ -33,11 +28,6 @@ enum class JsonNodeReaderType {
      * A Json object.
      */
     OBJECT,
-
-    /**
-     * A Java object (POJO) which was serialized and can be extracted as an already deserialized Java object.
-     */
-    POJO,
 
     /**
      * Text.
