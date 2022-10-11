@@ -70,12 +70,12 @@ public class ConsensualTransactionBuilderJavaApiTest {
     public void signInitial() {
         final PublicKey publicKey = mock(PublicKey.class);
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.signInitial(publicKey)).thenReturn(mockSignedTransaction);
+        when(consensualTransactionBuilder.sign(publicKey)).thenReturn(mockSignedTransaction);
 
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.signInitial(publicKey);
+        final ConsensualSignedTransaction result = consensualTransactionBuilder.sign(publicKey);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).signInitial(publicKey);
+        verify(consensualTransactionBuilder, times(1)).sign(publicKey);
     }
 }

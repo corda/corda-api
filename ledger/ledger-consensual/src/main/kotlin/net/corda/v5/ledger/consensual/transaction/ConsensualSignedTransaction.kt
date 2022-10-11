@@ -49,7 +49,16 @@ interface ConsensualSignedTransaction {
      *      [ConsensualSignedTransaction].
      * @return Returns a new [ConsensualSignedTransaction] containing the applied signature.
      */
-    fun addSignature(publicKey: PublicKey): ConsensualSignedTransaction
+    fun sign(publicKey: PublicKey): ConsensualSignedTransaction
+
+    /**
+     * Adds a signature to the current [ConsensualSignedTransaction].
+     *
+     * @param signature The signature tobe added to the [ConsensualSignedTransaction].
+     *
+     * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
+     */
+    fun addSignature(signature: DigitalSignatureAndMetadata): ConsensualSignedTransaction
 
     /**
      * Gets the signing keys for any missing transaction signatures.

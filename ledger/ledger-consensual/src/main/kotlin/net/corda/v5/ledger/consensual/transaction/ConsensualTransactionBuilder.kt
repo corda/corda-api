@@ -44,5 +44,5 @@ interface ConsensualTransactionBuilder {
      *      transactions accidentally.
      */
     @Suspendable
-    fun signInitial(publicKey: PublicKey): ConsensualSignedTransaction
+    fun sign(publicKey: PublicKey): ConsensualSignedTransaction
 }
