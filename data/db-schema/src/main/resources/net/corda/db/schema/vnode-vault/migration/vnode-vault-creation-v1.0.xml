@@ -107,11 +107,8 @@
                        tableName="vnode_member_signature"/>
 
         <createTable tableName="vnode_group_parameters">
-            <column name="epoch" type="INT" autoIncrement="true">
+            <column name="epoch" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="last_modified" type="TIMESTAMP">
-                <constraints nullable="false"/>
             </column>
             <column name="parameters" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
