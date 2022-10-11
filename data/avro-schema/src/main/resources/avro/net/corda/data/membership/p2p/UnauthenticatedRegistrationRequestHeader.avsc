@@ -10,15 +10,12 @@
     },
     {
       "name": "timestamp",
-      "doc": "Time ([Instant]) in milliseconds of the response.",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      }
+      "doc": "Milliseconds since epoch.",
+      "type": "long"
     },
     {
-      "name": "keyId",
-      "doc": "ID of the ECDH key.",
+      "name": "key",
+      "doc": "Member's ephemeral key.",
       "type": "string"
     }
   ]
