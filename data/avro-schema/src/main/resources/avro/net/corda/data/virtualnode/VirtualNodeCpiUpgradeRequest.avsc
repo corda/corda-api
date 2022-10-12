@@ -25,27 +25,33 @@
     },
     {
       "name": "stage",
-      "type": ["null", "string"],
+      "type": "string",
       "doc": "Current stage of the upgrade process."
     },
     {
       "name": "status",
-      "type": "string",
+      "type": "net.corda.data.async.AsyncStatus",
       "doc": "Status of the asynchronous request."
     },
     {
-      "name": "startTime",
-      "type": "string",
-      "doc": "Status of the asynchronous request."
+      "name": "requestTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the request."
     },
     {
-      "name": "endTime",
-      "type": "string",
-      "doc": "Status of the asynchronous request."
+      "name": "completedTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the request."
     },
     {
       "name": "errors",
-      "type": ["null", "net.corda.data.virtualnode.AsyncErrors"],
+      "type": ["null", "net.corda.data.async.AsyncErrors"],
       "doc": "If any error occurred."
     }
   ]

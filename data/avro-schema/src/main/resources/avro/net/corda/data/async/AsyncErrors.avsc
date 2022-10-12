@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "AsyncErrors",
-  "namespace": "net.corda.data.virtualnode",
+  "namespace": "net.corda.data.async",
   "fields": [
     {
       "name": "code",

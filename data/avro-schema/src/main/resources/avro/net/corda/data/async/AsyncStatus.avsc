@@ -1,0 +1,7 @@
+{
+  "type": "enum",
+  "name": "AsyncStatus",
+  "namespace": "net.corda.data.async",
+  "symbols": ["IN_PROGRESS", "COMPLETED"],
+  "doc": "Status of an asynchronous request."
+}
