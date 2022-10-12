@@ -34,6 +34,16 @@
       "doc": "Status of the asynchronous request."
     },
     {
+      "name": "startTime",
+      "type": "string",
+      "doc": "Status of the asynchronous request."
+    },
+    {
+      "name": "endTime",
+      "type": "string",
+      "doc": "Status of the asynchronous request."
+    },
+    {
       "name": "errors",
       "type": ["null", "net.corda.data.virtualnode.AsyncErrors"],
       "doc": "If any error occurred."
