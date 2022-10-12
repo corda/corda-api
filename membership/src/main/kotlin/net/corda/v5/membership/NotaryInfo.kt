@@ -1,14 +1,13 @@
 package net.corda.v5.membership
 
 import net.corda.v5.base.annotations.CordaSerializable
-import net.corda.v5.base.types.LayeredPropertyMap
 import net.corda.v5.base.types.MemberX500Name
 
 /**
  * Stores information about a notary service available in the network.
  */
 @CordaSerializable
-interface NotaryInfo : LayeredPropertyMap {
+interface NotaryInfo {
     /**
      * Identity of the notary (note that it can be an identity of the distributed node).
      *
