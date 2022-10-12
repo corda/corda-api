@@ -3,6 +3,7 @@ package net.corda.v5.ledger.consensual.transaction
 import java.security.PublicKey
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
 
 /**
@@ -49,12 +50,13 @@ interface ConsensualSignedTransaction {
      *      [ConsensualSignedTransaction].
      * @return Returns a new [ConsensualSignedTransaction] containing the applied signature.
      */
+    @Suspendable
     fun sign(publicKey: PublicKey): ConsensualSignedTransaction
 
     /**
      * Adds a signature to the current [ConsensualSignedTransaction].
      *
-     * @param signature The signature tobe added to the [ConsensualSignedTransaction].
+     * @param signature The signature to be added to the [ConsensualSignedTransaction].
      *
      * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
      */
