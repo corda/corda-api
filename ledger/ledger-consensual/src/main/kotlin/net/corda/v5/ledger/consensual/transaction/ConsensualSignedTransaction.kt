@@ -62,6 +62,19 @@ interface ConsensualSignedTransaction {
      */
     fun addSignature(signature: DigitalSignatureAndMetadata): ConsensualSignedTransaction
 
+
+    /**
+     * Crosschecks the missing signatures with the available keys and signs the transaction with their intersection
+     * if there are any. (Disabled until crypto support becomes available.)
+     *
+     * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
+     *
+    @Suspendable
+     * @return Returns the new [ConsensualSignedTransaction] containing the applied signature and a
+     *          list of added signatures.
+    fun addMissingSignatures(): Pair(ConsensualSignedTransaction, list<DigitalSignatureAndMetadata>)
+    */
+
     /**
      * Gets the signing keys for any missing transaction signatures.
      *
