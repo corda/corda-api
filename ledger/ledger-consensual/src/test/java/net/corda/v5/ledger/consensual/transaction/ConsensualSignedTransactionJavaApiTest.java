@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.consensual.transaction;
 
+import kotlin.Pair;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
@@ -60,20 +61,21 @@ public class ConsensualSignedTransactionJavaApiTest {
     }
 
     @Test
-    public void sign() {
+    public void addSignaturePublicKey() {
         PublicKey mockPublicKey = mock(PublicKey.class);
         final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualSignedTransaction.sign(mockPublicKey)).thenReturn(consensualSignedTransaction);
+        Pair<ConsensualSignedTransaction, DigitalSignatureAndMetadata> expectedResult = new Pair(consensualSignedTransaction, signatureWithMetaData);
+        when(consensualSignedTransaction.addSignature(mockPublicKey)).thenReturn(expectedResult);
 
-        final ConsensualSignedTransaction result = consensualSignedTransaction.sign(mockPublicKey);
+        final Pair<ConsensualSignedTransaction, DigitalSignatureAndMetadata> result = consensualSignedTransaction.addSignature(mockPublicKey);
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(consensualSignedTransaction);
-        verify(consensualSignedTransaction, times(1)).sign(mockPublicKey);
+        Assertions.assertThat(result).isEqualTo(expectedResult);
+        verify(consensualSignedTransaction, times(1)).addSignature(mockPublicKey);
     }
 
     @Test
-    public void addSignature() {
+    public void addSignatureSignature() {
         final ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
         when(consensualSignedTransaction.addSignature(signatureWithMetaData)).thenReturn(consensualSignedTransaction);
 

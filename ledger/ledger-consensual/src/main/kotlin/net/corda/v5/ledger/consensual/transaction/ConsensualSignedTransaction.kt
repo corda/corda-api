@@ -48,10 +48,10 @@ interface ConsensualSignedTransaction {
      *
      * @param publicKey The private counterpart of the specified public key will be used for signing the
      *      [ConsensualSignedTransaction].
-     * @return Returns a new [ConsensualSignedTransaction] containing the applied signature.
+     * @return Returns the new [ConsensualSignedTransaction] containing the applied signature and the signature itself.
      */
     @Suspendable
-    fun sign(publicKey: PublicKey): ConsensualSignedTransaction
+    fun addSignature(publicKey: PublicKey): Pair<ConsensualSignedTransaction, DigitalSignatureAndMetadata>
 
     /**
      * Adds a signature to the current [ConsensualSignedTransaction].
