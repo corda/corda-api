@@ -1,7 +1,5 @@
 package net.corda.v5.application.uniqueness.model
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
-
 /**
  * This is a response class that wraps the result of the uniqueness checking and a potential signature,
  * if the request was processed successfully.

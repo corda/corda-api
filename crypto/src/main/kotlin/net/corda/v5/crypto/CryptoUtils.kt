@@ -101,9 +101,6 @@ fun PublicKey.containsAny(otherKeys: Iterable<PublicKey>): Boolean {
     else this in otherKeys
 }
 
-/** Returns the set of all [PublicKey]s of the signatures. */
-fun Iterable<DigitalSignature.WithKey>.byKeys() = map { it.by }.toSet()
-
 /**
  * Allows Kotlin destructuring, the [PrivateKey] of this [KeyPair].
  * ```kotlin

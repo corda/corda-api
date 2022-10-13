@@ -1,8 +1,8 @@
 package net.corda.v5.ledger.consensual.transaction
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.crypto.DigitalSignature
 import net.corda.v5.crypto.SecureHash
 import java.security.PublicKey
 
@@ -35,7 +35,7 @@ interface ConsensualSignedTransaction {
     /**
      * @property signatures The signatures that have been applied to the transaction.
      */
-    val signatures: List<DigitalSignatureAndMetadata>
+    val signatures: List<DigitalSignature>
 
     /**
      * Converts the current [ConsensualSignedTransaction] into a [ConsensualLedgerTransaction].

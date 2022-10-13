@@ -5,50 +5,22 @@ import net.corda.v5.base.types.OpaqueBytes
 import java.security.PublicKey
 
 /**
- * A wrapper around a digital signature.
+ * A representation of a digital signature.
  *
  * @property bytes The signature.
- * @param bytes The signature.
+ * @param spec The signature specification, which is a boxed string such as "SHA256withRSA".
+ * @param publicKeyHash The hash of the public key of the key pair used to produce the signature. The reason
+ *                      this is not the plain public key is that people should never just pick up the key from
+ *                      a digital signature itself to check the signature is valid. Instead, the only safe thing
+ *                      to do is to get hold of the set of valid public keys by some other means. Since there may
+ *                      in general have been a large number of key pairs which were used, we include the hash so
+ *                      you don't have to check a large population of keys.
  */
+
 @CordaSerializable
 class DigitalSignature(
-    bytes: ByteArray
-) : OpaqueBytes(bytes) {
-    /**
-     * A digital signature that identifies who the public key is owned by.
-     *
-     * @param by The public key of the corresponding private key used to sign the data (as if an instance
-     * of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
-     * the member).
-     * @param bytes The signature.
-     * @param context The context which was passed to the signing operation, note that this context is not signed over.
-     */
-    open class WithKey(
-        /**
-         * Public key which corresponding private key was used to sign the data (as if an instance
-         * of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
-         * the member).
-         */
-        val by: PublicKey,
-        bytes: ByteArray,
-        /**
-         * The context which was passed to the signing operation, note that this context is not signed over.
-         */
-        val context: Map<String, String>
-    ) : DigitalSignature(bytes)
+    val bytes: ByteArray,
+    val spec: SignatureSpec,
+    val publicKeyHash: SecureHash
+)
 
-    class WithMetadata(
-        /**
-         * Public key which corresponding private key was used to sign the data (as if an instance
-         * of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
-         * the member).
-         */
-        by: PublicKey,
-        bytes: ByteArray,
-        /**
-         * The metadata which was used by the signing operation, note that the metadata **is signed over**.
-         * The format will be stable and consistent. The actual signing data is concatenation of the serialised metadata and the  payload data.
-         */
-        metadata: Map<String, String>,
-    ) : WithKey(by, bytes, context)
-}

@@ -12,9 +12,9 @@ import java.util.HashMap;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 
-class SigningServiceJavaApiTest {
+class DigitalSigningServiceJavaApiTest {
 
-    private final SigningService signingService = mock(SigningService.class);
+    private final DigitalSigningService signingService = mock(DigitalSigningService.class);
     private final PublicKey publicKey = mock(PublicKey.class);
     private final SignatureSpec spec = new SignatureSpec("mock");
 
