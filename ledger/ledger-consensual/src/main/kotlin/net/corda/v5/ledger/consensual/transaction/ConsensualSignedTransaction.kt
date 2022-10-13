@@ -81,6 +81,13 @@ interface ConsensualSignedTransaction {
      * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
      */
     fun getMissingSigningKeys(): Set<PublicKey>
+
+    /**
+     * Verify all available signatures and whether there are any missing ones.
+     *
+     * @throws TransactionVerificationException in both cases.
+     */
+    fun verifySignatureValidity()
 }
 
 
