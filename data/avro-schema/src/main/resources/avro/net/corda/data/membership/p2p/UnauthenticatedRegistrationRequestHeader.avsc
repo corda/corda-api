@@ -6,6 +6,7 @@
   "fields": [
     {
       "name": "protocolVersion",
+      "doc": "Version of the registration protocol.",
       "type": "int"
     },
     {
@@ -15,7 +16,7 @@
     },
     {
       "name": "key",
-      "doc": "Member's ephemeral key.",
+      "doc": "Member's ephemeral key encoded in PEM format.",
       "type": "string"
     }
   ]
