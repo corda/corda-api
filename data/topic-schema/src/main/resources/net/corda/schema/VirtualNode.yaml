@@ -46,6 +46,11 @@ topics:
     consumers:
     producers:
     config:
+  VirtualNodeUpgradeStatusTopic:
+    name: virtual.node.upgrade.status
+    consumers:
+    producers:
+    config:
   VirtualNodeCreationRequestTopic:
     name: virtual.node.creation.request
     consumers:
