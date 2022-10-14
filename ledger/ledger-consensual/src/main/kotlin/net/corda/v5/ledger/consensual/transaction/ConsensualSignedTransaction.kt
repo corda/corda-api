@@ -87,7 +87,7 @@ interface ConsensualSignedTransaction {
      *
      * @throws TransactionVerificationException if any signatures are invalid or missing.
      */
-    fun verifySignatureValidity()
+    fun verifySignatures()
 }
 
 
