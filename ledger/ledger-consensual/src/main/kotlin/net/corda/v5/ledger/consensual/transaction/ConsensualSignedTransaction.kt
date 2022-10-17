@@ -60,8 +60,8 @@ interface ConsensualSignedTransaction {
      *
      * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
      */
+    @Suspendable
     fun addSignature(signature: DigitalSignatureAndMetadata): ConsensualSignedTransaction
-
 
     /**
      * Crosschecks the missing signatures with the available keys and signs the transaction with their intersection
@@ -80,6 +80,7 @@ interface ConsensualSignedTransaction {
      *
      * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
      */
+    @Suspendable
     fun getMissingSigningKeys(): Set<PublicKey>
 
     /**
@@ -87,6 +88,7 @@ interface ConsensualSignedTransaction {
      *
      * @throws TransactionVerificationException if any signatures are invalid or missing.
      */
+    @Suspendable
     fun verifySignatures()
 }
 
