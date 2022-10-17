@@ -1,4 +1,4 @@
-package net.corda.schema.configuration
+package net.corda.rbac.schema
 
 /**
  * A set of constants which is used for HTTP Role Based Access Control (RBAC) checks
