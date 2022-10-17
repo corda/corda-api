@@ -1,10 +1,10 @@
 package net.corda.v5.ledger.consensual.transaction
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
-import net.corda.v5.base.annotations.CordaSerializable
-import net.corda.v5.base.annotations.DoNotImplement
-import net.corda.v5.crypto.SecureHash
 import java.security.PublicKey
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
+import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.crypto.SecureHash
 
 /**
  * Defines a signed Consensual transaction.
@@ -25,7 +25,6 @@ import java.security.PublicKey
  * Thus adding or removing a signature does not change it.
  */
 @DoNotImplement
-@CordaSerializable
 interface ConsensualSignedTransaction {
     /**
      * @property id The ID of the transaction.
@@ -49,16 +48,48 @@ interface ConsensualSignedTransaction {
      *
      * @param publicKey The private counterpart of the specified public key will be used for signing the
      *      [ConsensualSignedTransaction].
-     * @return Returns a new [ConsensualSignedTransaction] containing the applied signature.
+     * @return Returns the new [ConsensualSignedTransaction] containing the applied signature and the signature itself.
      */
-    fun addSignature(publicKey: PublicKey): ConsensualSignedTransaction
+    @Suspendable
+    fun addSignature(publicKey: PublicKey): Pair<ConsensualSignedTransaction, DigitalSignatureAndMetadata>
+
+    /**
+     * Adds a signature to the current [ConsensualSignedTransaction].
+     *
+     * @param signature The signature to be added to the [ConsensualSignedTransaction].
+     *
+     * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
+     */
+    @Suspendable
+    fun addSignature(signature: DigitalSignatureAndMetadata): ConsensualSignedTransaction
+
+    /**
+     * Crosschecks the missing signatures with the available keys and signs the transaction with their intersection
+     * if there are any. (Disabled until crypto support becomes available.)
+     *
+     * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
+     *
+    @Suspendable
+     * @return Returns the new [ConsensualSignedTransaction] containing the applied signature and a
+     *          list of added signatures.
+    fun addMissingSignatures(): Pair(ConsensualSignedTransaction, list<DigitalSignatureAndMetadata>)
+    */
 
     /**
      * Gets the signing keys for any missing transaction signatures.
      *
      * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
      */
+    @Suspendable
     fun getMissingSigningKeys(): Set<PublicKey>
+
+    /**
+     * Verify all available signatures and whether there are any missing ones.
+     *
+     * @throws TransactionVerificationException if any signatures are invalid or missing.
+     */
+    @Suspendable
+    fun verifySignatures()
 }
 
 
