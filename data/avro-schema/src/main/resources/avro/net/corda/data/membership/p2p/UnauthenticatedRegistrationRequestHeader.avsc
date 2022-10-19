@@ -16,7 +16,7 @@
     },
     {
       "name": "key",
-      "doc": "Member's ephemeral key encoded in PEM format.",
+      "doc": "Member's public ephemeral key encoded in PEM format.",
       "type": "string"
     }
   ]
