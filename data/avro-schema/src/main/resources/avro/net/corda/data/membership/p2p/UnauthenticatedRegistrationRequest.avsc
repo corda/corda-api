@@ -2,7 +2,7 @@
   "type": "record",
   "name": "UnauthenticatedRegistrationRequest",
   "namespace": "net.corda.data.membership.p2p",
-  "doc": "",
+  "doc": "The unauthenticated registration request which is required as a first step to establish secure connection between member and MGM.",
   "fields": [
     {
       "name": "header",
