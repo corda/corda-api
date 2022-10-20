@@ -96,10 +96,10 @@
       "minimum": 1
     },
     "sessionRefreshThreshold": {
-      "description": "Session refresh threshold in milliseconds - *important* do not change",
+      "description": "Session refresh threshold in milliseconds. The default is five days.",
       "type": "integer",
       "default": 432000000,
-      "minimum": 432000000
+      "maximum": 432000000
     }
   },
   "additionalProperties": false
