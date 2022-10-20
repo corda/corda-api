@@ -154,7 +154,7 @@
             <column name="content" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="change_uuid" type="VARCHAR(255)">
+            <column name="change_uuid" type="UUID">
                 <constraints nullable="false"/>
             </column>
             <!-- audit -->
@@ -198,7 +198,7 @@
             <column name="content" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="change_uuid" type="VARCHAR(255)">
+            <column name="change_uuid" type="UUID">
                 <constraints nullable="false"/>
             </column>
             <column name="is_deleted" type="BOOLEAN">
