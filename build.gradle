@@ -17,6 +17,8 @@ buildscript {
     }
 }
 
+// DO NOT MERGE CHANGE
+
 plugins {
     id 'net.corda.cordapp.cordapp-configuration'
     id 'org.jetbrains.kotlin.jvm' apply false
