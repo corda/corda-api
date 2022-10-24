@@ -13,4 +13,3 @@ interface NotarisationPayload {
     val requestSignature: NotarisationRequestSignature
     val validTypes: List<Class<*>>
 }
-
