@@ -4,7 +4,6 @@ import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
 import net.corda.v5.membership.NotaryInfo
-import java.security.PublicKey
 
 /**
  * [NotaryLookup] allows flows to retrieve the [NotaryInfo] in the network.
@@ -45,16 +44,6 @@ interface NotaryLookup {
      * 		no such notary exists.
      */
     fun lookup(notaryServiceName: MemberX500Name): NotaryInfo?
-
-    /**
-     * Looks up the notary information of a notary by public key.
-     *
-     * @param publicKey The [PublicKey] of the notary service to retrieve.
-     *
-     * @return The [NotaryInfo] that matches the input [publicKey], or null
-     * 		if no such notary exists.
-     */
-    fun lookup(publicKey: PublicKey): NotaryInfo?
 
     /**
      * Returns true if and only if the given [virtualNodeName] is a notary, which is
