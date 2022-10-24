@@ -6,8 +6,13 @@
   "fields": [
     {
       "name": "usage",
-      "doc": "The certificate usage. Either CertificateType or holding identity ID.",
-      "type": ["net.corda.data.certificates.CertificateType", "string"]
+      "doc": "The certificate usage.",
+      "type": "net.corda.data.certificates.CertificateUsage"
+    },
+    {
+        "name": "holdingIdentity",
+        "doc": "The holding identity (null for cluster certificate).",
+        "type": ["null", "string"]
     },
     {
       "name": "request",
