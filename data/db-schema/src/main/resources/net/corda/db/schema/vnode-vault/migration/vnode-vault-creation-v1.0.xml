@@ -13,17 +13,20 @@
         <addPrimaryKey columnNames="holding_identity_id" constraintName="vnode_vault_pk" tableName="vnode_vault"/>
 
         <createTable tableName="vnode_certificate">
-            <column name="usage" type="VARCHAR(255)">
+            <column name="alias" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="alias" type="VARCHAR(255)">
+            <column name="usage" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="raw_certificate" type="TEXT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="usage, alias" constraintName="vnode_certificate_pk" tableName="vnode_certificate"/>
+        <addPrimaryKey columnNames="alias" constraintName="vnode_certificate_pk" tableName="vnode_certificate"/>
+        <createIndex indexName="vnode_certificate_usage" tableName="vnode_certificate" schemaName="${schema.name}">
+            <column name="usage"/>
+        </createIndex>
 
         <createTable tableName="vnode_registration_request">
             <column name="registration_id" type="NVARCHAR(255)">

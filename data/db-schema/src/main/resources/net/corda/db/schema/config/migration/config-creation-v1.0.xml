@@ -312,10 +312,10 @@
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
         <createTable tableName="cluster_certificate" schemaName="${schema.name}">
-            <column name="usage" type="VARCHAR(255)">
+            <column name="alias" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="alias" type="VARCHAR(255)">
+            <column name="usage" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="raw_certificate" type="TEXT">
@@ -323,7 +323,10 @@
             </column>
         </createTable>
 
-        <addPrimaryKey tableName="cluster_certificate" columnNames="usage, alias" constraintName="certificate_pk"
+        <addPrimaryKey tableName="cluster_certificate" columnNames="alias" constraintName="certificate_pk"
                        schemaName="${schema.name}"/>
+        <createIndex indexName="cluster_certificate_usage" tableName="cluster_certificate" schemaName="${schema.name}">
+            <column name="usage"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>
