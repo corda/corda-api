@@ -12,7 +12,7 @@
     {
       "name": "status",
       "type": "string",
-      "doc": "transaction status"
+      "doc": "the transaction status"
     }
   ]
 }
