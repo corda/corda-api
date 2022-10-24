@@ -15,6 +15,7 @@
         "net.corda.data.crypto.wire.CryptoPublicKey",
         "net.corda.data.crypto.wire.CryptoSigningKeys",
         "net.corda.data.crypto.wire.CryptoSignatureWithKey",
+        "net.corda.data.crypto.wire.CryptoSignatureWithSignatureSpec",
         "net.corda.data.crypto.wire.CryptoNoContentValue"
       ],
       "doc": "Response's payload, depends on the requested operation"
