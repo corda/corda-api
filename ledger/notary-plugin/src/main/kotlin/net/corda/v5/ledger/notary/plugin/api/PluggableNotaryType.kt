@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.notary.pluggable
+package net.corda.v5.ledger.notary.plugin.api
 
 /**
  * An annotation used on [PluggableNotaryClientFlowProvider] implementations to define the

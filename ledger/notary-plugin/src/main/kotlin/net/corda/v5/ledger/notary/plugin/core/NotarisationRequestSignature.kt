@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.notary.pluggable
+package net.corda.v5.ledger.notary.plugin.core
 
 import net.corda.v5.crypto.DigitalSignature
 

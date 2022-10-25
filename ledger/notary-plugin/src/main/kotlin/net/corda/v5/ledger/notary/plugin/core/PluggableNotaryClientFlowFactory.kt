@@ -1,6 +1,7 @@
-package net.corda.v5.ledger.notary.pluggable
+package net.corda.v5.ledger.notary.plugin.core
 
 import net.corda.v5.ledger.common.Party
+import net.corda.v5.ledger.notary.plugin.api.PluggableNotaryClientFlow
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
 
 /**

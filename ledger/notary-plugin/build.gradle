@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
 }
 
-description 'Corda Ledger Common'
+description 'Corda Notary Plugin API and Core'
 
 dependencies {
     api platform(project(':corda-api'))
