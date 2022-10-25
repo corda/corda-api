@@ -89,6 +89,7 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
      */
     fun inferSignatureSpec(publicKey: PublicKey, digest: DigestAlgorithmName): SignatureSpec?
 
+    // TODO kdoc
     fun inferSignatureSpec(publicKey: PublicKey): SignatureSpec?
 
     /**
