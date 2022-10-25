@@ -43,6 +43,7 @@ interface NotaryLookup {
      * @return The [NotaryInfo] that matches the input [notaryServiceName], or null if
      * 		no such notary exists.
      */
+    @Suspendable
     fun lookup(notaryServiceName: MemberX500Name): NotaryInfo?
 
     /**
@@ -54,5 +55,6 @@ interface NotaryLookup {
      * @return true if the input [virtualNodeName] is a notary, or false if it is not
      * 		a notary or does not exist.
      */
+    @Suspendable
     fun isNotaryVirtualNode(virtualNodeName: MemberX500Name): Boolean
 }
