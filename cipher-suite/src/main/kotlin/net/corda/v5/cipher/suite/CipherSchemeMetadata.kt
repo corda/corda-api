@@ -82,12 +82,14 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     /**
      * Infers the signature spec from the [PublicKey] and [DigestAlgorithmName]. The [digest] may be ignored for some
      * public key types as the digest is integral part of the signing/verification, e.g. if the [publicKey] is 'EdDSA'
-     * hen the [digest] is set to "EdDSA" by the platform's default implementation.
+     * then the [digest] is set to "EdDSA" by the platform's default implementation.
      *
      * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
      * otherwise null.
      */
     fun inferSignatureSpec(publicKey: PublicKey, digest: DigestAlgorithmName): SignatureSpec?
+
+    fun inferSignatureSpec(publicKey: PublicKey): SignatureSpec?
 
     /**
      * Returns list of the non-custom signature specs for the given [KeyScheme] with the signatureName
