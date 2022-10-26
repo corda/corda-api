@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "CryptoSignatureWithSignatureSpec",
+  "name": "CryptoSignatureWithSpec",
   "namespace": "net.corda.data.crypto.wire",
   "doc": "Internal over-the-wire digital signature with signature spec for crypto services",
   "fields": [
