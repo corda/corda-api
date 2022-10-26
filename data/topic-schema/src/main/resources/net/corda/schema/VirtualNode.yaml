@@ -41,13 +41,13 @@ topics:
     consumers:
     producers:
     config:
-  VirtualNodeUpgradeTopic:
-    name: virtual.node.upgrade
+  VirtualNodeAsynchronousRequestTopic:
+    name: virtual.node.asynchronous.request
     consumers:
     producers:
     config:
-  VirtualNodeUpgradeStatusTopic:
-    name: virtual.node.upgrade.status
+  VirtualNodeRequestStatusTopic:
+    name: virtual.node.request.status
     consumers:
     producers:
     config:

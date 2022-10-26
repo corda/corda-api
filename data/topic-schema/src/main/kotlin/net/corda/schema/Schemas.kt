@@ -113,7 +113,6 @@ class Schemas {
             const val EVENT_TOPIC = "membership.event"
 
             const val REGISTRATION_COMMAND_TOPIC = "membership.registration"
-            const val RE_REGISTRATION_COMMAND_TOPIC = "membership.reregistration"
             const val REGISTRATION_STATE_TOPIC = "membership.registration.state"
 
             const val SYNCHRONIZATION_TOPIC = "membership.sync"
@@ -201,8 +200,8 @@ class Schemas {
         companion object {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
             const val VIRTUAL_NODE_MANAGEMENT_TOPIC = "virtual.node.management"
-            const val VIRTUAL_NODE_UPGRADE_REQUEST_TOPIC = "virtual.node.upgrade"
-            const val VIRTUAL_NODE_UPGRADE_STATUS_TOPIC = "virtual.node.upgrade.status"
+            const val VIRTUAL_NODE_UPGRADE_REQUEST_TOPIC = "virtual.node.asynchronous.request"
+            const val VIRTUAL_NODE_UPGRADE_STATUS_TOPIC = "virtual.node.request.status"
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             const val VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = "virtual.node.creation.request.resp"
             const val CPI_INFO_TOPIC = "cpi.info"

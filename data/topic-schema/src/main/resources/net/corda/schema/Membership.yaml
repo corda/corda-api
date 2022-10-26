@@ -20,11 +20,6 @@ topics:
     consumers:
     producers:
     config:
-  MembershipReregistrationTopic:
-    name: membership.reregistration
-    consumers:
-    producers:
-    config:
   MembershipRegistrationStateTopic:
     name: membership.registration.state
     consumers:
