@@ -5,12 +5,11 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.exceptions.CordaRuntimeException
 import net.corda.v5.crypto.CompositeKey
 import net.corda.v5.crypto.DigitalSignature
+import net.corda.v5.crypto.DigitalSignatureWithSpec
 import net.corda.v5.crypto.SignatureSpec
 import java.security.KeyPair
 import java.security.PrivateKey
 import java.security.PublicKey
-import java.util.*
-import net.corda.v5.crypto.DigitalSignatureWithSpec
 
 /**
  * Responsible for storing and using private keys to sign things. An implementation of this may, for example, call out
