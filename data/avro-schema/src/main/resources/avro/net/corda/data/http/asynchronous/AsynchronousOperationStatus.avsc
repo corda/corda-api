@@ -1,0 +1,40 @@
+{
+  "type": "record",
+  "name": "AsynchronousOperationStatus",
+  "namespace": "net.corda.data.http.asynchronous",
+  "fields": [
+    {
+      "name": "requestTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the request."
+    },
+    {
+      "name": "completedTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the request."
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "AsynchronousOperationState",
+        "symbols": ["IN_PROGRESS", "COMPLETED"],
+        "doc": "Status of an asynchronous request."
+      }
+    },
+    {
+      "name": "errors",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.http.asynchronous.AsynchronousOperationError"
+      },
+      "doc": "List of any errors that occurred."
+    }
+  ]
+}

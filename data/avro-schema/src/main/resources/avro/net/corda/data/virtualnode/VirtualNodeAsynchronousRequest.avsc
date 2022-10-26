@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "VirtualNodeAsynchronousRequest",
+  "doc": "Asynchronous virtual node requests.",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "ID of this Virtual Node CPI upgrade request."
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ({@link java.time.Instant}) in milliseconds when the record was created."
+    },
+    {
+      "name": "operation",
+      "doc": "The 'operation' to perform.",
+      "type": [
+        "net.corda.data.virtualnode.VirtualNodeUpgradeRequest"
+      ]
+    }
+  ]
+}

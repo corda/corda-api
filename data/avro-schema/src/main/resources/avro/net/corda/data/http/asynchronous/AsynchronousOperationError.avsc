@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "AsyncErrors",
-  "namespace": "net.corda.data.async",
+  "name": "AsynchronousOperationError",
+  "namespace": "net.corda.data.http.asynchronous",
   "fields": [
     {
       "name": "code",
