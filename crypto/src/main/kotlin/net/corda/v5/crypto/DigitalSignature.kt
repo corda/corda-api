@@ -43,7 +43,5 @@ open class DigitalSignature(
          */
         val by: SecureHash,
         bytes: ByteArray
-        // TODO do we need to include the context map?
-        //val context: Map<String, String>
     ) : DigitalSignature(bytes)
 }
