@@ -11,7 +11,7 @@
     },
     {
       "name": "signatureSpec",
-      "type": "string",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec",
       "doc": "The signature spec"
     }
   ]
