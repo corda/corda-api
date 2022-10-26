@@ -36,4 +36,14 @@ open class DigitalSignature(
          */
         val context: Map<String, String>
     ) : DigitalSignature(bytes)
+
+    class WithId(
+        /**
+         * SHA-256 digest of the public key. TODO add reasoning for hashing public hey
+         */
+        val by: SecureHash,
+        bytes: ByteArray
+        // TODO do we need to include the context map?
+        //val context: Map<String, String>
+    ) : DigitalSignature(bytes)
 }

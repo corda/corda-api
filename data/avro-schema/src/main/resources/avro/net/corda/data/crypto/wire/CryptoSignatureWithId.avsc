@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "CryptoSignatureWithId",
+  "namespace": "net.corda.data.crypto.wire",
+  "doc": "Internal over-the-wire digital signature with signature spec for crypto services",
+  "fields": [
+    {
+      "name": "publicKeyHash",
+      "type": "net.corda.data.crypto.SecureHash",
+      "doc": "The hash of the public key of the key pair used to produce the signature"
+    },
+    {
+      "name": "bytes",
+      "type": "bytes",
+      "doc": "Byte array of the signature, exactly as returned by crypto signing operations"
+    }
+  ]
+}

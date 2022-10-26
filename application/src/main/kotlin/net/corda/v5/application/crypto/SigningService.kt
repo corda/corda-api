@@ -10,7 +10,7 @@ import java.security.KeyPair
 import java.security.PrivateKey
 import java.security.PublicKey
 import java.util.*
-import net.corda.v5.crypto.DigitalSignatureWithSpec
+import net.corda.v5.crypto.DigitalSignatureWithSignatureSpec
 
 /**
  * Responsible for storing and using private keys to sign things. An implementation of this may, for example, call out
@@ -39,5 +39,5 @@ interface SigningService {
     fun sign(bytes: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithKey
 
     @Suspendable
-    fun sign(bytes: ByteArray, publicKey: PublicKey): DigitalSignatureWithSpec
+    fun sign(bytes: ByteArray, publicKey: PublicKey): DigitalSignatureWithSignatureSpec
 }
