@@ -37,9 +37,11 @@ open class DigitalSignature(
         val context: Map<String, String>
     ) : DigitalSignature(bytes)
 
-    class WithId(
+    class WithKeyHash(
         /**
-         * SHA-256 digest of the public key. TODO add reasoning for hashing public hey
+         * SHA-256 digest of the encoded public key. We propagate hash rather than public key itself since
+         * these values should only be used for comparison. The actual public keys need to be propagated by
+         * some other mechanism before the signature can be validated.
          */
         val by: SecureHash,
         bytes: ByteArray
