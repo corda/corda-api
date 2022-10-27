@@ -1,5 +1,7 @@
 package net.corda.v5.ledger.notary.plugin.core
 
+import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.DigitalSignature
 
 /**
@@ -8,6 +10,8 @@ import net.corda.v5.crypto.DigitalSignature
  * The [platformVersion] is required so the notary can verify the signature against the right version of serialized
  * bytes of the [NotarisationRequest]. Otherwise, the request may be rejected.
  */
+@CordaSerializable
+@DoNotImplement
 interface NotarisationRequestSignature {
     val digitalSignature: DigitalSignature.WithKey
     val platformVersion: Int

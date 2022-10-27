@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.notary.plugin.api
 
+import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.ledger.notary.plugin.core.NotarisationRequestSignature
 
 /**
@@ -10,6 +11,7 @@ import net.corda.v5.ledger.notary.plugin.core.NotarisationRequestSignature
  * (for example [UtxoSignedTransaction][net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction]) against the
  * specified [validTypes] list.
  */
+@CordaSerializable
 interface NotarisationPayload {
     val transaction: Any
     val requestSignature: NotarisationRequestSignature
