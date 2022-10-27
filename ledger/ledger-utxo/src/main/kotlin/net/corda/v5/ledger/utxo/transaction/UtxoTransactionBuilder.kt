@@ -27,7 +27,15 @@ import java.time.Instant
 @Suppress("TooManyFunctions")
 interface UtxoTransactionBuilder {
 
-    val notary: Party
+    val notary: Party?
+
+    /**
+     * Sets the [Party] as a notary to the current [UtxoTransactionBuilder].
+     *
+     * @param notary The [Party] to set as a notary to the current [UtxoTransactionBuilder].
+     * @return Returns a new [UtxoTransactionBuilder] with the new notary.
+     */
+    fun setNotary(notary: Party): UtxoTransactionBuilder
 
     /**
      * Adds an [Attachment] to the current [UtxoTransactionBuilder].
