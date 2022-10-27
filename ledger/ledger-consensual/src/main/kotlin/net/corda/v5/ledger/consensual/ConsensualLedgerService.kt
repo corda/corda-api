@@ -13,7 +13,9 @@ import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder
 @DoNotImplement
 interface ConsensualLedgerService {
     /**
-     * Returns an empty [ConsensualTransactionBuilder] instance
+     * Gets a Consensual transaction builder.
+     *
+     * @return Returns a new [ConsensualTransactionBuilder] instance.
      */
     @Suspendable
     fun getTransactionBuilder(): ConsensualTransactionBuilder
