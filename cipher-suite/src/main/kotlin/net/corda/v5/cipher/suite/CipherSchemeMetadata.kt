@@ -91,6 +91,8 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
 
     /**
      * Infers the signature spec from the [PublicKey].
+     * TODO complete kDoc when we have a final version of the algorithm determining the returned `SignatureSpec`
+     *  for now we have a default `SignatureSpec` per `KeyScheme`. This is registered under https://r3-cev.atlassian.net/browse/CORE-7132
      *
      * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
      * otherwise null.
