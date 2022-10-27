@@ -89,7 +89,12 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
      */
     fun inferSignatureSpec(publicKey: PublicKey, digest: DigestAlgorithmName): SignatureSpec?
 
-    // TODO kdoc
+    /**
+     * Infers the signature spec from the [PublicKey].
+     *
+     * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
+     * otherwise null.
+     */
     fun inferSignatureSpec(publicKey: PublicKey): SignatureSpec?
 
     /**
