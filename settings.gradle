@@ -102,6 +102,7 @@ include 'ledger:ledger-common'
 include 'ledger:ledger-consensual'
 include 'ledger:ledger-utxo'
 include 'ledger:notary-plugin'
+include 'ledger:ledger-utxo-observable'
 include 'membership'
 include 'serialization'
 

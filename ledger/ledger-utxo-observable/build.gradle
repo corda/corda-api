@@ -1,0 +1,15 @@
+plugins {
+    id 'corda-api.common-library'
+    id 'corda.common-publishing'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+description 'Corda UTXO Ledger Observables'
+
+dependencies {
+    compileOnly 'org.osgi:osgi.annotation'
+
+    api project(':ledger:ledger-utxo')
+
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
+}
