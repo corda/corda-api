@@ -6,7 +6,10 @@ import net.corda.v5.ledger.utxo.token.selection.TokenSelection
 
 /**
  * The [UtxoLedgerTokenStateObserver] observes produced contract states of type [T] when they are committed to the
- * ledger. Users should implement this interface for any states that need to be selectable via the [TokenSelection] API
+ * ledger. Users should implement this interface for any states that need to be selectable via the [TokenSelection] API.
+ *
+ * The Corda platform will discover and invoke implementations of this interface for all produced states that match
+ * the type specified by [UtxoLedgerTokenStateObserver.stateType].
  *
  * Example of use in Java.
  * ```Java
@@ -23,17 +26,24 @@ import net.corda.v5.ledger.utxo.token.selection.TokenSelection
  *     }
  * }
  *
- * class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver<ExampleState> {
+ * public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenStateObserver<ExampleStateK> {
  *
- *     override val stateType =  ExampleState::class.java
+ *     @NotNull
+ *     @Override
+ *     public Class<ExampleStateK> getStateType() {
+ *         return ExampleStateK.class;
+ *     }
  *
- *     override fun onProduced(stateAndRef: StateAndRef<ExampleState>): UtxoToken {
- *         val state = stateAndRef.state.contractState
- *         return UtxoToken(
- *             UtxoTokenPoolKey(ExampleState::class.java.typeName, state.issuer, state.currency),
- *             state.amount,
- *             UtxoTokenFilterFields()
- *         )
+ *     @NotNull
+ *     @Override
+ *     public UtxoToken onProduced(@NotNull StateAndRef<? extends ExampleStateK> stateAndRef) {
+ *         ExampleStateK state = stateAndRef.getState().getContractState();
+ *
+ *         return new UtxoToken(
+ *                 new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.getIssuer(), state.getCurrency()),
+ *                 state.getAmount(),
+ *                 new UtxoTokenFilterFields()
+ *         );
  *     }
  * }
  * ```
