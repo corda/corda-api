@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "GroupParametersOwner",
+  "namespace": "net.corda.data.membership",
+  "doc": "Avro representation of the owner of the group parameters view. For dynamic networks it is the member's holding identity or for static registration it is a service.",
+  "fields": [
+    {
+      "name": "ownerId",
+      "doc": "For dynamic networks it is the short hash of member's holding identity or for static registration the name of the owning service.",
+      "type": "string"
+    },
+    {
+      "name": "groupId",
+      "doc": "Identifier of the membership group.",
+      "type": "string"
+    }
+  ]
+}

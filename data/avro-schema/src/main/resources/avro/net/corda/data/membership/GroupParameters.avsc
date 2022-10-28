@@ -6,8 +6,8 @@
   "fields": [
     {
       "name": "viewOwner",
-      "doc": "For dynamic networks it is the short hash of member's holding identity or for static registration the name of the owning service.",
-      "type": ["string"]
+      "doc": "The owner of the group parameters view. For dynamic networks it is the member's holding identity or for static registration it is a service.",
+      "type": "GroupParametersOwner"
     },
     {
       "name": "groupParameters",

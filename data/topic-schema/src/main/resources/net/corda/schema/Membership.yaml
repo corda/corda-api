@@ -1,4 +1,9 @@
 topics:
+  GroupParametersTopic:
+    name: membership.group.params
+    consumers:
+    producers:
+    config:
   MembershipEventTopic:
     name: membership.event
     consumers:
