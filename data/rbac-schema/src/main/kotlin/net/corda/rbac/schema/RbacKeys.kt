@@ -16,11 +16,11 @@ object RbacKeys {
      */
     const val PREFIX_SEPARATOR = ":"
 
+    private const val UUID_CHARS = "[a-fA-F0-9]"
     /**
      * Regular expressions to validate common data structures as part of RBAC checks
      */
-    private const val UUID_CHARS = "[a-fA-F0-9]"
-    const val UUID_REGEX = "$UUID_CHARS{8}-$UUID_CHARS{4}-$UUID_CHARS{4}-$UUID_CHARS{4}-$UUID_CHARS{12}"
+    const val UUID_REGEX = "$UUID_CHARS{8}-$UUID_CHARS{4}-[1-5]$UUID_CHARS{3}-[89aAbB]$UUID_CHARS{3}-$UUID_CHARS{12}"
 
     /**
      * vNode short hash
