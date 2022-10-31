@@ -3,6 +3,7 @@ package net.corda.v5.ledger.consensual
 import net.corda.v5.application.messaging.FlowSession
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionVerifier
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder
@@ -20,10 +21,15 @@ interface ConsensualLedgerService {
     @Suspendable
     fun getTransactionBuilder(): ConsensualTransactionBuilder
 
-    /* TODO
-    fun fetchTransaction(id: SecureHash)
-    ... Vault ...
-    */
+
+    /**
+     * Fetches a transaction from the vault
+     *
+     * @param id The id of the transaction to load
+     *
+     * @return The signed transaction, if it has been recorded previously. Null if not found.
+     */
+    fun fetchTransaction(id: SecureHash) : ConsensualSignedTransaction?
 
     /**
      * Collects signatures, records and broadcasts to involved peers a [ConsensualSignedTransaction].
