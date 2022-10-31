@@ -6,7 +6,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class ConsensualLedgerServiceJavaApiTest {
     private final ConsensualLedgerService consensualLedgerService = mock(ConsensualLedgerService.class);
