@@ -41,16 +41,6 @@ topics:
     consumers:
     producers:
     config:
-  VirtualNodeAsynchronousRequestTopic:
-    name: virtual.node.asynchronous.request
-    consumers:
-    producers:
-    config:
-  VirtualNodeRequestStatusTopic:
-    name: virtual.node.request.status
-    consumers:
-    producers:
-    config:
   VirtualNodeCreationRequestTopic:
     name: virtual.node.creation.request
     consumers:
