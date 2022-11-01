@@ -125,7 +125,7 @@ class Schemas {
     }
 
     /**
-     * P2P topic schema
+     * P2P topic schem
      */
     class P2P {
         companion object {
@@ -140,6 +140,8 @@ class Schemas {
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
             const val GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores"
             const val GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs"
+            const val GATEWAY_REVOCATION_CHECK_REQUEST = "gateway.revocation.request"
+            const val GATEWAY_REVOCATION_CHECK_RESPONSE = "gateway.revocation.request.resp"
 
             /**
              * Topics for (temporary) stub components.
