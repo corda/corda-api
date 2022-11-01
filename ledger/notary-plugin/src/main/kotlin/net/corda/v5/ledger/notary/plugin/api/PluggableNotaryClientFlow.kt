@@ -9,7 +9,6 @@ import net.corda.v5.application.flows.SubFlow
  * This interface has a single method called [call] which contains the main logic for the client.
  * The client flow must implement this interface in order for it to be instantiated in the provider.
  * If the client flow doesn't implement this interface the plugin selection will not work.
- * To learn more about plugin selection and types see [PluggableNotaryType].
  *
  * Implementations must specify the [InitiatingFlow][net.corda.v5.application.flows.InitiatingFlow] annotation.
  * Further, the [call] method must specify the [Suspendable][net.corda.v5.base.annotations.Suspendable] annotation.
