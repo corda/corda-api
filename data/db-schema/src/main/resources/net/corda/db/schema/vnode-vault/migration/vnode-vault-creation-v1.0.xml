@@ -24,7 +24,7 @@
             </column>
         </createTable>
         <addPrimaryKey columnNames="alias" constraintName="vnode_certificate_pk" tableName="vnode_certificate"/>
-        <createIndex indexName="vnode_certificate_usage" tableName="vnode_certificate" schemaName="${schema.name}">
+        <createIndex indexName="vnode_certificate_usage" tableName="vnode_certificate">
             <column name="usage"/>
         </createIndex>
 
