@@ -6,8 +6,8 @@
   "fields": [
     {
       "name": "viewOwner",
-      "doc": "The owner of the group parameters view. For dynamic networks it is the member's holding identity or for static registration it is a service.",
-      "type": "GroupParametersOwner"
+      "doc": "The owner of the group parameters view.",
+      "type": "net.corda.data.identity.HoldingIdentity"
     },
     {
       "name": "groupParameters",
