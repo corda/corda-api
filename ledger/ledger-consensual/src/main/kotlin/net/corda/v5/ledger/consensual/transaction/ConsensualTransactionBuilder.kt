@@ -36,7 +36,7 @@ interface ConsensualTransactionBuilder {
      *
      * @return Returns a [ConsensualSignedTransaction] with signatures for any required signatories that belong to the current node.
      *
-     * @throws [IllegalStateException] when called a second time on the same object to prevent
+     * @throws IllegalStateException when called a second time on the same object to prevent
      *      unintentional duplicate transactions.
      */
     @Suspendable
@@ -52,7 +52,7 @@ interface ConsensualTransactionBuilder {
      * @param signatories The signatories expected to sign the current transaction.
      * @return Returns a [ConsensualSignedTransaction] with signatures for the specified signatory keys.
      *
-     * @throws [IllegalStateException] when called a second time on the same object to prevent
+     * @throws IllegalStateException when called a second time on the same object to prevent
      *      unintentional duplicate transactions.
      */
     @Suspendable
@@ -68,7 +68,7 @@ interface ConsensualTransactionBuilder {
      * @param signatories The signatories expected to sign the current transaction.
      * @return Returns a [ConsensualSignedTransaction] with signatures for the specified signatory keys.
      *
-     * @throws [IllegalStateException] when called a second time on the same object to prevent
+     * @throws IllegalStateException when called a second time on the same object to prevent
      *      unintentional duplicate transactions.
      */
     @Suspendable
