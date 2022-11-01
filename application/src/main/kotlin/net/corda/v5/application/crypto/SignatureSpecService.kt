@@ -1,12 +1,13 @@
 package net.corda.v5.application.crypto
 
-import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.DigestAlgorithmName
 import net.corda.v5.crypto.SignatureSpec
 import java.security.PublicKey
 
-interface DefaultSignatureSpecService {
+@DoNotImplement
+interface SignatureSpecService {
     /**
      * Work out a signature and hash algorithm to use for a given public key, given current security policies.
      *
@@ -15,7 +16,7 @@ interface DefaultSignatureSpecService {
      * @return An appropriate [SignatureSpec], or null if nothing is available for the key type.
      */
     @Suspendable
-    fun suggest(publicKey: PublicKey): SignatureSpec?
+    fun defaultSignatureSpecFor(publicKey: PublicKey): SignatureSpec?
 
     /**
      * Work out a signature algorithm given current security policies and a hash algorithm
@@ -27,5 +28,5 @@ interface DefaultSignatureSpecService {
      */
 
     @Suspendable
-    fun suggest(publicKey: PublicKey, digestAlgorithm: DigestAlgorithmName: DigestAlgorithmName): SignatureSpec?
+    fun defaultSignatureSpecFor(publicKey: PublicKey, digestAlgorithm: DigestAlgorithmName): SignatureSpec?
 }
