@@ -16,7 +16,7 @@ interface SignatureSpecService {
      * @return An appropriate [SignatureSpec], or null if nothing is available for the key type.
      */
     @Suspendable
-    fun defaultSignatureSpecFor(publicKey: PublicKey): SignatureSpec?
+    fun defaultSignatureSpec(publicKey: PublicKey): SignatureSpec?
 
     /**
      * Work out a signature algorithm given current security policies and a hash algorithm
@@ -28,11 +28,11 @@ interface SignatureSpecService {
      */
 
     @Suspendable
-    fun defaultSignatureSpecFor(publicKey: PublicKey, digestAlgorithm: DigestAlgorithmName): SignatureSpec?
+    fun defaultSignatureSpec(publicKey: PublicKey, digestAlgorithm: DigestAlgorithmName): SignatureSpec?
 
     @Suspendable
-    fun compatibleSignatureSpecsFor(publicKey: PublicKey): List<SignatureSpec>
+    fun compatibleSignatureSpecs(publicKey: PublicKey): List<SignatureSpec>
 
     @Suspendable
-    fun compatibleSignatureSpecsFor(publicKey: PublicKey, hash: DigestAlgorithmName): List<SignatureSpec>
+    fun compatibleSignatureSpecs(publicKey: PublicKey, hash: DigestAlgorithmName): List<SignatureSpec>
 }
