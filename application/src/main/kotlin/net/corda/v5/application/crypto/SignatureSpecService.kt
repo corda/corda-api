@@ -29,4 +29,10 @@ interface SignatureSpecService {
 
     @Suspendable
     fun defaultSignatureSpecFor(publicKey: PublicKey, digestAlgorithm: DigestAlgorithmName): SignatureSpec?
+
+    @Suspendable
+    fun compatibleSignatureSpecsFor(publicKey: PublicKey): List<SignatureSpec>
+
+    @Suspendable
+    fun compatibleSignatureSpecsFor(publicKey: PublicKey, hash: DigestAlgorithmName): List<SignatureSpec>
 }
