@@ -27,25 +27,29 @@ import net.corda.v5.ledger.utxo.token.selection.TokenSelection
  * }
  *
  * public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenStateObserver<ExampleStateJ> {
+ *    @NotNull
+ *    @Override
+ *    public Class<ExampleStateJ> getStateType() {
+ *        return ExampleStateJ.class;
+ *    }
  *
- *     @NotNull
- *     @Override
- *     public Class<ExampleStateJ> getStateType() {
- *         return ExampleStateJ.class;
- *     }
+ *    @NotNull
+ *    @Override
+ *    public UtxoToken onProduced(@NotNull StateAndRef<? extends ExampleStateJ> stateAndRef) {
+ *        ExampleStateJ state = stateAndRef.getState().getContractState();
  *
- *     @NotNull
- *     @Override
- *     public UtxoToken onProduced(@NotNull StateAndRef<? extends ExampleStateJ> stateAndRef) {
- *         ExampleStateJ state = stateAndRef.getState().getContractState();
+ *        return new UtxoToken(
+ *                state.amount,
+ *                new UtxoTokenFilterFields()
+ *        );
+ *    }
  *
- *         return new UtxoToken(
- *                 new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency),
- *                 state.amount,
- *                 new UtxoTokenFilterFields()
- *         );
- *     }
- * }
+ *    @NotNull
+ *    @Override
+ *    public UtxoTokenPoolKey getTokenPoolKey(@NotNull StateAndRef<? extends ExampleStateJ> stateAndRef) {
+ *        ExampleStateJ state = stateAndRef.getState().getContractState();
+ *        return new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency);
+ *    }
  * ```
  * Example of use in Kotlin.
  * ```Kotlin
@@ -56,18 +60,22 @@ import net.corda.v5.ledger.utxo.token.selection.TokenSelection
  *     val amount: BigDecimal
  * ) : ContractState
  *
- *  * class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver<ExampleStateK> {
+ * class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver<ExampleStateK> {
  *
- *     override val stateType = ExampleStateK::class.java
+ *   override val stateType = ExampleStateK::class.java
  *
- *     override fun onProduced(stateAndRef: StateAndRef<ExampleStateK>): UtxoToken {
- *         val state = stateAndRef.state.contractState
- *         return UtxoToken(
- *             UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency),
- *             state.amount,
- *             UtxoTokenFilterFields()
- *         )
- *     }
+ *   override fun onProduced(stateAndRef: StateAndRef<ExampleStateK>): UtxoToken {
+ *       val state = stateAndRef.state.contractState
+ *       return UtxoToken(
+ *           state.amount,
+ *           UtxoTokenFilterFields()
+ *       )
+ *   }
+ *
+ *   override fun getTokenPoolKey(stateAndRef: StateAndRef<ExampleStateK>): UtxoTokenPoolKey {
+ *       val state = stateAndRef.state.contractState
+ *       return UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency)
+ *   }
  * }
  * ```
  *
@@ -76,6 +84,13 @@ import net.corda.v5.ledger.utxo.token.selection.TokenSelection
 interface UtxoLedgerTokenStateObserver<T : ContractState> {
 
     val stateType: Class<T>
+
+    /**
+     * Called for each produced or consumed state[T] committed to the ledger.
+     *
+     * @param stateAndRef Instance of the committed state and its reference.
+     */
+    fun getTokenPoolKey(stateAndRef: StateAndRef<T>): UtxoTokenPoolKey
 
     /***
      * Called for each new state[T] committed to the ledger

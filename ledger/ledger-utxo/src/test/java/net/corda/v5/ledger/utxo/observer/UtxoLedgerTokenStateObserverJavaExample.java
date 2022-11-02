@@ -21,9 +21,15 @@ public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenS
         ExampleStateJ state = stateAndRef.getState().getContractState();
 
         return new UtxoToken(
-                new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency),
                 state.amount,
                 new UtxoTokenFilterFields()
         );
+    }
+
+    @NotNull
+    @Override
+    public UtxoTokenPoolKey getTokenPoolKey(@NotNull StateAndRef<? extends ExampleStateJ> stateAndRef) {
+        ExampleStateJ state = stateAndRef.getState().getContractState();
+        return new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency);
     }
 }

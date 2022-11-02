@@ -14,9 +14,13 @@ class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver<E
     override fun onProduced(stateAndRef: StateAndRef<ExampleStateK>): UtxoToken {
         val state = stateAndRef.state.contractState
         return UtxoToken(
-            UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency),
             state.amount,
             UtxoTokenFilterFields()
         )
+    }
+
+    override fun getTokenPoolKey(stateAndRef: StateAndRef<ExampleStateK>): UtxoTokenPoolKey {
+        val state = stateAndRef.state.contractState
+        return UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency)
     }
 }
