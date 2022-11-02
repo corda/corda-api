@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "StaticGroupParameters",
+  "namespace": "net.corda.data.membership.staticnetwork",
+  "doc": "Avro representation of GroupParameters for use in static networks.",
+  "fields": [
+    {
+      "name": "groupId",
+      "doc": "Group which the group parameters belong to.",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "groupParameters",
+      "doc": "GroupParameter entries.",
+      "type": "net.corda.data.KeyValuePairList"
+    }
+  ]
+}
