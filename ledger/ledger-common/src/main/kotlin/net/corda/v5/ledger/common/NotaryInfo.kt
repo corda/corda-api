@@ -1,4 +1,4 @@
-package net.corda.v5.membership
+package net.corda.v5.ledger.common
 
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.types.MemberX500Name
@@ -21,7 +21,7 @@ interface NotaryInfo {
     val pluginClass: String
 
     /**
-     * The public keys of the notary service.
+     * The public key of the notary service.
      */
-    val publicKeys: Collection<PublicKey>
+    val publicKey: PublicKey
 }
