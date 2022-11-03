@@ -127,6 +127,9 @@ interface UtxoTransactionBuilder {
      * Signs the transaction with any required signatories that belong to the current node.
      *
      * @return Returns a [UtxoSignedTransaction] with signatures for any required signatories that belong to the current node.
+     *
+     * @throws IllegalStateException when called a second time on the same object to prevent
+     *      unintentional duplicate transactions.
      */
     @Suspendable
     fun sign(): UtxoSignedTransaction
@@ -136,6 +139,9 @@ interface UtxoTransactionBuilder {
      *
      * @param signatories The signatories expected to sign the current transaction.
      * @return Returns a [UtxoSignedTransaction] with signatures for the specified signatory keys.
+     *
+     * @throws IllegalStateException when called a second time on the same object to prevent
+     *      unintentional duplicate transactions.
      */
     @Suspendable
     fun sign(signatories: Iterable<PublicKey>): UtxoSignedTransaction
@@ -145,6 +151,9 @@ interface UtxoTransactionBuilder {
      *
      * @param signatories The signatories expected to sign the current transaction.
      * @return Returns a [UtxoSignedTransaction] with signatures for the specified signatory keys.
+     *
+     * @throws IllegalStateException when called a second time on the same object to prevent
+     *      unintentional duplicate transactions.
      */
     @Suspendable
     fun sign(vararg signatories: PublicKey): UtxoSignedTransaction
