@@ -22,17 +22,17 @@ interface SignatureSpecService {
      * Work out a signature algorithm given current security policies and a hash algorithm
      *
      * @param publicKey the public key to be used for signing
-     * @param digestAlgorithm the digest algorithm to use, e.g. []DigestAlgorithmName.SHA2_256]
+     * @param digestAlgorithmName the digest algorithm to use, e.g. []DigestAlgorithmName.SHA2_256]
      *
      * @return An appropriate [SignatureSpec], or null if nothing is available for the key type
      */
 
     @Suspendable
-    fun defaultSignatureSpec(publicKey: PublicKey, digestAlgorithm: DigestAlgorithmName): SignatureSpec?
+    fun defaultSignatureSpec(publicKey: PublicKey, digestAlgorithmName: DigestAlgorithmName): SignatureSpec?
 
     @Suspendable
     fun compatibleSignatureSpecs(publicKey: PublicKey): List<SignatureSpec>
 
     @Suspendable
-    fun compatibleSignatureSpecs(publicKey: PublicKey, hash: DigestAlgorithmName): List<SignatureSpec>
+    fun compatibleSignatureSpecs(publicKey: PublicKey, digestAlgorithmName: DigestAlgorithmName): List<SignatureSpec>
 }
