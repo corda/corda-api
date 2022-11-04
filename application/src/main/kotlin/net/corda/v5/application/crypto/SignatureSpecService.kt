@@ -9,7 +9,7 @@ import java.security.PublicKey
 @DoNotImplement
 interface SignatureSpecService {
     /**
-     * Works out a signature spec for specified public key, given current security policies.
+     * Works out a default signature spec for specified public key, given current security policies.
      *
      * @param publicKey the public key to be used for signing
      *
@@ -19,7 +19,7 @@ interface SignatureSpecService {
     fun defaultSignatureSpec(publicKey: PublicKey): SignatureSpec?
 
     /**
-     * Works out a signature spec for specified public key and digest algorithm given current security policies.
+     * Works out a default signature spec for specified public key and digest algorithm given current security policies.
      *
      * @param publicKey the public key to be used for signing
      * @param digestAlgorithmName the digest algorithm to use, e.g. [DigestAlgorithmName.SHA2_256]
