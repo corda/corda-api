@@ -80,7 +80,7 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     fun findKeyFactory(scheme: KeyScheme): KeyFactory
 
     /**
-     * Infers the signature spec from the [PublicKey]. TODO elaborate
+     * Infers the signature spec from the [PublicKey].
      *
      * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
      * otherwise null.
@@ -90,7 +90,7 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     /**
      * Infers the signature spec from the [PublicKey] and [DigestAlgorithmName]. The [digest] may be ignored for some
      * public key types as the digest is integral part of the signing/verification, e.g. if the [publicKey] is 'EdDSA'
-     * hen the [digest] is set to "EdDSA" by the platform's default implementation.
+     * then the [digest] is set to "EdDSA" by the platform's default implementation.
      *
      * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
      * otherwise null.
@@ -99,12 +99,13 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
 
     /**
      * Returns list of the non-custom signature specs for the given [KeyScheme] with the signatureName
-     * formatted like "SHA256withECDSA" .
+     * formatted like "SHA256withECDSA".
      */
     fun supportedSignatureSpec(scheme: KeyScheme): List<SignatureSpec>
 
     /**
-     * TODO kdoc
+     * Returns list of the non-custom signature specs for the given [KeyScheme] and [DigestAlgorithmName]
+     * with the signatureName formatted like "SHA256withECDSA".
      */
     fun supportedSignatureSpec(scheme: KeyScheme, digest: DigestAlgorithmName): List<SignatureSpec>
 
