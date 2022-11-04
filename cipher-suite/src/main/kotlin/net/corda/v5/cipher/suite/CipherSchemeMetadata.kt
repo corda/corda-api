@@ -80,7 +80,7 @@ interface CipherSchemeMetadata : KeyEncodingService, AlgorithmParameterSpecEncod
     fun findKeyFactory(scheme: KeyScheme): KeyFactory
 
     /**
-     * Returns a default the signature spec compatible with the specified [PublicKey].
+     * Returns a default signature spec compatible with the specified [PublicKey].
      *
      * @return [SignatureSpec] with the signatureName formatted like "SHA256withECDSA" if that can be inferred or
      * otherwise null.
