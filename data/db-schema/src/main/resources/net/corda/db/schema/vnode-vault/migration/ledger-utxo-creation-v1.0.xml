@@ -6,7 +6,7 @@
     <changeSet author="R3.Corda" id="ledger-utxo-creation-v1.0">
 
         <createTable tableName="utxo_transaction">
-            <column name="id" type="VARCHAR(64)">
+            <column name="id" type="VARCHAR(160)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="privacy_salt" type="VARBINARY(64)">
@@ -21,7 +21,7 @@
         </createTable>
 
         <createTable tableName="utxo_transaction_status">
-            <column name="transaction_id" type="VARCHAR(64)">
+            <column name="transaction_id" type="VARCHAR(160)">
                 <constraints nullable="false" foreignKeyName="fk_utxo_transaction_status" references="utxo_transaction(id)"/>
             </column>
             <column name="status" type="VARCHAR(255)">
@@ -33,7 +33,7 @@
         </createTable>
 
         <createTable tableName="utxo_transaction_signature">
-            <column name="transaction_id" type="VARCHAR(64)">
+            <column name="transaction_id" type="VARCHAR(160)">
                 <constraints nullable="false" foreignKeyName="fk_utxo_transaction_signature" references="utxo_transaction(id)"/>
             </column>
             <column name="signature_idx" type="INT">
@@ -54,7 +54,7 @@
                        tableName="utxo_transaction_signature"/>
 
         <createTable tableName="utxo_transaction_component">
-            <column name="transaction_id" type="VARCHAR(64)">
+            <column name="transaction_id" type="VARCHAR(160)">
                 <constraints nullable="false" foreignKeyName="fk_utxo_transaction_component" references="utxo_transaction(id)"/>
             </column>
             <column name="group_idx" type="INT">
@@ -99,7 +99,7 @@
         </createTable>
 
         <createTable tableName="utxo_transaction_cpk">
-            <column name="transaction_id" type="VARCHAR(64)">
+            <column name="transaction_id" type="VARCHAR(160)">
                 <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_id" references="utxo_transaction(id)"/>
             </column>
             <column name="file_checksum" type="VARCHAR(64)">
