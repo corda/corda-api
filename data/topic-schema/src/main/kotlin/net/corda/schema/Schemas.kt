@@ -125,7 +125,7 @@ class Schemas {
     }
 
     /**
-     * P2P topic schem
+     * P2P topic schema
      */
     class P2P {
         companion object {
