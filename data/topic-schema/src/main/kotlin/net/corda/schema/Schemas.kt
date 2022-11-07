@@ -141,7 +141,7 @@ class Schemas {
             const val GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores"
             const val GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs"
             const val GATEWAY_REVOCATION_CHECK_REQUEST = "gateway.revocation.request"
-            const val GATEWAY_REVOCATION_CHECK_RESPONSE = "gateway.revocation.request.resp"
+            val GATEWAY_REVOCATION_CHECK_RESPONSE = getRPCResponseTopic(GATEWAY_REVOCATION_CHECK_REQUEST)
 
             /**
              * Topics for (temporary) stub components.
