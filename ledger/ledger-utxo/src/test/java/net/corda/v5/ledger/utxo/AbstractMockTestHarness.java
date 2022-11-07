@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.security.PublicKey;
 import java.time.Instant;
 import java.util.List;
@@ -54,11 +55,13 @@ public class AbstractMockTestHarness {
     protected final Party notaryParty = new Party(notaryName, notaryKey);
     protected final String encumbranceTag1 = "ENCUMBRANCE_TAG_1";
     protected final String encumbranceTag2 = "ENCUMBRANCE_TAG_2";
+    protected final BigDecimal quantity = BigDecimal.valueOf(123.45);
 
     protected final StateAndRef<ContractState> contractStateAndRef = createStateAndRef(Mockito.mock(ContractState.class));
     protected final StateRef contractStateRef = createStateAndRef(Mockito.mock(ContractState.class)).getRef();
     protected final TransactionState<ContractState> contractTransactionState = contractStateAndRef.getState();
     protected final ContractState contractState = contractTransactionState.getContractState();
+    protected final FungibleState<BigDecimal> fungibleState = Mockito.mock(FungibleState.class);
 
     protected final UtxoLedgerService utxoLedgerService = Mockito.mock(UtxoLedgerService.class);
     protected final UtxoLedgerTransaction utxoLedgerTransaction = Mockito.mock(UtxoLedgerTransaction.class);
@@ -73,6 +76,7 @@ public class AbstractMockTestHarness {
     public AbstractMockTestHarness() {
         initializeContract();
         initializeContractState();
+        initializeFungibleState();
         initializeAttachment();
         initializeTimeWindow();
         initializeUtxoLedgerService();
@@ -119,6 +123,11 @@ public class AbstractMockTestHarness {
 
     private void initializeContractState() {
         Mockito.when(contractState.getParticipants()).thenReturn(keys);
+    }
+
+    private void initializeFungibleState() {
+        Mockito.when(fungibleState.getParticipants()).thenReturn(keys);
+        Mockito.when(fungibleState.getQuantity()).thenReturn(quantity);
     }
 
     private void initializeAttachment() {
