@@ -102,7 +102,7 @@
             <column name="transaction_id" type="VARCHAR(160)">
                 <constraints nullable="false" foreignKeyName="fk_cpk_transaction" references="consensual_transaction(id)"/>
             </column>
-            <column name="file_checksum" type="VARCHAR(64)">
+            <column name="file_checksum" type="VARCHAR(255)">
                 <constraints nullable="false" foreignKeyName="fk_cpk_checksum" references="consensual_cpk(file_checksum)"/>
             </column>
         </createTable>

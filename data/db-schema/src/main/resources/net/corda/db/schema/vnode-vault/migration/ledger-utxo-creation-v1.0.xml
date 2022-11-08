@@ -22,8 +22,7 @@
 
         <createTable tableName="utxo_transaction_signature">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_signature"
-                             references="utxo_transaction(id)"/>
+                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_signature" references="utxo_transaction(id)"/>
             </column>
             <column name="signature_idx" type="INT">
                 <constraints nullable="false"/>
@@ -44,7 +43,7 @@
 
         <createTable tableName="utxo_transaction_component">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_component" references="utxo_transaction(id)"/>
             </column>
             <column name="group_idx" type="INT">
                 <constraints nullable="false"/>
@@ -55,7 +54,7 @@
             <column name="data" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="hash" type="VARCHAR(160)">
+            <column name="hash" type="VARCHAR(64)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
