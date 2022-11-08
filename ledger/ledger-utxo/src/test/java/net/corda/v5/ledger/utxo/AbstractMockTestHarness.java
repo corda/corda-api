@@ -17,6 +17,8 @@ import java.security.PublicKey;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 import java.util.zip.ZipInputStream;
 
 public class AbstractMockTestHarness {
@@ -54,11 +56,13 @@ public class AbstractMockTestHarness {
     protected final Party notaryParty = new Party(notaryName, notaryKey);
     protected final String encumbranceTag1 = "ENCUMBRANCE_TAG_1";
     protected final String encumbranceTag2 = "ENCUMBRANCE_TAG_2";
+    protected final UUID id = UUID.fromString("66870685-0e1e-43a1-88c9-0aeb6cc10b18");
 
     protected final StateAndRef<ContractState> contractStateAndRef = createStateAndRef(Mockito.mock(ContractState.class));
     protected final StateRef contractStateRef = createStateAndRef(Mockito.mock(ContractState.class)).getRef();
     protected final TransactionState<ContractState> contractTransactionState = contractStateAndRef.getState();
     protected final ContractState contractState = contractTransactionState.getContractState();
+    protected final IdentifiableState identifiableState = Mockito.mock(IdentifiableState.class);
 
     protected final UtxoLedgerService utxoLedgerService = Mockito.mock(UtxoLedgerService.class);
     protected final UtxoLedgerTransaction utxoLedgerTransaction = Mockito.mock(UtxoLedgerTransaction.class);
@@ -73,6 +77,7 @@ public class AbstractMockTestHarness {
     public AbstractMockTestHarness() {
         initializeContract();
         initializeContractState();
+        initializeIdentifiableState();
         initializeAttachment();
         initializeTimeWindow();
         initializeUtxoLedgerService();
@@ -119,6 +124,11 @@ public class AbstractMockTestHarness {
 
     private void initializeContractState() {
         Mockito.when(contractState.getParticipants()).thenReturn(keys);
+    }
+
+    private void initializeIdentifiableState() {
+        Mockito.when(identifiableState.getParticipants()).thenReturn(keys);
+        Mockito.when(identifiableState.getId()).thenReturn(id);
     }
 
     private void initializeAttachment() {
