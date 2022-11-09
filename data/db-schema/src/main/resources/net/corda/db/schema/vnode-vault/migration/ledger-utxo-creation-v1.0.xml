@@ -20,21 +20,10 @@
             </column>
         </createTable>
 
-        <createTable tableName="utxo_transaction_status">
-            <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_status" references="utxo_transaction(id)"/>
-            </column>
-            <column name="status" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
         <createTable tableName="utxo_transaction_signature">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_signature" references="utxo_transaction(id)"/>
+                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_signature"
+                             references="utxo_transaction(id)"/>
             </column>
             <column name="signature_idx" type="INT">
                 <constraints nullable="false"/>
@@ -42,7 +31,7 @@
             <column name="signature" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="pub_key_hash" type="VARCHAR(64)">
+            <column name="pub_key_hash" type="VARCHAR(160)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
@@ -55,7 +44,7 @@
 
         <createTable tableName="utxo_transaction_component">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_component" references="utxo_transaction(id)"/>
+                <constraints nullable="false"/>
             </column>
             <column name="group_idx" type="INT">
                 <constraints nullable="false"/>
@@ -66,7 +55,7 @@
             <column name="data" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="hash" type="VARCHAR(64)">
+            <column name="hash" type="VARCHAR(160)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
@@ -76,6 +65,114 @@
         <addPrimaryKey columnNames="transaction_id, group_idx, leaf_idx"
                        constraintName="utxo_transaction_component_pkey"
                        tableName="utxo_transaction_component"/>
+
+        <createTable tableName="utxo_transaction_sources">
+            <column name="transaction_id" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leaf_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ref_transaction_id" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ref_leaf_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_ref_input" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="transaction_id, group_idx, leaf_idx"
+                       constraintName="utxo_transaction_sources_pkey"
+                       tableName="utxo_transaction_sources"/>
+        <addForeignKeyConstraint baseColumnNames="transaction_id,group_idx,leaf_idx"
+                                 baseTableName="utxo_transaction_sources"
+                                 constraintName="fk_utxo_transaction_sources"
+                                 referencedColumnNames="transaction_id,group_idx,leaf_idx"
+                                 referencedTableName="utxo_transaction"/>
+
+        <createTable tableName="utxo_transaction_output">
+            <column name="transaction_id" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leaf_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token_type" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token_issuer_hash" type="VARCHAR(160)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token_notary_x500_name" type="VARCHAR(1024)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token_symbol" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token_tag" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token_owner_hash" type="VARCHAR(160)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token_amount" type="NUMERIC">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="transaction_id, group_idx, leaf_idx"
+                       constraintName="utxo_transaction_output_pkey"
+                       tableName="utxo_transaction_output"/>
+        <addForeignKeyConstraint baseColumnNames="transaction_id,group_idx,leaf_idx"
+                                 baseTableName="utxo_transaction_output"
+                                 constraintName="fk_utxo_transaction_output"
+                                 referencedColumnNames="transaction_id,group_idx,leaf_idx"
+                                 referencedTableName="utxo_transaction"/>
+
+        <createTable tableName="utxo_transaction_relevancy ">
+            <column name="transaction_id" type="VARCHAR(160)">
+                <constraints nullable="false" foreignKeyName="????" references="utxo_transaction(id)"/>
+            </column>
+            <column name="group_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leaf_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="relevancy" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consumed" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="transaction_id, group_idx, leaf_idx"
+                       constraintName="utxo_transaction_relevancy_pkey"
+                       tableName="utxo_transaction_relevancy"/>
+        <addForeignKeyConstraint baseColumnNames="transaction_id,group_idx,leaf_idx"
+                                 baseTableName="utxo_transaction_relevancy"
+                                 constraintName="fk_utxo_transaction_relevancy"
+                                 referencedColumnNames="transaction_id,group_idx,leaf_idx"
+                                 referencedTableName="utxo_transaction"/>
 
         <createTable tableName="utxo_cpk">
             <column name="file_checksum" type="VARCHAR(255)">
@@ -100,10 +197,12 @@
 
         <createTable tableName="utxo_transaction_cpk">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_id" references="utxo_transaction(id)"/>
+                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_id"
+                             references="utxo_transaction(id)"/>
             </column>
             <column name="file_checksum" type="VARCHAR(64)">
-                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_checksum" references="utxo_cpk(file_checksum)"/>
+                <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_checksum"
+                             references="utxo_cpk(file_checksum)"/>
             </column>
         </createTable>
         <addPrimaryKey columnNames="transaction_id, file_checksum"
