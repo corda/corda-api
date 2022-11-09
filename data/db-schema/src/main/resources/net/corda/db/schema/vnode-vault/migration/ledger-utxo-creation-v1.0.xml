@@ -54,7 +54,7 @@
             <column name="data" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="hash" type="VARCHAR(64)">
+            <column name="hash" type="VARCHAR(160)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
@@ -95,7 +95,7 @@
                                  baseTableName="utxo_transaction_sources"
                                  constraintName="fk_utxo_transaction_sources"
                                  referencedColumnNames="transaction_id,group_idx,leaf_idx"
-                                 referencedTableName="utxo_transaction"/>
+                                 referencedTableName="utxo_transaction_component"/>
 
         <createTable tableName="utxo_transaction_output">
             <column name="transaction_id" type="VARCHAR(160)">
@@ -142,11 +142,11 @@
                                  baseTableName="utxo_transaction_output"
                                  constraintName="fk_utxo_transaction_output"
                                  referencedColumnNames="transaction_id,group_idx,leaf_idx"
-                                 referencedTableName="utxo_transaction"/>
+                                 referencedTableName="utxo_transaction_component"/>
 
-        <createTable tableName="utxo_transaction_relevancy ">
+        <createTable tableName="utxo_transaction_relevancy">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false" foreignKeyName="????" references="utxo_transaction(id)"/>
+                <constraints nullable="false"/>
             </column>
             <column name="group_idx" type="INT">
                 <constraints nullable="false"/>
@@ -171,7 +171,7 @@
                                  baseTableName="utxo_transaction_relevancy"
                                  constraintName="fk_utxo_transaction_relevancy"
                                  referencedColumnNames="transaction_id,group_idx,leaf_idx"
-                                 referencedTableName="utxo_transaction"/>
+                                 referencedTableName="utxo_transaction_component"/>
 
         <createTable tableName="utxo_cpk">
             <column name="file_checksum" type="VARCHAR(255)">
