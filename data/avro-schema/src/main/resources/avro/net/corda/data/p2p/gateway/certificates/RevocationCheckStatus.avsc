@@ -1,7 +1,7 @@
 {
   "type": "enum",
   "name": "RevocationCheckStatus",
-  "namespace": "net.corda.p2p.gateway.certificates",
+  "namespace": "net.corda.data.p2p.gateway.certificates",
   "symbols": [ "ACTIVE", "REVOKED" ],
   "doc": "Response from the Gateway after checking the certificate for revocation."
 }
