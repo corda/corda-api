@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "RevocationCheckResponse",
+  "namespace": "net.corda.data.p2p.gateway.certificates",
+  "fields": [
+    {
+      "doc": "Collection of certificates (in PEM format) to check for revocation.",
+      "name": "status",
+      "type": "net.corda.data.p2p.gateway.certificates.RevocationCheckStatus"
+    }
+  ]
+}
