@@ -1,3 +1,5 @@
+@file:JvmName("GroupParametersExtension")
+
 package net.corda.v5.ledger.common
 
 import net.corda.v5.membership.GroupParameters
