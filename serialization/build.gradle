@@ -2,6 +2,8 @@ plugins {
     id 'corda-api.common-library'
     id 'corda.common-publishing'
     id 'corda.java-only'
+    id 'org.jetbrains.dokka'
+    id 'kotlin'
 }
 
 description 'Corda Serialization'

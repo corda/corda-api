@@ -1,9 +1,3 @@
-pluginManager.withPlugin('org.jetbrains.kotlin.jvm') {
+if (project.sourceSets.main.output.files.toString().contains("\\classes\\kotlin\\")) {
     throw new StopExecutionException("Module '${project.path}' should only contain Java classes")
-}
-
-pluginManager.withPlugin('java') {
-    java {
-        withJavadocJar()
-    }
 }
