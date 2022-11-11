@@ -40,6 +40,13 @@
       "minimum": 5000,
       "maximum": 2147483647,
       "default": 30000
+    },
+    "groupParamsIntervalMs": {
+      "description": "Interval in ms between aligning Kafka Group Parameters state with DB Group Parameters.",
+      "type": "integer",
+      "minimum": 5000,
+      "maximum": 2147483647,
+      "default": 600000
     }
   }
 }
