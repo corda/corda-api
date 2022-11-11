@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.p2p.gateway.certificates",
   "fields": [
     {
-      "doc": "Collection of certificates (in PEM format) to check for revocation.",
+      "doc": "A list of certificates corresponding to a certificate chain (in PEM format) to check for revocation.",
       "name": "certificates",
       "type": {
         "type": "array",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "doc": "Collection of trusted certificates (in PEM format) used in the revocation check.",
+      "doc": "A list of trusted certificates (in PEM format).",
       "name": "trustedCertificates",
       "type": {
         "type": "array",
