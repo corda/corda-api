@@ -1,3 +1,9 @@
-if (project.sourceSets.main.output.files.toString().contains("\\classes\\kotlin\\")) {
-    throw new StopExecutionException("Module '${project.path}' should only contain Java classes")
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+tasks.matching { it.name ==~ 'compile.*Kotlin' }.configureEach {
+    doFirst {
+        throw new InvalidUserCodeException("Module '${project.path}' should only contain Java classes")
+    }
 }
