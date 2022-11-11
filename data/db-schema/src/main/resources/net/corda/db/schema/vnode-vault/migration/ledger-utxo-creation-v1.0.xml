@@ -107,7 +107,7 @@
             <column name="leaf_idx" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="type" type="VARCHAR(255)">
+            <column name="type" type="VARCHAR(1024)">
                 <constraints nullable="false"/>
             </column>
             <column name="token_type" type="VARCHAR(255)">
@@ -154,7 +154,7 @@
             <column name="leaf_idx" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="relevancy" type="BOOLEAN">
+            <column name="is_relevant" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
             <column name="consumed" type="BOOLEAN">
@@ -199,7 +199,7 @@
                 <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_id"
                              references="utxo_transaction(id)"/>
             </column>
-            <column name="file_checksum" type="VARCHAR(64)">
+            <column name="file_checksum" type="VARCHAR(255)">
                 <constraints nullable="false" foreignKeyName="fk_utxo_transaction_cpk_checksum"
                              references="utxo_cpk(file_checksum)"/>
             </column>
