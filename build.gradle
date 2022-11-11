@@ -213,6 +213,16 @@ subprojects {
             archiveClassifier.set("javadoc")
             from(dokkaHtml.outputDirectory)
         }
+
+        tasks.register('javadocMultiJar', Jar) {
+            description = 'Create JavaDoc Jar from dokka docs'
+            group = 'documentation'
+
+            dependsOn(dokkaHtmlMultiModule)
+            archiveBaseName = jar.archiveBaseName
+            archiveClassifier.set("javadoc")
+            from(dokkaHtmlMultiModule.outputDirectory)
+        }
     }
 
     pluginManager.withPlugin('io.gitlab.arturbosch.detekt'){
@@ -327,4 +337,38 @@ tasks.named("dependencyUpdates").configure {
 wrapper {
     gradleVersion = '7.5.1'
     distributionType = Wrapper.DistributionType.BIN
+}
+
+publishing {
+    publications {
+        apiConfiguration(MavenPublication) {
+            artifact javadocMultiJar
+
+            pom {
+                name = 'Corda API Platform'
+                description = project.description
+
+                url = vcsUrl - '.git'
+                scm {
+                    url = vcsUrl
+                }
+
+                licenses {
+                    license {
+                        name = licenseName
+                        url = licenseUrl
+                        distribution = 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'R3'
+                        name = 'R3'
+                        email = 'dev@corda.net'
+                    }
+                }
+            }
+        }
+    }
 }
