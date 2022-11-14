@@ -3,6 +3,7 @@ package net.corda.v5.ledger.common
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
+import net.corda.v5.membership.NotaryInfo
 
 /**
  * [NotaryLookup] allows flows to retrieve the [NotaryInfo] in the network.

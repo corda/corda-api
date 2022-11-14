@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
+import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ import static org.mockito.Mockito.when;
 public class GroupParametersJavaApiTest {
 
     private final GroupParameters groupParameters = mock(GroupParameters.class);
+    private final NotaryInfo notary = mock(NotaryInfo.class);
 
     @Test
     public void get() {
@@ -65,5 +68,17 @@ public class GroupParametersJavaApiTest {
 
         Assertions.assertThat(epoch).isNotNull();
         Assertions.assertThat(epoch).isEqualTo(669);
+    }
+
+    @Test
+    public void notaries() {
+        List<NotaryInfo> notaryInfoList = new LinkedList<>();
+        notaryInfoList.add(notary);
+        when(groupParameters.getNotaries()).thenReturn(notaryInfoList);
+
+        final List<NotaryInfo> result = groupParameters.getNotaries();
+
+        Assertions.assertThat(result).isNotEmpty();
+        Assertions.assertThat(result).isEqualTo(notaryInfoList);
     }
 }
