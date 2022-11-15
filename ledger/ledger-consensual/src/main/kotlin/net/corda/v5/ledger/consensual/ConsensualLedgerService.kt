@@ -22,7 +22,6 @@ interface ConsensualLedgerService {
     @Suspendable
     fun getTransactionBuilder(): ConsensualTransactionBuilder
 
-
     /**
      * Finds a transaction by id in the vault and returns it
      *
@@ -31,7 +30,7 @@ interface ConsensualLedgerService {
      * @return The signed transaction, if it has been recorded previously. Null if not found.
      */
     @Suspendable
-    fun findSignedTransaction(id: SecureHash) : ConsensualSignedTransaction?
+    fun findSignedTransaction(id: SecureHash): ConsensualSignedTransaction?
 
     /**
      * Finds a transaction by id in the vault, resolves it to a ledger transaction and returns it
@@ -41,8 +40,7 @@ interface ConsensualLedgerService {
      * @return The ledger transaction, if it has been recorded previously. Null if not found.
      */
     @Suspendable
-    fun findLedgerTransaction(id: SecureHash) : ConsensualLedgerTransaction?
-
+    fun findLedgerTransaction(id: SecureHash): ConsensualLedgerTransaction?
 
     /**
      * Collects signatures, records and broadcasts to involved peers a [ConsensualSignedTransaction].
@@ -57,7 +55,6 @@ interface ConsensualLedgerService {
         signedTransaction: ConsensualSignedTransaction,
         sessions: List<FlowSession>
     ): ConsensualSignedTransaction
-
 
     /**
      * Verifies, signs and records a [ConsensualSignedTransaction].
