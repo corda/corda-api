@@ -45,9 +45,9 @@ interface ConsensualSignedTransaction {
     fun toLedgerTransaction(): ConsensualLedgerTransaction
 
     /**
-     * Gets the signing keys for any missing transaction signatures.
+     * Gets the missing signatories from the current [ConsensualSignedTransaction].
      *
-     * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
+     * @return Returns a [Set] of [PublicKey] representing the missing signatories from the current [ConsensualSignedTransaction].
      */
     @Suspendable
     fun getMissingSignatories(): Set<PublicKey>
@@ -60,5 +60,3 @@ interface ConsensualSignedTransaction {
     @Suspendable
     fun verifySignatures()
 }
-
-
