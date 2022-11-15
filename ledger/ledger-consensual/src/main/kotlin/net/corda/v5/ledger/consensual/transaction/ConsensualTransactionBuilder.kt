@@ -40,7 +40,7 @@ interface ConsensualTransactionBuilder {
      *      unintentional duplicate transactions.
      */
     @Suspendable
-    fun sign(): ConsensualSignedTransaction
+    fun toSignedTransaction(): ConsensualSignedTransaction
 
     /**
      * Verifies the content of the [ConsensualTransactionBuilder] and
@@ -56,7 +56,8 @@ interface ConsensualTransactionBuilder {
      *      unintentional duplicate transactions.
      */
     @Suspendable
-    fun sign(signatories: Iterable<PublicKey>): ConsensualSignedTransaction
+    @Deprecated("Temporary function until the argumentless version gets available")
+    fun toSignedTransaction(signatories: Iterable<PublicKey>): ConsensualSignedTransaction
 
     /**
      * Verifies the content of the [ConsensualTransactionBuilder] and
@@ -72,5 +73,6 @@ interface ConsensualTransactionBuilder {
      *      unintentional duplicate transactions.
      */
     @Suspendable
-    fun sign(vararg signatories: PublicKey): ConsensualSignedTransaction
+    @Deprecated("Temporary function until the argumentless version gets available")
+    fun toSignedTransaction(vararg signatories: PublicKey): ConsensualSignedTransaction
 }

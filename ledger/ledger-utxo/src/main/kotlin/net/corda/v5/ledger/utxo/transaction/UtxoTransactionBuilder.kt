@@ -135,7 +135,7 @@ interface UtxoTransactionBuilder {
      *      unintentional duplicate transactions.
      */
     @Suspendable
-    fun sign(): UtxoSignedTransaction
+    fun toSignedTransaction(): UtxoSignedTransaction
 
     /**
      * Signs the transaction with the specified signatory keys.
@@ -147,7 +147,8 @@ interface UtxoTransactionBuilder {
      *      unintentional duplicate transactions.
      */
     @Suspendable
-    fun sign(signatories: Iterable<PublicKey>): UtxoSignedTransaction
+    @Deprecated("Temporary function until the argumentless version gets available")
+    fun toSignedTransaction(signatories: Iterable<PublicKey>): UtxoSignedTransaction
 
     /**
      * Signs the transaction with the specified signatory keys.
@@ -159,5 +160,6 @@ interface UtxoTransactionBuilder {
      *      unintentional duplicate transactions.
      */
     @Suspendable
-    fun sign(vararg signatories: PublicKey): UtxoSignedTransaction
+    @Deprecated("Temporary function until the argumentless version gets available")
+    fun toSignedTransaction(vararg signatories: PublicKey): UtxoSignedTransaction
 }

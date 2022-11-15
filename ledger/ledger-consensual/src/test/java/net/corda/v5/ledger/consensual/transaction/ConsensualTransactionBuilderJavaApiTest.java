@@ -68,52 +68,52 @@ public class ConsensualTransactionBuilderJavaApiTest {
 
 
     @Test
-    public void signWithZeroKey() {
+    public void toSignedTransactionWithZeroKey() {
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.sign()).thenReturn(mockSignedTransaction);
+        when(consensualTransactionBuilder.toSignedTransaction()).thenReturn(mockSignedTransaction);
 
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.sign();
+        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).sign();
+        verify(consensualTransactionBuilder, times(1)).toSignedTransaction();
     }
     @Test
-    public void signWithOneKey() {
+    public void toSignedTransactionWithOneKey() {
         final PublicKey publicKey = mock(PublicKey.class);
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.sign(publicKey)).thenReturn(mockSignedTransaction);
+        when(consensualTransactionBuilder.toSignedTransaction(publicKey)).thenReturn(mockSignedTransaction);
 
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.sign(publicKey);
+        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction(publicKey);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).sign(publicKey);
+        verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKey);
     }
     @Test
-    public void signWithTwoKeys() {
+    public void toSignedTransactionWithTwoKeys() {
         final PublicKey publicKey1 = mock(PublicKey.class);
         final PublicKey publicKey2 = mock(PublicKey.class);
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.sign(publicKey1, publicKey2)).thenReturn(mockSignedTransaction);
+        when(consensualTransactionBuilder.toSignedTransaction(publicKey1, publicKey2)).thenReturn(mockSignedTransaction);
 
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.sign(publicKey1, publicKey2);
+        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction(publicKey1, publicKey2);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).sign(publicKey1, publicKey2);
+        verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKey1, publicKey2);
     }
     @Test
-    public void signWithListOfKeys() {
+    public void toSignedTransactionWithListOfKeys() {
         final List<PublicKey> publicKeyList = Arrays.asList(mock(PublicKey.class), mock(PublicKey.class));
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.sign(publicKeyList)).thenReturn(mockSignedTransaction);
+        when(consensualTransactionBuilder.toSignedTransaction(publicKeyList)).thenReturn(mockSignedTransaction);
 
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.sign(publicKeyList);
+        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction(publicKeyList);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).sign(publicKeyList);
+        verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKeyList);
     }
 
 
