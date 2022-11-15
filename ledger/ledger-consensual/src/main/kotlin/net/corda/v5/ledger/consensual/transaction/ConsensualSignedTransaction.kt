@@ -45,38 +45,6 @@ interface ConsensualSignedTransaction {
     fun toLedgerTransaction(): ConsensualLedgerTransaction
 
     /**
-     * Sign the current [ConsensualSignedTransaction] with the specified key.
-     *
-     * @param publicKey The private counterpart of the specified public key will be used for signing the
-     *      [ConsensualSignedTransaction].
-     * @return Returns the new [ConsensualSignedTransaction] containing the applied signature and the signature itself.
-     */
-    @Suspendable
-    fun addSignature(publicKey: PublicKey): Pair<ConsensualSignedTransaction, DigitalSignatureAndMetadata>
-
-    /**
-     * Adds a signature to the current [ConsensualSignedTransaction].
-     *
-     * @param signature The signature to be added to the [ConsensualSignedTransaction].
-     *
-     * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
-     */
-    @Suspendable
-    fun addSignature(signature: DigitalSignatureAndMetadata): ConsensualSignedTransaction
-
-    /**
-     * Crosschecks the missing signatures with the available keys and signs the transaction with their intersection
-     * if there are any. (Disabled until crypto support becomes available.)
-     *
-     * @return Returns a new [ConsensualSignedTransaction] containing the new signature.
-     *
-    @Suspendable
-     * @return Returns the new [ConsensualSignedTransaction] containing the applied signature and a
-     *          list of added signatures.
-    fun addMissingSignatures(): Pair(ConsensualSignedTransaction, list<DigitalSignatureAndMetadata>)
-    */
-
-    /**
      * Gets the signing keys for any missing transaction signatures.
      *
      * @return Returns a [Set] of [PublicKey] representing the signing keys for any missing transaction signatures.
