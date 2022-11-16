@@ -165,7 +165,6 @@ public class AbstractMockTestHarness {
     private void initializeUtxoSignedTransaction() {
         Mockito.when(utxoSignedTransaction.getId()).thenReturn(hash);
         Mockito.when(utxoSignedTransaction.getSignatures()).thenReturn(signatures);
-        Mockito.when(utxoSignedTransaction.getMissingSignatories()).thenReturn(setOfKeys);
         Mockito.when(utxoSignedTransaction.toLedgerTransaction()).thenReturn(utxoLedgerTransaction);
     }
 

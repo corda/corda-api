@@ -2,9 +2,7 @@ package net.corda.v5.ledger.utxo.transaction
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.base.annotations.DoNotImplement
-import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
-import java.security.PublicKey
 
 /**
  * Defines a signed UTXO transaction.
@@ -42,20 +40,4 @@ interface UtxoSignedTransaction {
      * @return Returns a [UtxoLedgerTransaction] from the current signed transaction.
      */
     fun toLedgerTransaction(): UtxoLedgerTransaction
-
-    /**
-     * Gets the missing signatories from the current [UtxoSignedTransaction].
-     *
-     * @return Returns a [Set] of [PublicKey] representing the missing signatories from the current [UtxoSignedTransaction].
-     */
-    @Suspendable
-    fun getMissingSignatories(): Set<PublicKey>
-
-    /**
-     * Verify all available signatures and whether there are any missing ones.
-     *
-     * @throws TransactionVerificationException if any signatures are invalid or missing.
-     */
-    @Suspendable
-    fun verifySignatures()
 }

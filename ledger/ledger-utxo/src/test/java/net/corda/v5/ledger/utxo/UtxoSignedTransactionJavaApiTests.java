@@ -26,12 +26,6 @@ public final class UtxoSignedTransactionJavaApiTests extends AbstractMockTestHar
     }
 
     @Test
-    public void getMissingSignatoriesShouldReturnTheExpectedValue() {
-        Set<PublicKey> value = utxoSignedTransaction.getMissingSignatories();
-        Assertions.assertEquals(setOfKeys, value);
-    }
-
-    @Test
     public void toLedgerTransactionShouldReturnTheExpectedValue() {
         UtxoLedgerTransaction value = utxoSignedTransaction.toLedgerTransaction();
         Assertions.assertEquals(utxoLedgerTransaction, value);
