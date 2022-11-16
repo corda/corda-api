@@ -44,35 +44,18 @@ interface ConsensualTransactionBuilder {
 
     /**
      * Verifies the content of the [ConsensualTransactionBuilder] and
-     * signs the transaction with the specified signatory keys.
+     * signs the transaction with the specified signatory key.
      *
      * Calling this function once consumes the [ConsensualTransactionBuilder], so it cannot be used again.
      * Therefore, if you want to build two transactions you need two builders.
      *
-     * @param signatories The signatories expected to sign the current transaction.
-     * @return Returns a [ConsensualSignedTransaction] with signatures for the specified signatory keys.
+     * @param signatory The signatory expected to sign the current transaction.
+     * @return Returns a [ConsensualSignedTransaction] with signature for the specified signatory key.
      *
      * @throws IllegalStateException when called a second time on the same object to prevent
      *      unintentional duplicate transactions.
      */
     @Suspendable
     @Deprecated("Temporary function until the argumentless version gets available")
-    fun toSignedTransaction(signatories: Iterable<PublicKey>): ConsensualSignedTransaction
-
-    /**
-     * Verifies the content of the [ConsensualTransactionBuilder] and
-     * signs the transaction with the specified signatory keys.
-     *
-     * Calling this function once consumes the [ConsensualTransactionBuilder], so it cannot be used again.
-     * Therefore, if you want to build two transactions you need two builders.
-     *
-     * @param signatories The signatories expected to sign the current transaction.
-     * @return Returns a [ConsensualSignedTransaction] with signatures for the specified signatory keys.
-     *
-     * @throws IllegalStateException when called a second time on the same object to prevent
-     *      unintentional duplicate transactions.
-     */
-    @Suspendable
-    @Deprecated("Temporary function until the argumentless version gets available")
-    fun toSignedTransaction(vararg signatories: PublicKey): ConsensualSignedTransaction
+    fun toSignedTransaction(signatory: PublicKey): ConsensualSignedTransaction
 }

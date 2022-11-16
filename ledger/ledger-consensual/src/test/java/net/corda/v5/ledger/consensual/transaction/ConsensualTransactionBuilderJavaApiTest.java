@@ -79,7 +79,7 @@ public class ConsensualTransactionBuilderJavaApiTest {
         verify(consensualTransactionBuilder, times(1)).toSignedTransaction();
     }
     @Test
-    public void toSignedTransactionWithOneKey() {
+    public void toSignedTransaction() {
         final PublicKey publicKey = mock(PublicKey.class);
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
         when(consensualTransactionBuilder.toSignedTransaction(publicKey)).thenReturn(mockSignedTransaction);
@@ -90,31 +90,4 @@ public class ConsensualTransactionBuilderJavaApiTest {
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
         verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKey);
     }
-    @Test
-    public void toSignedTransactionWithTwoKeys() {
-        final PublicKey publicKey1 = mock(PublicKey.class);
-        final PublicKey publicKey2 = mock(PublicKey.class);
-        final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.toSignedTransaction(publicKey1, publicKey2)).thenReturn(mockSignedTransaction);
-
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction(publicKey1, publicKey2);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKey1, publicKey2);
-    }
-    @Test
-    public void toSignedTransactionWithListOfKeys() {
-        final List<PublicKey> publicKeyList = Arrays.asList(mock(PublicKey.class), mock(PublicKey.class));
-        final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.toSignedTransaction(publicKeyList)).thenReturn(mockSignedTransaction);
-
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction(publicKeyList);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKeyList);
-    }
-
-
 }
