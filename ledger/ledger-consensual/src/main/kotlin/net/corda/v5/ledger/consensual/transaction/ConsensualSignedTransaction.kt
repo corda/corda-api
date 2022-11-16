@@ -2,10 +2,7 @@ package net.corda.v5.ledger.consensual.transaction
 
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.base.annotations.DoNotImplement
-import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
-import net.corda.v5.ledger.common.transaction.TransactionVerificationException
-import java.security.PublicKey
 
 /**
  * Defines a signed Consensual transaction.
@@ -43,20 +40,4 @@ interface ConsensualSignedTransaction {
      * @return Returns a [ConsensualLedgerTransaction] from the current signed transaction.
      */
     fun toLedgerTransaction(): ConsensualLedgerTransaction
-
-    /**
-     * Gets the missing signatories from the current [ConsensualSignedTransaction].
-     *
-     * @return Returns a [Set] of [PublicKey] representing the missing signatories from the current [ConsensualSignedTransaction].
-     */
-    @Suspendable
-    fun getMissingSignatories(): Set<PublicKey>
-
-    /**
-     * Verify all available signatures and whether there are any missing ones.
-     *
-     * @throws TransactionVerificationException if any signatures are invalid or missing.
-     */
-    @Suspendable
-    fun verifySignatures()
 }
