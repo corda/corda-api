@@ -4,7 +4,7 @@ import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction;
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction;
-import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionVerifier;
+import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionChecker;
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -84,13 +84,13 @@ public class ConsensualLedgerServiceJavaApiTest {
     public void receiveFinality() {
         ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
         FlowSession flowSession = mock(FlowSession.class);
-        ConsensualSignedTransactionVerifier consensualSignedTransactionVerifier = mock(ConsensualSignedTransactionVerifier.class);
-        when(consensualLedgerService.receiveFinality(flowSession, consensualSignedTransactionVerifier)).thenReturn(consensualSignedTransaction);
+        ConsensualSignedTransactionChecker consensualSignedTransactionChecker = mock(ConsensualSignedTransactionChecker.class);
+        when(consensualLedgerService.receiveFinality(flowSession, consensualSignedTransactionChecker)).thenReturn(consensualSignedTransaction);
 
-        ConsensualSignedTransaction result = consensualLedgerService.receiveFinality(flowSession, consensualSignedTransactionVerifier);
+        ConsensualSignedTransaction result = consensualLedgerService.receiveFinality(flowSession, consensualSignedTransactionChecker);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(consensualSignedTransaction);
-        verify(consensualLedgerService, times(1)).receiveFinality(flowSession, consensualSignedTransactionVerifier);
+        verify(consensualLedgerService, times(1)).receiveFinality(flowSession, consensualSignedTransactionChecker);
     }
 }

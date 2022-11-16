@@ -6,7 +6,7 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction
-import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionVerifier
+import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionChecker
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder
 
 /**
@@ -60,13 +60,13 @@ interface ConsensualLedgerService {
      * Verifies, signs and records a [ConsensualSignedTransaction].
      *
      * @param session The [FlowSession] to receive the [ConsensualSignedTransaction] from.
-     * @param verifier Verifies the received [ConsensualSignedTransaction].
+     * @param checkTransactionAcceptable Verifies the received [ConsensualSignedTransaction].
      *
      * @return The fully signed [ConsensualSignedTransaction] that was received and recorded.
      */
     @Suspendable
     fun receiveFinality(
         session: FlowSession,
-        verifier: ConsensualSignedTransactionVerifier
+        checkTransactionAcceptable: ConsensualSignedTransactionChecker
     ): ConsensualSignedTransaction
 }

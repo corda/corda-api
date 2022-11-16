@@ -6,9 +6,9 @@ import net.corda.v5.ledger.consensual.ConsensualLedgerService
 import java.io.Serializable
 
 /**
- * [ConsensualSignedTransactionVerifier] verifies a [ConsensualSignedTransaction].
+ * [ConsensualSignedTransactionChecker] verifies a [ConsensualSignedTransaction].
  *
- * Implement [ConsensualSignedTransactionVerifier] and pass the implementation into [ConsensualLedgerService.receiveFinality] to perform
+ * Implement [ConsensualSignedTransactionChecker] and pass the implementation into [ConsensualLedgerService.receiveFinality] to perform
  * custom verification on the [ConsensualSignedTransaction] received from the initiator of finality.
  *
  * When verifying a [ConsensualSignedTransaction] throw either an [IllegalArgumentException], [IllegalStateException] or
@@ -18,7 +18,7 @@ import java.io.Serializable
  *
  * @see ConsensualLedgerService.receiveFinality
  */
-fun interface ConsensualSignedTransactionVerifier : Serializable {
+fun interface ConsensualSignedTransactionChecker : Serializable {
 
     /**
      * Verify a [ConsensualSignedTransaction].
