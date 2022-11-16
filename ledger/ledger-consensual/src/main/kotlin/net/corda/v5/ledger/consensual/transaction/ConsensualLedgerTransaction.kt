@@ -34,10 +34,10 @@ interface ConsensualLedgerTransaction {
     val id: SecureHash
 
     /**
-     * @property requiredSignatories Set of [PublicKey] needed to make the underlying transaction valid.
+     * @property requiredSignatories List of [PublicKey] needed to make the underlying transaction valid.
      * Essentially the union of the participants of the transaction's [ConsensualState]s.
      */
-    val requiredSignatories: Set<PublicKey>
+    val requiredSignatories: List<PublicKey>
 
     /**
      * @property timestamp The timestamp of the transaction. (When it got signed initially.)
