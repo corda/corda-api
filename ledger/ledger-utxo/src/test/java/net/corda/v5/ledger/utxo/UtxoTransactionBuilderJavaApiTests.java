@@ -103,16 +103,4 @@ public final class UtxoTransactionBuilderJavaApiTests extends AbstractMockTestHa
         UtxoSignedTransaction value = utxoTransactionBuilder.toSignedTransaction();
         Assertions.assertEquals(utxoSignedTransaction, value);
     }
-
-    @Test
-    public void toSignedTransactionWithKeysShouldReturnTheExpectedValue() {
-        UtxoSignedTransaction value = utxoTransactionBuilder.toSignedTransaction(keys);
-        Assertions.assertEquals(utxoSignedTransaction, value);
-    }
-
-    @Test
-    public void toSignedTransactionWithVarargKeysShouldReturnTheExpectedValue() {
-        UtxoSignedTransaction value = utxoTransactionBuilder.toSignedTransaction(aliceKey, bobKey);
-        Assertions.assertEquals(utxoSignedTransaction, value);
-    }
 }

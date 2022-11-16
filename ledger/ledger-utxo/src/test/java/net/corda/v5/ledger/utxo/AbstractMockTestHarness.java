@@ -186,7 +186,6 @@ public class AbstractMockTestHarness {
         Mockito.when(utxoTransactionBuilder.setTimeWindowUntil(maxInstant)).thenReturn(utxoTransactionBuilder);
         Mockito.when(utxoTransactionBuilder.setTimeWindowBetween(minInstant, maxInstant)).thenReturn(utxoTransactionBuilder);
         Mockito.when(utxoTransactionBuilder.toSignedTransaction()).thenReturn(utxoSignedTransaction);
-        Mockito.when(utxoTransactionBuilder.toSignedTransaction(keys)).thenReturn(utxoSignedTransaction);
-        Mockito.when(utxoTransactionBuilder.toSignedTransaction(aliceKey, bobKey)).thenReturn(utxoSignedTransaction);
+        Mockito.when(utxoTransactionBuilder.toSignedTransaction(aliceKey)).thenReturn(utxoSignedTransaction);
     }
 }
