@@ -6,9 +6,9 @@ import net.corda.v5.ledger.utxo.UtxoLedgerService
 import java.io.Serializable
 
 /**
- * [UtxoSignedTransactionVerifier] verifies a [UtxoSignedTransaction].
+ * [UtxoSignedTransactionChecker] verifies a [UtxoSignedTransaction].
  *
- * Implement [UtxoSignedTransactionVerifier] and pass the implementation into [UtxoLedgerService.receiveFinality] to perform
+ * Implement [UtxoSignedTransactionChecker] and pass the implementation into [UtxoLedgerService.receiveFinality] to perform
  * custom verification on the [UtxoSignedTransaction] received from the initiator of finality.
  *
  * When verifying a [UtxoSignedTransaction] throw either an [IllegalArgumentException], [IllegalStateException] or
@@ -18,7 +18,7 @@ import java.io.Serializable
  *
  * @see UtxoLedgerService.receiveFinality
  */
-fun interface UtxoSignedTransactionVerifier : Serializable {
+fun interface UtxoSignedTransactionChecker : Serializable {
 
     /**
      * Verify a [UtxoSignedTransaction].
