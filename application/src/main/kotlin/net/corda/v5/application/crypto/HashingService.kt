@@ -7,9 +7,7 @@ import net.corda.v5.crypto.SecureHash
 import java.io.InputStream
 
 /**
- * Handles hashing of bytes.
- *
- * Delegates all functionality to [DigestService].
+ * Provides hashing capabilities to flows.
  */
 @DoNotImplement
 interface HashingService {
