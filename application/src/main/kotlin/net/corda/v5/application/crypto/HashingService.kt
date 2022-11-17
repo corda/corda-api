@@ -13,12 +13,6 @@ import java.io.InputStream
  */
 @DoNotImplement
 interface HashingService {
-
-//    /**
-//     * Default [DigestAlgorithmName] for this hashing service.
-//     */
-//    val defaultDigestAlgorithmName: DigestAlgorithmName
-
     /**
      * Computes the digest of the [ByteArray].
      *
