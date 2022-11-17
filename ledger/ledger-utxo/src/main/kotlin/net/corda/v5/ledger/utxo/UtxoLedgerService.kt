@@ -72,7 +72,7 @@ interface UtxoLedgerService {
      * @return The fully signed [UtxoSignedTransaction] that was recorded.
      */
     @Suspendable
-    fun finality(
+    fun finalize(
         signedTransaction: UtxoSignedTransaction,
         sessions: List<FlowSession>
     ): UtxoSignedTransaction

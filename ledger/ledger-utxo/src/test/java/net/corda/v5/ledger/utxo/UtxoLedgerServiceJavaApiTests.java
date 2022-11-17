@@ -64,17 +64,17 @@ public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness
     }
 
     @Test
-    public void finality() {
+    public void finalizeTest() {
         UtxoSignedTransaction UtxoSignedTransactionIn = mock(UtxoSignedTransaction.class);
         UtxoSignedTransaction UtxoSignedTransactionOut = mock(UtxoSignedTransaction.class);
         List<FlowSession> flowSessions = Arrays.asList(mock(FlowSession.class), mock(FlowSession.class));
-        when(utxoLedgerService.finality(UtxoSignedTransactionIn, flowSessions)).thenReturn(UtxoSignedTransactionOut);
+        when(utxoLedgerService.finalize(UtxoSignedTransactionIn, flowSessions)).thenReturn(UtxoSignedTransactionOut);
 
-        UtxoSignedTransaction result = utxoLedgerService.finality(UtxoSignedTransactionIn, flowSessions);
+        UtxoSignedTransaction result = utxoLedgerService.finalize(UtxoSignedTransactionIn, flowSessions);
 
         org.assertj.core.api.Assertions.assertThat(result).isNotNull();
         org.assertj.core.api.Assertions.assertThat(result).isEqualTo(UtxoSignedTransactionOut);
-        verify(utxoLedgerService, times(1)).finality(UtxoSignedTransactionIn, flowSessions);
+        verify(utxoLedgerService, times(1)).finalize(UtxoSignedTransactionIn, flowSessions);
     }
 
     @Test

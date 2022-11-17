@@ -51,7 +51,7 @@ interface ConsensualLedgerService {
      * @return The fully signed [ConsensualSignedTransaction] that was recorded.
      */
     @Suspendable
-    fun finality(
+    fun finalize(
         signedTransaction: ConsensualSignedTransaction,
         sessions: List<FlowSession>
     ): ConsensualSignedTransaction
