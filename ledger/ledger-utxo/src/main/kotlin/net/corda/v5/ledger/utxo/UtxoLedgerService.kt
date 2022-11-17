@@ -81,14 +81,14 @@ interface UtxoLedgerService {
      * Verifies, signs and records a [UtxoSignedTransaction].
      *
      * @param session The [FlowSession] to receive the [UtxoSignedTransaction] from.
-     * @param checkTransactionAcceptable Verifies the received [UtxoSignedTransaction].
+     * @param checkTransaction Verifies the received [UtxoSignedTransaction].
      *
      * @return The fully signed [UtxoSignedTransaction] that was received and recorded.
      */
     @Suspendable
     fun receiveFinality(
         session: FlowSession,
-        checkTransactionAcceptable: UtxoSignedTransactionChecker
+        checkTransaction: UtxoSignedTransactionChecker
     ): UtxoSignedTransaction
 
 

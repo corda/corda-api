@@ -30,5 +30,5 @@ fun interface ConsensualSignedTransactionChecker : Serializable {
      * @throws Throwable If the [signedTransaction] fails verification.
      */
     @Suspendable
-    fun check(signedTransaction: ConsensualSignedTransaction)
+    fun checkTransaction(signedTransaction: ConsensualSignedTransaction)
 }
