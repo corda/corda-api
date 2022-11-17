@@ -7,7 +7,7 @@ import net.corda.v5.crypto.SecureHash
 import java.io.InputStream
 
 /**
- * Provides hashing capabilities to flows.
+ * Provides hashing capabilities to be used in all sandbox types.
  */
 @DoNotImplement
 interface HashingService {
