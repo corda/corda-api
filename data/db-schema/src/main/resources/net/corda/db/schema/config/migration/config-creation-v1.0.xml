@@ -290,7 +290,16 @@
             <column name="cpi_signer_summary_hash" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name = "state" type="VARCHAR(255)">
+            <column name = "flow_p2p_operational_status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "flow_start_operational_status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "flow_operational_status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "vault_db_operational_status" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <!-- audit -->
