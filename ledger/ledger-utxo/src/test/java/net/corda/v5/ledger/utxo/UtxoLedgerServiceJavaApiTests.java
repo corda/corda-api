@@ -4,7 +4,7 @@ import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
-import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransactionValidator;
+import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -81,13 +81,13 @@ public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness
     public void receiveFinality() {
         UtxoSignedTransaction UtxoSignedTransaction = mock(UtxoSignedTransaction.class);
         FlowSession flowSession = mock(FlowSession.class);
-        UtxoSignedTransactionValidator utxoSignedTransactionValidator = mock(UtxoSignedTransactionValidator.class);
-        when(utxoLedgerService.receiveFinality(flowSession, utxoSignedTransactionValidator)).thenReturn(UtxoSignedTransaction);
+        UtxoTransactionValidator utxoTransactionValidator = mock(UtxoTransactionValidator.class);
+        when(utxoLedgerService.receiveFinality(flowSession, utxoTransactionValidator)).thenReturn(UtxoSignedTransaction);
 
-        UtxoSignedTransaction result = utxoLedgerService.receiveFinality(flowSession, utxoSignedTransactionValidator);
+        UtxoSignedTransaction result = utxoLedgerService.receiveFinality(flowSession, utxoTransactionValidator);
 
         org.assertj.core.api.Assertions.assertThat(result).isNotNull();
         org.assertj.core.api.Assertions.assertThat(result).isEqualTo(UtxoSignedTransaction);
-        verify(utxoLedgerService, times(1)).receiveFinality(flowSession, utxoSignedTransactionValidator);
+        verify(utxoLedgerService, times(1)).receiveFinality(flowSession, utxoTransactionValidator);
     }
 }

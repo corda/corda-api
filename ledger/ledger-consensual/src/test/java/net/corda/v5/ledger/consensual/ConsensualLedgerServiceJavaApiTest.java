@@ -4,7 +4,7 @@ import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction;
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction;
-import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionValidator;
+import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionValidator;
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -84,13 +84,13 @@ public class ConsensualLedgerServiceJavaApiTest {
     public void receiveFinality() {
         ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
         FlowSession flowSession = mock(FlowSession.class);
-        ConsensualSignedTransactionValidator consensualSignedTransactionValidator = mock(ConsensualSignedTransactionValidator.class);
-        when(consensualLedgerService.receiveFinality(flowSession, consensualSignedTransactionValidator)).thenReturn(consensualSignedTransaction);
+        ConsensualTransactionValidator consensualTransactionValidator = mock(ConsensualTransactionValidator.class);
+        when(consensualLedgerService.receiveFinality(flowSession, consensualTransactionValidator)).thenReturn(consensualSignedTransaction);
 
-        ConsensualSignedTransaction result = consensualLedgerService.receiveFinality(flowSession, consensualSignedTransactionValidator);
+        ConsensualSignedTransaction result = consensualLedgerService.receiveFinality(flowSession, consensualTransactionValidator);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(consensualSignedTransaction);
-        verify(consensualLedgerService, times(1)).receiveFinality(flowSession, consensualSignedTransactionValidator);
+        verify(consensualLedgerService, times(1)).receiveFinality(flowSession, consensualTransactionValidator);
     }
 }

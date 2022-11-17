@@ -6,7 +6,7 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
-import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransactionValidator
+import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
 
 /**
@@ -88,7 +88,7 @@ interface UtxoLedgerService {
     @Suspendable
     fun receiveFinality(
         session: FlowSession,
-        validator: UtxoSignedTransactionValidator
+        validator: UtxoTransactionValidator
     ): UtxoSignedTransaction
 
 

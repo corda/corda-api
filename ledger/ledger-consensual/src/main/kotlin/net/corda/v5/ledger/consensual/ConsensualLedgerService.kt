@@ -6,7 +6,7 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction
-import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransactionValidator
+import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionValidator
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder
 
 /**
@@ -67,6 +67,6 @@ interface ConsensualLedgerService {
     @Suspendable
     fun receiveFinality(
         session: FlowSession,
-        validator: ConsensualSignedTransactionValidator
+        validator: ConsensualTransactionValidator
     ): ConsensualSignedTransaction
 }
