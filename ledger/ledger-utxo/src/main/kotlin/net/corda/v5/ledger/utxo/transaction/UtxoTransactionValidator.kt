@@ -30,5 +30,5 @@ fun interface UtxoTransactionValidator : Serializable {
      * @throws Throwable If the [ledgerTransaction] fails validation.
      */
     @Suspendable
-    fun check(ledgerTransaction: UtxoLedgerTransaction)
+    fun checkTransaction(ledgerTransaction: UtxoLedgerTransaction)
 }
