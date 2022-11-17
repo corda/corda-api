@@ -30,5 +30,5 @@ fun interface UtxoSignedTransactionChecker : Serializable {
      * @throws Throwable If the [signedTransaction] fails verification.
      */
     @Suspendable
-    fun verify(signedTransaction: UtxoSignedTransaction)
+    fun check(signedTransaction: UtxoSignedTransaction)
 }

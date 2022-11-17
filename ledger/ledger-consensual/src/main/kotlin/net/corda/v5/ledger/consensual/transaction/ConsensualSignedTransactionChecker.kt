@@ -21,7 +21,7 @@ import java.io.Serializable
 fun interface ConsensualSignedTransactionChecker : Serializable {
 
     /**
-     * Verify a [ConsensualSignedTransaction].
+     * Check a [ConsensualSignedTransaction].
      *
      * Throw an [IllegalArgumentException], [IllegalStateException] or [CordaRuntimeException] to indicate that the transaction is invalid.
      *
@@ -30,5 +30,5 @@ fun interface ConsensualSignedTransactionChecker : Serializable {
      * @throws Throwable If the [signedTransaction] fails verification.
      */
     @Suspendable
-    fun verify(signedTransaction: ConsensualSignedTransaction)
+    fun check(signedTransaction: ConsensualSignedTransaction)
 }
