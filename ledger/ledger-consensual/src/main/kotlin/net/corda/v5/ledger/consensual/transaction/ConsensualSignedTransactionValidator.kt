@@ -6,28 +6,28 @@ import net.corda.v5.ledger.consensual.ConsensualLedgerService
 import java.io.Serializable
 
 /**
- * [ConsensualSignedTransactionChecker] verifies a [ConsensualSignedTransaction].
+ * [ConsensualSignedTransactionValidator] verifies a [ConsensualSignedTransaction].
  *
- * Implement [ConsensualSignedTransactionChecker] and pass the implementation into [ConsensualLedgerService.receiveFinality] to perform
- * custom verification on the [ConsensualSignedTransaction] received from the initiator of finality.
+ * Implement [ConsensualSignedTransactionValidator] and pass the implementation into [ConsensualLedgerService.receiveFinality] to perform
+ * custom validation on the [ConsensualSignedTransaction] received from the initiator of finality.
  *
- * When verifying a [ConsensualSignedTransaction] throw either an [IllegalArgumentException], [IllegalStateException] or
+ * When validating a [ConsensualSignedTransaction] throw either an [IllegalArgumentException], [IllegalStateException] or
  * [CordaRuntimeException] to indicate that the transaction is invalid. This will lead to the termination of finality for the caller of
  * [ConsensualLedgerService.receiveFinality] and all participants included in finalizing the transaction. Other exceptions will still stop
  * the progression of finality; however, the reason for the failure will not be communicated to the initiator of finality.
  *
  * @see ConsensualLedgerService.receiveFinality
  */
-fun interface ConsensualSignedTransactionChecker : Serializable {
+fun interface ConsensualSignedTransactionValidator : Serializable {
 
     /**
-     * Check a [ConsensualSignedTransaction].
+     * Validate a [ConsensualSignedTransaction].
      *
      * Throw an [IllegalArgumentException], [IllegalStateException] or [CordaRuntimeException] to indicate that the transaction is invalid.
      *
-     * @param signedTransaction The [ConsensualSignedTransaction] to verify.
+     * @param signedTransaction The [ConsensualSignedTransaction] to validate.
      *
-     * @throws Throwable If the [signedTransaction] fails verification.
+     * @throws Throwable If the [signedTransaction] fails validation.
      */
     @Suspendable
     fun checkTransaction(signedTransaction: ConsensualSignedTransaction)
