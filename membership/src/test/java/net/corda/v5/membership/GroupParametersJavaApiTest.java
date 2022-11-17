@@ -74,7 +74,7 @@ public class GroupParametersJavaApiTest {
     public void notaries() {
         when(groupParameters.getNotaries()).thenReturn(List.of(notary));
 
-        final List<NotaryInfo> result = groupParameters.getNotaries();
+        final Collection<NotaryInfo> result = groupParameters.getNotaries();
 
         assertThat(result).containsExactly(notary);
     }
