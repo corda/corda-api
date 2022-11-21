@@ -10,30 +10,30 @@ import java.io.InputStream
  * Provides hashing capabilities to be used in all sandbox types.
  */
 @DoNotImplement
-interface HashingService {
+interface DigestService {
     /**
      * Computes the digest of the [ByteArray].
      *
      * @param bytes The [ByteArray] to hash.
-     * @param digestAlgorithmName The digest algorithm to be used for hashing.
+     * @param digestName The digest algorithm to be used for hashing.
      */
     @Suspendable
-    fun hash(bytes: ByteArray, digestAlgorithmName: DigestAlgorithmName): SecureHash
+    fun hash(bytes: ByteArray, digestName: DigestAlgorithmName): SecureHash
 
     /**
      * Computes the digest of the [InputStream].
      *
      * @param inputStream The [InputStream] to hash.
-     * @param digestAlgorithmName The digest algorithm to be used for hashing.
+     * @param digestName The digest algorithm to be used for hashing.
      */
     @Suspendable
-    fun hash(inputStream : InputStream, digestAlgorithmName: DigestAlgorithmName): SecureHash
+    fun hash(inputStream : InputStream, digestName: DigestAlgorithmName): SecureHash
 
     /**
      * Returns the [DigestAlgorithmName] digest length in bytes.
      *
-     * @param digestAlgorithmName The digest algorithm to get the digest length for.
+     * @param digestName The digest algorithm to get the digest length for.
      */
     @Suspendable
-    fun digestLength(digestAlgorithmName: DigestAlgorithmName): Int
+    fun digestLength(digestName: DigestAlgorithmName): Int
 }
