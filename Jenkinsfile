@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0') _
+@Library('corda-shared-build-pipeline-steps@connelm/NOTICK/check-compatability-job') _
 
 cordaPipeline(
     runIntegrationTests: false,
