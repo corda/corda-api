@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -37,7 +36,7 @@ class MerkleTreeFactoryJavaApiTest {
         final MerkleTreeHashDigest hashDigest = mock(MerkleTreeHashDigest.class);
         // TODO: figure out what to do about the default third argument to createHashDigest, not supported in Java
         // by default. According to our coding standards doc, we should either replace this with a manual
-        // overload.
+        // overload. See JIRA CORE-8374.
         when(merkleTreeFactory.createHashDigest(any(), any(), any())).thenReturn(hashDigest);
 
         final MerkleTreeHashDigest result = merkleTreeFactory.createHashDigest(

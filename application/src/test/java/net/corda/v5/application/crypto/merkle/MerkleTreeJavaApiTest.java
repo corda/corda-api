@@ -17,7 +17,7 @@ class MerkleTreeJavaApiTest {
     private final MerkleTree merkleTree = mock(MerkleTree.class);
 
     @Test
-    void createTree() {
+    void createAuditProof() {
         final MerkleProof proof = mock(MerkleProof.class);
         when(merkleTree.createAuditProof(any())).thenReturn(proof);
 
