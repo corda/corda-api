@@ -9,12 +9,23 @@
       "type": "string"
     },
     {
-      "doc": "Collection of certificates in PEM format",
-      "name": "tlsCertificates",
+      "doc": "Collection of server TLS certificates in PEM format",
+      "name": "serverTlsCertificates",
       "type": {
         "type": "array",
         "items": "string"
       }
+    },
+    {
+      "doc": "Collection of client TLS certificates in PEM format",
+      "name": "clientTlsCertificates",
+      "type": [
+        {
+          "type": "array",
+          "items": "string"
+        },
+        "null"
+      ]
     }
   ]
 }

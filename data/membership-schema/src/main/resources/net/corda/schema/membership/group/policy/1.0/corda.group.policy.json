@@ -172,6 +172,7 @@
         "tlsTrustRoots",
         "tlsPki",
         "tlsVersion",
+        "tlsType",
         "protocolMode"
       ],
       "properties": {
@@ -211,6 +212,13 @@
           "enum": [
             "1.2",
             "1.3"
+          ]
+        },
+        "tlsType": {
+          "description": "The type of the group TLS.",
+          "enum": [
+            "ONE_WAY",
+            "MUTUAL"
           ]
         },
         "protocolMode": {

@@ -29,6 +29,12 @@
       "type": "object",
       "default": {},
       "properties": {
+        "tlsType": {
+          "type": "string",
+          "enum": ["MUTUAL", "ONE_WAY"],
+          "default": "ONE_WAY",
+          "description": "The TLS type (MUTUAL or ONE_WAY)."
+        },
         "revocationCheck": {
           "type": "object",
           "default": {},

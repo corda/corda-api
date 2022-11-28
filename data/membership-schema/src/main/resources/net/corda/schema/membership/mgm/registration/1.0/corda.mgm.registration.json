@@ -71,6 +71,15 @@
         "Corda4"
       ]
     },
+    "corda.group.tls.type": {
+      "description": "The TLS type.",
+      "type": "string",
+      "enum": ["ONE_WAY", "MUTUAL"],
+      "examples": [
+        "ONE_WAY",
+        "MUTUAL"
+      ]
+    },
     "corda.group.tls.version": {
       "description": "The version of the TLS protocol to use.",
       "type": "string",
