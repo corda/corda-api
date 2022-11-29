@@ -19,7 +19,6 @@
         "net.corda.data.virtualnode.VirtualNodeCreateResponse",
         "net.corda.data.virtualnode.VirtualNodeStateChangeResponse",
         "net.corda.data.virtualnode.VirtualNodeDBResetResponse",
-        "net.corda.data.virtualnode.VirtualNodeUpgradeResponse",
         "net.corda.data.virtualnode.VirtualNodeManagementResponseFailure"
       ]
     }

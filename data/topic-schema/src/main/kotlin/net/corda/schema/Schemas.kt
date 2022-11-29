@@ -200,6 +200,8 @@ class Schemas {
         companion object {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
             const val VIRTUAL_NODE_MANAGEMENT_TOPIC = "virtual.node.management"
+            const val VIRTUAL_NODE_ASYNC_REQUEST_TOPIC = "virtual.node.async.request"
+            const val VIRTUAL_NODE_REQUEST_STATUS_TOPIC = "virtual.node.request.status"
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             const val VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = "virtual.node.creation.request.resp"
             const val CPI_INFO_TOPIC = "cpi.info"

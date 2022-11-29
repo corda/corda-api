@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "VirtualNodeAsyncOperationStatus",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "operation",
+      "type": [
+        "net.corda.data.virtualnode.VirtualNodeUpgradeStatus"
+      ],
+      "doc": "Specific details about an asynchronous virtual node operation."
+    },
+    {
+      "name": "status",
+      "type": "net.corda.data.http.asynchronous.AsynchronousOperationStatus",
+      "doc": "Generic status of the asynchronous request."
+    }
+  ]
+}
