@@ -5,9 +5,11 @@ import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.common.Party
 import net.corda.v5.ledger.common.transaction.TransactionMetadata
+import net.corda.v5.ledger.utxo.Command
 import net.corda.v5.ledger.utxo.StateAndRef
 import net.corda.v5.ledger.utxo.StateRef
 import net.corda.v5.ledger.utxo.TimeWindow
+import java.security.PublicKey
 
 /**
  * Defines a signed UTXO transaction.
@@ -68,6 +70,16 @@ interface UtxoSignedTransaction {
      * @property metadata The metadata for this transaction
      */
     val metadata: TransactionMetadata
+
+    /**
+     * @property commands The list of commands for this transaction
+     */
+    val commands: List<Command>
+
+    /**
+     * @property signatories The list of keys that need to sign this transaction
+     */
+    val signatories: List<PublicKey>
 
     /**
      * Converts the current [UtxoSignedTransaction] into a [UtxoLedgerTransaction].
