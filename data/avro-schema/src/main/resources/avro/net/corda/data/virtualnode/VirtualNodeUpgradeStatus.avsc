@@ -9,11 +9,6 @@
       "doc": "ID of this Virtual Node CPI upgrade request."
     },
     {
-      "name": "virtualNodeShortId",
-      "type": "string",
-      "doc": "Short hash of the virtual node / holding identity."
-    },
-    {
       "name": "cpiFileChecksum",
       "type": "string",
       "doc": "The checksum of the CPI file."

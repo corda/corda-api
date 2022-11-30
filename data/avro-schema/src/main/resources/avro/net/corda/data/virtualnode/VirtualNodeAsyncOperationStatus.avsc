@@ -11,6 +11,11 @@
       "doc": "Specific details about an asynchronous virtual node operation."
     },
     {
+      "name": "virtualNodeShortId",
+      "type": "string",
+      "doc": "Short hash of the virtual node / holding identity."
+    },
+    {
       "name": "status",
       "type": "net.corda.data.http.asynchronous.AsynchronousOperationStatus",
       "doc": "Generic status of the asynchronous request."
