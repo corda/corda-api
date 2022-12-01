@@ -3,6 +3,7 @@ package net.corda.v5.ledger.utxo.transaction
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.common.Party
+import net.corda.v5.ledger.common.transaction.TransactionMetadata
 import net.corda.v5.ledger.common.transaction.TransactionVerificationException
 import net.corda.v5.ledger.utxo.Command
 import net.corda.v5.ledger.utxo.StateAndRef
@@ -16,6 +17,11 @@ interface UtxoFilteredTransaction {
      * @property id The ID of the transaction.
      */
     val id: SecureHash
+
+    /**
+     * @property metadata the metadata for this transaction
+     */
+    val metadata: TransactionMetadata
 
     /**
      * @param timeWindow The validity time window for finalizing/notarising this transaction or null if filtered
