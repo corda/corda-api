@@ -62,8 +62,5 @@ public class UtxoFilteredTransactionJavaApiTest {
         Assertions.assertThat(auditInputs.getValues()).hasSize(1);
         Assertions.assertThat(auditInputs.getValues().get(0).getIndex()).isEqualTo(1);
         Assertions.assertThat(auditInputs.getValues().get(0).getValue().getTransactionHash()).isEqualTo(hash);
-
-
     }
-
 }
