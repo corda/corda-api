@@ -9,7 +9,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.List;
+import java.util.Map;
 
 public class UtxoFilteredTransactionJavaApiTest {
 
@@ -32,13 +32,10 @@ public class UtxoFilteredTransactionJavaApiTest {
         Mockito.when(filteredTx.getOutputStateAndRefs()).thenReturn(outputs);
 
         // Inputs is a filtered Audit proof
-        FilteredEntry<StateRef> inputData = Mockito.mock(FilteredEntry.class);
-        Mockito.when(inputData.getIndex()).thenReturn(1);
-        Mockito.when(inputData.getValue()).thenReturn(new StateRef(hash, 0));
         UtxoFilteredData.UtxoFilteredDataAudit<StateRef> inputs =
                 Mockito.mock(UtxoFilteredData.UtxoFilteredDataAudit.class);
         Mockito.when(inputs.getSize()).thenReturn(2);
-        Mockito.when(inputs.getValues()).thenReturn(List.of(inputData));
+        Mockito.when(inputs.getValues()).thenReturn(Map.of(1, new StateRef(hash, 1) ));
         Mockito.when(filteredTx.getInputStateRefs()).thenReturn(inputs);
 
 
@@ -60,7 +57,6 @@ public class UtxoFilteredTransactionJavaApiTest {
                 = (UtxoFilteredData.UtxoFilteredDataAudit<StateRef>) txInputs;
         Assertions.assertThat(auditInputs.getSize()).isEqualTo(2);
         Assertions.assertThat(auditInputs.getValues()).hasSize(1);
-        Assertions.assertThat(auditInputs.getValues().get(0).getIndex()).isEqualTo(1);
-        Assertions.assertThat(auditInputs.getValues().get(0).getValue().getTransactionHash()).isEqualTo(hash);
+        Assertions.assertThat(auditInputs.getValues().get(1).getTransactionHash()).isEqualTo(hash);
     }
 }
