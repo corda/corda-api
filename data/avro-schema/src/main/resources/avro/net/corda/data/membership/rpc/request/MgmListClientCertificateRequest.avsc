@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "MgmListClientCertificateRequest",
+  "namespace": "net.corda.data.membership.rpc.request",
+  "doc": "Request to list the allowed client certificate in the group.",
+  "fields": [
+    {
+      "name": "holdingIdentityId",
+      "doc": "ID of the holding identity whose group policy we want list.",
+      "type": "string"
+    }
+  ]
+}

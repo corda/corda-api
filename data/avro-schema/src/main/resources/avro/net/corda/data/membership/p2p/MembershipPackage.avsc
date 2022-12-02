@@ -35,8 +35,20 @@
     },
     {
       "name": "groupParameters",
-      "doc": "GroupParameters updates.",
-      "type": ["null", "WireGroupParameters"]
+        "doc": "GroupParameters updates.",
+        "type": ["null", "WireGroupParameters"]
+    },
+    {
+      // TODO: Signature?
+      "name": "allowedClientCertificates",
+      "doc": "Allowed client certificates update.",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ]
     },
     {
       "name": "cpiAllowList",

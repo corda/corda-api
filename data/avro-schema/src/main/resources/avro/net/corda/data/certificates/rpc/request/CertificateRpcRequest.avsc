@@ -20,7 +20,10 @@
       "type": [
         "ImportCertificateRpcRequest",
         "ListCertificateAliasesRpcRequest",
-        "RetrieveCertificateRpcRequest"
+        "RetrieveCertificateRpcRequest",
+        "ListAllowedCertificates",
+        "AllowClientCertificate",
+        "DisallowClientCertificate"
       ]
     }
   ]

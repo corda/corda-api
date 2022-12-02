@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "MgmAllowClientCertificateRequest",
+  "namespace": "net.corda.data.membership.rpc.request",
+  "doc": "Request to allow a client certificate in the group.",
+  "fields": [
+    {
+      "name": "holdingIdentityId",
+      "doc": "ID of the holding identity whose group policy we want allow.",
+      "type": "string"
+    },
+    {
+        "name": "certificateSubject",
+        "doc": "Certificate client subject to allow.",
+        "type": "string"
+    }
+  ]
+}

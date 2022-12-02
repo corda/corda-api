@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "MgmListAllowedClientCertificatesResponse",
+  "namespace": "net.corda.data.membership.rpc.response",
+  "doc": "MGM response with a list of client certificates subjects",
+  "fields": [
+    {
+      "name": "subjects",
+      "doc": "The list of allowed subject.",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

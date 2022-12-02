@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "AllowClientCertificate",
+  "namespace": "net.corda.data.certificates.rpc.request",
+  "doc": "RPC request to allow a client certificate.",
+  "fields": [
+    {
+      "name": "subject",
+      "doc": "The certificate subject.",
+      "type": "string"
+    }
+  ]
+}

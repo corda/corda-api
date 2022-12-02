@@ -10,7 +10,10 @@
       "type": [
         "CertificateImportedRpcResponse",
         "ListCertificateAliasRpcResponse",
-        "CertificateRetrievalRpcResponse"
+        "CertificateRetrievalRpcResponse",
+        "ListAllowedCertificatesRpcResponse",
+        "CertificateAllowedRpcResponse",
+        "CertificateDisallowedRpcResponse"
       ]
     }
   ]

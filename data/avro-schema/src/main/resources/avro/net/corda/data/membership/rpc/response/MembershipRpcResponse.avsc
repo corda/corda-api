@@ -16,6 +16,9 @@
         "RegistrationRpcResponse",
         "MGMGroupPolicyResponse",
         "RegistrationStatusResponse",
+        "MgmDisallowClientCertificatesResponse",
+        "MgmAllowClientCertificatesResponse",
+        "MgmListAllowedClientCertificatesResponse",
         "RegistrationsStatusResponse"
       ]
     }

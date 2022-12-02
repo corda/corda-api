@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "MgmDisallowClientCertificatesResponse",
+  "namespace": "net.corda.data.membership.rpc.response",
+  "doc": "MGM response to an allow request",
+  "fields": []
+}

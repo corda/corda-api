@@ -16,6 +16,9 @@
         "RegistrationRpcRequest",
         "RegistrationStatusRpcRequest",
         "MGMGroupPolicyRequest",
+        "MgmAllowClientCertificateRequest",
+        "MgmDisallowClientCertificateRequest",
+        "MgmListClientCertificateRequest",
         "RegistrationStatusSpecificRpcRequest"
       ]
     }

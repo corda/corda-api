@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "GatewayAllowedClientCertificates",
+  "namespace": "net.corda.p2p",
+  "fields": [
+    {
+      "doc": "The source identity (x500 name + group ID)",
+      "name": "sourceIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "doc": "Collection of certificates subjects",
+      "name": "allowedClientCertificates",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

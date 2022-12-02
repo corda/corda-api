@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "ListAllowedCertificatesRpcResponse",
+  "namespace": "net.corda.data.certificates.rpc.response",
+  "doc": "RPC operations response with a certificate subjects.",
+  "fields": [
+    {
+      "name": "subjects",
+      "doc": "The certificates subjects.",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

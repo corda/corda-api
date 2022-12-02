@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "DistributeAllowedClientCertificates",
+  "namespace": "net.corda.data.membership.p2p",
+  "doc": "Distribute allowed client certificates.",
+  "fields": [
+    {
+    "doc": "Collection of certificates subjects",
+      "name": "allowedClientCertificates",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}
