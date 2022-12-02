@@ -1,0 +1,75 @@
+{
+  "type": "record",
+  "name": "VirtualNodeOperationStatus",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "ID of this Virtual Node CPI upgrade request."
+    },
+    {
+      "name": "operationType",
+      "type": {
+        "type": "enum",
+        "name": "VirtualNodeOperationType",
+        "symbols": ["VIRTUAL_NODE_UPGRADE_CPI", "VIRTUAL_NODE_CREATION"],
+        "doc": "Type of virtual node operation."
+      },
+      "doc": "Short hash of the virtual node / holding identity."
+    },
+    {
+      "name": "actor",
+      "type": "string",
+      "doc": "ID of RPC user that requested the virtual node creation."
+    },
+    {
+      "name": "cpiFileChecksum",
+      "type": "string",
+      "doc": "The checksum of the CPI file."
+    },
+    {
+      "name": "stage",
+      "type": "string",
+      "doc": "Current stage of the upgrade process."
+    },
+    {
+      "name": "virtualNodeShortId",
+      "type": "string",
+      "doc": "The short hash of the virtual node / holding identity that this operation applies to."
+    },
+    {
+      "name": "requestTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the request."
+    },
+    {
+      "name": "completedTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the request."
+    },
+    {
+      "name": "state",
+      "type": {
+        "type": "enum",
+        "name": "AsynchronousOperationState",
+        "symbols": ["IN_PROGRESS", "COMPLETED", "ABORTED"],
+        "doc": "Status of an asynchronous request."
+      }
+    },
+    {
+      "name": "errors",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.ExceptionEnvelope"
+      },
+      "doc": "List of any errors that occurred."
+    }
+  ]
+}
