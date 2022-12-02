@@ -27,7 +27,7 @@
             <column name="status" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="created" type="TIMESTAMP">
+            <column name="updated" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
