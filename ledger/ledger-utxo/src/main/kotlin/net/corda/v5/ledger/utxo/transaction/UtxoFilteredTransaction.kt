@@ -83,7 +83,7 @@ interface UtxoFilteredTransaction {
     /**
      * Verifies the current [UtxoFilteredTransaction].
      *
-     * @throws TransactionVerificationException if the current [UtxoSignedTransaction] fails to verify correctly.
+     * @throws TransactionVerificationException if the current [UtxoFilteredTransaction] fails to verify correctly.
      */
     fun verify()
 }
