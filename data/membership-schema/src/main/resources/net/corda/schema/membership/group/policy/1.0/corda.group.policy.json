@@ -173,6 +173,7 @@
         "tlsPki",
         "tlsVersion",
         "tlsType",
+        "clientAllowedCertificates",
         "protocolMode"
       ],
       "properties": {
@@ -220,6 +221,14 @@
             "ONE_WAY",
             "MUTUAL"
           ]
+        },
+        "clientAllowedCertificates": {
+          "description": "List of allowed client certificates (empty for one way TLS).",
+          "type": "array",
+          "items": {
+            "description": "The certificate subject.",
+            "type": "string"
+          }
         },
         "protocolMode": {
           "description": "The type of end to end session to use.",
