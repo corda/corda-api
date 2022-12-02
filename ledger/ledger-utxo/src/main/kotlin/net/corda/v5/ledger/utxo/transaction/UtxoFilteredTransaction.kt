@@ -11,6 +11,26 @@ import net.corda.v5.ledger.utxo.StateRef
 import net.corda.v5.ledger.utxo.TimeWindow
 import java.security.PublicKey
 
+/**
+ * A filtered UTXO transaction.
+ *
+ * This class wraps a signed transaction that has been filtered using merkle proofs. This means
+ * that we can still calculate and verify the transaction id as Merkle hash, but do not
+ * have access to all data in the original transaction.
+ *
+ * For the list based data properties, there are three possiblities:
+ * - The whole entry is filtered out - no further information about this data is available.
+ *   This will be signified by returning an object implementing [UtxoFilteredData.UtxoFilteredDataRemoved]
+ * - Only the number of original entries is revealed, but not the actual data. In this case,
+ *   an object implementing [UtxoFilteredData.UtxoFilteredDataSizeOnly] is returned
+ * - Some or all of the original data is revealed. In this case, an object implementing
+ *   [UtxoFilteredData.UtxoFilteredDataAudit] is returned.
+ *
+ *  There are a few special cases:
+ *  - [id] and [metadata] cannot be filtered and are always returned
+ *  - [notary] and [timeWindow] are always unique - they are either revealed, or the filtered transaction
+ *    will return null when accessing them.
+ */
 @DoNotImplement
 interface UtxoFilteredTransaction {
     /**
