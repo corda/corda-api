@@ -50,6 +50,8 @@ interface UtxoFilteredTransaction {
 
     /**
      * @param outputStateRefs Potentially filtered list of outputs
+     * @throws FilteredDataInconsistencyException Throws if the output states and state type information
+     * have been filtered inconsistently
      */
     val outputStateAndRefs: UtxoFilteredData<StateAndRef<*>>
 
