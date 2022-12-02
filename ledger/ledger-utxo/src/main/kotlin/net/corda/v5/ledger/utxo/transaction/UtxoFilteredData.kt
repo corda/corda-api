@@ -37,8 +37,8 @@ sealed interface UtxoFilteredData<T> {
      *
      * This allows us to retrieve some or all of the original entries. The size entry
      * will be the size of the component group in the original transaction. The values will be a list of all entries
-     * that we get access to - its size can be less than the size value. The [FilteredEntry] objects have the original
-     * data and the original index of the entry.
+     * that we get access to - its size can be less than the size value. The values are given as a map of
+     * original index to value.
      */
     @DoNotImplement
     interface UtxoFilteredDataAudit<T> : UtxoFilteredData<T> {
@@ -49,8 +49,8 @@ sealed interface UtxoFilteredData<T> {
         val size: Int
 
         /**
-         * @param values: The list of the revealed entries
+         * @param values: A map of revealed entries with mapped by their index in the unfiltered transaction
          */
-        val values: List<FilteredEntry<T>>
+        val values: Map<Int, T>
     }
 }
