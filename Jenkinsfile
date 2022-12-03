@@ -1,6 +1,7 @@
 @Library('corda-shared-build-pipeline-steps@5.0') _
 
 cordaPipeline(
+    dailyBuildCron: '',
     runIntegrationTests: false,
     nexusAppId: 'net.corda-api-5.0',
     dependentJobsNames: ['/Corda5/corda-runtime-os-version-compatibility/release%2Fos%2F5.0'],
