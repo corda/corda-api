@@ -24,19 +24,11 @@
       "doc": "ID of RPC user that requested the virtual node creation."
     },
     {
-      "name": "cpiFileChecksum",
-      "type": "string",
-      "doc": "The checksum of the CPI file."
-    },
-    {
-      "name": "stage",
-      "type": "string",
-      "doc": "Current stage of the upgrade process."
-    },
-    {
-      "name": "virtualNodeShortId",
-      "type": "string",
-      "doc": "The short hash of the virtual node / holding identity that this operation applies to."
+      "name": "operationData",
+      "doc": "The operation specific data.",
+      "type": [
+        "net.corda.data.virtualnode.VirtualNodeUpgradeOperationStatus"
+      ]
     },
     {
       "name": "requestTimestamp",
