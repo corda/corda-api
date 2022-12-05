@@ -13,6 +13,17 @@
       "name": "status",
       "type": "string",
       "doc": "the transaction status"
+    },
+    {
+      "name": "relevantStates",
+      "type": [
+        "null",
+        {
+          "type" : "array",
+          "items": "net.corda.data.ledger.persistence.ComponentPosition"
+        }
+      ],
+      "doc": "positions of components that contain relevant states"
     }
   ]
 }

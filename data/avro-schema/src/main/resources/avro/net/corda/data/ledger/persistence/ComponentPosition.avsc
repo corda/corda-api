@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "ComponentPosition",
+  "doc": "The group index and the leaf index of the transaction component",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "groupIndex",
+      "type": "int",
+      "doc": "The component group index"
+    },
+    {
+      "name": "leafIndex",
+      "type": "int",
+      "doc": "The component leaf index"
+    }
+  ]
+}
