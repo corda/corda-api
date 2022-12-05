@@ -20,11 +20,11 @@ import java.security.PublicKey
  *
  * For the list based data properties, there are three possiblities:
  * - The whole entry is filtered out - no further information about this data is available.
- *   This will be signified by returning an object implementing [UtxoFilteredData.UtxoFilteredDataRemoved]
+ *   This will be signified by returning an object implementing [UtxoFilteredData.Removed]
  * - Only the number of original entries is revealed, but not the actual data. In this case,
- *   an object implementing [UtxoFilteredData.UtxoFilteredDataSizeOnly] is returned
+ *   an object implementing [UtxoFilteredData.SizeOnly] is returned
  * - Some or all of the original data is revealed. In this case, an object implementing
- *   [UtxoFilteredData.UtxoFilteredDataAudit] is returned.
+ *   [UtxoFilteredData.Audit] is returned.
  *
  *  There are a few special cases:
  *  - [id] and [metadata] cannot be filtered and are always returned

@@ -12,20 +12,21 @@ import net.corda.v5.base.annotations.DoNotImplement
  * * A size-only merkle proof - in this case, we can only retrieve the size of the original list
  * * An audit proof - in this case, we get access to some or all of the entries of the original list.
  */
-sealed interface UtxoFilteredData<T> {
+@DoNotImplement
+interface UtxoFilteredData<T> {
 
     /**
      * Marker interface for a completely filtered out component group. No further information is available
      */
     @DoNotImplement
-    interface UtxoFilteredDataRemoved<T> : UtxoFilteredData<T>
+    interface Removed<T> : UtxoFilteredData<T>
 
     /**
      * Interface for a size only proof. This will only tell us how many entries there were originally, but not their
      * content.
      */
     @DoNotImplement
-    interface UtxoFilteredDataSizeOnly<T> : UtxoFilteredData<T> {
+    interface SizeOnly<T> : UtxoFilteredData<T> {
         /**
          * @param size The size of the component group in the original transaction
          */
@@ -41,7 +42,7 @@ sealed interface UtxoFilteredData<T> {
      * original index to value.
      */
     @DoNotImplement
-    interface UtxoFilteredDataAudit<T> : UtxoFilteredData<T> {
+    interface Audit<T> : UtxoFilteredData<T> {
 
         /**
          * @param size The size of the component group in the original transaction
