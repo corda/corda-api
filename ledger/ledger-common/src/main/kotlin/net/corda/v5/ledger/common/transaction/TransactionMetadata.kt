@@ -46,7 +46,7 @@ interface TransactionMetadata {
      *
      * @return A list of component group indexes.
      */
-    fun getComponentGroupIndexes(): List<Int>
+    fun getNumberOfComponentGroups(): Int
 
     /**
      * Gets the digest settings used to calculate the transaction hashes.
