@@ -166,9 +166,6 @@
             <column name="leaf_idx" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="is_relevant" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
             <column name="consumed" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
