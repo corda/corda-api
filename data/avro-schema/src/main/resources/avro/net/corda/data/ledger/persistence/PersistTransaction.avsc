@@ -16,13 +16,10 @@
     },
     {
       "name": "relevantStates",
-      "type": [
-        "null",
-        {
-          "type" : "array",
-          "items": "net.corda.data.ledger.persistence.ComponentPosition"
-        }
-      ],
+      "type": {
+        "type" : "array",
+        "items": "net.corda.data.ledger.persistence.ComponentPosition"
+      },
       "doc": "positions of components that contain relevant states"
     }
   ]
