@@ -232,14 +232,14 @@
             <column name="id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="data" type="BLOB">
+            <column name="data" type="TEXT">
                 <constraints nullable="false"/>
             </column>
             <column name="start_timestamp" type="DATETIME">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="completed_timestamp" type="DATETIME">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="state" type="VARCHAR(255)">
                 <constraints nullable="false"/>
