@@ -4,6 +4,8 @@ import net.corda.v5.application.messaging.FlowSession
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
+import net.corda.v5.ledger.utxo.transaction.UtxoFilteredTransaction
+import net.corda.v5.ledger.utxo.transaction.UtxoFilteredTransactionBuilder
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator
@@ -63,6 +65,8 @@ interface UtxoLedgerService {
     @Suspendable
     fun findLedgerTransaction(id: SecureHash): UtxoLedgerTransaction?
 
+    fun filterSignedTransaction(signedTransaction: UtxoSignedTransaction): UtxoFilteredTransactionBuilder
+
     /**
      * Collects signatures, records and broadcasts to involved peers a [UtxoSignedTransaction].
      *
@@ -90,7 +94,6 @@ interface UtxoLedgerService {
         session: FlowSession,
         validator: UtxoTransactionValidator
     ): UtxoSignedTransaction
-
 
     // TODO CORE-7327 Add verify(signedTx) verify(ledgerTx)
 
