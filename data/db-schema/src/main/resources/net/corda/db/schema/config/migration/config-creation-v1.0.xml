@@ -294,7 +294,7 @@
             <column name="uniqueness_dml_connection_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
-            <column name="current_operation" type="VARCHAR(255)">
+            <column name="operation_in_progress" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
             <!-- audit -->
@@ -346,7 +346,7 @@
                                  constraintName="FK__virtual_node__uniqueness_dml_connection_id"
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
-        <addForeignKeyConstraint baseTableName="virtual_node" baseColumnNames="current_operation"
+        <addForeignKeyConstraint baseTableName="virtual_node" baseColumnNames="operation_in_progress"
                                  referencedTableName="virtual_node_operation" referencedColumnNames="id"
                                  constraintName="FK__virtual_node_operation"
                                  baseTableSchemaName="${schema.name}"
