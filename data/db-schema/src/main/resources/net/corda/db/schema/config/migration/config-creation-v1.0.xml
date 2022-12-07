@@ -228,6 +228,29 @@
         <addPrimaryKey columnNames="holding_identity_id" constraintName="holding_identity_pk" tableName="holding_identity"
                        schemaName="${schema.name}"/>
 
+        <createTable tableName="virtual_node_operation" schemaName="${schema.name}">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_timestamp" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="completed_timestamp" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="virtual_node_operation_pk" tableName="virtual_node_operation"
+                       schemaName="${schema.name}"/>
+
         <createTable tableName="virtual_node" schemaName="${schema.name}">
             <column name="holding_identity_id" type="VARCHAR(12)">
                 <constraints nullable="false"/>
@@ -269,6 +292,9 @@
                 <constraints nullable="true"/>
             </column>
             <column name="uniqueness_dml_connection_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+            <column name="current_operation" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
             <!-- audit -->
@@ -318,6 +344,11 @@
         <addForeignKeyConstraint baseTableName="virtual_node" baseColumnNames="uniqueness_dml_connection_id"
                                  referencedTableName="db_connection" referencedColumnNames="connection_id"
                                  constraintName="FK__virtual_node__uniqueness_dml_connection_id"
+                                 baseTableSchemaName="${schema.name}"
+                                 referencedTableSchemaName="${schema.name}"/>
+        <addForeignKeyConstraint baseTableName="virtual_node" baseColumnNames="current_operation"
+                                 referencedTableName="virtual_node_operation" referencedColumnNames="id"
+                                 constraintName="FK__virtual_node_operation"
                                  baseTableSchemaName="${schema.name}"
                                  referencedTableSchemaName="${schema.name}"/>
     </changeSet>
