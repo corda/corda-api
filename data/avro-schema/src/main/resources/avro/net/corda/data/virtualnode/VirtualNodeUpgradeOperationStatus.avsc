@@ -6,12 +6,12 @@
     {
       "name": "originalCpiFileChecksum",
       "type": "string",
-      "doc": "The checksum of the CPI file."
+      "doc": "The original checksum of the CPI file."
     },
     {
       "name": "targetCpiFileChecksum",
       "type": "string",
-      "doc": "The checksum of the CPI file."
+      "doc": "The request target checksum of the CPI file to upgrade this virtual node."
     },
     {
       "name": "virtualNodeShortId",

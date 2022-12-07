@@ -9,14 +9,9 @@
       "doc": "ID of this Virtual Node CPI upgrade request."
     },
     {
-      "name": "operationType",
-      "type": {
-        "type": "enum",
-        "name": "VirtualNodeOperationType",
-        "symbols": ["VIRTUAL_NODE_UPGRADE_CPI", "VIRTUAL_NODE_CREATION"],
-        "doc": "Type of virtual node operation."
-      },
-      "doc": "Short hash of the virtual node / holding identity."
+      "name": "virtualNodeShortHash",
+      "type": "string",
+      "doc": "Identifier of the virtual node this operation is on."
     },
     {
       "name": "actor",
