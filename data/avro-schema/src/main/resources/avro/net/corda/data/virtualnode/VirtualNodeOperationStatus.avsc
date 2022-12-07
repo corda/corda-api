@@ -34,12 +34,12 @@
       "doc": "Time ([Instant]) in milliseconds of the request."
     },
     {
-      "name": "completedTimestamp",
+      "name": "latestUpdateTimestamp",
       "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
       },
-      "doc": "Time ([Instant]) in milliseconds of the request."
+      "doc": "Time ([Instant]) in milliseconds of the latest update to the request."
     },
     {
       "name": "state",

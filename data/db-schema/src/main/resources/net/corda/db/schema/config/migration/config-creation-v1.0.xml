@@ -235,11 +235,11 @@
             <column name="data" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="start_timestamp" type="DATETIME">
-                <constraints nullable="true"/>
+            <column name="request_timestamp" type="DATETIME">
+                <constraints nullable="false"/>
             </column>
-            <column name="completed_timestamp" type="DATETIME">
-                <constraints nullable="true"/>
+            <column name="latest_update_timestamp" type="DATETIME">
+                <constraints nullable="false"/>
             </column>
             <column name="state" type="VARCHAR(255)">
                 <constraints nullable="false"/>
