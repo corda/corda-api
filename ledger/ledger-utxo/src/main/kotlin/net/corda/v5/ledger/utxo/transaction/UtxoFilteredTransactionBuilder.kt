@@ -1,9 +1,8 @@
 package net.corda.v5.ledger.utxo.transaction
 
 import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.ledger.common.Party
 import net.corda.v5.ledger.utxo.Command
-import net.corda.v5.ledger.utxo.StateAndRef
+import net.corda.v5.ledger.utxo.ContractState
 import net.corda.v5.ledger.utxo.StateRef
 import java.security.PublicKey
 import java.util.function.Predicate
@@ -15,8 +14,8 @@ interface UtxoFilteredTransactionBuilder {
     @Suspendable
     fun withNotary(): UtxoFilteredTransactionBuilder
 
-//    @Suspendable
-//    fun withNotary(predicate: Predicate<Party>): UtxoFilteredTransactionBuilder
+    @Suspendable
+    fun withSignatoriesSize(): UtxoFilteredTransactionBuilder
 
     @Suspendable
     fun withSignatories(): UtxoFilteredTransactionBuilder
@@ -25,16 +24,25 @@ interface UtxoFilteredTransactionBuilder {
     fun withSignatories(predicate: Predicate<PublicKey>): UtxoFilteredTransactionBuilder
 
     @Suspendable
+    fun withInputStatesSize(): UtxoFilteredTransactionBuilder
+
+    @Suspendable
     fun withInputStates(): UtxoFilteredTransactionBuilder
 
     @Suspendable
     fun withInputStates(predicate: Predicate<StateRef>): UtxoFilteredTransactionBuilder
 
     @Suspendable
+    fun withReferenceInputStatesSize(): UtxoFilteredTransactionBuilder
+
+    @Suspendable
     fun withReferenceInputStates(): UtxoFilteredTransactionBuilder
 
     @Suspendable
     fun withReferenceInputStates(predicate: Predicate<StateRef>): UtxoFilteredTransactionBuilder
+
+    @Suspendable
+    fun withOutputStatesSize(): UtxoFilteredTransactionBuilder
 
     // add with output states infos (for type info)
     // flag for with all output info or only kept info
@@ -43,7 +51,10 @@ interface UtxoFilteredTransactionBuilder {
     fun withOutputStates(): UtxoFilteredTransactionBuilder
 
     @Suspendable
-    fun withOutputStates(predicate: Predicate<StateAndRef<*>>): UtxoFilteredTransactionBuilder
+    fun withOutputStates(predicate: Predicate<ContractState>): UtxoFilteredTransactionBuilder
+
+    @Suspendable
+    fun withCommandsSize(): UtxoFilteredTransactionBuilder
 
     // add with command infos (for type info)
     @Suspendable
