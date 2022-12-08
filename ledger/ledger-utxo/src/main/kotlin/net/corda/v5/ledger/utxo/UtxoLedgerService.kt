@@ -65,6 +65,16 @@ interface UtxoLedgerService {
     @Suspendable
     fun findLedgerTransaction(id: SecureHash): UtxoLedgerTransaction?
 
+    /**
+     * Filters a [UtxoSignedTransaction] to create a [UtxoFilteredTransaction] that only contains the components specified by the
+     * [UtxoFilteredTransactionBuilder] output from this method.
+     *
+     * @param signedTransaction The [UtxoSignedTransaction] to filter.
+     *
+     * @return A [UtxoFilteredTransactionBuilder] that filters the [signedTransaction] when
+     * [UtxoFilteredTransactionBuilder.toFilteredTransaction] is called.
+     */
+    @Suspendable
     fun filterSignedTransaction(signedTransaction: UtxoSignedTransaction): UtxoFilteredTransactionBuilder
 
     /**
