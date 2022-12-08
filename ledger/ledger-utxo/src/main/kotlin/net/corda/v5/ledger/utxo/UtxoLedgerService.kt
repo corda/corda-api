@@ -4,8 +4,8 @@ import net.corda.v5.application.messaging.FlowSession
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
-import net.corda.v5.ledger.utxo.transaction.UtxoFilteredTransaction
-import net.corda.v5.ledger.utxo.transaction.UtxoFilteredTransactionBuilder
+import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction
+import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator

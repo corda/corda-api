@@ -1,5 +1,6 @@
-package net.corda.v5.ledger.utxo.transaction
+package net.corda.v5.ledger.utxo.transaction.filtered
 
+import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.ledger.utxo.Command
 import net.corda.v5.ledger.utxo.ContractState
@@ -12,6 +13,7 @@ import java.util.function.Predicate
  * specified by the builder are filtered out, so that their content or proof of existence is not included in the resulting
  * [UtxoFilteredTransaction].
  */
+@DoNotImplement
 interface UtxoFilteredTransactionBuilder {
 
     /**
