@@ -111,8 +111,6 @@ interface UtxoFilteredTransactionBuilder {
     @Suspendable
     fun withOutputStatesSize(): UtxoFilteredTransactionBuilder
 
-    // TODO flag for with all output info or only kept info (same for commands)
-    // TODO Think about encumbrance
     /**
      * Includes an audit proof of [UtxoSignedTransaction.outputStateAndRefs] in the [UtxoFilteredTransaction].
      *
