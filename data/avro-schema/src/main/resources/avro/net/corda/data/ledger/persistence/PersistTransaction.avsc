@@ -15,12 +15,12 @@
       "doc": "the transaction status"
     },
     {
-      "name": "relevantStates",
+      "name": "relevantStatesIndexes",
       "type": {
         "type" : "array",
-        "items": "net.corda.data.ledger.persistence.ComponentPosition"
+        "items" : "int"
       },
-      "doc": "positions of components that contain relevant states"
+      "doc": "indexes of the relevant states"
     }
   ]
 }
