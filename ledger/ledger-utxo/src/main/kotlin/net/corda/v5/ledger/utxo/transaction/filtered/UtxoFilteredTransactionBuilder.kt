@@ -5,6 +5,7 @@ import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.ledger.utxo.Command
 import net.corda.v5.ledger.utxo.ContractState
 import net.corda.v5.ledger.utxo.StateRef
+import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
 import java.security.PublicKey
 import java.util.function.Predicate
 
@@ -18,12 +19,22 @@ import java.util.function.Predicate
 interface UtxoFilteredTransactionBuilder {
 
     /**
-     * Includes an audit proof of [UtxoSignedTransaction.notary] and [UtxoSignedTransaction.timeWindow] in the [UtxoFilteredTransaction].
+     * Includes an audit proof of notary component group containing the data of [UtxoSignedTransaction.notary] in the
+     * [UtxoFilteredTransaction].
      * 
      * @return An updated copy of the [UtxoFilteredTransactionBuilder].
      */
     @Suspendable
-    fun withNotaryAndTimeWindow(): UtxoFilteredTransactionBuilder
+    fun withNotary(): UtxoFilteredTransactionBuilder
+
+    /**
+     * Includes an audit proof of notary component group containing the data of [UtxoSignedTransaction.timeWindow] in the
+     * [UtxoFilteredTransaction].
+     *
+     * @return An updated copy of the [UtxoFilteredTransactionBuilder].
+     */
+    @Suspendable
+    fun withTimeWindow(): UtxoFilteredTransactionBuilder
 
     /**
      * Includes a size proof of [UtxoSignedTransaction.signatories] in the [UtxoFilteredTransaction].
@@ -88,7 +99,7 @@ interface UtxoFilteredTransactionBuilder {
     fun withReferenceInputStatesSize(): UtxoFilteredTransactionBuilder
 
     /**
-     * Includes an audit proof of [UtxoSignedTransaction.inputStateRefs] in the [UtxoFilteredTransaction].
+     * Includes an audit proof of [UtxoSignedTransaction.referenceStateRefs] in the [UtxoFilteredTransaction].
      *
      * @return An updated copy of the [UtxoFilteredTransactionBuilder].
      */
@@ -163,7 +174,7 @@ interface UtxoFilteredTransactionBuilder {
     /**
      * Creates a [UtxoFilteredTransaction] that contains the component groups and components specified by [UtxoFilteredTransactionBuilder].
      *
-     * @return An updated copy of the [UtxoFilteredTransactionBuilder].
+     * @return A [UtxoFilteredTransaction].
      */
     @Suspendable
     fun toFilteredTransaction(): UtxoFilteredTransaction
