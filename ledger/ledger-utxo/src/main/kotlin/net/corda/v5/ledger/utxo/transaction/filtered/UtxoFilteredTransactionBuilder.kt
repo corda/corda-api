@@ -177,5 +177,5 @@ interface UtxoFilteredTransactionBuilder {
      * @return A [UtxoFilteredTransaction].
      */
     @Suspendable
-    fun toFilteredTransaction(): UtxoFilteredTransaction
+    fun build(): UtxoFilteredTransaction
 }

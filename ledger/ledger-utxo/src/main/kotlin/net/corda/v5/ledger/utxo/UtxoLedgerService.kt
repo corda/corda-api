@@ -71,8 +71,8 @@ interface UtxoLedgerService {
      *
      * @param signedTransaction The [UtxoSignedTransaction] to filter.
      *
-     * @return A [UtxoFilteredTransactionBuilder] that filters the [signedTransaction] when
-     * [UtxoFilteredTransactionBuilder.toFilteredTransaction] is called.
+     * @return A [UtxoFilteredTransactionBuilder] that filters the [signedTransaction] when [UtxoFilteredTransactionBuilder.build] is
+     * called.
      */
     @Suspendable
     fun filterSignedTransaction(signedTransaction: UtxoSignedTransaction): UtxoFilteredTransactionBuilder
