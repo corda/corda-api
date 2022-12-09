@@ -14,6 +14,7 @@ import java.util.function.Predicate
  * [UtxoFilteredTransaction].
  */
 @DoNotImplement
+@Suppress("TooManyFunctions")
 interface UtxoFilteredTransactionBuilder {
 
     /**
