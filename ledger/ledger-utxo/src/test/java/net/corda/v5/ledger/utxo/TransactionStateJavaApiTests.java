@@ -26,7 +26,7 @@ public final class TransactionStateJavaApiTests extends AbstractMockTestHarness 
 
     @Test
     public void getEncumbranceShouldReturnTheExpectedValue() {
-        String value = contractTransactionState.getEncumbrance();
-        Assertions.assertEquals(encumbranceTag1, value);
+        Integer value = contractTransactionState.getEncumbrance();
+        Assertions.assertEquals(0, value);
     }
 }
