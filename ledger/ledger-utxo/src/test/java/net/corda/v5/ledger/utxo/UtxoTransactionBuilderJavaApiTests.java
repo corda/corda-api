@@ -6,9 +6,6 @@ import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Map;
-
 public final class UtxoTransactionBuilderJavaApiTests extends AbstractMockTestHarness {
 
     @Test
@@ -60,21 +57,9 @@ public final class UtxoTransactionBuilderJavaApiTests extends AbstractMockTestHa
     }
 
     @Test
-    public void addEncumberedOutputStatesOfListOfContractStatesShouldReturnTheExpectedValue() {
-        UtxoTransactionBuilder value = utxoTransactionBuilder.addEncumberedOutputStates(List.of(contractState, contractState));
+    public void addOutputStateOfContractStateAndEncumbranceShouldReturnTheExpectedValue() {
+        UtxoTransactionBuilder value = utxoTransactionBuilder.addOutputState(contractState, 0);
         Assertions.assertEquals(utxoTransactionBuilder, value);
-    }
-
-    @Test
-    public void addEncumberedOutputStatesOfVarargContractStatesShouldReturnTheExpectedValue() {
-        UtxoTransactionBuilder value = utxoTransactionBuilder.addEncumberedOutputStates(contractState, contractState);
-        Assertions.assertEquals(utxoTransactionBuilder, value);
-    }
-
-    @Test
-    public void getEncumbranceGroupsShouldReturnTheExpectedValue() {
-        Map<Integer, List<ContractState>> value = utxoTransactionBuilder.getEncumbranceGroups();
-        Assertions.assertEquals(encumbranceGroups, value);
     }
 
     @Test
