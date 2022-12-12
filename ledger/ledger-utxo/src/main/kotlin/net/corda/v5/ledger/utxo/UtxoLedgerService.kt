@@ -78,12 +78,14 @@ interface UtxoLedgerService {
     fun filterSignedTransaction(signedTransaction: UtxoSignedTransaction): UtxoFilteredTransactionBuilder
 
     /**
-     * Collects signatures, records and broadcasts to involved peers a [UtxoSignedTransaction].
+     * Collects verifies a transaction, signatures, records and broadcasts it to involved peers a [UtxoSignedTransaction].
      *
-     * @param signedTransaction The [UtxoSignedTransaction] to finalise and recorded locally and with peer [sessions].
+     * @param signedTransaction The [UtxoSignedTransaction] to verify, finalise and recorded locally and with peer [sessions].
      * @param sessions The [FlowSession]s of the peers involved in the transaction.
      *
      * @return The fully signed [UtxoSignedTransaction] that was recorded.
+     *
+     * @throws ContractVerificationException If the transaction failed contract verification.
      */
     @Suspendable
     fun finalize(
@@ -98,6 +100,8 @@ interface UtxoLedgerService {
      * @param validator Validates the received [UtxoSignedTransaction].
      *
      * @return The fully signed [UtxoSignedTransaction] that was received and recorded.
+     *
+     * @throws ContractVerificationException If the transaction failed contract verification.
      */
     @Suspendable
     fun receiveFinality(
