@@ -15,15 +15,14 @@ import java.security.PublicKey
 @CordaSerializable
 interface Contract {
 
-    companion object {
-        /**
-         * Establish whether a given state is relevant to a node, given the node's public keys.
-         *
-         * A state is relevant if any of the participants key matching one of this node's public keys.
-         */
-        fun isRelevant(state: ContractState, myKeys: Set<PublicKey>): Boolean {
-            return state.participants.any { it.containsAny(myKeys) }
-        }
+    /**
+     * Establish whether a given state is relevant to a node, given the node's public keys.
+     *
+     * With default implementation, a state is relevant if any of the participants key matching one of this node's
+     * public keys.
+     */
+    fun isRelevant(state: ContractState, myKeys: Set<PublicKey>): Boolean {
+        return state.participants.any { it.containsAny(myKeys) }
     }
 
     /**
