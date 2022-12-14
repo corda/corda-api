@@ -2,25 +2,39 @@ topics:
   CryptoHSMRPCRegistrationTopic:
     name: crypto.hsm.rpc.registration
     consumers:
+      - crypto
     producers:
+      - membership
     config:
   CryptoHSMRPCRegistrationRespTopic:
     name: crypto.hsm.rpc.registration.resp
     consumers:
+      - membership
     producers:
+      - crypto
     config:
   CryptoOpsFlowTopic:
     name: crypto.ops.flow
     consumers:
+      - crypto
     producers:
+      - flow
     config:
   CryptoOpsRpcTopic:
     name: crypto.ops.rpc
     consumers:
+      - crypto
     producers:
+      - membership
+      - gateway
+      - link-manager
     config:
   CryptoOpsRpcResponseTopic:
     name: crypto.ops.rpc.resp
     consumers:
+      - membership
+      - gateway
+      - link-manager
     producers:
+      - crypto
     config:
