@@ -1,9 +1,4 @@
 topics:
-  CryptoEventHSMTopic:
-    name: crypto.event
-    consumers:
-    producers:
-    config:
   CryptoConfigHSMTopic:
     name: crypto.config.hsm
     consumers:

@@ -50,7 +50,6 @@ class Schemas {
      */
     class Crypto {
         companion object {
-            const val EVENT_TOPIC = "crypto.event"
             const val HSM_CONFIG_TOPIC = "crypto.config.hsm"
             const val HSM_CONFIGURATION_HSM_LABEL_TOPIC = "crypto.config.hsm.label"
             const val MEMBER_CONFIG_TOPIC = "crypto.config.member"
