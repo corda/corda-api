@@ -1,34 +1,4 @@
 topics:
-  CryptoConfigHSMTopic:
-    name: crypto.config.hsm
-    consumers:
-    producers:
-    config:
-  CryptoConfigHSMLabelTopic:
-    name: crypto.config.hsm.label
-    consumers:
-    producers:
-    config:
-  CryptoConfigMemberTopic:
-    name: crypto.config.member
-    consumers:
-    producers:
-    config:
-  CryptoKeyInfoTopic:
-    name: crypto.key.info
-    consumers:
-    producers:
-    config:
-  CryptoKeySoftTopic:
-    name: crypto.key.soft
-    consumers:
-    producers:
-    config:
-  CryptoHSMLabelTopic:
-    name: crypto.hsm.label
-    consumers:
-    producers:
-    config:
   CryptoHSMRPCRegistrationTopic:
     name: crypto.hsm.rpc.registration
     consumers:
@@ -36,16 +6,6 @@ topics:
     config:
   CryptoHSMRPCRegistrationRespTopic:
     name: crypto.hsm.rpc.registration.resp
-    consumers:
-    producers:
-    config:
-  CryptoHSMRPCConfigurationTopic:
-    name: crypto.hsm.rpc.configuration
-    consumers:
-    producers:
-    config:
-  CryptoHSMRPCConfigurationRespTopic:
-    name: crypto.hsm.rpc.configuration.resp
     consumers:
     producers:
     config:
@@ -61,16 +21,6 @@ topics:
     config:
   CryptoOpsRpcResponseTopic:
     name: crypto.ops.rpc.resp
-    consumers:
-    producers:
-    config:
-  CryptoOpsRpcClientTopic:
-    name: crypto.ops.rpc.client
-    consumers:
-    producers:
-    config:
-  CryptoRegistrationHSMTopic:
-    name: crypto.registration.hsm
     consumers:
     producers:
     config:
