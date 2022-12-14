@@ -40,7 +40,6 @@ class Schemas {
     class Config {
         companion object {
             const val CONFIG_TOPIC = "config.topic"
-            const val CONFIG_MGMT_TOPIC = "config.management"
             const val CONFIG_MGMT_REQUEST_TOPIC = "config.management.request"
             const val CONFIG_MGMT_REQUEST_RESP_TOPIC = "$CONFIG_MGMT_REQUEST_TOPIC.resp"
         }
@@ -158,7 +157,6 @@ class Schemas {
     class Permissions {
         companion object {
             const val PERMISSIONS_USER_SUMMARY_TOPIC = "permissions.user.summary"
-            const val USER_PERMISSIONS_MGMT_TOPIC = "user.permissions.management"
         }
     }
 
