@@ -232,17 +232,26 @@
             <column name="id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="request_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
             <column name="data" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="request_timestamp" type="DATETIME">
+            <column name="request_timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="latest_update_timestamp" type="DATETIME">
-                <constraints nullable="false"/>
+            <column name="latest_update_timestamp" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="heartbeat_timestamp" type="TIMESTAMP">
+                <constraints nullable="true"/>
             </column>
             <column name="state" type="VARCHAR(255)">
                 <constraints nullable="false"/>
+            </column>
+            <column name="errors" type="TEXT">
+                <constraints nullable="true"/>
             </column>
             <column name="entity_version" type="INT">
                 <constraints nullable="false"/>

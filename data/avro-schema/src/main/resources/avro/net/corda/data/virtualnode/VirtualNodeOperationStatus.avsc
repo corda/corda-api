@@ -42,11 +42,19 @@
       "doc": "Time ([Instant]) in milliseconds of the latest update to the request."
     },
     {
+      "name": "heartbeatTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds of the latest heartbeat."
+    },
+    {
       "name": "state",
       "type": {
         "type": "enum",
         "name": "AsynchronousOperationState",
-        "symbols": ["IN_PROGRESS", "COMPLETED", "ABORTED"],
+        "symbols": ["IN_PROGRESS", "COMPLETED", "ABORTED", "EXPIRED"],
         "doc": "Status of an asynchronous request."
       }
     },
