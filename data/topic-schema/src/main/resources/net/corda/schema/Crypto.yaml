@@ -5,11 +5,13 @@ topics:
       - crypto
     producers:
       - membership
+      - rpc
     config:
   CryptoHSMRPCRegistrationRespTopic:
     name: crypto.hsm.rpc.registration.resp
     consumers:
       - membership
+      - rpc
     producers:
       - crypto
     config:
