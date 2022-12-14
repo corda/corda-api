@@ -74,6 +74,7 @@ topics:
     name: gateway.tls.certs
     consumers:
       - gateway
+      - link-manager
     producers:
       - link-manager
     config:
@@ -87,6 +88,7 @@ topics:
     name: gateway.tls.truststores
     consumers:
       - gateway
+      - link-manager
     producers:
       - link-manager
     config:
