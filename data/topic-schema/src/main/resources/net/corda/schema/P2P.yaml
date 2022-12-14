@@ -19,6 +19,7 @@ topics:
     name: p2p.out.markers
     consumers:
       - link-manager
+      - membership
     producers:
       - link-manager
     config:
