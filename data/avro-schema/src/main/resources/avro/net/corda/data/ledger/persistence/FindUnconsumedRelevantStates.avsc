@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "FindTransactionRelevantStates",
+  "name": "FindUnconsumedStatesByType",
   "doc": "Retrieve the relevant states of signed transaction, specified by id. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [
@@ -8,6 +8,11 @@
       "name": "id",
       "type": "string",
       "doc": "The transaction ID, derived from the root hash of its Merkle tree"
+    },
+    {
+      "name": "stateClassName",
+      "type": "string",
+      "doc": "The fully qualified state class name"
     }
   ]
 }
