@@ -27,6 +27,7 @@ topics:
     consumers:
       - crypto
     producers:
+      - crypto
       - gateway
       - link-manager
       - membership
@@ -35,6 +36,7 @@ topics:
   CryptoOpsRpcResponseTopic:
     name: crypto.ops.rpc.resp
     consumers:
+      - crypto
       - gateway
       - link-manager
       - membership
