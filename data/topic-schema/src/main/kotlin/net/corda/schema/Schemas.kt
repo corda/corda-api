@@ -50,22 +50,11 @@ class Schemas {
      */
     class Crypto {
         companion object {
-            const val HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.registration.hsm"
-            const val RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc"
-            val RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC)
-            const val RPC_OPS_CLIENT_TOPIC = "crypto.ops.rpc.client"
-            const val FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow"
-            const val HSM_CONFIG_TOPIC = "crypto.config.hsm"
-            const val MEMBER_CONFIG_TOPIC = "crypto.config.member"
-            const val SIGNING_KEY_PERSISTENCE_TOPIC = "crypto.key.info"
-            const val SOFT_HSM_PERSISTENCE_TOPIC = "crypto.key.soft"
-            const val EVENT_TOPIC = "crypto.event"
-            const val HSM_CONFIGURATION_LABEL_TOPIC = "crypto.hsm.label"
-            const val HSM_CONFIGURATION_HSM_LABEL_TOPIC = "crypto.config.hsm.label"
             const val RPC_HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.hsm.rpc.registration"
             val RPC_HSM_REGISTRATION_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_HSM_REGISTRATION_MESSAGE_TOPIC)
-            const val RPC_HSM_CONFIGURATION_MESSAGE_TOPIC = "crypto.hsm.rpc.configuration"
-            val RPC_HSM_CONFIGURATION_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_HSM_CONFIGURATION_MESSAGE_TOPIC)
+            const val FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow"
+            const val RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc"
+            val RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC)
         }
     }
 
@@ -92,6 +81,10 @@ class Schemas {
             const val TOKEN_CACHE_EVENT = "services.token.event"
             val TOKEN_CACHE_EVENT_STATE = getStateAndEventStateTopic(TOKEN_CACHE_EVENT)
             val TOKEN_CACHE_EVENT_DLQ = getStateAndEventDLQTopic(TOKEN_CACHE_EVENT)
+
+            const val TOKEN_CACHE_SYNC_EVENT = "services.token.sync.event"
+            val TOKEN_CACHE_SYNC_EVENT_STATE = getStateAndEventStateTopic(TOKEN_CACHE_SYNC_EVENT)
+            val TOKEN_CACHE_SYNC_EVENT_DLQ = getStateAndEventDLQTopic(TOKEN_CACHE_SYNC_EVENT)
         }
     }
 
@@ -193,12 +186,10 @@ class Schemas {
     class VirtualNode {
         companion object {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
-            const val VIRTUAL_NODE_MANAGEMENT_TOPIC = "virtual.node.management"
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             val VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = getRPCResponseTopic(VIRTUAL_NODE_CREATION_REQUEST_TOPIC)
             const val CPI_INFO_TOPIC = "cpi.info"
             const val CPI_UPLOAD_TOPIC = "cpi.upload"
-            const val CPI_CHUNK_WRITER = "cpi.chunk.writer"
             const val CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status"
             const val CPK_FILE_TOPIC = "cpk.file"
         }
