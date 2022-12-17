@@ -213,6 +213,10 @@ subprojects {
             archiveClassifier.set("javadoc")
             from(dokkaHtml.outputDirectory)
         }
+
+        if(project.hasProperty('generateJavaDocWithBuild')) {
+                assemble.dependsOn javadocJar
+        }
     }
 
     pluginManager.withPlugin('io.gitlab.arturbosch.detekt'){
