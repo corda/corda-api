@@ -8,6 +8,15 @@
       "name": "stateClassName",
       "type": "string",
       "doc": "The fully qualified state class name"
+    },
+    {
+      "name": "jPath",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "JPath for querying JSON representation of the state"
     }
   ]
 }

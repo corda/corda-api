@@ -143,6 +143,9 @@
             <column name="token_amount" type="NUMERIC">
                 <constraints nullable="true"/>
             </column>
+            <column name="json_representation" type="JSONB">
+                <constraints nullable="true"/>
+            </column>
             <column name="created" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>

@@ -18,4 +18,6 @@ import java.security.PublicKey
 @CordaSerializable
 interface ContractState {
     val participants: List<PublicKey>
+
+    fun toJsonRepresentation(): String? = null
 }
