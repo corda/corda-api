@@ -2,7 +2,7 @@ package net.corda.v5.ledger.utxo.uniqueness.client
 
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.application.uniqueness.model.UniquenessCheckStateRef
+import net.corda.v5.ledger.utxo.StateRef
 import java.time.Instant
 import java.util.concurrent.Future
 
@@ -51,8 +51,8 @@ interface LedgerUniquenessCheckerClientService {
 @Suspendable
 fun LedgerUniquenessCheckerClientService.requestUniquenessCheck(
     txId: String,
-    inputStates: List<UniquenessCheckStateRef>,
-    referenceStates: List<UniquenessCheckStateRef>,
+    inputStates: List<StateRef>,
+    referenceStates: List<StateRef>,
     numOutputStates: Int,
     timeWindowLowerBound: Instant?,
     timeWindowUpperBound: Instant

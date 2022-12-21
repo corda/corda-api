@@ -1,13 +1,8 @@
-package net.corda.v5.application.uniqueness.model
+package net.corda.v5.ledger.utxo.uniqueness.data
 
+import net.corda.v5.application.uniqueness.model.UniquenessCheckError
+import net.corda.v5.ledger.utxo.StateRef
 import java.time.Instant
-
-/**
- * Representation of errors that can be raised by the uniqueness checker. These errors are returned
- * by the uniqueness checker back to the uniqueness client service, which propagates the errors to
- * callers.
- */
-interface UniquenessCheckError
 
 /** Occurs when one or more input states have already been consumed by another transaction. */
 interface UniquenessCheckErrorInputStateConflict : UniquenessCheckError {
@@ -18,7 +13,7 @@ interface UniquenessCheckErrorInputStateConflict : UniquenessCheckError {
 /** Occurs when one or more input states are not known to the uniqueness checker. */
 interface UniquenessCheckErrorInputStateUnknown : UniquenessCheckError {
     /** Specifies which states are not known to the uniqueness checker. */
-    val unknownStates: List<UniquenessCheckStateRef>
+    val unknownStates: List<StateRef>
 }
 
 /** Occurs when one or more reference states have already been consumed by another transaction. */
@@ -30,7 +25,7 @@ interface UniquenessCheckErrorReferenceStateConflict : UniquenessCheckError {
 /** Occurs when one or more reference states are not known to the uniqueness checker. */
 interface UniquenessCheckErrorReferenceStateUnknown : UniquenessCheckError {
     /** Specifies which states are not known to the uniqueness checker. */
-    val unknownStates: List<UniquenessCheckStateRef>
+    val unknownStates: List<StateRef>
 }
 
 /** Occurs when the specified time is outside the allowed tolerance. */
