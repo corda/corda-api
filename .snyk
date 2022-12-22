@@ -19,7 +19,7 @@ ignore:
           of the vulnerable functions so it not susceptible to this vulnerability.
         expires: 2023-06-19T10:40:55.991Z
         created: 2022-09-22T10:40:55.995Z
- SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038424:
+  SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038424:
     - '*':
         reason: >-
           Corda5 Shippable artifacts do not make use of dokka-core, which is where this
@@ -27,7 +27,7 @@ ignore:
           generation and not shipped in any of our releasable artifacts.
         expires: 2023-06-19T10:40:55.991Z
         created: 2022-12-20T10:40:55.995Z
- SNYK-JAVA-ORGJSOUP-2989728:
+  SNYK-JAVA-ORGJSOUP-2989728:
     - '*':
         reason: >-
           Corda5 Shippable artifacts do not make use of dokka-core, which is where this
