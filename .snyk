@@ -35,7 +35,7 @@ ignore:
           generation and not shipped in any of our releasable artifacts.
         expires: 2023-06-19T10:40:55.991Z
         created: 2022-12-20T10:40:55.995Z
- SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038426:
+  SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038426:
     - '*':
         reason: >-
           Corda5 Shippable artifacts do not make use of dokka-core, which is where this
