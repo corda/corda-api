@@ -45,10 +45,10 @@
           }
         },
         "tlsType": {
-          "description": "How to validate TLS certificates in the gateway. This setting MUST be the same on all Gateways that need to communicate via HTTPS.",
+          "description": "What kind of TLS connections to establish between the gateways in our cluster and gateways in other clusters. This setting MUST be the same on all Gateways that need to communicate via HTTPS.",
           "oneOf": [
-            {"const": "ONE_WAY", "title": "Only validate the TLS certificates for the gateway server."},
-            {"const": "MUTUAL", "title": "Validate the TLS certificates for both the gateway server and client."}
+            {"const": "ONE_WAY", "title": "Establishes a regular TLS connection, where the server gateway will be authenticated."},
+            {"const": "MUTUAL", "title": "Establishes a mutual TLS connection, where both the server and client gateway are authenticated."}
           ],
           "default": "ONE_WAY"
         },
