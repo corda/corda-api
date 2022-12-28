@@ -214,8 +214,10 @@ subprojects {
             from(dokkaHtml.outputDirectory)
         }
 
-        if(project.hasProperty('generateJavaDocWithBuild')) {
-                assemble.dependsOn javadocJar
+        if (project.hasProperty('generateJavaDocWithBuild')) {
+            artifacts {
+                archives javadocJar
+            }
         }
     }
 
