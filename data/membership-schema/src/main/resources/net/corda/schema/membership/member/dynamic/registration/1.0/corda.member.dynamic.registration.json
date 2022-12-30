@@ -66,8 +66,7 @@
     "corda.auth.token": {
       "description": "Optional. A UUID string that uniquely identities the pre-auth token.",
       "type": "string",
-      "minLength": 36,
-      "maxLength": 36
+      "pattern": "[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
     }
   },
   "minProperties": 4,
