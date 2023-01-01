@@ -45,7 +45,7 @@ open class SignatureSpec(
             signatureName = "SHA512withRSA"
         )
 
-        // TODO: The below `ParameterizedSignatureSpec`s break/ are not `CordaSerializable` due to `ParameterizedSignatureSpec.params`
+        // TODO The below `ParameterizedSignatureSpec`s break/ are not `CordaSerializable` due to `ParameterizedSignatureSpec.params`
         //  and `PSSParameterSpec.mgfSpec` both being of type `AlgorithmParameterSpec`.
         /**
          * RSASSA-PSS with SHA256 [SignatureSpec].
