@@ -16,7 +16,10 @@
         "RegistrationRpcRequest",
         "RegistrationStatusRpcRequest",
         "MGMGroupPolicyRequest",
-        "RegistrationStatusSpecificRpcRequest"
+        "RegistrationStatusSpecificRpcRequest",
+        "AddApprovalRuleRequest",
+        "GetApprovalRulesRequest",
+        "DeleteApprovalRuleRequest"
       ]
     }
   ]

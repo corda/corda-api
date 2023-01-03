@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "GetApprovalRulesResponse",
+  "namespace": "net.corda.data.membership.rpc.response",
+  "doc": "Response for fetching approval rules",
+  "fields": [
+    {
+      "name": "rules",
+      "doc": "The approval rules",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

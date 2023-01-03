@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "DeleteApprovalRuleRequest",
+  "namespace": "net.corda.data.membership.rpc.request",
+  "doc": "Request to delete an approval rule",
+  "fields": [
+    {
+      "name": "holdingIdentityId",
+      "doc": "The holding identity ID of the MGM of the membership group",
+      "type": "string"
+    },
+    {
+      "name": "ruleId",
+      "doc": "The ID of the rule to be deleted",
+      "type": "string"
+    }
+  ]
+}

@@ -16,7 +16,10 @@
         "RegistrationRpcResponse",
         "MGMGroupPolicyResponse",
         "RegistrationStatusResponse",
-        "RegistrationsStatusResponse"
+        "RegistrationsStatusResponse",
+        "AddApprovalRuleResponse",
+        "GetApprovalRulesResponse",
+        "DeleteApprovalRuleResponse"
       ]
     }
   ]

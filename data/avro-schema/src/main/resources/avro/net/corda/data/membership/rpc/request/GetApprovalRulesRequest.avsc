@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "GetApprovalRulesRequest",
+  "namespace": "net.corda.data.membership.rpc.request",
+  "doc": "Request to fetch approval rules",
+  "fields": [
+    {
+      "name": "holdingIdentityId",
+      "doc": "The holding identity ID of the MGM of the membership group",
+      "type": "string"
+    },
+    {
+      "name": "ruleType",
+      "doc": "The category of rules to retrieve",
+      "type": "net.corda.data.membership.common.ApprovalRuleType"
+    }
+  ]
+}
