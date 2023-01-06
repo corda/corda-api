@@ -1,6 +1,7 @@
 package net.corda.v5.application.crypto
 
 import net.corda.v5.base.annotations.DoNotImplement
+import net.corda.v5.crypto.DigitalSignature
 import net.corda.v5.crypto.SignatureSpec
 import net.corda.v5.crypto.exceptions.CryptoSignatureException
 import java.security.PublicKey
@@ -26,4 +27,6 @@ interface DigitalSignatureVerificationService {
      * data is empty.
      */
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
+
+    fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signature: DigitalSignature, clearData: ByteArray)
 }
