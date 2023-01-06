@@ -9,7 +9,7 @@
       "type": "string"
     },
     {
-      "doc": "The holding identity that the certificate belongs to",
+      "doc": "The holding identity that the certificate is used by.",
       "name": "holdingIdentity",
       "type": "net.corda.data.identity.HoldingIdentity"
     },
