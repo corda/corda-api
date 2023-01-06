@@ -1,5 +1,6 @@
 package net.corda.v5.crypto
 
+import net.corda.v5.base.annotations.CordaSerializable
 import java.security.spec.AlgorithmParameterSpec
 
 /**
@@ -14,6 +15,7 @@ import java.security.spec.AlgorithmParameterSpec
  * When used for signing the [signatureName] must match the corresponding key scheme, e.g. you cannot use
  * "SHA256withECDSA" with "RSA" keys.
  */
+@CordaSerializable
 class ParameterizedSignatureSpec(
     signatureName: String,
     val params: AlgorithmParameterSpec
