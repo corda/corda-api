@@ -9,7 +9,8 @@ import net.corda.v5.crypto.SecureHash
  * model and is agnostic to both the message bus API and any DB schema that may be used to persist data
  * by the backing store.
  *
- * T0DO CORE-6629: This class can be removed once the UTXO ledger model gets merged
+ * Please note that this class is entirely different from the Ledger specific `StateRef` class. This class represents
+ * a state ref that the uniqueness checker will process and might be different from the UTXO data model.
  */
 @CordaSerializable
 interface UniquenessCheckStateRef {
