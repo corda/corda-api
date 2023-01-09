@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TenantKeys",
-  "namespace": "net.corda.p2p.test",
+  "namespace": "net.corda.data.p2p.test",
   "fields": [
     {
       "doc": "The tenant ID under which the key pair is stored",
@@ -11,7 +11,7 @@
     {
       "doc": "The key pair",
       "name": "keys",
-      "type": "net.corda.p2p.test.KeyPairEntry"
+      "type": "net.corda.data.p2p.test.KeyPairEntry"
     }
   ]
 }

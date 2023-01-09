@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "KeyPairEntry",
-  "namespace": "net.corda.p2p.test",
+  "namespace": "net.corda.data.p2p.test",
   "fields": [
     {
       "doc": "The key pair (in PEM format)",

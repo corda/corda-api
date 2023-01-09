@@ -2,7 +2,7 @@
   "type": "record",
   "name": "AuthenticatedMessageDeliveryState",
   "namespace": "net.corda.data.p2p",
-  "doc": "State used to track when a {@link net.corda.p2p.app.AuthenticatedMessage} should be replayed.",
+  "doc": "State used to track when a {@link net.corda.data.p2p.app.AuthenticatedMessage} should be replayed.",
   "fields": [
     {
       "name": "message",

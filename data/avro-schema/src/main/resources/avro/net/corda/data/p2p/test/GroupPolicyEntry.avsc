@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "GroupPolicyEntry",
-  "namespace": "net.corda.p2p.test",
+  "namespace": "net.corda.data.p2p.test",
   "fields": [
     {
       "doc": "The holding identity for which the view on the group is provided",
@@ -11,14 +11,14 @@
     {
       "doc": "The group network type",
       "name": "networkType",
-      "type": "net.corda.p2p.NetworkType"
+      "type": "net.corda.data.p2p.NetworkType"
     },
     {
       "doc": "The group protocol modes",
       "name": "protocolModes",
       "type": {
         "type": "array",
-        "items": "net.corda.p2p.crypto.ProtocolMode"
+        "items": "net.corda.data.p2p.crypto.ProtocolMode"
       }
     },
     {

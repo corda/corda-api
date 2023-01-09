@@ -6,14 +6,14 @@
     {
       "name": "marker",
       "type": [
-        "net.corda.p2p.markers.LinkManagerReceivedMarker",
-        "net.corda.p2p.markers.LinkManagerSentMarker",
-        "net.corda.p2p.markers.ApplicationProcessedMarker",
-        "net.corda.p2p.markers.ApplicationRejectedStaleMarker",
-        "net.corda.p2p.markers.GatewaySentMarker",
-        "net.corda.p2p.markers.LinkManagerProcessedMarker",
-        "net.corda.p2p.markers.LinkManagerDiscardedMarker",
-        "net.corda.p2p.markers.TtlExpiredMarker"
+        "net.corda.data.p2p.markers.LinkManagerReceivedMarker",
+        "net.corda.data.p2p.markers.LinkManagerSentMarker",
+        "net.corda.data.p2p.markers.ApplicationProcessedMarker",
+        "net.corda.data.p2p.markers.ApplicationRejectedStaleMarker",
+        "net.corda.data.p2p.markers.GatewaySentMarker",
+        "net.corda.data.p2p.markers.LinkManagerProcessedMarker",
+        "net.corda.data.p2p.markers.LinkManagerDiscardedMarker",
+        "net.corda.data.p2p.markers.TtlExpiredMarker"
       ]
     },
     {
