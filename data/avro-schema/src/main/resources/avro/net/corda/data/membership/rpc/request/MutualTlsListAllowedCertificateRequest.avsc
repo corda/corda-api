@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "MutualTlsListAllowedCertificateRequest",
+  "namespace": "net.corda.data.membership.rpc.request",
+  "doc": "List the allowed client certificate subject to be used in mutual TLS.",
+  "fields": [
+    {
+      "name": "holdingIdentityId",
+      "doc": "ID of the MGM holding identity.",
+      "type": "string"
+    }
+  ]
+}
