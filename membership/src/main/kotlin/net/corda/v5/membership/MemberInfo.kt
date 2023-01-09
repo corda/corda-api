@@ -47,6 +47,8 @@ import java.security.PublicKey
  * @property ledgerKeys List of current and previous (rotated) ledger keys, which member can still use to sign unspent
  * transactions on ledger.
  * Key at index 0 is always the latest added ledger key.
+ * @property notaryKeys List of current and previous (rotated) notary keys. Key at index 0 is always the latest added
+ * notary key. Might be an empty list if the member is not a notary VNode.
  * @property platformVersion Corda platform version that the member is running on.
  * @property serial An arbitrary number incremented each time the [MemberInfo] is changed.
  * @property isActive True if the member is active. Otherwise, false.
@@ -58,6 +60,7 @@ interface MemberInfo {
     val name: MemberX500Name
     val sessionInitiationKey: PublicKey
     val ledgerKeys: List<PublicKey>
+    val notaryKeys: List<PublicKey>
     val platformVersion: Int
     val serial: Long
     val isActive: Boolean
