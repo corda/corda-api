@@ -79,6 +79,13 @@
         "1.3"
       ]
     },
+    "corda.group.tls.type": {
+      "description": "The TLS type. Default to OneWay",
+      "enum":  [
+        "Mutual",
+        "OneWay"
+      ]
+    },
     "corda.group.protocol.p2p.mode": {
       "description": "The protocol mode which the P2P layer should use.",
       "type": "string",
