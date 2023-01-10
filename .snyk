@@ -2,15 +2,15 @@
 version: v1.25.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  SNYK-JAVA-ORGJETBRAINSKOTLIN-2628385:
-    - '*':
-        reason: >-
-          Gradle plugins use the version of Kotlin provided by Gradle itself, so
-          it is not susceptible to this vulnerability. In addition, this is a 
-          build-time vulnerability,  released artifacts are not affected due to
-          this.
-        expires: 2022-10-22T10:40:55.991Z
-        created: 2022-09-22T10:40:55.995Z
+#  SNYK-JAVA-ORGJETBRAINSKOTLIN-2628385:
+#    - '*':
+#        reason: >-
+#          Gradle plugins use the version of Kotlin provided by Gradle itself, so
+#          it is not susceptible to this vulnerability. In addition, this is a
+#          build-time vulnerability,  released artifacts are not affected due to
+#          this.
+#        expires: 2022-10-22T10:40:55.991Z
+#        created: 2022-09-22T10:40:55.995Z
   SNYK-JAVA-ORGJETBRAINSKOTLIN-2393744:
     - '*':
         reason: >-
