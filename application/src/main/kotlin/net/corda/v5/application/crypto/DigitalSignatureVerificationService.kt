@@ -29,8 +29,7 @@ interface DigitalSignatureVerificationService {
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
 
     /**
-     * Verifies a digital signature by using [signatureSpec].
-     * Always throws an exception if verification fails.
+     * Verifies a digital signature for the specified [signatureSpec]. Throws [CryptoSignatureException] if verification fails.
      *
      * @param publicKey The signer's [PublicKey].
      * @param signatureSpec The signature spec.
