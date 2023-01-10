@@ -28,5 +28,18 @@ interface DigitalSignatureVerificationService {
      */
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
 
+    /**
+     * Verifies a digital signature by using [signatureSpec].
+     * Always throws an exception if verification fails.
+     *
+     * @param publicKey The signer's [PublicKey].
+     * @param signatureSpec The signature spec.
+     * @param signature The signature on a message.
+     * @param clearData The clear data/message that was signed (usually the Merkle root).
+     *
+     * @throws CryptoSignatureException If verification of the digital signature fails.
+     * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
+     * data is empty.
+     */
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signature: DigitalSignature, clearData: ByteArray)
 }
