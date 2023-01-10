@@ -31,14 +31,14 @@ interface DigitalSignatureVerificationService {
     /**
      * Verifies a digital signature against some data. Throws [CryptoSignatureException] if verification fails.
      *
-     * @param publicKey The signer's [PublicKey].
-     * @param signatureSpec The signature spec.
      * @param signature A signature on some data.
      * @param originalData The data that was signed (usually the Merkle root).
+     * @param publicKey The signer's [PublicKey].
+     * @param signatureSpec The signature spec.
      *
      * @throws CryptoSignatureException If verification of the digital signature fails.
      * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
      * data is empty.
      */
-    fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signature: DigitalSignature, originalData: ByteArray)
+    fun verify(signature: DigitalSignature, originalData: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec)
 }
