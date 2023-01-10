@@ -31,7 +31,7 @@ interface DigitalSignatureVerificationService {
     /**
      * Verifies a digital signature against some data. Throws [CryptoSignatureException] if verification fails.
      *
-     * @param signature A signature on some data.
+     * @param signature A digital signature on some data.
      * @param originalData The original data on which the signature was applied (usually the Merkle root).
      * @param publicKey The signer's [PublicKey].
      * @param signatureSpec The signature spec.
