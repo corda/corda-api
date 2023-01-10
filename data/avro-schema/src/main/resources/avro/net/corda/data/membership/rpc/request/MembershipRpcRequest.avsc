@@ -16,10 +16,7 @@
         "RegistrationRpcRequest",
         "RegistrationStatusRpcRequest",
         "MGMGroupPolicyRequest",
-        "RegistrationStatusSpecificRpcRequest",
-        "MutualTlsAllowCertificateRequest",
-        "MutualTlsDisallowCertificateRequest",
-        "MutualTlsListAllowedCertificateRequest"
+        "RegistrationStatusSpecificRpcRequest"
       ]
     }
   ]

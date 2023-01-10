@@ -1,7 +1,0 @@
-{
-  "type": "record",
-  "name": "MutualTlsAllowCertificateResponse",
-  "namespace": "net.corda.data.membership.rpc.response",
-  "doc": "Client certificate subject was allowed to be used in mutual TLS.",
-  "fields": []
-}

@@ -16,10 +16,7 @@
         "RegistrationRpcResponse",
         "MGMGroupPolicyResponse",
         "RegistrationStatusResponse",
-        "RegistrationsStatusResponse",
-        "MutualTlsAllowCertificateResponse",
-        "MutualTlsDisallowCertificateResponse",
-        "MutualTlsListAllowedCertificatesResponse"
+        "RegistrationsStatusResponse"
       ]
     }
   ]

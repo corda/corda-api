@@ -1,7 +1,0 @@
-{
-  "type": "record",
-  "name": "MutualTlsDisallowCertificateResponse",
-  "namespace": "net.corda.data.membership.rpc.response",
-  "doc": "Client certificate subject was disallowed to be used in mutual TLS.",
-  "fields": []
-}
