@@ -29,10 +29,10 @@ interface DigitalSignatureVerificationService {
     fun verify(publicKey: PublicKey, signatureSpec: SignatureSpec, signatureData: ByteArray, clearData: ByteArray)
 
     /**
-     * Verifies a digital signature against some data. Throws [CryptoSignatureException] if verification fails.
+     * Verifies a digital signature against data. Throws [CryptoSignatureException] if verification fails.
      *
-     * @param signature A digital signature on some data.
      * @param originalData The original data on which the signature was applied (usually the Merkle root).
+     * @param signature The digital signature.
      * @param publicKey The signer's [PublicKey].
      * @param signatureSpec The signature spec.
      *
@@ -40,5 +40,5 @@ interface DigitalSignatureVerificationService {
      * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
      * data is empty.
      */
-    fun verify(signature: DigitalSignature, originalData: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec)
+    fun verify(originalData: ByteArray, signature: DigitalSignature, publicKey: PublicKey, signatureSpec: SignatureSpec)
 }
