@@ -81,7 +81,8 @@
     },
     "corda.group.tls.type": {
       "description": "The TLS type. Default to OneWay",
-      "enum":  [
+      "type": "string",
+      "examples": [
         "Mutual",
         "OneWay"
       ]
