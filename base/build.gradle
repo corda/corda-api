@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'corda.common-publishing'
 }
-
+//Update to trigger Snyk Delta
 description 'Corda Base'
 
 dependencies {
