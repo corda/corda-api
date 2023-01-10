@@ -2,7 +2,7 @@
   "type": "record",
   "name": "MutualTlsListAllowedCertificatesResponse",
   "namespace": "net.corda.data.membership.rpc.response",
-  "doc": "List of client certificate subject that had been allowed to be used in mutual TLS.",
+  "doc": "List of client certificate subjects that have been allowed to be used in mutual TLS.",
   "fields": [
     {
       "name": "subjects",
