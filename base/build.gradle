@@ -14,7 +14,7 @@ dependencies {
     api 'org.slf4j:slf4j-api'
 
     //Update to trigger Snyk Delta
-    implementation group: 'org.springframework', name: 'spring-beans', version: '5.2.19'
+    implementation group: 'org.springframework', name: 'spring-beans', version: '5.2.9.RELEASE'
 
     compileOnly 'org.osgi:osgi.annotation'
 
