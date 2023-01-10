@@ -13,6 +13,7 @@ import java.security.PublicKey
  */
 @DoNotImplement
 interface DigitalSignatureVerificationService {
+    // TODO The following `verify` overload should be aligned with the other one as per: https://r3-cev.atlassian.net/browse/CORE-9332
     /**
      * Verifies a digital signature by using [signatureSpec].
      * Always throws an exception if verification fails.
