@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'corda.common-publishing'
 }
-//Update to trigger Snyk Delta
+
 description 'Corda Base'
 
 dependencies {
@@ -12,6 +12,9 @@ dependencies {
     // Concluded this is the one acceptable dependency in addition to kotlin.
     // We are also returning `Logger` from extensions methods like `Any.contextLogger()` hance "api"
     api 'org.slf4j:slf4j-api'
+
+    //Update to trigger Snyk Delta
+    implementation group: 'org.springframework', name: 'spring-beans', version: '5.2.19'
 
     compileOnly 'org.osgi:osgi.annotation'
 
