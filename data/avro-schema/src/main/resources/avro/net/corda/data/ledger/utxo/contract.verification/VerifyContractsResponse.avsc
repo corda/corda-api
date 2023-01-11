@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "VerifyContractsResponse",
+  "doc": "The response to an {@link VerifyContractsRequest}.",
+  "namespace": "net.corda.ledger.utxo.contract.verification",
+  "fields": [
+    {
+      "name": "result",
+      "type": "boolean",
+      "doc": "True if contracts verification was successful, false otherwise."
+    }
+  ]
+}
