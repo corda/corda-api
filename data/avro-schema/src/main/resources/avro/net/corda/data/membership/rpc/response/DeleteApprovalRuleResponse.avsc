@@ -1,7 +1,0 @@
-{
-  "type": "record",
-  "name": "DeleteApprovalRuleResponse",
-  "namespace": "net.corda.data.membership.rpc.response",
-  "doc": "Response for deleting an approval rule",
-  "fields": []
-}
