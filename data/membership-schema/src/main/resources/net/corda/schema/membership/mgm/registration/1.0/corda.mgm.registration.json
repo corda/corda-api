@@ -80,7 +80,7 @@
       ]
     },
     "corda.group.tls.type": {
-      "description": "The TLS type. Default to OneWay",
+      "description": "What kind of TLS connections to establish between the gateways in our cluster and gateways in other clusters. This setting MUST be the same on all Gateways that need to communicate via HTTPS. The default value is OneWay",
       "type": "string",
       "examples": [
         "Mutual",
