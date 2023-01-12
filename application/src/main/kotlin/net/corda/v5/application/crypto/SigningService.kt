@@ -36,4 +36,7 @@ interface SigningService {
      */
     @Suspendable
     fun sign(bytes: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithKey
+
+    @Suspendable
+    fun getMyKeys(keys: Set<PublicKey>): Set<PublicKey>
 }
