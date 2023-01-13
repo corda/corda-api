@@ -10,7 +10,7 @@ buildscript {
         internalPublishVersion = cordaInternalDependencies.getProperty("internalPublishVersion")
         cordaProductVersion = cordaInternalDependencies.getProperty("cordaProductVersion")
         vcsUrl = System.getenv('GIT_URL') ?: 'https://github.com/corda/corda-api.git'
-    }     
+    }
     
     dependencies {
         classpath "org.jetbrains.dokka:dokka-core:$dokkaVersion"
