@@ -11,8 +11,10 @@ repositories {
 def constants = new Properties()
 file("$rootDir/../gradle.properties").withInputStream { InputStream input -> constants.load(input) }
 def bndVersion = constants.getProperty('bndVersion')
-def internalPublishVersion = constants.getProperty('internalPublishVersion')
 def artifactoryContextUrl = constants.getProperty('artifactoryContextUrl')
+Properties cordaInternalDependencies = new Properties()
+file("$projectDir/../cordaInternalDependencies.properties").withInputStream { InputStream input -> cordaInternalDependencies.load(input) }
+def internalPublishVersion = cordaInternalDependencies.getProperty('internalPublishVersion')
 
 repositories {
         def cordaUseCache = System.getenv("CORDA_USE_CACHE")
