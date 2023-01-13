@@ -141,5 +141,8 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
+        <createIndex indexName="vnode_group_approval_rules_type" tableName="vnode_group_approval_rules" clustered="false">
+            <column name="rule_type"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>
