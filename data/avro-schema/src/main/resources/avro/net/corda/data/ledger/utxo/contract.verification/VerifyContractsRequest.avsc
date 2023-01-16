@@ -13,6 +13,11 @@
       "doc": "Time ({@link java.time.Instant}) in milliseconds when the record was created."
     },
     {
+      "name": "holdingIdentity",
+      "type": "net.corda.data.identity.HoldingIdentity",
+      "doc": "The holding identity of the user making the request."
+    },
+    {
       "name": "transaction",
       "type": "bytes",
       "doc": "The serialized transaction"
