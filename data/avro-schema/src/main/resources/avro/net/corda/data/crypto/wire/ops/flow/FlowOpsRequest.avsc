@@ -15,7 +15,7 @@
         "net.corda.data.crypto.wire.ops.flow.commands.GenerateFreshKeyFlowCommand",
         "net.corda.data.crypto.wire.ops.flow.commands.SignFlowCommand",
         "net.corda.data.crypto.wire.ops.flow.queries.FilterMyKeysFlowQuery",
-        "net.corda.data.crypto.wire.ops.flow.queries.FilterMyKeyIdsFlowQuery",
+        "net.corda.data.crypto.wire.ops.flow.queries.FilterMyKeysByIdsFlowQuery",
       ],
       "doc": "Request's payload, depends on the requested operation."
     },
