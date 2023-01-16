@@ -2,6 +2,6 @@
   "type": "record",
   "name": "DeleteApprovalRuleResponse",
   "namespace": "net.corda.data.membership.db.response.command",
-  "doc": "Response to a delete approval rule request",
+  "doc": "Response to a delete approval rule request.",
   "fields": []
 }

@@ -6,10 +6,10 @@
   "fields": [
     {
       "name": "rules",
-      "doc": "Approval rules",
+      "doc": "Approval rules.",
       "type": {
         "type": "array",
-        "items": "string"
+        "items": "net.corda.data.membership.common.ApprovalRuleDetails"
       }
     }
   ]
