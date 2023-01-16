@@ -3,7 +3,6 @@ package net.corda.v5.ledger.utxo.uniqueness.client
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.application.uniqueness.model.UniquenessCheckStateRef
-import net.corda.v5.crypto.CompositeKey
 import java.security.PublicKey
 import java.time.Instant
 import java.util.concurrent.Future
