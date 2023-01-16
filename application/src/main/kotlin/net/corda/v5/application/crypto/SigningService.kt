@@ -37,6 +37,13 @@ interface SigningService {
     @Suspendable
     fun sign(bytes: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithKey
 
+    /**
+     * Gets a set of signing keys to look into and returns a mapping of the requested signing keys to found to be owned
+     * by the caller signing keys.
+     *
+     * @param keys The signing keys to look into.
+     * @return Mapping of requested signing keys to owned keys by the caller or null if not owned.
+     */
     @Suspendable
-    fun getMySigningKeys(keys: Set<PublicKey>): Set<PublicKey>
+    fun getMySigningKeys(keys: Set<PublicKey>): Map<PublicKey, PublicKey?>
 }
