@@ -38,5 +38,5 @@ interface SigningService {
     fun sign(bytes: ByteArray, publicKey: PublicKey, signatureSpec: SignatureSpec): DigitalSignature.WithKey
 
     @Suspendable
-    fun getMyKeys(keys: Set<PublicKey>): Set<PublicKey>
+    fun getMySigningKeys(keys: Set<PublicKey>): Set<PublicKey>
 }
