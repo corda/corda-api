@@ -45,5 +45,5 @@ interface SigningService {
      * @return Mapping of requested signing keys to owned keys by the caller or null if not owned.
      */
     @Suspendable
-    fun getMySigningKeys(keys: Set<PublicKey>): Map<PublicKey, PublicKey?>
+    fun findMySigningKeys(keys: Set<PublicKey>): Map<PublicKey, PublicKey?>
 }
