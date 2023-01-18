@@ -43,7 +43,7 @@ interface SigningService {
      * composite key leaf.
      *
      * @param keys The signing keys to look into.
-     * @return Mapping of requested signing keys to found signing keys to be owned by the caller or null if not owned.
+     * @return A mapping of requested signing keys to found signing keys to be owned by the caller or null if not found to be owned.
      */
     @Suspendable
     fun findMySigningKeys(keys: Set<PublicKey>): Map<PublicKey, PublicKey?>
