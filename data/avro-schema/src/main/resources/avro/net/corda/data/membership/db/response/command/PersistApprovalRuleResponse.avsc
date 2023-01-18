@@ -5,9 +5,9 @@
   "doc": "Response to a persist approval rule request.",
   "fields": [
     {
-      "name": "ruleId",
-      "doc": "The ID of the persisted approval rule.",
-      "type": "string"
+      "name": "persistedRule",
+      "doc": "Details of the newly persisted approval rule.",
+      "type": "net.corda.data.membership.common.ApprovalRuleDetails"
     }
   ]
 }
