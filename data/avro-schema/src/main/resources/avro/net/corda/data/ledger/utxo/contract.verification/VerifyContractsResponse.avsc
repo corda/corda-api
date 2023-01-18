@@ -6,8 +6,13 @@
   "fields": [
     {
       "name": "result",
-      "type": "boolean",
-      "doc": "True if contracts verification was successful, false otherwise."
+      "type": "net.corda.ledger.utxo.contract.verification.VerificationResult",
+      "doc": "Contracts verification result, see {@link VerifyResult}."
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "doc": "Contains logging info in case of unsuccessful validation."
     }
   ]
 }
