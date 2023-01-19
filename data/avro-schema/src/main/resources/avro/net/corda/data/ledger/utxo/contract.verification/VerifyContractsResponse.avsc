@@ -10,9 +10,12 @@
       "doc": "Contracts verification result, see {@link VerifyResult}."
     },
     {
-      "name": "message",
-      "type": "string",
-      "doc": "Contains logging info in case of unsuccessful validation."
+      "name": "verificationFailures",
+      "type": {
+        "type": "array",
+        "items": "net.corda.ledger.utxo.contract.verification.ContractVerificationFailure"
+      },
+      "doc": "Verification failures see {@link ContractVerificationFailure}."
     }
   ]
 }
