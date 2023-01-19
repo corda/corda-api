@@ -22,7 +22,9 @@
         "net.corda.data.membership.db.response.query.UpdateMemberAndRegistrationRequestResponse",
         "net.corda.data.membership.db.response.query.MemberSignatureQueryResponse",
         "net.corda.data.membership.db.response.query.MutualTlsListAllowedCertificatesResponse",
-        "net.corda.data.membership.db.response.query.GroupPolicyQueryResponse"
+        "net.corda.data.membership.db.response.query.GroupPolicyQueryResponse",
+        "net.corda.data.membership.db.response.query.PreAuthTokenQueryResponse",
+        "net.corda.data.membership.db.response.command.RevokePreAuthTokenResponse"
       ],
       "doc": "Response payload which depends on the requested operation."
     }

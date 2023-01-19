@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "PreAuthToken",
+  "namespace": "net.corda.data.membership.preauth",
+  "doc": "",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "ownerX500Name",
+      "type": "string"
+    },
+    {
+      "name": "ttl",
+      "type": "long"
+    },
+    {
+      "name": "status",
+      "type": "net.corda.data.membership.preauth.PreAuthTokenStatus"
+    },
+    {
+      "name": "remark",
+      "type": ["null", "string"]
+    }
+  ]
+}
