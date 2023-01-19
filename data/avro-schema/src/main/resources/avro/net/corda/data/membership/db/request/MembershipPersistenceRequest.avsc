@@ -23,6 +23,8 @@
         "net.corda.data.membership.db.request.command.UpdateRegistrationRequestStatus",
         "net.corda.data.membership.db.request.command.MutualTlsAddToAllowedCertificates",
         "net.corda.data.membership.db.request.command.MutualTlsRemoveFromAllowedCertificates",
+        "net.corda.data.membership.db.request.command.PersistApprovalRule",
+        "net.corda.data.membership.db.request.command.DeleteApprovalRule",
         "net.corda.data.membership.db.request.command.AddPreAuthToken",
         "net.corda.data.membership.db.request.command.RevokePreAuthToken",
         "net.corda.data.membership.db.request.query.QueryGroupPolicy",
@@ -31,6 +33,7 @@
         "net.corda.data.membership.db.request.query.QueryRegistrationRequest",
         "net.corda.data.membership.db.request.query.QueryRegistrationRequests",
         "net.corda.data.membership.db.request.query.MutualTlsListAllowedCertificates",
+        "net.corda.data.membership.db.request.query.QueryApprovalRules",
         "net.corda.data.membership.db.request.query.QueryPreAuthToken"
       ],
       "doc": "Request's payload, depends on the requested operation."
