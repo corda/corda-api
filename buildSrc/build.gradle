@@ -13,7 +13,7 @@ file("$rootDir/../gradle.properties").withInputStream { InputStream input -> con
 def bndVersion = constants.getProperty('bndVersion')
 def artifactoryContextUrl = constants.getProperty('artifactoryContextUrl')
 Properties cordaInternalDependencies = new Properties()
-file("$projectDir/../cordaInternalDependencies.properties").withInputStream { InputStream input -> cordaInternalDependencies.load(input) }
+file("$projectDir/../cordaInternal.properties").withInputStream { InputStream input -> cordaInternalDependencies.load(input) }
 def internalPublishVersion = cordaInternalDependencies.getProperty('internalPublishVersion')
 
 repositories {
