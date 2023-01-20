@@ -97,7 +97,7 @@ fun PublicKey.isFulfilledBy(otherKeys: Iterable<PublicKey>): Boolean =
  * [otherKeys] is a [CompositeKey], this function will not find a match.</i>
  */
 fun PublicKey.containsAny(otherKeys: Iterable<PublicKey>): Boolean {
-    return if (this is CompositeKey) keys.intersect(otherKeys).isNotEmpty()
+    return if (this is CompositeKey) otherKeys.any { keys.contains(it) }
     else this in otherKeys
 }
 
