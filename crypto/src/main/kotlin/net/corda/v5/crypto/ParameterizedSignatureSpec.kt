@@ -15,7 +15,6 @@ import java.security.spec.AlgorithmParameterSpec
  * When used for signing the [signatureName] must match the corresponding key scheme, e.g. you cannot use
  * "SHA256withECDSA" with "RSA" keys.
  */
-@CordaSerializable
 class ParameterizedSignatureSpec(
     signatureName: String,
     val params: AlgorithmParameterSpec
