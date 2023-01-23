@@ -11,7 +11,7 @@
     },
     {
       "name": "remark",
-      "doc": "Optimal remark about why the token was revoked.",
+      "doc": "Optional remark about why the token was revoked.",
       "type": ["string", "null"]
     }
   ]
