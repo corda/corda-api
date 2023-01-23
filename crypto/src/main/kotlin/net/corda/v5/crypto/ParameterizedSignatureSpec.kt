@@ -1,6 +1,5 @@
 package net.corda.v5.crypto
 
-import net.corda.v5.base.annotations.CordaSerializable
 import java.security.spec.AlgorithmParameterSpec
 
 /**
