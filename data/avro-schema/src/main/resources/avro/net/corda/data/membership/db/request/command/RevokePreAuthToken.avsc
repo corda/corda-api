@@ -2,7 +2,7 @@
   "type": "record",
   "name": "RevokePreAuthToken",
   "namespace": "net.corda.data.membership.db.request.command",
-  "doc": "Revoke a pre auth token",
+  "doc": "Revoke a pre auth token.",
   "fields": [
     {
       "name": "tokenId",

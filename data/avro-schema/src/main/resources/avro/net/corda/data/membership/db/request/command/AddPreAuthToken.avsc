@@ -2,7 +2,7 @@
   "type": "record",
   "name": "AddPreAuthToken",
   "namespace": "net.corda.data.membership.db.request.command",
-  "doc": "Add a pre auth token",
+  "doc": "Add a pre auth token.",
   "fields": [
     {
       "name": "tokenId",
@@ -16,11 +16,18 @@
     },
     {
       "name": "ttl",
-      "type": "long"
+      "doc": "A timestamp for when the pre auth token expires.",
+      "type": [
+         "null",
+         {
+           "type": "long",
+           "logicalType": "timestamp-millis"
+         }
+      ]
     },
     {
       "name": "remark",
-      "doc": "Optional remark.",
+      "doc": "An optional remark added when the token was created.",
       "type": ["string", "null"]
     }
   ]

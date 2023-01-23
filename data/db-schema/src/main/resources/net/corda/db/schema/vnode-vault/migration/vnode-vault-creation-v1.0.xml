@@ -43,12 +43,13 @@
                 <constraints nullable="false"/>
             </column>
             <column name="ttl" type="TIMESTAMP">
-                <constraints nullable="false"/>
             </column>
             <column name="status" type="VARCHAR(64)">
                 <constraints nullable="false"/>
             </column>
-            <column name="remark" type="VARCHAR(255)">
+            <column name="creation_remark" type="TEXT">
+            </column>
+            <column name="removal_remark" type="TEXT">
             </column>
         </createTable>
         <addPrimaryKey columnNames="token_id" constraintName="vnode_pre_auth_tokens_pk" tableName="vnode_pre_auth_tokens"/>

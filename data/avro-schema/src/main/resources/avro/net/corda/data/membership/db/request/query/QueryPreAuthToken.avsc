@@ -2,7 +2,7 @@
   "type": "record",
   "name": "QueryPreAuthToken",
   "namespace": "net.corda.data.membership.db.request.query",
-  "doc": "Query for one or more pre auth tokens",
+  "doc": "Query for one or more pre auth tokens.",
   "fields": [
     {
       "name": "ownerX500Name",

@@ -10,7 +10,7 @@
         "type": "array",
         "items": "net.corda.data.membership.preauth.PreAuthToken"
       },
-      "doc": "The certificates subjects."
+      "doc": "The tokens found by the query."
     }
   ]
 }
