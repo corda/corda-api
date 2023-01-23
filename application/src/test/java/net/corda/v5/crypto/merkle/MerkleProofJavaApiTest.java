@@ -22,4 +22,15 @@ class MerkleProofJavaApiTest {
 
         Assertions.assertThat(result).isEqualTo(true);
     }
+    @Test
+    void calculateRoot() {
+        final SecureHash rootHash = new SecureHash("SHA-256", "456".getBytes());
+        when(merkleProof.calculateRoot(any())).thenReturn(rootHash);
+
+        final SecureHash hash = new SecureHash("SHA-256", "123".getBytes());
+        final MerkleTreeHashDigest digest = mock(MerkleTreeHashDigest.class);
+        final SecureHash result = merkleProof.calculateRoot(digest);
+
+        Assertions.assertThat(result).isEqualTo(rootHash);
+    }
 }
