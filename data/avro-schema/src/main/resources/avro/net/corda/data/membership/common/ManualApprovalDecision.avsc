@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "ManualApprovalDecision",
+  "namespace": "net.corda.data.membership.common",
+  "doc": "Approval decision for a registration request which requires manual approval.",
+  "fields": [
+    {
+      "name": "action",
+      "doc": "Action to be taken on the registration request.",
+      "type": {
+        "name": "ApprovalAction",
+        "type": "enum",
+        "symbols": [ "APPROVE", "DECLINE" ]
+      }
+    },
+    {
+      "name": "reason",
+      "doc": "Reason for the specified action.",
+      "type": ["string", "null"]
+    }
+  ]
+}
