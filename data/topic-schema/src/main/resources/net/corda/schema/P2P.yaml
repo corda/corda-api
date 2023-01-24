@@ -88,6 +88,7 @@ topics:
   P2PAllAllowedClientCertificateSubjects:
     name: p2p.all.allowed.client.certificate.subjects
     consumers:
+      - link-manager
       - gateway
     producers:
       - link-manager
