@@ -4,12 +4,12 @@ import net.corda.v5.application.messaging.FlowSession
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.crypto.SecureHash
-import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction
-import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
-import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator
+import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction
+import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
 
 /**
  * Defines UTXO ledger services.
@@ -85,7 +85,7 @@ interface UtxoLedgerService {
      * @return The unconsumed states (or empty list if not found).
      */
     @Suspendable
-    fun <T: ContractState> findUnconsumedStatesByType(stateClass: Class<out T>): List<StateAndRef<T>>
+    fun <T : ContractState> findUnconsumedStatesByType(stateClass: Class<out T>): List<StateAndRef<T>>
 
     /**
      * Verifies, signs, collects signatures, records and broadcasts a [UtxoSignedTransaction] to involved peers.
@@ -98,10 +98,19 @@ interface UtxoLedgerService {
      * @throws ContractVerificationException If the transaction failed contract verification.
      */
     @Suspendable
-    fun finalize(
-        signedTransaction: UtxoSignedTransaction,
-        sessions: List<FlowSession>
-    ): UtxoSignedTransaction
+    fun finalize(signedTransaction: UtxoSignedTransaction, sessions: List<FlowSession>): UtxoSignedTransaction
+
+    /**
+     * Verifies, signs and records a [UtxoSignedTransaction].
+     *
+     * [receiveFinality] should be called in response to [finalize].
+     *
+     * @param session The [FlowSession] to receive the [UtxoSignedTransaction] from.
+     * @return The fully signed [UtxoSignedTransaction] that was received and recorded.
+     * @throws ContractVerificationException If the transaction failed contract verification.
+     */
+    @Suspendable
+    fun receiveFinality(session: FlowSession): UtxoSignedTransaction
 
     /**
      * Verifies, signs and records a [UtxoSignedTransaction].
@@ -116,8 +125,5 @@ interface UtxoLedgerService {
      * @throws ContractVerificationException If the transaction failed contract verification.
      */
     @Suspendable
-    fun receiveFinality(
-        session: FlowSession,
-        validator: UtxoTransactionValidator
-    ): UtxoSignedTransaction
+    fun receiveFinality(session: FlowSession, validator: UtxoTransactionValidator): UtxoSignedTransaction
 }

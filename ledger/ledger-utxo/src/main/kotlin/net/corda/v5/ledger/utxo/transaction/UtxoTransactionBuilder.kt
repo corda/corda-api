@@ -50,6 +50,14 @@ interface UtxoTransactionBuilder {
     fun addSignatories(signatories: Iterable<PublicKey>): UtxoTransactionBuilder
 
     /**
+     * Adds the specified signatories to the current [UtxoTransactionBuilder].
+     *
+     * @param signatories The signatories to add to the current [UtxoTransactionBuilder].
+     * @return Returns a [UtxoTransactionBuilder] including the specified signatories.
+     */
+    fun addSignatories(vararg signatories: PublicKey): UtxoTransactionBuilder
+
+    /**
      * Adds the specified input state to the current [UtxoTransactionBuilder].
      *
      * @param stateRef The [StateRef] instance of the input state to add to the current [UtxoTransactionBuilder].
