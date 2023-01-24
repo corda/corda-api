@@ -189,17 +189,4 @@ interface UtxoTransactionBuilder {
      */
     @Suspendable
     fun toSignedTransaction(): UtxoSignedTransaction
-
-    /**
-     * Signs the transaction with the specified signatory key.
-     *
-     * @param signatory The signatory expected to sign the current transaction.
-     * @return Returns a [UtxoSignedTransaction] with signature for the specified signatory key.
-     *
-     * @throws IllegalStateException when called a second time on the same object to prevent
-     *      unintentional duplicate transactions.
-     */
-    @Suspendable
-    @Deprecated("Temporary function until the argumentless version gets available")
-    fun toSignedTransaction(signatory: PublicKey): UtxoSignedTransaction
 }
