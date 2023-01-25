@@ -7,6 +7,11 @@
       "doc": "The certificate subject",
       "name": "subject",
       "type": "string"
+    },
+    {
+      "doc": "The group ID",
+      "name": "groupId",
+      "type": "string"
     }
   ]
 }
