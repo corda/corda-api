@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "VerifyContractsRequestRedelivery",
+  "doc": "Redelivery state for VerifyContractsRequest.",
+  "namespace": "net.corda.ledger.utxo.contract.verification",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ({@link java.time.Instant}) in milliseconds when the record was created."
+    },
+    {
+      "name": "scheduledDelivery",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ({@link java.time.Instant}) in milliseconds when the request is scheduled for delivery."
+    },
+    {
+      "name": "redeliveryNumber",
+      "type": "int",
+      "doc": "Ordinal number of redelivery."
+    },
+    {
+      "name": "request",
+      "type": "net.corda.ledger.utxo.contract.verification.VerifyContractsRequest",
+      "doc": "The VerifyContractsRequest that has to be redelivered."
+    }
+  ]
+}
