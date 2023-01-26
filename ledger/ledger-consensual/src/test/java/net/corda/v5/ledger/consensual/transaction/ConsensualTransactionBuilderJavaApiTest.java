@@ -3,6 +3,7 @@ package net.corda.v5.ledger.consensual.transaction;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.crypto.DigitalSignature;
+import net.corda.v5.crypto.SignatureSpec;
 import net.corda.v5.ledger.consensual.ConsensualState;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,8 @@ import static org.mockito.Mockito.when;
 public class ConsensualTransactionBuilderJavaApiTest {
     private final ConsensualTransactionBuilder consensualTransactionBuilder = mock(ConsensualTransactionBuilder.class);
     private final DigitalSignature.WithKey signature = new DigitalSignature.WithKey(mock(PublicKey.class), "0".getBytes(), Map.of());
-    private final DigitalSignatureMetadata signatureMetadata = new DigitalSignatureMetadata(Instant.now(), Map.of());
+    private final DigitalSignatureMetadata signatureMetadata =
+            new DigitalSignatureMetadata(Instant.now(), new SignatureSpec("dummySignatureName"), Map.of());
     private final DigitalSignatureAndMetadata signatureWithMetaData = new DigitalSignatureAndMetadata(signature, signatureMetadata);
 
     @Test
@@ -68,7 +70,7 @@ public class ConsensualTransactionBuilderJavaApiTest {
 
 
     @Test
-    public void toSignedTransactionWithZeroKey() {
+    public void toSignedTransaction() {
         final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
         when(consensualTransactionBuilder.toSignedTransaction()).thenReturn(mockSignedTransaction);
 
@@ -77,17 +79,5 @@ public class ConsensualTransactionBuilderJavaApiTest {
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
         verify(consensualTransactionBuilder, times(1)).toSignedTransaction();
-    }
-    @Test
-    public void toSignedTransaction() {
-        final PublicKey publicKey = mock(PublicKey.class);
-        final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.toSignedTransaction(publicKey)).thenReturn(mockSignedTransaction);
-
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction(publicKey);
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).toSignedTransaction(publicKey);
     }
 }

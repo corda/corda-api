@@ -28,6 +28,16 @@
             <column name="usage"/>
         </createIndex>
 
+        <createTable tableName="vnode_mtls_allowed_certificate">
+            <column name="subject" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_deleted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="subject" constraintName="vnode_mtls_allowed_certificate_pk" tableName="vnode_mtls_allowed_certificate"/>
+
         <createTable tableName="vnode_registration_request">
             <column name="registration_id" type="NVARCHAR(255)">
                 <constraints nullable="false"/>
@@ -120,5 +130,22 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createTable tableName="vnode_group_approval_rules">
+            <column name="rule_id" type="NVARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="rule_regex" type="NVARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rule_type" type="NVARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rule_label" type="NVARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <createIndex indexName="vnode_group_approval_rules_type" tableName="vnode_group_approval_rules" clustered="false">
+            <column name="rule_type"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>

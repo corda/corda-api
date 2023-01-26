@@ -128,6 +128,7 @@ class Schemas {
             val P2P_OUT_MARKERS_DLQ = getStateAndEventDLQTopic(P2P_OUT_MARKERS)
             const val P2P_IN_TOPIC = "p2p.in"
             const val P2P_HOSTED_IDENTITIES_TOPIC = "p2p.hosted.identities"
+            const val P2P_MGM_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "p2p.mgm.allowed.client.certificate.subjects"
             const val LINK_OUT_TOPIC = "link.out"
             const val LINK_IN_TOPIC = "link.in"
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
@@ -135,13 +136,7 @@ class Schemas {
             const val GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs"
             const val GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC = "gateway.revocation.request"
             val GATEWAY_REVOCATION_CHECK_RESPONSE_TOPIC = getRPCResponseTopic(GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC)
-
-            /**
-             * Topics for (temporary) stub components.
-             */
-            const val CRYPTO_KEYS_TOPIC = "p2p.crypto.keys"
-            const val GROUP_POLICIES_TOPIC = "p2p.group.policies"
-            const val MEMBER_INFO_TOPIC = "p2p.members.info"
+            const val P2P_MTLS_MEMBER_CLIENT_CERTIFICATE_SUBJECT_TOPIC = "p2p.mtls.member.client.certificate.subject"
         }
     }
 
@@ -188,11 +183,22 @@ class Schemas {
     }
 
     /**
+     * Verification Message schema
+     */
+    class Verification {
+        companion object {
+            const val VERIFICATION_LEDGER_PROCESSOR_TOPIC = "verification.ledger.processor"
+        }
+    }
+
+    /**
      * Virtual Node schema
      */
     class VirtualNode {
         companion object {
             const val VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info"
+            const val VIRTUAL_NODE_ASYNC_REQUEST_TOPIC = "virtual.node.async.request"
+            const val VIRTUAL_NODE_OPERATION_STATUS_TOPIC = "virtual.node.operation.status"
             const val VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request"
             val VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = getRPCResponseTopic(VIRTUAL_NODE_CREATION_REQUEST_TOPIC)
             const val CPI_INFO_TOPIC = "cpi.info"
