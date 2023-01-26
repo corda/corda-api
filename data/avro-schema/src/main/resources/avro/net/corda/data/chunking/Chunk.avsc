@@ -11,7 +11,10 @@
     },
     {
       "name": "fileName",
-      "type": "string",
+      "type": [
+        "null",
+        "string"
+      ],
       "doc": "the filename, if any, that this binary originated from"
     },
     {
@@ -29,7 +32,10 @@
     },
     {
       "name": "offset",
-      "type": "long",
+      "type": [
+        "null",
+        "long"
+      ],
       "doc": "offset of this chunk from beginning of complete binary artifact"
     },
     {
