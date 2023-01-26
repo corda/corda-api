@@ -4,11 +4,11 @@ import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.exceptions.CordaRuntimeException
 
 /**
- * Base exception for all Crypto Library specific exception. Note that the library may throw common exceptions
+ * Base exception for all Crypto specific exceptions. Note that the library may throw common exceptions
  * such as [IllegalArgumentException], [IllegalStateException] and others as well. This base class is only
  * for the specific cases when a site throwing exception can provide some useful context about the operation.
  *
- * Note that the approach for the Crypto Library is to use the existing exception where appropriate and use
+ * Note that the approach for the Crypto Processor is to use the existing exception where appropriate and use
  * the specific Crypto Library exceptions only to convey additional context about the conditions which lead to
  * the exception.
  *

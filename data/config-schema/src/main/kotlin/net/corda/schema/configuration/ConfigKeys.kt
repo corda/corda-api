@@ -6,7 +6,7 @@ object ConfigKeys {
     // publishing changes to one of the config sections defined by a key, and readers will use the keys to
     // determine which config section a given update is for.
     const val BOOT_CONFIG = "corda.boot"
-    const val CRYPTO_CONFIG = "corda.cryptoLibrary"
+    const val CRYPTO_CONFIG = "corda.crypto"
     const val DB_CONFIG = "corda.db"
     const val FLOW_CONFIG = "corda.flow"
     const val MESSAGING_CONFIG = "corda.messaging"
