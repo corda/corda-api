@@ -138,7 +138,13 @@ class CryptoUtilsTests {
         val compositeKey = mock<CompositeKey> {
             on { leafKeys } doReturn setOf(key, key2, key3)
         }
+
+        val compositeKey2 = mock<CompositeKey> {
+            on { leafKeys } doReturn setOf(key, key3)
+        }
+
         assertAll(
+            // First composite key probes
             { assertTrue { compositeKey.containsAny(setOf(key)) } },
             { assertTrue { compositeKey.containsAny(setOf(key, key2)) } },
             { assertTrue { compositeKey.containsAny(setOf(key2, key3)) } },
@@ -149,6 +155,10 @@ class CryptoUtilsTests {
             { assertFalse { compositeKey.containsAny(setOf(invalidKey)) } },
             { assertFalse { compositeKey.containsAny(setOf(differentAlgoKey)) } },
             { assertFalse { compositeKey.containsAny(emptySet()) } },
+            // Second composite key probes
+            { assertTrue { compositeKey2.containsAny(setOf(key)) } },
+            { assertTrue { compositeKey2.containsAny(setOf(key3)) } },
+            { assertFalse { compositeKey2.containsAny(setOf(key2)) } }
         )
     }
 
