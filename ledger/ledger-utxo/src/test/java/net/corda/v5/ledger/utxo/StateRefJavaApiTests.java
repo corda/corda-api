@@ -9,7 +9,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
     @Test
     public void parseShouldReturnTheExpectedValue() {
         StateRef value = StateRef.parse(hash + ":123");
-        Assertions.assertEquals(hash, value.getTransactionHash());
+        Assertions.assertEquals(hash, value.getTransactionId());
         Assertions.assertEquals(123, value.getIndex());
     }
 
@@ -47,7 +47,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
 
     @Test
     public void getTransactionShouldReturnTheExpectedValue() {
-        SecureHash value = stateRef.getTransactionHash();
+        SecureHash value = stateRef.getTransactionId();
         Assertions.assertEquals(hash, value);
     }
 }

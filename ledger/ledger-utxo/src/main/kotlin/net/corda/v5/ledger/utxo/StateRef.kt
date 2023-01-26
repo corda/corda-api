@@ -7,10 +7,10 @@ import net.corda.v5.crypto.SecureHash
  * Defines a reference to a [ContractState].
  *
  * @property index The index of the state in the transaction's outputs in which the referenced state was created.
- * @property transactionHash The hash of the transaction in which the referenced state was created.
+ * @property transactionId The hash of the transaction in which the referenced state was created.
  */
 @CordaSerializable
-data class StateRef(val transactionHash: SecureHash, val index: Int) {
+data class StateRef(val transactionId: SecureHash, val index: Int) {
 
     companion object {
 
@@ -48,6 +48,6 @@ data class StateRef(val transactionHash: SecureHash, val index: Int) {
      * @return Returns the [String] representation of the current object.
      */
     override fun toString(): String {
-        return "$transactionHash:$index"
+        return "$transactionId:$index"
     }
 }
