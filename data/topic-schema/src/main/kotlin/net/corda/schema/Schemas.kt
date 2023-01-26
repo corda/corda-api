@@ -129,7 +129,6 @@ class Schemas {
             const val P2P_IN_TOPIC = "p2p.in"
             const val P2P_HOSTED_IDENTITIES_TOPIC = "p2p.hosted.identities"
             const val P2P_MGM_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "p2p.mgm.allowed.client.certificate.subjects"
-            const val P2P_ALL_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "p2p.all.allowed.client.certificate.subjects"
             const val LINK_OUT_TOPIC = "link.out"
             const val LINK_IN_TOPIC = "link.in"
             const val SESSION_OUT_PARTITIONS = "session.out.partitions"
@@ -138,6 +137,7 @@ class Schemas {
             const val GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC = "gateway.revocation.request"
             val GATEWAY_REVOCATION_CHECK_RESPONSE_TOPIC = getRPCResponseTopic(GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC)
             const val P2P_MTLS_MEMBER_CLIENT_CERTIFICATE_SUBJECT_TOPIC = "p2p.mtls.member.client.certificate.subject"
+            const val GATEWAY_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "gateway.allowed.client.certificate.subjects"
         }
     }
 
