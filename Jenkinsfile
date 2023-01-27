@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0') _
+@Library('corda-shared-build-pipeline-steps@connelm/NOTICK/api-runtime-downstream-stability-check') _
 
 cordaPipeline(
     runIntegrationTests: false,
