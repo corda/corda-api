@@ -20,6 +20,14 @@
       "type": ["null", "net.corda.data.ExceptionEnvelope"],
       "default": null,
       "doc": "Used for platform generated errors reported back to user code."
+    },
+    {
+      "name": "cpks",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.flow.state.checkpoint.PipeLineState"
+      },
+      "doc": "Array of stored cpks from the Virtual Node."
     }
   ]
 }
