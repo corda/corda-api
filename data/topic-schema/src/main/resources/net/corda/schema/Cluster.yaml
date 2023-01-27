@@ -1,0 +1,18 @@
+topics:
+  ClusterWorkerInfo:
+    name: cluster.worker.info
+    consumers:
+      - crypto
+      - db
+      - flow
+      - membership
+      - link-manager
+      - rpc
+    producers:
+      - crypto
+      - db
+      - flow
+      - membership
+      - link-manager
+      - rpc
+    config:

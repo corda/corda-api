@@ -207,4 +207,13 @@ class Schemas {
             const val CPK_FILE_TOPIC = "cpk.file"
         }
     }
+
+    /**
+     * Cluster local schema
+     */
+    class Cluster {
+        companion object {
+            const val CLUSTER_WORKER_INFO_TOPIC = "cluster.worker.info"
+        }
+    }
 }
