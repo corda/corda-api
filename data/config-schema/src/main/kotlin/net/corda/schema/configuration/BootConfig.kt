@@ -1,5 +1,7 @@
 package net.corda.schema.configuration
 
+import net.corda.schema.configuration.MessagingConfig.MAX_ALLOWED_MSG_SIZE
+
 /**
  * Configuration paths for values used to bootstrap the worker
  */
@@ -9,6 +11,8 @@ object BootConfig {
     const val BOOT_KAFKA = "kafka"
 
     const val BOOT_KAFKA_COMMON = "$BOOT_KAFKA.common"
+    const val BOOT_MAX_MESSAGE_SIZE = "$BOOT_KAFKA.$MAX_ALLOWED_MSG_SIZE"
+
     const val BOOT_CRYPTO = "crypto"
     const val BOOT_DB = "db"
 
