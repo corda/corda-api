@@ -25,7 +25,7 @@
       "name": "cpks",
       "type": {
         "type": "array",
-        "items": "net.corda.data.flow.state.checkpoint.PipeLineState"
+        "items": "SecureHash"
       },
       "doc": "Array of stored cpks from the Virtual Node."
     }
