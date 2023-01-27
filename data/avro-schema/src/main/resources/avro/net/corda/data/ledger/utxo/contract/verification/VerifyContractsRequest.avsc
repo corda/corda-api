@@ -23,12 +23,9 @@
       "doc": "The serialized transaction"
     },
     {
-      "name": "cpkMetadata",
-      "type": {
-        "type": "array",
-        "items": "net.corda.ledger.utxo.contract.verification.CordaPackageSummary"
-      },
-      "doc": "Metadata of Corda packages."
+      "name": "cpiMetadata",
+      "type": "net.corda.ledger.utxo.contract.verification.CordaPackageSummary",
+      "doc": "Metadata of Corda package installer."
     },
     {
       "name": "flowExternalEventContext",
