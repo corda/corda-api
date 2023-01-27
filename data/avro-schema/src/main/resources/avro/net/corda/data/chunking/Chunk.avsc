@@ -32,10 +32,7 @@
     },
     {
       "name": "offset",
-      "type": [
-        "null",
-        "long"
-      ],
+      "type": "long",
       "doc": "offset of this chunk from beginning of complete binary artifact"
     },
     {
