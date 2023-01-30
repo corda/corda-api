@@ -15,7 +15,7 @@ object BootConfig {
     const val BOOT_DB = "db"
 
     const val BOOT_DB_PARAMS = "$BOOT_DB.params"
-    const val BOOT_MAX_ALLOWED_MSG_SIZE = "$BOOT_DB.$MAX_ALLOWED_MSG_SIZE"
+    const val BOOT_MAX_ALLOWED_MSG_SIZE = "$MAX_ALLOWED_MSG_SIZE"
     const val BOOT_JDBC_URL = "$BOOT_DB_PARAMS.database.jdbc.url"
     const val BOOT_JDBC_USER = "$BOOT_DB_PARAMS.database.user"
     const val BOOT_JDBC_PASS = "$BOOT_DB_PARAMS.database.pass"
