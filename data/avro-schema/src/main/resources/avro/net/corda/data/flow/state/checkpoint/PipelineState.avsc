@@ -25,7 +25,7 @@
       "name": "cpks",
       "type": {
         "type": "array",
-        "items": "SecureHash"
+        "items": "net.corda.data.crypto.SecureHash"
       },
       "doc": "Array of stored cpks from the Virtual Node."
     }
