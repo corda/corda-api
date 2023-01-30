@@ -2,7 +2,7 @@
   "type": "record",
   "name": "WorkerInfo",
   "namespace": "net.corda.data.cluster",
-  "doc": "Version information for a worker in the cluster",
+  "doc": "General information for a worker in the cluster",
   "fields": [
     {
       "name": "workerPlatformVersion",
