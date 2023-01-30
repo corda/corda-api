@@ -2,7 +2,7 @@
   "type": "record",
   "name": "PreAuthToken",
   "namespace": "net.corda.data.membership.preauth",
-  "doc": "A token issued to a holding identity, used to override the approval configuration of a group.",
+  "doc": "A token issued to a holding identity, used to authenticate a registration request.",
   "fields": [
     {
       "name": "id",
