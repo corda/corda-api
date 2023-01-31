@@ -126,6 +126,9 @@ gradleEnterprise {
         remote(gradleEnterprise.buildCache) {
             // For the remote build cache we will populate cache only from Jenkins, all machines can pull from cache however.
             if (System.getenv().containsKey("JENKINS_URL")) {
+                username = settings.ext.find('BUILD_CACHE_CREDENTIALS_USR') ?: System.getenv('BUILD_CACHE_CREDENTIALS_USR')
+                password = settings.ext.find('BUILD_CACHE_CREDENTIALS_PSW') ?: System.getenv('BUILD_CACHE_CREDENTIALS_PSW')
+                usernameAndPassword(username, password)
                 push = true
                 enabled = true
             } else {
