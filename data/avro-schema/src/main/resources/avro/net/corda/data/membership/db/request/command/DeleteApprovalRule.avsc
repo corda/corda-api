@@ -11,7 +11,7 @@
     },
     {
       "name": "ruleType",
-      "doc": "The category to which the rule will be added.",
+      "doc": "The category of the rule to be deleted.",
       "type": "net.corda.data.membership.common.ApprovalRuleType"
     }
   ]
