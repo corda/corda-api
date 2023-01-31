@@ -108,6 +108,8 @@ gradleEnterprise {
     server = gradleEnterpriseUrl
     allowUntrustedServer = false
     def apiKey = settings.ext.find('CORDA_GRADLE_SCAN_KEY') ?: System.getenv('CORDA_GRADLE_SCAN_KEY')
+    def username = settings.ext.find('BUILD_CACHE_CREDENTIALS_USR') ?: System.getenv('BUILD_CACHE_CREDENTIALS_USR')
+    def password = settings.ext.find('BUILD_CACHE_CREDENTIALS_PSW') ?: System.getenv('BUILD_CACHE_CREDENTIALS_PSW')
     buildScan {
         if (apiKey?.trim()) {
             publishAlways()
@@ -126,9 +128,7 @@ gradleEnterprise {
         remote(gradleEnterprise.buildCache) {
             // For the remote build cache we will populate cache only from Jenkins, all machines can pull from cache however.
             if (System.getenv().containsKey("JENKINS_URL")) {
-                username = settings.ext.find('BUILD_CACHE_CREDENTIALS_USR') ?: System.getenv('BUILD_CACHE_CREDENTIALS_USR')
-                password = settings.ext.find('BUILD_CACHE_CREDENTIALS_PSW') ?: System.getenv('BUILD_CACHE_CREDENTIALS_PSW')
-                usernameAndPassword("${username}", "${password}")
+                usernameAndPassword(username,password)
                 push = true
                 enabled = true
             } else {
