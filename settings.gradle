@@ -108,7 +108,6 @@ gradleEnterprise {
     server = gradleEnterpriseUrl
     allowUntrustedServer = false
     def apiKey = settings.ext.find('CORDA_GRADLE_SCAN_KEY') ?: System.getenv('CORDA_GRADLE_SCAN_KEY')
-    accessKey = apiKey
     buildScan {
         if (apiKey?.trim()) {
             publishAlways()
@@ -116,6 +115,7 @@ gradleEnterprise {
                 taskInputFiles = true
             }
             uploadInBackground = false
+            accessKey = apiKey
         }
     }
     buildCache {
@@ -124,6 +124,7 @@ gradleEnterprise {
             removeUnusedEntriesAfterDays = 14  // Garbage collect if a cache item is not used in 2 weeks.
         }
         remote(gradleEnterprise.buildCache) {
+            accessKey = apiKey
             // For the remote build cache we will populate cache only from Jenkins, all machines can pull from cache however.
             if (System.getenv().containsKey("JENKINS_URL")) {
                 push = true
