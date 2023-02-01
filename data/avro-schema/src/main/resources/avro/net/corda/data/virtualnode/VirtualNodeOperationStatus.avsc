@@ -6,7 +6,7 @@
     {
       "name": "requestId",
       "type": "string",
-      "doc": "ID of this Virtual Node CPI upgrade request."
+      "doc": "Id of the requested operation."
     },
     {
       "name": "virtualNodeShortHash",
@@ -16,12 +16,18 @@
     {
       "name": "actor",
       "type": "string",
-      "doc": "ID of RPC user that requested the virtual node creation."
+      "doc": "ID of user that requested the virtual node creation."
+    },
+    {
+      "name": "operationName",
+      "type": "string",
+      "doc": "Descriptive name of the operation"
     },
     {
       "name": "operationData",
-      "doc": "The operation specific data.",
+      "doc": "The operation specific data (Optional).",
       "type": [
+        "null",
         "net.corda.data.virtualnode.VirtualNodeUpgradeOperationStatus"
       ]
     },
@@ -54,7 +60,12 @@
       "type": {
         "type": "enum",
         "name": "AsynchronousOperationState",
-        "symbols": ["IN_PROGRESS", "COMPLETED", "ABORTED", "EXPIRED"],
+        "symbols": [
+          "IN_PROGRESS",
+          "COMPLETED",
+          "ABORTED",
+          "EXPIRED"
+        ],
         "doc": "Status of an asynchronous request."
       }
     },

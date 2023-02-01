@@ -8,6 +8,10 @@
       "type": "string"
     },
     {
+      "name": "groupId",
+      "type": "string"
+    },
+    {
       "name": "cpiFileChecksum",
       "type": "string",
       "doc": "The checksum of the CPI file."
