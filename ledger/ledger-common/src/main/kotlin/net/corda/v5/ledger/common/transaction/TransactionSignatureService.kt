@@ -3,7 +3,6 @@ package net.corda.v5.ledger.common.transaction
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata
 import net.corda.v5.application.crypto.DigitalSignatureVerificationService
 import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.crypto.SecureHash
 import net.corda.v5.crypto.merkle.MerkleProof
 import java.security.PublicKey
 
@@ -16,15 +15,15 @@ interface TransactionSignatureService {
     /**
      * Signs a transaction id with all the available keys.
      *
-     * @param transactionId The transaction id to be signed.
-     * @param publicKeys The keys which should be tried to sign with.
+     * @param transaction The transaction to be signed.
+     * @param publicKeys Public keys that correspond to the private keys which should be attempted to sign with.
      *
      * @returns Resulting signatures.
      *
      * @throws TransactionNoAvailableKeysException If none of the keys are available.
      */
     @Suspendable
-    fun sign(transactionId: SecureHash, publicKeys: Iterable<PublicKey>): List<DigitalSignatureAndMetadata>
+    fun sign(transaction: TransactionWithMetadata, publicKeys: Iterable<PublicKey>): List<DigitalSignatureAndMetadata>
 
     /**
      * Signs a list of transactions with each the available keys.
@@ -32,14 +31,15 @@ interface TransactionSignatureService {
      * Then returns the signatures for each transaction with a [MerkleProof] to prove that they are included in the batch.
      *
      * @param transactions The transactions to be signed.
-     * @param publicKeys The keys which should be tried to sign with.
+     * @param publicKeys Public keys that correspond to the private keys which should be attempted to sign with.
      *
-     * @returns Resulting signatures.
+     * @returns List of signatures for each supplied transaction.
+     *          The outer list will always be of the same size and in the same order as the supplied [transactions].
      *
      * @throws TransactionNoAvailableKeysException If none of the keys are available.
      */
     @Suspendable
-    fun sign(
+    fun signBatch(
         transactions: List<TransactionWithMetadata>,
         publicKeys: Iterable<PublicKey>
     ): List<List<DigitalSignatureAndMetadata>>

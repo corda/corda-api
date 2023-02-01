@@ -4,7 +4,7 @@ import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.crypto.SecureHash
 
 /**
- * TransactionWithMetadata lets access metadata properties of the different transactions of different ledger implementations.
+ * TransactionWithMetadata contains metadata properties of transactions common across different ledger implementations.
  *
  * * @property signature The signature that was applied.
  */

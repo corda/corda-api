@@ -10,7 +10,7 @@ import net.corda.v5.crypto.merkle.MerkleProof
  *
  * @property signature The signature that was applied.
  * @property metadata Attached [DigitalSignatureMetadata] for this signature.
- * @property proof Attached [MerkleProof] to support batch signatures.
+ * @property proof Attached [MerkleProof] if this is a batch signature.
  * @property by The [PublicKey] that created the signature.
  *
  * @constructor Creates a [DigitalSignatureAndMetadata].
