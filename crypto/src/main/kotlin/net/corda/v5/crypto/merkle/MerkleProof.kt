@@ -41,9 +41,11 @@ interface MerkleProof {
      *
      * @param digest The tree's digest.
      *
-     * @returns Root hash of the tree or null if any details are incorrect.
+     * @returns Root hash of the tree.
+     *
+     * @throws MerkleProofRebuildFailureException if the calculation of the root hash failed.
      */
     fun calculateRoot(
         digest: MerkleTreeHashDigest
-    ): SecureHash?
+    ): SecureHash
 }
