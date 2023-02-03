@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "VerifyContractsRequest",
-  "doc": "Make a request for contracts verification of a ledger transaction.",
-  "namespace": "net.corda.ledger.utxo.contract.verification",
+  "name": "TransactionVerificationRequest",
+  "doc": "Make a request for verification of a ledger transaction.",
+  "namespace": "net.corda.ledger.utxo.verification",
   "fields": [
     {
       "name": "timestamp",
@@ -24,7 +24,7 @@
     },
     {
       "name": "cpiMetadata",
-      "type": "net.corda.ledger.utxo.contract.verification.CordaPackageSummary",
+      "type": "net.corda.ledger.utxo.verification.CordaPackageSummary",
       "doc": "Metadata of Corda package installer."
     },
     {
