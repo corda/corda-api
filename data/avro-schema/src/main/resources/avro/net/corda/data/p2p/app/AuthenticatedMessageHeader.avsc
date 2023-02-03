@@ -38,6 +38,16 @@
       "doc": "This value identifies the upstream user of the p2p layer that this message is sent from and should be received by. It can be used to filter incoming messages from the p2p layer and process only the ones destined for a specific system.",
       "name": "subsystem",
       "type": "string"
+    },
+    {
+      "doc": "Indicates what type of membership information should be used for P2P communication: pending, active, active or suspended. Should be only set by MGM services. Default value should be used everywhere else, which means that active member information will be used.",
+      "name": "statusFilter",
+      "type": {
+        "type": "enum",
+        "name": "MembershipStatusFilter",
+        "symbols": ["PENDING", "ACTIVE", "ACTIVE_OR_SUSPENDED"]
+      },
+      "default": "ACTIVE"
     }
   ]
 }
