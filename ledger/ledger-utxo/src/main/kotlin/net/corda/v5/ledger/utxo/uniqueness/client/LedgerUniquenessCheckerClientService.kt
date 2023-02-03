@@ -32,9 +32,6 @@ interface LedgerUniquenessCheckerClientService {
      *
      * @param timeWindowUpperBound The latest date/time until the transaction is considered valid.
      *
-     * @param notaryServiceKey The key of the notary service, might be a [net.corda.v5.crypto.CompositeKey]
-     * if there are multiple notary VNodes registered.
-     *
      * @return The result that was produced by the uniqueness checker.
      */
     @Suppress("LongParameterList")
