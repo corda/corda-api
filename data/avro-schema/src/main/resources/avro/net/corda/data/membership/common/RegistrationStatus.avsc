@@ -5,7 +5,7 @@
   "doc": "Registration request status.",
   "symbols": [
     "NEW",
-    "SENT_TO_MGM",
+    "RECEIVED_BY_MEMBER",
     "PENDING_MEMBER_VERIFICATION",
     "PENDING_APPROVAL_FLOW",
     "PENDING_MANUAL_APPROVAL",
