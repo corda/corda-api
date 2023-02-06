@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "InteropMessage",
+  "namespace": "net.corda.data.interop",
+  "fields": [
+      {
+        "doc": "Unique message identifier.",
+        "name": "messageId",
+        "type": "string"
+     },
+    {
+      "doc": "Request contains json data of facade request.",
+      "name": "request",
+      "type": "string"
+    },
+    {
+      "doc": "Response contains json data of facade response.",
+      "name": "response",
+      "type": "string"
+    }
+  ]
+}
