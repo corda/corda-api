@@ -263,6 +263,9 @@
         </createTable>
         <addPrimaryKey columnNames="id" constraintName="virtual_node_operation_pk" tableName="virtual_node_operation"
                        schemaName="${schema.name}"/>
+        <createIndex indexName="virtual_node_operation_request_id" tableName="virtual_node_operation" schemaName="${schema.name}">
+            <column name="request_id"/>
+        </createIndex>
 
         <createTable tableName="virtual_node" schemaName="${schema.name}">
             <column name="holding_identity_id" type="VARCHAR(12)">
