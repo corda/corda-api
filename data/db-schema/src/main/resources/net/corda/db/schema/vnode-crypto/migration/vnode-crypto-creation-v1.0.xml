@@ -50,6 +50,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <!-- TODO Change PK to be tenant_id + full_key_id -->
         <addPrimaryKey constraintName="crypto_signing_key_pk"
                        tableName="crypto_signing_key"
                        columnNames="tenant_id, key_id"/>
