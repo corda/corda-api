@@ -1,11 +1,10 @@
 package net.corda.v5.ledger.utxo.transaction
 
-import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.DoNotImplement
 import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.base.exceptions.CordaRuntimeException
 import net.corda.v5.crypto.SecureHash
 import net.corda.v5.ledger.common.Party
+import net.corda.v5.ledger.common.transaction.TransactionNoAvailableKeysException
 import net.corda.v5.ledger.utxo.Attachment
 import net.corda.v5.ledger.utxo.Command
 import net.corda.v5.ledger.utxo.ContractState
@@ -19,7 +18,6 @@ import java.time.Instant
  * @property notary The transaction notary.
  */
 @DoNotImplement
-@CordaSerializable
 @Suppress("TooManyFunctions")
 interface UtxoTransactionBuilder {
 
@@ -191,7 +189,7 @@ interface UtxoTransactionBuilder {
      *
      * @throws IllegalStateException when called a second time on the same object to prevent
      *      unintentional duplicate transactions.
-     * @throws CordaRuntimeException if none of the required keys are available to sign the transaction.
+     * @throws TransactionNoAvailableKeysException if none of the required keys are available to sign the transaction.
      */
     @Suspendable
     fun toSignedTransaction(): UtxoSignedTransaction
