@@ -5,12 +5,12 @@
   "doc": "Request to lookup for keys by their ids, the maximum number of items is 20.",
   "fields": [
     {
-      "name": "keys",
+      "name": "keyIds",
       "type": {
         "type": "array",
         "items": "string"
       },
-      "doc": "List of key ids."
+      "doc": "List of key ids"
     }
   ]
 }
