@@ -19,10 +19,10 @@
       "doc": "ID of RPC user that requested the virtual node creation."
     },
     {
-      "name": "operationData",
-      "doc": "The operation specific data.",
+      "name": "requestData",
+      "doc": "The operation specific request data.",
       "type": [
-        "net.corda.data.virtualnode.VirtualNodeUpgradeOperationStatus"
+        "string"
       ]
     },
     {
