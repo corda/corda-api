@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "SecureHashes",
-  "doc": "List of short hashes. For short hash form see {@link net.corda.data.crypto.SecureHash}",
+  "doc": "List of secure hashes. For secure hash form see {@link net.corda.data.crypto.SecureHash}",
   "namespace": "net.corda.data.crypto",
   "fields": [
     {
