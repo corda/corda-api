@@ -21,7 +21,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
         );
 
         Assertions.assertEquals(
-                "Failed to parse a StateRef from the specified value. The transaction hash is malformed: INVALID_TRANSACTION_HASH:123.",
+                "Failed to parse a StateRef from the specified value. The transaction id is malformed: INVALID_TRANSACTION_HASH:123.",
                 exception.getMessage()
         );
     }
