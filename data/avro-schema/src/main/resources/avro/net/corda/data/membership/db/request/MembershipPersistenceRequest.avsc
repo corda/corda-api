@@ -32,7 +32,6 @@
         "net.corda.data.membership.db.request.query.QueryMemberSignature",
         "net.corda.data.membership.db.request.query.QueryRegistrationRequest",
         "net.corda.data.membership.db.request.query.QueryRegistrationRequests",
-        "net.corda.data.membership.db.request.query.QueryRegistrationRequestsMGM",
         "net.corda.data.membership.db.request.query.MutualTlsListAllowedCertificates",
         "net.corda.data.membership.db.request.query.QueryApprovalRules",
         "net.corda.data.membership.db.request.query.QueryPreAuthToken"
