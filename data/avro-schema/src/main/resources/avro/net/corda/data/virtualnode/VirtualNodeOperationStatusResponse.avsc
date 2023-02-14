@@ -8,7 +8,7 @@
       "type": "string"
     },
     {
-      "name": "statuses",
+      "name": "operationHistory",
       "type": {
         "type": "array",
         "items": "net.corda.data.virtualnode.VirtualNodeOperationStatus"
