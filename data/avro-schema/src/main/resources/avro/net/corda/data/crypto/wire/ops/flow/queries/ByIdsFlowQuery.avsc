@@ -9,7 +9,7 @@
       "type": [
         "net.corda.data.crypto.ShortHashes",
         "net.corda.data.crypto.SecureHashes"
-        ],
+      ],
       "doc": "List of key ids"
     }
   ]
