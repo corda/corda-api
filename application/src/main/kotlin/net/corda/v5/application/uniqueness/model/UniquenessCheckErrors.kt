@@ -44,3 +44,9 @@ interface UniquenessCheckErrorTimeWindowOutOfBounds : UniquenessCheckError {
 interface UniquenessCheckErrorMalformedRequest : UniquenessCheckError {
     val errorText: String
 }
+
+/** Occurs when there's an unhandled exception in the uniqueness checker. */
+interface UniquenessCheckErrorUnhandledException : UniquenessCheckError {
+    val unhandledExceptionType: String
+    val unhandledExceptionMessage: String
+}
