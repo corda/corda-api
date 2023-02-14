@@ -250,7 +250,7 @@
             </column>
         </createTable>
         <addPrimaryKey columnNames="id" constraintName="virtual_node_operation_pk" tableName="virtual_node_operation"/>
-        <createIndex indexName="virtual_node_operation_request_id" tableName="virtual_node_operation" schemaName="${schema.name}">
+        <createIndex indexName="virtual_node_operation_request_id" tableName="virtual_node_operation">
             <column name="request_id"/>
         </createIndex>
 

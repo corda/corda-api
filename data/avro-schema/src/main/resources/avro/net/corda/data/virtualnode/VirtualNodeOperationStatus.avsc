@@ -31,10 +31,13 @@
     },
     {
       "name": "heartbeatTimestamp",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
       "doc": "Time ([Instant]) in milliseconds of the latest heartbeat."
     },
     {
