@@ -4,16 +4,19 @@ import net.corda.v5.crypto.SecureHash;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TransactionSignatureExceptionJavaApiTest {
+public class TransactionVerificationExceptionJavaApiTest {
+
     private final Throwable throwable = new Throwable();
-    private final TransactionSignatureException transactionSignatureException = new TransactionSignatureException(
+
+    private final TransactionVerificationException exception = new TransactionVerificationException(
             new SecureHash("SHA-256", "123".getBytes()),
             "testMessage",
-            throwable);
+            throwable
+    );
 
     @Test
     public void getTransactionId() {
-        SecureHash result = transactionSignatureException.getTransactionId();
+        SecureHash result = exception.getTransactionId();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(new SecureHash("SHA-256", "123".getBytes()));
@@ -21,7 +24,7 @@ public class TransactionSignatureExceptionJavaApiTest {
 
     @Test
     public void getMessage() {
-        String result = transactionSignatureException.getMessage();
+        String result = exception.getMessage();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo("testMessage");
@@ -29,7 +32,7 @@ public class TransactionSignatureExceptionJavaApiTest {
 
     @Test
     public void getCause() {
-        Throwable result = transactionSignatureException.getCause();
+        Throwable result = exception.getCause();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(throwable);
@@ -37,8 +40,8 @@ public class TransactionSignatureExceptionJavaApiTest {
 
     @Test
     public void setMessage() {
-        transactionSignatureException.setMessage("newTestMessage");
-        String result = transactionSignatureException.getMessage();
+        exception.setMessage("newTestMessage");
+        String result = exception.getMessage();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo("newTestMessage");
@@ -48,12 +51,11 @@ public class TransactionSignatureExceptionJavaApiTest {
     @Test
     public void setCause() {
         Throwable newThrowable = new Throwable();
-        transactionSignatureException.setCause(newThrowable);
-        Throwable result = transactionSignatureException.getCause();
+        exception.setCause(newThrowable);
+        Throwable result = exception.getCause();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(newThrowable);
         Assertions.assertThat(result).isNotEqualTo(throwable);
     }
 }
-
