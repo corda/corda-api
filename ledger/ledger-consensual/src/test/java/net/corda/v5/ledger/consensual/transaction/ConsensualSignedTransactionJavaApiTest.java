@@ -28,13 +28,13 @@ public class ConsensualSignedTransactionJavaApiTest {
     @Test
     public void getId() {
         SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
-        when(consensualSignedTransaction.getId()).thenReturn(secureHash);
+        when(consensualSignedTransaction.getTransactionId()).thenReturn(secureHash);
 
-        SecureHash result = consensualSignedTransaction.getId();
+        SecureHash result = consensualSignedTransaction.getTransactionId();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(secureHash);
-        verify(consensualSignedTransaction, times(1)).getId();
+        verify(consensualSignedTransaction, times(1)).getTransactionId();
     }
 
     @Test
