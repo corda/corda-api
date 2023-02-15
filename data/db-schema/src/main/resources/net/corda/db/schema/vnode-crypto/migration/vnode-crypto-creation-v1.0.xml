@@ -7,10 +7,10 @@
             <column name="tenant_id" type="VARCHAR(12)">
                 <constraints nullable="false"/>
             </column>
-            <column name="key_id" type="VARCHAR(255)">
+            <column name="full_key_id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="short_key_id" type="CHAR(12)">
+            <column name="key_id" type="CHAR(12)">
                 <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="TIMESTAMP">
@@ -52,11 +52,11 @@
         </createTable>
         <addPrimaryKey constraintName="crypto_signing_key_pk"
                        tableName="crypto_signing_key"
-                       columnNames="tenant_id, key_id"/>
+                       columnNames="tenant_id, full_key_id"/>
         <createIndex indexName="crypto_signing_key_short_key_idx"
                      tableName="crypto_signing_key">
             <column name="tenant_id"/>
-            <column name="short_key_id"/>
+            <column name="key_id"/>
         </createIndex>
         <addUniqueConstraint columnNames="tenant_id, short_key_id"
                              tableName="crypto_signing_key"
