@@ -35,7 +35,7 @@ interface ConsensualState {
      *
      * @param ledgerTransaction encapsulating transaction
      *
-     * @throws [net.corda.v5.ledger.common.transaction.TransactionVerificationException] if the verification failed.
+     * @throws ConsensualTransactionVerificationException if the verification failed.
      *
      */
     fun verify(ledgerTransaction: ConsensualLedgerTransaction)
