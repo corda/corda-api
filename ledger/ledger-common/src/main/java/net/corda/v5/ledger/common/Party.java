@@ -3,6 +3,7 @@ package net.corda.v5.ledger.common;
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.MemberX500Name;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.security.PublicKey;
 import java.text.MessageFormat;
@@ -16,21 +17,21 @@ import java.util.Objects;
 public final class Party {
 
     /**
-     * The well-known MemberX500Name that represents the current party identity.
+     * The well-known {@link MemberX500Name} that represents the current party identity.
      */
     @NotNull
     private final MemberX500Name name;
 
     /**
-     * The public key that represents the current party identity.
+     * The {@link PublicKey} that represents the current party identity.
      */
     @NotNull
     private final PublicKey owningKey;
 
     /**
-     * Creates a new instance of the Party class.
+     * Creates a new instance of the {@link Party} class.
      *
-     * @param name      The well-known MemberX500Name that represents the current identity.
+     * @param name The well-known {@link MemberX500Name} that represents the current identity.
      * @param owningKey The public key that represents the current party identity.
      */
     public Party(@NotNull final MemberX500Name name, @NotNull final PublicKey owningKey) {
@@ -39,9 +40,9 @@ public final class Party {
     }
 
     /**
-     * Gets the well-known MemberX500Name that represents the current identity.
+     * Gets the well-known {@link MemberX500Name} that represents the current identity.
      *
-     * @return Returns the well-known MemberX500Name that represents the current identity.
+     * @return Returns the well-known {@link MemberX500Name} that represents the current identity.
      */
     @NotNull
     public MemberX500Name getName() {
@@ -49,9 +50,9 @@ public final class Party {
     }
 
     /**
-     * Gets the public key that represents the current party identity.
+     * Gets the {@link PublicKey} that represents the current party identity.
      *
-     * @return Returns the public key that represents the current party identity.
+     * @return Returns the {@link PublicKey} that represents the current party identity.
      */
     @NotNull
     public PublicKey getOwningKey() {
@@ -65,7 +66,7 @@ public final class Party {
      * @return Returns true if the specified object is equal to the current object; otherwise, false.
      */
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(@Nullable final Object obj) {
         return this == obj || obj instanceof Party && equals((Party) obj);
     }
 
@@ -75,8 +76,9 @@ public final class Party {
      * @param other The Party to compare with the current object.
      * @return Returns true if the specified Party is equal to the current object; otherwise, false.
      */
-    public boolean equals(final Party other) {
-        return other.name.equals(name) && other.owningKey.equals(owningKey);
+    public boolean equals(@NotNull final Party other) {
+        return Objects.equals(other.name, name)
+                && Objects.equals(other.owningKey, owningKey);
     }
 
     /**
@@ -96,6 +98,6 @@ public final class Party {
      */
     @Override
     public String toString() {
-        return MessageFormat.format("{0} (owningKey = {1})", name, owningKey);
+        return MessageFormat.format("Party(name={0}, owningKey={1})", name, owningKey);
     }
 }

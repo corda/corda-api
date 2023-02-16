@@ -10,20 +10,20 @@ import java.util.List;
 /**
  * Defines a consensual signed transaction.
  * <p>
- * Comparing with ConsensualLedgerTransaction:
+ * Comparing with {@link ConsensualLedgerTransaction}:
  * - It does not have access to the deserialized details.
  * - It has direct access to the signatures.
  * - It does not require a serializer.
  * <p>
- * ConsensualSignedTransaction wraps the wire representation of the transaction. It contains one or more signatures,
- * each one for a public key (including composite keys) that is mentioned inside a transaction state.
+ * {@link ConsensualSignedTransaction} wraps the wire representation of the transaction, which contains one or more
+ * signatures, each one for a public key (including composite keys) that is mentioned inside a transaction state.
  * <p>
- * ConsensualSignedTransaction is frequently passed around the network and stored. The identity of a transaction is
- * the hash of Merkle root of the wrapped wire representation, therefore if you are storing data keyed by wire
- * representations hash be aware that multiple different ConsensualSignedTransactions may map to the same key (and
- * they could be different in important ways, like validity).
+ * {@link ConsensualSignedTransaction} is frequently passed around the network and stored.
+ * The identity of a transaction is the hash of Merkle root of the wrapped wire representation, therefore if you are
+ * storing data keyed by wire representations hash be aware that multiple different {@link ConsensualSignedTransaction}s
+ * may map to the same key (and they could be different in important ways, like validity).
  * <p>
- * The signatures on a ConsensualSignedTransaction might be invalid or missing: the type does not imply validity.
+ * The signatures on a {@link ConsensualSignedTransaction} might be invalid or missing: the type does not imply validity.
  * <p>
  * A transaction ID should be the hash of the wrapped wire representation's Merkle tree root.
  * <p>
@@ -33,9 +33,9 @@ import java.util.List;
 public interface ConsensualSignedTransaction {
 
     /**
-     * Gets the transaction ID of the current ConsensualSignedTransaction.
+     * Gets the transaction ID of the current {@link ConsensualSignedTransaction}.
      *
-     * @return Returns the transaction ID of the current ConsensualSignedTransaction.
+     * @return Returns the transaction ID of the current {@link ConsensualSignedTransaction}.
      */
     @NotNull
     SecureHash getTransactionId();
@@ -49,9 +49,9 @@ public interface ConsensualSignedTransaction {
     List<DigitalSignatureAndMetadata> getSignatures();
 
     /**
-     * Converts the current ConsensualSignedTransaction into a ConsensualLedgerTransaction.
+     * Converts the current {@link ConsensualSignedTransaction} into a {@link ConsensualLedgerTransaction}.
      *
-     * @return Returns a ConsensualLedgerTransaction from the current ConsensualSignedTransaction.
+     * @return Returns a {@link ConsensualLedgerTransaction} from the current {@link ConsensualSignedTransaction}.
      */
     @NotNull
     ConsensualLedgerTransaction toLedgerTransaction();
