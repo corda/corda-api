@@ -17,9 +17,9 @@ import java.util.Collection;
 public interface NotaryLookup {
 
     /**
-     * Gets a collection of notary services available on the network.
+     * Gets a {@link Collection} of {@link NotaryInfo} services available on the network.
      *
-     * @return Returns a collection of notary services available on the network.
+     * @return Returns a {@link Collection} of {@link NotaryInfo} services available on the network.
      */
     @NotNull
     @Suspendable
@@ -29,19 +29,19 @@ public interface NotaryLookup {
     /**
      * Looks up the notary information of a notary by legal name.
      *
-     * @param notaryServiceName The MemberX500Name of the notary service to retrieve.
-     * @return Returns the NotaryInfo that matches the specified notary service name, or null if no such notary exists.
+     * @param notaryServiceName The {@link MemberX500Name} of the notary service to retrieve.
+     * @return Returns the {@link NotaryInfo} that matches the specified notary service name, or null if no such notary exists.
      */
     @Nullable
     @Suspendable
-    NotaryInfo lookup(@NotNull final MemberX500Name notaryServiceName);
+    NotaryInfo lookup(@NotNull MemberX500Name notaryServiceName);
 
     /**
      * Determines whether the specified virtual node name is a notary, which is defined by the network parameters.
      *
-     * @param virtualNodeName The MemberX500Name to check.
+     * @param virtualNodeName The {@link MemberX500Name} to check.
      * @return Returns true if the specified virtual node name is a notary; otherwise, false.
      */
     @Suspendable
-    boolean isNotaryVirtualNode(@NotNull final MemberX500Name virtualNodeName);
+    boolean isNotaryVirtualNode(@NotNull MemberX500Name virtualNodeName);
 }

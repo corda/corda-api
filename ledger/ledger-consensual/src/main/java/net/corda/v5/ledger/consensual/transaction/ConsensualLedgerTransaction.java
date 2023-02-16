@@ -13,21 +13,21 @@ import java.util.Set;
 /**
  * Defines a consensual ledger transaction.
  * <p>
- * Comparing with ConsensualSignedTransaction:
+ * Comparing with {@link ConsensualSignedTransaction}:
  * - It has access to the deserialized details.
  * - It does not have direct access to the signatures.
  * - It requires a serializer.
  * <p>
- * ConsensualLedgerTransaction is an abstraction that is meant to be used during the transaction verification stage.
- * It needs full access to its states that might be in transactions that are encrypted and unavailable for code running
- * outside the secure enclave.
- * Also, it might need to deserialize states with code that might not be available on the classpath.
+ * {@link ConsensualLedgerTransaction} is an abstraction that is meant to be used during the transaction verification
+ * stage. It needs full access to its states that might be in transactions that are encrypted and unavailable for code
+ * running outside the secure enclave. Also, it might need to deserialize states with code that might not be available
+ * on the classpath.
  * <p>
- * Because of this, trying to create or use a ConsensualLedgerTransaction for any other purpose then transaction
+ * Because of this, trying to create or use a {@link ConsensualLedgerTransaction} for any other purpose then transaction
  * verification can result in unexpected exceptions, which need de be handled.
  * <p>
- * ConsensualLedgerTransactions should never be instantiated directly from client code, but rather via
- * net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction.toLedgerTransaction
+ * {@link ConsensualLedgerTransaction} should never be instantiated directly from client code, but rather via
+ * {@link ConsensualSignedTransaction#toLedgerTransaction()}
  */
 @DoNotImplement
 public interface ConsensualLedgerTransaction {

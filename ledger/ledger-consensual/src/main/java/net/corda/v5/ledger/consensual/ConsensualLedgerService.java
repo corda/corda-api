@@ -17,33 +17,33 @@ import org.jetbrains.annotations.NotNull;
 public interface ConsensualLedgerService {
 
     /**
-     * Gets a ConsensualTransactionBuilder instance.
+     * Gets a {@link ConsensualTransactionBuilder} instance.
      *
-     * @return Returns a new ConsensualTransactionBuilder instance.
+     * @return Returns a new {@link ConsensualTransactionBuilder} instance.
      */
     @NotNull
     @Suspendable
     ConsensualTransactionBuilder getTransactionBuilder();
 
     /**
-     * Finds a ConsensualSignedTransaction in the vault by its transaction ID.
+     * Finds a {@link ConsensualSignedTransaction} in the vault by its transaction ID.
      *
-     * @param id The transaction ID of the ConsensualSignedTransaction to find in the vault.
-     * @return Returns the ConsensualSignedTransaction if it has been recorded, or null if the transaction could not be found.
+     * @param id The transaction ID of the {@link ConsensualSignedTransaction} to find in the vault.
+     * @return Returns the {@link ConsensualSignedTransaction} if it has been recorded, or null if the transaction could not be found.
      */
     @NotNull
     @Suspendable
-    ConsensualSignedTransaction findSignedTransaction(@NotNull final SecureHash id);
+    ConsensualSignedTransaction findSignedTransaction(@NotNull SecureHash id);
 
     /**
-     * Finds a ConsensualLedgerTransaction in the vault by its transaction ID.
+     * Finds a {@link ConsensualLedgerTransaction} in the vault by its transaction ID.
      *
-     * @param id The transaction ID of the ConsensualLedgerTransaction to find in the vault.
-     * @return Returns the ConsensualLedgerTransaction if it has been recorded, or null if the transaction could not be found.
+     * @param id The transaction ID of the {@link ConsensualLedgerTransaction} to find in the vault.
+     * @return Returns the {@link ConsensualLedgerTransaction} if it has been recorded, or null if the transaction could not be found.
      */
     @NotNull
     @Suspendable
-    ConsensualLedgerTransaction findLedgerTransaction(@NotNull final SecureHash id);
+    ConsensualLedgerTransaction findLedgerTransaction(@NotNull SecureHash id);
 
     /**
      * Finalizes a transaction by collecting any remaining required signatures from counter-parties, and broadcasts the
@@ -56,21 +56,21 @@ public interface ConsensualLedgerService {
     @NotNull
     @Suspendable
     ConsensualSignedTransaction finalize(
-            @NotNull final ConsensualSignedTransaction transaction,
-            @NotNull final Iterable<FlowSession> sessions
+            @NotNull ConsensualSignedTransaction transaction,
+            @NotNull Iterable<FlowSession> sessions
     );
 
     /**
-     * Verifies, signs and records the fully signed ConsensualSignedTransaction.
+     * Verifies, signs and records the fully signed {@link ConsensualSignedTransaction}.
      *
-     * @param session   The session from which the ConsensualSignedTransaction was received.
-     * @param validator Validates the received ConsensualSignedTransaction.
-     * @return Returns the fully signed ConsensualSignedTransaction.
+     * @param session   The session from which the {@link ConsensualSignedTransaction} was received.
+     * @param validator Validates the received {@link ConsensualSignedTransaction}.
+     * @return Returns the fully signed {@link ConsensualSignedTransaction}.
      */
     @NotNull
     @Suspendable
     ConsensualSignedTransaction receiveFinality(
-            @NotNull final FlowSession session,
-            @NotNull final ConsensualTransactionValidator validator
+            @NotNull FlowSession session,
+            @NotNull ConsensualTransactionValidator validator
     );
 }
