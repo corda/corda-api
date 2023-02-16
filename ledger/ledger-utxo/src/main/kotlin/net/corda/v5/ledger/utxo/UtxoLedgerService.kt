@@ -99,7 +99,7 @@ interface UtxoLedgerService {
      */
     @Suspendable
     fun finalize(
-        signedTransaction: UtxoSignedTransaction,
+        transactionBuilder: UtxoTransactionBuilder,
         sessions: List<FlowSession>
     ): UtxoSignedTransaction
 

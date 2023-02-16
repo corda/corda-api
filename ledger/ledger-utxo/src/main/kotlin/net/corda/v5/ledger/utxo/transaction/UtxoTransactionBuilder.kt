@@ -177,20 +177,4 @@ interface UtxoTransactionBuilder {
      * @return Returns a [UtxoTransactionBuilder] including the specified time window.
      */
     fun setTimeWindowBetween(from: Instant, until: Instant): UtxoTransactionBuilder
-
-    /**
-     * Verifies the content of the [UtxoTransactionBuilder] and
-     * signs the transaction with any required signatories that belong to the current node.
-     *
-     * Calling this function once consumes the [UtxoTransactionBuilder], so it cannot be used again.
-     * Therefore, if you want to build two transactions you need two builders.
-     *
-     * @return Returns a [UtxoSignedTransaction] with signatures for any required signatories that belong to the current node.
-     *
-     * @throws IllegalStateException when called a second time on the same object to prevent
-     *      unintentional duplicate transactions.
-     * @throws TransactionNoAvailableKeysException if none of the required keys are available to sign the transaction.
-     */
-    @Suspendable
-    fun toSignedTransaction(): UtxoSignedTransaction
 }
