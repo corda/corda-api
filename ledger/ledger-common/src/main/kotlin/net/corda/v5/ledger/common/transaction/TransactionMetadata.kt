@@ -53,7 +53,7 @@ interface TransactionMetadata {
      *
      * @return The digest settings as map.
      */
-    fun getDigestSettings(): LinkedHashMap<String, Any>
+    fun getDigestSettings(): Map<String, String>
 
     /**
      * Gets the version of the metadata JSON schema to parse this metadata entity.
@@ -61,4 +61,11 @@ interface TransactionMetadata {
      * @return The schema version.
      */
     fun getSchemaVersion(): Int
+
+    /**
+     * Gets the version of the platform at the time of the creation of the transaction.
+     *
+     * @return The platform version.
+     */
+    fun getPlatformVersion(): Int
 }
