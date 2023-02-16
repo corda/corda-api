@@ -43,16 +43,16 @@ interface ConsensualLedgerService {
     fun findLedgerTransaction(id: SecureHash): ConsensualLedgerTransaction?
 
     /**
-     * Collects signatures, records and broadcasts to involved peers a [ConsensualSignedTransaction].
+     * Signs, collects signatures, records and broadcasts to involved peers a [ConsensualSignedTransaction].
      *
-     * @param signedTransaction The [ConsensualSignedTransaction] to finalise and recorded locally and with peer [sessions].
+     * @param transactionBuilder The [ConsensualTransactionBuilder] to sign, finalise and record locally and with the peer [sessions].
      * @param sessions The [FlowSession]s of the peers involved in the transaction.
      *
      * @return The fully signed [ConsensualSignedTransaction] that was recorded.
      */
     @Suspendable
     fun finalize(
-        signedTransaction: ConsensualSignedTransaction,
+        transactionBuilder: ConsensualTransactionBuilder,
         sessions: List<FlowSession>
     ): ConsensualSignedTransaction
 

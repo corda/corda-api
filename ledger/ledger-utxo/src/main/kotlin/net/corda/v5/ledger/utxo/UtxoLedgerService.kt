@@ -90,7 +90,7 @@ interface UtxoLedgerService {
     /**
      * Verifies, signs, collects signatures, records and broadcasts a [UtxoSignedTransaction] to involved peers.
      *
-     * @param signedTransaction The [UtxoSignedTransaction] to verify, finalise and recorded locally and with peer [sessions].
+     * @param transactionBuilder The [UtxoTransactionBuilder] to verify, sign, finalise and record locally and with the peer [sessions].
      * @param sessions The [FlowSession]s of the peers involved in the transaction.
      *
      * @return The fully signed [UtxoSignedTransaction] that was recorded.
