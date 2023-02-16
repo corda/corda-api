@@ -58,9 +58,6 @@
             <column name="tenant_id"/>
             <column name="full_key_id"/>
         </createIndex>
-        <addUniqueConstraint columnNames="tenant_id, full_key_id"
-                             tableName="crypto_signing_key"
-                             constraintName="crypto_signing_key_full_key_uc"/>
         <createIndex indexName="crypto_signing_key_tenant_idx"
                      tableName="crypto_signing_key">
             <column name="tenant_id"/>
