@@ -4,6 +4,7 @@ topics:
     consumers:
       - flow
       - membership
+      - interop
     producers:
       - link-manager
     config:
@@ -14,6 +15,7 @@ topics:
     producers:
       - flow
       - membership
+      - interop
     config:
   P2POutMarkersTopic:
     name: p2p.out.markers
