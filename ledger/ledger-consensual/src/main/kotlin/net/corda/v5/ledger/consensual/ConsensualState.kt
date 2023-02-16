@@ -35,8 +35,6 @@ interface ConsensualState {
      *
      * @param ledgerTransaction encapsulating transaction
      *
-     * @throws ConsensualTransactionVerificationException if the verification failed.
-     *
      */
     fun verify(ledgerTransaction: ConsensualLedgerTransaction)
 }
