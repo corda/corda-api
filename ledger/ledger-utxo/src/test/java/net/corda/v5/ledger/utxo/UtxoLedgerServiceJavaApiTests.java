@@ -9,6 +9,7 @@ import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,6 +19,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness {
+
+    public UtxoLedgerServiceJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getTransactionBuilderShouldReturnTheExpectedResult() {

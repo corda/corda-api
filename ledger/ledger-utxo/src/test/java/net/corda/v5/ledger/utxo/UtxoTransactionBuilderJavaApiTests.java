@@ -6,10 +6,14 @@ import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public final class UtxoTransactionBuilderJavaApiTests extends AbstractMockTestHarness {
+
+    public UtxoTransactionBuilderJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getNotaryShouldReturnTheExpectedValue() {

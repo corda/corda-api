@@ -3,7 +3,12 @@ package net.corda.v5.ledger.utxo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public final class StateAndRefJavaApiTests extends AbstractMockTestHarness {
+
+    public StateAndRefJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getStateShouldReturnTheExpectedValue() {

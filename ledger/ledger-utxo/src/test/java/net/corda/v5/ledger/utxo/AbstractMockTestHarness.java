@@ -12,6 +12,7 @@ import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import org.mockito.Mockito;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.PublicKey;
@@ -71,7 +72,7 @@ public class AbstractMockTestHarness {
             encumbranceTag2, List.of(contractState, contractState)
     );
 
-    public AbstractMockTestHarness() {
+    public AbstractMockTestHarness() throws IOException {
         initializeContract();
         initializeContractState();
         initializeAttachment();
@@ -91,7 +92,7 @@ public class AbstractMockTestHarness {
         Mockito.when(result.getContractState()).thenReturn(contractState);
         Mockito.when(result.getContractType()).thenReturn((Class) contract.getClass());
         Mockito.when(result.getNotary()).thenReturn(new Party(notaryName, notaryKey));
-        Mockito.when(result.getEncumbrance()).thenReturn(encumbranceGroup);
+        Mockito.when(result.getEncumbranceGroup()).thenReturn(encumbranceGroup);
 
         return result;
     }
@@ -126,7 +127,7 @@ public class AbstractMockTestHarness {
         Mockito.when(contractState.getParticipants()).thenReturn(keys);
     }
 
-    private void initializeAttachment() {
+    private void initializeAttachment() throws IOException {
         Mockito.when(attachment.getId()).thenReturn(hash);
         Mockito.when(attachment.getSize()).thenReturn(0);
         Mockito.when(attachment.getSignatories()).thenReturn(keys);

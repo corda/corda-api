@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
  * Defines metadata properties of transactions common across difference ledger implementations.
  */
 @DoNotImplement
+// TODO : Should this be marked @CordaSerializable? Instances of this will be send over the wire.
 public interface TransactionWithMetadata {
 
     /**

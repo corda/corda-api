@@ -4,7 +4,12 @@ import net.corda.v5.crypto.SecureHash;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public final class StateRefJavaApiTests extends AbstractMockTestHarness {
+
+    public StateRefJavaApiTests() throws IOException {
+    }
 
     @Test
     public void parseShouldReturnTheExpectedValue() {
@@ -21,7 +26,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
         );
 
         Assertions.assertEquals(
-                "Failed to parse a StateRef from the specified value. The transaction id is malformed: INVALID_TRANSACTION_HASH:123.",
+                "Failed to parse a StateRef from the specified value. The transaction ID is malformed: INVALID_TRANSACTION_HASH:123.",
                 exception.getMessage()
         );
     }
