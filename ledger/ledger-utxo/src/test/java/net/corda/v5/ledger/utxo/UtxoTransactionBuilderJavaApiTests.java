@@ -130,10 +130,4 @@ public final class UtxoTransactionBuilderJavaApiTests extends AbstractMockTestHa
         UtxoTransactionBuilder value = utxoTransactionBuilder.setTimeWindowBetween(minInstant, maxInstant);
         Assertions.assertEquals(utxoTransactionBuilder, value);
     }
-
-    @Test
-    public void toSignedTransactionShouldReturnTheExpectedValue() {
-        UtxoSignedTransaction value = utxoTransactionBuilder.toSignedTransaction();
-        Assertions.assertEquals(utxoSignedTransaction, value);
-    }
 }

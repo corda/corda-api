@@ -65,29 +65,29 @@ public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness
 
     @Test
     public void finalizeTest() {
-        UtxoSignedTransaction UtxoSignedTransactionIn = mock(UtxoSignedTransaction.class);
-        UtxoSignedTransaction UtxoSignedTransactionOut = mock(UtxoSignedTransaction.class);
+        UtxoTransactionBuilder utxoTransactionBuilder = mock(UtxoTransactionBuilder.class);
+        UtxoSignedTransaction utxoSignedTransactionOut = mock(UtxoSignedTransaction.class);
         List<FlowSession> flowSessions = Arrays.asList(mock(FlowSession.class), mock(FlowSession.class));
-        when(utxoLedgerService.finalize(UtxoSignedTransactionIn, flowSessions)).thenReturn(UtxoSignedTransactionOut);
+        when(utxoLedgerService.finalize(utxoTransactionBuilder, flowSessions)).thenReturn(utxoSignedTransactionOut);
 
-        UtxoSignedTransaction result = utxoLedgerService.finalize(UtxoSignedTransactionIn, flowSessions);
+        UtxoSignedTransaction result = utxoLedgerService.finalize(utxoTransactionBuilder, flowSessions);
 
         org.assertj.core.api.Assertions.assertThat(result).isNotNull();
-        org.assertj.core.api.Assertions.assertThat(result).isEqualTo(UtxoSignedTransactionOut);
-        verify(utxoLedgerService, times(1)).finalize(UtxoSignedTransactionIn, flowSessions);
+        org.assertj.core.api.Assertions.assertThat(result).isEqualTo(utxoSignedTransactionOut);
+        verify(utxoLedgerService, times(1)).finalize(utxoTransactionBuilder, flowSessions);
     }
 
     @Test
     public void receiveFinality() {
-        UtxoSignedTransaction UtxoSignedTransaction = mock(UtxoSignedTransaction.class);
+        UtxoSignedTransaction utxoSignedTransaction = mock(UtxoSignedTransaction.class);
         FlowSession flowSession = mock(FlowSession.class);
         UtxoTransactionValidator utxoTransactionValidator = mock(UtxoTransactionValidator.class);
-        when(utxoLedgerService.receiveFinality(flowSession, utxoTransactionValidator)).thenReturn(UtxoSignedTransaction);
+        when(utxoLedgerService.receiveFinality(flowSession, utxoTransactionValidator)).thenReturn(utxoSignedTransaction);
 
         UtxoSignedTransaction result = utxoLedgerService.receiveFinality(flowSession, utxoTransactionValidator);
 
         org.assertj.core.api.Assertions.assertThat(result).isNotNull();
-        org.assertj.core.api.Assertions.assertThat(result).isEqualTo(UtxoSignedTransaction);
+        org.assertj.core.api.Assertions.assertThat(result).isEqualTo(utxoSignedTransaction);
         verify(utxoLedgerService, times(1)).receiveFinality(flowSession, utxoTransactionValidator);
     }
 }

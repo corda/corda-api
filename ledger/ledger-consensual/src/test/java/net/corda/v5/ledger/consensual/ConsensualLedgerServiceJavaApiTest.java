@@ -68,16 +68,16 @@ public class ConsensualLedgerServiceJavaApiTest {
 
     @Test
     public void finalizeTest() {
-        ConsensualSignedTransaction consensualSignedTransactionIn = mock(ConsensualSignedTransaction.class);
+        ConsensualTransactionBuilder consensualTransactionBuilder = mock(ConsensualTransactionBuilder.class);
         ConsensualSignedTransaction consensualSignedTransactionOut = mock(ConsensualSignedTransaction.class);
         List<FlowSession> flowSessions = Arrays.asList(mock(FlowSession.class), mock(FlowSession.class));
-        when(consensualLedgerService.finalize(consensualSignedTransactionIn, flowSessions)).thenReturn(consensualSignedTransactionOut);
+        when(consensualLedgerService.finalize(consensualTransactionBuilder, flowSessions)).thenReturn(consensualSignedTransactionOut);
 
-        ConsensualSignedTransaction result = consensualLedgerService.finalize(consensualSignedTransactionIn, flowSessions);
+        ConsensualSignedTransaction result = consensualLedgerService.finalize(consensualTransactionBuilder, flowSessions);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(consensualSignedTransactionOut);
-        verify(consensualLedgerService, times(1)).finalize(consensualSignedTransactionIn, flowSessions);
+        verify(consensualLedgerService, times(1)).finalize(consensualTransactionBuilder, flowSessions);
     }
 
     @Test

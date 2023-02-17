@@ -67,17 +67,4 @@ public class ConsensualTransactionBuilderJavaApiTest {
         verify(consensualTransactionBuilder, times(1))
                 .withStates(consensualState1, consensualState2);
     }
-
-
-    @Test
-    public void toSignedTransaction() {
-        final ConsensualSignedTransaction mockSignedTransaction = mock(ConsensualSignedTransaction.class);
-        when(consensualTransactionBuilder.toSignedTransaction()).thenReturn(mockSignedTransaction);
-
-        final ConsensualSignedTransaction result = consensualTransactionBuilder.toSignedTransaction();
-
-        Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(mockSignedTransaction);
-        verify(consensualTransactionBuilder, times(1)).toSignedTransaction();
-    }
 }
