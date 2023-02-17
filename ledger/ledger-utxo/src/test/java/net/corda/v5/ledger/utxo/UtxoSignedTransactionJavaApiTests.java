@@ -6,9 +6,13 @@ import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.List;
 
 public final class UtxoSignedTransactionJavaApiTests extends AbstractMockTestHarness {
+
+    public UtxoSignedTransactionJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getTransactionIdShouldReturnTheExpectedValue() {

@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo.observer;
 
-import net.corda.v5.ledger.utxo.StateAndRef;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -19,7 +18,7 @@ public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenS
     @Override
     public UtxoToken onCommit(@NotNull ExampleStateJ state) {
         return new UtxoToken(
-                new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency),
+                new UtxoTokenPoolKey(ExampleState.class.getName(), state.issuer, state.currency),
                 state.amount,
                 new UtxoTokenFilterFields()
         );

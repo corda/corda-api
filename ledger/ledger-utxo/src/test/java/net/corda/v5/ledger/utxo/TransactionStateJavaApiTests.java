@@ -4,7 +4,12 @@ import net.corda.v5.ledger.common.Party;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public final class TransactionStateJavaApiTests extends AbstractMockTestHarness {
+
+    public TransactionStateJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getContractStateShouldReturnTheExpectedValue() {
@@ -26,7 +31,7 @@ public final class TransactionStateJavaApiTests extends AbstractMockTestHarness 
 
     @Test
     public void getEncumbranceShouldReturnTheExpectedValue() {
-        String value = contractTransactionState.getEncumbrance().getTag();
+        String value = contractTransactionState.getEncumbranceGroup().getTag();
         Assertions.assertEquals(encumbranceTag1, value);
     }
 }

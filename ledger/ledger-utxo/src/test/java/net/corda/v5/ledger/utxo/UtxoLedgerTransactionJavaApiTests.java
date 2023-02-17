@@ -3,10 +3,14 @@ package net.corda.v5.ledger.utxo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.security.PublicKey;
 import java.util.List;
 
 public final class UtxoLedgerTransactionJavaApiTests extends AbstractMockTestHarness {
+
+    public UtxoLedgerTransactionJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getTimeWindowShouldReturnTheExpectedValue() {

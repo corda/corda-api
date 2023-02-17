@@ -71,6 +71,7 @@ public interface UtxoLedgerTokenStateObserver<T extends ContractState> {
      *
      * @return Returns the {@link ContractState} type that the current observer is intended for.
      */
+    // TODO : Consider providing default implementation
     @NotNull
     Class<T> getStateType();
 

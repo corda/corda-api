@@ -3,10 +3,14 @@ package net.corda.v5.ledger.utxo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 
 public final class TimeWindowJavaApiTests extends AbstractMockTestHarness {
+
+    public TimeWindowJavaApiTests() throws IOException {
+    }
 
     @Test
     public void getFromShouldReturnTheExpectedValue() {

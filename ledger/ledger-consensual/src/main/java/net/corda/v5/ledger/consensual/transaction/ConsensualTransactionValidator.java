@@ -4,6 +4,7 @@ import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.ledger.consensual.ConsensualLedgerService;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
@@ -37,5 +38,5 @@ public interface ConsensualTransactionValidator extends Serializable {
      * @throws Throwable if the {@link ConsensualLedgerTransaction} fails validation.
      */
     @Suspendable
-    void checkTransaction(ConsensualLedgerTransaction transaction);
+    void checkTransaction(@NotNull ConsensualLedgerTransaction transaction) throws Throwable;
 }
