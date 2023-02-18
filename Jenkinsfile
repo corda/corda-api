@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0') _
+@Library('corda-shared-build-pipeline-steps@INFRA-2026-Migrate-branch-helpers-to-Groovy') _
 
 cordaPipeline(
     runIntegrationTests: false,
