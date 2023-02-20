@@ -53,6 +53,7 @@ topics:
     producers:
       - rpc # Dynamic Network registration
       - membership # Static Network registration
+      - interop # temporary hardcoded data
     config:
       cleanup.policy: compact
       segment.ms: 600000
