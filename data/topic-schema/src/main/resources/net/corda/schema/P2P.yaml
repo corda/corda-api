@@ -7,6 +7,7 @@ topics:
       - interop
     producers:
       - link-manager
+      - interop #Temporarily for seed message
     config:
   P2POutTopic:
     name: p2p.out
