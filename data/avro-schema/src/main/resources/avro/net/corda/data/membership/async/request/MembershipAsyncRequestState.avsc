@@ -2,7 +2,7 @@
   "type": "record",
   "name": "MembershipAsyncRequestState",
   "namespace": "net.corda.data.membership.async.request",
-  "doc": "State of failed registration request.",
+  "doc": "State of failed membership async request.",
   "fields": [
     {
       "name": "request",
@@ -11,10 +11,9 @@
     },
     {
       "name": "numberOfRetriesSoFar",
-      "doc": "The number of times this request failed so fat.",
+      "doc": "The number of times this request failed so far.",
       "type": {
-        "type": "int",
-        "logicalType": "uuid"
+        "type": "int"
       }
     },
     {
