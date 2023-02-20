@@ -23,14 +23,6 @@
       "doc": "The serialized transaction"
     },
     {
-      "name": "cpkMetadata",
-      "type": {
-        "type": "array",
-        "items": "net.corda.ledger.utxo.verification.CordaPackageSummary"
-      },
-      "doc": "Metadata of Corda packages."
-    },
-    {
       "name": "flowExternalEventContext",
       "type": "net.corda.data.flow.event.external.ExternalEventContext",
       "doc": "The context of the external event that this request was sent from."
