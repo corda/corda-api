@@ -9,4 +9,7 @@ import net.corda.v5.base.annotations.CordaSerializable
  * a more detailed example.
  */
 @CordaSerializable
-interface NotaryError
+sealed interface NotaryError {
+    interface NotaryErrorFatal : NotaryError
+    interface NotaryErrorUnknown : NotaryError
+}
