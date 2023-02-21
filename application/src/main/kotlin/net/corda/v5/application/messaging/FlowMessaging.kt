@@ -121,6 +121,12 @@ interface FlowMessaging {
     fun initiateFlow(x500Name: MemberX500Name, flowContextPropertiesBuilder: FlowContextPropertiesBuilder): FlowSession
 
     /**
+     * Speculative WIP interop API.
+     * TODO: Finalize and fill out this kdoc.
+     */
+    fun invokeInterop(identity: MemberX500Name, facade: String, method: String)
+
+    /**
      * Suspends until a message has been received for each session in the specified [sessions].
      *
      * Consider [receiveAllMap(sessions: Map<FlowSession, Class<out Any>>): Map<FlowSession, Any>] when sessions are
