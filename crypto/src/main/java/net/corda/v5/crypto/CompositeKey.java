@@ -1,6 +1,7 @@
-package net.corda.v5.crypto
+package net.corda.v5.crypto;
 
-import java.security.PublicKey
+import java.security.PublicKey;
+import java.util.Set;
 
 /**
  * A tree data structure that enables the representation of composite public keys, which are used to represent
@@ -19,7 +20,7 @@ import java.security.PublicKey
  * Composite key implementations will track the minimum total weight required (in the simple case – the minimum number of child
  * signatures required) to satisfy the subtree rooted at this node.
  */
-interface CompositeKey: PublicKey {
+interface CompositeKey extends PublicKey {
     /**
      * This method will detect graph cycles in the full composite key structure to protect against infinite loops when
      * traversing the graph and key duplicates in each layer. It also checks if the threshold and weight constraint
@@ -27,22 +28,26 @@ interface CompositeKey: PublicKey {
      * In practice, this method should be always invoked on the root [CompositeKey], as it inherently
      * validates the child nodes (all the way till the leaves).
      */
-    fun checkValidity()
+    void checkValidity();
 
     /**
      * Takes single [PublicKey] and checks if [CompositeKey] requirements hold for that key.
+     * 
+     * @param key the public key
+     * @return true if the public key is a composite key, false otherwise
+     * 
      */
-    fun isFulfilledBy(key: PublicKey): Boolean
+    Boolean isFulfilledBy(PublicKey key);
 
     /**
      * Checks if the public keys corresponding to the signatures are matched against the leaves of the composite
      * key tree in question, and the total combined weight of all children is calculated for every intermediary node.
      * If all thresholds are satisfied, the composite key requirement is considered to be met.
      */
-    fun isFulfilledBy(keysToCheck: Iterable<PublicKey>): Boolean
+    Boolean isFulfilledBy(Iterable<PublicKey> keysToCheck);
 
     /**
      * Set of all leaf keys of that [CompositeKey].
      */
-    val leafKeys: Set<PublicKey>
+    Set<PublicKey> getLeafKeys();
 }
