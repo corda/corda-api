@@ -2,9 +2,10 @@ package net.corda.v5.ledger.utxo;
 
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import org.jetbrains.annotations.NotNull;
-
+import net.corda.v5.crypto.KeyUtils;
 import java.security.PublicKey;
 import java.util.Set;
+
 
 /**
  * Defines a mechanism for implementing contracts, which perform transaction verification.
@@ -23,7 +24,7 @@ public interface Contract {
      * public keys.
      */
     default boolean isRelevant(@NotNull ContractState state, @NotNull Set<PublicKey> myKeys) {
-        return state.getParticipants().stream().anyMatch(myKeys::contains);
+        return state.getParticipants().stream().anyMatch( field -> KeyUtils.isKeyInSet(field, myKeys));
     }
 
     /**
