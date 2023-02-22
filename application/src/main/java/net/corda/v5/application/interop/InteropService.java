@@ -3,6 +3,7 @@ package net.corda.v5.application.interop;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.types.MemberX500Name;
+import org.jetbrains.annotations.NotNull;
 
 @DoNotImplement
 public interface InteropService {
@@ -14,5 +15,5 @@ public interface InteropService {
      * @param methodName The name of the function within the facade to invoke.
      */
     @Suspendable
-    void callFacade(MemberX500Name memberName, String facadeName, String methodName);
+    void callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName);
 }
