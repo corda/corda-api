@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
@@ -15,6 +16,7 @@ import java.util.List;
  * States can be updated (consumed) only once. The notary is responsible for ensuring there is no "double spending" by
  * only signing a transaction if the input states are all free.
  */
+@CordaSerializable
 public interface ContractState {
 
     /**

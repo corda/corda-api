@@ -3,6 +3,7 @@ package net.corda.v5.ledger.consensual.transaction;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.common.transaction.TransactionWithMetadata;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -30,15 +31,7 @@ import java.util.List;
  * Adding or removing a signature does not change the transaction ID.
  */
 @DoNotImplement
-public interface ConsensualSignedTransaction {
-
-    /**
-     * Gets the transaction ID of the current {@link ConsensualSignedTransaction}.
-     *
-     * @return Returns the transaction ID of the current {@link ConsensualSignedTransaction}.
-     */
-    @NotNull
-    SecureHash getTransactionId();
+public interface ConsensualSignedTransaction extends TransactionWithMetadata {
 
     /**
      * Gets the signatures that have been applied to the current transaction.

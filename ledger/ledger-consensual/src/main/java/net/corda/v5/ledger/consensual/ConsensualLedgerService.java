@@ -9,6 +9,7 @@ import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction;
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionBuilder;
 import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionValidator;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Defines the consensual ledger service.
@@ -31,7 +32,7 @@ public interface ConsensualLedgerService {
      * @param id The transaction ID of the {@link ConsensualSignedTransaction} to find in the vault.
      * @return Returns the {@link ConsensualSignedTransaction} if it has been recorded, or null if the transaction could not be found.
      */
-    @NotNull
+    @Nullable
     @Suspendable
     ConsensualSignedTransaction findSignedTransaction(@NotNull SecureHash id);
 
@@ -41,7 +42,7 @@ public interface ConsensualLedgerService {
      * @param id The transaction ID of the {@link ConsensualLedgerTransaction} to find in the vault.
      * @return Returns the {@link ConsensualLedgerTransaction} if it has been recorded, or null if the transaction could not be found.
      */
-    @NotNull
+    @Nullable
     @Suspendable
     ConsensualLedgerTransaction findLedgerTransaction(@NotNull SecureHash id);
 
