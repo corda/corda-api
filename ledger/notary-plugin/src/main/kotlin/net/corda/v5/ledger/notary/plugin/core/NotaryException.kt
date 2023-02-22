@@ -5,15 +5,26 @@ import net.corda.v5.base.exceptions.CordaRuntimeException
 import net.corda.v5.crypto.SecureHash
 
 /**
- * Exception thrown by the notary plugin if any issues are encountered while trying to commit a transaction. The
- * underlying [error] specifies the cause of failure.
+ * Representation of errors that can be returned by the notary (plugin). This is only a marker interface, the plugins
+ * can define their own errors by implementing this interface. Please refer to the non-validating notary plugin for
+ * a more detailed example.
+ *
+ * @property notaryErrorMessage The specific error message produced by the notary
+ * @property txId Id of the transaction to be notarised. Can be _null_ if an error occurred before the id could be
+ * resolved.
  */
 @CordaSerializable
-class NotaryException(
-    /** Cause of notarisation failure. */
-    val error: NotaryError,
-    /** Id of the transaction to be notarised. Can be _null_ if an error occurred before the id could be resolved. */
+sealed class NotaryException(
+    val notaryErrorMessage: String,
     val txId: SecureHash?
-) : CordaRuntimeException("Unable to notarise transaction ${txId ?: "<Unknown>"} : $error") {
-    constructor(error: NotaryError) : this(error, txId = null)
+) : CordaRuntimeException("Unable to notarise transaction ${txId ?: "<Unknown>"} : $notaryErrorMessage") {
+    abstract class NotaryExceptionFatal(
+        notaryErrorMessage: String,
+        txId: SecureHash?
+    ) : NotaryException(notaryErrorMessage, txId)
+
+    abstract class NotaryExceptionUnknown(
+        notaryErrorMessage: String,
+        txId: SecureHash?
+    ) : NotaryException(notaryErrorMessage, txId)
 }
