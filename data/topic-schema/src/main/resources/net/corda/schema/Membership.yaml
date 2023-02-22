@@ -10,7 +10,6 @@ topics:
     producers:
       - db
       - membership
-      - interop
     config:
       cleanup.policy: compact
       segment.ms: 600000

@@ -33,11 +33,9 @@ topics:
     name: flow.mapper.event
     consumers:
       - flow
-      - interop
     producers:
       - flow
       - rpc
-      - interop
     config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
