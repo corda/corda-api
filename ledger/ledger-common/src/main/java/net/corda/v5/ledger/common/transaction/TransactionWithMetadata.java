@@ -17,7 +17,7 @@ public interface TransactionWithMetadata {
      * @return Returns the ID of the transaction.
      */
     @NotNull
-    SecureHash getTransactionId();
+    SecureHash getId();
 
     /**
      * Gets the metadata for the specified transaction.

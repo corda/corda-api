@@ -72,4 +72,11 @@ public interface TransactionMetadata {
      * @return The schema version.
      */
     int getSchemaVersion();
+
+    /**
+     * Gets the platform version at the time of the creation of the transaction.
+     *
+     * @return Returns the platform version at the time of the creation of the transaction.
+     */
+    int getPlatformVersion();
 }

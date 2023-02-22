@@ -232,14 +232,6 @@ public interface UtxoLedgerTransaction {
     <T extends ContractState> List<T> getReferenceStates(@NotNull Class<T> type);
 
     /**
-     * Gets the output state refs associated with the current {@link UtxoLedgerTransaction}.
-     *
-     * @return Returns the output state refs associated with the current {@link UtxoLedgerTransaction}.
-     */
-    @NotNull
-    List<StateRef> getOutputStateRefs();
-
-    /**
      * Gets the output states and state refs associated with the current {@link UtxoLedgerTransaction}.
      *
      * @return Returns the output states and state refs associated with the current {@link UtxoLedgerTransaction}.

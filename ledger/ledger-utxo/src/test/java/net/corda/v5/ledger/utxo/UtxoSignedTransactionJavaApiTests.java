@@ -16,7 +16,7 @@ public final class UtxoSignedTransactionJavaApiTests extends AbstractMockTestHar
 
     @Test
     public void getTransactionIdShouldReturnTheExpectedValue() {
-        SecureHash value = utxoSignedTransaction.getTransactionId();
+        SecureHash value = utxoSignedTransaction.getId();
         Assertions.assertEquals(hash, value);
     }
 
