@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "QueryQueuedRegistrationRequests",
+  "namespace": "net.corda.data.membership.db.request.query",
+  "doc": "Query for registration requests having `NEW` status",
+  "fields": []
+}
