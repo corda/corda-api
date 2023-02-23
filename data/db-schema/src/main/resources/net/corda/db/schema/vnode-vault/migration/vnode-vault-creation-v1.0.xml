@@ -77,7 +77,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="reason" type="NVARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
         <addPrimaryKey columnNames="registration_id"
