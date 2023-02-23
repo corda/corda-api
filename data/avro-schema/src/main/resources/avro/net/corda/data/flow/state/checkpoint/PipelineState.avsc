@@ -22,12 +22,12 @@
       "doc": "Used for platform generated errors reported back to user code."
     },
     {
-      "name": "cpks",
+      "name": "cpkFileHashes",
       "type": {
         "type": "array",
         "items": "net.corda.data.crypto.SecureHash"
       },
-      "doc": "Array of stored cpks from the Virtual Node."
+      "doc": "Array of stored cpkFileHashes from the Virtual Node."
     }
   ]
 }
