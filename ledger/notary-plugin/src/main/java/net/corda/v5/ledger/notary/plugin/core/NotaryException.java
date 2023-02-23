@@ -38,7 +38,7 @@ public abstract class NotaryException extends CordaRuntimeException {
 
 
     private NotaryException(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
-        super("Unable to notarise transaction " + (txId != null ? txId : "<Unknown> : ") + notaryErrorMessage);
+        super("Unable to notarise transaction " + (txId != null ? txId : "<Unknown>:") + " " + notaryErrorMessage);
         this.notaryErrorMessage = notaryErrorMessage;
         this.txId = txId;
     }
