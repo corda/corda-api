@@ -43,12 +43,13 @@ public abstract class NotaryException extends CordaRuntimeException {
         this.txId = txId;
     }
 
+    @CordaSerializable
     public abstract static class NotaryExceptionFatal extends NotaryException {
         public NotaryExceptionFatal(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
             super(notaryErrorMessage, txId);
         }
     }
-
+    @CordaSerializable
     public abstract static class NotaryExceptionUnknown extends NotaryException {
         public NotaryExceptionUnknown(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
             super(notaryErrorMessage, txId);
