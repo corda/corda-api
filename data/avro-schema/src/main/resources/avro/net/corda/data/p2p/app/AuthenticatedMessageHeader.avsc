@@ -40,7 +40,7 @@
       "type": "string"
     },
     {
-      "doc": "Indicates what type of membership information should be used for P2P communication: pending, active, active or suspended. Should be only set by MGM services. Default value should be used everywhere else, which means that active member information will be used.",
+      "doc": "Indicates what type of membership information should be used for P2P communication: pending, active, active or suspended. Active value must be used by non-MGM services. Only MGM services will use other options",
       "name": "statusFilter",
       "type": {
         "type": "enum",
