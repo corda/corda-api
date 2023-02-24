@@ -35,7 +35,8 @@
         "net.corda.data.membership.db.request.query.QueryRegistrationRequests",
         "net.corda.data.membership.db.request.query.MutualTlsListAllowedCertificates",
         "net.corda.data.membership.db.request.query.QueryApprovalRules",
-        "net.corda.data.membership.db.request.query.QueryPreAuthToken"
+        "net.corda.data.membership.db.request.query.QueryPreAuthToken",
+        "net.corda.data.membership.db.request.query.QueryQueuedRegistrationRequests"
       ],
       "doc": "Request's payload, depends on the requested operation."
     }

@@ -3,5 +3,11 @@
   "name": "QueryQueuedRegistrationRequests",
   "namespace": "net.corda.data.membership.db.request.query",
   "doc": "Query for registration requests having `NEW` status",
-  "fields": []
+  "fields": [
+    {
+      "name": "requestSubjectShortHash",
+      "doc": "Holding identity short hash of the subject of the registration requests.",
+      "type": "string"
+    }
+  ]
 }
