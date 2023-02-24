@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "QueryQueuedRegistrationRequests",
+  "name": "QueryQueuedRegistrationRequest",
   "namespace": "net.corda.data.membership.db.request.query",
-  "doc": "Query for registration requests having `NEW` status",
+  "doc": "Query for the oldest registration request having `NEW` status",
   "fields": [
     {
       "name": "requestSubjectShortHash",
