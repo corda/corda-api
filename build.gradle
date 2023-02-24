@@ -334,17 +334,27 @@ wrapper {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-tasks.register('generateMultiModuleDocs', Zip) {
-    description = 'Create mutli module docs Site Jar'
+tasks.register('generateMultiModuleKDocs', Zip) {
+    description = 'Create mutli module docs Kdoc Site zip'
     group = 'documentation'
 
     dependsOn dokkaHtmlMultiModule
-    archiveName "corda-api-docs-${project.version}.zip"-
+    archiveName "corda-api-kdocs-${project.version}.zip"-
     from(dokkaHtmlMultiModule.outputDirectory)
-    destinationDir(file("$buildDir/corda-api-docs"))
+    destinationDir(file("$buildDir/corda-api-kdocs"))
 }
 
-if (project.hasProperty('publishMultiModulekDocs')) {
+tasks.register('generateMultiModuleJavaDocs', Zip) {
+    description = 'Create mutli module docs JavaDoc site zip'
+    group = 'documentation'
+
+    dependsOn dokkaJavadocCollector
+    archiveName "corda-api-javadocs-${project.version}.zip"-
+    from(dokkaHtmlMultiModule.outputDirectory)
+    destinationDir(file("$buildDir/corda-api-javadocs"))
+}
+
+if (project.hasProperty('publishMultiModuleDocs')) {
     publishing {
         publications {
             dokkaDocs(MavenPublication) {
