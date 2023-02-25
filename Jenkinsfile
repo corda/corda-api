@@ -1,6 +1,6 @@
 @Library('corda-shared-build-pipeline-steps@CORE-10643/add-compatibility-check') _
 
-cordaPipelineKubernetesAgent(
+cordaPipeline(
     runIntegrationTests: false,
     nexusAppId: 'net.corda-api-5.0',
     dependentJobs: ['/Corda5/corda-runtime-os-version-compatibility/release%2Fos%2F5.0'],
