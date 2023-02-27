@@ -1,3 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@CORE-10643/add-compatibility-check') _
+// Check corda-api compatibility with downsteam consumers which implement CordApps
+@Library('corda-shared-build-pipeline-steps@5.0.1') _
 
 cordaApiCompatibilityCheck()
