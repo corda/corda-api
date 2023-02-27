@@ -15,5 +15,5 @@ public interface VisibilityChecker {
      * @param keys The keys for which to determine belong to the current node.
      * @return Returns true if any of the specified keys belong to the current node; otherwise, false.
      */
-    boolean areAnyKeysOurs(@NotNull Iterable<PublicKey> keys);
+    boolean containsMySigningKeys(@NotNull Iterable<PublicKey> keys);
 }
