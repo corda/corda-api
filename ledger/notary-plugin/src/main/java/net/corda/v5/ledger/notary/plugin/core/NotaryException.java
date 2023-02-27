@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
  * @see NotaryExceptionUnknown
  */
 @CordaSerializable
-abstract class NotaryException extends CordaRuntimeException {
+public abstract class NotaryException extends CordaRuntimeException {
 
     private final String notaryErrorMessage;
     private final SecureHash txId;
