@@ -12,9 +12,11 @@ import java.util.List;
  * Defines a consensual signed transaction.
  * <p>
  * Comparing with {@link ConsensualLedgerTransaction}:
- * - It does not have access to the deserialized details.
- * - It has direct access to the signatures.
- * - It does not require a serializer.
+ * <ul>
+ *     <li>It does not have access to the deserialized details.</li>
+ *     <li>It has direct access to the signatures.</li>
+ *     <li>It does not require a serializer.</li>
+ * </ul>
  * <p>
  * {@link ConsensualSignedTransaction} wraps the wire representation of the transaction, which contains one or more
  * signatures, each one for a public key (including composite keys) that is mentioned inside a transaction state.

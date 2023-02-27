@@ -5,7 +5,6 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.crypto.SecureHash;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -57,18 +56,16 @@ public interface Attachment {
      *
      * @param path   The path of the file to find within the attachment.
      * @param output The output stream where the file should be copied to.
-     * @throws FileNotFoundException if the specified path does not exist in the attachment.
      */
-    void extractFile(@NotNull String path, @NotNull OutputStream output) throws FileNotFoundException;
+    void extractFile(@NotNull String path, @NotNull OutputStream output);
 
     /**
      * Opens the current {@link Attachment}.
      *
      * @return Returns the {@link InputStream} for the current {@link Attachment}.
-     * @throws IOException if the file could not be opened correctly.
      */
     @NotNull
-    InputStream open() throws IOException;
+    InputStream open();
 
     /**
      * Opens the current {@link Attachment} as a ZIP
@@ -76,7 +73,7 @@ public interface Attachment {
      * @return Returns the {@link ZipInputStream} for the current {@link Attachment}.
      */
     @NotNull
-    default ZipInputStream openAsZip() throws IOException {
+    default ZipInputStream openAsZip() {
         return new ZipInputStream(open());
     }
 }

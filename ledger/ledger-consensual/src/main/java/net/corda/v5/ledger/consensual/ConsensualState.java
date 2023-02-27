@@ -45,5 +45,5 @@ public interface ConsensualState {
      *
      * @param transaction The transaction in which the current consensual state will be created.
      */
-    void verify(@NotNull final ConsensualLedgerTransaction transaction);
+    void verify(@NotNull ConsensualLedgerTransaction transaction);
 }

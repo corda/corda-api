@@ -168,7 +168,6 @@ public interface UtxoLedgerTransaction {
      *
      * @return Returns the reference input state refs associated with the current {@link UtxoLedgerTransaction}.
      */
-    // TODO : Rename to getReferenceInputStateRefs
     @NotNull
     List<StateRef> getReferenceStateRefs();
 
@@ -177,7 +176,6 @@ public interface UtxoLedgerTransaction {
      *
      * @return Returns the reference input states and state refs associated with the current {@link UtxoLedgerTransaction}.
      */
-    // TODO : Rename to getReferenceInputStateAndRefs
     @NotNull
     List<StateAndRef<?>> getReferenceStateAndRefs();
 
@@ -188,7 +186,6 @@ public interface UtxoLedgerTransaction {
      * @param type The type of the {@link ContractState}.
      * @return Returns all reference input states and state refs that match the specified type.
      */
-    // TODO : Rename to getReferenceInputStateAndRefs
     @NotNull
     <T extends ContractState> List<StateAndRef<T>> getReferenceStateAndRefs(@NotNull Class<T> type);
 
@@ -197,7 +194,6 @@ public interface UtxoLedgerTransaction {
      *
      * @return Returns the reference input transaction states associated with the current {@link UtxoLedgerTransaction}.
      */
-    // TODO : Rename to getReferenceInputTransactionStates
     @NotNull
     default List<TransactionState<?>> getReferenceTransactionStates() {
         return getReferenceStateAndRefs()
@@ -211,7 +207,6 @@ public interface UtxoLedgerTransaction {
      *
      * @return Returns the reference input contract states associated with the current {@link UtxoLedgerTransaction}.
      */
-    // TODO : Rename to getReferenceInputContractStates
     @NotNull
     default List<ContractState> getReferenceContractStates() {
         return getReferenceTransactionStates()
@@ -227,7 +222,6 @@ public interface UtxoLedgerTransaction {
      * @param type The type of the {@link ContractState}.
      * @return Returns all reference input contract states that match the specified type.
      */
-    // TODO : Rename to getReferenceInputContractStates
     @NotNull
     <T extends ContractState> List<T> getReferenceStates(@NotNull Class<T> type);
 

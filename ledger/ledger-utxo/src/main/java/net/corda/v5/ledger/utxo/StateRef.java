@@ -15,6 +15,11 @@ import java.util.Objects;
 public final class StateRef {
 
     /**
+     * Specifies the delimiter that separates transaction ID and output index.
+     */
+    private static final String DELIMITER = ":";
+
+    /**
      * The id of the transaction in which the referenced state was created.
      */
     @NotNull
@@ -64,8 +69,7 @@ public final class StateRef {
      */
     public static StateRef parse(@NotNull final String value) throws IllegalArgumentException {
         try {
-            // TODO : Magic string ":" should be replaced with DELIMITER
-            final int lastIndexOfDelimiter = value.lastIndexOf(":");
+            final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
             final SecureHash transactionId = SecureHash.parse(subStringBeforeDelimiter);
@@ -87,23 +91,15 @@ public final class StateRef {
     /**
      * Determines whether the specified object is equal to the current object.
      *
-     * @param obj The object to compare with the current object.
+     * @param o The object to compare with the current object.
      * @return Returns true if the specified object is equal to the current object; otherwise, false.
      */
     @Override
-    public boolean equals(@Nullable final Object obj) {
-        return this == obj || obj instanceof StateRef && equals((StateRef) obj);
-    }
-
-    /**
-     * Determines whether the specified object is equal to the current object.
-     *
-     * @param other The Party to compare with the current object.
-     * @return Returns true if the specified Party is equal to the current object; otherwise, false.
-     */
-    public boolean equals(@NotNull final StateRef other) {
-        return Objects.equals(other.transactionId, transactionId)
-                && Objects.equals(other.index, index);
+    public boolean equals(@Nullable final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StateRef stateRef = (StateRef) o;
+        return index == stateRef.index && transactionId.equals(stateRef.transactionId);
     }
 
     /**
@@ -123,6 +119,6 @@ public final class StateRef {
      */
     @Override
     public String toString() {
-        return MessageFormat.format("{0}:{2}", transactionId, index);
+        return MessageFormat.format("{0}{1}{2}", transactionId, DELIMITER, index);
     }
 }

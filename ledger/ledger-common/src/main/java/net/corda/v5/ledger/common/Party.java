@@ -62,23 +62,15 @@ public final class Party {
     /**
      * Determines whether the specified object is equal to the current object.
      *
-     * @param obj The object to compare with the current object.
+     * @param o The object to compare with the current object.
      * @return Returns true if the specified object is equal to the current object; otherwise, false.
      */
     @Override
-    public boolean equals(@Nullable final Object obj) {
-        return this == obj || obj instanceof Party && equals((Party) obj);
-    }
-
-    /**
-     * Determines whether the specified object is equal to the current object.
-     *
-     * @param other The Party to compare with the current object.
-     * @return Returns true if the specified Party is equal to the current object; otherwise, false.
-     */
-    public boolean equals(@NotNull final Party other) {
-        return Objects.equals(other.name, name)
-                && Objects.equals(other.owningKey, owningKey);
+    public boolean equals(@Nullable final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Party party = (Party) o;
+        return name.equals(party.name) && owningKey.equals(party.owningKey);
     }
 
     /**

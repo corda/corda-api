@@ -18,9 +18,11 @@ import java.util.List;
  * Defines a signed UTXO transaction.
  * <p>
  * Comparing with {@link UtxoLedgerTransaction}:
- * - It does not have access to the deserialized details.
- * - It has direct access to the signatures.
- * - It does not require a serializer.
+ * <ul>
+ *     <li>It does not have access to the deserialized details.</li>
+ *     <li>It has direct access to the signatures.</li>
+ *     <li>It does not require a serializer.</li>
+ * </ul>
  * <p>
  * {@link UtxoSignedTransaction} wraps the wire representation of the transaction. It contains one or more signatures,
  * each one for a public key (including composite keys) that is mentioned inside a transaction state.
@@ -58,7 +60,6 @@ public interface UtxoSignedTransaction extends TransactionWithMetadata {
      *
      * @return Returns the {@link StateRef} instances of the reference inputs for the current transaction.
      */
-    // TODO : Shouldn't this be called getReferenceInputStateRefs?
     @NotNull
     List<StateRef> getReferenceStateRefs();
 

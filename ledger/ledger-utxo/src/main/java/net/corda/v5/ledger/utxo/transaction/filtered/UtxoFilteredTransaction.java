@@ -97,7 +97,6 @@ public interface UtxoFilteredTransaction {
      *
      * @return Returns a potentially filtered list of reference input state refs for the current transaction.
      */
-    // TODO : Rename to getReferenceInputStateRefs
     @NotNull
     UtxoFilteredData<StateRef> getReferenceStateRefs();
 

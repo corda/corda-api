@@ -38,5 +38,5 @@ public interface ConsensualTransactionValidator extends Serializable {
      * @throws Throwable if the {@link ConsensualLedgerTransaction} fails validation.
      */
     @Suspendable
-    void checkTransaction(@NotNull ConsensualLedgerTransaction transaction) throws Throwable;
+    void checkTransaction(@NotNull ConsensualLedgerTransaction transaction);
 }
