@@ -5,5 +5,6 @@ cordaPipelineKubernetesAgent(
     runIntegrationTests: false,
     dailyBuildCron: 'H 02 * * *',
     gradleAdditionalArgs: '-Dscan.tag.Nightly-Build',
-    generateSbom: true
+    generateSbom: true,
+    javaVersion: '17'
     )
