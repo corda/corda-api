@@ -7,12 +7,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Representation of errors that can be returned by the notary (plugin). This is only a marker interface, the plugins
- * can define their own errors by implementing this interface. Please refer to the non-validating notary plugin for
- * a more detailed example.
+ * The base class for all notary errors that can be returned by the notary itself (plugin). Specific notary exceptions
+ * must not inherit from this class directly, they should use one of the inner classes. To create a notary exception use
+ * @see NotaryExceptionFatal
+ * or 
+ * @see NotaryExceptionUnknown
  */
 @CordaSerializable
-public abstract class NotaryException extends CordaRuntimeException {
+abstract class NotaryException extends CordaRuntimeException {
 
     @NotNull
     private final String notaryErrorMessage;
@@ -36,23 +38,9 @@ public abstract class NotaryException extends CordaRuntimeException {
         return this.txId;
     }
 
-
-    private NotaryException(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
+    NotaryException(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
         super("Unable to notarise transaction " + (txId != null ? txId : "<Unknown>:") + " " + notaryErrorMessage);
         this.notaryErrorMessage = notaryErrorMessage;
         this.txId = txId;
-    }
-
-    @CordaSerializable
-    public abstract static class NotaryExceptionFatal extends NotaryException {
-        public NotaryExceptionFatal(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
-            super(notaryErrorMessage, txId);
-        }
-    }
-    @CordaSerializable
-    public abstract static class NotaryExceptionUnknown extends NotaryException {
-        public NotaryExceptionUnknown(@NotNull String notaryErrorMessage, @Nullable SecureHash txId) {
-            super(notaryErrorMessage, txId);
-        }
     }
 }
