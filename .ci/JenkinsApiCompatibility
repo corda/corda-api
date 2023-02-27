@@ -1,0 +1,3 @@
+@Library('corda-shared-build-pipeline-steps@CORE-10643/add-compatibility-check') _
+
+cordaApiCompatibilityCheck()
