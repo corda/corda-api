@@ -4,8 +4,10 @@ topics:
     consumers:
       - flow
       - membership
+      - interop
     producers:
       - link-manager
+      - interop #Temporarily for seed message
     config:
   P2POutTopic:
     name: p2p.out
@@ -14,6 +16,7 @@ topics:
     producers:
       - flow
       - membership
+      - interop
     config:
   P2POutMarkersTopic:
     name: p2p.out.markers
@@ -51,6 +54,7 @@ topics:
     producers:
       - rpc # Dynamic Network registration
       - membership # Static Network registration
+      - interop # temporary hardcoded data
     config:
       cleanup.policy: compact
       segment.ms: 600000
