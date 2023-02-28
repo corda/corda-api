@@ -144,7 +144,7 @@ public interface UtxoTransactionBuilder {
     /**
      * Adds the specified output states to the current {@link UtxoTransactionBuilder} as a tagged encumbrance group.
      *
-     * @param tag The tag of the encumbrance group which the specified {@link ContractState} instances will belong to.
+     * @param tag            The tag of the encumbrance group which the specified {@link ContractState} instances will belong to.
      * @param contractStates The {@link ContractState} instances to add to the current {@link UtxoTransactionBuilder}.
      * @return Returns the current {@link UtxoTransactionBuilder} including the specified encumbered output states.
      */
@@ -154,7 +154,7 @@ public interface UtxoTransactionBuilder {
     /**
      * Adds the specified output states to the current {@link UtxoTransactionBuilder} as a tagged encumbrance group.
      *
-     * @param tag The tag of the encumbrance group which the specified {@link ContractState} instances will belong to.
+     * @param tag            The tag of the encumbrance group which the specified {@link ContractState} instances will belong to.
      * @param contractStates The {@link ContractState} instances to add to the current {@link UtxoTransactionBuilder}.
      * @return Returns the current {@link UtxoTransactionBuilder} including the specified encumbered output states.
      */
@@ -223,10 +223,10 @@ public interface UtxoTransactionBuilder {
      * Therefore, if you want to build two transactions you need two builders.
      *
      * @return Returns a {@link UtxoSignedTransaction} with signatures for any required signatories that belong to the current node.
-     * @throws IllegalStateException when called a second time on the same object to prevent unintentional duplicate transactions.
+     * @throws IllegalStateException               when called a second time on the same object to prevent unintentional duplicate transactions.
      * @throws TransactionNoAvailableKeysException if none of the required keys are available to sign the transaction.
      */
     @NotNull
     @Suspendable
-    UtxoSignedTransaction toSignedTransaction() throws IllegalStateException, TransactionNoAvailableKeysException;
+    UtxoSignedTransaction toSignedTransaction();
 }

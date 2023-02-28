@@ -113,5 +113,5 @@ public interface UtxoFilteredTransaction {
      *
      * @throws CordaRuntimeException if the current {@link UtxoFilteredTransaction} fails to verify correctly.
      */
-    void verify() throws CordaRuntimeException;
+    void verify();
 }

@@ -107,7 +107,7 @@ public interface UtxoLedgerService {
     UtxoSignedTransaction finalize(
             @NotNull UtxoSignedTransaction transaction,
             @NotNull Iterable<FlowSession> sessions
-    ) throws ContractVerificationException;
+    );
 
     /**
      * Verifies, signs and records a {@link UtxoSignedTransaction}.
@@ -124,5 +124,5 @@ public interface UtxoLedgerService {
     UtxoSignedTransaction receiveFinality(
             @NotNull FlowSession session,
             @NotNull UtxoTransactionValidator validator
-    ) throws ContractVerificationException;
+    );
 }

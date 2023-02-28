@@ -80,7 +80,7 @@ public interface UtxoLedgerTransaction {
      * @throws IllegalArgumentException if the attachment with the specified ID cannot be found.
      */
     @NotNull
-    Attachment getAttachment(@NotNull SecureHash id) throws IllegalArgumentException;
+    Attachment getAttachment(@NotNull SecureHash id);
 
     /**
      * Gets the commands associated with the current {@link UtxoLedgerTransaction}.

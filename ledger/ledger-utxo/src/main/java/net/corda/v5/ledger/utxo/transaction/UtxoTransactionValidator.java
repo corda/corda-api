@@ -38,5 +38,5 @@ public interface UtxoTransactionValidator extends Serializable {
      * @throws Throwable if the {@link UtxoLedgerTransaction} fails validation.
      */
     @Suspendable
-    void checkTransaction(@NotNull UtxoLedgerTransaction transaction) throws Throwable;
+    void checkTransaction(@NotNull UtxoLedgerTransaction transaction);
 }
