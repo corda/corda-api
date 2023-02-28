@@ -106,13 +106,13 @@ public interface UtxoLedgerService {
     @Suspendable
     UtxoSignedTransaction finalize(
             @NotNull UtxoSignedTransaction transaction,
-            @NotNull Iterable<FlowSession> sessions
+            @NotNull List<FlowSession> sessions
     );
 
     /**
      * Verifies, signs and records a {@link UtxoSignedTransaction}.
      * <p>
-     * This method should be called in response to {@link #finalize(UtxoSignedTransaction, Iterable)}.
+     * This method should be called in response to {@link #finalize(UtxoSignedTransaction, List)}.
      *
      * @param session The {@link FlowSession} of the counter-party finalizing the {@link UtxoSignedTransaction}.
      * @param validator Validates the received {@link UtxoSignedTransaction}.

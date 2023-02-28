@@ -11,6 +11,8 @@ import net.corda.v5.ledger.consensual.transaction.ConsensualTransactionValidator
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 /**
  * Defines the consensual ledger service.
  */
@@ -51,20 +53,20 @@ public interface ConsensualLedgerService {
      * fully signed transaction to all participants involved in the transaction to be recorded in the vault.
      *
      * @param transaction The transaction to finalize.
-     * @param sessions    The sessions representing the counter-party participants of the transaction.
+     * @param sessions The sessions representing the counter-party participants of the transaction.
      * @return Returns the fully signed and recorded transaction.
      */
     @NotNull
     @Suspendable
     ConsensualSignedTransaction finalize(
             @NotNull ConsensualSignedTransaction transaction,
-            @NotNull Iterable<FlowSession> sessions
+            @NotNull List<FlowSession> sessions
     );
 
     /**
      * Verifies, signs and records the fully signed {@link ConsensualSignedTransaction}.
      *
-     * @param session   The session from which the {@link ConsensualSignedTransaction} was received.
+     * @param session The session from which the {@link ConsensualSignedTransaction} was received.
      * @param validator Validates the received {@link ConsensualSignedTransaction}.
      * @return Returns the fully signed {@link ConsensualSignedTransaction}.
      */
