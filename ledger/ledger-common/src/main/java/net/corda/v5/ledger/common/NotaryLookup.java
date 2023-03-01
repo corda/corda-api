@@ -10,8 +10,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 
 /**
- * Defines a mechanism to allow flows to retrieve the NotaryInfo in the network.
- * The platform will provide an instance of NotaryLookup to flows via property injection.
+ * Defines a mechanism to allow flows to retrieve the {@link NotaryInfo} in the network.
+ * The platform will provide an instance of {@link NotaryLookup} to flows via property injection.
  */
 @DoNotImplement
 public interface NotaryLookup {
