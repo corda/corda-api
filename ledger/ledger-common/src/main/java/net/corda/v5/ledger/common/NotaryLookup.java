@@ -23,7 +23,6 @@ public interface NotaryLookup {
      */
     @NotNull
     @Suspendable
-    // TODO : Consider List<NotaryInfo>
     Collection<NotaryInfo> getNotaryServices();
 
     /**
