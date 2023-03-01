@@ -151,13 +151,13 @@
             <column name="parameters" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="signature_public_key" type="BLOB">
+            <column name="signature_public_key" type="VARBINARY(1048576)">
                 <constraints nullable="true"/>
             </column>
-            <column name="signature_context" type="BLOB">
+            <column name="signature_context" type="VARBINARY(1048576)">
                 <constraints nullable="true"/>
             </column>
-            <column name="signature_content" type="BLOB">
+            <column name="signature_content" type="VARBINARY(1048576)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
