@@ -22,6 +22,7 @@ topics:
     consumers:
     producers:
       - membership
+      - interop
     config:
   MembershipRegistrationTopic:
     name: membership.registration
@@ -54,6 +55,7 @@ topics:
     producers:
       - membership
       - db
+      - interop
     config:
       cleanup.policy: compact
       segment.ms: 600000
