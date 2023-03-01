@@ -13,7 +13,9 @@ public interface InteropService {
      * @param memberName The MemberX500name of the alter-ego.
      * @param facadeName The name of the facade to invoke.
      * @param methodName The name of the function within the facade to invoke.
+     * @param payload The payload for the facade call.
+     * @return The response string from the facade.
      */
     @Suspendable
-    void callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName);
+    @NotNull String callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName, @NotNull String payload);
 }
