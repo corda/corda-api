@@ -1,6 +1,7 @@
 package net.corda.v5.ledger.utxo;
 
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
+import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
 import java.util.Set;
@@ -21,7 +22,7 @@ public interface Contract {
      * With default implementation, a state is relevant if any of the participants key matching one of this node's
      * public keys.
      */
-    default boolean isRelevant(ContractState state, Set<PublicKey> myKeys) {
+    default boolean isRelevant(@NotNull ContractState state, @NotNull Set<PublicKey> myKeys) {
         return state.getParticipants().stream().anyMatch(myKeys::contains);
     }
 
@@ -29,6 +30,7 @@ public interface Contract {
      * Verifies the specified transaction associated with the current contract.
      *
      * @param transaction The transaction to verify.
+     * @throws RuntimeException if the specified transaction fails verification.
      */
-    void verify(UtxoLedgerTransaction transaction);
+    void verify(@NotNull UtxoLedgerTransaction transaction);
 }

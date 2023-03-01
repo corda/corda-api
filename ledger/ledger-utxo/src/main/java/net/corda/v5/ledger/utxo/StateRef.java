@@ -67,7 +67,7 @@ public final class StateRef {
      * @return Returns a {@link StateRef} parsed from the specified {@link String} value.
      * @throws IllegalArgumentException if the specified value cannot be parsed.
      */
-    public static StateRef parse(@NotNull final String value) throws IllegalArgumentException {
+    public static StateRef parse(@NotNull final String value) {
         try {
             final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
