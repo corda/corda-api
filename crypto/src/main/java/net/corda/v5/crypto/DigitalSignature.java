@@ -12,6 +12,7 @@ import java.util.Map;
  */
 @CordaSerializable
 public class DigitalSignature extends OpaqueBytes {
+
     public DigitalSignature(@NotNull byte[] bytes) {
         super(bytes);
     }

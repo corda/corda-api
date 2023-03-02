@@ -18,7 +18,7 @@ public class KeyUtils {
 
     /**
      * Checks whether any of the given [keys] match a leaf on the [CompositeKey] tree or a single [PublicKey].
-     *
+     * <p>
      * <i>Note that this function checks against leaves, which cannot be of type [CompositeKey]. Due to that, if any of the
      * [otherKeys] is a [CompositeKey], this function will not find a match.</i>
      */

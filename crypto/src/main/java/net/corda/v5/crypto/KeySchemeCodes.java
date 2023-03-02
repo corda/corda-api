@@ -21,6 +21,7 @@ public final class KeySchemeCodes {
      */
     @NotNull
     public static final String ECDSA_SECP256K1_CODE_NAME = "CORDA.ECDSA.SECP256K1";
+
     /**
      * ECDSA with SECP256R1 curve key scheme code name.
      * The key scheme can be used for signing and key derivation such as ECDH.

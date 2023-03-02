@@ -10,7 +10,6 @@ import java.util.Arrays;
  * [IndexedMerkleLeaf]s are building blocks of [MerkleProof]s.
  * They contain the required information about a particular leaf which is needed for the verification.
  */
-
 @CordaSerializable
 public final class IndexedMerkleLeaf {
 
@@ -45,9 +44,7 @@ public final class IndexedMerkleLeaf {
             if (otherLeaf.nonce == null) return false;
             if (!Arrays.equals(nonce, otherLeaf.nonce)) return false;
         } else if (otherLeaf.nonce != null) return false;
-        if (!Arrays.equals(leafData, otherLeaf.leafData)) return false;
-
-        return true;
+        return Arrays.equals(leafData, otherLeaf.leafData);
     }
 
     public int hashCode() {
@@ -57,7 +54,7 @@ public final class IndexedMerkleLeaf {
         return result;
     }
 
-    /*
+    /**
      * Obtain the index of this leaf
      *
      * @result integer leaf index
@@ -66,7 +63,7 @@ public final class IndexedMerkleLeaf {
         return index;
     }
 
-    /*
+    /**
      * Obtain the nonce of this tree leaf
      *
      * @result nonce as a byte array
@@ -76,7 +73,8 @@ public final class IndexedMerkleLeaf {
         return nonce;
     }
 
-    /* Obtain the data for this leaf.
+    /**
+     * Obtain the data for this leaf.
      *
      * @result leaf data as a byte array
      */

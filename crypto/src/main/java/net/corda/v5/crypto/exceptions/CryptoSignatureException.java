@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
  */
 @CordaSerializable
 public final class CryptoSignatureException extends CryptoException {
+
     /**
      * Constructs a new exception with the specified detail message.
      *
@@ -17,6 +18,7 @@ public final class CryptoSignatureException extends CryptoException {
     public CryptoSignatureException(@NotNull String message) {
         super(message);
     }
+
     /**
      * Constructs a new exception with the specified detail message and cause.
      *
@@ -25,4 +27,5 @@ public final class CryptoSignatureException extends CryptoException {
      */
     public CryptoSignatureException(@NotNull String message, @Nullable Throwable cause) {
         super(message, cause);
-    }}
+    }
+}

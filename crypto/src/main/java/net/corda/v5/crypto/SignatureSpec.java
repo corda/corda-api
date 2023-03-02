@@ -13,6 +13,7 @@ import java.security.spec.PSSParameterSpec;
  */
 @CordaSerializable
 public class SignatureSpec {
+
     /**
      * The signature-scheme name as required to create [java.security.Signature] objects (e.g. "SHA256withECDSA").
      */
@@ -29,14 +30,13 @@ public class SignatureSpec {
      *                      "SHA256withECDSA" with "RSA" keys.
      */
     public SignatureSpec(@NotNull String signatureName) {
-        super();
-        this.signatureName = signatureName;
         if (signatureName == null) {
             throw new IllegalArgumentException("The signatureName must not be null.");
         }
         if (signatureName.isBlank()) {
             throw new IllegalArgumentException("The signatureName must not be blank.");
         }
+        this.signatureName = signatureName;
     }
 
 

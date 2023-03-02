@@ -7,9 +7,9 @@ import org.jetbrains.annotations.Nullable;
 /**
  * The digest algorithm name. This class is to be used in Corda hashing API.
  */
-
 @CordaSerializable
 public final class DigestAlgorithmName {
+
     @NotNull
     private final String name;
 

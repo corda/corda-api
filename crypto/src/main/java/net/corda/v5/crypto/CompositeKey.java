@@ -24,7 +24,6 @@ import java.util.Set;
  */
 public interface CompositeKey extends PublicKey {
 
-
     /**
      * Constant specifying the maximum number of children keys in the [CompositeKey].
      */

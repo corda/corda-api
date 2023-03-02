@@ -9,16 +9,18 @@ import org.jetbrains.annotations.Nullable;
  * Base exception for all Crypto Library specific exception. Note that the library may throw common exceptions
  * such as [IllegalArgumentException], [IllegalStateException] and others as well. This base class is only
  * for the specific cases when a site throwing exception can provide some useful context about the operation.
- *
+ * <p>
  * Note that the approach for the Crypto Library is to use the existing exception where appropriate and use
  * the specific Crypto Library exceptions only to convey additional context about the conditions which lead to
  * the exception.
- *
- * @property isRecoverable The flag specifying whenever the operation throwing the exception could be retried
- * without any intervention by application-level functionality.
  */
 @CordaSerializable
 public class CryptoException extends CordaRuntimeException {
+
+    /**
+     * A flag specifying whenever the operation throwing the exception could be retried without any intervention
+     * by application-level functionality.
+     */
     private final boolean isRecoverable;
 
     /**
@@ -35,13 +37,11 @@ public class CryptoException extends CordaRuntimeException {
      *
      * @param message The detailed message.
      */
-
     public CryptoException(@NotNull String message) {
         super(message);
         this.isRecoverable = false;
     }
-    
-    
+
     /**
      * Constructs a new exception with the specified detail message and when it's recoverable.
      *
@@ -53,6 +53,7 @@ public class CryptoException extends CordaRuntimeException {
         super(message);
         this.isRecoverable = isRecoverable;
     }
+
     /**
      * Constructs a new exception with the specified detail message and cause. The [isRecoverable] is set to false.
      *

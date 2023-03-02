@@ -37,7 +37,6 @@ public final class SecureHash extends OpaqueBytes {
      * [net.corda.v5.application.crypto.HashingService.parse] for a safer mechanism for creating [SecureHash]es.
      *
      */
-
     public static SecureHash parse(String str) {
         int idx = str.indexOf(DELIMITER);
         if (idx == -1) {
