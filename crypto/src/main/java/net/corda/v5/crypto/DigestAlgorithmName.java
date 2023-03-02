@@ -10,8 +10,11 @@ import org.jetbrains.annotations.Nullable;
 
 @CordaSerializable
 public final class DigestAlgorithmName {
+    @NotNull
+    private final String name;
+
     /**
-     * Construt a digest algorith name.
+     * Construct a digest algorithm name.
      * <p>
      * * @param name The name of the digest algorithm to be used for the instance.
      */
@@ -19,9 +22,6 @@ public final class DigestAlgorithmName {
         if (name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
         this.name = name;
     }
-
-    @NotNull
-    private final String name;
 
     /**
      * Instance of SHA-256
