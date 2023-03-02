@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo;
 
-import net.corda.v5.base.annotations.DoNotImplement;
 import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
@@ -8,7 +7,6 @@ import java.security.PublicKey;
 /**
  * Provides functionality to determine state visibility.
  */
-@DoNotImplement
 public interface VisibilityChecker {
 
     /**

@@ -18,11 +18,11 @@ public interface Contract {
      * The default implementation determines that a state should be visible to its participants.
      * </p>
      *
-     * @param state The {@link ContractState} for which to determine visibility.
      * @param checker Provides a mechanism to determine visibility of the specified {@link ContractState}.
-     * @return Returns true if the specified state is visible to the current node; otherwise, false.
+     * @param state   The {@link ContractState} for which to determine visibility.
+     * @return Returns true of teh specified state is visible to the current node; otherwise, false.
      */
-    default boolean isVisible(@NotNull ContractState state, @NotNull VisibilityChecker checker) {
+    default boolean isVisible(@NotNull final VisibilityChecker checker, @NotNull final ContractState state) {
         return checker.containsMySigningKeys(state.getParticipants());
     }
 
