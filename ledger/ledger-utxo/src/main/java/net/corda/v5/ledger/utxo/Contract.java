@@ -6,7 +6,6 @@ import net.corda.v5.crypto.KeyUtils;
 import java.security.PublicKey;
 import java.util.Set;
 
-
 /**
  * Defines a mechanism for implementing contracts, which perform transaction verification.
  * <p>
