@@ -14,10 +14,6 @@ import java.util.List;
  * Construct a [MerkleProof] from its ([treeSize], [leaves], [hashes]) when you want to [verify] if the leaves
  * to be checked are part of a [MerkleTree] with the specific root.
  *
- * @property proofType Type of the proof
- * @property treeSize The total number of leaves in the tree.
- * @property leaves The leaf items whose inclusion is proved by the proof.
- * @property hashes The helper hashes needed to reconstruct the whole tree.
  */
 @CordaSerializable
 public interface MerkleProof {
@@ -31,7 +27,7 @@ public interface MerkleProof {
     MerkleProofType getProofType();
 
     int getTreeSize();
-    
+
     List<IndexedMerkleLeaf> getLeaves();
 
     List<SecureHash> getHashes();
@@ -41,7 +37,7 @@ public interface MerkleProof {
      *
      * @param root   The root of the tree to be verified.
      * @param digest The tree's digest.
-     * @returns Result of the verification.
+     * @return Result of the verification.
      */
     boolean verify(@NotNull SecureHash root, @NotNull MerkleTreeHashDigest digest);
 
@@ -50,7 +46,7 @@ public interface MerkleProof {
      *
      * @param digest The tree's digest.
      * @throws MerkleProofRebuildFailureException if the calculation of the root hash failed.
-     * @returns Root hash of the tree.
+     * @return Root hash of the tree.
      */
-    SecureHash calculateRoot(@NotNull MerkleTreeHashDigest var1);
+    SecureHash calculateRoot(@NotNull MerkleTreeHashDigest digest);
 }
