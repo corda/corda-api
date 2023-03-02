@@ -69,7 +69,7 @@ public final class DigestAlgorithmName {
      * Returns a hash code value for the object.
      */
     public int hashCode() {
-        return this.name.toUpperCase(Locale.ROOT).hashCode();
+        return this.name.toUpperCase().hashCode();
     }
 
     /**
