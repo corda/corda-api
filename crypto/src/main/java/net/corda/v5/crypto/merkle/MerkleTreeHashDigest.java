@@ -6,15 +6,16 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Different use cases require different [MerkleTree] calculations.
  * [MerkleTreeHashDigest]s let us specify such implementations.
- *
  */
 
 public interface MerkleTreeHashDigest {
+    
     /**
      * Get the algorithm name
-     * 
-     * @return  Specifies the digest algorithm.
+     *
+     * @return Specifies the digest algorithm.
      */
+
     @NotNull
     DigestAlgorithmName getDigestAlgorithmName();
 }

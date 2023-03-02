@@ -8,6 +8,6 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class MerkleProofRebuildFailureException extends CordaRuntimeException {
     public MerkleProofRebuildFailureException(@NotNull String message) {
-        super(message, (Throwable) null);
+        super(message, null);
     }
 }

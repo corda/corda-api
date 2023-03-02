@@ -20,6 +20,12 @@ public class DigitalSignature extends OpaqueBytes {
      * A digital signature that identifies who the public key is owned by.
      */
     public static class WithKey extends DigitalSignature {
+
+        @NotNull
+        public final Map<String, String> getContext() {
+            return this.context;
+        }
+
         /**
          * Construct WithKey
          *
@@ -46,13 +52,9 @@ public class DigitalSignature extends OpaqueBytes {
         @NotNull
         private final Map<String, String> context;
 
-        @NotNull public final PublicKey getBy() {
-            return this.by;
-        }
-
         @NotNull
-        public final Map<String, String> getContext() {
-            return this.context;
+        public final PublicKey getBy() {
+            return this.by;
         }
     }
 }

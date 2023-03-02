@@ -47,7 +47,7 @@ class SecureHashTests {
             36, 45, 42, 121, 39, 35, -29, -3, 111, -48, 97, -7, -43, -49, -47, 59, -113, -106, 19, 88, -26, -83, -70, 74
         )
         val cut = SecureHash.parse(str)
-        assertEquals(DigestAlgorithmName.SHA2_384.name, cut.algorithm)
+        assertEquals(DigestAlgorithmName.SHA2_384.name, cut.getAlgorithm())
         assertArrayEquals(expectedBytes, cut.bytes)
     }
 

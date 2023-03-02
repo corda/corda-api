@@ -13,6 +13,10 @@ import java.nio.ByteBuffer;
  */
 @CordaSerializable
 public final class SecureHash extends OpaqueBytes {
+
+    @NotNull
+    private final String algorithm;
+
     /**
      * Construct a secure hash.
      *
@@ -45,10 +49,7 @@ public final class SecureHash extends OpaqueBytes {
             return new SecureHash(algorithm, data);
         }
     }
-
-    @NotNull
-    public final String algorithm;
-
+    
     /**
      * Returns hexadecimal representation of the hash value.
      */
@@ -95,5 +96,10 @@ public final class SecureHash extends OpaqueBytes {
     @NotNull
     public String toString() {
         return this.algorithm + ':' + this.toHexString();
+    }
+    
+    @NotNull
+    public String getAlgorithm() { 
+        return this.algorithm;
     }
 }
