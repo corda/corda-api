@@ -13,15 +13,16 @@ import java.util.Arrays;
 
 @CordaSerializable
 public final class IndexedMerkleLeaf {
+
     private final int index;
+    
     @Nullable
     private final byte[] nonce;
+    
     @NotNull
     private final byte[] leafData;
 
-
     public IndexedMerkleLeaf(int index, @Nullable byte[] nonce, @NotNull byte[] leafData) {
-        super();
         this.index = index;
         this.nonce = nonce;
         this.leafData = leafData;
