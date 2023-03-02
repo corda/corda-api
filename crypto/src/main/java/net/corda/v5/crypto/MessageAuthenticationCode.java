@@ -3,10 +3,7 @@ package net.corda.v5.crypto;
 import org.jetbrains.annotations.NotNull;
 
 public final class MessageAuthenticationCode {
-
-    private MessageAuthenticationCode() {
-        // Not constructed; this class only exists to make the string constants available 
-    }
+    private MessageAuthenticationCode() {}
     
     /**
      * Constant specifying the HMAC SHA-256 algorithm.

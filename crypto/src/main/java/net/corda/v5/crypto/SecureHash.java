@@ -13,7 +13,6 @@ import java.nio.ByteBuffer;
  */
 @CordaSerializable
 public final class SecureHash extends OpaqueBytes {
-
     @NotNull
     private final String algorithm;
 

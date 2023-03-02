@@ -13,7 +13,6 @@ import java.security.spec.PSSParameterSpec;
  */
 @CordaSerializable
 public class SignatureSpec {
-
     /**
      * The signature-scheme name as required to create [java.security.Signature] objects (e.g. "SHA256withECDSA").
      */

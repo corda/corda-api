@@ -12,12 +12,9 @@ import java.util.Arrays;
  */
 @CordaSerializable
 public final class IndexedMerkleLeaf {
-
     private final int index;
-
     @Nullable
     private final byte[] nonce;
-
     @NotNull
     private final byte[] leafData;
 

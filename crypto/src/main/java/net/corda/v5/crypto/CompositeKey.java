@@ -23,7 +23,6 @@ import java.util.Set;
  * signatures required) to satisfy the subtree rooted at this node.
  */
 public interface CompositeKey extends PublicKey {
-
     /**
      * Constant specifying the maximum number of children keys in the [CompositeKey].
      */

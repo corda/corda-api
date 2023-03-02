@@ -5,10 +5,7 @@ import java.util.Collections;
 import java.util.Set;
 
 public class KeyUtils {
-
-    private KeyUtils() {
-        // this class is never constructed; it exists for the static methods and data only
-    }
+    private KeyUtils() {}
 
     /**
      * Constant specifying the maximum number of key lookup by id items.

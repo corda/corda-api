@@ -3,10 +3,7 @@ package net.corda.v5.crypto;
 import org.jetbrains.annotations.NotNull;
 
 public final class KeySchemeCodes {
-
-    private KeySchemeCodes() {
-        // this class is never constructed; it exists for the static strings.
-    }
+    private KeySchemeCodes() {}
 
     /**
      * RSA key scheme code name.
