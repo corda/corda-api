@@ -4,6 +4,10 @@ import org.jetbrains.annotations.NotNull;
 
 
 public final class HashDigestConstants {
+    
+    private HashDigestConstants() {
+        // No construction allowed; this class exists to contain its static string properties. 
+    }
 
     /**
      * An implementation of rfc6962 compatible merkle tree
