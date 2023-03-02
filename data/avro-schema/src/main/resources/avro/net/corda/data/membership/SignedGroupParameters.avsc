@@ -2,7 +2,7 @@
   "type": "record",
   "name": "SignedGroupParameters",
   "namespace": "net.corda.data.membership",
-  "doc": "Group parameters which have been signed by the MGM. The signature could be null only if it's the MGM's view of the group parameters, or if using static networks since no MGM exists.",
+  "doc": "Group parameters which have been signed by the MGM.",
   "fields": [
     {
       "name": "groupParameters",
@@ -11,7 +11,7 @@
     },
     {
       "name": "mgmSignature",
-      "doc": "MGM signature over the serialised group parameters.",
+      "doc": "MGM signature over the serialised group parameters. The signature could be null only if it's the MGM's view of the group parameters, or if using static networks since no MGM exists.",
       "type": ["null", "net.corda.data.crypto.wire.CryptoSignatureWithKey"]
     }
   ]
