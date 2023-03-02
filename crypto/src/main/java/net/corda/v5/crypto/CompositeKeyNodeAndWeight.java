@@ -20,11 +20,10 @@ public final class CompositeKeyNodeAndWeight {
      * @param weight The weight for that key, must be greater than zero.
      */
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node, int weight) {
-        super();
+        if (weight <= 0)
+            throw new IllegalArgumentException("A non-positive weight was detected. Member info: " + this);
         this.node = node;
         this.weight = weight;
-        if (this.weight <= 0)
-            throw new IllegalArgumentException("A non-positive weight was detected. Member info: " + this);
     }
     
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node) {
