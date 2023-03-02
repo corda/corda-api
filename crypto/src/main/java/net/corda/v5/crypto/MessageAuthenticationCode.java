@@ -19,5 +19,4 @@ public final class MessageAuthenticationCode {
      */
     @NotNull
     public final static String HMAC_SHA512_ALGORITHM = "HmacSHA512";
-    
 }
