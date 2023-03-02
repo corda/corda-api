@@ -56,7 +56,7 @@ public class KeyUtils {
             return firstKeyComposite.isFulfilledBy(otherKeys);
         }
         for (PublicKey otherKey : otherKeys) {
-            if (otherKey == firstKey) return true;
+            if (otherKey.equals(firstKey)) return true;
         }
         return false;
     }
