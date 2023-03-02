@@ -25,7 +25,7 @@ public final class CompositeKeyNodeAndWeight {
         this.node = node;
         this.weight = weight;
     }
-    
+
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node) {
         this(node, 1);
     }

@@ -11,16 +11,15 @@ import java.security.PublicKey;
  * Provides utilities for generating a public key hash by calculating it from a given [PublicKey], or by parsing a given
  * [String] or [ByteArray] input.
  *
- * @property value Hexadecimal string representing SHA-256 of the public key.
  */
 public final class PublicKeyHash {
     @NotNull
     private final String value;
 
-    public PublicKeyHash(String value) {
+    public PublicKeyHash(@NotNull String value) {
         this.value = value;
     }
-    
+
     /**
      * Parses the given hash as [ByteArray] and wraps it in a [PublicKeyHash].
      *
@@ -66,7 +65,7 @@ public final class PublicKeyHash {
      */
     @NotNull
     public static PublicKeyHash calculate(@NotNull PublicKey publicKey) throws NoSuchAlgorithmException {
-        return calculate(publicKey.getEncoded()); 
+        return calculate(publicKey.getEncoded());
     }
 
     /**
@@ -76,7 +75,7 @@ public final class PublicKeyHash {
      * @return Returns a [PublicKeyHash] containing the SHA-256 hash.
      */
     @NotNull
-    public static PublicKeyHash calculate(@NotNull byte[] publicKey) throws NoSuchAlgorithmException  {
+    public static PublicKeyHash calculate(@NotNull byte[] publicKey) throws NoSuchAlgorithmException {
         byte[] digest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.getName()).digest(publicKey);
         String value = bytesToHexString(digest);
         return new PublicKeyHash(value);
@@ -116,12 +115,15 @@ public final class PublicKeyHash {
         if (other == this) return true;
         if (other instanceof byte[] && (bytesToHexString((byte[]) other).equals(value))) return true;
         if (other instanceof String && ((String) other).equalsIgnoreCase(value)) return true;
-        if (other instanceof PublicKeyHash && ((PublicKeyHash) other).toString().equalsIgnoreCase(this.value)) return true;
+        if (other instanceof PublicKeyHash && ((PublicKeyHash) other).toString().equalsIgnoreCase(this.value))
+            return true;
         return false;
     }
 
     /**
      * Converts a [PublicKeyHash] object to a string representation. Returns Hex representation of its hash value.
+     * 
+     * @return Hexadecimal string representing SHA-256 of the public key.
      */
     @NotNull
     public String toString() {

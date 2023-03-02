@@ -1,8 +1,8 @@
 package net.corda.v5.crypto;
 
-import java.security.spec.AlgorithmParameterSpec;
-
 import org.jetbrains.annotations.NotNull;
+
+import java.security.spec.AlgorithmParameterSpec;
 
 /**
  * This class is used to define a digital signature scheme which has the additional algorithm parameters,

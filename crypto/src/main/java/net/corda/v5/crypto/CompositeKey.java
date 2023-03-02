@@ -10,15 +10,15 @@ import java.util.Set;
  * the signing requirements for multi-signature scenarios. A composite key is a list
  * of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key.
  * Keys contribute their weight to the total if they are matched by the signature.
- *
+ * <p>
  * For complex scenarios, such as *"Both Alice and Bob need to sign to consume a state S"*, we can represent
  * the requirement by creating a tree with a root [CompositeKey], and Alice and Bob as children.
  * The root node would specify *weights* for each of its children and a *threshold* – the minimum total weight required
  * (e.g. the minimum number of child signatures required) to satisfy the tree signature requirement.
- *
+ * <p>
  * Using these constructs we can express e.g. 1 of N (OR) or N of N (AND) signature requirements. By nesting we can
  * create multi-level requirements such as *"either the CEO or 3 of 5 of his assistants need to sign"*.
- *
+ * <p>
  * Composite key implementations will track the minimum total weight required (in the simple case – the minimum number of child
  * signatures required) to satisfy the subtree rooted at this node.
  */
@@ -41,10 +41,9 @@ public interface CompositeKey extends PublicKey {
 
     /**
      * Takes single [PublicKey] and checks if [CompositeKey] requirements hold for that key.
-     * 
+     *
      * @param key the public key
      * @return true if the public key is a composite key, false otherwise
-     * 
      */
     boolean isFulfilledBy(PublicKey key);
 

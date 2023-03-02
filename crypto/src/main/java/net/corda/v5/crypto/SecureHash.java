@@ -10,19 +10,20 @@ import java.nio.ByteBuffer;
 /**
  * Container for a cryptographically secure hash value.
  * Provides utilities for generating a cryptographic hash using different algorithms (currently only SHA-256 supported).
- *
- * @param algorithm Hashing algorithm which was used to generate the hash.
- * @param bytes Hash value.
- *
- * @property bytes Hash value
  */
 @CordaSerializable
 public final class SecureHash extends OpaqueBytes {
+    /**
+     * Construct a secure hash.
+     *
+     * @param algorithm Hashing algorithm which was used to generate the hash.
+     * @param bytes     Hash value.
+     */
     public SecureHash(@NotNull String algorithm, @NotNull byte[] bytes) {
         super(bytes);
         this.algorithm = algorithm;
     }
-    
+
     static final char DELIMITER = ':';
 
     /**
@@ -31,10 +32,9 @@ public final class SecureHash extends OpaqueBytes {
      * This function does not validate the length of the created digest. Prefer using
      * [net.corda.v5.application.crypto.HashingService.parse] for a safer mechanism for creating [SecureHash]es.
      *
-     * @see net.corda.v5.application.crypto.HashingService.parse
      */
 
-    public static final SecureHash parse(String str) {
+    public static SecureHash parse(String str) {
         int idx = str.indexOf(DELIMITER);
         if (idx == -1) {
             throw new IllegalArgumentException("Provided string: $str should be of format algorithm:hexadecimal");
@@ -52,23 +52,24 @@ public final class SecureHash extends OpaqueBytes {
     /**
      * Returns hexadecimal representation of the hash value.
      */
-    public final String toHexString()  {
+    public String toHexString() {
         return ByteArrays.toHexString(this.getBytes());
     }
 
     /**
-     * Returns the first [prefixLen] hexadecimal digits of the [SecureHash] value. 
+     * Returns the first [prefixLen] hexadecimal digits of the [SecureHash] value.
+     *
      * @param prefixLen The number of characters in the prefix.
      */
-    public final String prefixChars(int prefixLen) {
+    public String prefixChars(int prefixLen) {
         return this.toHexString().substring(0, prefixLen);
     }
 
 
     /**
-     * Returns the first 6 hexadecimal digits of the [SecureHash] value. 
+     * Returns the first 6 hexadecimal digits of the [SecureHash] value.
      */
-    public final String prefixChars() {
+    public String prefixChars() {
         return prefixChars(6);
     }
 
@@ -77,7 +78,7 @@ public final class SecureHash extends OpaqueBytes {
      */
     public boolean equals(Object other) {
         if (this == other) return true;
-        return other instanceof SecureHash &&  this.algorithm.equals(((SecureHash)other).algorithm) && super.equals(other);
+        return other instanceof SecureHash && this.algorithm.equals(((SecureHash) other).algorithm) && super.equals(other);
     }
 
     /**
@@ -91,6 +92,7 @@ public final class SecureHash extends OpaqueBytes {
      * Converts a [SecureHash] object to a string representation containing the [algorithm] and hexadecimal
      * representation of the [bytes] separated by the colon character.
      */
+    @NotNull
     public String toString() {
         return this.algorithm + ':' + this.toHexString();
     }

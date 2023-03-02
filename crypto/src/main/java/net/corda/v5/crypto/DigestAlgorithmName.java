@@ -1,7 +1,5 @@
 package net.corda.v5.crypto;
 
-import java.util.Locale;
-
 import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -14,8 +12,8 @@ import org.jetbrains.annotations.Nullable;
 public final class DigestAlgorithmName {
     /**
      * Construt a digest algorith name.
-     * 
-     *  * @param name The name of the digest algorithm to be used for the instance.
+     * <p>
+     * * @param name The name of the digest algorithm to be used for the instance.
      */
     public DigestAlgorithmName(@NotNull String name) {
         if (name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
@@ -48,7 +46,7 @@ public final class DigestAlgorithmName {
      */
     @NotNull
     public static final DigestAlgorithmName SHA2_512 = new DigestAlgorithmName("SHA-512");
-    
+
     /**
      * Converts a [DigestAlgorithmName] object to a string representation.
      */

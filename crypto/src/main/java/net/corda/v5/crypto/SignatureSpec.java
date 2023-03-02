@@ -10,12 +10,6 @@ import java.security.spec.PSSParameterSpec;
 
 /**
  * This class is used to define a digital signature scheme.
- *
- * @param signatureName The signature-scheme name as required to create [java.security.Signature]
- * objects (e.g. "SHA256withECDSA").
- *
- * When used for signing the [signatureName] must match the corresponding key scheme, e.g. you cannot use
- * "SHA256withECDSA" with "RSA" keys.
  */
 @CordaSerializable
 public class SignatureSpec {
@@ -24,7 +18,28 @@ public class SignatureSpec {
      */
     @NotNull
     private final String signatureName;
-    
+
+    /**
+     * Construct a signature spec
+     *
+     * @param signatureName The signature-scheme name as required to create [java.security.Signature]
+     *                      objects (e.g. "SHA256withECDSA").
+     *                      <p>
+     *                      When used for signing the [signatureName] must match the corresponding key scheme, e.g. you cannot use
+     *                      "SHA256withECDSA" with "RSA" keys.
+     */
+    public SignatureSpec(@NotNull String signatureName) {
+        super();
+        this.signatureName = signatureName;
+        if (signatureName == null) {
+            throw new IllegalArgumentException("The signatureName must not be null.");
+        }
+        if (signatureName.isBlank()) {
+            throw new IllegalArgumentException("The signatureName must not be blank.");
+        }
+    }
+
+
     /**
      * SHA256withRSA [SignatureSpec].
      */
@@ -43,43 +58,43 @@ public class SignatureSpec {
     /**
      * RSASSA-PSS with SHA256 [SignatureSpec].
      */
-    public static final ParameterizedSignatureSpec  RSASSA_PSS_SHA256 = new ParameterizedSignatureSpec(
-        "RSASSA-PSS",
-        new PSSParameterSpec(
-            "SHA-256",
-            "MGF1",
-            MGF1ParameterSpec.SHA256,
-            32,
-            1
-        )
+    public static final ParameterizedSignatureSpec RSASSA_PSS_SHA256 = new ParameterizedSignatureSpec(
+            "RSASSA-PSS",
+            new PSSParameterSpec(
+                    "SHA-256",
+                    "MGF1",
+                    MGF1ParameterSpec.SHA256,
+                    32,
+                    1
+            )
     );
 
     /**
      * RSASSA-PSS with SHA384 [SignatureSpec].
      */
     public static final ParameterizedSignatureSpec RSASSA_PSS_SHA384 = new ParameterizedSignatureSpec(
-        "RSASSA-PSS",
-        new PSSParameterSpec(
-            "SHA-384",
-            "MGF1",
-            MGF1ParameterSpec.SHA384,
-            48,
-            1
-        )
+            "RSASSA-PSS",
+            new PSSParameterSpec(
+                    "SHA-384",
+                    "MGF1",
+                    MGF1ParameterSpec.SHA384,
+                    48,
+                    1
+            )
     );
 
     /**
      * RSASSA-PSS with SHA512 [SignatureSpec].
      */
     public static final ParameterizedSignatureSpec RSASSA_PSS_SHA512 = new ParameterizedSignatureSpec(
-        "RSASSA-PSS",
-        new PSSParameterSpec(
-            "SHA-512",
-            "MGF1",
-            MGF1ParameterSpec.SHA512,
-            64,
-            1
-        )
+            "RSASSA-PSS",
+            new PSSParameterSpec(
+                    "SHA-512",
+                    "MGF1",
+                    MGF1ParameterSpec.SHA512,
+                    64,
+                    1
+            )
     );
 
     /**
@@ -100,13 +115,13 @@ public class SignatureSpec {
     /**
      * SHA256withECDSA [SignatureSpec].
      */
-    public static final SignatureSpec ECDSA_SHA256 = new SignatureSpec( "SHA256withECDSA");
+    public static final SignatureSpec ECDSA_SHA256 = new SignatureSpec("SHA256withECDSA");
 
     /**
      * SHA384withECDSA [SignatureSpec].
      */
     public static final SignatureSpec ECDSA_SHA384 = new SignatureSpec("SHA384withECDSA");
-            
+
     /**
      * SHA512withECDSA [SignatureSpec].
      */
@@ -136,22 +151,11 @@ public class SignatureSpec {
      * GOST3411withGOST3410 [SignatureSpec].
      */
     public static final SignatureSpec GOST3410_GOST3411 = new SignatureSpec("GOST3411withGOST3410");
-
-    public SignatureSpec(@NotNull String signatureName) {
-        super();
-        this.signatureName = signatureName;
-        if (signatureName == null) {
-            throw new IllegalArgumentException("The signatureName must not be null.");
-        }
-        if (signatureName.isBlank()) {
-            throw new IllegalArgumentException("The signatureName must not be blank.");
-        }
-    }
-
-    public boolean equals(@Nullable Object other) {
-        return this == other || (other != null && (other instanceof SignatureSpec) && ((SignatureSpec)other).signatureName == this.signatureName);
-    }
     
+    public boolean equals(@Nullable Object other) {
+        return this == other || (other != null && (other instanceof SignatureSpec) && ((SignatureSpec) other).signatureName.equals(this.signatureName));
+    }
+
     /**
      * Converts a [SignatureSpec] object to a string representation containing the [signatureName].
      */
@@ -163,7 +167,7 @@ public class SignatureSpec {
     public final @NotNull String getSignatureName() {
         return this.signatureName;
     }
-    
+
     public int hashCode() {
         return this.signatureName.hashCode();
     }

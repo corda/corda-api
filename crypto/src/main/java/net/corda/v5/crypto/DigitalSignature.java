@@ -18,15 +18,15 @@ public class DigitalSignature extends OpaqueBytes {
 
     /**
      * A digital signature that identifies who the public key is owned by.
-     *
      */
     public static class WithKey extends DigitalSignature {
-        /** Construct WithKey
-         * 
-         * @param by The public key of the corresponding private key used to sign the data (as if an instance
-         * of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
-         * the member).
-         * @param bytes The signature.
+        /**
+         * Construct WithKey
+         *
+         * @param by      The public key of the corresponding private key used to sign the data (as if an instance
+         *                of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
+         *                the member).
+         * @param bytes   The signature.
          * @param context The context which was passed to the signing operation, note that this context is not signed over.
          */
         public WithKey(@NotNull PublicKey by, @NotNull byte[] bytes, @NotNull Map<String, String> context) {
@@ -46,7 +46,7 @@ public class DigitalSignature extends OpaqueBytes {
         @NotNull
         private final Map<String, String> context;
 
-        public final PublicKey getBy() {
+        @NotNull public final PublicKey getBy() {
             return this.by;
         }
 

@@ -7,6 +7,5 @@ import net.corda.v5.base.annotations.CordaSerializable;
  */
 @CordaSerializable
 public enum MerkleProofType {
-    AUDIT,
-    SIZE;
+    AUDIT, SIZE
 }

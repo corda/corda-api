@@ -9,11 +9,6 @@ import java.util.Arrays;
 /**
  * [IndexedMerkleLeaf]s are building blocks of [MerkleProof]s.
  * They contain the required information about a particular leaf which is needed for the verification.
- *
- * @property index The leaf's index.
- * @property nonce The leaf's optional nonce.
- * @property leafData The leaf's data.
- *
  */
 
 @CordaSerializable
@@ -25,23 +20,23 @@ public final class IndexedMerkleLeaf {
     private final byte[] leafData;
 
 
-     public IndexedMerkleLeaf(int index, @Nullable byte[] nonce, @NotNull byte[] leafData) {
+    public IndexedMerkleLeaf(int index, @Nullable byte[] nonce, @NotNull byte[] leafData) {
         super();
         this.index = index;
         this.nonce = nonce;
         this.leafData = leafData;
     }
 
-    @NotNull 
-    public String toString() { 
-        return "Leaf(" + this.index + ")[" + this.leafData.length + " bytes]"; 
+    @NotNull
+    public String toString() {
+        return "Leaf(" + this.index + ")[" + this.leafData.length + " bytes]";
     }
 
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null) return false;
         if (!(other instanceof IndexedMerkleLeaf)) return false;
-        
+
         IndexedMerkleLeaf otherLeaf = (IndexedMerkleLeaf) other;
 
         if (index != otherLeaf.index) return false;
