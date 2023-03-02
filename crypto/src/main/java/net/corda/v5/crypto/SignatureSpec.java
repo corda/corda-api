@@ -151,26 +151,36 @@ public class SignatureSpec {
      * GOST3411withGOST3410 [SignatureSpec].
      */
     public static final SignatureSpec GOST3410_GOST3411 = new SignatureSpec("GOST3411withGOST3410");
-    
+
     public boolean equals(@Nullable Object other) {
         return this == other || (other != null && (other instanceof SignatureSpec) && ((SignatureSpec) other).signatureName.equals(this.signatureName));
     }
 
     /**
      * Converts a [SignatureSpec] object to a string representation containing the [signatureName].
+     *
+     * @return a string containing the signature name
      */
-
     public @NotNull String toString() {
         return this.signatureName;
     }
 
+    /**
+     * Alternative access getter for the signature name, for completeness; same result as [toString].
+     *
+     * @return a string containing the signature name.
+     */
     public final @NotNull String getSignatureName() {
         return this.signatureName;
     }
 
+    /**
+     * Obtain a hashc code for the signature name.
+     *
+     * @return the hash code
+     */
     public int hashCode() {
         return this.signatureName.hashCode();
     }
-
-
+    
 }
