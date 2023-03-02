@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
  * such as RSASSA-PSS
  */
 public final class ParameterizedSignatureSpec extends SignatureSpec {
+    @NotNull
+    private final AlgorithmParameterSpec params;
 
     /**
      * Construct a paremeterized signature spec.
@@ -25,9 +27,6 @@ public final class ParameterizedSignatureSpec extends SignatureSpec {
         super(signatureName);
         this.params = params;
     }
-
-    @NotNull
-    private final AlgorithmParameterSpec params;
 
     /**
      * Converts a [ParameterizedSignatureSpec] object to a string representation.
