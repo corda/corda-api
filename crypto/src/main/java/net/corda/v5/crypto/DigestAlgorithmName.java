@@ -18,9 +18,8 @@ public final class DigestAlgorithmName {
      *  * @param name The name of the digest algorithm to be used for the instance.
      */
     public DigestAlgorithmName(@NotNull String name) {
-        super();
+        if (name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
         this.name = name;
-        if (this.name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
     }
 
     @NotNull
@@ -49,14 +48,7 @@ public final class DigestAlgorithmName {
      */
     @NotNull
     public static final DigestAlgorithmName SHA2_512 = new DigestAlgorithmName("SHA-512");
-
-
-    /**
-     * Instance of algorithm which is considered to be default. Set as SHA-256
-     */
-    @NotNull
-    public static final DigestAlgorithmName DEFAULT_ALGORITHM_NAME;
-
+    
     /**
      * Converts a [DigestAlgorithmName] object to a string representation.
      */
@@ -86,9 +78,5 @@ public final class DigestAlgorithmName {
     @NotNull
     public String getName() {
         return this.name;
-    }
-
-    static {
-        DEFAULT_ALGORITHM_NAME = SHA2_256;
     }
 }
