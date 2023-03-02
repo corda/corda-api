@@ -15,10 +15,10 @@ import java.util.Arrays;
 public final class IndexedMerkleLeaf {
 
     private final int index;
-    
+
     @Nullable
     private final byte[] nonce;
-    
+
     @NotNull
     private final byte[] leafData;
 
@@ -57,4 +57,31 @@ public final class IndexedMerkleLeaf {
         return result;
     }
 
+    /*
+     * Obtain the index of this leaf
+     *
+     * @result integer leaf index
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    /*
+     * Obtain the nonce of this tree leaf
+     *
+     * @result nonce as a byte array
+     */
+    @Nullable
+    public byte[] getNonce() {
+        return nonce;
+    }
+
+    /* Obtain the data for this leaf.
+     *
+     * @result leaf data as a byte array
+     */
+    @NotNull
+    public byte[] getLeafData() {
+        return leafData;
+    }
 }
