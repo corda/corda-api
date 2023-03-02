@@ -9,6 +9,10 @@ import java.security.PublicKey;
  * A simple data class for passing keys and weights into CompositeKeyGenerator
  */
 public final class CompositeKeyNodeAndWeight {
+    @NotNull
+    private final PublicKey node;
+    private final int weight;
+
     /**
      * Construct a key
      *
@@ -22,12 +26,7 @@ public final class CompositeKeyNodeAndWeight {
         if (this.weight <= 0)
             throw new IllegalArgumentException("A non-positive weight was detected. Member info: " + this);
     }
-
-    @NotNull
-    private final PublicKey node;
-    private final int weight;
-
-
+    
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node) {
         this(node, 1);
     }
