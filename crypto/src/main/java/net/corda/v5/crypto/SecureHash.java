@@ -38,6 +38,7 @@ public final class SecureHash extends OpaqueBytes {
      * This function does not validate the length of the created digest. Prefer using
      * <code>HashingService#parse</code> for a safer mechanism for creating {@link SecureHash}es.
      */
+    @NotNull
     public static SecureHash parse(String str) {
         int idx = str.indexOf(DELIMITER);
         if (idx == -1) {
@@ -53,6 +54,7 @@ public final class SecureHash extends OpaqueBytes {
     /**
      * Returns hexadecimal representation of the hash value.
      */
+    @NotNull
     public String toHexString() {
         return ByteArrays.toHexString(this.getBytes());
     }
@@ -62,6 +64,7 @@ public final class SecureHash extends OpaqueBytes {
      *
      * @param prefixLen The number of characters in the prefix.
      */
+    @NotNull
     public String prefixChars(int prefixLen) {
         return this.toHexString().substring(0, prefixLen);
     }
@@ -70,6 +73,7 @@ public final class SecureHash extends OpaqueBytes {
     /**
      * Returns the first 6 hexadecimal digits of the {@link SecureHash} value.
      */
+    @NotNull
     public String prefixChars() {
         return prefixChars(6);
     }
