@@ -4,6 +4,7 @@ import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.ByteArrays;
 import net.corda.v5.base.types.OpaqueBytes;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.nio.ByteBuffer;
 
@@ -39,7 +40,7 @@ public final class SecureHash extends OpaqueBytes {
      * <code>HashingService#parse</code> for a safer mechanism for creating {@link SecureHash}es.
      */
     @NotNull
-    public static SecureHash parse(String str) {
+    public static SecureHash parse(@NotNull String str) {
         int idx = str.indexOf(DELIMITER);
         if (idx == -1) {
             throw new IllegalArgumentException("Provided string: $str should be of format algorithm:hexadecimal");
@@ -81,7 +82,7 @@ public final class SecureHash extends OpaqueBytes {
     /**
      * Compares the two given instances of the {@link SecureHash} based on the content.
      */
-    public boolean equals(Object other) {
+    public boolean equals(@Nullable Object other) {
         if (this == other) return true;
         return other instanceof SecureHash && this.algorithm.equals(((SecureHash) other).algorithm) && super.equals(other);
     }

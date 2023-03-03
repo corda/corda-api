@@ -100,56 +100,67 @@ public class SignatureSpec {
     /**
      * RSASSA-PSS with SHA256 and MGF1 {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec RSA_SHA256_WITH_MGF1 = new SignatureSpec("SHA256withRSAandMGF1");
 
     /**
      * RSASSA-PSS with SHA384 and MGF1 {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec RSA_SHA384_WITH_MGF1 = new SignatureSpec("SHA384withRSAandMGF1");
 
     /**
      * RSASSA-PSS with SHA512 and MGF1 {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec RSA_SHA512_WITH_MGF1 = new SignatureSpec("SHA512withRSAandMGF1");
 
     /**
      * SHA256withECDSA {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec ECDSA_SHA256 = new SignatureSpec("SHA256withECDSA");
 
     /**
      * SHA384withECDSA {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec ECDSA_SHA384 = new SignatureSpec("SHA384withECDSA");
 
     /**
      * SHA512withECDSA {@link SignatureSpec}].
      */
+    @NotNull
     public static final SignatureSpec ECDSA_SHA512 = new SignatureSpec("SHA512withECDSA");
 
     /**
      * EdDSA {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec EDDSA_ED25519 = new SignatureSpec("EdDSA");
 
     /**
      * SHA512withSPHINCS256 {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec SPHINCS256_SHA512 = new SignatureSpec("SHA512withSPHINCS256");
 
     /**
      * SM3withSM2 {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec SM2_SM3 = new SignatureSpec("SM3withSM2");
 
     /**
      * SHA256withSM2 {@link SignatureSpec}
      */
+    @NotNull
     public static final SignatureSpec SM2_SHA256 = new SignatureSpec("SHA256withSM2");
 
     /**
      * GOST3411withGOST3410 {@link SignatureSpec}.
      */
+    @NotNull
     public static final SignatureSpec GOST3410_GOST3411 = new SignatureSpec("GOST3411withGOST3410");
 
     public boolean equals(@Nullable Object other) {

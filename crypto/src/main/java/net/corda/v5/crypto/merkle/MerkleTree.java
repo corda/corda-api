@@ -18,6 +18,7 @@ public interface MerkleTree {
      *
      * @return The input data elements.
      */
+    @NotNull
     List<byte[]> getLeaves();
 
     /**
@@ -25,6 +26,7 @@ public interface MerkleTree {
      *
      * @return The digest
      */
+    @NotNull
     MerkleTreeHashDigest getDigest();
 
     /**
@@ -32,6 +34,7 @@ public interface MerkleTree {
      *
      * @return The root element hash
      */
+    @NotNull
     SecureHash getRoot();
 
     /**
@@ -40,5 +43,6 @@ public interface MerkleTree {
      * @param leafIndices whose leaf's inclusion is to be proven by the proof.
      * @return {@link MerkleProof} for the input leaves.
      */
+    @NotNull
     MerkleProof createAuditProof(@NotNull List<Integer> leafIndices);
 }
