@@ -11,7 +11,7 @@ import java.util.List;
  * <p>
  * Use {@link MerkleTree#createAuditProof} to create a proof for a set of leaves for an
  * existing {@link MerkleTree}.
- * Construct a {@link MerkleProof} from its (<code>treeSize</code>, <code>leaves</code>}, <code>hashes</code>) 
+ * Construct a {@link MerkleProof} from its (<code>treeSize</code>, <code>leaves</code>, <code>hashes</code>) 
  * when you want to <code>verify</code>} if the leaves to be checked are part of a {@link MerkleTree} with the specific root.
  */
 @CordaSerializable
