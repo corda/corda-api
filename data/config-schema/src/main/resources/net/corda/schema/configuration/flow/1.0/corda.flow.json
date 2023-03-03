@@ -97,7 +97,8 @@
           "maximum": 2147483647,
           "default": 5
         }
-      }
+      },
+      "additionalProperties": false
     },
     "additionalProperties": false
   },
