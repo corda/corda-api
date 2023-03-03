@@ -20,10 +20,9 @@ public class KeyUtils {
         if (key instanceof CompositeKey) {
             CompositeKey compositeKey = (CompositeKey) key;
             Set<PublicKey> currentKeys = compositeKey == null ? Collections.singleton(key) : compositeKey.getLeafKeys();
-            for (PublicKey myKey : otherKeys) {
-                for (PublicKey otherKey : currentKeys) {
-                    if (otherKey.equals(myKey)) return true;
-                }
+            Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
+            for (PublicKey otherKey : otherKeys) {
+                if (leafKeys.contains(otherKey)) return true;
             }
         } else {
             for (PublicKey otherKey : otherKeys) {
@@ -32,7 +31,7 @@ public class KeyUtils {
         }
         return false;
     }
-
+    
     /**
      * Return true if [otherKey] fulfils the requirements of [firstKey]
      */
