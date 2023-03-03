@@ -19,7 +19,7 @@ public final class SecureHash extends OpaqueBytes {
     @NotNull
     private final String algorithm;
 
-    /**
+   /**
      * Construct a secure hash.
      *
      * @param algorithm Hashing algorithm which was used to generate the hash.
