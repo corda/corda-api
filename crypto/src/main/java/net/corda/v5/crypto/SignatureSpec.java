@@ -17,7 +17,6 @@ public class SignatureSpec {
      * The signature-scheme name as required to create {@link java.security.Signature} objects
      * (e.g. <code>SHA256withECDSA</code>).
      */
-    @NotNull
     private final String signatureName;
 
     /**

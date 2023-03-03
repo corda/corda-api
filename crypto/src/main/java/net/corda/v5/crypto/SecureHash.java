@@ -17,7 +17,6 @@ public final class SecureHash extends OpaqueBytes {
     /**
      * The hash algorithm.
      */
-    @NotNull
     private final String algorithm;
 
    /**

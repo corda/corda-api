@@ -9,7 +9,6 @@ import java.security.spec.AlgorithmParameterSpec;
  * such as <code>RSASSA-PSS</code>.
  */
 public final class ParameterizedSignatureSpec extends SignatureSpec {
-    @NotNull
     private final AlgorithmParameterSpec params;
 
     /**

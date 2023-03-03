@@ -13,9 +13,9 @@ import java.util.Arrays;
 @CordaSerializable
 public final class IndexedMerkleLeaf {
     private final int index;
-    @Nullable
+    
     private final byte[] nonce;
-    @NotNull
+    
     private final byte[] leafData;
 
     public IndexedMerkleLeaf(int index, @Nullable byte[] nonce, @NotNull byte[] leafData) {
@@ -54,7 +54,7 @@ public final class IndexedMerkleLeaf {
     /**
      * Obtain the index of this leaf
      *
-     * @result integer leaf index
+     * @return integer leaf index
      */
     public int getIndex() {
         return index;
@@ -63,7 +63,7 @@ public final class IndexedMerkleLeaf {
     /**
      * Obtain the nonce of this tree leaf
      *
-     * @result nonce as a byte array
+     * @return nonce as a byte array
      */
     @Nullable
     public byte[] getNonce() {
@@ -73,7 +73,7 @@ public final class IndexedMerkleLeaf {
     /**
      * Obtain the data for this leaf.
      *
-     * @result leaf data as a byte array
+     * @return leaf data as a byte array
      */
     @NotNull
     public byte[] getLeafData() {
