@@ -46,10 +46,8 @@ public class DigitalSignature extends OpaqueBytes {
          * of the {@link CompositeKey} is passed to the sign operation it may contain keys which are not actually owned by
          * the member).
          */
-        @NotNull
         private final PublicKey by;
 
-        @NotNull
         private final Map<String, String> context;
 
         @NotNull
