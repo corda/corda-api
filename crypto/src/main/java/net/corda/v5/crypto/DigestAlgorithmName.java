@@ -9,7 +9,6 @@ import org.jetbrains.annotations.Nullable;
  */
 @CordaSerializable
 public final class DigestAlgorithmName {
-    @NotNull
     private final String name;
 
     /**
