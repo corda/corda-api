@@ -39,14 +39,14 @@ public interface CompositeKey extends PublicKey {
      * @param key the public key
      * @return true if the public key is a composite key, false otherwise
      */
-    boolean isFulfilledBy(PublicKey key);
+    boolean isFulfilledBy(@NotNull PublicKey key);
 
     /**
      * Checks if the public keys corresponding to the signatures are matched against the leaves of the composite
      * key tree in question, and the total combined weight of all children is calculated for every intermediary node.
      * If all thresholds are satisfied, the composite key requirement is considered to be met.
      */
-    boolean isFulfilledBy(Iterable<PublicKey> keysToCheck);
+    boolean isFulfilledBy(@NotNull Iterable<PublicKey> keysToCheck);
 
     /**
      * Set of all leaf keys of that {@link CompositeKey}.
