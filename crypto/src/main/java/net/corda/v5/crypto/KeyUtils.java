@@ -25,12 +25,12 @@ public class KeyUtils {
             Set<PublicKey> currentKeys = compositeKey == null ? Collections.singleton(key) : compositeKey.getLeafKeys();
             for (PublicKey myKey : otherKeys) {
                 for (PublicKey otherKey : currentKeys) {
-                    if (otherKey == myKey) return true;
+                    if (otherKey.equals(myKey)) return true;
                 }
             }
         } else {
             for (PublicKey otherKey : otherKeys) {
-                if (otherKey == key) return true;
+                if (otherKey.equals(key)) return true;
             }
         }
         return false;
