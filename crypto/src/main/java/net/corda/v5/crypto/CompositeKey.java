@@ -24,11 +24,6 @@ import java.util.Set;
  */
 public interface CompositeKey extends PublicKey {
     /**
-     * Constant specifying the maximum number of children keys in the [CompositeKey].
-     */
-    int COMPOSITE_KEY_CHILDREN_LIMIT = 10;
-
-    /**
      * This method will detect graph cycles in the full composite key structure to protect against infinite loops when
      * traversing the graph and key duplicates in each layer. It also checks if the threshold and weight constraint
      * requirements are met, while it tests for aggregated-weight integer overflow.

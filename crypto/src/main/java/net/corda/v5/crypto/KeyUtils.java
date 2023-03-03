@@ -5,14 +5,11 @@ import java.util.Collections;
 import java.util.Set;
 
 public class KeyUtils {
-    private KeyUtils() {}
 
-    /**
-     * Constant specifying the maximum number of key lookup by id items.
-     */
-    public static int KEY_LOOKUP_INPUT_ITEMS_LIMIT = 20;
-
-
+    private KeyUtils() {
+        // this class is never constructed; it exists for the static methods and data only
+    }
+    
     /**
      * Checks whether any of the given [keys] match a leaf on the [CompositeKey] tree or a single [PublicKey].
      * <p>
@@ -53,7 +50,7 @@ public class KeyUtils {
             return firstKeyComposite.isFulfilledBy(otherKeys);
         }
         for (PublicKey otherKey : otherKeys) {
-            if (otherKey.equals(firstKey)) return true;
+            if (otherKey == firstKey) return true;
         }
         return false;
     }
