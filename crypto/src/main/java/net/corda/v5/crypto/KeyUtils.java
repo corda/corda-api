@@ -9,17 +9,21 @@ public class KeyUtils {
     private KeyUtils() {
         // this class is never constructed; it exists for the static methods and data only
     }
-    
+
     /**
-     * Checks whether any of the given [keys] match a leaf on the [CompositeKey] tree or a single [PublicKey].
-     * <p>
-     * <i>Note that this function checks against leaves, which cannot be of type [CompositeKey]. Due to that, if any of the
-     * [otherKeys] is a [CompositeKey], this function will not find a match.</i>
+     * Checks whether any of the given <code>keys</code> match a leaf on the {@link CompositeKey} tree or a single
+     * {@link PublicKey}.
+     *
+     * <i>Note that this function checks against leaves, which cannot be of type {@link CompositeKey} Due to that, if any of the
+     * <code>otherKeys</code> is a {@link CompositeKey}, this function will not find a match.</i>
+     *
+     * @param key       the key being checked for
+     * @param otherKeys an {@link Iterable} sequence of {@link PublicKey}
+     * @return true if key is in otherKeys
      */
     public static boolean isKeyInSet(PublicKey key, Iterable<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
             CompositeKey compositeKey = (CompositeKey) key;
-            Set<PublicKey> currentKeys = compositeKey == null ? Collections.singleton(key) : compositeKey.getLeafKeys();
             Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
             for (PublicKey otherKey : otherKeys) {
                 if (leafKeys.contains(otherKey)) return true;
@@ -31,9 +35,12 @@ public class KeyUtils {
         }
         return false;
     }
-    
+
     /**
-     * Return true if [otherKey] fulfils the requirements of [firstKey]
+     * Return true if one key fulfills the requirements of another key.
+     *
+     * @param firstKey the key with the requirements
+     * @param otherKey the key to check whether requirements are fulfilled
      */
     public static boolean isKeyFulfilledBy(PublicKey firstKey, PublicKey otherKey) {
         return isKeyFulfilledBy(firstKey,
@@ -41,7 +48,10 @@ public class KeyUtils {
     }
 
     /**
-     * Return true if [otherKeys] fulfil the requirements of [firstKey].
+     * Return true if any of a set of other keys fulfil the requirements of a key
+     *
+     * @param firstKey  the key with the requirements
+     * @param otherKeys the key to check whether requirements are fulfilled
      */
     public static boolean isKeyFulfilledBy(PublicKey firstKey, Iterable<PublicKey> otherKeys) {
         if (firstKey instanceof CompositeKey) {

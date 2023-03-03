@@ -15,7 +15,8 @@ public final class DigestAlgorithmName {
     /**
      * Construct a digest algorithm name.
      * <p>
-     * * @param name The name of the digest algorithm to be used for the instance.
+     *
+     * @param name The name of the digest algorithm to be used for the instance.
      */
     public DigestAlgorithmName(@NotNull String name) {
         if (name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
@@ -47,7 +48,7 @@ public final class DigestAlgorithmName {
     public static final DigestAlgorithmName SHA2_512 = new DigestAlgorithmName("SHA-512");
 
     /**
-     * Converts a [DigestAlgorithmName] object to a string representation.
+     * Converts a {@link DigestAlgorithmName} object to a string representation.
      */
     @NotNull
     public String toString() {
@@ -62,7 +63,9 @@ public final class DigestAlgorithmName {
     }
 
     /**
-     * Returns a Boolean to indicate if the two specified instances of the [DigestAlgorithmName] are the same based on their content.
+     * Check if two specified instances of the {@link DigestAlgorithmName} are the same based on their content.
+     *
+     * @return true if they are equal.
      */
     public boolean equals(@Nullable Object other) {
         if (other == null) return false;

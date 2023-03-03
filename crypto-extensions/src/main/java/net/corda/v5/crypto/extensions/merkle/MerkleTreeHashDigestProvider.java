@@ -1,17 +1,21 @@
 package net.corda.v5.crypto.extensions.merkle;
 
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.crypto.merkle.MerkleTree;
 import net.corda.v5.crypto.merkle.MerkleTreeHashDigest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Different use cases require different [MerkleTree] calculations.
- * [MerkleTreeHashDigestProvider]s let us specify the
- * - Leaf Nonce
- * - Leaf Hash
- * - Node Hash calculation methods
- * - Base Digest Algorithm
+ * Different use cases require different {@link MerkleTree} calculations.
+ * {@link MerkleTreeHashDigestProvider}s let us specify the
+ * 
+ * <ul>
+ * <li> Leaf Nonce </li>
+ * <li> Leaf Hash </li>
+ * <li> Node Hash calculation methods </li>
+ * <li> Base Digest Algorithm </li>
+ * </ul>
  */
 
 public interface MerkleTreeHashDigestProvider extends MerkleTreeHashDigest {

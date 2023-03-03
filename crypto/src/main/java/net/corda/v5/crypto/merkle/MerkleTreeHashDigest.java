@@ -4,8 +4,8 @@ import net.corda.v5.crypto.DigestAlgorithmName;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Different use cases require different [MerkleTree] calculations.
- * [MerkleTreeHashDigest]s let us specify such implementations.
+ * Different use cases require different {@link MerkleTree} calculations.
+ * {@link MerkleTreeHashDigest}s let us specify such implementations.
  */
 public interface MerkleTreeHashDigest {
     

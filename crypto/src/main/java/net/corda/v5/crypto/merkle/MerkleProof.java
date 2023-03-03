@@ -7,12 +7,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * [MerkleProof]s can be used to verify if some specific data is part of a [MerkleTree].
+ * {@link MerkleProof}s can be used to verify if some specific data is part of a {@link MerkleTree}.
  * <p>
- * Use [net.corda.v5.crypto.merkle.MerkleTree.createAuditProof] to create a proof for a set of leaves for an
- * existing [MerkleTree].
- * Construct a [MerkleProof] from its ([treeSize], [leaves], [hashes]) when you want to [verify] if the leaves
- * to be checked are part of a [MerkleTree] with the specific root.
+ * Use {@link MerkleTree#createAuditProof} to create a proof for a set of leaves for an
+ * existing {@link MerkleTree}.
+ * Construct a {@link MerkleProof} from its (<code>treeSize</code>, <code>leaves</code>}, <code>hashes</code>) 
+ * when you want to <code>verify</code>} if the leaves to be checked are part of a {@link MerkleTree} with the specific root.
  */
 @CordaSerializable
 public interface MerkleProof {
@@ -32,7 +32,7 @@ public interface MerkleProof {
     List<SecureHash> getHashes();
 
     /**
-     * Checks if the [MerkleProof] has been generated from a [MerkleTree] with the given [root].
+     * Checks if the {@link MerkleProof} has been generated from a {@link MerkleTree} with the given root.
      *
      * @param root   The root of the tree to be verified.
      * @param digest The tree's digest.
@@ -41,7 +41,7 @@ public interface MerkleProof {
     boolean verify(@NotNull SecureHash root, @NotNull MerkleTreeHashDigest digest);
 
     /**
-     * Rebuilds the [MerkleTree] from the [MerkleProof] and returns its root [SecureHash].
+     * Rebuilds the {@link MerkleTree} from the {@link MerkleProof} and returns its root {@link SecureHash}.
      *
      * @param digest The tree's digest.
      * @return Root hash of the tree.

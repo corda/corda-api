@@ -6,9 +6,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * [MerkleTree]s are cryptographic data structures which can be used to create a short fingerprint of a larger
+ * {@link MerkleTree}s are cryptographic data structures which can be used to create a short fingerprint of a larger
  * structured dataset.
- * From [MerkleTree]s, we can create [MerkleProof]s which let us prove that some particular data is part of the whole
+ * From {@link MerkleTree}s, we can create {@link MerkleProof}s which let us prove that some particular data is part of the whole
  * tree without revealing the remaining data.
  */
 public interface MerkleTree {
@@ -21,7 +21,7 @@ public interface MerkleTree {
     List<byte[]> getLeaves();
 
     /**
-     * Return the [MerkleTreeHashDigest] used to construct the tree's node and leaf hashes.
+     * Return the {@link MerkleTreeHashDigest} used to construct the tree's node and leaf hashes.
      *
      * @return The digest
      */
@@ -35,10 +35,10 @@ public interface MerkleTree {
     SecureHash getRoot();
 
     /**
-     * Creates a [MerkleProof] for a set of leaves.
+     * Creates a {@link MerkleProof} for a set of leaves.
      *
      * @param leafIndices whose leaf's inclusion is to be proven by the proof.
-     * @return [MerkleProof] for the input leaves.
+     * @return {@link MerkleProof} for the input leaves.
      */
     MerkleProof createAuditProof(@NotNull List<Integer> leafIndices);
 }

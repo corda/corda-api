@@ -14,7 +14,8 @@ import java.security.spec.PSSParameterSpec;
 @CordaSerializable
 public class SignatureSpec {
     /**
-     * The signature-scheme name as required to create [java.security.Signature] objects (e.g. "SHA256withECDSA").
+     * The signature-scheme name as required to create {@link java.security.Signature} objects
+     * (e.g. <code>SHA256withECDSA</code>).
      */
     @NotNull
     private final String signatureName;
@@ -22,11 +23,11 @@ public class SignatureSpec {
     /**
      * Construct a signature spec
      *
-     * @param signatureName The signature-scheme name as required to create [java.security.Signature]
-     *                      objects (e.g. "SHA256withECDSA").
+     * @param signatureName The signature-scheme name as required to create {@link java.security.Signature}
+     *                      objects (e.g. <code>SHA256withECDSA</code>).
      *                      <p>
      *                      When used for signing the [signatureName] must match the corresponding key scheme, e.g. you cannot use
-     *                      "SHA256withECDSA" with "RSA" keys.
+     *                      <code>SHA256withECDSA</code> with <code>RSA</code> keys.
      */
     public SignatureSpec(@NotNull String signatureName) {
         if (signatureName == null) {
@@ -40,22 +41,22 @@ public class SignatureSpec {
 
 
     /**
-     * SHA256withRSA [SignatureSpec].
+     * SHA256withRSA {@link SignatureSpec}.
      */
     public static final SignatureSpec RSA_SHA256 = new SignatureSpec("SHA256withRSA");
 
     /**
-     * SHA384withRSA [SignatureSpec].
+     * SHA384withRSA {@link SignatureSpec}.
      */
     public static final SignatureSpec RSA_SHA384 = new SignatureSpec("SHA384withRSA");
 
     /**
-     * SHA512withRSA [SignatureSpec].
+     * SHA512withRSA {@link SignatureSpec}.
      */
     public static final SignatureSpec RSA_SHA512 = new SignatureSpec("SHA512withRSA");
 
     /**
-     * RSASSA-PSS with SHA256 [SignatureSpec].
+     * RSASSA-PSS with SHA256 {@link SignatureSpec}.
      */
     public static final ParameterizedSignatureSpec RSASSA_PSS_SHA256 = new ParameterizedSignatureSpec(
             "RSASSA-PSS",
@@ -69,7 +70,7 @@ public class SignatureSpec {
     );
 
     /**
-     * RSASSA-PSS with SHA384 [SignatureSpec].
+     * RSASSA-PSS with SHA384 {@link SignatureSpec}.
      */
     public static final ParameterizedSignatureSpec RSASSA_PSS_SHA384 = new ParameterizedSignatureSpec(
             "RSASSA-PSS",
@@ -83,7 +84,7 @@ public class SignatureSpec {
     );
 
     /**
-     * RSASSA-PSS with SHA512 [SignatureSpec].
+     * RSASSA-PSS with SHA512 {@link SignatureSpec}.
      */
     public static final ParameterizedSignatureSpec RSASSA_PSS_SHA512 = new ParameterizedSignatureSpec(
             "RSASSA-PSS",
@@ -97,57 +98,57 @@ public class SignatureSpec {
     );
 
     /**
-     * RSASSA-PSS with SHA256 and MGF1 [SignatureSpec].
+     * RSASSA-PSS with SHA256 and MGF1 {@link SignatureSpec}.
      */
     public static final SignatureSpec RSA_SHA256_WITH_MGF1 = new SignatureSpec("SHA256withRSAandMGF1");
 
     /**
-     * RSASSA-PSS with SHA384 and MGF1 [SignatureSpec].
+     * RSASSA-PSS with SHA384 and MGF1 {@link SignatureSpec}.
      */
     public static final SignatureSpec RSA_SHA384_WITH_MGF1 = new SignatureSpec("SHA384withRSAandMGF1");
 
     /**
-     * RSASSA-PSS with SHA512 and MGF1 [SignatureSpec].
+     * RSASSA-PSS with SHA512 and MGF1 {@link SignatureSpec}.
      */
     public static final SignatureSpec RSA_SHA512_WITH_MGF1 = new SignatureSpec("SHA512withRSAandMGF1");
 
     /**
-     * SHA256withECDSA [SignatureSpec].
+     * SHA256withECDSA {@link SignatureSpec}.
      */
     public static final SignatureSpec ECDSA_SHA256 = new SignatureSpec("SHA256withECDSA");
 
     /**
-     * SHA384withECDSA [SignatureSpec].
+     * SHA384withECDSA {@link SignatureSpec}.
      */
     public static final SignatureSpec ECDSA_SHA384 = new SignatureSpec("SHA384withECDSA");
 
     /**
-     * SHA512withECDSA [SignatureSpec].
+     * SHA512withECDSA {@link SignatureSpec}].
      */
     public static final SignatureSpec ECDSA_SHA512 = new SignatureSpec("SHA512withECDSA");
 
     /**
-     * EdDSA [SignatureSpec].
+     * EdDSA {@link SignatureSpec}.
      */
     public static final SignatureSpec EDDSA_ED25519 = new SignatureSpec("EdDSA");
 
     /**
-     * SHA512withSPHINCS256 [SignatureSpec].
+     * SHA512withSPHINCS256 {@link SignatureSpec}.
      */
     public static final SignatureSpec SPHINCS256_SHA512 = new SignatureSpec("SHA512withSPHINCS256");
 
     /**
-     * SM3withSM2 [SignatureSpec].
+     * SM3withSM2 {@link SignatureSpec}.
      */
     public static final SignatureSpec SM2_SM3 = new SignatureSpec("SM3withSM2");
 
     /**
-     * SHA256withSM2 [SignatureSpec].
+     * SHA256withSM2 {@link SignatureSpec}
      */
     public static final SignatureSpec SM2_SHA256 = new SignatureSpec("SHA256withSM2");
 
     /**
-     * GOST3411withGOST3410 [SignatureSpec].
+     * GOST3411withGOST3410 {@link SignatureSpec}.
      */
     public static final SignatureSpec GOST3410_GOST3411 = new SignatureSpec("GOST3411withGOST3410");
 
@@ -156,7 +157,7 @@ public class SignatureSpec {
     }
 
     /**
-     * Converts a [SignatureSpec] object to a string representation containing the [signatureName].
+     * Converts a {@link SignatureSpec} object to a string representation containing the [signatureName].
      *
      * @return a string containing the signature name
      */
@@ -174,12 +175,12 @@ public class SignatureSpec {
     }
 
     /**
-     * Obtain a hashc code for the signature name.
+     * Obtain a hash code for the signature name.
      *
      * @return the hash code
      */
     public int hashCode() {
         return this.signatureName.hashCode();
     }
-    
+
 }

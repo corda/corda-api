@@ -13,6 +13,9 @@ import java.nio.ByteBuffer;
  */
 @CordaSerializable
 public final class SecureHash extends OpaqueBytes {
+    /**
+     * The hash algorithm.
+     */
     @NotNull
     private final String algorithm;
 
@@ -30,11 +33,10 @@ public final class SecureHash extends OpaqueBytes {
     static final char DELIMITER = ':';
 
     /**
-     * Creates a [SecureHash].
+     * Creates a {@link SecureHash}.
      * <p>
      * This function does not validate the length of the created digest. Prefer using
-     * [net.corda.v5.application.crypto.HashingService.parse] for a safer mechanism for creating [SecureHash]es.
-     *
+     * <code>HashingService#parse</code> for a safer mechanism for creating {@link SecureHash}es.
      */
     public static SecureHash parse(String str) {
         int idx = str.indexOf(DELIMITER);
@@ -47,7 +49,7 @@ public final class SecureHash extends OpaqueBytes {
             return new SecureHash(algorithm, data);
         }
     }
-    
+
     /**
      * Returns hexadecimal representation of the hash value.
      */
@@ -56,7 +58,7 @@ public final class SecureHash extends OpaqueBytes {
     }
 
     /**
-     * Returns the first [prefixLen] hexadecimal digits of the [SecureHash] value.
+     * Returns the first specified number of hexadecimal digits of the {@link SecureHash} value.
      *
      * @param prefixLen The number of characters in the prefix.
      */
@@ -66,14 +68,14 @@ public final class SecureHash extends OpaqueBytes {
 
 
     /**
-     * Returns the first 6 hexadecimal digits of the [SecureHash] value.
+     * Returns the first 6 hexadecimal digits of the {@link SecureHash} value.
      */
     public String prefixChars() {
         return prefixChars(6);
     }
 
     /**
-     * Compares the two given instances of the [SecureHash] based on the content.
+     * Compares the two given instances of the {@link SecureHash} based on the content.
      */
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -88,16 +90,16 @@ public final class SecureHash extends OpaqueBytes {
     }
 
     /**
-     * Converts a [SecureHash] object to a string representation containing the [algorithm] and hexadecimal
-     * representation of the [bytes] separated by the colon character.
+     * Converts a {@link SecureHash} object to a string representation containing the <code>algorithm</code> and hexadecimal
+     * representation of the <code>bytes</code> separated by the colon character.
      */
     @NotNull
     public String toString() {
         return this.algorithm + ':' + this.toHexString();
     }
-    
+
     @NotNull
-    public String getAlgorithm() { 
+    public String getAlgorithm() {
         return this.algorithm;
     }
 }

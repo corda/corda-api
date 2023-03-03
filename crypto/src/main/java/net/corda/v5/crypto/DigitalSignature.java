@@ -30,7 +30,7 @@ public class DigitalSignature extends OpaqueBytes {
          * Construct WithKey
          *
          * @param by      The public key of the corresponding private key used to sign the data (as if an instance
-         *                of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
+         *                of the {@link CompositeKey} is passed to the sign operation it may contain keys which are not actually owned by
          *                the member).
          * @param bytes   The signature.
          * @param context The context which was passed to the signing operation, note that this context is not signed over.
@@ -43,7 +43,7 @@ public class DigitalSignature extends OpaqueBytes {
 
         /**
          * Public key which corresponding private key was used to sign the data (as if an instance
-         * of the [CompositeKey] is passed to the sign operation it may contain keys which are not actually owned by
+         * of the {@link CompositeKey} is passed to the sign operation it may contain keys which are not actually owned by
          * the member).
          */
         @NotNull

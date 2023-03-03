@@ -6,7 +6,7 @@ import java.security.PublicKey;
 
 
 /**
- * A simple data class for passing keys and weights into CompositeKeyGenerator
+ * A simple data class for passing keys and weights into <code>CompositeKeyGenerator</code>.
  */
 public final class CompositeKeyNodeAndWeight {
     @NotNull

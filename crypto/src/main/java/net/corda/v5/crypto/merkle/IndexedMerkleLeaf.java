@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 
 /**
- * [IndexedMerkleLeaf]s are building blocks of [MerkleProof]s.
+ * {@link IndexedMerkleLeaf}s are building blocks of {@link MerkleProof}s.
  * They contain the required information about a particular leaf which is needed for the verification.
  */
 @CordaSerializable
