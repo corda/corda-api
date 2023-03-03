@@ -17,10 +17,6 @@ import org.jetbrains.annotations.Nullable;
 @CordaSerializable
 public class CryptoException extends CordaRuntimeException {
     /**
-     * A flag specifying whenever the operation throwing the exception could be retried without any intervention
-     * by application-level functionality.
-     */
-    /**
      * The flag specifying whenever the operation throwing the exception could be retried
      * without any intervention by application-level functionality.
      */
