@@ -1,5 +1,7 @@
 package net.corda.v5.crypto;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.security.PublicKey;
 import java.util.Collections;
 import java.util.Set;
@@ -21,7 +23,7 @@ public final class KeyUtils {
      * @param otherKeys an {@link Iterable} sequence of {@link PublicKey}
      * @return true if key is in otherKeys
      */
-    public static boolean isKeyInSet(PublicKey key, Iterable<PublicKey> otherKeys) {
+    public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Iterable<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
             CompositeKey compositeKey = (CompositeKey) key;
             Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
@@ -42,7 +44,7 @@ public final class KeyUtils {
      * @param firstKey the key with the requirements
      * @param otherKey the key to check whether requirements are fulfilled
      */
-    public static boolean isKeyFulfilledBy(PublicKey firstKey, PublicKey otherKey) {
+    public static boolean isKeyFulfilledBy(@NotNull PublicKey firstKey, @NotNull PublicKey otherKey) {
         return isKeyFulfilledBy(firstKey,
                 Collections.singleton(otherKey));
     }
@@ -53,7 +55,7 @@ public final class KeyUtils {
      * @param firstKey  the key with the requirements
      * @param otherKeys the key to check whether requirements are fulfilled
      */
-    public static boolean isKeyFulfilledBy(PublicKey firstKey, Iterable<PublicKey> otherKeys) {
+    public static boolean isKeyFulfilledBy(@NotNull PublicKey firstKey, @NotNull Iterable<PublicKey> otherKeys) {
         if (firstKey instanceof CompositeKey) {
             CompositeKey firstKeyComposite = (CompositeKey) firstKey;
             return firstKeyComposite.isFulfilledBy(otherKeys);
