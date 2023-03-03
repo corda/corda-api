@@ -35,6 +35,7 @@ public interface MerkleTreeHashDigestProvider extends MerkleTreeHashDigest {
      * @param nonce The leaf's nonce.
      * @param bytes The leaf's content bytes.
      */
+    @NotNull
     SecureHash leafHash(int index, @Nullable byte[] nonce, @NotNull byte[] bytes);
 
     /**
@@ -44,6 +45,7 @@ public interface MerkleTreeHashDigestProvider extends MerkleTreeHashDigest {
      * @param left  [SecureHash] of the left child of the node.
      * @param right [SecureHash] of the right child of the node.
      */
+    @NotNull
     SecureHash nodeHash(int depth, @NotNull SecureHash left, @NotNull SecureHash right);
 
 }

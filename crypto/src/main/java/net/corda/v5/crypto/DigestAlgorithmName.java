@@ -19,7 +19,7 @@ public final class DigestAlgorithmName {
      * @param name The name of the digest algorithm to be used for the instance.
      */
     public DigestAlgorithmName(@NotNull String name) {
-        if (name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("Hash algorithm name unavailable or not specified");
         this.name = name;
     }
 

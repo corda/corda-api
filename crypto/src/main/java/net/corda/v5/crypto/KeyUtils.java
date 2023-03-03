@@ -4,7 +4,7 @@ import java.security.PublicKey;
 import java.util.Collections;
 import java.util.Set;
 
-public class KeyUtils {
+public final class KeyUtils {
 
     private KeyUtils() {
         // this class is never constructed; it exists for the static methods and data only
