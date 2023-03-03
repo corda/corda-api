@@ -42,8 +42,8 @@ public interface MerkleTreeHashDigestProvider extends MerkleTreeHashDigest {
      * Calculates the hash of a node.
      *
      * @param depth Depth of the node.
-     * @param left  [SecureHash] of the left child of the node.
-     * @param right [SecureHash] of the right child of the node.
+     * @param left  {@link SecureHash} of the left child of the node.
+     * @param right {@link SecureHash} of the right child of the node.
      */
     @NotNull
     SecureHash nodeHash(int depth, @NotNull SecureHash left, @NotNull SecureHash right);
