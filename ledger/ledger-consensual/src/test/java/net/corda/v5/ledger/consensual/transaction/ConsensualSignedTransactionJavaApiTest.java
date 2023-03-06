@@ -1,7 +1,9 @@
 package net.corda.v5.ledger.consensual.transaction;
 
+import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.DigitalSignature;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.crypto.SignatureSpec;
@@ -25,9 +27,11 @@ public class ConsensualSignedTransactionJavaApiTest {
             new DigitalSignatureMetadata(Instant.now(), new SignatureSpec("dummySignatureName"), Map.of());
     private final DigitalSignatureAndMetadata signatureWithMetaData = new DigitalSignatureAndMetadata(signature, signatureMetadata);
 
+    private final DigestService digestService = mock(DigestService.class);
+
     @Test
     public void getId() {
-        SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
+        SecureHash secureHash = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         when(consensualSignedTransaction.getId()).thenReturn(secureHash);
 
         SecureHash result = consensualSignedTransaction.getId();

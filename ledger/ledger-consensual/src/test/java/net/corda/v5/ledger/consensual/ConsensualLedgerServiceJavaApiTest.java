@@ -1,6 +1,8 @@
 package net.corda.v5.ledger.consensual;
 
+import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.application.messaging.FlowSession;
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.consensual.transaction.ConsensualLedgerTransaction;
 import net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction;
@@ -20,6 +22,7 @@ import static org.mockito.Mockito.when;
 
 public class ConsensualLedgerServiceJavaApiTest {
     private final ConsensualLedgerService consensualLedgerService = mock(ConsensualLedgerService.class);
+    private final DigestService digestService = mock(DigestService.class);
 
     @Test
     public void getTransactionBuilder() {
@@ -35,14 +38,14 @@ public class ConsensualLedgerServiceJavaApiTest {
         Assertions.assertThat(result).isEqualTo(consensualTransactionBuilder);
         verify(consensualLedgerService, times(1)).getTransactionBuilder();
 
-        SecureHash fakeTransactionId = new SecureHash("SHA256", "1234456".getBytes());
+        SecureHash fakeTransactionId = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         Assertions.assertThat(consensualLedgerService.findSignedTransaction(fakeTransactionId)).isNull();
         Assertions.assertThat(consensualLedgerService.findLedgerTransaction(fakeTransactionId)).isNull();
     }
 
     @Test
     public void findSignedTransaction() {
-        SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
+        SecureHash secureHash = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         ConsensualSignedTransaction consensualSignedTransaction = mock(ConsensualSignedTransaction.class);
         when(consensualLedgerService.findSignedTransaction(secureHash)).thenReturn(consensualSignedTransaction);
 
@@ -55,7 +58,7 @@ public class ConsensualLedgerServiceJavaApiTest {
 
     @Test
     public void findLedgerTransaction() {
-        SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
+        SecureHash secureHash = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         ConsensualLedgerTransaction consensualLedgerTransaction = mock(ConsensualLedgerTransaction.class);
         when(consensualLedgerService.findLedgerTransaction(secureHash)).thenReturn(consensualLedgerTransaction);
 

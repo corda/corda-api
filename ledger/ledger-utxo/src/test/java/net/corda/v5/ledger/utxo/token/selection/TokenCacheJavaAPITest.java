@@ -1,6 +1,8 @@
 package net.corda.v5.ledger.utxo.token.selection;
 
+import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.base.types.MemberX500Name;
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.StateRef;
 import org.assertj.core.api.Assertions;
@@ -12,15 +14,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.mock;
+
 public class TokenCacheJavaAPITest {
 
+    private final DigestService digestService = mock(DigestService.class);
     @Test
     public void callStringFlow() {
         final TokenCacheJavaAPITest.TokenCacheTestImpl tokenCache = new TokenCacheJavaAPITest.TokenCacheTestImpl();
 
         TokenClaimCriteria criteria = new TokenClaimCriteria(
                 "tt",
-                new SecureHash("SHA-256", new byte[1]),
+                digestService.hash(new byte[1], DigestAlgorithmName.SHA2_256),
                 MemberX500Name.parse("CN=Alice, O=Alice Corp, L=LDN, C=GB"),
                 "s",
                 new BigDecimal(1)

@@ -8,7 +8,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
 
     @Test
     public void parseShouldReturnTheExpectedValue() {
-        StateRef value = StateRef.parse(hash + ":123");
+        StateRef value = StateRef.parse(hash + ":123", digestService);
         Assertions.assertEquals(hash, value.getTransactionId());
         Assertions.assertEquals(123, value.getIndex());
     }
@@ -17,7 +17,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
     public void parseShouldFailIfTheTransactionHashIsInvalid() {
         IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> StateRef.parse("INVALID_TRANSACTION_HASH:123")
+                () -> StateRef.parse("INVALID_TRANSACTION_HASH:123", digestService)
         );
 
         Assertions.assertEquals(
@@ -30,7 +30,7 @@ public final class StateRefJavaApiTests extends AbstractMockTestHarness {
     public void parseShouldFailIfTheIndexIsInvalid() {
         IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> StateRef.parse(hash + ":INVALID_INDEX")
+                () -> StateRef.parse(hash + ":INVALID_INDEX", digestService)
         );
 
         Assertions.assertEquals(

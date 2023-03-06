@@ -1,5 +1,7 @@
 package net.corda.v5.ledger.consensual.transaction;
 
+import net.corda.v5.application.crypto.DigestService;
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.consensual.ConsensualState;
 import org.assertj.core.api.Assertions;
@@ -17,10 +19,11 @@ import static org.mockito.Mockito.when;
 
 public class ConsensualLedgerTransactionJavaApiTest {
     private final ConsensualLedgerTransaction consensualLedgerTransaction = mock(ConsensualLedgerTransaction.class);
+    private final DigestService digestService = mock(DigestService.class);
 
     @Test
     public void getId() {
-        SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
+        SecureHash secureHash = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         when(consensualLedgerTransaction.getId()).thenReturn(secureHash);
 
         SecureHash result = consensualLedgerTransaction.getId();

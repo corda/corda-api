@@ -40,4 +40,14 @@ public interface DigestService {
      */
     @Suspendable
     int digestLength(@NotNull DigestAlgorithmName digestName);
+
+
+    /**
+     * Creates a [SecureHash].
+     * <p>
+     * This function does not validate the length of the created digest.
+     */
+
+    @Suspendable
+    SecureHash parse(@NotNull String str);
 }

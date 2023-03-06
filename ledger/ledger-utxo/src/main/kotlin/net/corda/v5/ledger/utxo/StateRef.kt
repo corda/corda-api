@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo
 
+import net.corda.v5.application.crypto.DigestService
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.crypto.SecureHash
 
@@ -18,13 +19,14 @@ data class StateRef(val transactionId: SecureHash, val index: Int) {
          * Parses the specified value into a new [StateRef] instance.
          *
          * @param value The value to parse into a [StateRef] instance.
+         * @param digestService The [DigestService] used for generating the [SecureHash].
          * @return Returns a new [StateRef] instance.
          * @throws IllegalArgumentException if either the transaction id, or index components cannot be parsed.
          */
         @JvmStatic
-        fun parse(value: String): StateRef {
+        fun parse(value: String, digestService: DigestService): StateRef {
             return try {
-                val transactionHash = SecureHash.parse(value.substringBeforeLast(":"))
+                val transactionHash = digestService.parse(value.substringBeforeLast(":"))
                 val index = value.substringAfterLast(":").toInt()
 
                 StateRef(transactionHash, index)

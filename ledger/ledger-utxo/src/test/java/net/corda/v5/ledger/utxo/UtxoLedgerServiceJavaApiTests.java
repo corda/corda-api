@@ -1,6 +1,8 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.application.messaging.FlowSession;
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
@@ -18,6 +20,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness {
+
+    private final DigestService digestService = mock(DigestService.class);
 
     @Test
     public void getTransactionBuilderShouldReturnTheExpectedResult() {
@@ -39,7 +43,7 @@ public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness
 
     @Test
     public void findSignedTransaction() {
-        SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
+        SecureHash secureHash = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         UtxoSignedTransaction utxoSignedTransaction = mock(UtxoSignedTransaction.class);
         when(utxoLedgerService.findSignedTransaction(secureHash)).thenReturn(utxoSignedTransaction);
 
@@ -52,7 +56,7 @@ public final class UtxoLedgerServiceJavaApiTests extends AbstractMockTestHarness
 
     @Test
     public void findLedgerTransaction() {
-        SecureHash secureHash = new SecureHash("SHA-256", "123".getBytes());
+        SecureHash secureHash = digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256);
         UtxoLedgerTransaction utxoLedgerTransaction = mock(UtxoLedgerTransaction.class);
         when(utxoLedgerService.findLedgerTransaction(secureHash)).thenReturn(utxoLedgerTransaction);
 

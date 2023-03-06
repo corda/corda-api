@@ -1,13 +1,18 @@
 package net.corda.v5.ledger.common.transaction;
 
+import net.corda.v5.application.crypto.DigestService;
+import net.corda.v5.crypto.DigestAlgorithmName;
 import net.corda.v5.crypto.SecureHash;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.mockito.Mockito.mock;
+
 public class TransactionSignatureExceptionJavaApiTest {
     private final Throwable throwable = new Throwable();
+    private final DigestService digestService = mock(DigestService.class);
     private final TransactionSignatureException transactionSignatureException = new TransactionSignatureException(
-            new SecureHash("SHA-256", "123".getBytes()),
+            digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256),
             "testMessage",
             throwable);
 
@@ -16,7 +21,7 @@ public class TransactionSignatureExceptionJavaApiTest {
         SecureHash result = transactionSignatureException.getTransactionId();
 
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(result).isEqualTo(new SecureHash("SHA-256", "123".getBytes()));
+        Assertions.assertThat(result).isEqualTo(digestService.hash("123".getBytes(), DigestAlgorithmName.SHA2_256));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureMetadata;
 import net.corda.v5.base.types.MemberX500Name;
@@ -43,7 +44,8 @@ public class AbstractMockTestHarness {
     protected final Instant minInstant = Instant.MIN;
     protected final Instant maxInstant = Instant.MIN;
     protected final Instant midpoint = Instant.EPOCH;
-    protected final SecureHash hash = SecureHash.parse("SHA256:0000000000000000000000000000000000000000000000000000000000000000");
+    protected final DigestService digestService = Mockito.mock(DigestService.class);
+    protected final SecureHash hash = digestService.parse("SHA256:0000000000000000000000000000000000000000000000000000000000000000");
     protected final List<PublicKey> keys = List.of(aliceKey, bobKey);
     protected final MemberX500Name notaryName = new MemberX500Name("Notary", "Zurich", "CH");
     protected final DigitalSignatureAndMetadata aliceSignature = createDigitalSignature(aliceKey);
@@ -99,7 +101,7 @@ public class AbstractMockTestHarness {
     private <T extends ContractState> StateAndRef<T> createStateAndRef(T contractState) {
         StateAndRef<T> result = Mockito.mock(StateAndRef.class);
 
-        SecureHash hash = SecureHash.parse("SHA256:0000000000000000000000000000000000000000000000000000000000000000");
+        SecureHash hash = digestService.parse("SHA256:0000000000000000000000000000000000000000000000000000000000000000");
         int index = 0;
         StateRef ref = new StateRef(hash, index);
 
