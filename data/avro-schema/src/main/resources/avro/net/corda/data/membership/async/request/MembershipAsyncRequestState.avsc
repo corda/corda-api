@@ -17,8 +17,20 @@
       }
     },
     {
-      "name": "lastFailedOn",
-      "doc": "The time in which the request had last failed.",
+      "doc": "The condition to check before retring the request.",
+      "name": "retryCondition",
+      "type": {
+        "type": "enum",
+        "name": "RetryCondition",
+        "symbols": [
+          "NO_CONDITION",
+          "IS_STATE_SENT_TO_MGM"
+        ]
+      }
+    },
+    {
+      "name": "retryAfter",
+      "doc": "The time after which the reqeust should retry.",
       "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
