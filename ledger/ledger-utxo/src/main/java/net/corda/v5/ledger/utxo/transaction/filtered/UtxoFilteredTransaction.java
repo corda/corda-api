@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo.transaction.filtered;
 
+import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.crypto.SecureHash;
@@ -33,6 +34,7 @@ import java.security.PublicKey;
  * - {@link #getNotary()} and {@link #getTimeWindow()} are always unique - they are either revealed,
  * or the filtered transaction will return null when accessing them.
  */
+@CordaSerializable
 @DoNotImplement
 public interface UtxoFilteredTransaction {
 
@@ -53,9 +55,9 @@ public interface UtxoFilteredTransaction {
     TransactionMetadata getMetadata();
 
     /**
-     * Gets the validity time window for finalizing/notarising the current transaction, or null if filtered.
+     * Gets the validity time window for finalizing/notarizing the current transaction, or null if filtered.
      *
-     * @return Returns the validity time window for finalizing/notarising the current transaction, or null if filtered.
+     * @return Returns the validity time window for finalizing/notarizing the current transaction, or null if filtered.
      */
     @Nullable
     TimeWindow getTimeWindow();
