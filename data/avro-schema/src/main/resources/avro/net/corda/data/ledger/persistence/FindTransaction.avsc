@@ -10,9 +10,12 @@
       "doc": "The transaction ID, derived from the root hash of its Merkle tree"
     },
     {
-      "name": "transactionStatus",
-      "type": "string",
-      "doc": "The status of the transaction"
+      "name": "transactionStatuses",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": "The allowed statuses of the transaction"
     }
   ]
 }
