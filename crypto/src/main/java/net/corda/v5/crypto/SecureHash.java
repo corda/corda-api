@@ -18,7 +18,6 @@ public interface SecureHash {
     String getAlgorithm();
 
     // TODO we could get away without this, but adding it for consistency with `PrivacySalt`
-
     /**
      * The result bytes of the hashing operation with the specified digest algorithm. The specified digest algorithm
      * can be acquired through {@link SecureHash#getAlgorithm()}
