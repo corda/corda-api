@@ -8,7 +8,6 @@ import java.util.Map;
 /**
  * Representation of an in-memory filter function that will be applied to the result set that was returned by the named
  * query.
- * @param <S> Type of the state that was returned from the database.
  * <p>
  * Example usage:
  * <ul>
@@ -29,6 +28,8 @@ import java.util.Map;
  *     }
  * }
  * }</pre></li></ul>
+ *
+ * @param <S> Type of the state that was returned from the database.
  */
 public interface VaultNamedQueryFilter<S> {
     @Suspendable

@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.common.query;
 
+import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -7,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * An interface representing a named query storage.
  */
+@DoNotImplement
 public interface VaultNamedQueryRegistry {
     /**
      * @param name The name of the named query that needs to be accessed

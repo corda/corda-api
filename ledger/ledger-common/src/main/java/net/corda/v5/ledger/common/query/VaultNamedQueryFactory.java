@@ -39,9 +39,9 @@ import org.jetbrains.annotations.NotNull;
  *                                 "AND custom ? :contractStateType "
  *                         "AND custom ->> 'Corda.createdTimestamp' > :created_timestamp"
  *                 )
- *                 .filter(MyVaultNamedQueryFilter())
- *                 .map(MyVaultNamedQueryTransformer())
- *                 .collect(MyVaultNamedQueryCollector())
+ *                 .filter(new MyVaultNamedQueryFilter())
+ *                 .map(new MyVaultNamedQueryTransformer())
+ *                 .collect(new MyVaultNamedQueryCollector())
  *                 .register();
  *     }
  * }

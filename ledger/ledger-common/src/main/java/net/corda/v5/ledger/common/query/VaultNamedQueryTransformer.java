@@ -7,8 +7,6 @@ import java.util.Map;
 
 /**
  * Representation of a transformer function that will be applied to the result set returned by the named query.
- * @param <S> Type of the state returned from the database
- * @param <T> Type that the original state is transformed into
  * <p>
  * Example usage:
  * <ul>
@@ -29,6 +27,9 @@ import java.util.Map;
  *     }
  * }
  * }</pre></li></ul>
+ *
+ * @param <S> Type of the state returned from the database
+ * @param <T> Type that the original state is transformed into
  */
 public interface VaultNamedQueryTransformer<S, T> {
     @Suspendable

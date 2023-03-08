@@ -8,8 +8,6 @@ import java.util.Map;
 
 /**
  * A collector that is applied to the result set returned after executing the named query.
- * @param <R> Type of the end result
- * @param <T> Type of the original result set
  * <p>
  * Example usage:
  * <ul>
@@ -37,6 +35,9 @@ import java.util.Map;
  *     }
  * }
  * }</pre></li></ul>
+ * 
+ * @param <R> Type of the end result
+ * @param <T> Type of the original result set
  */
 public interface VaultNamedQueryCollector<R, T> {
 
