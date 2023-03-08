@@ -42,7 +42,7 @@
     },
     {
       "name": "state",
-      "type": "VirtualNodeState"
+      "type": "string"
     },
     {
       "name": "errors",
