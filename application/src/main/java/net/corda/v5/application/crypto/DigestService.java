@@ -33,6 +33,15 @@ public interface DigestService {
     @NotNull
     SecureHash hash(@NotNull InputStream inputStream, @NotNull DigestAlgorithmName digestName);
 
+    // TODO rename to `parseSecureHash`
+    /**
+     * Creates a {@link SecureHash}.
+     * <p>
+     * This function does not validate the length of the created digest. Prefer using
+     * <code>HashingService#parse</code> for a safer mechanism for creating {@link SecureHash}es.
+     */
+    SecureHash parse(String hexString);
+
     /**
      * Returns the {@link DigestAlgorithmName} digest length in bytes.
      *
