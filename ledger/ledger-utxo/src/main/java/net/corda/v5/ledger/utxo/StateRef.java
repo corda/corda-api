@@ -73,7 +73,7 @@ public final class StateRef {
             final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
-            final SecureHash transactionId = digestService.parse(subStringBeforeDelimiter);
+            final SecureHash transactionId = digestService.parseSecureHash(subStringBeforeDelimiter);
             final int index = Integer.parseInt(subStringAfterDelimiter);
             return new StateRef(transactionId, index);
         } catch (NumberFormatException numberFormatException) {
