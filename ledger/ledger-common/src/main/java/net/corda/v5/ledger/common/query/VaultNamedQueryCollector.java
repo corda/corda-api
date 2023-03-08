@@ -10,6 +10,33 @@ import java.util.Map;
  * A collector that is applied to the result set returned after executing the named query.
  * @param <R> Type of the end result
  * @param <T> Type of the original result set
+ * <p>
+ * Example usage:
+ * <ul>
+ * <li>Kotlin:<pre>{@code
+ * class MyVaultNamedQueryCollector : VaultNamedQueryCollector<MyPojo, Int> {
+ *
+ *     override fun collect(resultSet: List<MyPojo>, parameters: Map<String, Any>): VaultNamedQueryCollector.Result<Int> {
+ *         return VaultNamedQueryCollector.Result(listOf(resultSet.maxOf { it.value }), false)
+ *     }
+ * }
+ * }</pre></li>
+ * <li>Java:<pre>{@code
+ * public class MyVaultNamedQueryCollector implements VaultNamedQueryCollector<Object, Integer> {
+ *     @NotNull
+ *     @Override
+ *     public Result<Integer> collect(List<Object> resultSet, Map<String, Object> parameters) {
+ *         return new VaultNamedQueryCollector.Result<>(
+ *                 Collections.singletonList(
+ *                         resultSet.stream()
+ *                                 .mapToInt(e -> Integer.parseInt(e.toString()))
+ *                                 .max()
+ *                                 .getAsInt()
+ *                 ),
+ *                 false);
+ *     }
+ * }
+ * }</pre></li></ul>
  */
 public interface VaultNamedQueryCollector<R, T> {
 
@@ -20,22 +47,22 @@ public interface VaultNamedQueryCollector<R, T> {
      */
     @Suspendable
     @NotNull
-    Result<R> collect(@NotNull List<T> resultSet, @NotNull Map<String, Object> parameters);
+    Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> parameters);
 
     /**
      * Representation of a "collected" result set that also contains a flag that shows whether the result set is finished
      * or there are still elements in the original result set.
-     * @param <R> Type of the records stored inside this result set
+     * @param <T> Type of the records stored inside this result set
      */
-    class Result<R> {
-        private List<R> results;
+    class Result<T> {
+        private List<T> results;
         private Boolean isDone;
 
         /**
          * @return The records in the result set
          */
         @NotNull
-        public List<R> getResults() {
+        public List<T> getResults() {
             return results;
         }
 
@@ -47,7 +74,7 @@ public interface VaultNamedQueryCollector<R, T> {
             return isDone;
         }
 
-        public Result(@NotNull List<R> results, @NotNull Boolean isDone) {
+        public Result(@NotNull List<T> results, @NotNull Boolean isDone) {
             this.results = results;
             this.isDone = isDone;
         }
