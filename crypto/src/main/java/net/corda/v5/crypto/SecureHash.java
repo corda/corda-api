@@ -5,8 +5,8 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Container for a cryptographically secure hash value.
- * Provides utilities for generating a cryptographic hash using different algorithms (currently only SHA-256 supported).
+ * A cryptographically secure hash value, computed by a specified digest algorithm ({@link DigestAlgorithmName}).
+ * A {@link SecureHash} can be computed and acquired through the {@link net.corda.v5.application.crypto.DigestService}.
  */
 @DoNotImplement
 @CordaSerializable
