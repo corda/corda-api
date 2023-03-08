@@ -2,12 +2,7 @@ package net.corda.v5.crypto;
 
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.annotations.DoNotImplement;
-import net.corda.v5.base.types.ByteArrays;
-import net.corda.v5.base.types.OpaqueBytes;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.nio.ByteBuffer;
 
 /**
  * Container for a cryptographically secure hash value.
