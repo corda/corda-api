@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.common.query;
 
+import net.corda.v5.base.annotations.DoNotImplement;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -7,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
  * An interface representing a named ledger query. A named ledger query must have a name associated with it,
  * the rest of the fields are optional.
  */
+@DoNotImplement
 public interface VaultNamedQuery {
 
     /**
