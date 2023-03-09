@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo.query;
 
-import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -36,31 +35,31 @@ import java.util.Map;
  * }
  * }</pre></li></ul>
  * 
- * @param <R> Type of the original result set
- * @param <T> Type of the end result
+ * @param <R> Type of the original result set.
+ * @param <T> Type of the end result.
  */
 public interface VaultNamedQueryCollector<R, T> {
 
     /**
-     * @param resultSet The original result set that was returned by the named query execution
-     * @param parameters Parameters that were present in the query
-     * @return A result that the original result set was collected into
+     * @param resultSet The original result set that was returned by the named query execution.
+     * @param parameters Parameters that were present in the query.
+     *
+     * @return A result that the original result set was collected into.
      */
-    @Suspendable
     @NotNull
     Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> parameters);
 
     /**
      * Representation of a "collected" result set that also contains a flag that shows whether the result set is finished
      * or there are still elements in the original result set.
-     * @param <T> Type of the records stored inside this result set
+     * @param <T> Type of the records stored inside this result set.
      */
     class Result<T> {
         private List<T> results;
         private Boolean isDone;
 
         /**
-         * @return The records in the result set
+         * @return The records in the result set.
          */
         @NotNull
         public List<T> getResults() {
@@ -68,7 +67,7 @@ public interface VaultNamedQueryCollector<R, T> {
         }
 
         /**
-         * @return Whether the result set has finished or not
+         * @return Whether the result set has finished or not.
          */
         @NotNull
         public Boolean getDone() {

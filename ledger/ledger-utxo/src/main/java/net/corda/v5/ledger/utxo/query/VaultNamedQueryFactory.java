@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo.query;
 
-import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -55,6 +54,5 @@ import org.jetbrains.annotations.NotNull;
  * </ul>
  */
 public interface VaultNamedQueryFactory {
-    @Suspendable
     void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);
 }
