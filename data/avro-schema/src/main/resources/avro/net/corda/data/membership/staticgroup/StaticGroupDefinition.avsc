@@ -16,6 +16,11 @@
       "name": "groupParameters",
       "doc": "Group Parameters for the group.",
       "type": "net.corda.data.membership.SignedGroupParameters"
+    },
+    {
+      "name": "mgmSigningKey",
+      "doc": "The key encoded as a byte array used for signing as an MGM in a static network.",
+      "type": "bytes"
     }
   ]
 }
