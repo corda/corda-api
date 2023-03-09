@@ -102,22 +102,22 @@
     },
     {
       "name": "flowP2pOperationalStatus",
-      "type": "VirtualNodeState",
+      "type": "VirtualNodeOperationalState",
       "doc": "The current flow p2p operational status of virtual node"
     },
     {
       "name": "flowStartOperationalStatus",
-      "type": "VirtualNodeState",
+      "type": "VirtualNodeOperationalState",
       "doc": "The current flow start operational status of virtual node"
     },
     {
       "name": "flowOperationalStatus",
-      "type": "VirtualNodeState",
+      "type": "VirtualNodeOperationalState",
       "doc": "The current flow operational status of virtual node"
     },
     {
       "name": "vaultDbOperationalStatus",
-      "type": "VirtualNodeState",
+      "type": "VirtualNodeOperationalState",
       "doc": "The current vault db operational status of virtual node"
     }
   ]

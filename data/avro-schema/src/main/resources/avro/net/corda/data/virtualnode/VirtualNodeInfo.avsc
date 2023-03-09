@@ -49,19 +49,19 @@
     },
     {
       "name": "flowP2pOperationalStatus",
-      "type": "VirtualNodeState"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "flowStartOperationalStatus",
-      "type": "VirtualNodeState"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "flowOperationalStatus",
-      "type": "VirtualNodeState"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "vaultDbOperationalStatus",
-      "type": "VirtualNodeState"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "operationInProgress",
