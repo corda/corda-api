@@ -14,8 +14,8 @@
     },
     {
       "name": "groupParameters",
-      "doc": "Group Parameters entries for the group.",
-      "type": "net.corda.data.KeyValuePairList"
+      "doc": "Group Parameters for the group.",
+      "type": "net.corda.data.membership.SignedGroupParameters"
     }
   ]
 }
