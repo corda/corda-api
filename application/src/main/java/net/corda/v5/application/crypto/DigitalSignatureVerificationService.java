@@ -19,12 +19,12 @@ public interface DigitalSignatureVerificationService {
      * Verifies a digital signature by using {@code signatureSpec}.
      * Always throws an exception if verification fails.
      *
-     * @param originalData  The clear data/message that was signed (usually the Merkle root).
+     * @param originalData  The original data/message that was signed (usually the Merkle root).
      * @param signatureData The signatureData on a message.
      * @param publicKey     The signer's {@link PublicKey}.
      * @param signatureSpec The signature spec.
      * @throws CryptoSignatureException If verification of the digital signature fails.
-     * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
+     * @throws IllegalArgumentException If the signature scheme is not supported or if any of the original or signature
      *                                  data is empty.
      */
     void verify(@NotNull byte[] originalData, @NotNull byte[] signatureData, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
@@ -38,7 +38,7 @@ public interface DigitalSignatureVerificationService {
      * @param signatureSpec The signature spec.
      *
      * @throws CryptoSignatureException If verification of the digital signature fails.
-     * @throws IllegalArgumentException If the signature scheme is not supported or if any of the clear or signature
+     * @throws IllegalArgumentException If the signature scheme is not supported or if any of the original or signature
      * data is empty.
      */
     void verify(@NotNull byte[] originalData, @NotNull DigitalSignature signature, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
