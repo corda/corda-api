@@ -34,10 +34,15 @@ public interface DigestService {
     SecureHash hash(@NotNull InputStream inputStream, @NotNull DigestAlgorithmName digestName);
 
     /**
-     * Creates a {@link SecureHash}.
+     * Parses a secure hash in string form into a {@link SecureHash}. A valid secure hash string
+     * should be of the format {digest algorithm name}:{secure hash in hex string}.
      * <p>
-     * This function does not validate the length of the created digest. Prefer using
-     * <code>HashingService#parse</code> for a safer mechanism for creating {@link SecureHash}es.
+     * Please note that this function does not validate the length of the hex string of the digest,
+     * to be of length of the specified digest algorithm.
+     *
+     * @param algoNameAndHexString The algorithm name followed by the hex string form of the digest,
+     *                             separated by colon(':')
+     *                             e.g. SHA-256:98AF8725385586B41FEFF205B4E05A000823F78B5F8F5C02439CE8F67A781D90.
      */
     @NotNull
     SecureHash parseSecureHash(@NotNull String algoNameAndHexString);
