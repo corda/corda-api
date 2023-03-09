@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.common.query;
+package net.corda.v5.ledger.utxo.query;
 
 import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
  *             .whereJson(
  *                 "WHERE custom ->> 'TestUtxoState.testField' = :testField " +
  *                         "AND custom ->> 'Corda.participants' IN :participants " +
- *                         "AND custom ? :contractStateType "
+ *                         "AND custom ? :contractStateType " +
  *                         "AND custom ->> 'Corda.createdTimestamp' > :created_timestamp"
  *             )
  *             .filter(MyVaultNamedQueryFilter())
@@ -36,8 +36,8 @@ import org.jetbrains.annotations.NotNull;
  *                 .whereJson(
  *                         "WHERE custom ->> 'TestUtxoState.testField' = :testField " +
  *                                 "AND custom ->> 'Corda.participants' IN :participants " +
- *                                 "AND custom ? :contractStateType "
- *                         "AND custom ->> 'Corda.createdTimestamp' > :created_timestamp"
+ *                                 "AND custom ? :contractStateType " +
+ *                                 "AND custom ->> 'Corda.createdTimestamp' > :created_timestamp"
  *                 )
  *                 .filter(new MyVaultNamedQueryFilter())
  *                 .map(new MyVaultNamedQueryTransformer())

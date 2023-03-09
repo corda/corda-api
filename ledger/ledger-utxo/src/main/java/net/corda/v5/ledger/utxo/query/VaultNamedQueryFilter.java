@@ -1,6 +1,7 @@
-package net.corda.v5.ledger.common.query;
+package net.corda.v5.ledger.utxo.query;
 
 import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.ledger.utxo.ContractState;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -29,9 +30,9 @@ import java.util.Map;
  * }
  * }</pre></li></ul>
  *
- * @param <S> Type of the state that was returned from the database.
+ * @param <T> Type of the state that was returned from the database.
  */
-public interface VaultNamedQueryFilter<S> {
+public interface VaultNamedQueryFilter<T extends ContractState> {
     @Suspendable
-    @NotNull Boolean filter(@NotNull S state, @NotNull Map<String, Object> parameters);
+    @NotNull Boolean filter(@NotNull T state, @NotNull Map<String, Object> parameters);
 }

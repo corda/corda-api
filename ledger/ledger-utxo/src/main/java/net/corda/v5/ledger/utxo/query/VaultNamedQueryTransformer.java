@@ -1,6 +1,7 @@
-package net.corda.v5.ledger.common.query;
+package net.corda.v5.ledger.utxo.query;
 
 import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.ledger.utxo.ContractState;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -28,11 +29,11 @@ import java.util.Map;
  * }
  * }</pre></li></ul>
  *
- * @param <S> Type of the state returned from the database
- * @param <T> Type that the original state is transformed into
+ * @param <T> Type of the state returned from the database
+ * @param <R> Type that the original state is transformed into
  */
-public interface VaultNamedQueryTransformer<S, T> {
+public interface VaultNamedQueryTransformer<T extends ContractState, R> {
     @Suspendable
     @NotNull
-    T transform(@NotNull S state, @NotNull Map<String, Object> parameters);
+    R transform(@NotNull T state, @NotNull Map<String, Object> parameters);
 }

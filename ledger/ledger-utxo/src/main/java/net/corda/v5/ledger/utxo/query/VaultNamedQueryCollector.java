@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.common.query;
+package net.corda.v5.ledger.utxo.query;
 
 import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
@@ -25,7 +25,7 @@ import java.util.Map;
  *     @Override
  *     public Result<Integer> collect(List<Object> resultSet, Map<String, Object> parameters) {
  *         return new VaultNamedQueryCollector.Result<>(
- *                 Collections.singletonList(
+ *                 List.of(
  *                         resultSet.stream()
  *                                 .mapToInt(e -> Integer.parseInt(e.toString()))
  *                                 .max()
@@ -36,8 +36,8 @@ import java.util.Map;
  * }
  * }</pre></li></ul>
  * 
- * @param <R> Type of the end result
- * @param <T> Type of the original result set
+ * @param <R> Type of the original result set
+ * @param <T> Type of the end result
  */
 public interface VaultNamedQueryCollector<R, T> {
 
