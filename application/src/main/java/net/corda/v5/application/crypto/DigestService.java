@@ -37,7 +37,7 @@ public interface DigestService {
      * Parses a secure hash in string form into a {@link SecureHash}. A valid secure hash string
      * should be of the format {digest algorithm name}:{secure hash in hex string}.
      * <p>
-     * Please note that this function does not validate the length of the hex string of the digest,
+     * Please note that this function does not validate the length of the hex string of the digest
      * to conform to the length of the specified digest algorithm.
      *
      * @param algoNameAndHexString The algorithm name followed by the hex string form of the digest,
