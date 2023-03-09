@@ -49,5 +49,5 @@ public interface DigestService {
      */
 
     @Suspendable
-    SecureHash parse(@NotNull String str);
+    SecureHash parseSecureHash(@NotNull String str);
 }
