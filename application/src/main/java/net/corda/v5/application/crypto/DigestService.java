@@ -38,7 +38,7 @@ public interface DigestService {
      * should be of the format {digest algorithm name}:{secure hash in hex string}.
      * <p>
      * Please note that this function does not validate the length of the hex string of the digest,
-     * to be of length of the specified digest algorithm.
+     * to conform to the length of the specified digest algorithm.
      *
      * @param algoNameAndHexString The algorithm name followed by the hex string form of the digest,
      *                             separated by colon(':')
