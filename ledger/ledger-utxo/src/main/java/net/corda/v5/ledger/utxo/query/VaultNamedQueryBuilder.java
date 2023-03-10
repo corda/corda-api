@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
  * The register method is called when the build is finished so that the query is stored and can be fetched and executed
  * later on.
  */
-public interface VaultNamedQueryBuilder {
+public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
     /**
      * Sets the where clause of the named query.
      * @param json The json query representation.
@@ -40,11 +40,6 @@ public interface VaultNamedQueryBuilder {
      *
      * @return A builder instance with the collector function set.
      */
-    @NotNull VaultNamedQueryBuilder collect(@NotNull VaultNamedQueryCollector<?, ?> collector);
-
-    /**
-     * Registers the named query object to the named query registry.
-     * This always needs to be called in order to "finalize" the query creation.
-     */
-    void register();
+    @NotNull
+    VaultNamedQueryBuilderCollected collect(@NotNull VaultNamedQueryCollector<?, ?> collector);
 }
