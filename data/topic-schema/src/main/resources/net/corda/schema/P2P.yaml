@@ -51,6 +51,7 @@ topics:
     consumers:
       - link-manager
       - membership
+      - interop
     producers:
       - rpc # Dynamic Network registration
       - membership # Static Network registration
