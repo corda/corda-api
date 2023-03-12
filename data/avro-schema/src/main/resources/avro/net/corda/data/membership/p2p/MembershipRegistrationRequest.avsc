@@ -24,8 +24,8 @@
     },
     {
       "name": "memberSignatureSpec",
-      "doc": "Signature spec of member signature.",
-      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec"
+      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec",
+      "doc": "Signature spec of member signature."
     },
     {
       "name": "isPending",
