@@ -47,6 +47,12 @@ public interface SecureHash {
     String prefixChars();
 
     /**
+     * The delimiter used in the string form of a secure hash to separate the algorithm name from the hexadecimal
+     * string of the hash.
+     */
+    char DELIMITER = ':';
+
+    /**
      * Converts a {@link SecureHash} object to a string representation containing the <code>algorithm</code> and hexadecimal
      * representation of the <code>bytes</code> separated by the colon character.
      */
