@@ -135,7 +135,7 @@ public interface UtxoLedgerService {
      * <p>
      * val updatedTxBuilder = utxoLedgerService.sendAndReceiveTransactionBuilder(txBuilder, session)
      * <p>
-     * The proposal one's notary and time window will get discarded and the original will be kept if both the original and
+     * The notary and time window from the proposal will get discarded and the original will be kept if both the original and
      * the proposal have these components set. Also, all duplications will be discarded.
      * <p>
      * Receiver:
@@ -171,7 +171,7 @@ public interface UtxoLedgerService {
 
     /**
      * Sends the differences of transaction builders to another session with all dependent back chains.
-     * It works only with {@link #receiveTransactionBuilder(FlowSession)} created {@link UtxoTransactionBuilder}s
+     * It works only with {@link UtxoTransactionBuilder}s created from {@link #receiveTransactionBuilder(FlowSession)}
      * which track the differences internally.
      * If it is called with anything else, it throws [InvalidParameterException].
      * <p>
