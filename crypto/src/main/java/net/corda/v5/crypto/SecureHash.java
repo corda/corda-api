@@ -32,7 +32,8 @@ public interface SecureHash {
 
     /**
      * The delimiter used in the string form of a secure hash to separate the algorithm name from the hexadecimal
-     * string of the hash.
+     * string of the hash. Please note that algorithm name may only match the regex [a-zA-Z_][a-zA-Z_0-9\-/]* so
+     * delimiter ':' is a safe separator.
      */
     char DELIMITER = ':';
 
