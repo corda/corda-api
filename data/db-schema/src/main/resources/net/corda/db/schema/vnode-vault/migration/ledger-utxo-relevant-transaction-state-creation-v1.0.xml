@@ -18,7 +18,7 @@
             <column name="consumed" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
-            <column name="custom" type="JSONB">
+            <column name="custom_representation" type="JSONB">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
