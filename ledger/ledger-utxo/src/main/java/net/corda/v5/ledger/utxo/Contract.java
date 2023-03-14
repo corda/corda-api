@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,6 +23,7 @@ public interface Contract {
      * @param checker Provides a mechanism to determine visibility of the specified {@link ContractState}.
      * @return Returns true if the specified state is visible to the current node; otherwise, false.
      */
+    @Suspendable
     default boolean isVisible(@NotNull ContractState state, @NotNull VisibilityChecker checker) {
         return checker.containsMySigningKeys(state.getParticipants());
     }
