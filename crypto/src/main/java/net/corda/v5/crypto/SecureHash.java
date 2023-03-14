@@ -17,7 +17,6 @@ public interface SecureHash {
     @NotNull
     String getAlgorithm();
 
-    // TODO we could get away without this, but adding it for consistency with `PrivacySalt`
     /**
      * The result bytes of the hashing operation with the specified digest algorithm. The specified digest algorithm
      * can be acquired through {@link SecureHash#getAlgorithm()}
@@ -30,21 +29,6 @@ public interface SecureHash {
      */
     @NotNull
     String toHexString();
-
-    /**
-     * Returns the first specified number of hexadecimal digits of the {@link SecureHash} value.
-     *
-     * @param prefixLen The number of characters in the prefix.
-     */
-    @NotNull
-    String prefixChars(int prefixLen);
-
-
-    /**
-     * Returns the first 6 hexadecimal digits of the {@link SecureHash} value.
-     */
-    @NotNull
-    String prefixChars();
 
     /**
      * The delimiter used in the string form of a secure hash to separate the algorithm name from the hexadecimal
