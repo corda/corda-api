@@ -38,9 +38,6 @@ public interface DigestService {
      * <p>
      * A valid secure hash string should be containing the algorithm and hexadecimal representation of the bytes
      * separated by the colon character (':') ({@link net.corda.v5.crypto.SecureHash.DELIMITER}).
-     * <p>
-     * Please note that this function does not validate the length of the hex string of the digest
-     * to conform to the length of the specified digest algorithm.
      *
      * @param algoNameAndHexString The algorithm name followed by the hex string form of the digest,
      *                             separated by colon (':')
