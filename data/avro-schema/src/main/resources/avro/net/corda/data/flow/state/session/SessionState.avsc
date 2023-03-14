@@ -75,7 +75,10 @@
     },
     {
       "name": "counterpartySessionProperties",
-      "type": "net.corda.data.KeyValuePairList",
+      "type": [
+        "null",
+        "net.corda.data.KeyValuePairList"
+      ],
       "doc": "A map of context properties received from a counterparty related to this flow session. This contains information such as protocol name and the version running."
     }
   ]
