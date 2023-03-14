@@ -38,7 +38,9 @@ public interface SecureHash {
 
     /**
      * Converts a {@link SecureHash} object to a string representation containing the <code>algorithm</code> and hexadecimal
-     * representation of the <code>bytes</code> separated by the colon character.
+     * representation of the <code>bytes</code> separated by the colon character ({@link net.corda.v5.crypto.SecureHash.DELIMITER}).
+     * <p>
+     * Example outcome of toString(): SHA-256:98AF8725385586B41FEFF205B4E05A000823F78B5F8F5C02439CE8F67A781D90
      */
     @NotNull
     String toString();

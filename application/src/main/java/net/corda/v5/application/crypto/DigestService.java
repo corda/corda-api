@@ -34,14 +34,16 @@ public interface DigestService {
     SecureHash hash(@NotNull InputStream inputStream, @NotNull DigestAlgorithmName digestName);
 
     /**
-     * Parses a secure hash in string form into a {@link SecureHash}. A valid secure hash string
-     * should be of the format {digest algorithm name}:{secure hash in hex string}.
+     * Parses a secure hash in string form into a {@link SecureHash}.
+     * <p>
+     * A valid secure hash string should be containing the algorithm and hexadecimal representation of the bytes
+     * separated by the colon character (':') ({@link net.corda.v5.crypto.SecureHash.DELIMITER}).
      * <p>
      * Please note that this function does not validate the length of the hex string of the digest
      * to conform to the length of the specified digest algorithm.
      *
      * @param algoNameAndHexString The algorithm name followed by the hex string form of the digest,
-     *                             separated by colon(':')
+     *                             separated by colon (':')
      *                             e.g. SHA-256:98AF8725385586B41FEFF205B4E05A000823F78B5F8F5C02439CE8F67A781D90.
      */
     @NotNull
