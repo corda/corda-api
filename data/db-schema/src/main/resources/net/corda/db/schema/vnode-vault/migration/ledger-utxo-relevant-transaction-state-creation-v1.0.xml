@@ -15,16 +15,13 @@
             <column name="leaf_idx" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="consumed" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
             <column name="custom_representation" type="JSONB">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="consumed_timestamp" type="TIMESTAMP">
+            <column name="consumed" type="TIMESTAMP">
                 <constraints nullable="true"/>
             </column>
         </createTable>
