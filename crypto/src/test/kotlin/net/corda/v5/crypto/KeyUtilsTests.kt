@@ -1,6 +1,10 @@
 package net.corda.v5.crypto
 
-import net.corda.v5.crypto.mocks.*
+import net.corda.v5.crypto.mocks.ECDSA_SECP256K1_SPEC
+import net.corda.v5.crypto.mocks.ECDSA_SECP256R1_SPEC
+import net.corda.v5.crypto.mocks.RSA_SPEC
+import net.corda.v5.crypto.mocks.generateKeyPair
+import net.corda.v5.crypto.mocks.specs
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import java.security.PublicKey
