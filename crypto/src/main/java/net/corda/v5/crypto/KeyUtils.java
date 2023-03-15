@@ -70,6 +70,11 @@ public final class KeyUtils {
      * it will not be considered fulfilled by any {@link CompositeKey} in <code>otherKeys</code>. Such cases are
      * not considered errors, so we silently ignore {@link CompositeKey}s in <code>otherKeys</code>.
      *
+     * If you know you have a {@link CompositeKey} in your hand it would be simpler to call its <code>isFulfilledBy()</code> 
+     * method directly. This function is intended as a utility for when you have some kind of public key, and which to 
+     * check fulfilment against a set of keys, without having to handle simple and composite keys separately (i.e. this is
+     * polymorphic).
+     * 
      * @param firstKey  the key with the requirements
      * @param otherKeys the key to check whether requirements are fulfilled
      */
