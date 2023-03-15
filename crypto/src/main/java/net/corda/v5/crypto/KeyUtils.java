@@ -13,7 +13,7 @@ public final class KeyUtils {
     }
 
     /**
-     * Checks whether <code>key</code> has any intersection with the keys in <code>otherKes</code>, 
+     * Checks whether <code>key</code> has any intersection with the keys in <code>otherKeys</code>, 
      * recursing into <code>key</code> (the first argument) if it is a composite key. Does not match
      * any composite keys in <code>otherKeys</code>.
      * <p/>
