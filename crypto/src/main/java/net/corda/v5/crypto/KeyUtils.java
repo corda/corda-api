@@ -15,7 +15,7 @@ public final class KeyUtils {
     /**
      * Checks whether <code>key</code> has any intersection with the keys in <code>otherKes</code>, 
      * recursing into <code>key</code> (the first argument) if it is a composite key. Does not match
-     * any compsite keys in <code>otherKeys</code>.
+     * any composite keys in <code>otherKeys</code>.
      * <p/>
      * For simple non-compound public keys, this operation simply checks if the first argument occurs in the
      * second argument. If <code>key</code> is a compound key, the outcome is whether any of its leaf keys
