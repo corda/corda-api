@@ -58,7 +58,7 @@ public final class KeyUtils {
     }
 
     /**
-     * Return true if any of a set of keys fulfil the requirements of a specific key.
+     * Return true if a set of keys fulfil the requirements of a specific key.
      * 
      * Fulfilment of a {@link CompositeKey} as <code>firstKey</code> key is checked by delegating to the <code>isFulfilledBy</code> method of that
      * compound key. It is a question of whether all the keys which match the compound keys in total have enough weight
