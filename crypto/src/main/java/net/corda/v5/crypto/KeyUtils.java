@@ -87,7 +87,10 @@ public final class KeyUtils {
     /**
      * Return true if one key fulfills the requirements of another key. See the previous variant; this overload
      * is the same as calling as the variant that takes an iterable set of other keys with <code>otherKey<code>
-     * as a single element iterable.     
+     * as a single element iterable. 
+     * 
+     * Since we do not define composite keys as acceptable on the second argument of this function, this relation
+     * is not reflexive, not symmetric and not transitive. 
      *
      * @param firstKey the key with the requirements
      * @param otherKey the key to check whether requirements are fulfilled
