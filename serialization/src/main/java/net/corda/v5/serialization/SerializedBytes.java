@@ -1,7 +1,6 @@
 package net.corda.v5.serialization;
 
 import net.corda.v5.base.annotations.CordaSerializable;
-import net.corda.v5.base.types.OpaqueBytes;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -10,13 +9,6 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("unused")
 @CordaSerializable
 public interface SerializedBytes<T> {
-//    /**
-//     * Constructs a SerializedBytes holding the specified bytes.
-//     * @param bytes Byte array holding serialized form of type T.
-//     */
-//    public SerializedBytes(@NotNull byte[] bytes) {
-//        super(bytes);
-//    }
 
     @NotNull
     byte[] getBytes();
@@ -27,7 +19,4 @@ public interface SerializedBytes<T> {
      */
     @NotNull
     String getSummary();
-//    {
-//        return "SerializedBytes(size = " + getSize() + ')';
-//    }
 }
