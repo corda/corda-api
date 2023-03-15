@@ -38,7 +38,7 @@
       "type": "string"
     },
     "(?=^(?!corda\\.).+)(?=^(?=.{1,128}$)[a-zA-Z0-9]*[^$%^&*;:,<>?()\"']*$)": {
-      "description": "Optional. A user can specify additional properties, they must not start with corda or be more than 128 characters.",
+      "description": "Optional. A user can specify additional properties, they must not start with corda. or be more than 128 characters.",
       "type": "string",
       "maxLength": 128
     }
@@ -77,6 +77,5 @@
   "required": [
     "corda.session.key.id"
   ],
-  "additionalProperties": false,
-  "maxProperties": 128
+  "additionalProperties": false
 }
