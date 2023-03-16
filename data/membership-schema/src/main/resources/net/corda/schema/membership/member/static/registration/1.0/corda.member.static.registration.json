@@ -30,13 +30,21 @@
         "O=NotaryService, L=London, C=GB"
       ]
     },
-    "corda.notary.service.plugin": {
-      "description": "The notary plugin type (FQN of notary service plugin class). Valid only when one of the roles is notary.",
+    "corda.notary.service.flow.protocol.name": {
+      "description": "Name of the flow protocol used by the notary service. Valid only when one of the roles is notary.",
       "type": "string",
-      "pattern": "^(([a-zA-Z][a-zA-Z_$0-9]*(\\.[a-zA-Z][a-zA-Z_$0-9]*)*)\\.)?([a-zA-Z][a-zA-Z_$0-9]*)$",
+      "maxLength": 255,
       "examples": [
         "net.corda.notary.MyNotaryService"
       ]
+    },
+    "corda.notary.service.flow.protocol.versions": {
+      "description": "List of versions supported for the flow protocol used by the notary service. Valid only when one of the roles is notary.",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
     }
   },
   "required": [
