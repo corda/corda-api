@@ -32,14 +32,14 @@ public interface SigningService {
      * a {@link CompositeKey}, the first leaf signing key hosted by the node is used.
      * @param signatureSpec The {@link SignatureSpec} to use when producing this signature.
      *
-     * @return A {@link DigitalSignature.WithKey} representing the signed data and the {@link PublicKey} that belongs to the
+     * @return A {@link DigitalSignature.WithKeyId} representing the signed data and the {@link PublicKey} that belongs to the
      * same {@link KeyPair} as the {@link PrivateKey} that signed the data.
      *
      * @throws CordaRuntimeException If the input key is not a member of {@code keys}.
      */
     @Suspendable
     @NotNull
-    DigitalSignature.WithKey sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
+    DigitalSignature.WithKeyId sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
 
     /**
      * Gets a set of signing keys to look into and returns a mapping of the requested signing keys to signing keys

@@ -61,6 +61,7 @@ public interface TransactionSignatureService {
      * @param signatureWithMetadata The signature to be verified.
      * @throws RuntimeException if the signature could not be verified.
      */
+    // TODO `DigitalSignatureAndMetadata` consumer -> Lajos
     void verifySignature(
             @NotNull final TransactionWithMetadata transaction,
             @NotNull final DigitalSignatureAndMetadata signatureWithMetadata
