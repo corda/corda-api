@@ -70,8 +70,9 @@
     },
     "corda.serial": {
       "description": "Optional. The serial on the member's latest member info.",
-      "type": "string",
-      "maxLength": "100"
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000000
     }
   },
   "required": [
