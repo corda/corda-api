@@ -38,7 +38,7 @@
       "type": "string"
     },
     "^ext\\.[a-zA-Z0-9\\.]+$": {
-      "description": "Optional. A user can specify additional properties, they must be prefixed with `ext.`",
+      "description": "Optional. A user can specify additional properties, they must be prefixed with `ext.`.",
       "type": "string",
       "maxLength": 256
     }
