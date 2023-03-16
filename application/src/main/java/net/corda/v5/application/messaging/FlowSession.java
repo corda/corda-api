@@ -41,6 +41,7 @@ public interface FlowSession {
      *
      * This method can be called before any send or receive has been done with [counterparty]. In such a case this will
      * force them to start their flow.
+     * @throws CordaRuntimeException If the session is in a failed or errorred state
      */
     @Suspendable
     @NotNull
