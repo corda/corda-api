@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "SessionConfirm",
-  "doc" : "Acknowledge to another party that the session has been confirmed and is ready to send and receive messages.",
+  "doc" : "Acknowledge to counterparty that the session has been confirmed and is ready to send and receive messages.",
   "namespace": "net.corda.data.flow.event.session",
   "fields": [
     {

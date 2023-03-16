@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 @CordaSerializable
 public interface FlowInfo {
     /**
-     * @return The protocol name the flow is running.
+     * @return The protocol name of the flow is running.
      */
     @NotNull
     String protocol();
