@@ -160,10 +160,10 @@
             <column name="signature_public_key" type="VARBINARY(1048576)">
                 <constraints nullable="true"/>
             </column>
-            <column name="signature_context" type="VARBINARY(1048576)">
+            <column name="signature_content" type="VARBINARY(1048576)">
                 <constraints nullable="true"/>
             </column>
-            <column name="signature_content" type="VARBINARY(1048576)">
+            <column name="signature_spec" type="NVARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
