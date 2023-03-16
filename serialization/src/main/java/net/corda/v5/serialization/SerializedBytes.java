@@ -12,11 +12,4 @@ public interface SerializedBytes<T> {
 
     @NotNull
     byte[] getBytes();
-
-    /**
-     * Returns a text description of this SerializedBytes object
-     * @return Text description of this SerializedBytes object.
-     */
-    @NotNull
-    String getSummary();
 }
