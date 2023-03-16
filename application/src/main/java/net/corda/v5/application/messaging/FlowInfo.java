@@ -12,7 +12,8 @@ public interface FlowInfo {
     String protocol();
 
     /**
-     * @return The protocol version the flow is running. Can be null if no version associated
+     * @return The protocol version the flow is running.
      */
+    @NotNull
     Integer protocolVersion();
 }
