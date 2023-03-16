@@ -34,7 +34,6 @@ public interface FlowSession {
     @NotNull
     MemberX500Name getCounterparty();
 
-
     /**
      * Returns a [FlowInfo] object describing the flow which the [counterparty] is running. With [FlowInfo.protocolVersion] it
      * provides the necessary information needed for the evolution of flows and enabling backwards compatibility.
