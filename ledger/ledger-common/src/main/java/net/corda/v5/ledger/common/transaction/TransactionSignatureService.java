@@ -3,6 +3,7 @@ package net.corda.v5.ledger.common.transaction;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureVerificationService;
 import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.crypto.merkle.MerkleProof;
 import org.jetbrains.annotations.NotNull;
 
@@ -57,12 +58,21 @@ public interface TransactionSignatureService {
      * The underlying verification service signals the verification failures with different exceptions.
      * {@link DigitalSignatureVerificationService}
      *
-     * @param transaction The original transaction.
+     * @param transaction           The original transaction.
      * @param signatureWithMetadata The signature to be verified.
+     * @param publicKey             The public key to verify against. It should match with signatureWithMetadata's keyId.
      * @throws RuntimeException if the signature could not be verified.
      */
     void verifySignature(
             @NotNull final TransactionWithMetadata transaction,
-            @NotNull final DigitalSignatureAndMetadata signatureWithMetadata
+            @NotNull final DigitalSignatureAndMetadata signatureWithMetadata,
+            @NotNull final PublicKey publicKey
+    );
+
+    // TODO Not too sure how good place is this for this function, but since Transactionsignature service is already available where this will be used
+    // in signed txs etc, probable good enough for now.
+    SecureHash getIdOfPublicKey(
+            @NotNull final PublicKey publicKey,
+            @NotNull final String digestAlgorithmName
     );
 }
