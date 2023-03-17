@@ -37,7 +37,7 @@
       "description": "Optional. The ledger public key signature spec. Can be multiple specified by index.",
       "type": "string"
     },
-    "^ext\\.[a-zA-Z0-9\\.]+$": {
+    "^ext\\.[a-zA-Z0-9.]+$": {
       "description": "Optional. A user can specify additional properties, they must be prefixed with `ext.`.",
       "type": "string",
       "maxLength": 256
