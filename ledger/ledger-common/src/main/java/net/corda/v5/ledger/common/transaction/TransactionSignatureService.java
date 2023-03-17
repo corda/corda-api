@@ -69,8 +69,9 @@ public interface TransactionSignatureService {
             @NotNull final PublicKey publicKey
     );
 
-    // TODO Not too sure how good place is this for this function, but since Transactionsignature service is already available where this will be used
-    // in signed txs etc, probable good enough for now.
+    // TODO this needs internally in a few places, but maybe it could be kept internally? TransactionSignatureServiceInternal maybe?
+    //  Is not this accessible already somehow?
+    // If we move it to internal only, digestAlgorithmName can stay not null otherwise
     SecureHash getIdOfPublicKey(
             @NotNull final PublicKey publicKey,
             @NotNull final String digestAlgorithmName
