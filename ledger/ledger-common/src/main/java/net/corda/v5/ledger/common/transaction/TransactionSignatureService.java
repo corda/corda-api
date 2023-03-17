@@ -3,7 +3,6 @@ package net.corda.v5.ledger.common.transaction;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.crypto.DigitalSignatureVerificationService;
 import net.corda.v5.base.annotations.Suspendable;
-import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.crypto.merkle.MerkleProof;
 import org.jetbrains.annotations.NotNull;
 
@@ -67,13 +66,5 @@ public interface TransactionSignatureService {
             @NotNull final TransactionWithMetadata transaction,
             @NotNull final DigitalSignatureAndMetadata signatureWithMetadata,
             @NotNull final PublicKey publicKey
-    );
-
-    // TODO this needs internally in a few places, but maybe it could be kept internally? TransactionSignatureServiceInternal maybe?
-    //  Is not this accessible already somehow?
-    // If we move it to internal only, digestAlgorithmName can stay not null otherwise
-    SecureHash getIdOfPublicKey(
-            @NotNull final PublicKey publicKey,
-            @NotNull final String digestAlgorithmName
     );
 }
