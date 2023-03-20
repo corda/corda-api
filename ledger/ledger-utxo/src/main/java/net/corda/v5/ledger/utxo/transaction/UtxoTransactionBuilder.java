@@ -193,7 +193,7 @@ public interface UtxoTransactionBuilder {
      * @return Returns the service key of the notary assigned to the current transaction, or null if the notary has not been set.
      */
     @Nullable
-    MemberX500Name getNotaryKey();
+    PublicKey getNotaryKey();
 
     /**
      * Sets the specified {@link MemberX500Name} as a notary to the current {@link UtxoTransactionBuilder}.
