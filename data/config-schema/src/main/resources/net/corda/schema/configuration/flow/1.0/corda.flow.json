@@ -39,7 +39,8 @@
           "maximum": 2147483647,
           "default": 480000
         }
-      }
+      },
+      "additionalProperties": false
     },
     "session": {
       "description": "Settings for flow sessions",
@@ -60,7 +61,14 @@
           "maximum": 2147483647,
           "default": 3600000
         },
-        "p2pTTL": {
+        "missingCounterpartyTimeout": {
+          "description": "Length of time to wait when the counterparty can't be found in a member lookup before causing the session to error, in milliseconds",
+          "type": "integer",
+          "minimum": 30000,
+          "maximum": 2147483647,
+          "default": 300000
+        },
+          "p2pTTL": {
           "description": "TTL set in milliseconds, which is added to the current time, and set on messages passed to the P2P layer to be sent to a counterparty.",
           "type": "integer",
           "minimum": 10000,
@@ -74,7 +82,8 @@
           "maximum": 2147483647,
           "default": 480000
         }
-      }
+      },
+      "additionalProperties": false
     },
     "event": {
       "description": "Settings for external events within a flow",
@@ -95,7 +104,9 @@
           "maximum": 2147483647,
           "default": 5
         }
-      }
-    }
+      },
+      "additionalProperties": false
+    },
+    "additionalProperties": false
   }
 }

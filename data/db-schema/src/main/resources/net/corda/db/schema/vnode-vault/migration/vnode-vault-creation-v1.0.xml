@@ -76,6 +76,12 @@
             <column name="context" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
+            <column name="reason" type="NVARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="serial" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
         <addPrimaryKey columnNames="registration_id"
                        constraintName="vnode_registration_request_pk"
@@ -86,6 +92,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="member_name" type="NVARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_pending" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
             <column name="status" type="NVARCHAR(64)">
@@ -104,12 +113,12 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="group_id, member_name"
+        <addPrimaryKey columnNames="group_id, member_name, is_pending"
                        constraintName="vnode_member_info_pkey"
                        tableName="vnode_member_info"/>
 
         <createTable tableName="vnode_group_policy">
-            <column name="version" type="INT" autoIncrement="true">
+            <column name="version" type="BIGINT">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="created_at" type="TIMESTAMP">
@@ -127,17 +136,20 @@
             <column name="member_name" type="NVARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="is_pending" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
             <column name="public_key" type="VARBINARY(1024)">
                 <constraints nullable="false"/>
             </column>
-            <column name="context" type="VARBINARY(2048)">
+            <column name="signature_spec" type="NVARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="content" type="VARBINARY(4096)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="group_id, member_name"
+        <addPrimaryKey columnNames="group_id, member_name, is_pending"
                        constraintName="vnode_member_signature_pkey"
                        tableName="vnode_member_signature"/>
 

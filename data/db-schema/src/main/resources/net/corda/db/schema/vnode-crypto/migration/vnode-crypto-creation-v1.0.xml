@@ -3,11 +3,22 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <changeSet author="R3.Corda" id="vnode-crypto-creation-v1.0">
+        <!--
+        For now, the crypto_signing_key table schema must be identical between here and the 
+        virtual node schema (in ../../crypto/migration/crypto-creation-v1.0.xml)
+        since the crypto processor uses the same code irrespective of where the table resides.
+        
+        We could just include the same changeset files in both cases, but that might confuse readers
+        and liquibase, so instead we have to keep the content in sync.  
+        -->
         <createTable tableName="crypto_signing_key">
             <column name="tenant_id" type="VARCHAR(12)">
                 <constraints nullable="false"/>
             </column>
             <column name="key_id" type="CHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_key_id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="timestamp" type="TIMESTAMP">
@@ -50,6 +61,11 @@
         <addPrimaryKey constraintName="crypto_signing_key_pk"
                        tableName="crypto_signing_key"
                        columnNames="tenant_id, key_id"/>
+        <createIndex indexName="crypto_signing_key_full_key_idx"
+                     tableName="crypto_signing_key">
+            <column name="tenant_id"/>
+            <column name="full_key_id"/>
+        </createIndex>
         <createIndex indexName="crypto_signing_key_tenant_idx"
                      tableName="crypto_signing_key">
             <column name="tenant_id"/>
