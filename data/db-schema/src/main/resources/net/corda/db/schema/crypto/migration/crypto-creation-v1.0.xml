@@ -7,6 +7,10 @@
             <column name="alias" type="VARCHAR(64)">
                 <constraints nullable="false"/>
             </column>
+            <!-- version of the wrapping key, as a UUID -->
+            <column name="version" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
             <column name="created" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
@@ -16,14 +20,37 @@
             <column name="algorithm_name" type="VARCHAR(64)">
                 <constraints nullable="false"/>
             </column>
+            <!-- key material will be null for keys stored outside the database, 
+                 e.g. dervied from configuration parameters --> 
             <column name="key_material" type="VARBINARY(1048576)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
+            </column>
+            <!-- if null, there should be automated rotation -->
+            <column name="rotation_date" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <!-- FK to the other key alias that was used to encrypt this wrapping key.
+                That other key will also be a wrapping key, hence the awkward name -->
+            <column name="wrapping_alias" type="VARCHAR(64)">
+                <constraints nullable="true"/>
+            </column>
+            <!-- FK to the other key version that was used to encrypt this wrapping key.
+                That other key will also be a wrapping key, hence the awkward name -->
+            <column name="wrapping_version" type="VARCHAR(64)">
+                <constraints nullable="true"/>
             </column>
         </createTable>
-        <addPrimaryKey  columnNames="alias"
+        <addPrimaryKey  columnNames="alias, version"
                         tableName="crypto_wrapping_key"
                         constraintName="crypto_wrapping_key_pk"/>
-
+        <addForeignKeyConstraint baseColumnNames="wrapping_alias, wrapping_version"
+                                 baseTableName="crypto_wrapping_key"
+                                 onUpdate="RESTRICT"
+                                 onDelete="RESTRICT"
+                                 referencedColumnNames="alias, version"
+                                 referencedTableName="crypto_wrapping_key"
+                                 constraintName="fk__crypto_wrapping_key_parent_key"
+                                 validate="true"/>         
         <createTable tableName="crypto_hsm_association">
             <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
