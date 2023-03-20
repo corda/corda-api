@@ -180,12 +180,20 @@ public interface UtxoTransactionBuilder {
     Map<String, List<ContractState>> getEncumbranceGroups();
 
     /**
-     * Gets the notary assigned to the current transaction, or null if the notary has not been set.
+     * Gets the notary service name assigned to the current transaction, or null if the notary has not been set.
      *
      * @return Returns the service name of the notary assigned to the current transaction, or null if the notary has not been set.
      */
     @Nullable
     MemberX500Name getNotaryName();
+
+    /**
+     * Gets the notary service key assigned to the current transaction, or null if the notary has not been set.
+     *
+     * @return Returns the service key of the notary assigned to the current transaction, or null if the notary has not been set.
+     */
+    @Nullable
+    MemberX500Name getNotaryKey();
 
     /**
      * Sets the specified {@link MemberX500Name} as a notary to the current {@link UtxoTransactionBuilder}.
