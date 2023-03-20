@@ -42,12 +42,16 @@ public interface SigningService {
     DigitalSignature.WithKey sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
 
     /**
-     * Gets a set of signing keys to look into and returns a mapping of the requested signing keys to signing keys
-     * found to be owned by the caller. In case of {@link CompositeKey} it maps the composite key with the firstly found
-     * composite key leaf.
+     * Looks into a set of signing keys to find keys owned by the caller. In case of {@link CompositeKey} it looks into
+     * the composite key leaves and returns the firstly found owned composite key leaf.
      *
      * @param keys The signing keys to look into.
-     * @return A mapping of requested signing keys to found signing keys to be owned by the caller or {@code null} if not found to be owned.
+     * @return A mapping that maps the requested signing key:
+     * <ul>
+     *     <li> to the same key in case it is owned by the caller and the requested key is a plain key </li>
+     *     <li> to a composite key leaf in case the composite key leaf is owned by the caller and the requested signing key is a composite key </li>
+     *     <li> to {@code null} if the requested key is not owned by the caller </li>
+     * </ul>
      */
     @Suspendable
     @NotNull
