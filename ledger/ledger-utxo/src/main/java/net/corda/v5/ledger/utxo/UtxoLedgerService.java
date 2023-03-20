@@ -4,6 +4,7 @@ import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
@@ -183,4 +184,11 @@ public interface UtxoLedgerService {
             @NotNull UtxoTransactionBuilder transactionBuilder,
             @NotNull FlowSession session
     );
+
+
+    /**
+     * TODO KDocs
+     */
+    @Suspendable
+    @NotNull <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
 }

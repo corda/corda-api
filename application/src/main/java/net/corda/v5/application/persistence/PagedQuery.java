@@ -49,5 +49,16 @@ public interface PagedQuery<R> {
      */
     @Suspendable
     @NotNull
-    List<R> execute();
+    ResultSet<R> execute();
+
+    interface ResultSet<T> {
+
+        Integer getNewOffset();
+
+        Integer getSize();
+
+        Boolean hasNextPage();
+
+        List<T> getResults();
+    }
 }

@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "ExecuteVaultNamedQueryResponse",
+  "doc": "Contains the result of a given named query execution.",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "results",
+      "doc": "Result list of the named query in an encoded format.",
+      "type": {
+        "type" : "array",
+        "items": "bytes"
+      }
+    },
+    {
+      "name": "newOffset",
+      "doc": "The offset from which the result set continues.",
+      "type": "int"
+    },
+    {
+      "name": "hasNextPage",
+      "doc": "Whether the result set has a next page or not.",
+      "type": "boolean"
+    }
+  ]
+}

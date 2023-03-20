@@ -1,0 +1,31 @@
+{
+  "type": "record",
+  "name": "ExecuteVaultNamedQueryRequest",
+  "doc": "Retrieve and execute a named query with the given parameters.",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "queryName",
+      "type": "string",
+      "doc": "The name of the query that needs executing."
+    },
+    {
+      "name": "queryParameters",
+      "type": {
+        "type": "map",
+        "values": "bytes"
+      },
+      "doc": "A parameter map for the given named query."
+    },
+    {
+      "name": "offset",
+      "type": "int",
+      "doc": "The offset of the result set."
+    },
+    {
+      "name": "limit",
+      "type": "int",
+      "doc": "The limit of the result set."
+    }
+  ]
+}
