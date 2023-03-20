@@ -74,17 +74,17 @@ public interface UtxoSignedTransaction extends TransactionWithMetadata {
     List<StateAndRef<?>> getOutputStateAndRefs();
 
     /**
-     * Gets the notary {@link MemberX500Name} used for notarizing the current transaction.
+     * Gets the notary service {@link MemberX500Name} used for notarizing the current transaction.
      *
-     * @return Returns the notary {@link MemberX500Name} used for notarizing the current transaction.
+     * @return Returns the notary service {@link MemberX500Name} used for notarizing the current transaction.
      */
     @NotNull
     MemberX500Name getNotaryName();
 
     /**
-     * Gets the notary {@link PublicKey} used for notarizing the current transaction.
+     * Gets the notary service {@link PublicKey} used for notarizing the current transaction.
      *
-     * @return Returns the notary {@link PublicKey} used for notarizing the current transaction.
+     * @return Returns the notary service {@link PublicKey} used for notarizing the current transaction.
      */
     @NotNull
     PublicKey getNotaryKey();

@@ -63,17 +63,17 @@ public interface UtxoFilteredTransaction {
     TimeWindow getTimeWindow();
 
     /**
-     * Gets the notary name for the current transaction, or null if filtered.
+     * Gets the notary service name for the current transaction, or null if filtered.
      *
-     * @return Returns the notary name for the current transaction, or null if filtered.
+     * @return Returns the notary service name for the current transaction, or null if filtered.
      */
     @Nullable
     MemberX500Name getNotaryName();
 
     /**
-     * Gets the notary key for the current transaction, or null if filtered
+     * Gets the notary service key for the current transaction, or null if filtered
      *
-     * @return Returns the notary key for the current transaction or null if filtered
+     * @return Returns the notary service key for the current transaction or null if filtered
      */
     PublicKey getNotaryKey();
 

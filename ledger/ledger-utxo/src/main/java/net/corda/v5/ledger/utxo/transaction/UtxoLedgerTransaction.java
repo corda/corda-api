@@ -33,17 +33,17 @@ public interface UtxoLedgerTransaction {
     SecureHash getId();
 
     /**
-     * Gets the notary name associated with the current {@link UtxoLedgerTransaction}.
+     * Gets the notary service name associated with the current {@link UtxoLedgerTransaction}.
      *
-     * @return Returns the notary associated with the current {@link UtxoLedgerTransaction}.
+     * @return Returns the notary service associated with the current {@link UtxoLedgerTransaction}.
      */
     @NotNull
     MemberX500Name getNotaryName();
 
     /**
-     * Gets the notary key associated with the current {@link UtxoLedgerTransaction}.
+     * Gets the notary service key associated with the current {@link UtxoLedgerTransaction}.
      *
-     * @return Returns the notary key associated with the current {@link UtxoLedgerTransaction}.
+     * @return Returns the notary service key associated with the current {@link UtxoLedgerTransaction}.
      */
     @NotNull
     PublicKey getNotaryKey();

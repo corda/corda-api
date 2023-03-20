@@ -42,17 +42,17 @@ public interface TransactionState<T extends ContractState> {
     Class<? extends Contract> getContractType();
 
     /**
-     * Gets the notary name of the current {@link TransactionState} instance.
+     * Gets the notary service name of the current {@link TransactionState} instance.
      *
-     * @return Returns the notary of the current {@link TransactionState} instance.
+     * @return Returns the notary service of the current {@link TransactionState} instance.
      */
     @NotNull
     MemberX500Name getNotaryName();
 
     /**
-     * Gets the notary key of the current {@link TransactionState} instance.
+     * Gets the notary service key of the current {@link TransactionState} instance.
      *
-     * @return Returns the notary of the current {@link TransactionState} instance.
+     * @return Returns the notary service key of the current {@link TransactionState} instance.
      */
     @NotNull
     PublicKey getNotaryKey();
