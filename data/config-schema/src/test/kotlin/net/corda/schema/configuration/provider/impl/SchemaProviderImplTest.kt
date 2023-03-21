@@ -12,6 +12,7 @@ import net.corda.schema.configuration.ConfigKeys.REST_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SANDBOX_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SECRETS_CONFIG
 import net.corda.schema.configuration.ConfigKeys.UTXO_LEDGER_CONFIG
+import net.corda.schema.configuration.ConfigKeys.EXTERNAL_MESSAGING_CONFIG
 import net.corda.schema.configuration.provider.ConfigSchemaException
 import net.corda.schema.configuration.provider.SchemaProviderFactory
 import net.corda.v5.base.versioning.Version
@@ -40,7 +41,7 @@ class SchemaProviderImplTest {
             SANDBOX_CONFIG,
             RECONCILIATION_CONFIG,
             MEMBERSHIP_CONFIG,
-
+            EXTERNAL_MESSAGING_CONFIG
         )
         private val VERSIONS = listOf("1.0")
 
