@@ -15,7 +15,7 @@ import static net.corda.v5.base.types.ByteArrays.requireNotNull;
 import static net.corda.v5.base.types.ByteArrays.toHexString;
 
 /**
- * An abstraction of a byte array, with offset and size that does no copying of bytes unless asked to.
+ * An abstraction of a byte array, with offset and size that does not copy bytes unless asked to.
  * <p>
  * The data of interest typically starts at position {@code offset} within the {@code bytes} and is {@code size} bytes long.
  */
@@ -52,8 +52,8 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * The underlying bytes.  Some implementations may choose to make a copy of the underlying {@code byte[]} for
-     * security reasons.  For example, {@link OpaqueBytes}.
+     * The underlying bytes. Some implementations may choose to make a copy of the underlying {@code byte[]} for
+     * security reasons. For example, {@link OpaqueBytes}.
      */
     @NotNull
     public abstract byte[] getBytes();
@@ -68,7 +68,7 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
      * Create a sub-sequence of this sequence. A copy of the underlying array may be made, if a subclass overrides
      * {@code bytes} to do so, as {@link OpaqueBytes} does.
      *
-     * @param offset The offset within this sequence to start the new sequence. Note: not the offset within the backing array.
+     * @param offset The offset within this sequence to start the new sequence. Note that it is not the offset within the backing array.
      * @param size The size of the intended sub-sequence.
      */
     @SuppressWarnings("MemberVisibilityCanBePrivate")
@@ -83,7 +83,7 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * Take the first n bytes of this sequence as a sub-sequence.  See {@link #subSequence} for further semantics.
+     * Take the first n bytes of this sequence as a sub-sequence. See {@link #subSequence} for further semantics.
      */
     @NotNull
     public ByteSequence take(int n) {
@@ -92,11 +92,11 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
 
     /**
      * A new read-only {@link ByteBuffer} view of this sequence or part of it.
-     * If {@code start} or {@code end} are negative then {@link IllegalArgumentException} is thrown, otherwise they are clamped if necessary.
+     * If {@code start} or {@code end} are negative then {@link IllegalArgumentException} is thrown. Otherwise, they are clamped if necessary.
      * This method cannot be used to get bytes before {@code offset} or after {@code offset}+{@code size}, and never makes a new array.
-     * @param start start index of slice (inclusive)
-     * @param end end index of slice (exclusive)
-     * @return {@link ByteBuffer}
+     * @param start Start index of slice (inclusive).
+     * @param end End index of slice (exclusive).
+     * @return {@link ByteBuffer}.
      */
     @NotNull
     public final ByteBuffer slice(int start, int end) {
@@ -112,8 +112,8 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * @param start index of slice
-     * @return {@link ByteBuffer}
+     * @param start Index of slice.
+     * @return {@link ByteBuffer}.
      */
     @NotNull
     public final ByteBuffer slice(int start) {
@@ -121,14 +121,14 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * @return {@link ByteBuffer}
+     * @return {@link ByteBuffer}.
      */
     @NotNull
     public final ByteBuffer slice() {
         return slice(0, size);
     }
 
-    /** Write this sequence to an {@link OutputStream}. */
+    /** Write this sequence to a {@link OutputStream}. */
     public final void writeTo(@NotNull OutputStream output) throws IOException {
         requireNotNull(output, "output may not be null");
         output.write(_bytes, offset, size);
@@ -142,9 +142,9 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * Copy this sequence, complete with new backing array.  This can be helpful to break references to potentially
+     * Copy this sequence, complete with new backing array. This can be helpful to break references to potentially
      * large backing arrays from small sub-sequences.
-     * @return deep-copy of byte-sequence
+     * @return Deep-copy of byte-sequence.
      */
     @NotNull
     public final ByteSequence copy() {
@@ -152,8 +152,8 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * Same as {@link #copy} but returns just the new byte array.
-     * @return byte array
+     * Same as {@link #copy} but only returns the new byte array.
+     * @return Byte array.
      */
     @NotNull
     public final byte[] copyBytes() {
@@ -161,13 +161,13 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     }
 
     /**
-     * Compare byte arrays byte by byte.  Arrays that are shorter are deemed less than longer arrays if all the bytes
+     * Compare byte arrays byte by byte. Arrays that are shorter are deemed less than longer arrays if all the bytes
      * of the shorter array equal those in the same position of the longer array.
      */
     @Override
     public int compareTo(@NotNull ByteSequence other) {
         int min = min(this.size, other.size);
-        // Compare min bytes
+        // Compare min bytes.
         for(int index = 0; index < min; ++index) {
             int unsignedThis = Byte.toUnsignedInt(_bytes[this.offset + index]);
             int unsignedOther = Byte.toUnsignedInt(other._bytes[other.offset + index]);
@@ -175,7 +175,7 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
                 return Integer.signum(unsignedThis - unsignedOther);
             }
         }
-        // First min bytes is the same, so now resort to size.
+        // First min bytes are the same, so now resort to size.
         return Integer.signum(this.size - other.size);
     }
 

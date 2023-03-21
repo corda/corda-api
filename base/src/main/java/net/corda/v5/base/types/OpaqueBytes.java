@@ -4,9 +4,9 @@ import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A simple class that wraps a byte array and makes the equals/hashCode/toString methods work as you actually expect.
+ * A simple class that wraps a byte array and makes the equals/hashCode/toString methods work as expected.
  * In an ideal JVM this would be a value type and be completely overhead free. Project Valhalla is adding such
- * functionality to Java, but it won't arrive for a few years yet!
+ * functionality to Java, but it won't arrive for a few years yet.
  */
 @CordaSerializable
 public class OpaqueBytes extends ByteSequence {

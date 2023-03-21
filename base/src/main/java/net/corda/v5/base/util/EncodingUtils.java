@@ -8,6 +8,9 @@ import java.util.Base64;
 
 // This file includes useful encoding methods and extension functions for the most common encoding/decoding operations.
 
+/**
+A wrapper class that has been introduced in the migration from Kotlin to Java to house static functions.
+ */
 public final class EncodingUtils {
     private EncodingUtils() {}
 
@@ -40,7 +43,7 @@ public final class EncodingUtils {
     // String encoders and decoders
 
     /**
-     * Base58-String to the actual real {@link String}, i.e. "JxF12TrwUP45BMd" -> "Hello World".
+     * Base58-String to the actual real {@link String}, that is "JxF12TrwUP45BMd" to "Hello World".
      */
     @NotNull
     public static String base58ToRealString(@NotNull String encoded) {
@@ -48,7 +51,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * Base64-String to the actual real {@link String}, i.e. "SGVsbG8gV29ybGQ=" -> "Hello World".
+     * Base64-String to the actual real {@link String}, that is "SGVsbG8gV29ybGQ=" to "Hello World".
      */
     @NotNull
     public static String base64ToRealString(@NotNull String encoded) {
@@ -56,7 +59,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * HEX-String to the actual real {@link String}, i.e. "48656C6C6F20576F726C64" -> "Hello World".
+     * HEX-String to the actual real {@link String}, that is "48656C6C6F20576F726C64" to "Hello World".
      */
     @NotNull
     public static String hexToRealString(@NotNull String encoded) {
@@ -84,7 +87,7 @@ public final class EncodingUtils {
 // Encoding changers
 
     /**
-     * Encoding changer. Base58-{@link String} to Base64-{@link String}, i.e. "SGVsbG8gV29ybGQ=" -> JxF12TrwUP45BMd"
+     * Encoding changer. Base58-{@link String} to Base64-{@link String}, that is "SGVsbG8gV29ybGQ=" to "JxF12TrwUP45BMd".
      */
     @NotNull
     public static String base58toBase64(@NotNull String input) {
@@ -92,7 +95,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * Encoding changer. Base58-{@link String} to Hex-{@link String}, i.e. "SGVsbG8gV29ybGQ=" -> "48656C6C6F20576F726C64"
+     * Encoding changer. Base58-{@link String} to Hex-{@link String}, that is "SGVsbG8gV29ybGQ=" to "48656C6C6F20576F726C64".
      */
     @NotNull
     public static String base58toHex(@NotNull String input) {
@@ -100,7 +103,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * Encoding changer. Base64-{@link String} to Base58-{@link String}, i.e. "SGVsbG8gV29ybGQ=" -> JxF12TrwUP45BMd"
+     * Encoding changer. Base64-{@link String} to Base58-{@link String}, that is "SGVsbG8gV29ybGQ=" to "JxF12TrwUP45BMd".
      */
     @NotNull
     public static String base64toBase58(@NotNull String input) {
@@ -108,7 +111,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * Encoding changer. Base64-{@link String} to Hex-{@link String}, i.e. "SGVsbG8gV29ybGQ=" -> "48656C6C6F20576F726C64"
+     * Encoding changer. Base64-{@link String} to Hex-{@link String}, that is "SGVsbG8gV29ybGQ=" to "48656C6C6F20576F726C64".
      */
     @NotNull
     public static String base64toHex(@NotNull String input) {
@@ -116,7 +119,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * Encoding changer. Hex-{@link String} to Base58-{@link String}, i.e. "48656C6C6F20576F726C64" -> "JxF12TrwUP45BMd"
+     * Encoding changer. Hex-{@link String} to Base58-{@link String}, that is "48656C6C6F20576F726C64" to "JxF12TrwUP45BMd".
      */
     @NotNull
     public static String hexToBase58(@NotNull String input) {
@@ -124,7 +127,7 @@ public final class EncodingUtils {
     }
 
     /**
-     * Encoding changer. Hex-{@link String} to Base64-{@link String}, i.e. "48656C6C6F20576F726C64" -> "SGVsbG8gV29ybGQ="
+     * Encoding changer. Hex-{@link String} to Base64-{@link String}, that is "48656C6C6F20576F726C64" to "SGVsbG8gV29ybGQ=".
      */
     @NotNull
     public static String hexToBase64(@NotNull String input) {

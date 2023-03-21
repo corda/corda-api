@@ -3,6 +3,9 @@ package net.corda.v5.base.types;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+A wrapper class that has been introduced in the migration from Kotlin to Java to house static functions.
+ */
 public final class ByteArrays {
     static void requireNotNull(@Nullable Object obj, @NotNull String message) {
         if (obj == null) {
@@ -53,7 +56,7 @@ public final class ByteArrays {
 
     /**
      * Converts this {@link String} of hexadecimal digits into a {@code byte[]}.
-     * @throws IllegalArgumentException if the {@link String} contains incorrectly-encoded characters.
+     * @throws IllegalArgumentException If the {@link String} contains incorrectly encoded characters.
      */
     @NotNull
     public static byte[] parseAsHex(@NotNull String str) {

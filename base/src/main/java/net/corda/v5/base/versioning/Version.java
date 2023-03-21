@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Representation of a version number
+ * Representation of a version number.
  */
 public final class Version {
     private static final Pattern VERSION = Pattern.compile("(\\d+)\\.(\\d+)");
@@ -39,8 +39,8 @@ public final class Version {
     }
 
     /**
-     * @param major The major part of the version
-     * @param minor The minor part of the version
+     * @param major The major part of the version.
+     * @param minor The minor part of the version.
      */
     public Version(int major, int minor) {
         this.major = major;

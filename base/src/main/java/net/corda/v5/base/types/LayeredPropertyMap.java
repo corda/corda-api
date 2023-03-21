@@ -11,23 +11,23 @@ import java.util.Set;
 
 /**
  * Interface for supporting {@code Map<String, String>} structure.
- * Has the required functions for converting and parsing the String values to Objects.
+ * It has the required functions for converting and parsing the string values to objects.
  * <p>
- * The layered property map provides simple conversions to a possibly complex objects which can use several keys in
- * dot-notation. Take as an example of the map:
+ * The layered property map provides simple conversions to possibly complex objects which can use several keys in
+ * dot-notation. Take an example of the map:
  * <ul>
- * <li>"corda.name" to "CN=me, O=R3, L=Dublin, C=IE",</li>
- * <li>"corda.sessionKey" to "-----BEGIN PUBLIC KEY-----Base64–encoded public key-----END PUBLIC KEY-----",</li>
- * <li>"corda.endpoints.0.url" to "localhost",</li>
- * <li>"corda.endpoints.0.protocolVersion" to "1",</li>
- * <li>"corda.endpoints.1.url" to "localhost",</li>
+ * <li>"corda.name" to "CN=me, O=R3, L=Dublin, C=IE"</li>
+ * <li>"corda.sessionKey" to "-----BEGIN PUBLIC KEY-----Base64–encoded public key-----END PUBLIC KEY-----"</li>
+ * <li>"corda.endpoints.0.url" to "localhost"</li>
+ * <li>"corda.endpoints.0.protocolVersion" to "1"</li>
+ * <li>"corda.endpoints.1.url" to "localhost"</li>
  * <li>"corda.endpoints.1.protocolVersion" to "2"</li>
  * </ul>
  * That map can be parsed into:
  * <ul>
  * <li>{@link MemberX500Name} using {@code parse("corda.name", MemberX500Name.class)}</li>
- * <li>session {@link PublicKey} using {@code parse("corda.sessionKey", PublicKey.class)}</li>
- * <li>list of endpoints using {@code parseList("corda.endpoints", EndpointInfo.class)}</li>
+ * <li>Session {@link PublicKey} using {@code parse("corda.sessionKey", PublicKey.class)}</li>
+ * <li>List of endpoints using {@code parseList("corda.endpoints", EndpointInfo.class)}</li>
  * </ul>
  * Example usages:
  * <ul>
@@ -74,10 +74,10 @@ public interface LayeredPropertyMap {
      * @param key Key for the entry we are looking for.
      * @param clazz The type of the value we want to convert to.
      *
-     * @throws IllegalArgumentException if the [T] is not supported or the {@code key} is blank string.
-     * @throws ValueNotFoundException if the key is not found or the value for the key is {@code null}.
-     * @throws ClassCastException as the result of the conversion is cached, it'll be thrown if the second time around
-     * the [T] is different from it was called for the first time.
+     * @throws IllegalArgumentException If the [T] is not supported or the {@code key} is a blank string.
+     * @throws ValueNotFoundException If the key is not found or the value for the key is {@code null}.
+     * @throws ClassCastException As the result of the conversion is cached, it will be thrown if the second time around
+     * the [T] is different from what it was called the first time.
      *
      * @return The parsed values for given type.
      */
@@ -91,9 +91,9 @@ public interface LayeredPropertyMap {
      * @param key Key for the entry we are looking for.
      * @param clazz The type of the value we want to convert to.
      *
-     * @throws IllegalArgumentException if the [T] is not supported or the {@code key} is blank string.
-     * @throws ClassCastException as the result of the conversion is cached, it'll be thrown if the second time around
-     * the [T] is different from it was called for the first time.
+     * @throws IllegalArgumentException If the [T] is not supported or the {@code key} is a blank string.
+     * @throws ClassCastException As the result of the conversion is cached, it will be thrown if the second time around
+     * the [T] is different from what it was called the first time.
      *
      * @return The parsed values for given type or null if the key doesn't exist.
      * */
@@ -103,7 +103,7 @@ public interface LayeredPropertyMap {
     /**
      * Converts several items with the given prefix to the list.
      * <p>
-     * Here is an example how a list will look like
+     * Here is an example of what a list will look like
      * (the {@code itemKeyPrefix} have to be "corda.endpoints" or "corda.endpoints."):
      * <pre>{@code
      *  corda.endpoints.1.url = localhost
@@ -115,12 +115,12 @@ public interface LayeredPropertyMap {
      * }</pre>
      *
      * @param itemKeyPrefix Prefix of the key for the entry we are looking for.
-     * @param clazz The type of the elements in the list.
+     * @param clazz The type of elements in the list.
      *
-     * @throws IllegalArgumentException if the [T] is not supported or the {@code itemKeyPrefix} is blank string.
-     * @throws ValueNotFoundException if one of the list values is null.
-     * @throws ClassCastException as the result of the conversion is cached, it'll be thrown if the second time around
-     * the [T] is different from it was called for the first time.
+     * @throws IllegalArgumentException If the [T] is not supported or the {@code itemKeyPrefix} is a blank string.
+     * @throws ValueNotFoundException If one of the list values is null.
+     * @throws ClassCastException As the result of the conversion is cached, it will be thrown if the second time around
+     * the [T] is different from what it was called the first time.
      *
      * @return A parsed list of elements for given type.
      */
@@ -141,10 +141,10 @@ public interface LayeredPropertyMap {
      * @param itemKeyPrefix Prefix of the key for the entry we are looking for.
      * @param clazz The type of the elements in the set.
      *
-     * @throws IllegalArgumentException if the [T] is not supported or the {@code itemKeyPrefix} is blank string.
-     * @throws ValueNotFoundException if one of the list values is null.
-     * @throws ClassCastException as the result of the conversion is cached, it'll be thrown if the second time around
-     * the [T] is different from it was called for the first time.
+     * @throws IllegalArgumentException If the [T] is not supported or the {@code itemKeyPrefix} is a blank string.
+     * @throws ValueNotFoundException If one of the list values is null.
+     * @throws ClassCastException As the result of the conversion is cached, it will be thrown if the second time around
+     * the [T] is different from what it was called the first time.
      *
      * @return A parsed set of elements for given type.
      */

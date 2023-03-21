@@ -12,7 +12,7 @@ import java.util.Objects;
  * <p>
  * This is the exception class that is used to throw and handle all exceptions you could
  * encounter at runtime in a flow. This class and subclasses can be serialized by Corda
- * so are safe to throw in flows.
+ * and so are safe to throw in flows.
  */
 public class CordaRuntimeException extends RuntimeException implements CordaThrowable {
     private String originalExceptionClassName;
