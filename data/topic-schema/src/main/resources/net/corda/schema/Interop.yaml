@@ -1,9 +1,0 @@
-topics:
-  InteropEventTopic:
-    name: interop.event
-    consumers:
-      - interop
-    producers:
-      - flow
-      - interop
-    config:

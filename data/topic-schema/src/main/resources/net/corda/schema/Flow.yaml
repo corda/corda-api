@@ -57,6 +57,14 @@ topics:
     producers:
       - flow
     config:
+  InteropEventTopic:
+    name: interop.event
+    consumers:
+      - interop
+    producers:
+      - flow
+      - interop
+    config:
   FlowStatusTopic:
     name: flow.status
     consumers:
@@ -71,3 +79,4 @@ topics:
       min.compaction.lag.ms: 60000
       max.compaction.lag.ms: 604800000
       min.cleanable.dirty.ratio: 0.5
+
