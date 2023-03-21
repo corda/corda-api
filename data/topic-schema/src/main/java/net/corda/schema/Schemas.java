@@ -244,4 +244,10 @@ public final class Schemas {
         public static final String CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status";
         public static final String CPK_FILE_TOPIC = "cpk.file";
     }
+
+    public static final class  Interop {
+        private Interop() {
+        }
+        public static final String INTEROP_EVENT_TOPIC = "interop.event";
+    }
 }
