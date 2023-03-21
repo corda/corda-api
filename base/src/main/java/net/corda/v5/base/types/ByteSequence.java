@@ -68,7 +68,7 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
      * Create a sub-sequence of this sequence. A copy of the underlying array may be made, if a subclass overrides
      * {@code bytes} to do so, as {@link OpaqueBytes} does.
      *
-     * @param offset The offset within this sequence to start the new sequence. Note that it is not the offset within the backing array.
+     * @param offset The offset within this sequence to start the new sequence. Note: not the offset within the backing array.
      * @param size The size of the intended sub-sequence.
      */
     @SuppressWarnings("MemberVisibilityCanBePrivate")
@@ -144,7 +144,7 @@ public abstract class ByteSequence implements Comparable<ByteSequence> {
     /**
      * Copy this sequence, complete with new backing array. This can be helpful to break references to potentially
      * large backing arrays from small sub-sequences.
-     * @return Deep-copy of byte-sequence.
+     * @return Deep copy of byte sequence.
      */
     @NotNull
     public final ByteSequence copy() {
