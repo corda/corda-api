@@ -86,8 +86,9 @@ topics:
   VirtualNodeOperationStatusTopic:
     name: virtual.node.operation.status
     consumers:
-      - db
+      - rest
     producers:
+      - db
       - rest
     config:
       cleanup.policy: compact
