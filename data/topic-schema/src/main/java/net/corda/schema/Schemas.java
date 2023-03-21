@@ -93,6 +93,7 @@ public final class Schemas {
         public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
         public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getStateAndEventDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
+        public static final String FLOW_INTEROP_EVENT_TOPIC = "flow.interop.event";
     }
 
     /**

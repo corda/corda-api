@@ -37,6 +37,14 @@ topics:
       - flow
       - rest
     config:
+  FlowInteropEventTopic:
+    name: flow.interop.event
+    consumers:
+      - interop
+    producers:
+      - flow
+      - interop
+    config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
     consumers:
