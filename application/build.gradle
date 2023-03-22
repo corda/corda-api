@@ -20,5 +20,7 @@ dependencies {
     compileOnly 'org.osgi:osgi.core'
 
     testApi 'org.jetbrains.kotlin:kotlin-osgi-bundle'
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion"
     testImplementation "org.assertj:assertj-core:$assertjVersion"
 }
