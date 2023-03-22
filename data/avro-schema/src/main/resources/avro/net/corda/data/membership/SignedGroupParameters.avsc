@@ -11,7 +11,7 @@
     },
     {
       "name": "mgmSignature",
-      "doc": "MGM signature over the serialised group parameters. The signature could be null only if it's the MGM's view of the group parameters, or if using static networks since no MGM exists.",
+      "doc": "MGM signature over the serialised group parameters. The signature could be null only if it's the MGM's view of the group parameters.",
       "type": ["null", "net.corda.data.crypto.wire.CryptoSignatureWithKey"]
     },
     {
