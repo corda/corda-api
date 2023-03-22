@@ -23,7 +23,7 @@
     {
       "name": "holdingIdentity",
       "type": ["null","net.corda.data.identity.HoldingIdentity"],
-      "doc": "Holding identity of the member for which the request is made."
+      "doc": "Holding identity of the member for which the request is made. null is request is not made on behalf of any member in particular (e.g. querying a cluster level table)."
     }
   ]
 }
