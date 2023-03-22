@@ -63,13 +63,9 @@
         "net.corda.notary.MyNotaryService"
       ]
     },
-    "corda.notary.service.flow.protocol.versions": {
+    "^corda.notary.service.flow.protocol.versions.[0-9]+$": {
       "description": "List of versions supported for the flow protocol used by the notary service. Valid only when one of the roles is notary.",
-      "type": "array",
-      "items": {
-        "type": "integer",
-        "minimum": 1
-      }
+      "type": "string"
     },
     "corda.auth.token": {
       "description": "Optional. A UUID string that uniquely identifies the pre-auth token.",
