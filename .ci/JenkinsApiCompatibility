@@ -1,4 +1,4 @@
 // Check corda-api compatibility with downstream consumers which implement CordApps
-@Library('corda-shared-build-pipeline-steps@5.0.1') _
+@Library('corda-shared-build-pipeline-steps@CORE-11469-NonFuncTest-CordaAPI') _
 
 cordaApiCompatibilityCheck()
