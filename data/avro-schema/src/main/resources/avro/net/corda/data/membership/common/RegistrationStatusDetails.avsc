@@ -47,8 +47,8 @@
     },
     {
       "name": "memberSignatureSpec",
-      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec",
-      "doc": "Signature spec of member signature."
+      "doc": "Signature spec of member signature.",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec"
     },
     {
       "name": "reason",
