@@ -79,12 +79,13 @@ public class PersistenceServiceJavaApiTest {
 
     @Test
     public void findAll() {
-        List<Integer> expectedResult = List.of(1, 2, 3, 4);
+        PagedQuery.ResultSet<Integer> expectedResult = mock(PagedQuery.ResultSet.class);
+        when(expectedResult.getResults()).thenReturn(List.of(1, 2, 3, 4));
         PagedQuery<Integer> query = mock(PagedQuery.class);
         when(query.execute()).thenReturn(expectedResult);
         when(persistenceService.findAll(Integer.class)).thenReturn(query);
 
-        List<Integer> result = persistenceService.findAll(Integer.class).execute();
+        PagedQuery.ResultSet<Integer> result = persistenceService.findAll(Integer.class).execute();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(expectedResult);
@@ -92,12 +93,13 @@ public class PersistenceServiceJavaApiTest {
 
     @Test
     public void query() {
-        List<Integer> expectedResult = List.of(1, 2, 3, 4);
+        PagedQuery.ResultSet<Integer> expectedResult = mock(PagedQuery.ResultSet.class);
+        when(expectedResult.getResults()).thenReturn(List.of(1, 2, 3, 4));
         ParameterizedQuery<Integer> query = mock(ParameterizedQuery.class);
         when(query.execute()).thenReturn(expectedResult);
         doReturn(query).when(persistenceService).query("test", Integer.class);
 
-        List<Integer> result = persistenceService.query("test", Integer.class).execute();
+        PagedQuery.ResultSet<Integer> result = persistenceService.query("test", Integer.class).execute();
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(expectedResult);

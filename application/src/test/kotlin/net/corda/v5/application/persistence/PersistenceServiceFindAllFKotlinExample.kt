@@ -3,6 +3,7 @@
 package net.corda.v5.application.persistence
 
 import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.persistence.PagedQuery.ResultSet
 import net.corda.v5.base.annotations.CordaSerializable
 import java.util.UUID
 import javax.persistence.Column
@@ -23,7 +24,7 @@ val pagedQuery = persistenceService
     .setOffset(200)
 
 // execute the query and return the results as a List
-val result1: List<Dog> = pagedQuery.execute()
+val result1: ResultSet<Dog> = pagedQuery.execute()
 
 // create a named query setting parameters as Map, that returns the second page of up to 100 records
 val paramQuery = persistenceService
@@ -33,7 +34,7 @@ val paramQuery = persistenceService
     .setOffset(200)
 
 // execute the query and return the results as a List
-val result2: List<Dog> = pagedQuery.execute()
+val result2: ResultSet<Dog> = pagedQuery.execute()
 
 // For JPA Entity:
 @CordaSerializable

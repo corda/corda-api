@@ -2,8 +2,6 @@ package net.corda.v5.application.persistence;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.mockito.Mockito.*;
 
 public class PagedQueryJavaApiTest {
@@ -16,7 +14,7 @@ public class PagedQueryJavaApiTest {
 
     @Test
     public void simpleNonPagedQuery() {
-        List<TestObject> result = query.execute();
+        PagedQuery.ResultSet<TestObject> result = query.execute();
         verify(query, times(1)).execute();
     }
 
@@ -25,7 +23,7 @@ public class PagedQueryJavaApiTest {
         doReturn(query).when(query).setLimit(anyInt());
         doReturn(query).when(query).setOffset(anyInt());
 
-        List<TestObject> result = query
+        PagedQuery.ResultSet<TestObject> result = query
                 .setLimit(123)
                 .setOffset(456)
                 .execute();
