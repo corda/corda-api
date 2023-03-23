@@ -61,21 +61,22 @@ public interface PagedQuery<R> {
         /**
          * @return The results contained in the result set.
          */
+        @NotNull
         List<T> getResults();
 
         /**
          * @return The size of the result set.
          */
-        Integer getSize();
+        int getSize();
 
         /**
          * @return The new offset from where the result set continues or 0 if the result set is finished.
          */
-        Integer getNewOffset();
+        int getNewOffset();
 
         /**
          * @return Whether the result set has a next page or not.
          */
-        Boolean hasNextPage();
+        boolean hasNextPage();
     }
 }

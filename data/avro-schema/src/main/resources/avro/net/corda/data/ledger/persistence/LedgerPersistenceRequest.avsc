@@ -36,7 +36,7 @@
         "net.corda.data.ledger.persistence.FindUnconsumedStatesByType",
         "net.corda.data.ledger.persistence.ResolveStateRefs",
         "net.corda.data.ledger.persistence.UpdateTransactionStatus",
-        "net.corda.data.ledger.persistence.ExecuteVaultNamedQueryRequest"
+        "net.corda.data.persistence.FindWithNamedQuery"
       ]
     },
     {
