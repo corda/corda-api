@@ -1,6 +1,6 @@
 package net.corda.schema.cordapp.configuration.provider.impl;
 
-import net.corda.schema.common.provider.impl.SchemaProviderCommonImpl;
+import net.corda.schema.common.provider.impl.AbstractSchemaProvider;
 import net.corda.schema.cordapp.configuration.provider.CordappConfigSchemaException;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public final class SchemaProviderCordappConfigImpl extends SchemaProviderCommonImpl {
+public final class SchemaProviderCordappConfigImpl extends AbstractSchemaProvider {
 
     public SchemaProviderCordappConfigImpl() {
         super(LoggerFactory.getLogger(SchemaProviderCordappConfigImpl.class));
