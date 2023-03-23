@@ -20,14 +20,12 @@
     {
       "name": "newOffset",
       "doc": "The new offset the result set continues from.",
-      "type": "int",
-      "default": 0
+      "type": "int"
     },
     {
       "name": "hasNextPage",
       "doc": "A flag whether the result set has a next page or not.",
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     }
   ]
 }
