@@ -1,6 +1,5 @@
 package net.corda.schema.cordapp.configuration.provider.impl
 
-import net.corda.schema.common.provider.SchemaProviderFactory
 import net.corda.v5.base.versioning.Version
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -11,8 +10,9 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 import net.corda.schema.cordapp.configuration.ConfigKeys
 import net.corda.schema.cordapp.configuration.provider.CordappConfigSchemaException
+import net.corda.schema.cordapp.configuration.provider.SchemaProviderCordappConfigFactory
 
-class SchemaCordappConfigProviderImplTest {
+class SchemaProviderCordappConfigImplTest {
 
     companion object {
         // All the top level config keys excluding the boot config, which is handled differently.
@@ -38,14 +38,14 @@ class SchemaCordappConfigProviderImplTest {
     @ParameterizedTest(name = "schema provider fetches schema for top-level keys: key={0}, version={1}")
     @MethodSource("schemaSources")
     fun `schema provider fetches schema for top-level keys`(key: String, version: String) {
-        val provider = SchemaProviderFactory.getCordappConfigSchemaProvider()
+        val provider = SchemaProviderCordappConfigFactory.getSchemaProvider()
         val stream = provider.getSchema(key, Version.fromString(version))
         stream.close()
     }
 
     @Test
     fun `throws if provided key is not a top-level key`() {
-        val provider = SchemaProviderFactory.getCordappConfigSchemaProvider()
+        val provider = SchemaProviderCordappConfigFactory.getSchemaProvider()
         assertThrows<CordappConfigSchemaException> {
             provider.getSchema(BAD_KEY, Version.fromString("1.0"))
         }
@@ -53,7 +53,7 @@ class SchemaCordappConfigProviderImplTest {
 
     @Test
     fun `throws if provided version is not valid`() {
-        val provider = SchemaProviderFactory.getCordappConfigSchemaProvider()
+        val provider = SchemaProviderCordappConfigFactory.getSchemaProvider()
         assertThrows<CordappConfigSchemaException> {
             provider.getSchema(ConfigKeys.EXTERNAL_MESSAGING_CONFIG, Version(0, 0))
         }
@@ -61,14 +61,14 @@ class SchemaCordappConfigProviderImplTest {
 
     @Test
     fun `retrieves schema files when specified directly`() {
-        val provider = SchemaProviderFactory.getCordappConfigSchemaProvider()
+        val provider = SchemaProviderCordappConfigFactory.getSchemaProvider()
         val stream = provider.getSchemaFile(SCHEMA_FILE)
         stream.close()
     }
 
     @Test
     fun `throws if provided file does not exist`() {
-        val provider = SchemaProviderFactory.getCordappConfigSchemaProvider()
+        val provider = SchemaProviderCordappConfigFactory.getSchemaProvider()
         assertThrows<CordappConfigSchemaException> {
             provider.getSchemaFile(BAD_SCHEMA_FILE)
         }
