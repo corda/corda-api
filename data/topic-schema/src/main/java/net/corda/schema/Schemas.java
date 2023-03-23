@@ -191,7 +191,6 @@ public final class Schemas {
 
         public static final String PERSISTENCE_ENTITY_PROCESSOR_TOPIC = "persistence.entity.processor";
         public static final String PERSISTENCE_LEDGER_PROCESSOR_TOPIC = "persistence.ledger.processor";
-        public static final String PERSISTENCE_LEDGER_NAMED_QUERY_TOPIC = "persistence.ledger.named.query";
     }
 
     /**
