@@ -187,7 +187,49 @@ public interface UtxoLedgerService {
 
 
     /**
-     * TODO KDocs
+     * Creates a query object for a named ledger query with the given name - if it exists. This query can be executed later.
+     * <p>
+     * Example usage:
+     * <ul>
+     * <li>Kotlin:<pre>{@code
+     * val query = utxoLedgerService.query("FIND_BY_TEST_FIELD", Int::class.java)
+     *     .setParameter("testField", "value")
+     *     .setParameter("participants", listOf("something"))
+     *     .setParameter("contractStateType", ContractState::class.java.name)
+     *     .setParameter("in-memory-filter-parameter", "parameter")
+     *     .setCreatedTimestampLimit(Instant.now())
+     *     .setOffset(0)
+     *     .setLimit(100)
+     * do {
+     *     val resultSet = query.execute()
+     *     processResultsWithApplicationLogic(resultSet.results)
+     *     query.setOffset(resultSet.newOffset)
+     * } while (resultSet.hasNextPage)
+     * }</pre></li>
+     * <li>Java:<pre>{@code
+     * ParameterizedQuery<Integer> query = utxoLedgerService.query("FIND_BY_TEST_FIELD", Integer.class)
+     *         .setParameter("testField", "value")
+     *         .setParameter("participants", List.of("something"))
+     *         .setParameter("contractStateType", ContractState.class.getName())
+     *         .setParameter("in-memory-filter-parameter", "parameter")
+     *         .setTimestampLimit(Instant.now())
+     *         .setOffset(0)
+     *         .setLimit(100);
+     *
+     * PagedQuery.ResultSet<Integer> resultSet = query.execute();
+     *
+     * processResultsWithApplicationLogic(resultSet.getResults());
+     *
+     * while (resultSet.getHasNextPage()) {
+     *     resultSet = query.setOffset(resultSet.getNewOffset()).execute();
+     *     processResultsWithApplicationLogic(resultSet.getResults());
+     * }
+     * }</pre></li>
+     *
+     * @param queryName The name of the named ledger query to use.
+     * @param resultClass Type that the query should return when executed.
+     *
+     * @return A {@link VaultNamedParameterizedQuery} query object that can be executed or modified further on.
      */
     @Suspendable
     @NotNull <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);

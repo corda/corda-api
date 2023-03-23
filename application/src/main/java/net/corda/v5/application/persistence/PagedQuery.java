@@ -51,14 +51,31 @@ public interface PagedQuery<R> {
     @NotNull
     ResultSet<R> execute();
 
+    /**
+     * A representation of a result set returned by a paged query when executed.
+     *
+     * @param <T> Type of the results contained in the result set.
+     */
     interface ResultSet<T> {
 
-        Integer getNewOffset();
+        /**
+         * @return The results contained in the result set.
+         */
+        List<T> getResults();
 
+        /**
+         * @return The size of the result set.
+         */
         Integer getSize();
 
-        Boolean hasNextPage();
+        /**
+         * @return The new offset from where the result set continues or 0 if the result set is finished.
+         */
+        Integer getNewOffset();
 
-        List<T> getResults();
+        /**
+         * @return Whether the result set has a next page or not.
+         */
+        Boolean hasNextPage();
     }
 }
