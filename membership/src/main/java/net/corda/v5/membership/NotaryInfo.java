@@ -15,13 +15,13 @@ import java.util.Collection;
  * <ul>
  * <li>Java:<pre>{@code
  * MemberX500Name name = notaryInfo.getName();
- * String protocolClass = notaryInfo.getProtocol();
+ * String protocol = notaryInfo.getProtocol();
  * Collection<Integer> protocolVersions = notaryInfo.getProtocolVersions();
  * PublicKey publicKey = notaryInfo.getPublicKey();
  * }</pre></li>
  * <li>Kotlin:<pre>{@code
  * val name = notaryInfo.name
- * val protocolClass = notaryInfo.protocol
+ * val protocol = notaryInfo.protocol
  * val protocolVersions = notaryInfo.protocolVersions
  * val publicKey = notaryInfo.publicKey
  * }</pre></li>
