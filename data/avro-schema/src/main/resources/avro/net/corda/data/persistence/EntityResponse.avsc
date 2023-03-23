@@ -5,14 +5,12 @@
   "namespace": "net.corda.data.persistence",
   "fields": [
     {
-      "name": "newOffset",
-      "doc": "The new offset the result set continues from.",
-      "type": "int"
-    },
-    {
-      "name": "hasNextPage",
-      "doc": "A flag whether the result set has a next page or not.",
-      "type": "boolean"
+      "name": "results",
+      "doc": "Result of request, as a list of AMQP-formatted user defined objects, which may be empty or have 1 element for certain persistence operations",
+      "type": {
+        "type" : "array",
+        "items": "bytes"
+      }
     },
     {
       "name": "size",
@@ -20,12 +18,16 @@
       "type": "int"
     },
     {
-      "name": "results",
-      "doc": "Result of request, as a list of AMQP-formatted user defined objects, which may be empty or have 1 element for certain persistence operations",
-      "type": {
-        "type" : "array",
-        "items": "bytes"
-      }
+      "name": "newOffset",
+      "doc": "The new offset the result set continues from.",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "hasNextPage",
+      "doc": "A flag whether the result set has a next page or not.",
+      "type": "boolean",
+      "default": false
     }
   ]
 }
