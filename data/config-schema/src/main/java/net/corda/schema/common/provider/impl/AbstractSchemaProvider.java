@@ -7,9 +7,9 @@ import org.slf4j.Logger;
 
 import java.io.InputStream;
 
-public abstract class SchemaProviderCommonImpl implements SchemaProvider {
+public abstract class AbstractSchemaProvider implements SchemaProvider {
 
-    protected SchemaProviderCommonImpl(final Logger logger) {
+    protected AbstractSchemaProvider(final Logger logger) {
         this.logger = logger;
     }
 
