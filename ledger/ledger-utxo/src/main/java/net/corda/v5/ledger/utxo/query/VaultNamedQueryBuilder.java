@@ -20,6 +20,8 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
 
     /**
      * Sets the filter function of the named query.
+     * Please note that filtering function will always be applied before mapping.
+     *
      * @param filter A filter object.
      *
      * @return A builder instance with the filter function set.
@@ -28,6 +30,8 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
 
     /**
      * Sets the mapper function of the named query.
+     * Please note that mapping function will always be applied after filtering.
+     *
      * @param mapper A transformer object.
      *
      * @return A builder instance with the mapper function set.
