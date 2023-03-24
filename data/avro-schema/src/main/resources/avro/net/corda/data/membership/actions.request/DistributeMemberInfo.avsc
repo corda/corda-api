@@ -16,8 +16,13 @@
     },
     {
       "name": "minimumGroupParametersEpoch",
-      "doc": "The minimum group parameter epoch to be distributed.",
+      "doc": "The minimum group parameter epoch to be distribute.",
       "type": "int"
+    },
+    {
+      "name": "minimumUpdatedMemberSerial",
+      "doc": "The serial number of the minimum version of the updated members' memberInfo to distribute.",
+      "type": "long"
     }
   ]
 }
