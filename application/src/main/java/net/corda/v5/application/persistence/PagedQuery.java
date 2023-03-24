@@ -43,7 +43,7 @@ public interface PagedQuery<R> {
     /**
      * Executes the {@link PagedQuery}
      *
-     * @return List of entities found. Empty list if none were found.
+     * @return A {@link ResultSet} with the entities found.
      *
      * @throws CordaPersistenceException If there is an error executing the query.
      */
