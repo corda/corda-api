@@ -43,7 +43,7 @@ public class PersistenceServiceFindAllFlowJavaExample implements ClientStartable
                 .setLimit(100)
                 .setOffset(200);
 
-        // execute the query and return the results as a List
+        // execute the query and return the results as a ResultSet
         PagedQuery.ResultSet<Dog> result1 = pagedQuery.execute();
 
         // create a named query setting parameters as Map, that returns the second page of up to 100 records
@@ -53,7 +53,7 @@ public class PersistenceServiceFindAllFlowJavaExample implements ClientStartable
                 .setLimit(100)
                 .setOffset(200);
 
-        // execute the query and return the results as a List
+        // execute the query and return the results as a ResultSet
         PagedQuery.ResultSet<Dog> result2 = pagedQuery.execute();
 
         return "success";

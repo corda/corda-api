@@ -11,21 +11,6 @@
         "type" : "array",
         "items": "bytes"
       }
-    },
-    {
-      "name": "size",
-      "doc": "The size of the result set.",
-      "type": "int"
-    },
-    {
-      "name": "newOffset",
-      "doc": "The new offset the result set continues from.",
-      "type": "int"
-    },
-    {
-      "name": "hasNextPage",
-      "doc": "A flag whether the result set has a next page or not.",
-      "type": "boolean"
     }
   ]
 }

@@ -23,7 +23,7 @@ val pagedQuery = persistenceService
     .setLimit(100)
     .setOffset(200)
 
-// execute the query and return the results as a List
+// execute the query and return the results as a ResultSet
 val result1: ResultSet<Dog> = pagedQuery.execute()
 
 // create a named query setting parameters as Map, that returns the second page of up to 100 records
@@ -33,7 +33,7 @@ val paramQuery = persistenceService
     .setLimit(100)
     .setOffset(200)
 
-// execute the query and return the results as a List
+// execute the query and return the results as a ResultSet
 val result2: ResultSet<Dog> = pagedQuery.execute()
 
 // For JPA Entity:
