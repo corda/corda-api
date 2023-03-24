@@ -103,7 +103,11 @@ data class FacadeMethod(
      * @param parameterValues The parameter values to pass to the method.
      */
     fun request(vararg parameterValues: TypedParameterValue<*>): FacadeRequest {
-        return FacadeRequest(facadeId, name, parameterValues.toList())
+        return request(parameterValues.toList())
+    }
+
+    fun request(parameterValues: List<TypedParameterValue<*>>): FacadeRequest {
+        return FacadeRequest(facadeId, name, parameterValues)
     }
 
     /**
@@ -112,7 +116,11 @@ data class FacadeMethod(
      * @param parameterValues The parameter values to return from the method.
      */
     fun response(vararg parameterValues: TypedParameterValue<*>): FacadeResponse {
-        return FacadeResponse(facadeId, name, parameterValues.toList())
+        return response(parameterValues.toList())
+    }
+
+    fun response(parameterValues: List<TypedParameterValue<*>>): FacadeResponse {
+        return FacadeResponse(facadeId, name, parameterValues)
     }
 
 }

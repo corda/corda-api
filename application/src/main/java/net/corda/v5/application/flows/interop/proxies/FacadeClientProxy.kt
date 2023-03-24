@@ -85,9 +85,9 @@ private class FacadeClientProxy(
             TypedParameterValue(
                 binding.facadeParameter as TypedParameter<Any>,
                 typeConverter.convertJvmToFacade(args[index], binding.facadeParameter.type))
-        }.toTypedArray()
+        }.toList()
 
-        val request = methodBinding.facadeMethod.request(*parameterValues)
+        val request = methodBinding.facadeMethod.request(parameterValues)
         return InteropAction.ClientAction(request, requestProcessor) { interpretResponse(it, methodBinding) }
     }
 
@@ -141,7 +141,7 @@ private class FacadeClientProxy(
                 binding.constructorParameter.type)
         }
 
-        return bindings.constructor.newInstance(*constructorArgs)
+        return bindings.constructor.newInstance(constructorArgs)
     }
 }
 

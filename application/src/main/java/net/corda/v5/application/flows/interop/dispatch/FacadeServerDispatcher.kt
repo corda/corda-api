@@ -51,13 +51,14 @@ class FacadeServerDispatcher(
     val binding: FacadeInterfaceBinding,
     val target: Any
 ) : (FacadeRequest) -> FacadeResponse {
+    @SuppressWarnings("SpreadOperator")
     override fun invoke(request: FacadeRequest): FacadeResponse {
         val boundMethod = binding.bindingFor(request.methodName) ?: throw FacadeMethodDispatchException(
             "No method on ${target.javaClass} is bound to request method ${request.methodName}"
         )
 
         val args = buildMethodArguments(boundMethod, request)
-        val result = (boundMethod.interfaceMethod.invoke(target, *args) as InteropAction<Any>).result
+        val result = (boundMethod.interfaceMethod.invoke(target, listOf(args)) as InteropAction<Any>).result
         val outParameterValues = getOutParameterValues(result, boundMethod.outParameterBindings)
 
         return binding.facade.response(boundMethod.facadeMethod.name, *outParameterValues.toTypedArray())
