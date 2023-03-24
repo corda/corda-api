@@ -203,8 +203,8 @@ public interface UtxoLedgerService {
      * do {
      *     val resultSet = query.execute()
      *     processResultsWithApplicationLogic(resultSet.results)
-     *     query.setOffset(resultSet.newOffset)
-     * } while (resultSet.hasNextPage)
+     *     query.setOffset(query.offset + 100)
+     * } while (resultSet.results.isNotEmpty())
      * }</pre></li>
      * <li>Java:<pre>{@code
      * ParameterizedQuery<Integer> query = utxoLedgerService.query("FIND_BY_TEST_FIELD", Integer.class)
@@ -220,8 +220,8 @@ public interface UtxoLedgerService {
      *
      * processResultsWithApplicationLogic(resultSet.getResults());
      *
-     * while (resultSet.getHasNextPage()) {
-     *     resultSet = query.setOffset(resultSet.getNewOffset()).execute();
+     * while (!resultSet.results.isEmpty()) {
+     *     resultSet = query.setOffset(query.getOffset() + 100).execute();
      *     processResultsWithApplicationLogic(resultSet.getResults());
      * }
      * }</pre></li>
