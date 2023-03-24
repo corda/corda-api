@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "RegistrationStatusDetails",
+  "name": "RegistrationRequestDetails",
   "namespace": "net.corda.data.membership.common",
-  "doc": "Registration status.",
+  "doc": "Details of the registration request.",
   "fields": [
     {
       "name": "registrationSent",
