@@ -1,5 +1,5 @@
 topics:
-  AvroSchemaRepositoryTopic:
+  AvroSchemaTopic:
     name: avro.schema
     consumers:
       - crypto
