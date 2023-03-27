@@ -55,8 +55,8 @@ public interface VaultNamedQueryCollector<R, T> {
      * @param <T> Type of the records stored inside this result set.
      */
     class Result<T> {
-        private List<T> results;
-        private Boolean isDone;
+        private final List<T> results;
+        private final Boolean isDone;
 
         /**
          * @return The records in the result set.

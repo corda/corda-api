@@ -41,7 +41,7 @@ public interface PagedQuery<R> {
     PagedQuery<R> setOffset(int offset);
 
     /**
-     * Executes the {@link PagedQuery}
+     * Executes the {@link PagedQuery}.
      *
      * @return A {@link ResultSet} with the entities found.
      *
