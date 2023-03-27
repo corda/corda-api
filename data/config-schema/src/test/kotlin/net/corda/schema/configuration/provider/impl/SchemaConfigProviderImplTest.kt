@@ -12,9 +12,8 @@ import net.corda.schema.configuration.ConfigKeys.REST_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SANDBOX_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SECRETS_CONFIG
 import net.corda.schema.configuration.ConfigKeys.UTXO_LEDGER_CONFIG
-import net.corda.schema.configuration.ConfigKeys.EXTERNAL_MESSAGING_CONFIG
 import net.corda.schema.configuration.provider.ConfigSchemaException
-import net.corda.schema.configuration.provider.SchemaProviderFactory
+import net.corda.schema.common.provider.SchemaProviderFactory
 import net.corda.v5.base.versioning.Version
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -24,7 +23,7 @@ import org.junit.jupiter.params.provider.Arguments.arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class SchemaProviderImplTest {
+class SchemaConfigProviderImplTest {
 
     companion object {
         // All the top level config keys excluding the boot config, which is handled differently.
@@ -41,7 +40,6 @@ class SchemaProviderImplTest {
             SANDBOX_CONFIG,
             RECONCILIATION_CONFIG,
             MEMBERSHIP_CONFIG,
-            EXTERNAL_MESSAGING_CONFIG
         )
         private val VERSIONS = listOf("1.0")
 
@@ -64,14 +62,14 @@ class SchemaProviderImplTest {
     @ParameterizedTest(name = "schema provider fetches schema for top-level keys: key={0}, version={1}")
     @MethodSource("schemaSources")
     fun `schema provider fetches schema for top-level keys`(key: String, version: String) {
-        val provider = SchemaProviderFactory.getSchemaProvider()
+        val provider = SchemaProviderFactory.getConfigSchemaProvider()
         val stream = provider.getSchema(key, Version.fromString(version))
         stream.close()
     }
 
     @Test
     fun `throws if provided key is not a top-level key`() {
-        val provider = SchemaProviderFactory.getSchemaProvider()
+        val provider = SchemaProviderFactory.getConfigSchemaProvider()
         assertThrows<ConfigSchemaException> {
             provider.getSchema(BAD_KEY, Version.fromString("1.0"))
         }
@@ -79,7 +77,7 @@ class SchemaProviderImplTest {
 
     @Test
     fun `throws if provided version is not valid`() {
-        val provider = SchemaProviderFactory.getSchemaProvider()
+        val provider = SchemaProviderFactory.getConfigSchemaProvider()
         assertThrows<ConfigSchemaException> {
             provider.getSchema(MESSAGING_CONFIG, Version(0, 0))
         }
@@ -87,14 +85,14 @@ class SchemaProviderImplTest {
 
     @Test
     fun `retrieves schema files when specified directly`() {
-        val provider = SchemaProviderFactory.getSchemaProvider()
+        val provider = SchemaProviderFactory.getConfigSchemaProvider()
         val stream = provider.getSchemaFile(SCHEMA_FILE)
         stream.close()
     }
 
     @Test
     fun `throws if provided file does not exist`() {
-        val provider = SchemaProviderFactory.getSchemaProvider()
+        val provider = SchemaProviderFactory.getConfigSchemaProvider()
         assertThrows<ConfigSchemaException> {
             provider.getSchemaFile(BAD_SCHEMA_FILE)
         }
