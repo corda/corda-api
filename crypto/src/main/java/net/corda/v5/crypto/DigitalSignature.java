@@ -21,7 +21,7 @@ public class DigitalSignature extends OpaqueBytes {
         /**
          * Creates a new {@code WithKeyId} using the specified key id and the signature ({@code bytes}).
          *
-         * @param by      The public key of the corresponding private key used to sign the data (as if an instance
+         * @param by      The hash of the public key (the key id) whose corresponding private key used to sign the data (as if an instance
          *                of the {@link CompositeKey} is passed to the sign operation it may contain keys which are not actually owned by
          *                the member).
          * @param bytes   The signature.
