@@ -189,7 +189,7 @@ public interface UtxoLedgerService {
 
 
     /**
-     * Creates a query object for a named ledger query with the given name - if it exists. This query can be executed later.
+     * Creates a query object for a named ledger query with the given name. This query can be executed later.
      * <p>
      * Example usage:
      * <ul>

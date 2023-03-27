@@ -1,14 +1,27 @@
 package net.corda.v5.ledger.utxo.query;
 
+import net.corda.v5.application.persistence.CordaPersistenceException;
+import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.ParameterizedQuery;
+import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.ledger.utxo.StateAndRef;
+import net.corda.v5.ledger.utxo.UtxoLedgerService;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
 
 /**
- * Representation of a named ledger query.
+ * Representation of a vault named query.
+ * </p>
+ * Ensure that {@link R} matches the type returned from the {@link VaultNamedQueryTransformer} and/or
+ * {@link VaultNamedQueryCollector} (both optional) for the vault named query this object represents.
+ * </p>
+ * If no {@link VaultNamedQueryTransformer} or {@link VaultNamedQueryCollector} is applied to the vault named query,
+ * the {@link ResultSet} from executing this query will contain {@link StateAndRef}s.
  *
  * @param <R> The type of results this query will fetch.
+ *
+ * @see UtxoLedgerService For thorough documentation of how to create and execute a vault named query.
  */
 public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
 
@@ -19,4 +32,23 @@ public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
      */
     @NotNull
     VaultNamedParameterizedQuery<R> setCreatedTimestampLimit(@NotNull Instant timestampLimit);
+
+    /**
+     * Executes the {@link VaultNamedParameterizedQuery} and creates a {@link PagedQuery.ResultSet} contains the results
+     * of the query.
+     * <p>
+     * The results of the query depends on the executed named query and the {@link VaultNamedQueryTransformer} and/or
+     * {@link VaultNamedQueryCollector} (both optional) applied to it.
+     * </p>
+     * If no {@link VaultNamedQueryTransformer} or {@link VaultNamedQueryCollector} is applied to the vault named query,
+     * the {@link ResultSet} will contain {@link StateAndRef}s.
+     *
+     * @return A {@link ResultSet} containing the results of executing the query.
+     *
+     * @throws CordaPersistenceException If there is an error executing the query.
+     */
+    @Suspendable
+    @NotNull
+    @Override
+    ResultSet<R> execute();
 }

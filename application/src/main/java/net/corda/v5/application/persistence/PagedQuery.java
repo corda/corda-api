@@ -43,7 +43,7 @@ public interface PagedQuery<R> {
     /**
      * Executes the {@link PagedQuery}.
      *
-     * @return A {@link ResultSet} with the entities found.
+     * @return A {@link ResultSet} containing the results of executing the query.
      *
      * @throws CordaPersistenceException If there is an error executing the query.
      */
@@ -52,16 +52,21 @@ public interface PagedQuery<R> {
     ResultSet<R> execute();
 
     /**
-     * A representation of a result set returned by a paged query when executed.
+     * A result set containing the results of calling {@link PagedQuery#execute()}.
      *
-     * @param <T> Type of the results contained in the result set.
+     * @param <R> The type of the results contained in the result set.
      */
-    interface ResultSet<T> {
+    interface ResultSet<R> {
 
         /**
+         * Extracts the results of a {@link ResultSet} from a previously executed query.
+         * <p>
+         * This method does not execute a query itself, call {@link PagedQuery#execute()} to execute a query and
+         * generate a {@link ResultSet}.
+         *
          * @return The results contained in the result set.
          */
         @NotNull
-        List<T> getResults();
+        List<R> getResults();
     }
 }
