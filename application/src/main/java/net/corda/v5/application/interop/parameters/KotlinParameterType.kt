@@ -1,7 +1,7 @@
 package net.corda.v5.application.interop.parameters
 
 import net.corda.v5.application.flows.interop.api.HierarchicalName
-import net.corda.v5.application.interop.parameters.ParameterType.QualifiedType
+import net.corda.v5.application.interop.parameters.KotlinParameterType.QualifiedType
 import java.lang.reflect.ParameterizedType
 import java.math.BigDecimal
 import java.nio.ByteBuffer
@@ -9,10 +9,10 @@ import java.time.ZonedDateTime
 import java.util.*
 
 /**
- * A [ParameterType] is the type of a [TypedParameter]. It is always one of a small set of primitive types, or
+ * A [KotlinParameterType] is the type of a [TypedParameter]. It is always one of a small set of primitive types, or
  * a [QualifiedType] qualifying a primitive type with a [FacadeTypeQualifier] which identifies a more complex type.
  */
-sealed class ParameterType<T> {
+sealed class KotlinParameterType<T> {
 
     companion object {
 
@@ -26,17 +26,17 @@ sealed class ParameterType<T> {
         private val facadeTypeRegex = Regex("""\s*(\S+)(\s+\((\S+)\))?.*""")
 
         /**
-         * Parse a [ParameterType] from a string in the format "type" or "type (qualifier)".
+         * Parse a [KotlinParameterType] from a string in the format "type" or "type (qualifier)".
          *
          * The accepted types are "boolean", "string", "decimal", "uuid", "timestamp", "bytes" and "json".
          *
          * @param typeString The string to parse.
          */
         @JvmStatic
-        fun <T : Any> of(typeString: String): ParameterType<T> = of(typeString, emptyMap())
+        fun <T : Any> of(typeString: String): KotlinParameterType<T> = of(typeString, emptyMap())
 
         /**
-         * Parse a [ParameterType] from a string in the format "type" or "type (qualifier)".
+         * Parse a [KotlinParameterType] from a string in the format "type" or "type (qualifier)".
          *
          * The accepted types are "boolean", "string", "decimal", "uuid", "timestamp", "bytes" and "json", or aliases
          * defined in the supplied [Map].
@@ -46,7 +46,7 @@ sealed class ParameterType<T> {
          */
         @JvmStatic
         @Suppress("UNCHECKED_CAST")
-        fun <T : Any> of(typeString: String, aliases: Map<String, ParameterType<*>>): ParameterType<T> {
+        fun <T : Any> of(typeString: String, aliases: Map<String, KotlinParameterType<*>>): KotlinParameterType<T> {
             val typeMatch = facadeTypeRegex.matchEntire(typeString)
                 ?: throw IllegalArgumentException("Invalid parameter type: $typeString")
 
@@ -57,7 +57,7 @@ sealed class ParameterType<T> {
                 if (qualifierString != null) {
                     throw IllegalArgumentException("Alias $rawTypeName cannot be qualified with $qualifierString")
                 }
-                return aliased as ParameterType<T>
+                return aliased as KotlinParameterType<T>
             }
 
             val rawType = parseRawParameterType<T>(rawTypeName)
@@ -66,7 +66,7 @@ sealed class ParameterType<T> {
         }
 
         @Suppress("UNCHECKED_CAST")
-        private fun <T : Any> parseRawParameterType(typeName: String): ParameterType<T> =
+        private fun <T : Any> parseRawParameterType(typeName: String): KotlinParameterType<T> =
             when (typeName) {
                 "boolean" -> BooleanType
                 "string" -> StringType
@@ -80,11 +80,11 @@ sealed class ParameterType<T> {
                     "Invalid raw parameter type: $typeName - " +
                             "must be one of boolean, string, decimal, uuid, timestamp, bytes or json"
                 )
-            } as ParameterType<T>
+            } as KotlinParameterType<T>
     }
 
     /**
-     * The expected type of a [TypedParameterValue] for this [ParameterType].
+     * The expected type of a [TypedParameterValue] for this [KotlinParameterType].
      */
     @Suppress("UNCHECKED_CAST")
     open val expectedType: Class<T>
@@ -93,68 +93,39 @@ sealed class ParameterType<T> {
             return superclass.actualTypeArguments[0] as Class<T>
         }
 
-    object BooleanType : ParameterType<Boolean>() {
+    object BooleanType : KotlinParameterType<Boolean>() {
         override fun toString() = "boolean"
     }
 
-    object StringType : ParameterType<String>() {
+    object StringType : KotlinParameterType<String>() {
         override fun toString() = "string"
     }
 
-    object DecimalType : ParameterType<BigDecimal>() {
+    object DecimalType : KotlinParameterType<BigDecimal>() {
         override fun toString() = "decimal"
     }
 
-    object UUIDType : ParameterType<UUID>() {
+    object UUIDType : KotlinParameterType<UUID>() {
         override fun toString() = "uuid"
     }
 
-    object TimestampType : ParameterType<ZonedDateTime>() {
+    object TimestampType : KotlinParameterType<ZonedDateTime>() {
         override fun toString() = "timestamp"
     }
 
-    object ByteBufferType : ParameterType<ByteBuffer>() {
+    object ByteBufferType : KotlinParameterType<ByteBuffer>() {
         override fun toString() = "bytes"
     }
 
-    object JsonType : ParameterType<String>() {
+    object JsonType : KotlinParameterType<String>() {
         override fun toString() = "json"
     }
 
     data class QualifiedType<T>(
-        val type: ParameterType<T>,
+        val type: KotlinParameterType<T>,
         val qualifier: FacadeTypeQualifier
-    ) : ParameterType<T>() {
+    ) : KotlinParameterType<T>() {
         override val expectedType: Class<T> get() = type.expectedType
         override fun toString() = "$type ($qualifier)"
     }
-}
-
-/**
- * A [FacadeTypeQualifier] qualifies a [ParameterType] with a versioned identity, which may be linked to a schema
- * or validation rules for that type.
- *
- * @param owner The owner of the type, e.g. "org.corda".
- * @param name The name of the type, e.g. "platform/tokens/Amount".
- * @param version The version of the type, e.g. "1.0".
- */
-data class FacadeTypeQualifier(val owner: String, val name: HierarchicalName, val version: String) {
-
-    companion object {
-
-        /**
-         * Construct a [FacadeTypeQualifier] from a string of the form "org.owner/hierarchical/name/version".
-         *
-         * @param qualifierString The string to build a [FacadeTypeQualifier] from.
-         */
-        fun of(qualifierString: String): FacadeTypeQualifier {
-            val parts = qualifierString.split("/")
-            if (parts.size < 3) {
-                throw IllegalArgumentException("Invalid Facade Type Qualifier: $qualifierString")
-            }
-            return FacadeTypeQualifier(parts[0], parts.subList(1, parts.size - 1), parts.last())
-        }
-    }
-
-    override fun toString() = "$owner/${name.joinToString("/")}/$version"
 }

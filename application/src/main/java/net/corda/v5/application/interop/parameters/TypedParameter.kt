@@ -16,12 +16,12 @@ data class TypedParameterValue<T : Any>(val parameter: TypedParameter<T>, val va
 
 
 /**
- * A [TypedParameter] is a parameter having a name and a defined [ParameterType].
+ * A [TypedParameter] is a parameter having a name and a defined [KotlinParameterType].
  *
  * @param name The name of the parameter, e.g. "amount".
- * @param type The type of the parameter, e.g. [ParameterType.StringType].
+ * @param type The type of the parameter, e.g. [KotlinParameterType.StringType].
  */
-data class TypedParameter<T : Any>(val name: String, val type: ParameterType<T>) {
+data class TypedParameter<T : Any>(val name: String, val type: KotlinParameterType<T>) {
     infix fun of(value: T): TypedParameterValue<T> = TypedParameterValue(this, value)
 }
 

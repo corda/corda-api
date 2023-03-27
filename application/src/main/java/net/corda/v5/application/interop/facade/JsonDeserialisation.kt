@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonNode
-import net.corda.v5.application.interop.parameters.ParameterType
+import net.corda.v5.application.interop.parameters.KotlinParameterType
 import net.corda.v5.application.interop.parameters.TypedParameter
 import net.corda.v5.application.interop.parameters.TypedParameterValue
 import java.io.StringWriter
@@ -53,7 +53,7 @@ private fun <T> deserialize(
         val typeName = parameterValue["type"]?.asText() ?: throw IllegalArgumentException(
             "No parameter type given for parameter $name in ${node.toPrettyString()}"
         )
-        val type = ParameterType.of<Any>(typeName)
+        val type = KotlinParameterType.of<Any>(typeName)
         val value = parameterValue["value"] ?: throw IllegalArgumentException(
             "No parameter value given for parameter $name in ${node.toPrettyString()}"
         )
@@ -64,30 +64,30 @@ private fun <T> deserialize(
     return ctor(facadeId, methodName, parameterValues)
 }
 
-fun ParameterType<*>.readValue(name: String, node: JsonNode, parser: JsonParser): Any = when (this) {
-    is ParameterType.BooleanType -> if (node.isBoolean) node.asBoolean() else throw IllegalArgumentException(
+fun KotlinParameterType<*>.readValue(name: String, node: JsonNode, parser: JsonParser): Any = when (this) {
+    is KotlinParameterType.BooleanType -> if (node.isBoolean) node.asBoolean() else throw IllegalArgumentException(
         "Parameter $name expected to have a boolean value, but was ${node.toPrettyString()}"
     )
-    is ParameterType.StringType -> node.asText()
-    is ParameterType.DecimalType -> try {
+    is KotlinParameterType.StringType -> node.asText()
+    is KotlinParameterType.DecimalType -> try {
         BigDecimal(node.asText())
     } catch (_: NumberFormatException) {
         throw IllegalArgumentException(
             "Parameter $name expected to have a decimal value, but was ${node.toPrettyString()}"
         )
     }
-    is ParameterType.UUIDType -> try {
+    is KotlinParameterType.UUIDType -> try {
         UUID.fromString(node.asText())
     } catch (_ : IllegalArgumentException) {
         throw IllegalArgumentException("Parameter $name expected to have a UUID value, but was ${node.toPrettyString()}")
     }
-    is ParameterType.TimestampType -> try {
+    is KotlinParameterType.TimestampType -> try {
         ZonedDateTime.parse(node.asText(), DateTimeFormatter.ISO_DATE_TIME)
     } catch (_: DateTimeParseException) {
         throw IllegalArgumentException("Parameter $name expected to have a timestamp value in ISO_DATE_TIME format " +
                 "but was ${node.toPrettyString()}")
     }
-    is ParameterType.ByteBufferType -> ByteBuffer.wrap(
+    is KotlinParameterType.ByteBufferType -> ByteBuffer.wrap(
         try {
             Base64.getDecoder().decode(node.asText())
         } catch (_: IllegalArgumentException) {
@@ -97,12 +97,12 @@ fun ParameterType<*>.readValue(name: String, node: JsonNode, parser: JsonParser)
         }
     )
 
-    is ParameterType.JsonType -> {
+    is KotlinParameterType.JsonType -> {
         val writer = StringWriter()
         parser.codec.factory.createGenerator(writer).writeTree(node)
         writer.flush()
         writer.toString()
     }
 
-    is ParameterType.QualifiedType -> type.readValue(name, node, parser)
+    is KotlinParameterType.QualifiedType -> type.readValue(name, node, parser)
 }

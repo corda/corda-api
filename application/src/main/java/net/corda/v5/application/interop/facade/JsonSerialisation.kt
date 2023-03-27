@@ -3,7 +3,7 @@ package net.corda.v5.application.interop.facade
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.JsonSerializer
 import com.fasterxml.jackson.databind.SerializerProvider
-import net.corda.v5.application.interop.parameters.ParameterType
+import net.corda.v5.application.interop.parameters.KotlinParameterType
 import net.corda.v5.application.interop.parameters.TypedParameterValue
 import java.math.BigDecimal
 import java.nio.ByteBuffer
@@ -48,22 +48,22 @@ private fun serialize(
     gen.writeEndObject()
 }
 
-fun ParameterType<*>.writeValue(value: Any, gen: JsonGenerator): Unit = when (this) {
-    is ParameterType.BooleanType -> gen.writeBoolean(value as Boolean)
-    is ParameterType.StringType -> gen.writeString(value as String)
-    is ParameterType.DecimalType -> gen.writeNumber(value as BigDecimal)
-    is ParameterType.UUIDType -> gen.writeString(value.toString())
-    is ParameterType.TimestampType -> gen.writeString((value as ZonedDateTime).format(DateTimeFormatter.ISO_DATE_TIME))
-    is ParameterType.ByteBufferType -> gen.writeString(
+fun KotlinParameterType<*>.writeValue(value: Any, gen: JsonGenerator): Unit = when (this) {
+    is KotlinParameterType.BooleanType -> gen.writeBoolean(value as Boolean)
+    is KotlinParameterType.StringType -> gen.writeString(value as String)
+    is KotlinParameterType.DecimalType -> gen.writeNumber(value as BigDecimal)
+    is KotlinParameterType.UUIDType -> gen.writeString(value.toString())
+    is KotlinParameterType.TimestampType -> gen.writeString((value as ZonedDateTime).format(DateTimeFormatter.ISO_DATE_TIME))
+    is KotlinParameterType.ByteBufferType -> gen.writeString(
         Base64.getEncoder().encodeToString((value as ByteBuffer).array())
     )
 
-    is ParameterType.JsonType ->
+    is KotlinParameterType.JsonType ->
         gen.writeTree(
             gen.codec.readTree(
                 gen.codec.factory.createParser(value as String)
             )
         )
 
-    is ParameterType.QualifiedType -> type.writeValue(value, gen)
+    is KotlinParameterType.QualifiedType -> type.writeValue(value, gen)
 }

@@ -15,7 +15,7 @@ import net.corda.v5.application.flows.interop.binding.api.QualifiedWith
 import net.corda.v5.application.interop.facade.Facade
 import net.corda.v5.application.interop.facade.FacadeMethod
 import net.corda.v5.application.interop.parameters.FacadeTypeQualifier
-import net.corda.v5.application.interop.parameters.ParameterType
+import net.corda.v5.application.interop.parameters.KotlinParameterType
 import net.corda.v5.application.interop.parameters.TypedParameter
 import java.beans.Introspector
 import java.beans.PropertyDescriptor
@@ -466,19 +466,19 @@ private val numberTypes = setOf(
 private fun validateTypeAgreement(
     parameterType: Class<*>,
     qualifiers: Set<FacadeTypeQualifier>,
-    expectedType: ParameterType<*>
+    expectedType: KotlinParameterType<*>
 ): Boolean =
     when (expectedType) {
-        ParameterType.DecimalType -> parameterType in numberTypes
-        ParameterType.StringType -> parameterType == String::class.java
-        ParameterType.BooleanType -> parameterType == Boolean::class.javaPrimitiveType
-        ParameterType.TimestampType -> parameterType == ZonedDateTime::class.java
-        ParameterType.UUIDType -> parameterType == UUID::class.java
-        ParameterType.ByteBufferType -> parameterType == ByteArray::class.javaPrimitiveType ||
+        KotlinParameterType.DecimalType -> parameterType in numberTypes
+        KotlinParameterType.StringType -> parameterType == String::class.java
+        KotlinParameterType.BooleanType -> parameterType == Boolean::class.javaPrimitiveType
+        KotlinParameterType.TimestampType -> parameterType == ZonedDateTime::class.java
+        KotlinParameterType.UUIDType -> parameterType == UUID::class.java
+        KotlinParameterType.ByteBufferType -> parameterType == ByteArray::class.javaPrimitiveType ||
                 parameterType == ByteBuffer::class.java
 
-        ParameterType.JsonType -> true
-        is ParameterType.QualifiedType ->
+        KotlinParameterType.JsonType -> true
+        is KotlinParameterType.QualifiedType ->
             (qualifiers.isEmpty() || expectedType.qualifier in qualifiers)
                     && validateTypeAgreement(parameterType, emptySet(), expectedType.type)
     }

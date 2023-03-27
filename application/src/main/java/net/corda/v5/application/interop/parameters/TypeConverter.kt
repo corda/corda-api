@@ -9,15 +9,15 @@ class TypeConverter(private val jsonMarshaller: JsonMarshaller) {
     /**
      * Convert a facade parameter value (in or out) to the JVM type declared for a JVM interface method parameter.
      *
-     * @param parameterType The [ParameterType] to convert from
+     * @param parameterType The [KotlinParameterType] to convert from
      * @param parameterValue The value to convert
      * @param jvmType The target JVM type
      */
     fun convertFacadeToJvm(
-        parameterType: ParameterType<*>,
+        parameterType: KotlinParameterType<*>,
         parameterValue: Any,
         jvmType: Class<*>): Any = when(parameterType) {
-        ParameterType.DecimalType -> {
+        KotlinParameterType.DecimalType -> {
             parameterValue as? BigDecimal ?: throw IllegalArgumentException(
                     "Parameter value $parameterValue expected to be BigDecimal")
             when (jvmType) {
@@ -30,7 +30,7 @@ class TypeConverter(private val jsonMarshaller: JsonMarshaller) {
                 else -> parameterValue
             }
         }
-        ParameterType.ByteBufferType -> {
+        KotlinParameterType.ByteBufferType -> {
             parameterValue as? ByteBuffer ?: throw IllegalArgumentException(
                 "Parameter value $parameterValue expected to be ByteBuffer")
             when (jvmType) {
@@ -38,7 +38,7 @@ class TypeConverter(private val jsonMarshaller: JsonMarshaller) {
                 else -> parameterValue
             }
         }
-        ParameterType.JsonType -> jsonMarshaller.deserialize(parameterValue as String, jvmType)
+        KotlinParameterType.JsonType -> jsonMarshaller.deserialize(parameterValue as String, jvmType)
         else -> parameterValue
     }
 
@@ -50,18 +50,18 @@ class TypeConverter(private val jsonMarshaller: JsonMarshaller) {
     * ByteArrays get automatically wrapped as ByteBuffers.
     * Anything at all gets serialised to a JSON blob.
      */
-    fun convertJvmToFacade(value: Any, expectedType: ParameterType<*>): Any = when(expectedType) {
-        ParameterType.DecimalType -> when(value) {
+    fun convertJvmToFacade(value: Any, expectedType: KotlinParameterType<*>): Any = when(expectedType) {
+        KotlinParameterType.DecimalType -> when(value) {
             is Int -> BigDecimal(value)
             is Long -> BigDecimal(value)
             is Double -> BigDecimal(value)
             else -> value
         }
-        ParameterType.ByteBufferType -> when(value) {
+        KotlinParameterType.ByteBufferType -> when(value) {
             is ByteArray -> ByteBuffer.wrap(value)
             else -> value
         }
-        ParameterType.JsonType -> jsonMarshaller.serialize(value)
+        KotlinParameterType.JsonType -> jsonMarshaller.serialize(value)
         else -> value
     }
 }
