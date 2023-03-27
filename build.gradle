@@ -221,7 +221,7 @@ subprojects {
         }
 
         tasks.withType(DokkaTask.class).configureEach {
-            moduleVersion.set(cordaVersion)
+            moduleVersion.set(System.getenv("RELEASE_VERSION") ?: cordaVersion)
         }
     }
 
