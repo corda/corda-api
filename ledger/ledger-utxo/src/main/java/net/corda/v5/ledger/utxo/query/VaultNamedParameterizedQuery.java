@@ -9,6 +9,7 @@ import net.corda.v5.ledger.utxo.UtxoLedgerService;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
+import java.util.Map;
 
 /**
  * Representation of a vault named query.
@@ -24,6 +25,34 @@ import java.time.Instant;
  * @see UtxoLedgerService For thorough documentation of how to create and execute a vault named query.
  */
 public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
+
+    /**
+     * @see ParameterizedQuery#setLimit(int)
+     */
+    @Override
+    @NotNull
+    VaultNamedParameterizedQuery<R> setLimit(int limit);
+
+    /**
+     * @see ParameterizedQuery#setOffset(int)
+     */
+    @Override
+    @NotNull
+    VaultNamedParameterizedQuery<R> setOffset(int offset);
+
+    /**
+     * @see ParameterizedQuery#setParameter(String, Object)
+     */
+    @Override
+    @NotNull
+    VaultNamedParameterizedQuery<R> setParameter(@NotNull String name, @NotNull Object value);
+
+    /**
+     * @see ParameterizedQuery#setParameters(Map)
+     */
+    @Override
+    @NotNull
+    VaultNamedParameterizedQuery<R> setParameters(@NotNull Map<String, Object> parameters);
 
     /**
      * Sets the timestamp limit for the query. This will influence which results are returned.
@@ -48,7 +77,7 @@ public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
      * @throws CordaPersistenceException If there is an error executing the query.
      */
     @Suspendable
-    @NotNull
     @Override
+    @NotNull
     ResultSet<R> execute();
 }
