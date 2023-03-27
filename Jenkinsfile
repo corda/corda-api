@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@ronanb/CORE-11304/c5-compatibility-issues') _
+@Library('corda-shared-build-pipeline-steps@5.0.1') _
 
 cordaPipeline(
     runIntegrationTests: false,
