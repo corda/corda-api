@@ -56,8 +56,8 @@ public final class Schemas {
     /**
      * Avro Schema Repository topic schema
      */
-    public static final class AvroSchemas {
-        private AvroSchemas() {
+    public static final class AvroSchema {
+        private AvroSchema() {
         }
 
         public static final String AVRO_SCHEMA_TOPIC = "avro.schema";
