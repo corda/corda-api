@@ -16,12 +16,12 @@
     },
     {
       "name": "minimumGroupParametersEpoch",
-      "doc": "The minimum group parameter epoch to be distribute.",
+      "doc": "The minimum group parameter epoch to be distribute. If the group parameters with this epoch hasn't been published, then the membership actions processor will requeue this request to retry later.",
       "type": "int"
     },
     {
       "name": "minimumUpdatedMemberSerial",
-      "doc": "The serial number of the minimum version of the updated members' memberInfo to distribute.",
+      "doc": "The serial number of the minimum version of the updated members' memberInfo to distribute. If the member info with this serial hasn't been published, then the membership actions processor will requeue this request to retry later.",
       "type": "long"
     }
   ]
