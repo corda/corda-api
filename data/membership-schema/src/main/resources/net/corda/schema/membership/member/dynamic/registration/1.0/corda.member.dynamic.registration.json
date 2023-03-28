@@ -21,6 +21,14 @@
         "notary"
       ]
     },
+    "^corda.session.keys.[0-9]+.id$": {
+      "description": "The session public key IDs which should be used for session initiation.",
+      "type": "string"
+    },
+    "^corda.session.keys.[0-9]+.signature.spec$": {
+      "description": "Optional. The session keys signature spec.",
+      "type": "string"
+    },
     "^corda.notary.keys.[0-9]+.id$": {
       "description": "The notary public key IDs which should be used for notary signing. Can be multiple specified by index.",
       "type": "string"
@@ -36,17 +44,14 @@
     "^corda.ledger.keys.[0-9]+.signature.spec$": {
       "description": "Optional. The ledger public key signature spec. Can be multiple specified by index.",
       "type": "string"
+    },
+    "^ext\\.[a-zA-Z0-9.]+$": {
+      "description": "Optional. A user can specify additional properties, they must be prefixed with `ext.`.",
+      "type": "string",
+      "maxLength": 256
     }
   },
   "properties": {
-    "corda.session.key.id": {
-      "description": "The session public key ID which should be used for session initiation.",
-      "type": "string"
-    },
-    "corda.session.key.signature.spec": {
-      "description": "Optional. The session key signature spec.",
-      "type": "string"
-    },
     "corda.notary.service.name": {
       "description": "The notary service X500 name. Valid only when one of the roles is notary.",
       "type": "string",
@@ -74,8 +79,6 @@
       "minimum": 0
     }
   },
-  "required": [
-    "corda.session.key.id"
-  ],
+  "required": [],
   "additionalProperties": false
 }
