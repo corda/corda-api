@@ -1,46 +1,35 @@
 package net.corda.v5.crypto;
 
 import net.corda.v5.base.annotations.CordaSerializable;
-import net.corda.v5.base.types.OpaqueBytes;
+import net.corda.v5.base.annotations.DoNotImplement;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * A wrapper around a digital signature.
  */
+@DoNotImplement
 @CordaSerializable
-public class DigitalSignature extends OpaqueBytes {
-    public DigitalSignature(@NotNull byte[] bytes) {
-        super(bytes);
-    }
+public interface DigitalSignature {
+
+    @NotNull
+    byte[] getBytes();
 
     /**
      * A digital signature that identifies who is the owner of the signing key used to create this signature.
      */
-    public static class WithKeyId extends DigitalSignature {
+    @DoNotImplement
+    interface WithKeyId extends DigitalSignature {
 
+        // TODO consider renaming to getKeyId() ?
         /**
-         * Creates a new {@code WithKeyId} using the specified key ID and the signature ({@code bytes}).
-         *
-         * @param by      The ID of the public key (public key hash) whose corresponding private key used to sign the data
-         *                (as if an instance of the {@link CompositeKey} is passed to the sign operation it may contain
-         *                keys which are not actually owned by the member).
-         * @param bytes   The signature.
-         */
-        public WithKeyId(@NotNull SecureHash by, @NotNull byte[] bytes) {
-            super(bytes);
-            this.by = by;
-        }
-
-        /**
-         * Public key which corresponding private key was used to sign the data (as if an instance
+         * The key id of the public key (public key hash) whose corresponding private key was used to sign the data
+         * TODO change the below to say that if composite key is passed in sign operation then key id will be of
+         *  firstly found key leaf
+         * (as if an instance
          * of the {@link CompositeKey} is passed to the sign operation it may contain keys which are not actually owned by
          * the member).
          */
-        private final SecureHash by;
-
         @NotNull
-        public final SecureHash getBy() {
-            return this.by;
-        }
+        SecureHash getBy();
     }
 }
