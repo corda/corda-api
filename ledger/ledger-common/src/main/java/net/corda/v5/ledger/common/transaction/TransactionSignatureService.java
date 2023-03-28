@@ -59,7 +59,7 @@ public interface TransactionSignatureService {
      *
      * @param transaction           The original transaction.
      * @param signatureWithMetadata The signature to be verified.
-     * @param publicKey             The public key to verify against. It should match with signatureWithMetadata's keyId.
+     * @param publicKey             The public key to verify against. It must match with signatureWithMetadata's keyId.
      * @throws RuntimeException if the signature could not be verified.
      */
     void verifySignature(
