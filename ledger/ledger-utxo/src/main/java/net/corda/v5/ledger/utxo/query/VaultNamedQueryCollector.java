@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * A collector that is applied to the result set returned after executing the named query.
+ * Null values returned from the collection will be filtered out.
  * <p>
  * Example usage:
  * <ul>

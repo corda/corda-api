@@ -6,6 +6,7 @@ import java.util.Map;
 
 /**
  * Representation of a transformer function that will be applied to the result set returned by the named query.
+ * Null values returned from the transformation will be filtered out.
  * <p>
  * Example usage:
  * <ul>
