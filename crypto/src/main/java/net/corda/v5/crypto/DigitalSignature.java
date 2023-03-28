@@ -20,7 +20,6 @@ public interface DigitalSignature {
     @DoNotImplement
     interface WithKeyId extends DigitalSignature {
 
-        // TODO consider renaming to getKeyId() ?
         /**
          * The key id of the public key (public key hash) whose corresponding private key was used to sign the data
          * TODO change the below to say that if composite key is passed in sign operation then key id will be of
