@@ -21,8 +21,8 @@ public interface DigitalSignature {
     interface WithKeyId extends DigitalSignature {
 
         /**
-         * The key id of the public key (public key hash) whose private key pair was used to sign the data. If the
-         * original key passed in to the sign operation is a {@link CompositeKey} then the key id, is the id of the
+         * Returns the key ID of the public key (public key hash) whose private key pair was used to sign the data. If the
+         * original key passed in to the sign operation is a {@link CompositeKey} then the key ID, is the ID of the
          * composite key leaf used to produce the signature.
          */
         @NotNull
