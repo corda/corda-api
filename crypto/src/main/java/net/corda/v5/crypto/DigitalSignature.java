@@ -21,12 +21,9 @@ public interface DigitalSignature {
     interface WithKeyId extends DigitalSignature {
 
         /**
-         * The key id of the public key (public key hash) whose corresponding private key was used to sign the data
-         * TODO change the below to say that if composite key is passed in sign operation then key id will be of
-         *  firstly found key leaf
-         * (as if an instance
-         * of the {@link CompositeKey} is passed to the sign operation it may contain keys which are not actually owned by
-         * the member).
+         * The key id of the public key (public key hash) whose private key pair was used to sign the data. If the
+         * original key passed in to the sign operation is a {@link CompositeKey} then the key id, is the id of the
+         * composite key leaf used to produce the signature.
          */
         @NotNull
         SecureHash getBy();
