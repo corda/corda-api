@@ -14,6 +14,7 @@
         "net.corda.data.membership.command.registration.mgm.ApproveRegistration",
         "net.corda.data.membership.command.registration.mgm.DeclineRegistration",
         "net.corda.data.membership.command.registration.mgm.DistributeMembershipPackage",
+        "net.corda.data.membership.command.registration.mgm.QueueRegistration",
         "net.corda.data.membership.command.registration.member.PersistMemberRegistrationState",
         "net.corda.data.membership.command.registration.member.ProcessMemberVerificationRequest"
       ]

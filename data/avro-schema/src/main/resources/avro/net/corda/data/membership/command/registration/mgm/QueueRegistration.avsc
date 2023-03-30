@@ -18,6 +18,11 @@
       "name": "memberRegistrationRequest",
       "doc": "The full registration request as received from a registering member.",
       "type": "net.corda.data.membership.p2p.MembershipRegistrationRequest"
+    },
+    {
+       "name": "numberOfRetriesSoFar",
+       "doc": "The number of times this request failed so far.",
+       "type": "int"
     }
   ]
 }
