@@ -5,14 +5,19 @@
   "doc": " Command issued when a member registration request is successfully queued.",
   "fields": [
     {
-      "name": "registeringMember",
+      "name": "mgm",
+      "doc": "Holding identity of the MGM.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "member",
       "doc": "Holding identity of the registering member as provided during P2P communication. Used to verify the registration request.",
       "type": "net.corda.data.identity.HoldingIdentity"
     },
     {
-      "name": "mgm",
-      "doc": "Holding identity of the MGM.",
-      "type": "net.corda.data.identity.HoldingIdentity"
+      "name": "numberOfRetriesSoFar",
+      "doc": "The number of times this request failed so far.",
+      "type": "int"
     }
   ]
 }
