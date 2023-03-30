@@ -32,24 +32,6 @@
       "description": "The default wrapping key, which must be in the wrappingKeys array.",
       "type": "string"
     },
-    "cryptoConnectionFactory": {
-      "description": "Settings for database connections factory's cache of EntityManagerFactory(s)",
-      "type": "object",
-      "default": {},
-      "properties": {
-        "expireAfterAccessMins": {
-          "description": "Expiration time in minutes for cached EntityManagerFactory",
-          "type": "integer",
-          "default": 5
-        },
-        "maximumSize": {
-          "description": "Maximum number of cached EntityManagerFactory",
-          "type": "integer",
-          "default": 3
-        }
-      },
-      "additionalProperties": false
-    },
     "signingService": {
       "description": "Settings for SigningService",
       "type": "object",
