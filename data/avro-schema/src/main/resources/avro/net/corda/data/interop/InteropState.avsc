@@ -32,6 +32,11 @@
       "name": "aliasHoldingIdentity",
       "type": "string",
       "doc": "The alias holding id associated with ongoing sessions."
+    },
+    {
+      "name": "groupId",
+      "type": "string",
+      "doc": "The group id for alias holding id associated with ongoing sessions."
     }
   ]
 }
