@@ -1,0 +1,42 @@
+{
+  "type": "record",
+  "name": "InteropState",
+  "namespace": "net.corda.data.interop",
+  "fields": [
+    {
+      "name": "stateId",
+      "type": "string",
+      "doc": "The key on which inbound events should be forwarded to on the interop event topic."
+    },
+    {
+      "name": "expiryTime",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": "The time at which this state will be set to null. This is only set for closed sessions."
+    },
+    {
+      "name": "status",
+      "doc": "The status of a session. VALID for ongoing sessions. INVALID for sessions which are finished and the expiryTime has been set.",
+      "type": {
+        "type": "enum",
+        "name": "InteropStateType",
+        "symbols": [
+          "VALID",
+          "INVALID"
+        ]
+      }
+    },
+    {
+      "name": "aliasHoldingIdentity",
+      "type": "string",
+      "doc": "The alias holding id associated with ongoing sessions."
+    },
+    {
+      "name": "groupId",
+      "type": "string",
+      "doc": "The group id for alias holding id associated with ongoing sessions."
+    }
+  ]
+}
