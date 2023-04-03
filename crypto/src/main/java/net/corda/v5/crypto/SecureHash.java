@@ -21,7 +21,7 @@ public interface SecureHash {
      * Returns hexadecimal representation of the hash value.
      */
     @NotNull
-    String getHexString();
+    String toHexString();
 
     /**
      * The delimiter used in the string form of a secure hash to separate the algorithm name from the hexadecimal
@@ -38,5 +38,5 @@ public interface SecureHash {
      * Example outcome of toString(): SHA-256:98AF8725385586B41FEFF205B4E05A000823F78B5F8F5C02439CE8F67A781D90
      */
     @NotNull
-    String getAlgorithmAndHexString();
+    String toAlgorithmAndHexString();
 }
