@@ -12,7 +12,7 @@
       "name": "isInteropSession",
       "type": "boolean",
       "default": false,
-      "doc": "True if the session is an interop session, otherwise false."
+      "doc": "True if this session is an interop session, otherwise false."
     },
     {
       "name": "sessionStartTime",

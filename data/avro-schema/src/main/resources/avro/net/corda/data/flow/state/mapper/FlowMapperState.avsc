@@ -32,7 +32,7 @@
       "name": "isInteropSession",
       "type": "boolean",
       "default": false,
-      "doc": "True if this state is associated with an interop session, false otherwise."
+      "doc": "True if this state is associated with an interop session, otherwise false."
     }
   ]
 }
