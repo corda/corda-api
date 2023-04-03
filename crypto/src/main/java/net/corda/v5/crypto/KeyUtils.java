@@ -42,7 +42,7 @@ public final class KeyUtils {
      * @param otherKeys An {@link Iterable} sequence of {@link PublicKey}.
      * @return True if <code>key</code> is in otherKeys.
      */
-    public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Iterable<PublicKey> otherKeys) {
+    public static boolean isKeyInKeys(@NotNull PublicKey key, @NotNull Iterable<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
             CompositeKey compositeKey = (CompositeKey) key;
             Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
@@ -78,7 +78,7 @@ public final class KeyUtils {
      * @param firstKey  The key with the requirements.
      * @param otherKeys The key to check whether requirements are fulfilled.
      */
-    public static boolean isKeyFulfilledBy(@NotNull PublicKey firstKey, @NotNull Iterable<PublicKey> otherKeys) {
+    public static boolean isKeyFulfilledByKeys(@NotNull PublicKey firstKey, @NotNull Iterable<PublicKey> otherKeys) {
         if (firstKey instanceof CompositeKey) {
             CompositeKey firstKeyComposite = (CompositeKey) firstKey;
             return firstKeyComposite.isFulfilledBy(otherKeys);
@@ -100,8 +100,8 @@ public final class KeyUtils {
      * @param firstKey The key with the requirements.
      * @param otherKey The key to check whether requirements are fulfilled.
      */
-    public static boolean isKeyFulfilledBy(@NotNull PublicKey firstKey, @NotNull PublicKey otherKey) {
-        return isKeyFulfilledBy(firstKey,
+    public static boolean isKeyFulfilledByKeys(@NotNull PublicKey firstKey, @NotNull PublicKey otherKey) {
+        return isKeyFulfilledByKeys(firstKey,
                 Collections.singleton(otherKey));
     }
 }
