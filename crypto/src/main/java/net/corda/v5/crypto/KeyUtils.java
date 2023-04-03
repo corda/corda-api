@@ -42,17 +42,16 @@ public final class KeyUtils {
      * @param otherKeys An {@link Iterable} sequence of {@link PublicKey}.
      * @return True if <code>key</code> is in otherKeys.
      */
-    public static boolean isKeyInKeys(@NotNull PublicKey key, @NotNull Iterable<PublicKey> otherKeys) {
+    public static boolean isKeyInKeys(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
             CompositeKey compositeKey = (CompositeKey) key;
             Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
+            // TODO Here we could be checking which is set has less items and iterate through that
             for (PublicKey otherKey : otherKeys) {
                 if (leafKeys.contains(otherKey)) return true;
             }
         } else {
-            for (PublicKey otherKey : otherKeys) {
-                if (otherKey.equals(key)) return true;
-            }
+            return otherKeys.contains(key);
         }
         return false;
     }
@@ -75,18 +74,15 @@ public final class KeyUtils {
      * check fulfilment against a set of keys, without having to handle simple and composite keys separately (that is, this is
      * polymorphic).
      * 
-     * @param firstKey  The key with the requirements.
+     * @param key  The key with the requirements.
      * @param otherKeys The key to check whether requirements are fulfilled.
      */
-    public static boolean isKeyFulfilledByKeys(@NotNull PublicKey firstKey, @NotNull Iterable<PublicKey> otherKeys) {
-        if (firstKey instanceof CompositeKey) {
-            CompositeKey firstKeyComposite = (CompositeKey) firstKey;
+    public static boolean isKeyFulfilledByKeys(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
+        if (key instanceof CompositeKey) {
+            CompositeKey firstKeyComposite = (CompositeKey) key;
             return firstKeyComposite.isFulfilledBy(otherKeys);
         }
-        for (PublicKey otherKey : otherKeys) {
-            if (otherKey.equals(firstKey)) return true;
-        }
-        return false;
+        return otherKeys.contains(key);
     }
 
     /**
@@ -97,11 +93,11 @@ public final class KeyUtils {
      * Since we do not define composite keys as acceptable on the second argument of this function, this relation
      * is not reflexive, not symmetric and not transitive. 
      *
-     * @param firstKey The key with the requirements.
+     * @param key The key with the requirements.
      * @param otherKey The key to check whether requirements are fulfilled.
      */
-    public static boolean isKeyFulfilledByKeys(@NotNull PublicKey firstKey, @NotNull PublicKey otherKey) {
-        return isKeyFulfilledByKeys(firstKey,
+    public static boolean isKeyFulfilledByKeys(@NotNull PublicKey key, @NotNull PublicKey otherKey) {
+        return isKeyFulfilledByKeys(key,
                 Collections.singleton(otherKey));
     }
 }
