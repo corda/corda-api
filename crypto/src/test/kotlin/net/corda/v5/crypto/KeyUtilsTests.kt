@@ -25,39 +25,39 @@ class KeyUtilsTests {
     @ParameterizedTest
     @MethodSource("publicKeys")
     fun `isKeyFulfilledBy overload with single key should return true if the keys are matching for a given public key`(key: PublicKey) {
-        assertTrue(KeyUtils.isKeyFulfilledByKeys(key, key))
+        assertTrue(KeyUtils.isKeyFulfilledBy(key, key))
     }
 
 
     @ParameterizedTest
     @MethodSource("publicKeys")
     fun `isKeyFulfilledBy overload with single key should return false if the keys are not matching for a given public key`(key: PublicKey) {
-        assertFalse(KeyUtils.isKeyFulfilledByKeys(key, generateKeyPair(ECDSA_SECP256K1_SPEC).public))
+        assertFalse(KeyUtils.isKeyFulfilledBy(key, generateKeyPair(ECDSA_SECP256K1_SPEC).public))
     }
 
 
     @ParameterizedTest
     @MethodSource("publicKeys")
     fun `isKeyFulfilledBy overload with collection should return true if the keys are matching at least one given public key`(key: PublicKey) {
-        assertTrue(KeyUtils.isKeyFulfilledByKeys(key, listOf(generateKeyPair(ECDSA_SECP256R1_SPEC).public, key)))
+        assertTrue(KeyUtils.isKeyFulfilledBy(key, listOf(generateKeyPair(ECDSA_SECP256R1_SPEC).public, key)))
     }
 
 
     @ParameterizedTest
     @MethodSource("publicKeys")
     fun `isKeyFulfilledBy overload with collection should return false if the keys are not matching at least one given public key`(key: PublicKey) {
-        assertFalse(KeyUtils.isKeyFulfilledByKeys(key, listOf(generateKeyPair(ECDSA_SECP256R1_SPEC).public)))
+        assertFalse(KeyUtils.isKeyFulfilledBy(key, listOf(generateKeyPair(ECDSA_SECP256R1_SPEC).public)))
     }
     
     @ParameterizedTest
     @MethodSource("publicKeys") 
     fun `isKeyInSet claims a key is in a member of single-element set containing that key`(key: PublicKey) {
-        assertTrue(KeyUtils.isKeyInKeys(key, listOf(key)))
+        assertTrue(KeyUtils.isKeyInSet(key, listOf(key)))
     }
 
     @ParameterizedTest
     @MethodSource("publicKeys")
     fun `isKeyInSet claims a key is not a member of single-element set containing another key`(key: PublicKey) {
-        assertFalse(KeyUtils.isKeyInKeys(key, listOf(other)))
+        assertFalse(KeyUtils.isKeyInSet(key, listOf(other)))
     }
 }
