@@ -38,5 +38,6 @@
       "type": "string",
       "doc": "The group id for alias holding id associated with ongoing sessions."
     }
+
   ]
 }
