@@ -9,10 +9,11 @@ public final class ConfigKeys {
     // publishing changes to one of the config sections defined by a key, and readers will use the keys to
     // determine which config section a given update is for.
     public static final String BOOT_CONFIG = "corda.boot";
-    public static final String CRYPTO_CONFIG = "corda.cryptoLibrary";
+    public static final String CRYPTO_CONFIG = "corda.crypto";
     public static final String DB_CONFIG = "corda.db";
     public static final String FLOW_CONFIG = "corda.flow";
     public static final String MESSAGING_CONFIG = "corda.messaging";
+    public static final String EXTERNAL_MESSAGING_CONFIG = "corda.externalMessaging";
     public static final String UTXO_LEDGER_CONFIG = "corda.ledger.utxo";
     public static final String P2P_LINK_MANAGER_CONFIG = "corda.p2p.linkManager";
     public static final String P2P_GATEWAY_CONFIG = "corda.p2p.gateway";
