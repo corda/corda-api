@@ -58,19 +58,6 @@
       },
       "additionalProperties": false
     },
-    "hsmService": {
-      "description": "Settings for HSMService",
-      "type": "object",
-      "default": {},
-      "properties": {
-        "downstreamMaxAttempts": {
-          "description": "Number of attempts to call downstream services to ensure consistency when assigning an HSM",
-          "type": "integer",
-          "default": 3
-        }
-      },
-      "additionalProperties": false
-    },
     "busProcessors": {
       "description": "Settings for crypto messages processors",
       "type": "object",
