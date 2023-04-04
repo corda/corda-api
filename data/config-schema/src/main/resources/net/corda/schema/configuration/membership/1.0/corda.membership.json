@@ -37,6 +37,13 @@
           "description": "The maximum duration in minutes to wait for a verify member request.",
           "$ref": "#/$defs/ttl",
           "default": 20
+        },
+        "waitForMgmSession": {
+          "description": "The maximum duration in minutes to wait for a member to establish connection with the MGM.",
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 2880,
+          "default": 30
         }
       }
     }
