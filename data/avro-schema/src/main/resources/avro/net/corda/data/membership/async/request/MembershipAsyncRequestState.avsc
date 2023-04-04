@@ -15,18 +15,10 @@
         "type": "record",
         "name": "RetriableFailure",
         "fields": [{
-            "name": "numberOfRetriesSoFar",
-            "doc": "The number of times this request failed so far.",
+            "name": "numberOfRetriesToGo",
+            "doc": "The number of times this request should be retried.",
             "type": {
               "type": "int"
-            }
-          },
-          {
-            "name": "lastFailedOn",
-            "doc": "The time in which the request had last failed.",
-            "type": {
-              "type": "long",
-              "logicalType": "timestamp-millis"
             }
           }
         ]
@@ -34,8 +26,8 @@
         "type": "record",
         "name": "SentToMgmWaitingForNetwork",
         "fields": [{
-          "name": "firstSentOn",
-          "doc": "The time in which the request was first sent to the MGM.",
+          "name": "stopRetriesAfter",
+          "doc": "The time after which the request should no longer be retried.",
           "type": {
             "type": "long",
             "logicalType": "timestamp-millis"
