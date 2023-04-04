@@ -17,7 +17,7 @@
       }
     },
     {
-      "doc": "The condition to check before retring the request.",
+      "doc": "The condition to check before retrying the request.",
       "name": "retryCondition",
       "type": {
         "type": "enum",
@@ -30,7 +30,7 @@
     },
     {
       "name": "retryAfter",
-      "doc": "The time after which the reqeust should retry.",
+      "doc": "The time after which the request should be retried.",
       "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
