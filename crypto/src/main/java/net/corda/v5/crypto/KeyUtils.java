@@ -46,14 +46,11 @@ public final class KeyUtils {
         if (key instanceof CompositeKey) {
             CompositeKey compositeKey = (CompositeKey) key;
             Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
-            // TODO Here we could be checking which is set has less items and iterate through that
-            for (PublicKey otherKey : otherKeys) {
-                if (leafKeys.contains(otherKey)) return true;
-            }
+            leafKeys.retainAll(otherKeys);
+            return !leafKeys.isEmpty();
         } else {
             return otherKeys.contains(key);
         }
-        return false;
     }
 
     /**
