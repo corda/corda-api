@@ -27,6 +27,12 @@
           "CLOSING"
         ]
       }
+    },
+    {
+      "name": "isInteropSession",
+      "type": "boolean",
+      "default": false,
+      "doc": "True if this state is associated with an interop session, otherwise false."
     }
   ]
 }
