@@ -54,6 +54,16 @@ public final class Schemas {
     }
 
     /**
+     * Avro Schema Repository topic schema
+     */
+    public static final class AvroSchema {
+        private AvroSchema() {
+        }
+
+        public static final String AVRO_SCHEMA_TOPIC = "avro.schema";
+    }
+
+    /**
      * Config read topic schema.
      */
     public static final class Config {
@@ -94,6 +104,8 @@ public final class Schemas {
         public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getStateAndEventDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_INTEROP_EVENT_TOPIC = "flow.interop.event";
+        public static final String FLOW_INTEROP_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_INTEROP_EVENT_TOPIC);
+        public static final String FLOW_INTEROP_EVENT_DLQ_TOPIC = getStateAndEventDLQTopic(FLOW_INTEROP_EVENT_TOPIC);
     }
 
     /**
@@ -126,10 +138,10 @@ public final class Schemas {
         public static final String MEMBERSHIP_RPC_RESPONSE_TOPIC = getRPCResponseTopic(MEMBERSHIP_RPC_TOPIC);
         public static final String MEMBERSHIP_DB_RPC_TOPIC = "membership.db.rpc.ops";
         public static final String MEMBERSHIP_DB_RPC_RESPONSE_TOPIC = getRPCResponseTopic(MEMBERSHIP_DB_RPC_TOPIC);
-        public static final String MEMBERSHIP_STATIC_NETWORK_TOPIC = "membership.static.network";
         public static final String MEMBERSHIP_ASYNC_REQUEST_TOPIC = "membership.async.request";
         public static final String MEMBERSHIP_ASYNC_REQUEST_STATE_TOPIC = getStateAndEventStateTopic(MEMBERSHIP_ASYNC_REQUEST_TOPIC);
         public static final String MEMBERSHIP_ASYNC_REQUEST_DLQ_TOPIC = getStateAndEventDLQTopic(MEMBERSHIP_ASYNC_REQUEST_TOPIC);
+        public static final String MEMBERSHIP_ACTIONS_TOPIC = "membership.actions";
 
         public static final String EVENT_TOPIC = "membership.event";
 
