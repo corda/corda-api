@@ -15,7 +15,7 @@
         "type": "record",
         "name": "RetriableFailure",
         "fields": [{
-            "name": "numberOfRetriesToGo",
+            "name": "numberOfRemainingRetries",
             "doc": "The number of times this request should be retried.",
             "type": {
               "type": "int"

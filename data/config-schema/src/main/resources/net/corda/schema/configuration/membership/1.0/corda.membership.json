@@ -39,7 +39,7 @@
           "default": 20
         },
         "waitForMgmSession": {
-          "description": "The maximum duration in minutes to wait for a member to establish connection with the MGM.",
+          "description": "The maximum duration in minutes to wait for a member to establish connection with the MGM. This only has effect on time waiting for an MGM to establish a session with a member as part of processing a registration request.",
           "type": "integer",
           "minimum": 10,
           "maximum": 2880,
