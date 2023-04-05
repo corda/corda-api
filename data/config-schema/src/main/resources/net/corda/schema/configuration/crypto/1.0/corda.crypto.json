@@ -5,33 +5,6 @@
   "description": "Configuration schema for the crypto library subsection.",
   "type": "object",
   "properties": {
-    "wrappingKeys": {
-      "description" : "Key derivation parameters for wrapping keys supplied in config",
-      "type": "array",
-      "properties": {
-        "alias" : {
-          "description": "The alias for the wrapping key.",
-          "type" : "string"
-        },
-        "algorithm": {
-          "description": "Key derivation function and wrapping key algorithm selection",
-          "type": "string",
-          "default": "PBKDF2WithHmacSHA256"
-        },
-        "salt": {
-          "description": "Salt for the key derivation function",
-          "type": "string"
-        },
-        "passphrase": {
-          "description": "Passphrase for the key derivation function",
-          "type": "string"
-        }
-      }
-    },
-    "defaultWrappingKey": {
-      "description": "The default wrapping key, which must be in the wrappingKeys array.",
-      "type": "string"
-    },
     "signingService": {
       "description": "Settings for SigningService",
       "type": "object",
