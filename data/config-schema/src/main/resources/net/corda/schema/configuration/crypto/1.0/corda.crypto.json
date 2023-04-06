@@ -111,8 +111,8 @@
       },
       "additionalProperties": false
     },
-    "softHsm": {
-      "description": "Settings and capabilities for the SOFT HSM",
+    "hsm": {
+      "description": "Settings and capabilities for the HSM",
       "type": "object",
       "default": {},
       "properties": {
