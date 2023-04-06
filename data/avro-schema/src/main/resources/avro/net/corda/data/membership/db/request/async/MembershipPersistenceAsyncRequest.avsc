@@ -7,7 +7,7 @@
     {
       "name": "request",
       "type": "net.corda.data.membership.db.request.MembershipPersistenceRequest",
-      "doc": "The persistance request"
+      "doc": "The persistence request"
     }
   ]
 }

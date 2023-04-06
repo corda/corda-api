@@ -2,7 +2,7 @@
   "type": "record",
   "name": "MembershipPersistenceAsyncRequestState",
   "namespace": "net.corda.data.membership.db.request.async",
-  "doc": "State of failed membership persistant async request.",
+  "doc": "State of failed membership persistence async request.",
   "fields": [
     {
       "name": "request",
