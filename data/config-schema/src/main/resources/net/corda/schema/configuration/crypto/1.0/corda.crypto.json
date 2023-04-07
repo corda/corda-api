@@ -5,28 +5,32 @@
   "description": "Configuration schema for the crypto library subsection.",
   "type": "object",
   "properties": {
-    "signingService": {
-      "description": "Settings for SigningService",
+    "caching": {
+      "description": "Caching settings",
       "type": "object",
       "default": {},
       "properties": {
-        "cache": {
-          "description": "Settings for key metadata cache",
+        "expireAfterAccessMins": {
+          "description": "Expiration time in minutes for cached key metadata",
           "type": "object",
           "default": {},
           "properties": {
-            "expireAfterAccessMins": {
-              "description": "Expiration time in minutes for cached key metadata",
+            "default": {
               "type": "integer",
               "default": 10000
-            },
-            "maximumSize": {
-              "description": "Maximum number of cached key metadata",
+            }
+          }
+        },
+        "maximumSize": {
+          "description": "Maximum number of cached key metadata",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "default": {
               "type": "integer",
               "default": 60
             }
-          },
-          "additionalProperties": false
+          }
         }
       },
       "additionalProperties": false
@@ -142,40 +146,6 @@
           "description": "SOFT HSM specific configuration",
           "type": "object",
           "properties": {
-            "keyMap": {
-              "description": "Settings for the private keys map",
-              "type": "object",
-              "default": {},
-              "properties": {
-                "name": {
-                  "description": "Map type, CACHING - the key are cached, TRANSIENT - there is no caching",
-                  "enum": [
-                    "CACHING",
-                    "TRANSIENT"
-                  ],
-                  "default": "CACHING"
-                },
-                "cache": {
-                  "description": "Settings for the cache if the type is CACHING",
-                  "type": "object",
-                  "default": {},
-                  "properties": {
-                    "expireAfterAccessMins": {
-                      "description": "Expiration time for cached keys",
-                      "type": "integer",
-                      "default": 60
-                    },
-                    "maximumSize": {
-                      "description": "Maximum number of keys in the cache",
-                      "type": "integer",
-                      "default": 1000
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              },
-              "additionalProperties": false
-            },
             "wrappingKeys": {
               "description" : "Key derivation parameters for wrapping keys supplied in config",
               "type": "array",
@@ -211,40 +181,6 @@
             "defaultWrappingKey": {
               "description": "The default wrapping key, which must be in the wrappingKeys array.",
               "type": "string"
-            },
-            "wrappingKeyMap": {
-              "description": "Settings for the wrapping keys map",
-              "type": "object",
-              "default": {},
-              "properties": {
-                "name": {
-                  "description": "Map type, CACHING - the key are cached, TRANSIENT - there is no caching",
-                  "enum": [
-                    "CACHING",
-                    "TRANSIENT"
-                  ],
-                  "default": "CACHING"
-                },
-                "cache": {
-                  "description": "Settings for the cache if the type is CACHING",
-                  "type": "object",
-                  "default": {},
-                  "properties": {
-                    "expireAfterAccessMins": {
-                      "description": "Expiration time for cached keys",
-                      "type": "integer",
-                      "default": 60
-                    },
-                    "maximumSize": {
-                      "description": "Maximum number of keys in the cache",
-                      "type": "integer",
-                      "default": 1000
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              },
-              "additionalProperties": false
             },
             "wrapping": {
               "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
