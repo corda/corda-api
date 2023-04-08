@@ -181,40 +181,6 @@
             "defaultWrappingKey": {
               "description": "The default wrapping key, which must be in the wrappingKeys array.",
               "type": "string"
-            },
-            "wrapping": {
-              "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
-              "type": "object",
-              "default": {},
-              "properties": {
-                "name": {
-                  "description": "Wrapping type, DEFAULT - the wrapping key are stored in database, HSM - there is additional single master key defined in the HSM",
-                  "enum": [
-                    "DEFAULT",
-                    "HSM"
-                  ],
-                  "default": "DEFAULT"
-                },
-                "hsm": {
-                  "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
-                  "type": "object",
-                  "default": {},
-                  "properties": {
-                    "name": {
-                      "description": "HSM provider name",
-                      "type": "string"
-                    },
-                    "cfg": {
-                      "description": "HSM specific configuration",
-                      "type": "object",
-                      "default": {},
-                      "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              },
-              "additionalProperties": false
             }
           },
           "additionalProperties": false
