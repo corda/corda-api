@@ -99,53 +99,47 @@
             "UNIQUE"
           ]
         },
-        "cfg": {
-          "description": "SOFT HSM specific configuration",
-          "type": "object",
-          "properties": {
-            "wrappingKeys": {
-              "description" : "Key derivation parameters for wrapping keys supplied in config",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "alias": {
-                    "description": "The alias for the wrapping key.",
-                    "type": "string"
-                  },
-                  "algorithm": {
-                    "description": "Key derivation function and wrapping key algorithm selection",
-                    "type": "string",
-                    "default": "PBKDF2WithHmacSHA256"
-                  },
-                  "salt": {
-                    "description": "Salt for the key derivation function",
-                    "type": "string"
-                  },
-                  "passphrase": {
-                    "description": "Passphrase for the key derivation function",
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false,
-                "required": [
-                  "alias",
-                  "salt",
-                  "passphrase"
-                ]
+        "wrappingKeys": {
+          "description" : "Key derivation parameters for wrapping keys supplied in config",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alias": {
+                "description": "The alias for the wrapping key.",
+                "type": "string"
+              },
+              "algorithm": {
+                "description": "Key derivation function and wrapping key algorithm selection",
+                "type": "string",
+                "default": "PBKDF2WithHmacSHA256"
+              },
+              "salt": {
+                "description": "Salt for the key derivation function",
+                "type": "string"
+              },
+              "passphrase": {
+                "description": "Passphrase for the key derivation function",
+                "type": "string"
               }
             },
-            "defaultWrappingKey": {
-              "description": "The default wrapping key, which must be in the wrappingKeys array.",
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+              "alias",
+              "salt",
+              "passphrase"
+            ]
+          }
+        },
+        "defaultWrappingKey": {
+          "description": "The default wrapping key, which must be in the wrappingKeys array.",
+          "type": "string"
         }
       },
       "required": [
         "masterKeyPolicy",
-        "cfg"
+        "wrappingKeys",
+        "defaultWrappingKey"
       ],
       "additionalProperties": false
     }
