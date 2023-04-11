@@ -1,5 +1,6 @@
 package net.corda.v5.application.interop.facade;
 
+import net.corda.v5.application.interop.parameters.ParameterTypeLabel;
 import org.jetbrains.annotations.NotNull;
 
 public interface Facade {
@@ -20,7 +21,7 @@ public interface Facade {
      * @param inParameters The parameter values to pass to the method.
      */
     @NotNull
-    FacadeRequest request(String methodName, TypedParameterValue<?>... inParameters);
+    FacadeRequest request(String methodName, ParameterTypeLabel... inParameters);
 
     /**
      * Obtain a response to an invocation of the method with the given name, with the given parameter values.
@@ -29,6 +30,6 @@ public interface Facade {
      * @param outParameters The values of the out parameters of the method.
      */
     @NotNull
-    FacadeResponse response(String methodName, TypedParameterValue... outParameters);
+    FacadeResponse response(String methodName, ParameterTypeLabel... outParameters);
 
 }

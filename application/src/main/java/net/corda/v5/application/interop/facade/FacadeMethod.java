@@ -1,7 +1,11 @@
 package net.corda.v5.application.interop.facade;
 
+import net.corda.v5.application.interop.parameters.ParameterType;
+import net.corda.v5.application.interop.parameters.ParameterTypeLabel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public interface FacadeMethod {
     /**
@@ -10,7 +14,7 @@ public interface FacadeMethod {
      * @param parameterName The name of the input parameter.
      */
     @NotNull
-    <T> TypedParameter<T> inParameter(String parameterName);
+    <T> ParameterType<T> inParameter(String parameterName);
 
 
     /**
@@ -20,7 +24,7 @@ public interface FacadeMethod {
      * @param expectedType The expected type of the parameter.
      */
     @NotNull
-    <T> TypedParameter<T> inParameter(String parameterName, Class<T> expectedType);
+    <T> ParameterType<T> inParameter(String parameterName, Class<T> expectedType);
 
     /**
      * Get the in parameter with the given name, without checking that its type matches an expected type.
@@ -28,7 +32,7 @@ public interface FacadeMethod {
      * @param parameterName: The name of the parameter to obtain.
      */
     @Nullable
-    TypedParameter<?> untypedInParameter(String parameterName);
+    ParameterType<?> untypedInParameter(String parameterName);
 
     /**
      * Get the output parameter with the given name.
@@ -36,7 +40,7 @@ public interface FacadeMethod {
      * @param parameterName The name of the output parameter.
      */
     @NotNull
-    <T> TypedParameter<T> outParameter(String parameterName);
+    <T> ParameterType<T> outParameter(String parameterName);
 
     /**
      * Obtain the out parameter with the given name.
@@ -45,7 +49,7 @@ public interface FacadeMethod {
      * @param expectedType The expected type of the parameter.
      */
 
-    <T> TypedParameter<T> outParameter(String parameterName, Class<T> expectedType);
+    <T> ParameterType<T> outParameter(String parameterName, Class<T> expectedType);
 
     /**
      * Create a [FacadeRequest] for this method.
@@ -53,10 +57,10 @@ public interface FacadeMethod {
      * @param parameterValues The parameter values to pass to the method.
      */
     @NotNull
-    FacadeRequest request(TypedParameterValue<?>... parameterValues);
+    FacadeRequest request(ParameterTypeLabel... parameterValues);
 
     @NotNull
-    FacadeRequest request(List<TypedParameterValue<?>> parameterValues);
+    FacadeRequest request(List<ParameterTypeLabel> parameterValues);
 
     /**
      * Create a [FacadeResponse] for this method.
@@ -64,8 +68,8 @@ public interface FacadeMethod {
      * @param parameterValues The parameter values to return from the method.
      */
     @NotNull
-    FacadeResponse response(TypedParameterValue<?>... parameterValues);
+    FacadeResponse response(ParameterTypeLabel... parameterValues);
 
     @NotNull
-    FacadeResponse response(List<TypedParameterValue<?>> parameterValues);
+    FacadeResponse response(List<ParameterTypeLabel> parameterValues);
 }
