@@ -103,10 +103,6 @@
           "description": "If the masterKeyPolicy is SHARED then this specifies the alias of the shared key and as such is required",
           "type": "string"
         },
-        "capacity": {
-          "description": "Number of keys which can be handled by the HSM, -1 means unlimited capacity",
-          "type": "integer"
-        },
         "supportedSchemes": {
           "description": "Key schemes that are supported by the HSM",
           "type": "array",
@@ -161,7 +157,6 @@
       },
       "required": [
         "masterKeyPolicy",
-        "capacity",
         "supportedSchemes",
         "cfg"
       ],
