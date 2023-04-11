@@ -91,33 +91,6 @@
           },
           "additionalProperties": false
         },
-        "categories": {
-          "description": "Categories which the HSM can be used for",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "properties": {
-              "category": {
-                "description": "Category name, could be the wildcard * meaning all which has to be the last item if used",
-                "type": "string"
-              },
-              "policy": {
-                "description": "Defines how private keys are generated for that category, ALIASED - stored in the HSM, WRAPPED - wrapped by the HSM, BOTH - decision is taken by the HSM at runtime",
-                "enum": [
-                  "ALIASED",
-                  "WRAPPED",
-                  "BOTH"
-                ]
-              }
-            },
-            "required": [
-              "category",
-              "policy"
-            ],
-            "additionalProperties": false
-          }
-        },
         "masterKeyPolicy": {
           "description": "Wrapping key policy, NONE - no wrapping key is required, SHARED - wrapping key shared by all tenants, UNIQUE - wrapping key unique for each tenant",
           "enum": [
