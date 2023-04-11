@@ -163,7 +163,6 @@
         "masterKeyPolicy",
         "capacity",
         "supportedSchemes",
-        "categories",
         "cfg"
       ],
       "additionalProperties": false
