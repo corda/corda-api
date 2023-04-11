@@ -99,10 +99,6 @@
             "UNIQUE"
           ]
         },
-        "masterKeyAlias": {
-          "description": "If the masterKeyPolicy is SHARED then this specifies the alias of the shared key and as such is required",
-          "type": "string"
-        },
         "supportedSchemes": {
           "description": "Key schemes that are supported by the HSM",
           "type": "array",
