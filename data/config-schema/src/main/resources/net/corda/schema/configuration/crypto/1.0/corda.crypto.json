@@ -99,14 +99,6 @@
             "UNIQUE"
           ]
         },
-        "supportedSchemes": {
-          "description": "Key schemes that are supported by the HSM",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string"
-          }
-        },
         "cfg": {
           "description": "SOFT HSM specific configuration",
           "type": "object",
@@ -153,7 +145,6 @@
       },
       "required": [
         "masterKeyPolicy",
-        "supportedSchemes",
         "cfg"
       ],
       "additionalProperties": false
