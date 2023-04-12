@@ -1,6 +1,7 @@
 package net.corda.v5.ledger.utxo.query;
 
 import net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory;
+import net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderFactory;
 import org.jetbrains.annotations.NotNull;
 
 /**
