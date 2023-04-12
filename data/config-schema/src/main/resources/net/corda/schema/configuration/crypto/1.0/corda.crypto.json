@@ -4,6 +4,7 @@
   "title": "Corda Crypto Library Configuration Schema",
   "description": "Configuration schema for the crypto library subsection.",
   "type": "object",
+  "default": {},
   "properties": {
     "caching": {
       "description": "Caching settings",
