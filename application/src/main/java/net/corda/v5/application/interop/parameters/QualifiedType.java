@@ -1,12 +1,9 @@
 package net.corda.v5.application.interop.parameters;
 
-import net.corda.v5.application.interop.facade.FacadeTypeQualifier;
 import net.corda.v5.application.interop.facade.FacadeTypeQualifierInterface;
 import org.jetbrains.annotations.NotNull;
-import java.util.Map;
 
-//TODO make methods notNull
-public final class QualifiedType<T> implements ParameterType{
+public final class QualifiedType<T> implements ParameterType<T> {
 
     @NotNull
     RawParameterType<T> rawParameterType;
@@ -28,32 +25,12 @@ public final class QualifiedType<T> implements ParameterType{
 
     private final boolean isQualified = true;
 
-    public QualifiedType(@NotNull RawParameterType<T> rawParameterType, @NotNull ParameterType<T> type, @NotNull FacadeTypeQualifierInterface qualifier, @NotNull ParameterTypeLabel typeLabel) {
+    public QualifiedType(RawParameterType<T> rawParameterType, @NotNull ParameterType<T> type, @NotNull FacadeTypeQualifierInterface qualifier, ParameterTypeLabel typeLabel) {
         this.rawParameterType = rawParameterType;
         this.type = type;
         this.qualifier = qualifier;
         this.typeLabel = typeLabel;
     }
-
-//    public QualifiedType(@NotNull RawParameterType<T> rawParameterType, @NotNull ParameterType<T> type, @NotNull FacadeTypeQualifierInterface qualifier) {
-//        this.rawParameterType = rawParameterType;
-//        this.type = type;
-//        this.qualifier = qualifier;
-//    }
-
-//    public QualifiedType(@NotNull ParameterType<T> type, @NotNull FacadeTypeQualifierInterface qualifier) {
-//        this.type = type;
-//        this.qualifier = qualifier;
-//    }
-
-
-//    public ParameterType of(String typeString) {
-//        return null;
-//    }
-//
-//    public ParameterType of(String typeString, Map aliases) {
-//        return null;
-//    }
 
     @NotNull
     @Override

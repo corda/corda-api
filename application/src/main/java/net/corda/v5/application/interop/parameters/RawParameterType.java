@@ -1,6 +1,7 @@
 package net.corda.v5.application.interop.parameters;
 
 import net.corda.v5.application.interop.facade.FacadeTypeQualifier;
+import net.corda.v5.application.interop.facade.FacadeTypeQualifierInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

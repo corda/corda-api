@@ -1,7 +1,6 @@
 package net.corda.v5.application.interop.parameters;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
 import java.time.ZonedDateTime;
