@@ -13,8 +13,9 @@ import org.jetbrains.annotations.NotNull;
  * Classes that implement {@link ContractStateVaultJsonFactory} will be executed in a hierarchical way. That means
  * every factory that belongs to a given state or that given state's ancestors will be executed and the end result
  * will be a combined JSON. The combined JSON will be keyed by the state type specified by the factory.
- * In order for the "query by state" type to work for a particular state type a factory for that given type must be
- * present, even if it's just returning an empty JSON string.
+ * <p>
+ * In order to perform a "query by state" query using `UtxoLedgerService.query` for a particular state type,
+ * a factory for that given type must be present, even if it's just returning an empty JSON string.
  * <p>
  * Please note that only one factory can be registered for a state type.
  * <p>
