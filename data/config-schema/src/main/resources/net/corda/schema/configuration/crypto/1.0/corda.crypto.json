@@ -92,14 +92,6 @@
           },
           "additionalProperties": false
         },
-        "wrappingKeyPolicy": {
-          "description": "Wrapping key policy, NONE - no wrapping key is required, SHARED - wrapping key shared by all tenants, UNIQUE - wrapping key unique for each tenant",
-          "enum": [
-            "NONE",
-            "SHARED",
-            "UNIQUE"
-          ]
-        },
         "wrappingKeys": {
           "description" : "Key derivation parameters for wrapping keys supplied in config",
           "type": "array",
@@ -138,7 +130,6 @@
         }
       },
       "required": [
-        "wrappingKeyPolicy",
         "wrappingKeys",
         "defaultWrappingKey"
       ],
