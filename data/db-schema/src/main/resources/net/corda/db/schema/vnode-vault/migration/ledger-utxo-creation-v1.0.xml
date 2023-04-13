@@ -212,6 +212,9 @@
             <column name="signature_spec" type="NVARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
