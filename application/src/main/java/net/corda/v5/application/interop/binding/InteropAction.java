@@ -5,27 +5,15 @@ import net.corda.v5.application.interop.facade.FacadeRequest;
 public abstract class InteropAction {
     public abstract Object getResult();
 
-    public static final class ClientAction extends InteropAction {
+    public static final class ClientAction<T> extends InteropAction {
         private final FacadeRequest request;
         private final Processable processor;
-        private final Interpretable responseInterpreter;
+        private final Interpretable<T> responseInterpreter;
 
-        public ClientAction(FacadeRequest request, Processable processor, Interpretable responseInterpreter) {
+        public ClientAction(FacadeRequest request, Processable processor, Interpretable<T> responseInterpreter) {
             this.request = request;
             this.processor = processor;
             this.responseInterpreter = responseInterpreter;
-        }
-
-        public FacadeRequest getRequest() {
-            return request;
-        }
-
-        public Processable getProcessor() {
-            return processor;
-        }
-
-        public Interpretable getResponseInterpreter() {
-            return responseInterpreter;
         }
 
         @Override
@@ -34,7 +22,7 @@ public abstract class InteropAction {
         }
     }
 
-    public static final class ServerResponse extends InteropAction {
+    public static final class ServerResponse<T> extends InteropAction {
         private final Object result;
 
         public Object getResult() {
