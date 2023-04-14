@@ -44,8 +44,4 @@ public enum ParameterTypeLabel {
                                 Arrays.toString(values()))
                 );
     }
-
-    public <T> ParameterType<T> getParameterType() {
-        return new RawParameterType<>((Class<T>) expectedClass, typeName);
-    }
 }
