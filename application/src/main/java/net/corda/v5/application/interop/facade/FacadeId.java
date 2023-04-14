@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-final class FacadeId {
+public final class FacadeId {
 
     @NotNull
     String owner;
