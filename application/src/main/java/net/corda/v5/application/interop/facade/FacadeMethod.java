@@ -21,7 +21,7 @@ public interface FacadeMethod {
      * Obtain the in parameter with the given name.
      *
      * @param parameterName The name of the parameter to obtain.
-     * @param expectedType The expected type of the parameter.
+     * @param expectedType  The expected type of the parameter.
      */
     @NotNull
     <T> ParameterType<T> inParameter(String parameterName, Class<T> expectedType);
@@ -46,9 +46,8 @@ public interface FacadeMethod {
      * Obtain the out parameter with the given name.
      *
      * @param parameterName The name of the parameter to obtain.
-     * @param expectedType The expected type of the parameter.
+     * @param expectedType  The expected type of the parameter.
      */
-
     <T> ParameterType<T> outParameter(String parameterName, Class<T> expectedType);
 
     /**

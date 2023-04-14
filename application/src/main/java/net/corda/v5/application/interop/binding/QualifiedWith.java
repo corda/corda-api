@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.PARAMETER, ElementType.TYPE_USE})
-public @interface QualifiedWith{
+public @interface QualifiedWith {
     String[] value();
 }
