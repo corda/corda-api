@@ -4,7 +4,6 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
     <property name="json.column.type" value="JSONB" dbms="postgresql"/>
-    <property name="json.column.type" value="VARCHAR(1024)" dbms="hsqldb"/>
 
     <changeSet author="R3.Corda" id="ledger-utxo-visible-transaction-state-creation-postgres-v1.0">
 
