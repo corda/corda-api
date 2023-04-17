@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "MembershipAsyncRequestStates",
+  "namespace": "net.corda.data.membership.async.request",
+  "doc": "Collection of states of membership async request to be retried.",
+  "fields": [{
+      "name": "states",
+      "doc": "The states.",
+      "type": {
+        "type": "array",
+        "items": "MembershipAsyncRequestState"
+      }
+    }
+  ]
+}
