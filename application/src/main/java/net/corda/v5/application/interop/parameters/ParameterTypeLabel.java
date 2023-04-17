@@ -36,7 +36,7 @@ public enum ParameterTypeLabel {
         return expectedClass;
     }
 
-    static ParameterTypeLabel parse(String rawTypeName) {
+    public static ParameterTypeLabel parse(String rawTypeName) {
         return Arrays.stream(values()).filter((v) -> v.typeName.equals(rawTypeName))
                 .findFirst()
                 .orElseThrow(() ->
