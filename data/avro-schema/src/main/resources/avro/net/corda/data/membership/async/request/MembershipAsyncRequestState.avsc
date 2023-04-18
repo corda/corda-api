@@ -7,7 +7,7 @@
     {
       "name": "request",
       "doc": "The request.",
-      "type": "MembershipAsyncRequest"
+      "type": "RegistrationAsyncRequest"
     },
     {
       "name": "cause",
