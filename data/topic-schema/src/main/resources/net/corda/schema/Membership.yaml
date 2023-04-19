@@ -10,6 +10,7 @@ topics:
     producers:
       - db
       - membership
+      - rest
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -87,6 +88,7 @@ topics:
     name: membership.db.rpc.ops
     consumers:
       - db
+      - flow
     producers:
       - link-manager
       - membership
@@ -98,6 +100,7 @@ topics:
       - link-manager
       - membership
       - rest
+      - flow
     producers:
       - db
     config:
