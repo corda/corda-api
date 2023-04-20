@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.crypto.SecureHash;
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +21,7 @@ public final class StateRef {
     private static final String DELIMITER = ":";
 
     /**
-     * The id of the transaction in which the referenced state was created.
+     * The ID of the transaction in which the referenced state was created.
      */
     @NotNull
     private final SecureHash transactionId;
@@ -33,7 +34,7 @@ public final class StateRef {
     /**
      * Creates a new instance of the {@link StateRef} class.
      *
-     * @param transactionId The id of the transaction in which the referenced state was created.
+     * @param transactionId The ID of the transaction in which the referenced state was created.
      * @param index         The index of the state in the transaction's outputs in which the referenced state was created.
      */
     public StateRef(@NotNull final SecureHash transactionId, final int index) {
@@ -42,9 +43,9 @@ public final class StateRef {
     }
 
     /**
-     * Gets the id of the transaction in which the referenced state was created.
+     * Gets the ID of the transaction in which the referenced state was created.
      *
-     * @return Returns the id of the transaction in which the referenced state was created.
+     * @return Returns the ID of the transaction in which the referenced state was created.
      */
     @NotNull
     public SecureHash getTransactionId() {
@@ -67,12 +68,12 @@ public final class StateRef {
      * @return Returns a {@link StateRef} parsed from the specified {@link String} value.
      * @throws IllegalArgumentException if the specified value cannot be parsed.
      */
-    public static StateRef parse(@NotNull final String value) {
+    public static StateRef parse(@NotNull final String value, DigestService digestService) {
         try {
             final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
-            final SecureHash transactionId = SecureHash.parse(subStringBeforeDelimiter);
+            final SecureHash transactionId = digestService.parseSecureHash(subStringBeforeDelimiter);
             final int index = Integer.parseInt(subStringAfterDelimiter);
             return new StateRef(transactionId, index);
         } catch (NumberFormatException numberFormatException) {

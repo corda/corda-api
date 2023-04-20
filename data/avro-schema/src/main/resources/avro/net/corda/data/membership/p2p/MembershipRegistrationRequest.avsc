@@ -21,6 +21,16 @@
       "name": "memberSignature",
       "doc": "Signature of the member over the memberContext.",
       "type": "net.corda.data.crypto.wire.CryptoSignatureWithKey"
+    },
+    {
+      "name": "memberSignatureSpec",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec",
+      "doc": "Signature spec of member signature."
+    },
+    {
+      "name": "serial",
+      "doc": "The version of the member info the member could see when calling registration.",
+      "type": ["long", "null"]
     }
   ]
 }

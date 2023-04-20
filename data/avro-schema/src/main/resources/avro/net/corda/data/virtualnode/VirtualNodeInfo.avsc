@@ -49,23 +49,29 @@
     },
     {
       "name": "flowP2pOperationalStatus",
-      "type": "string"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "flowStartOperationalStatus",
-      "type": "string"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "flowOperationalStatus",
-      "type": "string"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "vaultDbOperationalStatus",
-      "type": "string"
+      "type": "VirtualNodeOperationalState"
     },
     {
       "name": "operationInProgress",
       "type": [ "null", "string" ]
+    },
+    {
+      "name": "externalMessagingRouteConfig",
+      "type": [ "null", "string" ],
+      "default": null,
+      "doc": "Route configuration used for external messaging. Null value means that no configuration was provided."
     },
     {
       "name": "version",

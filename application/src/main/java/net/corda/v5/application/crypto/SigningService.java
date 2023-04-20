@@ -32,22 +32,27 @@ public interface SigningService {
      * a {@link CompositeKey}, the first leaf signing key hosted by the node is used.
      * @param signatureSpec The {@link SignatureSpec} to use when producing this signature.
      *
-     * @return A {@link DigitalSignature.WithKey} representing the signed data and the {@link PublicKey} that belongs to the
+     * @return A {@link DigitalSignature.WithKeyId} representing the signed data and the {@link PublicKey} that belongs to the
      * same {@link KeyPair} as the {@link PrivateKey} that signed the data.
      *
      * @throws CordaRuntimeException If the input key is not a member of {@code keys}.
      */
     @Suspendable
     @NotNull
-    DigitalSignature.WithKey sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
+    DigitalSignature.WithKeyId sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
 
     /**
-     * Gets a set of signing keys to look into and returns a mapping of the requested signing keys to signing keys
-     * found to be owned by the caller. In case of {@link CompositeKey} it maps the composite key with the firstly found
-     * composite key leaf.
+     * Looks into a set of signing keys to find keys owned by the caller. In case of {@link CompositeKey} it looks into
+     * the composite key leaves and returns the firstly found owned composite key leaf.
      *
      * @param keys The signing keys to look into.
-     * @return A mapping of requested signing keys to found signing keys to be owned by the caller or {@code null} if not found to be owned.
+     * @return A mapping that maps the requested signing key:
+     * <ul>
+     *     <li> to the same key if it is owned by the caller in case the requested signing key is a plain key </li>
+     *     <li> to the firstly found composite key leaf to be owned by the caller, of the composite key's leaves (children)
+     *     in case the requested signing key is a composite key </li>
+     *     <li> to {@code null} if the requested key is not owned by the caller </li>
+     * </ul>
      */
     @Suspendable
     @NotNull
