@@ -4,7 +4,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
-A wrapper class that has been introduced in the migration from Kotlin to Java to house static functions.
+ * A wrapper class that has been introduced in the migration from Kotlin to Java to house static 
+ * functions.
  */
 public final class ByteArrays {
     static void requireNotNull(@Nullable Object obj, @NotNull String message) {
