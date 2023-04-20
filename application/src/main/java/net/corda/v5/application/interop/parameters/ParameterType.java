@@ -16,4 +16,8 @@ public interface ParameterType<T> {
     boolean isQualified();
 
     TypeQualifier getQualifier();
+
+    default String getTypeName() {
+        return getTypeLabel().getTypeName();
+    }
 }

@@ -5,6 +5,8 @@ import net.corda.v5.application.interop.parameters.ParameterTypeLabel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 public interface FacadeMethod {
     /**
      * Get the input parameter with the given name.
@@ -63,4 +65,22 @@ public interface FacadeMethod {
      */
     @NotNull
     FacadeResponse response(ParameterTypeLabel... parameterValues);
+
+    @NotNull
+    FacadeId getFacadeId();
+
+    @NotNull
+    String getName();
+
+    @NotNull
+    FacadeMethodType getType();
+
+    @NotNull
+    List<ParameterType<?>> getInParameters();
+
+    @NotNull
+    List<ParameterType<?>> getOutParameters();
+
+    @NotNull
+    String getQualifiedName();
 }

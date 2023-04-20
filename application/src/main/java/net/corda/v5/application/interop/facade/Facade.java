@@ -3,7 +3,19 @@ package net.corda.v5.application.interop.facade;
 import net.corda.v5.application.interop.parameters.ParameterTypeLabel;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+import java.util.Map;
+
 public interface Facade {
+
+    @NotNull
+    FacadeId getFacadeId();
+
+    @NotNull
+    List<FacadeMethod> getMethods();
+
+    @NotNull
+    Map<String, FacadeMethod> getMethodsByName();
 
     /**
      * Get the method with the given name.

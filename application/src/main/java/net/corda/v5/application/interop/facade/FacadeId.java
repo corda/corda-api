@@ -46,4 +46,14 @@ public final class FacadeId {
     public java.lang.String toString() {
         return unversionedName + "/" + version;
     }
+
+    @NotNull
+    public String getVersion() {
+        return version;
+    }
+
+    @NotNull
+    public String getUnversionedName() {
+        return unversionedName;
+    }
 }
