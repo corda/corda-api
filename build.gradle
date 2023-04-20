@@ -342,9 +342,9 @@ tasks.register('generateMultiModuleDocs', Zip) {
     group = 'documentation'
 
     dependsOn dokkaHtmlMultiModule
-    archiveName "corda-api-docs-${project.version}.zip"-
+    archiveFileName = "corda-api-docs-${project.version}.zip"
     from(dokkaHtmlMultiModule.outputDirectory)
-    destinationDir(file("$buildDir/corda-api-docs"))
+    destinationDirectory = (file("$buildDir/corda-api-docs"))
 }
 
 if (project.hasProperty('publishMultiModulekDocs')) {
