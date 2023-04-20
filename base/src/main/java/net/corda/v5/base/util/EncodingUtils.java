@@ -9,7 +9,8 @@ import java.util.Base64;
 // This file includes useful encoding methods and extension functions for the most common encoding/decoding operations.
 
 /**
-A wrapper class that has been introduced in the migration from Kotlin to Java to house static functions.
+ * A wrapper class that has been introduced in the migration from Kotlin to Java to house static 
+ * functions.
  */
 public final class EncodingUtils {
     private EncodingUtils() {}
