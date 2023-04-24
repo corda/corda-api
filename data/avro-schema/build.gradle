@@ -124,6 +124,10 @@ tasks.named('dokkaHtmlPartial'){
     mustRunAfter generateAvro, generateOSGiPackageInfo
 }
 
+tasks.named('kotlinSourcesJar'){
+    mustRunAfter generateAvro, generateOSGiPackageInfo
+}
+
 def generatedResources = files(generatedClassesDir) {
     builtBy generateOSGiPackageInfo
 }
