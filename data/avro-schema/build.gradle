@@ -120,6 +120,10 @@ tasks.named('dokkaHtml') {
     inputs.files generateAvro, generateOSGiPackageInfo
 }
 
+tasks.named('dokkaHtmlPartial'){
+    mustRunAfter generateAvro, generateOSGiPackageInfo
+}
+
 def generatedResources = files(generatedClassesDir) {
     builtBy generateOSGiPackageInfo
 }
