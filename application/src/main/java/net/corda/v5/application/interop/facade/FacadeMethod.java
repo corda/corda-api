@@ -1,7 +1,6 @@
 package net.corda.v5.application.interop.facade;
 
 import net.corda.v5.application.interop.parameters.ParameterType;
-import net.corda.v5.application.interop.parameters.ParameterTypeLabel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,7 +55,7 @@ public interface FacadeMethod {
      * @param parameterValues The parameter values to pass to the method.
      */
     @NotNull
-    FacadeRequest request(ParameterTypeLabel... parameterValues);
+    FacadeRequest request(ParameterType... parameterValues);
 
     /**
      * Create a [FacadeResponse] for this method.
@@ -64,7 +63,7 @@ public interface FacadeMethod {
      * @param parameterValues The parameter values to return from the method.
      */
     @NotNull
-    FacadeResponse response(ParameterTypeLabel... parameterValues);
+    FacadeResponse response(ParameterType... parameterValues);
 
     @NotNull
     FacadeId getFacadeId();

@@ -1,7 +1,6 @@
 package net.corda.v5.application.interop.parameters;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.regex.Pattern;
 
 public interface ParameterType<T> {
@@ -13,9 +12,11 @@ public interface ParameterType<T> {
     @NotNull
     Class<T> getExpectedType();
 
-    boolean isQualified();
+    Boolean isQualified();
 
     TypeQualifier getQualifier();
+
+    ParameterType<T> getRawParameterType();
 
     default String getTypeName() {
         return getTypeLabel().getTypeName();

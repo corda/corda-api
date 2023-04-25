@@ -1,10 +1,8 @@
 package net.corda.v5.application.interop.facade;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.io.*;
 
-//TODO add implementation for this interface in corda-runtime-os
 public interface FacadeReader {
     /**
      * Read a [KotlinFacade] from the given [Reader].
