@@ -4,6 +4,7 @@ import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Used to build a Query that supports limit and offset.
@@ -68,5 +69,33 @@ public interface PagedQuery<R> {
          */
         @NotNull
         List<R> getResults();
+
+        /**
+         * Returns {@code true} if the {@link ResultSet} has more results to retrieve.
+         * <p>
+         * Modifying the {@link PagedQuery} linked to the {@link ResultSet} does not affect {@link ResultSet}'s
+         * behaviour when calling {@link ResultSet#next()}.
+         *
+         * @return {@code true} if the {@link ResultSet} has more results to retrieve.
+         *
+         * @return
+         */
+        boolean hasNext();
+
+        /**
+         * Executes the query linked to the {@link ResultSet} to retrieve the next page of results.
+         * <p>
+         * The offset of the executed query increments each time {@link ResultSet#next()} is called, increasing by the
+         * value of the query's limit.
+         * <p>
+         * Modifying the {@link PagedQuery} linked to the {@link ResultSet} does not affect {@link ResultSet}'s
+         * behaviour when calling {@link ResultSet#next()}.
+         *
+         * @return The next page of results.
+         * @throws NoSuchElementException If the {@link ResultSet} has no more results to retrieve.
+         */
+        @Suspendable
+        @NotNull
+        List<R> next();
     }
 }
