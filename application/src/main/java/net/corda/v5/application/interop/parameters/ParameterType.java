@@ -12,7 +12,7 @@ public interface ParameterType<T> {
     @NotNull
     Class<T> getExpectedType();
 
-    Boolean isQualified();
+    boolean isQualified();
 
     TypeQualifier getQualifier();
 
