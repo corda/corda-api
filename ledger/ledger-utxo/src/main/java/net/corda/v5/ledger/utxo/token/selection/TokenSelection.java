@@ -96,4 +96,14 @@ public interface TokenSelection {
     @Nullable
     @Suspendable
     TokenClaim tryClaim(@NotNull TokenClaimCriteria criteria);
+
+    /**
+     * Calculates the balance of a pool of tokens.
+     *
+     * @param TokenBalanceCriteria The {@link TokenBalanceCriteria} that identifies the pool of tokens that should be used to calculate the balance.
+     * @return Returns the balance of the pool of tokens as a {@link TokenBalance}.
+     */
+    @Nullable
+    @Suspendable
+    TokenBalance queryBalance(@NotNull TokenBalanceCriteria criteria);
 }
