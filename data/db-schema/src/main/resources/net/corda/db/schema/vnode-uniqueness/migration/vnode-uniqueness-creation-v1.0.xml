@@ -30,18 +30,12 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-    </changeSet>
-
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-2" runInTransaction="false">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <primaryKeyExists primaryKeyName="uniqueness_state_details_pkey" tableName="uniqueness_state_details"/>
-            </not>
-        </preConditions>
         <addPrimaryKey columnNames="issue_tx_id_algo, issue_tx_id, issue_tx_output_idx"
                        constraintName="uniqueness_state_details_pkey"
                        tableName="uniqueness_state_details"/>
     </changeSet>
+
+    <!-- uniqueness-creation-v1.0-2 intentionally skipped - previously used for key creation -->
 
     <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-3" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
@@ -69,18 +63,12 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-    </changeSet>
-
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-4" runInTransaction="false">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <primaryKeyExists primaryKeyName="uniqueness_tx_details_pkey" tableName="uniqueness_tx_details"/>
-            </not>
-        </preConditions>
         <addPrimaryKey columnNames="tx_id_algo, tx_id"
                        constraintName="uniqueness_tx_details_pkey"
                        tableName="uniqueness_tx_details"/>
     </changeSet>
+
+    <!-- uniqueness-creation-v1.0-4 intentionally skipped - previously used for key creation -->
 
     <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-5" runInTransaction="false">
         <preConditions onFail="MARK_RAN">
@@ -99,16 +87,10 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-    </changeSet>
-
-    <changeSet author="R3.Corda" id="uniqueness-creation-v1.0-6" runInTransaction="false">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <primaryKeyExists primaryKeyName="uniqueness_rejected_txs_pkey" tableName="uniqueness_rejected_txs"/>
-            </not>
-        </preConditions>
         <addPrimaryKey columnNames="tx_id_algo, tx_id"
                        constraintName="uniqueness_rejected_txs_pkey"
                        tableName="uniqueness_rejected_txs"/>
     </changeSet>
+
+    <!-- uniqueness-creation-v1.0-6 intentionally skipped - previously used for key creation -->
 </databaseChangeLog>
