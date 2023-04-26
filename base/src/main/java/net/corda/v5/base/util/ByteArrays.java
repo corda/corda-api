@@ -2,6 +2,10 @@ package net.corda.v5.base.util;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * A wrapper class that has been introduced in the migration from Kotlin to Java to house static 
+ * functions.
+ */
 public final class ByteArrays {
     private ByteArrays() {}
 
@@ -30,7 +34,7 @@ public final class ByteArrays {
 
     /**
      * Converts this {@link String} of hexadecimal digits into a {@code byte[]}.
-     * @throws IllegalArgumentException if the {@link String} contains incorrectly-encoded characters.
+     * @throws IllegalArgumentException If the {@link String} contains incorrectly encoded characters.
      */
     @NotNull
     public static byte[] parseAsHex(@NotNull String str) {
