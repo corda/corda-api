@@ -18,15 +18,22 @@
     },
     {
       "name": "status",
-      "doc": "The status of a session. OPEN for ongoing sessions. CLOSING for sessions which are finished and the expiryTime has been set.",
+      "doc": "The status of a session. OPEN for ongoing sessions. CLOSING for sessions which are finished and the expiryTime has been set. ERROR for sessions which have closed due to error.",
       "type": {
         "type": "enum",
         "name": "FlowMapperStateType",
         "symbols": [
           "OPEN",
-          "CLOSING"
+          "CLOSING",
+          "ERROR"
         ]
       }
+    },
+    {
+      "name": "isInteropSession",
+      "type": "boolean",
+      "default": false,
+      "doc": "True if this state is associated with an interop session, otherwise false."
     }
   ]
 }

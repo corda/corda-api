@@ -9,6 +9,12 @@
       "doc": "UUID for the session. The initiated party sessionID will have a suffix of `-INITIATED`"
     },
     {
+      "name": "isInteropSession",
+      "type": "boolean",
+      "default": false,
+      "doc": "True if this session is an interop session, otherwise false."
+    },
+    {
       "name": "sessionStartTime",
       "type": {
         "type": "long",
