@@ -8,14 +8,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public interface FacadeMethod {
-    /**
-     * Get the input parameter with the given name.
-     *
-     * @param parameterName The name of the input parameter.
-     */
-    @NotNull
-    <T> TypedParameter<T> inParameter(String parameterName);
-
 
     /**
      * Obtain the in parameter with the given name.
@@ -33,14 +25,6 @@ public interface FacadeMethod {
      */
     @Nullable
     TypedParameter<?> untypedInParameter(String parameterName);
-
-    /**
-     * Get the output parameter with the given name.
-     *
-     * @param parameterName The name of the output parameter.
-     */
-    @NotNull
-    <T> TypedParameter<T> outParameter(String parameterName);
 
     /**
      * Obtain the out parameter with the given name.
