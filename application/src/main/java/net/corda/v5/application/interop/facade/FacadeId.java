@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public final class FacadeId {
-
     @NotNull
     String owner;
 
@@ -15,6 +14,13 @@ public final class FacadeId {
     @NotNull
     String version;
 
+    /**
+     * A [FacadeId] identifies a version of a facade.
+     *
+     * @param owner The name of the owner of the facade, e.g. "org.corda".
+     * @param name The name of the facade, e.g. "platform/tokens", expressed as a List of strings.
+     * @param version The version identifier of the facade, e.g. "1.0".
+     */
     public FacadeId(@NotNull String owner, @NotNull List<String> name, @NotNull String version) {
         this.owner = owner;
         this.name = name;
@@ -31,6 +37,11 @@ public final class FacadeId {
         return name;
     }
 
+    /**
+     * Construct a [FacadeId] from a string of the form "org.owner/hierarchical/name/version".
+     *
+     * @param idString The string to build a [FacadeId] from.
+     */
     public static FacadeId of(String idString) {
         List<String> parts = List.of(idString.split("/"));
         if (parts.size() < 3) {

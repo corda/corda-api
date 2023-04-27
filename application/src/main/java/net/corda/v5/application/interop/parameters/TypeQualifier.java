@@ -15,6 +15,14 @@ public class TypeQualifier {
     @NotNull
     private final String version;
 
+    /**
+     * A [TypeQualifier] qualifies a [ParameterType] with a versioned identity, which may be linked to a schema
+     * or validation rules for that type.
+     *
+     * @param owner The owner of the type, e.g. "org.corda".
+     * @param name The name of the type, e.g. "platform/tokens/Amount".
+     * @param version The version of the type, e.g. "1.0".
+     */
     public TypeQualifier(@NotNull String owner, @NotNull List<String> name, @NotNull String version) {
         this.owner = owner;
         this.name = name;
@@ -54,9 +62,9 @@ public class TypeQualifier {
     }
 
     /**
-     * Construct a [FacadeTypeQualifier] from a string of the form "org.owner/hierarchical/name/version".
+     * Construct a [TypeQualifier] from a string of the form "org.owner/hierarchical/name/version".
      *
-     * @param qualifierString The string to build a [FacadeTypeQualifier] from.
+     * @param qualifierString The string to build a [TypeQualifier] from.
      */
     public static TypeQualifier of(String qualifierString) {
         List<String> parts = List.of(qualifierString.split("/"));

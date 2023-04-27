@@ -16,6 +16,12 @@ public interface FacadeResponse {
 
     @NotNull
     List<TypedParameterValue<?>> getOutParameters();
+
+    /**
+     * Get the value of an out parameter.
+     *
+     * @param parameter The parameter to get the value of.
+     */
     @NotNull
     <T> T get(TypedParameter<T> parameter);
 }

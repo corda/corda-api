@@ -5,7 +5,7 @@ import java.io.*;
 
 public interface FacadeReader {
     /**
-     * Read a [KotlinFacade] from the given [Reader].
+     * Read a [Facade] from the given [Reader].
      *
      * @param reader The reader to read from.
      */
@@ -13,7 +13,7 @@ public interface FacadeReader {
     Facade read(@NotNull Reader reader);
 
     /**
-     * Read a [KotlinFacade] from the given [InputStream].
+     * Read a [Facade] from the given [InputStream].
      *
      * @param input The input stream to read from.
      */
@@ -23,7 +23,7 @@ public interface FacadeReader {
     }
 
     /**
-     * Read a [KotlinFacade] from the given [String].
+     * Read a [Facade] from the given [String].
      *
      * @param input The string to read from.
      */
