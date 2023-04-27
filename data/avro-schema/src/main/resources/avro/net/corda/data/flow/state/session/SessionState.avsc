@@ -53,6 +53,12 @@
       "doc": "Record the sequence number of the last event sent to the counterparty. Record all events sent but not yet acknowledged by the counterparty as well as any messages to send to the counterparty."
     },
     {
+      "name": "expectedSendSequenceNumber",
+      "type": "int",
+      "default": 0,
+      "doc": "The sequence number of the message that counterparty is waiting to receive. This value is used to detect situations where session hangs indefinitely because both parties are waiting to receive data."
+    },
+    {
       "name": "status",
       "type": {
         "type": "enum",
