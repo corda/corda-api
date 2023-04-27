@@ -130,6 +130,7 @@ public interface FlowMessaging {
      * This API is work in progress and is expected to change as interop functionality matures.
      *
      * @param memberName The MemberX500name of the alter-ego.
+     * @param groupId The UUID of the interop group to communicate with.
      * @param facadeName The name of the facade to invoke.
      * @param methodName The name of the function within the facade to invoke.
      * @param payload The payload for the facade call.
@@ -137,7 +138,12 @@ public interface FlowMessaging {
      */
     @Suspendable
     @NotNull
-    String callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName, @NotNull String payload);
+    String callFacade(
+            @NotNull MemberX500Name memberName,
+            @NotNull String groupId,
+            @NotNull String facadeName,
+            @NotNull String methodName,
+            @NotNull String payload);
 
     /**
      * Suspends until a message has been received for each session in the specified [sessions].
