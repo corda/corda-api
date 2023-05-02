@@ -139,7 +139,8 @@ public interface UtxoLedgerService {
      * val updatedTxBuilder = utxoLedgerService.sendAndReceiveTransactionBuilder(txBuilder, session)
      * <p>
      * The notary and time window from the proposal will get discarded and the original will be kept if both the original and
-     * the proposal have these components set. Also, all duplications will be discarded.
+     * the proposal have these components set.
+     * Duplications of input staterefs, reference staterefs, attachments and signatories will be discarded.
      * <p>
      * Receiver:
      * <p>
