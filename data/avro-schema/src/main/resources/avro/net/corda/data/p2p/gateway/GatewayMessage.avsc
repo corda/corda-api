@@ -18,7 +18,7 @@
         "net.corda.data.p2p.crypto.InitiatorHandshakeMessage",
         "net.corda.data.p2p.crypto.ResponderHelloMessage",
         "net.corda.data.p2p.crypto.ResponderHandshakeMessage",
-        "net.corda.data.p2p.app.UnauthenticatedMessage"
+        "net.corda.data.p2p.app.InboundUnauthenticatedMessage"
       ]
     }
   ]
