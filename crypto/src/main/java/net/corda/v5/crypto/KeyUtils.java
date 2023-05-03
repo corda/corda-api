@@ -46,8 +46,8 @@ public final class KeyUtils {
      */
     public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         // The following conversion to list is to have the below code working in case passed in keys are mix of
-        // `ECPublicKey` and `BCECPublicKey` in which case `ECPublicKey.hashCode` != `BCECPublicKey.hashCode`
-        // but `ECPublicKey.equals` == `BCECPublicKey.equals`.
+        // `BCECPublicKey` and non `BCECPublicKey` in which case <BCECPublicKey>.hashCode != <non BCECPublicKey>.hashCode
+        // but <BCECPublicKey>.equals == <non BCECPublicKey>.equals
         List<PublicKey> otherKeysList = new LinkedList<>(otherKeys);
         if (key instanceof CompositeKey) {
             Set<PublicKey> leafKeys = ((CompositeKey) key).getLeafKeys();
@@ -85,8 +85,8 @@ public final class KeyUtils {
         }
 
         // The following conversion to list is to have the below code working in case passed in keys are mix of
-        // `ECPublicKey` and `BCECPublicKey` in which case `ECPublicKey.hashCode` != `BCECPublicKey.hashCode`
-        // but `ECPublicKey.equals` == `BCECPublicKey.equals`.
+        // `BCECPublicKey` and non `BCECPublicKey` in which case <BCECPublicKey>.hashCode != <non BCECPublicKey>.hashCode
+        // but <BCECPublicKey>.equals == <non BCECPublicKey>.equals
         List<PublicKey> otherKeysList = new LinkedList<>(otherKeys);
         return otherKeysList.contains(key);
     }
