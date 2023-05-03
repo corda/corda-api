@@ -30,18 +30,18 @@ import static java.util.Comparator.comparing;
  * X.500 distinguished name data type customised to how Corda membership uses names.
  * <p>
  * This restricts the attributes to those Corda
- * supports, and requires that organization, locality and country attributes are specified. See also RFC 4519 for
+ * supports, and requires that organization, locality, and country attributes are specified. See also RFC 4519 for
  * the underlying attribute type definitions.
  * <p>
- * The class also guaranties the reliable equality comparison regardless which order the attributes are specified when
- * parsing from the string or X500principal as well outputs the attributes to string in predictable order.
+ * The class also guaranties the reliable equality comparison regardless of which order the attributes are specified when
+ * parsing from the string or X500principal, and outputs the attributes to the string in a predictable order.
  * <p>
  * There may be additional network specific requirements which need to be taken into account when creating a name by the
  * user.
  * For example, the network operator may require a particular format for names so that they can issue suitable
  * certificates. Finding and giving a suitable name will be the user's responsibility.
  * <p>
- * The order of attributes for building the names is the following: CN, OU, O, L, ST, C
+ * The order of attributes for building the names is the following: CN, OU, O, L, ST, C.
  * <p>
  * Example usages:
  * <ul>
@@ -103,15 +103,15 @@ import static java.util.Comparator.comparing;
  */
 @CordaSerializable
 public final class MemberX500Name implements Comparable<MemberX500Name> {
-    /** Max length for organization. */
+    /** Maximum length for organization. */
     public static final int MAX_LENGTH_ORGANIZATION = 128;
-    /** Max length for locality. */
+    /** Maximum length for locality. */
     public static final int MAX_LENGTH_LOCALITY = 64;
-    /** Max length for state. */
+    /** Maximum length for state. */
     public static final int MAX_LENGTH_STATE = 64;
-    /** Max length for organization unit. */
+    /** Maximum length for organization unit. */
     public static final int MAX_LENGTH_ORGANIZATION_UNIT = 64;
-    /** Max length for common name. */
+    /** Maximum length for common name. */
     public static final int MAX_LENGTH_COMMON_NAME = 64;
 
     private static final String ATTRIBUTE_COMMON_NAME = "CN";
@@ -171,8 +171,8 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
     /**
      * Creates an instance of {@link MemberX500Name} from specified {@link X500Principal}.
      *
-     * @param principal The X500 principal used for building {@link MemberX500Name}.
-     * @throws IllegalArgumentException if required attributes are missing, constrains are not satisfied.
+     * @param principal The X.500 principal used for building {@link MemberX500Name}.
+     * @throws IllegalArgumentException If required attributes are missing or constrains are not satisfied.
      *
      * @return {@link MemberX500Name} based on {@code principal}.
      */
@@ -183,7 +183,7 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
     }
 
     /**
-     * Creates an instance of {@link MemberX500Name} by parsing the string representation of X500 name.
+     * Creates an instance of {@link MemberX500Name} by parsing the string representation of X.500 name.
      * <p>
      * Expects a string representation like "CN=Alice, OU=Engineering, O=R3, L=London, C=GB".
      * Constrains are the same as for {@link #toAttributesMap} plus some additional constrains:
@@ -191,7 +191,7 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
      *
      * @param name The string representation of the name.
      *
-     * @throws IllegalArgumentException if required attributes are missing, constrains are not satisfied or
+     * @throws IllegalArgumentException If required attributes are missing, constrains are not satisfied or
      * the name is improperly specified.
      *
      * @return {@link MemberX500Name} based on {@code name}.
@@ -203,27 +203,27 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
     }
 
     /**
-     * Parses the string representation of X500 name and builds the attribute map.
+     * Parses the string representation of X.500 name and builds the attribute map.
      * <p>
-     * The key is the attributes keys, like CN, O, etc.
+     * The key is the attributes keys (CN, OU, O, L, ST, C).
      * Constraints:
      * <ul>
-     * <li>The RDNs cannot be multivalued</li>
-     * <li>The attributes must have single value</li>
-     * <li>The only supported attributes are C, ST, L, O, OU, CN</li>
-     * <li>Attributes cannot be duplicated</li>
+     * <li>The RDNs cannot be multivalued.</li>
+     * <li>The attributes must have single value.</li>
+     * <li>The only supported attributes are CN, OU, O, L, ST, C.</li>
+     * <li>Attributes cannot be duplicated.</li>
      * </ul>
      * @param name The string representation to build the attribute map from.
      *
-     * @throws IllegalArgumentException if required attributes are missing, constrains are not satisfied or
+     * @throws IllegalArgumentException If required attributes are missing, constrains are not satisfied or
      * the name is improperly specified.
      *
      * @return The attribute map parsed from the {@code name}.
      */
     @NotNull
     public static Map<String, String> toAttributesMap(@NotNull String name) {
-        // X500Principal is used to sanitise the syntax as the LdapName will let through such string as
-        // "O=VALID, L=IN,VALID, C=DE, OU=VALID, CN=VALID" where the (L) have to be escaped
+        // X500Principal is used to sanitise the syntax as the LdapName will let through a string like
+        // "O=VALID, L=IN,VALID, C=DE, OU=VALID, CN=VALID" where the (L) has to be escaped.
         requireNotNull(name, "name must not be null");
         return toAttributesMap(new X500Principal(name));
     }
@@ -491,7 +491,7 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
     }
 
     /**
-     * Returns the string equivalent of this name where the order of RDNs is CN, OU, O, L, ST, C
+     * Returns the string equivalent of this name where the order of RDNs is CN, OU, O, L, ST, C.
      */
     @Override
     @NotNull
@@ -500,7 +500,7 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
     }
 
     /**
-     * Compares this X500 name to another {@link MemberX500Name}.
+     * Compares this X.500 name to another {@link MemberX500Name}.
      */
     @Override
     public int compareTo(@NotNull MemberX500Name other) {
