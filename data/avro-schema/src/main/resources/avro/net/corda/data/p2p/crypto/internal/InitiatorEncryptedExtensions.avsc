@@ -24,6 +24,13 @@
           "items": "string"
         }
       ]
+    },
+    {
+      "name": "supportedModes",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.p2p.crypto.ProtocolMode"
+      }
     }
   ]
 }
