@@ -10,8 +10,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * This annotation is a marker to indicate which secondary constructors should be considered, and in which
  * order, for evolving objects during their deserialization.
  * <p>
- * Versions will be considered in descending order, currently duplicate versions will result in
- * non-deterministic behaviour when deserializing objects
+ * Versions will be considered in descending order. Currently, duplicate versions will result in
+ * non-deterministic behaviour when deserializing objects.
  */
 @Target(CONSTRUCTOR)
 @Retention(RUNTIME)

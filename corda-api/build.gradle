@@ -43,7 +43,7 @@ dependencies {
         }
         api('org.osgi:osgi.annotation') {
             version {
-                require osgiVersion
+                require osgiAnnotationVersion
             }
         }
         api('org.osgi:osgi.core') {

@@ -223,8 +223,8 @@ subprojects {
             dependsOn tasks.named('test') // tests are required to run before generating the report
 
             reports {
-                xml.enabled true
-                html.enabled true
+                xml.required = true
+                html.required = true
             }
         }
 
@@ -332,8 +332,8 @@ tasks.named("dependencyUpdates").configure {
     }
 }
 
-wrapper {
-    gradleVersion = '7.6'
+tasks.named("wrapper") {
+    gradleVersion = '8.1.1'
     distributionType = Wrapper.DistributionType.BIN
 }
 
@@ -342,9 +342,9 @@ tasks.register('generateMultiModuleDocs', Zip) {
     group = 'documentation'
 
     dependsOn dokkaHtmlMultiModule
-    archiveName "corda-api-docs-${project.version}.zip"-
+    archiveFileName = "corda-api-docs-${project.version}.zip"
     from(dokkaHtmlMultiModule.outputDirectory)
-    destinationDir(file("$buildDir/corda-api-docs"))
+    destinationDirectory = (file("$buildDir/corda-api-docs"))
 }
 
 if (project.hasProperty('publishMultiModulekDocs')) {
