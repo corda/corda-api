@@ -20,7 +20,7 @@ public interface CordaThrowable {
     void setOriginalExceptionClassName(@Nullable String originalExceptionClassName);
 
     /**
-     * @return Message of the original exception
+     * @return Message of the original exception.
      */
     @Nullable
     String getOriginalMessage();
