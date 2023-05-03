@@ -134,20 +134,24 @@ public interface UtxoLedgerService {
      * then applies the proposed components to a copy of the original builder and returns that new builder.
      * <p>
      * It supports similar workflows:
-     * Initiator:
      * <p>
+     * Initiator:
+     * <pre>{@code
      * val updatedTxBuilder = utxoLedgerService.sendAndReceiveTransactionBuilder(txBuilder, session)
+     * }</pre>
      * <p>
      * The notary and time window from the proposal will get discarded and the original will be kept if both the original and
-     * the proposal have these components set. Also, all duplications will be discarded.
+     * the proposal have these components set.
+     * Duplications of input staterefs, reference staterefs, attachments and signatories will be discarded.
      * <p>
      * Receiver:
-     * <p>
+     * <pre>{@code
      * val proposedTxBuilder = utxoLedgerService.receiveTransactionBuilder(session)
      * proposedTxBuilder.add...(...)
      * proposedTxBuilder.add...(...)
      * proposedTxBuilder.add...(...)
      * utxoLedgerService.replyTransactionBuilderProposal(proposedTxBuilder, session)
+     * }</pre>
      *
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
      * @param session The receiver {@link FlowSession]}.
