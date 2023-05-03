@@ -58,7 +58,7 @@ public class TypeQualifier {
     }
 
     public String toString() {
-        return owner + "//" + String.join("//", name) + "//" + version;
+        return owner + "/" + String.join("/", name) + "/" + version;
     }
 
     /**
