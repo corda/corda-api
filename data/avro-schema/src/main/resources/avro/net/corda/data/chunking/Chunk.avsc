@@ -10,6 +10,14 @@
       "doc": "some unique identifier that indicates the group this chunk belongs with"
     },
     {
+      "name": "fileName",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "the filename, if any, that this binary originated from"
+    },
+    {
       "name": "checksum",
       "type": [
         "null",
