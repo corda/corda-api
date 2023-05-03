@@ -3,6 +3,7 @@ package net.corda.v5.application.messaging;
 import net.corda.v5.application.flows.Flow;
 import net.corda.v5.application.flows.FlowContextProperties;
 import net.corda.v5.application.flows.ResponderFlow;
+import net.corda.v5.application.interop.facade.FacadeResponse;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
@@ -137,7 +138,7 @@ public interface FlowMessaging {
      */
     @Suspendable
     @NotNull
-    String callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName, @NotNull String payload);
+    FacadeResponse callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName, @NotNull String payload);
 
     /**
      * Suspends until a message has been received for each session in the specified [sessions].
