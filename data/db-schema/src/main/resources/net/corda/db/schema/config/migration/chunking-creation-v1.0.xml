@@ -11,6 +11,9 @@
             <column name="request_id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="filename" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
             <column name="checksum" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
