@@ -5,6 +5,7 @@
   "description": "Configuration schema for the sandbox section.",
   "type": "object",
   "properties": {
+    "additionalProperties": false,
     "flow": {
       "description": "Settings for flow sandbox",
       "type": "object",
