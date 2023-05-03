@@ -7,7 +7,7 @@ import static java.lang.annotation.ElementType.CONSTRUCTOR;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Annotation indicating a constructor to be used to reconstruct instances of a class during deserialization.
+ * This annotation indicates a constructor to be used to reconstruct instances of a class during deserialization.
  */
 @Target(CONSTRUCTOR)
 @Retention(RUNTIME)
