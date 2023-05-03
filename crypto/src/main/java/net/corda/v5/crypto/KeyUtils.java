@@ -4,6 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 public final class KeyUtils {
@@ -43,13 +45,16 @@ public final class KeyUtils {
      * @return True if <code>key</code> is in otherKeys.
      */
     public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
+        // The following conversion to list is to have the below code working in case passed in keys are mix of
+        // `ECPublicKey` and `BCECPublicKey` in which case `ECPublicKey.hashCode` != `BCECPublicKey.hashCode`
+        // but `ECPublicKey.equals` == `BCECPublicKey.equals`.
+        List<PublicKey> otherKeysList = new LinkedList<>(otherKeys);
         if (key instanceof CompositeKey) {
-            CompositeKey compositeKey = (CompositeKey) key;
-            Set<PublicKey> leafKeys = compositeKey.getLeafKeys();
-            leafKeys.retainAll(otherKeys);
+            Set<PublicKey> leafKeys = ((CompositeKey) key).getLeafKeys();
+            leafKeys.retainAll(otherKeysList);
             return !leafKeys.isEmpty();
         } else {
-            return otherKeys.contains(key);
+            return otherKeysList.contains(key);
         }
     }
 
@@ -76,10 +81,14 @@ public final class KeyUtils {
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
-            CompositeKey firstKeyComposite = (CompositeKey) key;
-            return firstKeyComposite.isFulfilledBy(otherKeys);
+            return ((CompositeKey) key).isFulfilledBy(otherKeys);
         }
-        return otherKeys.contains(key);
+
+        // The following conversion to list is to have the below code working in case passed in keys are mix of
+        // `ECPublicKey` and `BCECPublicKey` in which case `ECPublicKey.hashCode` != `BCECPublicKey.hashCode`
+        // but `ECPublicKey.equals` == `BCECPublicKey.equals`.
+        List<PublicKey> otherKeysList = new LinkedList<>(otherKeys);
+        return otherKeysList.contains(key);
     }
 
     /**
