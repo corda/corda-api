@@ -3,7 +3,6 @@ package net.corda.v5.application.messaging;
 import net.corda.v5.application.flows.Flow;
 import net.corda.v5.application.flows.FlowContextProperties;
 import net.corda.v5.application.flows.ResponderFlow;
-import net.corda.v5.application.interop.facade.FacadeResponse;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
