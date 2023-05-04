@@ -56,12 +56,12 @@
       "type": "net.corda.data.KeyValuePairList"
     },
     {
-      "name": "registrationSignature",
+      "name": "registrationContextSignature",
       "doc": "Signature of the member over the registrationContext.",
       "type": "net.corda.data.crypto.wire.CryptoSignatureWithKey"
     },
     {
-      "name": "registrationSignatureSpec",
+      "name": "registrationContextSignatureSpec",
       "doc": "Signature spec of member signature over the registrationContext.",
       "type": "net.corda.data.crypto.wire.CryptoSignatureSpec"
     },
