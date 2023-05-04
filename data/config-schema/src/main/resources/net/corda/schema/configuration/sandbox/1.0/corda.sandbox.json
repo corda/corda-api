@@ -4,8 +4,8 @@
   "title": "Corda Sandbox Configuration Schema",
   "description": "Configuration schema for the sandbox section.",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "additionalProperties": false,
     "flow": {
       "description": "Settings for flow sandbox",
       "type": "object",
