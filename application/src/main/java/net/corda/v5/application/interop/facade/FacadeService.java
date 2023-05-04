@@ -5,7 +5,7 @@ import net.corda.v5.base.types.MemberX500Name;
 
 public interface FacadeService {
 
-    <T> T getClientProxy(Facade facade, Class<T> expectedType, MemberX500Name alias, String interopGroup);
+    <T> T getClientProxy(String facadeId, Class<T> expectedType, MemberX500Name alias, String interopGroup);
 
-    String dispatch(Facade facade, Object target, String request);
+    String dispatch(Object target, String request);
 }
