@@ -27,6 +27,10 @@
             <column name="state" type="integer"/>
         </createTable>
         <addPrimaryKey tableName="transaction_record" columnNames="transaction_id" constraintName="transaction_record_pk" />
+        <insert tableName="transaction_record">
+            <column name="transaction_id" value="Atomic Transaction"/>
+            <column name="state" value="1"/>
+        </insert>
 
         <createTable tableName="topic_consumer_offset">
             <column name="topic" type="VARCHAR(255)"/>
