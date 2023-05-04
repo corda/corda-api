@@ -138,7 +138,7 @@ public interface FlowMessaging {
      */
     @Suspendable
     @NotNull
-    FacadeResponse callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName, @NotNull String payload);
+    String callFacade(@NotNull MemberX500Name memberName, @NotNull String facadeName, @NotNull String methodName, @NotNull String payload);
 
     /**
      * Suspends until a message has been received for each session in the specified [sessions].

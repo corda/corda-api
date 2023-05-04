@@ -7,5 +7,5 @@ public interface FacadeService {
 
     <T> T getClientProxy(Facade facade, Class<T> expectedType, MemberX500Name alias, String interopGroup);
 
-    FacadeResponse dispatch(Facade facade, Object target, String request);
+    String dispatch(Facade facade, Object target, String request);
 }
