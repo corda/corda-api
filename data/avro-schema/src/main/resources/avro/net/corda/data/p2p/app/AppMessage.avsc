@@ -8,7 +8,8 @@
         "name": "message",
         "type": [
           "net.corda.data.p2p.app.AuthenticatedMessage",
-          "net.corda.data.p2p.app.UnauthenticatedMessage"
+          "net.corda.data.p2p.app.OutboundUnauthenticatedMessage",
+          "net.corda.data.p2p.app.InboundUnauthenticatedMessage"
         ]
       }
   ]

@@ -4,16 +4,19 @@
   "title": "Corda Sandbox Configuration Schema",
   "description": "Configuration schema for the sandbox section.",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "flow": {
       "description": "Settings for flow sandbox",
       "type": "object",
       "default": {},
+      "additionalProperties": false,
       "properties": {
         "cache": {
           "description": "Settings for flow sandbox caching",
           "type": "object",
           "default": {},
+          "additionalProperties": false,
           "properties": {
             "size": {
               "description": "The maximum number cached flow sandboxes.",
@@ -29,11 +32,13 @@
       "description": "Settings for db sandbox",
       "type": "object",
       "default": {},
+      "additionalProperties": false,
       "properties": {
         "cache": {
           "description": "Settings for db sandbox caching",
           "type": "object",
           "default": {},
+          "additionalProperties": false,
           "properties": {
             "size": {
               "description": "The maximum number cached db sandboxes.",
@@ -49,11 +54,13 @@
       "description": "Settings for verification sandbox",
       "type": "object",
       "default": {},
+      "additionalProperties": false,
       "properties": {
         "cache": {
           "description": "Settings for verification sandbox caching.",
           "type": "object",
           "default": {},
+          "additionalProperties": false,
           "properties": {
             "size": {
               "description": "The maximum number of cached verification sandboxes.",
