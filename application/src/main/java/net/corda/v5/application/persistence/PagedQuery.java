@@ -4,6 +4,7 @@ import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Used to build a Query that supports limit and offset.
@@ -62,11 +63,42 @@ public interface PagedQuery<R> {
          * Extracts the results of a {@link ResultSet} from a previously executed query.
          * <p>
          * This method does not execute a query itself, call {@link PagedQuery#execute()} to execute a query and
-         * generate a {@link ResultSet}.
+         * generate a {@link ResultSet} or {@link ResultSet#next()} with an existing {@link ResultSet} to re-execute the
+         * query with the offset increased to the next page's offset.
          *
          * @return The results contained in the result set.
          */
         @NotNull
         List<R> getResults();
+
+        /**
+         * Returns {@code true} if the {@link ResultSet} can retrieve more results by re-executing the query with the
+         * offset increased to the next's page's offset.
+         * <p>
+         * Modifying the {@link PagedQuery} linked to the {@link ResultSet} does not affect {@link ResultSet}'s
+         * behaviour when calling this method.
+         *
+         * @return {@code true} if the {@link ResultSet} has more results to retrieve.
+         *
+         * @return
+         */
+        boolean hasNext();
+
+        /**
+         * Executes the query linked to the {@link ResultSet} to retrieve the next page of results by re-executing the
+         * query.
+         * <p>
+         * The offset of the executed query increments each time {@link ResultSet#next()} is called, increasing by the
+         * value of the query's limit.
+         * <p>
+         * Modifying the {@link PagedQuery} linked to the {@link ResultSet} does not affect {@link ResultSet}'s
+         * behaviour when calling this method.
+         *
+         * @return The next page of results.
+         * @throws NoSuchElementException If the {@link ResultSet} has no more results to retrieve.
+         */
+        @Suspendable
+        @NotNull
+        List<R> next();
     }
 }
