@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "SignedData",
+  "namespace": "net.corda.data.membership",
+  "doc": "Data serialized to a byte array and a signature over the resulting byte array.",
+  "fields": [
+    {
+      "name": "data",
+      "doc": "Data serialized to a byte array and signed.",
+      "type": "bytes"
+    },
+    {
+      "name": "signature",
+      "doc": "Signature over the data byte array.",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureWithKey"
+    },
+    {
+      "name": "signatureSpec",
+      "doc": "Signature spec of the signature.",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec"
+    }
+  ]
+}
