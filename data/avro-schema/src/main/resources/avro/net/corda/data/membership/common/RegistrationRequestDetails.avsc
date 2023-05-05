@@ -31,6 +31,11 @@
       "type": "string"
     },
     {
+      "name": "holdingIdentityId",
+      "doc": "ID of the owner of this registration request.",
+      "type": "string"
+    },
+    {
       "name": "registrationProtocolVersion",
       "doc": "Registration protocol number.",
       "type": "int"
