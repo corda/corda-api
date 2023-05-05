@@ -130,10 +130,10 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Sends a transaction builder to another session, then it waits for other side to propose transaction builder components,
-     * then applies the proposed components to a copy of the original builder and returns that new builder.
+     * Sends a transaction builder to another session, waits for the other side to propose transaction builder components, applies
+     * the proposed components to a copy of the original builder, and returns that new builder.
      * <p>
-     * It supports similar workflows:
+     * It supports similar workflows to the following:
      * <p>
      * Initiator:
      * <pre>{@code
@@ -154,7 +154,7 @@ public interface UtxoLedgerService {
      * }</pre>
      *
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
-     * @param session The receiver {@link FlowSession]}.
+     * @param session The receiver {@link FlowSession}.
      *
      * @return A new merged builder of the original and proposed components.
      */
@@ -168,7 +168,7 @@ public interface UtxoLedgerService {
     /**
      * Receives a transaction builder from another session.
      *
-     * @param session The {@link FlowSession] to receive the {@link UtxoTransactionBuilder} from.
+     * @param session The {@link FlowSession} to receive the {@link UtxoTransactionBuilder} from.
      */
     @NotNull
     @Suspendable
@@ -177,10 +177,11 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Sends the differences of transaction builders to another session with all dependent back chains.
+     * Sends the difference between the current transaction builder and the originally received one to another session
+     * with all dependent back chains.
      * It works only with {@link UtxoTransactionBuilder}s created from {@link #receiveTransactionBuilder(FlowSession)}
-     * which track the differences internally.
-     * If it is called with anything else, it throws [InvalidParameterException].
+     * which tracks the differences internally.
+     * If it is called with anything else, it throws InvalidParameterException.
      * <p>
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
      * @param session The receiver {@link FlowSession}.
