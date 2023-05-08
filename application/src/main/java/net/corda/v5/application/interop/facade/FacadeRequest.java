@@ -20,7 +20,6 @@ public interface FacadeRequest {
 
     /**
      * Get the value of a parameter by name.
-     *
      * @param parameter The parameter to get the value of.
      */
     @NotNull

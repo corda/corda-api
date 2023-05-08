@@ -11,7 +11,6 @@ public interface FacadeMethod {
 
     /**
      * Obtain the in parameter with the given name.
-     *
      * @param parameterName The name of the parameter to obtain.
      * @param expectedType  The expected type of the parameter.
      */
@@ -20,7 +19,6 @@ public interface FacadeMethod {
 
     /**
      * Get the in parameter with the given name, without checking that its type matches an expected type.
-     *
      * @param parameterName: The name of the parameter to obtain.
      */
     @Nullable
@@ -28,7 +26,6 @@ public interface FacadeMethod {
 
     /**
      * Obtain the out parameter with the given name.
-     *
      * @param parameterName The name of the parameter to obtain.
      * @param expectedType  The expected type of the parameter.
      */
@@ -36,7 +33,6 @@ public interface FacadeMethod {
 
     /**
      * Create a [FacadeRequest] for this method.
-     *
      * @param parameterValues The parameter values to pass to the method.
      */
     @NotNull
@@ -44,7 +40,6 @@ public interface FacadeMethod {
 
     /**
      * Create a [FacadeResponse] for this method.
-     *
      * @param parameterValues The parameter values to return from the method.
      */
     @NotNull
@@ -67,4 +62,9 @@ public interface FacadeMethod {
 
     @NotNull
     String getQualifiedName();
+
+    enum FacadeMethodType {
+        COMMAND,
+        QUERY
+    }
 }

@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 
+//TODO Investigate if typeName can be dropped
 public enum ParameterTypeLabel {
     BOOLEAN("boolean", Boolean.class),
     STRING("string", String.class),
