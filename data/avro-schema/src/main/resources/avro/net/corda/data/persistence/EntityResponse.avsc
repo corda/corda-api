@@ -8,9 +8,14 @@
       "name": "results",
       "doc": "Result of request, as a list of AMQP-formatted user defined objects, which may be empty or have 1 element for certain persistence operations",
       "type": {
-        "type" : "array",
+        "type": "array",
         "items": "bytes"
       }
+    },
+    {
+      "name": "metadata",
+      "doc": "Metadata returned from the execution of the persistence operation",
+      "type": "net.corda.data.KeyValuePairList"
     }
   ]
 }

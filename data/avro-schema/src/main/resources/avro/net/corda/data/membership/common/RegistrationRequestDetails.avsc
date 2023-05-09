@@ -51,6 +51,21 @@
       "type": "net.corda.data.crypto.wire.CryptoSignatureSpec"
     },
     {
+      "name": "registrationContext",
+      "doc": "Registration context submitted for registration.",
+      "type": "net.corda.data.KeyValuePairList"
+    },
+    {
+      "name": "registrationContextSignature",
+      "doc": "Signature of the member over the registrationContext.",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureWithKey"
+    },
+    {
+      "name": "registrationContextSignatureSpec",
+      "doc": "Signature spec of member signature over the registrationContext.",
+      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec"
+    },
+    {
       "name": "reason",
       "doc": "Reason why the request is in the status specified by [registrationStatus].",
       "type": ["string", "null"]
