@@ -6,7 +6,6 @@ import java.io.*;
 public interface FacadeReader {
     /**
      * Read a [Facade] from the given [Reader].
-     *
      * @param reader The reader to read from.
      */
     @NotNull
@@ -14,7 +13,6 @@ public interface FacadeReader {
 
     /**
      * Read a [Facade] from the given [InputStream].
-     *
      * @param input The input stream to read from.
      */
     @NotNull
@@ -24,7 +22,6 @@ public interface FacadeReader {
 
     /**
      * Read a [Facade] from the given [String].
-     *
      * @param input The string to read from.
      */
     @NotNull

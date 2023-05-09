@@ -1,6 +1,5 @@
 package net.corda.v5.application.interop.facade;
 
-import net.corda.v5.application.interop.parameters.ParameterType;
 import net.corda.v5.application.interop.parameters.TypedParameter;
 import net.corda.v5.application.interop.parameters.TypedParameterValue;
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +19,6 @@ public interface FacadeRequest {
 
     /**
      * Get the value of a parameter by name.
-     *
      * @param parameter The parameter to get the value of.
      */
     @NotNull

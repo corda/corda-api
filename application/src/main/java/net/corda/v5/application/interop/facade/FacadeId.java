@@ -9,7 +9,6 @@ public final class FacadeId {
 
     /**
      * Construct a [FacadeId] from a string of the form "org.owner/hierarchical/name/version".
-     *
      * @param idString The string to build a [FacadeId] from.
      */
     public static FacadeId of(String idString) {
@@ -34,7 +33,6 @@ public final class FacadeId {
 
     /**
      * A [FacadeId] identifies a version of a facade.
-     *
      * @param owner The name of the owner of the facade, e.g. "org.corda".
      * @param name The name of the facade, e.g. "platform/tokens", expressed as a List of strings.
      * @param version The version identifier of the facade, e.g. "1.0".
