@@ -10,10 +10,6 @@
     {
       "name": "responderPublicKey",
       "type": "bytes"
-    },
-    {
-      "name": "selectedMode",
-      "type": "net.corda.data.p2p.crypto.ProtocolMode"
     }
   ]
 }
