@@ -24,9 +24,15 @@
 
         <createTable tableName="transaction_record">
             <column name="transaction_id" type="VARCHAR(255)"/>
+            <!--There are three possible states for a transaction, they are PENDING, COMMITTED and ABORTED
+            The related values for these states are PENDING = 0, COMMITTED = 1 and ABORTED = 2-->
             <column name="state" type="integer"/>
         </createTable>
         <addPrimaryKey tableName="transaction_record" columnNames="transaction_id" constraintName="transaction_record_pk" />
+        <insert tableName="transaction_record">
+            <column name="transaction_id" value="Atomic Transaction"/>
+            <column name="state" value="1"/>
+        </insert>
 
         <createTable tableName="topic_consumer_offset">
             <column name="topic" type="VARCHAR(255)"/>
