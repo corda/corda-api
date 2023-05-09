@@ -174,3 +174,14 @@ topics:
     producers:
       - membership
     config:
+  MembershipRegistrationRequestStateTopic:
+    name: membership.registration.request.state
+    consumers:
+      - link-manager
+      - membership
+      - rest
+      - db
+      - flow
+    producers:
+      - db
+    config:

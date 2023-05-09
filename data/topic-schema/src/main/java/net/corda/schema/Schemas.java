@@ -153,6 +153,8 @@ public final class Schemas {
         public static final String REGISTRATION_DLQ_TOPIC = getStateAndEventDLQTopic(REGISTRATION_COMMAND_TOPIC);
 
         public static final String SYNCHRONIZATION_TOPIC = "membership.sync";
+
+        public static final String MEMBERSHIP_REGISTRATION_REQUEST_STATE_TOPIC = "membership.registration.request.state";
     }
 
     public static final class Certificates {
