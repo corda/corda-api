@@ -1,0 +1,282 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property  name="DEFAULT_NUM_PARTITIONS"  value="3"/>
+    <changeSet author="R3.Corda" id="db-message-bus-topic-creation">
+
+        <insert tableName="topic">
+            <column name="topic" value="avro.schema"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="certificates.rpc.ops"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="certificates.rpc.ops.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="config.management.request"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="config.management.request.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="config.topic"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="cpi.info"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="cpi.upload"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="cpi.upload.status"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="cpk.file"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="crypto.hsm.rpc.registration"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="crypto.hsm.rpc.registration.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="crypto.ops.flow"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="crypto.ops.rpc"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="crypto.ops.rpc.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="flow.event"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="flow.event.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="flow.mapper.event"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="flow.mapper.event.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="flow.status"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="gateway.allowed.client.certificate.subjects"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="gateway.revocation.request"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="gateway.revocation.request.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="gateway.tls.certs"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="gateway.tls.truststores"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="link.in"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="link.out"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.actions"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.async.request"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.async.request.retries"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.async.request.retries.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.db.async.ops"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.db.async.ops.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.db.rpc.ops"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.db.rpc.ops.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.group.params"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.members"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.registration"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.registration.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.rpc.ops"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.rpc.ops.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="membership.sync"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.hosted.identities"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.in"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.mgm.allowed.client.certificate.subjects"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.mtls.member.client.certificate.subject"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.out"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.out.markers"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="p2p.out.markers.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="permissions.user.summary"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="persistence.entity.processor"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="persistence.ledger.processor"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="rest.permissions.group"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="rest.permissions.management"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="rest.permissions.management.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="rest.permissions.permission"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="rest.permissions.role"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="rest.permissions.user"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="services.token.event"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="services.token.event.state"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="session.out.partitions"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="uniqueness.check"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="verification.ledger.processor"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="virtual.node.async.request"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="virtual.node.creation.request"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="virtual.node.creation.request.resp"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="virtual.node.info"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+        <insert tableName='topic'>
+            <column name="topic" value="virtual.node.operation.status"/>
+            <column name="num_partitions" value="${DEFAULT_NUM_PARTITIONS}"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

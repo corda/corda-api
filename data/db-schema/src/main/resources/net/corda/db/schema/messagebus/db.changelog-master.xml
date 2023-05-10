@@ -3,4 +3,5 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <include file="net/corda/db/schema/messagebus/migration/db-message-bus-tables-v1.0.xml"/>
+    <include file="net/corda/db/schema/messagebus/migration/topics-creation.xml"/>
 </databaseChangeLog>
