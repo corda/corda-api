@@ -348,6 +348,10 @@ tasks.register('generateMultiModuleDocs', Zip) {
 
 }
 
+tasks.named('dokkaJavadocCollector') {
+    dependsOn ':data:avro-schema:generateAvro', 'data:avro-schema:generateOSGiPackageInfo'
+}
+
 if (project.hasProperty('publishMultiModulekDocs')) {
     publishing {
         publications {
