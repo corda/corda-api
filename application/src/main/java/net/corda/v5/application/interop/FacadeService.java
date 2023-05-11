@@ -1,5 +1,8 @@
 package net.corda.v5.application.interop;
 
+import net.corda.v5.application.interop.facade.Facade;
+import net.corda.v5.application.interop.facade.FacadeRequest;
+import net.corda.v5.application.interop.facade.FacadeResponse;
 import net.corda.v5.base.types.MemberX500Name;
 
 /**
@@ -8,7 +11,8 @@ import net.corda.v5.base.types.MemberX500Name;
 public interface FacadeService {
 
     /**
-     * Returns a concrete class implementing interface <code>T</code> allowing to call a facade on the peers from other Membership groups.
+     * Returns a concrete class implementing interface <code>T</code> allowing to call a facade (@see {@link Facade})
+     * on the peers from other Membership groups.
      * @param facadeId The Facade ID denoting a facade specification used as communication with a peer.
      * @param expectedType The interface implementing (all or parts) of the facade specification.
      * @param alias MemberX500Name of the peer to be called.
@@ -22,8 +26,8 @@ public interface FacadeService {
     /**
      * Interprets a Facade request and invokes a matching method on the target class.
      * @param target The class implementing a Facade.
-     * @param request The string with the request conforming <code>FacadeRequest</code>.
-     * @return The result of processing a Facade Request, the returned string conforms <code>FacadeResponse</code> format.
+     * @param request The string with the request conforming {@link FacadeRequest} format.
+     * @return The result of processing a Facade Request, the returned string conforms {@link FacadeResponse} format.
      */
     String dispatchFacadeRequest(Object target, String request);
 }
