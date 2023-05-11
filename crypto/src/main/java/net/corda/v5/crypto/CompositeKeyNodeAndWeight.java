@@ -13,7 +13,7 @@ public final class CompositeKeyNodeAndWeight {
 
     /**
      * Creates a new {@code CompositeKeyNodeAndWeight} for
-     * specified key and {@code weight} for the key.
+     * specified key and weight for the key.
      *
      * @param node   A public key
      * @param weight The weight for that key, must be greater than zero
@@ -27,7 +27,7 @@ public final class CompositeKeyNodeAndWeight {
 
     /**
      * Creates a new {@code CompositeKeyNodeAndWeight} for
-     * specified key, defaulting the key's {@code weight} to 1.
+     * specified key, defaulting the key's weight to 1.
      *
      * @param node  A public key
      */
@@ -44,7 +44,7 @@ public final class CompositeKeyNodeAndWeight {
     }
 
     /**
-     * @return the weight of the {@code CompositeKeyNodeAndWeight}'s key
+     * @return the weight of the key
      */
     public int getWeight() {
         return this.weight;
