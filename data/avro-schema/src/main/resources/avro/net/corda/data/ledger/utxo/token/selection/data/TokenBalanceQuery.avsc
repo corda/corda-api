@@ -13,6 +13,18 @@
         "name": "poolKey",
         "type": "net.corda.data.ledger.utxo.token.selection.key.TokenPoolCacheKey",
         "doc": "Token cache pool the query is for"
+      },
+      {
+        "name": "ownerHash",
+        "type": ["null", "string"],
+        "default": null,
+        "doc": "Optional owner hash to match on, null will match all"
+      },
+      {
+        "name": "tagRegex",
+        "type": ["null", "string"],
+        "default": null,
+        "doc": "Optional regular expression used to match a tag, null will match all"
       }
     ]
 }
