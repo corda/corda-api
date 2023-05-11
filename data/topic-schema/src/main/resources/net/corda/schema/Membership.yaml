@@ -35,24 +35,25 @@ topics:
   MembershipRegistrationTopic:
     name: membership.registration
     consumers:
-      - membership
+      - db
     producers:
       - membership
+      - db
       - rest
     config:
   MembershipRegistrationStateTopic:
     name: membership.registration.state
     consumers:
-      - membership
+      - db
     producers:
-      - membership
+      - db
     config:
   MembershipRegistrationDlqTopic:
     name: membership.registration.dlq
     consumers:
-      - membership
+      - db
     producers:
-      - membership
+      - db
     config:
   MembershipMembersTopic:
     name: membership.members
