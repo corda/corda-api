@@ -72,7 +72,7 @@ public final class KeyUtils {
      * check fulfilment against a set of keys, without having to handle simple and composite keys separately (that is, this is
      * polymorphic).
      * 
-     * @param key  The key to be checked if it is fulfilled by {@code otherKeys}
+     * @param key  The key to be checked whether it is being fulfilled by {@code otherKeys}
      * @param otherKeys The keys against which the {@code key} is being checked for fulfillment
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
@@ -91,7 +91,7 @@ public final class KeyUtils {
      * Since we do not define composite keys as acceptable on the second argument of this function, this relation
      * is not reflexive, not symmetric and not transitive. 
      *
-     * @param key The key to be checked if it is fulfilled by {@code otherKey}
+     * @param key The key to be checked whether it is being fulfilled by {@code otherKey}
      * @param otherKey The key against which the {@code key} is being checked for fulfillment
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull PublicKey otherKey) {
