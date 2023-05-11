@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.Set;
 
 /**
- * Helper functions for key look up in a set of keys. These functions also work when key to look up in the
- * set of keys is a {@link CompositeKey}.
+ * Helper functions for key look up in a set of keys. These functions also work when the key to look up in the
+ * set of keys is {@link CompositeKey}.
  */
 public final class KeyUtils {
     private KeyUtils() {}
