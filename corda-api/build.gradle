@@ -24,7 +24,6 @@ dependencies {
         api project(':ledger:ledger-utxo')
         api project(':ledger:notary-plugin')
         api project(':membership')
-        api project(":interop")
         api project(':serialization')
 
         api('javax.persistence:javax.persistence-api') {

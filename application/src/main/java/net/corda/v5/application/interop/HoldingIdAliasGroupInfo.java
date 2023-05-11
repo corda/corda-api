@@ -1,4 +1,4 @@
-package net.corda.v5.interop;
+package net.corda.v5.application.interop;
 
 import net.corda.v5.base.annotations.CordaSerializable;
 import java.util.List;
