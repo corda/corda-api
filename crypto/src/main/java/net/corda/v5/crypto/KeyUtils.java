@@ -39,9 +39,9 @@ public final class KeyUtils {
      * Then we would find that <code>isKeyInSet(C, X)</code> is true, but X would not fulfill C since C is fulfilled by
      * X and Y together but not X on its. However, <code>isKeyInSet(C, Z)</code> is true, and Z fulfills C by itself.
      * 
-     * @param key       The key being checked for.
-     * @param otherKeys A {@code Set} of {@code PublicKey}.
-     * @return True if <code>key</code> is in otherKeys.
+     * @param key       The key being looked for
+     * @param otherKeys The keys to look the {@code key} in
+     * @return True if <code>key</code> is in otherKeys
      */
     public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
@@ -72,8 +72,8 @@ public final class KeyUtils {
      * check fulfilment against a set of keys, without having to handle simple and composite keys separately (that is, this is
      * polymorphic).
      * 
-     * @param key  The key with the requirements.
-     * @param otherKeys The key to check whether requirements are fulfilled.
+     * @param key  The key to be checked if it is fulfilled by {@code otherKeys}
+     * @param otherKeys The keys against which the {@code key} is being checked for fulfillment
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
@@ -91,8 +91,8 @@ public final class KeyUtils {
      * Since we do not define composite keys as acceptable on the second argument of this function, this relation
      * is not reflexive, not symmetric and not transitive. 
      *
-     * @param key The key with the requirements.
-     * @param otherKey The key to check whether requirements are fulfilled.
+     * @param key The key to be checked if it is fulfilled by {@code otherKey}
+     * @param otherKey The key against which the {@code key} is being checked for fulfillment
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull PublicKey otherKey) {
         return isKeyFulfilledBy(key,
