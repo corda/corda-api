@@ -13,7 +13,7 @@ public final class CompositeKeyNodeAndWeight {
 
     /**
      * Creates a new {@code CompositeKeyNodeAndWeight} for
-     * a specified key, and a specified {@code weight} for the specified key.
+     * specified key and {@code weight} for the key.
      *
      * @param node   A public key
      * @param weight The weight for that key, must be greater than zero
@@ -27,7 +27,7 @@ public final class CompositeKeyNodeAndWeight {
 
     /**
      * Creates a new {@code CompositeKeyNodeAndWeight} for
-     * a specified key, defaulting the key's {@code weight} to 1.
+     * specified key, defaulting the key's {@code weight} to 1.
      *
      * @param node  A public key
      */
