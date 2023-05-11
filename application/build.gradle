@@ -13,6 +13,7 @@ dependencies {
     api project(":base")
     api project(":crypto")
     api project(":membership")
+    api project(":interop")
     api project(":serialization")
 
     compileOnly 'org.jetbrains:annotations'
