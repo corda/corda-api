@@ -11,6 +11,9 @@ import org.jetbrains.annotations.NotNull;
 @CordaSerializable
 public interface DigitalSignature {
 
+    /**
+     * @return the digital signature bytes
+     */
     @NotNull
     byte[] getBytes();
 
