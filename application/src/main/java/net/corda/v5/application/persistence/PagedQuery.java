@@ -54,6 +54,32 @@ public interface PagedQuery<R> {
 
     /**
      * A result set containing the results of calling {@link PagedQuery#execute()}.
+     * <p>
+     * Use this class to access the results of a query and to re-execute the query to retrieve following pages of
+     * results by using {@link #hasNext()} and {@link #next()}.
+     * <p>
+     * Example usage:
+     <ul>
+     * <li>Kotlin:<pre>{@code
+     * val resultSet = query.execute()
+     *
+     * processResultsWithApplicationLogic(resultSet.results)
+     *
+     * while (resultSet.hasNext()) {
+     *     val results = resultSet.next()
+     *     processResultsWithApplicationLogic(results)
+     * }
+     * }</pre></li>
+     * <li>Java:<pre>{@code
+     * PagedQuery.ResultSet<Integer> resultSet = query.execute();
+     *
+     * processResultsWithApplicationLogic(resultSet.getResults());
+     *
+     * while (resultSet.hasNext()) {
+     *     List<Integer> results = resultSet.next();
+     *     processResultsWithApplicationLogic(results);
+     * }
+     * }</pre></li>
      *
      * @param <R> The type of the results contained in the result set.
      */
@@ -79,8 +105,6 @@ public interface PagedQuery<R> {
          * behaviour when calling this method.
          *
          * @return {@code true} if the {@link ResultSet} has more results to retrieve.
-         *
-         * @return
          */
         boolean hasNext();
 

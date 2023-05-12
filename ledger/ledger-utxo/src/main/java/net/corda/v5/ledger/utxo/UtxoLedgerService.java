@@ -1,10 +1,12 @@
 package net.corda.v5.ledger.utxo;
 
 import net.corda.v5.application.messaging.FlowSession;
+import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
+import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
@@ -194,7 +196,10 @@ public interface UtxoLedgerService {
 
 
     /**
-     * Creates a query object for a named ledger query with the given name. This query can be executed later.
+     * Creates a query object for a vault named query with the given name. This query can be executed later by calling
+     * {@link PagedQuery#execute()}.
+     * <p>
+     * The vault named queries executed by this method must be defined within a {@link VaultNamedQueryFactory}.
      * <p>
      * Example usage:
      * <ul>
@@ -207,11 +212,15 @@ public interface UtxoLedgerService {
      *     .setCreatedTimestampLimit(Instant.now())
      *     .setOffset(0)
      *     .setLimit(100)
-     * do {
-     *     val resultSet = query.execute()
-     *     processResultsWithApplicationLogic(resultSet.results)
-     *     query.setOffset(query.offset + 100)
-     * } while (resultSet.results.isNotEmpty())
+     *
+     * val resultSet = query.execute()
+     *
+     * processResultsWithApplicationLogic(resultSet.results)
+     *
+     * while (resultSet.hasNext()) {
+     *     val results = resultSet.next()
+     *     processResultsWithApplicationLogic(results)
+     * }
      * }</pre></li>
      * <li>Java:<pre>{@code
      * ParameterizedQuery<Integer> query = utxoLedgerService.query("FIND_BY_TEST_FIELD", Integer.class)
@@ -227,9 +236,9 @@ public interface UtxoLedgerService {
      *
      * processResultsWithApplicationLogic(resultSet.getResults());
      *
-     * while (!resultSet.results.isEmpty()) {
-     *     resultSet = query.setOffset(query.getOffset() + 100).execute();
-     *     processResultsWithApplicationLogic(resultSet.getResults());
+     * while (resultSet.hasNext()) {
+     *     List<Integer> results = resultSet.next();
+     *     processResultsWithApplicationLogic(results);
      * }
      * }</pre></li>
      *
@@ -237,6 +246,10 @@ public interface UtxoLedgerService {
      * @param resultClass Type that the query should return when executed.
      *
      * @return A {@link VaultNamedParameterizedQuery} query object that can be executed or modified further on.
+     *
+     * @see VaultNamedParameterizedQuery
+     * @see PagedQuery.ResultSet
+     * @see VaultNamedQueryFactory
      */
     @Suspendable
     @NotNull <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
