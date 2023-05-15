@@ -12,12 +12,14 @@
     {
       "name": "memberContext",
       "doc": "Member provided data in MemberInfo.",
-      "type": "net.corda.data.KeyValuePairList"
+      //"type": ["net.corda.data.KeyValuePairList", "bytes"]
+      "type": "bytes"
     },
     {
       "name": "mgmContext",
       "doc": "MGM provided data in MemberInfo.",
-      "type": "net.corda.data.KeyValuePairList"
+      //"type": ["net.corda.data.KeyValuePairList", "bytes"]
+      "type": "bytes"
     }
   ]
 }
