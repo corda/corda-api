@@ -1,4 +1,4 @@
-package net.corda.v5.application.interop;
+package net.corda.v5.interop;
 
 import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;

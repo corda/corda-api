@@ -1,4 +1,4 @@
-package net.corda.v5.application.interop;
+package net.corda.v5.interop;
 
 import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +17,7 @@ public interface AliasMemberInfo {
     String getX500Name();
 
     /**
-     * @return The {@link String} representing the cpi file name deployed on the cross ledger network.
+     * @return The {@link String} representing the cpi name.
      */
     @NotNull
     String getCpiName();
