@@ -10,14 +10,14 @@
       "doc": "Key of the pool of the tokens that was used to calculate the balance"
     },
     {
-      "name": "balance",
+      "name": "availableBalance",
       "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
-      "doc": "The balance of the token pool"
+      "doc": "The balance of tokens that have not been spent nor claimed"
     },
     {
-      "name": "balanceIncludingClaimedTokens",
+      "name": "totalBalance",
       "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
-      "doc": "The balance of the token pool including tokens that have been claimed but not spent"
+      "doc": "The available balance plus the balance of claimed tokens"
     }
   ]
 }

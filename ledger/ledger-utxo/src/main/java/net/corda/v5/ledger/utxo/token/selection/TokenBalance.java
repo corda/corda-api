@@ -17,16 +17,16 @@ public interface TokenBalance {
     /**
      * Gets the available balance.
      *
-     * @return Returns a value that represent the available balance.
+     * @return Returns the balance of tokens that have not been spent nor claimed.
      */
     @NotNull
-    BigDecimal getBalance();
+    BigDecimal getAvailableBalance();
 
     /**
      * Gets the total balance.
      *
-     * @return Returns a value that represent the total balance.
+     * @return Returns the available balance plus the balance of claimed tokens.
      */
     @NotNull
-    BigDecimal getBalanceIncludingClaimedTokens();
+    BigDecimal getTotalBalance();
 }

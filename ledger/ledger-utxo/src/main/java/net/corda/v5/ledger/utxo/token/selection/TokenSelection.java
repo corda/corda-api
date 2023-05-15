@@ -124,7 +124,7 @@ public interface TokenSelection {
      * val response = tokenSelection.queryBalance(criteria)
      *
      * // Print the results
-     * println("Balance available: ${response.balance}, Total balance: ${response.balanceIncludingClaimedTokens}")
+     * println("Balance available: ${response.availableBalance}, Total balance: ${response.totalBalance}")
      *
      * return "Done"
      * }
@@ -147,7 +147,7 @@ public interface TokenSelection {
      * TokenBalance response = tokenSelection.queryBalance(criteria);
      *
      * // Print the results.
-     * System.out.println("Balance available: " + response.getBalance() + "Total balance: " + response.getBalanceIncludingClaimedTokens());
+     * System.out.println("Balance available: " + response.getAvailableBalance() + "Total balance: " + response.getTotalBalance());
      *
      * return "Done";
      * }
