@@ -9,6 +9,9 @@ import net.corda.v5.application.interop.facade.FacadeRequest;
  * Servers will return a [ServerResponse], wrapping the result value directly.
  */
 public abstract class InteropAction<T> {
+    /**
+     * @return The result of carrying out the interop action.
+     */
     public abstract T getResult();
 
     public static final class ClientAction<T> extends InteropAction<T> {
@@ -41,6 +44,10 @@ public abstract class InteropAction<T> {
             return this.result;
         }
 
+        /**
+         * The result of an [InteropAction] that has been performed by the server.
+         * @param result The [result] value that the server returned
+         */
         public ServerResponse(T result) {
             this.result = result;
         }

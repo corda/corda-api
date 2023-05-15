@@ -7,6 +7,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+/**
+ * A [FacadeMethod] is a method of a [Facade].
+ */
 public interface FacadeMethod {
 
     /**
@@ -45,21 +48,39 @@ public interface FacadeMethod {
     @NotNull
     FacadeResponse response(TypedParameterValue<?>... parameterValues);
 
+    /**
+     * @return facadeId The [FacadeId] of the owning facade.
+     */
     @NotNull
     FacadeId getFacadeId();
 
+    /**
+     * @return The name of the method
+     */
     @NotNull
     String getName();
 
+    /**
+     * @return The type of the facade method, can be of two types: command or query
+     */
     @NotNull
     FacadeMethodType getType();
 
+    /**
+     * @return The input parameters of the method.
+     */
     @NotNull
     List<TypedParameter<?>> getInParameters();
 
+    /**
+     * @return The output parameters of the method.
+     */
     @NotNull
     List<TypedParameter<?>> getOutParameters();
 
+    /**
+     * @return The qualified name of the method, which is the name of the facade followed by the name of the method.
+     */
     @NotNull
     String getQualifiedName();
 

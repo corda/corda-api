@@ -6,14 +6,26 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * A [FacadeRequest] is a request to invoke a [FacadeMethod] on a [Facade].
+ */
 public interface FacadeRequest {
 
+    /**
+     * @return The id of the facade to which the method belongs.
+     */
     @NotNull
     FacadeId getFacadeId();
 
+    /**
+     * @return The name of the method to invoke.
+     */
     @NotNull
     String getMethodName();
 
+    /**
+     * @return The parameter values to pass to the method.
+     */
     @NotNull
     List<TypedParameterValue<?>> getInParameters();
 

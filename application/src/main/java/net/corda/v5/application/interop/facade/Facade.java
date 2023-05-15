@@ -8,12 +8,21 @@ import java.util.Map;
 
 public interface Facade {
 
+    /**
+     * @return The name of the facade, e.g. "org.corda.interop/platform/tokens/1.0".
+     */
     @NotNull
     FacadeId getFacadeId();
 
+    /**
+     * @return The methods that can be invoked on the facade.
+     */
     @NotNull
     List<FacadeMethod> getMethods();
 
+    /**
+     * @return The methods with a given name that can be invoked on the facade.
+     */
     @NotNull
     Map<String, FacadeMethod> getMethodsByName();
 
