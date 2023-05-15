@@ -4,6 +4,7 @@ topics:
     consumers:
       - flow
       - membership
+      - db
     producers:
       - link-manager
     config:
@@ -14,12 +15,14 @@ topics:
     producers:
       - flow
       - membership
+      - db
     config:
   P2POutMarkersTopic:
     name: p2p.out.markers
     consumers:
       - link-manager
       - membership
+      - db
     producers:
       - link-manager
     config:
@@ -48,9 +51,11 @@ topics:
     consumers:
       - link-manager
       - membership
+      - db
     producers:
       - rest # Dynamic Network registration
       - membership # Static Network registration
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -64,6 +69,7 @@ topics:
       - link-manager
     producers:
       - membership
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
