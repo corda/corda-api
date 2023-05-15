@@ -1,4 +1,6 @@
 // Check corda-api compatibility with downstream consumers which implement CordApps
 @Library('corda-shared-build-pipeline-steps@5.0.1') _
 
-cordaApiCompatibilityCheck()
+cordaApiCompatibilityCheck(
+    corda5End2EndBranch: 'feature/mgm-re-registration',
+)
