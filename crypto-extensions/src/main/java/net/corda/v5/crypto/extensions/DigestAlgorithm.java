@@ -11,10 +11,33 @@ import java.io.InputStream;
  * will be used to create the instances. For each algorithm there must be matching a pair of
  * {@link DigestAlgorithmFactory} and {@link DigestAlgorithm} implementations.
  * </p>
- * Example of the algorithm and the factory implementations:
- * 
- * <pre>
- * {@code
+ * Example use of {@link DigestAlgorithm}:
+ * <ul>
+ * <li>Kotlin:<pre>{@code
+ * class TripleSha256Digest : DigestAlgorithm {
+ *     companion object {
+ *         const val ALGORITHM = "SHA-256-TRIPLE"
+ *         const val STREAM_BUFFER_SIZE = DEFAULT_BUFFER_SIZE
+ *         fun ByteArray.sha256Bytes(): ByteArray =
+ *             MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name).digest(this)
+ *     }
+ *
+ *     override fun getAlgorithm() = ALGORITHM
+ *     override fun getDigestLength() = 32
+ *     override fun digest(bytes: ByteArray): ByteArray = bytes.sha256Bytes().sha256Bytes().sha256Bytes()
+ *     override fun digest(inputStream: InputStream): ByteArray {
+ *         val messageDigest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name)
+ *         val buffer = ByteArray(STREAM_BUFFER_SIZE)
+ *         while (true) {
+ *             val read = inputStream.read(buffer)
+ *             if (read <= 0) break
+ *             messageDigest.update(buffer, 0, read)
+ *         }
+ *         return messageDigest.digest().sha256Bytes().sha256Bytes()
+ *     }
+ * }
+ * </pre></li>
+ * <li>Java:<pre>{@code
  * public class TripleSha256Digest implements DigestAlgorithm {
  *     static String ALGORITHM = "SHA-256-TRIPLE";
  *     static int BUFFER_SIZE = 8192;
@@ -23,6 +46,7 @@ import java.io.InputStream;
  *         md.update(bytes);
  *         return md.digest();
  *     }
+ *
  *     @Override
  *     public String getAlgorithm() {
  *         return ALGORITHM;
@@ -61,7 +85,18 @@ import java.io.InputStream;
  *         }
  *     }
  * }
+ * </pre></li>
+ * </ul>
  *
+ * Example use of {@link DigestAlgorithmFactory}:
+ * <ul>
+ * <li>Kotlin:<pre>{@code
+ * class TripleSha256 : DigestAlgorithmFactory {
+ *     override fun getAlgorithm() = TripleSha256Digest.ALGORITHM
+ *     override fun getInstance(): DigestAlgorithm = TripleSha256Digest()
+ * }
+ * </pre></li>
+ * <li>Java:<pre>{@code
  * class TripleSha256 implements DigestAlgorithmFactory {
  *     @Override
  *     public String getAlgorithm() {
@@ -72,10 +107,8 @@ import java.io.InputStream;
  *         return new TripleSha256Digest();
  *     }
  * }
- *
- * }
- * </pre>>
- * ```
+ * </pre></li>
+ * </ul>
  */
 public interface DigestAlgorithm {
     /**
