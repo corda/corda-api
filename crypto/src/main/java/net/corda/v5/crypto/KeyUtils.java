@@ -39,7 +39,7 @@ public final class KeyUtils {
      * Then we would find that <code>isKeyInSet(C, X)</code> is true, but X would not fulfill C since C is fulfilled by
      * X and Y together but not X on its. However, <code>isKeyInSet(C, Z)</code> is true, and Z fulfills C by itself.
      * 
-     * @param key       The key being looked for
+     * @param key       The key being looked for.
      * @param otherKeys The keys to look the {@code key} in
      * @return True if <code>key</code> is in otherKeys.
      */
