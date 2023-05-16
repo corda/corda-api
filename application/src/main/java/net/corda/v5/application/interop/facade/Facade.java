@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A {@link Facade} is a collection of {@link FacadeMethod}s that can be invoked.
+ * A {@link Facade} is a shared abstraction used by interoperating Corda agents.
+ * It is a collection of {@link FacadeMethod}s that can be invoked from a flow.
+ * It comes in the form of a text file with minimal semantics containing list of methods with parameters and returned values.
  */
 public interface Facade {
 
