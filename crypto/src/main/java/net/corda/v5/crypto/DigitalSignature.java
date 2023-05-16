@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public interface DigitalSignature {
 
     /**
-     * @return the digital signature bytes
+     * @return The digital signature bytes.
      */
     @NotNull
     byte[] getBytes();
