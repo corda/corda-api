@@ -9,22 +9,23 @@ import org.jetbrains.annotations.Nullable;
  * Defines a mechanism to allow flows to query the token cache. The query can be either to claim a list of {@link ClaimedToken}
  * to spend, or to know the current balance, {@link TokenBalance}.
  * <p>
- * The API allows a flow to query for a target amount of a given state/token type it wishes to spend.
- * If available, a set of tokens will be selected that sum to at least the target amount specified.
- * The tokens will be locked in the cache to prevent other flows from selecting them.
- * <p>
- * A flow can also query the balance of a set or subset of tokens. Two values are calculated when the query is executed.
- * One represents the available balance which only includes tokens that have not been spent nor claimed. While the other
- * value represents the total balance which includes all tokens that have not been spent, i.e., the total balance is
- * the available balance plus the balance of all claimed tokens.
- * <p>
  * The platform will provide an instance of {@link TokenSelection} to flows via property injection.
  */
-
 @DoNotImplement
 public interface TokenSelection {
 
     /**
+     * Attempts to claim a set of tokens from the cache that satisfies the specified {@link TokenClaimCriteria}.
+     *
+     * The API allows a flow to query for a target amount of a given state/token type it wishes to spend.
+     * If available, a set of tokens will be selected that sum to at least the target amount specified.
+     * The tokens will be locked in the cache to prevent other flows from selecting them.
+     *
+     * @param criteria The {@link TokenClaimCriteria} used to select tokens.
+     * @return Returns a {@link TokenClaim} if enough tokens were claimed to satisfy the {@link TokenClaimCriteria#getTargetAmount()},
+     * or null if the {@link TokenClaimCriteria#getTargetAmount()} could not be reached.
+     * <p>
+     * <p>
      * Example usage:
      * <ul>
      * <li>Kotlin:<pre>{@code
@@ -93,17 +94,22 @@ public interface TokenSelection {
      * }
      * }</pre></li></ul>
      * <p>
-     * Attempts to claim a set of tokens from the cache that satisfies the specified {@link TokenClaimCriteria}.
-     *
-     * @param criteria The {@link TokenClaimCriteria} used to select tokens.
-     * @return Returns a {@link TokenClaim} if enough tokens were claimed to satisfy the {@link TokenClaimCriteria#getTargetAmount()},
-     * or null if the {@link TokenClaimCriteria#getTargetAmount()} could not be reached.
      */
     @Nullable
     @Suspendable
     TokenClaim tryClaim(@NotNull TokenClaimCriteria criteria);
 
-    /**
+        /**
+     * Calculates the balance of a pool of tokens taking into account only the tokens that satisfy the specified
+     * {@link TokenBalanceCriteria}.
+     * The API allows a flow to query the balance of a set or subset of tokens. Two values are calculated when the query is executed.
+     * One represents the available balance which only includes tokens that have not been spent nor claimed. While the other
+     * value represents the total balance which includes all tokens that have not been spent, i.e., the total balance is
+     * the available balance plus the balance of all claimed tokens.
+     * @param criteria The {@link TokenBalanceCriteria} used to select the tokens that should be used to calculate the balance.
+     * @return Returns the balance that was calculated as a {@link TokenBalance}.
+     * <p>
+     * <p>
      * Example usage:
      * <ul>
      * <li>Kotlin:<pre>{@code
@@ -153,11 +159,6 @@ public interface TokenSelection {
      * }
      * }</pre></li></ul>
      * <p>
-     * Calculates the balance of a pool of tokens taking into account only the tokens that satisfy the specified
-     * {@link TokenBalanceCriteria}.
-     *
-     * @param criteria The {@link TokenBalanceCriteria} used to select the tokens that should be used to calculate the balance.
-     * @return Returns the balance that was calculated as a {@link TokenBalance}.
      */
     @Nullable
     @Suspendable
