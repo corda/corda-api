@@ -37,7 +37,7 @@ public interface MerkleProof {
     List<IndexedMerkleLeaf> getLeaves();
 
     /**
-     * Returns the hashed data supplementing the plain data.
+     * Returns the hashed intermediate node data supplementing the plain data.
      */
     List<SecureHash> getHashes();
 
