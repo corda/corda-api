@@ -99,7 +99,7 @@ public interface TokenSelection {
     @Suspendable
     TokenClaim tryClaim(@NotNull TokenClaimCriteria criteria);
 
-        /**
+    /**
      * Calculates the balance of a pool of tokens taking into account only the tokens that satisfy the specified
      * {@link TokenBalanceCriteria}.
      * The API allows a flow to query the balance of a set or subset of tokens. Two values are calculated when the query is executed.
