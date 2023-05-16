@@ -16,7 +16,7 @@ public final class CompositeKeyNodeAndWeight {
      * the specified key and weight for the key.
      *
      * @param node   A public key.
-     * @param weight The weight for that key, must be greater than zero
+     * @param weight The weight for that key, must be greater than zero.
      */
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node, int weight) {
         if (weight <= 0)
