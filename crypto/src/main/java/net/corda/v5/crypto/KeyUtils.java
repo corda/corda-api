@@ -92,7 +92,7 @@ public final class KeyUtils {
      * is not reflexive, not symmetric and not transitive. 
      *
      * @param key The key to be checked whether it is being fulfilled by {@code otherKey}.
-     * @param otherKey The key against which the {@code key} is being checked for fulfillment
+     * @param otherKey The key against which the {@code key} is being checked for fulfilment.
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull PublicKey otherKey) {
         return isKeyFulfilledBy(key,
