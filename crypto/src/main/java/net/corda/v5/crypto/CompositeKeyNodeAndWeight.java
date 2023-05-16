@@ -29,7 +29,7 @@ public final class CompositeKeyNodeAndWeight {
      * Creates a new {@code CompositeKeyNodeAndWeight} for
      * the specified key, defaulting the key's weight to 1.
      *
-     * @param node  A public key
+     * @param node  A public key.
      */
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node) {
         this(node, 1);
