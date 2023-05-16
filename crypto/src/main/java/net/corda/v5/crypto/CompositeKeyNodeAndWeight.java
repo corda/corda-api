@@ -36,7 +36,7 @@ public final class CompositeKeyNodeAndWeight {
     }
 
     /**
-     * @return the key of the {@code CompositeKeyNodeAndWeight}
+     * @return The key of the {@code CompositeKeyNodeAndWeight}.
      */
     @NotNull
     public PublicKey getNode() {
