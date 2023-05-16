@@ -1,12 +1,13 @@
 package net.corda.v5.application.interop.binding;
 
 import net.corda.v5.application.interop.facade.FacadeRequest;
+import net.corda.v5.application.interop.facade.FacadeResponse;
 
 /**
- * The same type, [InteropAction], is returned by both Facade clients and Facade servers.
- * Clients will return a [ClientAction], representing an interop request to be performed; when [result] is called, the
+ * The same type, {@link InteropAction}, is returned by both Facade clients and Facade servers.
+ * Clients will return a {@link ClientAction}, representing an interop request to be performed; when {@link #getResult result} is called, the
  * request is carried out and the result obtained.
- * Servers will return a [ServerResponse], wrapping the result value directly.
+ * Servers will return a {@link ServerResponse}, wrapping the result value directly.
  */
 public abstract class InteropAction<T> {
     /**
@@ -20,10 +21,10 @@ public abstract class InteropAction<T> {
         private final Interpretable<T> responseInterpreter;
 
         /**
-         * An interop action that has not yet been carried out, but will be when the caller requests the [result].
-         * @param request The [FacadeRequest] to send to the server
-         * @param processor An object that knows how to send a [FacadeRequest] to the server and obtain a [FacadeResponse]
-         * @param responseInterpreter An object that knows how to translate a [FacadeResponse] into the [result] type
+         * An interop action that has not yet been carried out, but will be when the caller requests the {@link #getResult result}.
+         * @param request The {@link FacadeRequest} to send to the server
+         * @param processor An object that knows how to send a {@link FacadeRequest} to the server and obtain a {@link FacadeResponse}
+         * @param responseInterpreter An object that knows how to translate a {@link FacadeResponse} into the {@link #getResult result} type
          */
         public ClientAction(FacadeRequest request, Processable processor, Interpretable<T> responseInterpreter) {
             this.request = request;
@@ -45,8 +46,8 @@ public abstract class InteropAction<T> {
         }
 
         /**
-         * The result of an [InteropAction] that has been performed by the server.
-         * @param result The [result] value that the server returned
+         * The result of an {@link InteropAction} that has been performed by the server.
+         * @param result The {@link #result} value that the server returned
          */
         public ServerResponse(T result) {
             this.result = result;

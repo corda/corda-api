@@ -3,7 +3,7 @@ package net.corda.v5.application.interop.parameters;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A [TypedParameter] is a parameter having a name and a defined [ParameterType].
+ * A {@link TypedParameter} is a parameter having a name and a defined {@link ParameterType}.
  */
 public interface TypedParameter<T> {
     /**
@@ -13,11 +13,16 @@ public interface TypedParameter<T> {
     String getName();
 
     /**
-     * @return The type of the parameter, e.g. [ParameterTypeLabel.STRING].
+     * @return The {@link ParameterType} of the parameter which enables calling getExpectedType() utility
+     * to get the primitive type from the ParameterTypeLabel enum, e.g. ParameterTypeLabel.STRING.
      */
     @NotNull
     ParameterType<T> getType();
 
+    /**
+     * @param value The value of the parameter
+     * @return Parameter converted to {@link TypedParameterValue}
+     */
     @NotNull
     TypedParameterValue<T> of(T value);
 }

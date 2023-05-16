@@ -6,6 +6,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A {@link Facade} is a collection of {@link FacadeMethod}s that can be invoked.
+ */
 public interface Facade {
 
     /**
@@ -21,7 +24,7 @@ public interface Facade {
     List<FacadeMethod> getMethods();
 
     /**
-     * @return The methods with a given name that can be invoked on the facade.
+     * @return The facade methods with a given string name that can be invoked on the facade.
      */
     @NotNull
     Map<String, FacadeMethod> getMethodsByName();

@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * A [FacadeResponse] is a response to a [FacadeRequest] to invoke a [FacadeMethod] on a [Facade].
+ * A {@link FacadeResponse} is a response to a {@link FacadeRequest} to invoke a {@link FacadeMethod} on a {@link Facade}.
  */
 public interface FacadeResponse {
     /**

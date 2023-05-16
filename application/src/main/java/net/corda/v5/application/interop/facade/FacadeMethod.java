@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * A [FacadeMethod] is a method of a [Facade].
+ * A [FacadeMethod] is a method of a {@link Facade}.
  */
 public interface FacadeMethod {
 
@@ -35,14 +35,14 @@ public interface FacadeMethod {
     <T> TypedParameter<T> outParameter(String parameterName, Class<T> expectedType);
 
     /**
-     * Create a [FacadeRequest] for this method.
+     * Create a {@link FacadeRequest} for this method.
      * @param parameterValues The parameter values to pass to the method.
      */
     @NotNull
     FacadeRequest request(TypedParameterValue<?>... parameterValues);
 
     /**
-     * Create a [FacadeResponse] for this method.
+     * Create a {@link FacadeResponse} for this method.
      * @param parameterValues The parameter values to return from the method.
      */
     @NotNull
@@ -55,13 +55,13 @@ public interface FacadeMethod {
     FacadeId getFacadeId();
 
     /**
-     * @return The name of the method
+     * @return The name of the method.
      */
     @NotNull
     String getName();
 
     /**
-     * @return The type of the facade method, can be of two types: command or query
+     * @return The type of the facade method.
      */
     @NotNull
     FacadeMethodType getType();
@@ -84,6 +84,10 @@ public interface FacadeMethod {
     @NotNull
     String getQualifiedName();
 
+    /**
+     * Defines the two possible types of facade method: command or query.
+     * Each command/query is mapped to a flow defined by the application which supports the operations defined in the facade.
+     */
     enum FacadeMethodType {
         COMMAND,
         QUERY
