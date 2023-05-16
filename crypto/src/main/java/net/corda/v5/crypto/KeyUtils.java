@@ -72,7 +72,7 @@ public final class KeyUtils {
      * check fulfilment against a set of keys, without having to handle simple and composite keys separately (that is, this is
      * polymorphic).
      * 
-     * @param key  The key to be checked whether it is being fulfilled by {@code otherKeys}
+     * @param key  The key to be checked whether it is being fulfilled by {@code otherKeys}.
      * @param otherKeys The keys against which the {@code key} is being checked for fulfillment
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
