@@ -51,6 +51,19 @@
               "type": "integer",
               "minimum": 1,
               "default": 10
+            },
+            "min_size": {
+              "description": "The minimal database pool size.",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false
