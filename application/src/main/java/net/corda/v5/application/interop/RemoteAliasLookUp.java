@@ -9,7 +9,7 @@ import java.util.List;
  *
  */
 @DoNotImplement
-public interface RemoteAliasLookUpService {
+public interface RemoteAliasLookUp {
 
     /**
      * @param x500Name The x500Name of alias identity.
