@@ -44,7 +44,7 @@ public final class CompositeKeyNodeAndWeight {
     }
 
     /**
-     * @return the weight of the key
+     * @return The weight of the key.
      */
     public int getWeight() {
         return this.weight;
