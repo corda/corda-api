@@ -41,7 +41,7 @@ public final class KeyUtils {
      * 
      * @param key       The key being looked for
      * @param otherKeys The keys to look the {@code key} in
-     * @return True if <code>key</code> is in otherKeys
+     * @return True if <code>key</code> is in otherKeys.
      */
     public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
