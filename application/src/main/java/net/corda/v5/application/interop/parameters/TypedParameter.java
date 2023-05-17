@@ -21,7 +21,7 @@ public interface TypedParameter<T> {
 
     /**
      * @param value The value of the parameter.
-     * @return Parameter converted to {@link TypedParameterValue}
+     * @return Parameter converted to {@link TypedParameterValue}.
      */
     @NotNull
     TypedParameterValue<T> of(T value);
