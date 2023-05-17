@@ -20,7 +20,7 @@ public interface TypedParameter<T> {
     ParameterType<T> getType();
 
     /**
-     * @param value The value of the parameter
+     * @param value The value of the parameter.
      * @return Parameter converted to {@link TypedParameterValue}
      */
     @NotNull
