@@ -6,14 +6,13 @@ import net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.util.Objects;
 
 /**
  * Represents a description of the selection criteria for a token selection query using the {@link TokenSelection} API.
  */
-public final class TokenClaimCriteria {
+public final class TokenBalanceCriteria {
 
     /**
      * The type of tokens to be selected.
@@ -40,12 +39,6 @@ public final class TokenClaimCriteria {
     private final String symbol;
 
     /**
-     * The minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
-     */
-    @NotNull
-    private final BigDecimal targetAmount;
-
-    /**
      * An optional regular expression to match against the {@link UtxoTokenFilterFields#getTag()} field, or null to match all tags.
      */
     @Nullable
@@ -58,25 +51,22 @@ public final class TokenClaimCriteria {
     private SecureHash ownerHash;
 
     /**
-     * Creates a new instance of the {@link TokenClaimCriteria} class.
+     * Creates a new instance of the {@link TokenBalanceCriteria} class.
      *
      * @param tokenType      The type of tokens to be selected.
      * @param issuerHash     The {@link SecureHash} of the issuer of tokens to be selected.
      * @param notaryX500Name The {@link MemberX500Name} of the notary of the tokens to be selected.
      * @param symbol         The symbol of the notary of tokens to be selected.
-     * @param targetAmount   The minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
      */
-    public TokenClaimCriteria(
+    public TokenBalanceCriteria(
             @NotNull final String tokenType,
             @NotNull final SecureHash issuerHash,
             @NotNull final MemberX500Name notaryX500Name,
-            @NotNull final String symbol,
-            @NotNull final BigDecimal targetAmount) {
+            @NotNull final String symbol) {
         this.tokenType = tokenType;
         this.issuerHash = issuerHash;
         this.notaryX500Name = notaryX500Name;
         this.symbol = symbol;
-        this.targetAmount = targetAmount;
     }
 
     /**
@@ -117,16 +107,6 @@ public final class TokenClaimCriteria {
     @NotNull
     public String getSymbol() {
         return symbol;
-    }
-
-    /**
-     * Gets the minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
-     *
-     * @return Returns the minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
-     */
-    @NotNull
-    public BigDecimal getTargetAmount() {
-        return targetAmount;
     }
 
     /**
@@ -171,7 +151,7 @@ public final class TokenClaimCriteria {
      */
     @Override
     public boolean equals(@Nullable final Object obj) {
-        return this == obj || obj instanceof TokenClaimCriteria && equals((TokenClaimCriteria) obj);
+        return this == obj || obj instanceof TokenBalanceCriteria && equals((TokenBalanceCriteria) obj);
     }
 
     /**
@@ -180,12 +160,11 @@ public final class TokenClaimCriteria {
      * @param other The Party to compare with the current object.
      * @return Returns true if the specified Party is equal to the current object; otherwise, false.
      */
-    public boolean equals(@NotNull final TokenClaimCriteria other) {
+    public boolean equals(@NotNull final TokenBalanceCriteria other) {
         return Objects.equals(other.tokenType, tokenType)
                 && Objects.equals(other.issuerHash, issuerHash)
                 && Objects.equals(other.notaryX500Name, notaryX500Name)
                 && Objects.equals(other.symbol, symbol)
-                && Objects.compare(other.targetAmount, targetAmount, BigDecimal::compareTo) == 0
                 && Objects.equals(other.tagRegex, tagRegex)
                 && Objects.equals(other.ownerHash, ownerHash);
     }
@@ -197,7 +176,7 @@ public final class TokenClaimCriteria {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(tokenType, issuerHash, notaryX500Name, symbol, targetAmount, tagRegex, ownerHash);
+        return Objects.hash(tokenType, issuerHash, notaryX500Name, symbol, tagRegex, ownerHash);
     }
 
     /**
@@ -208,8 +187,8 @@ public final class TokenClaimCriteria {
     @Override
     public String toString() {
         return MessageFormat.format(
-                "TokenClaimCriteria(tokenType={0}, issuerHash={1}, notaryX500Name={2}, symbol={3}, targetAmount={4}, tagRegex={5}, ownerHash={6})",
-                tokenType, issuerHash, notaryX500Name, symbol, targetAmount, tagRegex, ownerHash
+                "TokenBalanceCriteria(tokenType={0}, issuerHash={1}, notaryX500Name={2}, symbol={3}, tagRegex={4}, ownerHash={5})",
+                tokenType, issuerHash, notaryX500Name, symbol, tagRegex, ownerHash
         );
     }
 }
