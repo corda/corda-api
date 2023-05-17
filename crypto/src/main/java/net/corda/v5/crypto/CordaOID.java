@@ -7,9 +7,7 @@ import org.jetbrains.annotations.NotNull;
  * If an OID is incorrectly assigned, it should be marked deprecated and NEVER be reused again.
  */
 public final class CordaOID {
-    private CordaOID() {
-        // this class is never constructed; it exists for the static strings only
-    }
+    private CordaOID() {}
 
     /**
      * An OID root assigned to R3, see

@@ -13,10 +13,10 @@ import java.util.Map;
 
 /**
  * Representation of a vault named query.
- * </p>
+ * <p>
  * Ensure that {@link R} matches the type returned from the {@link VaultNamedQueryTransformer} and/or
- * {@link VaultNamedQueryCollector} (both optional) for the vault named query this object represents.
- * </p>
+ * {@link VaultNamedQueryCollector} (both optional) for the vault named query that this query object executes.
+ * <p>
  * If no {@link VaultNamedQueryTransformer} or {@link VaultNamedQueryCollector} is applied to the vault named query,
  * the {@link ResultSet} from executing this query will contain {@link StateAndRef}s.
  *
@@ -56,6 +56,7 @@ public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
 
     /**
      * Sets the timestamp limit for the query. This will influence which results are returned.
+     *
      * @param timestampLimit The timestamp limit the query should enforce.
      * @return A {@link VaultNamedParameterizedQuery} object with the timestamp limit set.
      */
@@ -63,8 +64,8 @@ public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
     VaultNamedParameterizedQuery<R> setCreatedTimestampLimit(@NotNull Instant timestampLimit);
 
     /**
-     * Executes the {@link VaultNamedParameterizedQuery} and creates a {@link PagedQuery.ResultSet} contains the results
-     * of the query.
+     * Executes the {@link VaultNamedParameterizedQuery} and creates a {@link PagedQuery.ResultSet} containing the
+     * results of the query.
      * <p>
      * The results of the query depends on the executed named query and the {@link VaultNamedQueryTransformer} and/or
      * {@link VaultNamedQueryCollector} (both optional) applied to it.
