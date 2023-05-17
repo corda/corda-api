@@ -12,7 +12,7 @@ public interface ParameterType<T> {
     ParameterTypeLabel getTypeLabel();
 
     /**
-     * @return The expected type of {@link TypedParameterValue} for this {@link ParameterType}
+     * @return The expected type of {@link TypedParameterValue} for this {@link ParameterType}.
      */
     @NotNull
     Class<T> getExpectedType();
