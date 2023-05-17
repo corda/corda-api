@@ -19,7 +19,7 @@ public class TypeQualifier {
      * A {@link TypeQualifier} qualifies a {@link ParameterType} with a versioned identity, which may be linked to a schema
      * or validation rules for that type.
      * @param owner The owner of the type, e.g. "org.corda".
-     * @param name The name of the type, e.g. "platform/tokens/Amount".
+     * @param name The name of the type, for example, "platform/tokens/Amount".
      * @param version The version of the type, e.g. "1.0".
      */
     public TypeQualifier(@NotNull String owner, @NotNull List<String> name, @NotNull String version) {
