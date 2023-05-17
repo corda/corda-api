@@ -33,7 +33,7 @@ public final class FacadeId {
 
     /**
      * A {@link FacadeId} identifies a version of a facade.
-     * @param owner The name of the owner of the facade, e.g. "org.corda".
+     * @param owner The name of the owner of the facade, for example, "org.corda".
      * @param name The name of the facade, e.g. "platform/tokens", expressed as a List of strings.
      * @param version The version identifier of the facade, e.g. "1.0".
      */
