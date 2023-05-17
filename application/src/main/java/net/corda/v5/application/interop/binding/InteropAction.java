@@ -48,7 +48,7 @@ public abstract class InteropAction<T> {
 
         /**
          * The result of an {@link InteropAction} that has been performed by the server.
-         * @param result The {@link #result} value that the server returned
+         * @param result The {@link #result} value that the server returned.
          */
         public ServerResponse(T result) {
             this.result = result;
