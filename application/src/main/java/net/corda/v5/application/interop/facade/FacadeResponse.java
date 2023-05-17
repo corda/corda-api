@@ -17,7 +17,7 @@ public interface FacadeResponse {
     FacadeId getFacadeId();
 
     /**
-     * @return The method that was invoked.
+     * @return Invoked method.
      */
     @NotNull
     String getMethodName();
