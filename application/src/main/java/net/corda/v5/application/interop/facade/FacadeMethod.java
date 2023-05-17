@@ -49,7 +49,7 @@ public interface FacadeMethod {
     FacadeResponse response(TypedParameterValue<?>... parameterValues);
 
     /**
-     * @return facadeId The [FacadeId] of the owning facade.
+     * @return facadeId The {@link FacadeId} of the owning facade.
      */
     @NotNull
     FacadeId getFacadeId();

@@ -14,7 +14,7 @@ public interface TypedParameter<T> {
 
     /**
      * @return The {@link ParameterType} of the parameter which enables calling getExpectedType() utility
-     * to get the primitive type from the ParameterTypeLabel enum, e.g. ParameterTypeLabel.STRING.
+     * to get the primitive type from the ParameterTypeLabel enum, e.g. {@link ParameterTypeLabel}.STRING.
      */
     @NotNull
     ParameterType<T> getType();
