@@ -40,7 +40,7 @@ public final class KeyUtils {
      * X and Y together but not X on its. However, <code>isKeyInSet(C, Z)</code> is true, and Z fulfills C by itself.
      * 
      * @param key       The key being looked for.
-     * @param otherKeys The keys to look the {@code key} in
+     * @param otherKeys The keys searched for the {@code key}.
      * @return True if <code>key</code> is in otherKeys.
      */
     public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
