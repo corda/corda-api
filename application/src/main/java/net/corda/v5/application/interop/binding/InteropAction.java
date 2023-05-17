@@ -8,7 +8,7 @@ import net.corda.v5.application.interop.facade.FacadeResponse;
  * The same type, {@link InteropAction}, is returned by both facade clients and facade servers.
  * Clients return a {@link ClientAction}, representing an interop request to be performed; when {@link #getResult result} is called, the
  * request is carried out and the result obtained.
- * Servers will return a {@link ServerResponse}, wrapping the result value directly.
+ * Servers return a {@link ServerResponse} wrapping the result value directly.
  */
 public abstract class InteropAction<T> {
     /**
