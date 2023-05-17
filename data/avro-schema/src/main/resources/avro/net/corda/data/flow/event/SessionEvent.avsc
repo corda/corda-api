@@ -53,10 +53,16 @@
       "doc": "Sequence number of the last contiguous message received from a counterparty. 0 if no messages received."
     },
     {
-      "name": "partyWaitingForData",
+      "name": "sentMessagesAcknowledged",
       "type": "boolean",
       "default": false,
-      "doc": "True if party is waiting to receive the next message."
+      "doc": "True if all messages sent by a party are acknowledged by a counterparty."
+    },
+    {
+      "name": "waitingForData",
+      "type": "boolean",
+      "default": false,
+      "doc": "True if a party is waiting to receive data from a counterparty."
     },
     {
       "name": "outOfOrderSequenceNums",
