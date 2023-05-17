@@ -27,7 +27,7 @@ public enum ParameterTypeLabel {
     private final Class<?> expectedClass;
 
     /**
-     * @param typeName The name of the primitive type e.g. "string".
+     * @param typeName The name of the primitive type, for example, "string".
      * @param expectedClass The java class of the primitive type, e.g. String.class.
      */
     ParameterTypeLabel(@NotNull String typeName, @NotNull Class<?> expectedClass) {
