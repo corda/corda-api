@@ -23,7 +23,7 @@ public abstract class InteropAction<T> {
 
         /**
          * An interop action that has not yet been carried out, but will be when the caller requests the {@link #getResult result}.
-         * @param request The {@link FacadeRequest} to send to the server
+         * @param request The {@link FacadeRequest} to send to the server.
          * @param processor An object that knows how to send a {@link FacadeRequest} to the server and obtain a {@link FacadeResponse}
          * @param responseInterpreter An object that knows how to translate a {@link FacadeResponse} into the {@link #getResult result} type
          */
