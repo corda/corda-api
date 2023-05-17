@@ -34,7 +34,7 @@ public final class FacadeId {
     /**
      * A {@link FacadeId} identifies a version of a facade.
      * @param owner The name of the owner of the facade, for example, "org.corda".
-     * @param name The name of the facade, e.g. "platform/tokens", expressed as a List of strings.
+     * @param name The name of the facade, for example, "platform/tokens", expressed as a List of strings.
      * @param version The version identifier of the facade, e.g. "1.0".
      */
     public FacadeId(@NotNull String owner, @NotNull List<String> name, @NotNull String version) {
