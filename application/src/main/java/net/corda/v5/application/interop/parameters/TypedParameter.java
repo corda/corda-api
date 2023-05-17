@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public interface TypedParameter<T> {
     /**
-     * @return The name of the parameter, e.g. "amount".
+     * @return The name of the parameter, for example, "amount".
      */
     @NotNull
     String getName();
