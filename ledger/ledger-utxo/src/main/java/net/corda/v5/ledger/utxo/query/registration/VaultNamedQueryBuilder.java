@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo.query.registration;
 
+import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFilter;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer;
@@ -12,8 +13,12 @@ import org.jetbrains.annotations.NotNull;
  * later on.
  */
 public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
+
     /**
      * Sets the where clause of the named query.
+     * <p>
+     * Vault named queries defined with {@link #whereJson(String)} return {@link StateAndRef}s when executed.
+     *
      * @param query The JSON query representation.
      *
      * @return A builder instance with the where clause set.
@@ -23,6 +28,7 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
 
     /**
      * Sets the filter function of the named query.
+     * <p>
      * Note that filtering will always be applied before mapping.
      *
      * @param filter A filter object.
@@ -33,6 +39,7 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
 
     /**
      * Sets the mapper function of the named query.
+     * <p>
      * Note that the transformation will always be applied after filtering.
      *
      * @param transformer A transformer object.
@@ -43,6 +50,7 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
 
     /**
      * Sets the collector function of the named query.
+     *
      * @param collector A collector object.
      *
      * @return A builder instance with the collector function set.
