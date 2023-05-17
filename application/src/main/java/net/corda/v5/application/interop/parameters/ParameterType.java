@@ -24,7 +24,7 @@ public interface ParameterType<T> {
 
     /**
      * @return The qualifier which assigns the ParameterType with a versioned identity,
-     * expected to return null in case of a raw parameter type
+     * expected to return null in case of a raw parameter type.
      */
     TypeQualifier getQualifier();
 
