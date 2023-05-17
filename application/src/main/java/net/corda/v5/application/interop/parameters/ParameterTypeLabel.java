@@ -46,7 +46,7 @@ public enum ParameterTypeLabel {
     }
 
     /**
-     * @param rawTypeName The string name of the raw parameter type
+     * @param rawTypeName The string name of the raw parameter type.
      * @return The raw parameter type.
      */
     public static ParameterTypeLabel parse(String rawTypeName) {
