@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface FacadeResponse {
     /**
-     * @return The id of the facade to which the method belongs.
+     * @return The ID of the facade to which the method belongs.
      */
     @NotNull
     FacadeId getFacadeId();
