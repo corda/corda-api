@@ -7,21 +7,21 @@ import org.jetbrains.annotations.NotNull;
  */
 public interface TypedParameter<T> {
     /**
-     * @return The name of the parameter, e.g. "amount".
+     * @return The name of the parameter, for example, "amount".
      */
     @NotNull
     String getName();
 
     /**
      * @return The {@link ParameterType} of the parameter which enables calling getExpectedType() utility
-     * to get the primitive type from the ParameterTypeLabel enum, e.g. {@link ParameterTypeLabel}.STRING.
+     * to get the primitive type from the ParameterTypeLabel enum, for example, {@link ParameterTypeLabel}.STRING.
      */
     @NotNull
     ParameterType<T> getType();
 
     /**
-     * @param value The value of the parameter
-     * @return Parameter converted to {@link TypedParameterValue}
+     * @param value The value of the parameter.
+     * @return Parameter converted to {@link TypedParameterValue}.
      */
     @NotNull
     TypedParameterValue<T> of(T value);

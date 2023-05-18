@@ -14,7 +14,7 @@ import java.util.Map;
 public interface Facade {
 
     /**
-     * @return The name of the facade, e.g. "org.corda.interop/platform/tokens/1.0".
+     * @return The name of the facade, for example, "org.corda.interop/platform/tokens/1.0".
      */
     @NotNull
     FacadeId getFacadeId();

@@ -22,7 +22,7 @@ public enum ParameterTypeLabel {
     private final Class<?> expectedClass;
 
     /**
-     * @param expectedClass The java class of the primitive type, e.g. String.class.
+     * @param expectedClass The java class of the primitive type, for example, "String.class".
      */
     ParameterTypeLabel(@NotNull Class<?> expectedClass) {
         this.expectedClass = expectedClass;
@@ -34,7 +34,7 @@ public enum ParameterTypeLabel {
     }
 
     /**
-     * @param rawTypeName The string name of the raw parameter type
+     * @param rawTypeName The string name of the raw parameter type.
      * @return The raw parameter type.
      */
     public static ParameterTypeLabel parse(String rawTypeName) {

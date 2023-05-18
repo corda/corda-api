@@ -11,13 +11,13 @@ import java.util.List;
  */
 public interface FacadeResponse {
     /**
-     * @return The id of the facade to which the method belongs.
+     * @return The ID of the facade to which the method belongs.
      */
     @NotNull
     FacadeId getFacadeId();
 
     /**
-     * @return The method that was invoked.
+     * @return Invoked method.
      */
     @NotNull
     String getMethodName();
