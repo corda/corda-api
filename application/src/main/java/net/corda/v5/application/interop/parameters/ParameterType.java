@@ -37,6 +37,6 @@ public interface ParameterType<T> {
      * @return The name of the raw parameter type.
      */
     default String getTypeName() {
-        return getTypeLabel().getTypeName();
+        return getTypeLabel().name();
     }
 }
