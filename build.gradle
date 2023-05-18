@@ -341,10 +341,15 @@ tasks.register('generateMultiModuleDocs', Zip) {
     description = 'Create mutli module docs Site Jar'
     group = 'documentation'
 
-    dependsOn dokkaHtmlMultiModule
+    dependsOn dokkaJavadocCollector
     archiveFileName = "corda-api-docs-${project.version}.zip"
-    from(dokkaHtmlMultiModule.outputDirectory)
+    from("${buildDir}/dokka/javadocCollector")
     destinationDirectory = (file("$buildDir/corda-api-docs"))
+
+}
+
+tasks.named('dokkaJavadocCollector') {
+    dependsOn ':data:avro-schema:generateAvro', 'data:avro-schema:generateOSGiPackageInfo'
 }
 
 if (project.hasProperty('publishMultiModulekDocs')) {
