@@ -8,8 +8,6 @@ import org.jetbrains.annotations.NotNull;
  * The main interface that needs to be implemented by the named ledger queries. Implementing this interface will define how
  * the named query will be built and stored.
  *
- * @see ContractStateVaultJsonFactory to define how a given state type will be represented as a JSON string.
- *
  * <p>
  * Example usage:
  * <ul>
@@ -51,12 +49,10 @@ import org.jetbrains.annotations.NotNull;
  * }
  * }</pre></li></ul>
  *
- * For more details on how to use filters, mappers and collectors, refer to the following documentation:
- * <ul>
- * <li> For filters, see {@link VaultNamedQueryFilter}. </li>
- * <li> For mappers, see {@link VaultNamedQueryTransformer}. </li>
- * <li> For collectors, see {@link VaultNamedQueryCollector}. </li>
- * </ul>
+ * @see ContractStateVaultJsonFactory To define how a given state type will be represented as a JSON string
+ * @see VaultNamedQueryFilter
+ * @see VaultNamedQueryTransformer
+ * @see VaultNamedQueryCollector
  */
 public interface VaultNamedQueryFactory {
     void create(@NotNull VaultNamedQueryBuilderFactory vaultNamedQueryBuilderFactory);
