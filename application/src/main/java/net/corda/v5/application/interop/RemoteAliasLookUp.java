@@ -13,10 +13,10 @@ public interface RemoteAliasLookUp {
 
     /**
      * @param x500Name The x500Name of alias identity.
-     * @param cpiName The cpi name of alias identity.
-     * @return The {@link AliasMemberInfo} representing the alias member info for given alias x500name and cpi name.
+     * @param hostNetwork The host network of alias identity.
+     * @return The {@link AliasMemberInfo} representing the alias member info for given alias x500name and host network.
      */
-    AliasMemberInfo lookup(String x500Name, String cpiName);
+    AliasMemberInfo lookup(String x500Name, String hostNetwork);
 
     /**
      * @param facadeId The facadeId of the facade.

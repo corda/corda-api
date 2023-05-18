@@ -20,7 +20,7 @@ public interface AliasMemberInfo {
      * @return The {@link String} representing the cpi name.
      */
     @NotNull
-    String getCpiName();
+    String getHostNetwork();
 
     /**
      * @return The {@link String} representing the unique identifier for the alias member.
