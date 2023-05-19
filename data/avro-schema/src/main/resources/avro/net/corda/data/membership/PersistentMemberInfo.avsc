@@ -11,15 +11,19 @@
     },
     {
       "name": "memberContext",
-      "doc": "Member provided data in MemberInfo.",
-      //"type": ["net.corda.data.KeyValuePairList", "bytes"]
-      "type": "bytes"
+      "doc": "Deprecated field, signedData should be used instead. Member provided data in MemberInfo.",
+      "type": "net.corda.data.KeyValuePairList"
     },
     {
       "name": "mgmContext",
-      "doc": "MGM provided data in MemberInfo.",
-      //"type": ["net.corda.data.KeyValuePairList", "bytes"]
-      "type": "bytes"
+      "doc": "Deprecated field, signedData should be used instead. MGM provided data in MemberInfo.",
+      "type": "net.corda.data.KeyValuePairList"
+    },
+    {
+      "name": "signedData",
+      "doc": "The original byte data part which was signed.",
+      "type": ["null", "net.corda.data.membership.SignedContexts"],
+      "default": null
     }
   ]
 }
