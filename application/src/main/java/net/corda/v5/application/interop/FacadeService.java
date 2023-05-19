@@ -3,6 +3,7 @@ package net.corda.v5.application.interop;
 import net.corda.v5.application.interop.facade.Facade;
 import net.corda.v5.application.interop.facade.FacadeRequest;
 import net.corda.v5.application.interop.facade.FacadeResponse;
+import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.types.MemberX500Name;
 
 /**
@@ -21,6 +22,7 @@ public interface FacadeService {
      * @return An instance of Java Dynamic Proxy implementing a given interface. Any method invocation on this
      *    instance invokes a Facade method on a peer Identity denoted by an <code>alias</code> from an <code>interopGroup</code>.
      */
+    @Suspendable
     <T> T getFacade(String facadeId, Class<T> expectedType, MemberX500Name alias, String interopGroup);
 
     /**
@@ -29,5 +31,6 @@ public interface FacadeService {
      * @param request The string with the request conforming {@link FacadeRequest} format.
      * @return The result of processing a Facade Request, the returned string conforms {@link FacadeResponse} format.
      */
+    @Suspendable
     String dispatchFacadeRequest(Object target, String request);
 }
