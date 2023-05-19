@@ -6,13 +6,25 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * A {@link FacadeResponse} is a response to a {@link FacadeRequest} to invoke a {@link FacadeMethod} on a {@link Facade}.
+ */
 public interface FacadeResponse {
+    /**
+     * @return The ID of the facade to which the method belongs.
+     */
     @NotNull
     FacadeId getFacadeId();
 
+    /**
+     * @return Invoked method.
+     */
     @NotNull
     String getMethodName();
 
+    /**
+     * @return The values of the out parameters of the method.
+     */
     @NotNull
     List<TypedParameterValue<?>> getOutParameters();
 
