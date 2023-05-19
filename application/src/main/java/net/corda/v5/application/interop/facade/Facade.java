@@ -6,14 +6,28 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A {@link Facade} is a shared abstraction used by interoperating Corda agents.
+ * It is a collection of {@link FacadeMethod}s that can be invoked from a flow.
+ * It comes in the form of a text file with minimal semantics containing list of methods with parameters and returned values.
+ */
 public interface Facade {
 
+    /**
+     * @return The name of the facade, for example, "org.corda.interop/platform/tokens/1.0".
+     */
     @NotNull
     FacadeId getFacadeId();
 
+    /**
+     * @return The methods that can be invoked on the facade.
+     */
     @NotNull
     List<FacadeMethod> getMethods();
 
+    /**
+     * @return The facade methods with a given string name that can be invoked on the facade.
+     */
     @NotNull
     Map<String, FacadeMethod> getMethodsByName();
 

@@ -6,30 +6,26 @@ import java.nio.ByteBuffer;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 
-//TODO Investigate if typeName can be dropped
+/**
+ * Enum defining the possible primitive types for parameters.
+ */
 public enum ParameterTypeLabel {
-    BOOLEAN("boolean", Boolean.class),
-    STRING("string", String.class),
-    DECIMAL("decimal", BigDecimal.class),
-    UUID("uuid", java.util.UUID.class),
-    TIMESTAMP("timestamp", ZonedDateTime.class),
-    BYTES("bytes", ByteBuffer.class),
-    JSON("json", String.class);
-
-    @NotNull
-    private final String typeName;
+    BOOLEAN(Boolean.class),
+    STRING(String.class),
+    DECIMAL(BigDecimal.class),
+    UUID(java.util.UUID.class),
+    TIMESTAMP(ZonedDateTime.class),
+    BYTES(ByteBuffer.class),
+    JSON(String.class);
 
     @NotNull
     private final Class<?> expectedClass;
 
-    ParameterTypeLabel(@NotNull String typeName, @NotNull Class<?> expectedClass) {
-        this.typeName = typeName;
+    /**
+     * @param expectedClass The java class of the primitive type, for example, "String.class".
+     */
+    ParameterTypeLabel(@NotNull Class<?> expectedClass) {
         this.expectedClass = expectedClass;
-    }
-
-    @NotNull
-    public String getTypeName() {
-        return typeName;
     }
 
     @NotNull
@@ -37,8 +33,12 @@ public enum ParameterTypeLabel {
         return expectedClass;
     }
 
+    /**
+     * @param rawTypeName The string name of the raw parameter type.
+     * @return The raw parameter type.
+     */
     public static ParameterTypeLabel parse(String rawTypeName) {
-        return Arrays.stream(values()).filter((v) -> v.typeName.equals(rawTypeName))
+        return Arrays.stream(values()).filter((v) -> v.name().equals(rawTypeName))
                 .findFirst()
                 .orElseThrow(() ->
                         new IllegalArgumentException("Invalid raw parameter type: " + rawTypeName + " - must be one of " +

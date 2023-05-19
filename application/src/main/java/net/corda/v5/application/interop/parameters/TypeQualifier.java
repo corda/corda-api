@@ -16,10 +16,10 @@ public class TypeQualifier {
     private final String version;
 
     /**
-     * A [TypeQualifier] qualifies a [ParameterType] with a versioned identity, which may be linked to a schema
+     * A {@link TypeQualifier} qualifies a {@link ParameterType} with a versioned identity, which may be linked to a schema
      * or validation rules for that type.
-     * @param owner The owner of the type, e.g. "org.corda".
-     * @param name The name of the type, e.g. "platform/tokens/Amount".
+     * @param owner The owner of the type, for example, "org.corda".
+     * @param name The name of the type, for example, "platform/tokens/Amount".
      * @param version The version of the type, e.g. "1.0".
      */
     public TypeQualifier(@NotNull String owner, @NotNull List<String> name, @NotNull String version) {
@@ -61,8 +61,8 @@ public class TypeQualifier {
     }
 
     /**
-     * Construct a [TypeQualifier] from a string of the form "org.owner/hierarchical/name/version".
-     * @param qualifierString The string to build a [TypeQualifier] from.
+     * Construct a {@link TypeQualifier} from a string of the form "org.owner/hierarchical/name/version".
+     * @param qualifierString The string to build a {@link TypeQualifier} from.
      */
     public static TypeQualifier of(String qualifierString) {
         List<String> parts = List.of(qualifierString.split("/"));
