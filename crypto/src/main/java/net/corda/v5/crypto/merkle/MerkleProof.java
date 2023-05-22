@@ -20,17 +20,25 @@ import java.util.List;
 public interface MerkleProof {
 
     /**
-     * Get the type of the proof.
-     *
-     * @return Type of the proof.
+     * Returns the type of the proof.
      */
     @NotNull
     MerkleProofType getProofType();
 
+    /**
+     * Returns the size of the {@link MerkleTree} out of which this proof was created.
+     */
     int getTreeSize();
 
+    /**
+     * Returns disclosed plain data of a {@link MerkleTree} which are to be verified that
+     * they are indeed part of a {@code MerkleTree}.
+     */
     List<IndexedMerkleLeaf> getLeaves();
 
+    /**
+     * Returns the hashed intermediate node data supplementing the plain data.
+     */
     List<SecureHash> getHashes();
 
     /**
