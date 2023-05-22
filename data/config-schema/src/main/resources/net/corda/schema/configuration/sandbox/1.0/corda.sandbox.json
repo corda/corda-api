@@ -4,19 +4,22 @@
   "title": "Corda Sandbox Configuration Schema",
   "description": "Configuration schema for the sandbox section.",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "flow": {
-      "description": "Settings for flow sandbox",
+      "description": "Settings for the flow sandbox.",
       "type": "object",
       "default": {},
+      "additionalProperties": false,
       "properties": {
         "cache": {
-          "description": "Settings for flow sandbox caching",
+          "description": "Settings for flow sandbox caching.",
           "type": "object",
           "default": {},
+          "additionalProperties": false,
           "properties": {
             "size": {
-              "description": "The maximum number cached flow sandboxes.",
+              "description": "The maximum number of cached flow sandboxes.",
               "type": "integer",
               "minimum": 0,
               "default": 10
@@ -26,17 +29,19 @@
       }
     },
     "persistence": {
-      "description": "Settings for db sandbox",
+      "description": "Settings for the database sandbox.",
       "type": "object",
       "default": {},
+      "additionalProperties": false,
       "properties": {
         "cache": {
-          "description": "Settings for db sandbox caching",
+          "description": "Settings for database sandbox caching.",
           "type": "object",
           "default": {},
+          "additionalProperties": false,
           "properties": {
             "size": {
-              "description": "The maximum number cached db sandboxes.",
+              "description": "The maximum number of cached database sandboxes.",
               "type": "integer",
               "minimum": 0,
               "default": 10
@@ -46,14 +51,16 @@
       }
     },
     "verification": {
-      "description": "Settings for verification sandbox",
+      "description": "Settings for the verification sandbox.",
       "type": "object",
       "default": {},
+      "additionalProperties": false,
       "properties": {
         "cache": {
           "description": "Settings for verification sandbox caching.",
           "type": "object",
           "default": {},
+          "additionalProperties": false,
           "properties": {
             "size": {
               "description": "The maximum number of cached verification sandboxes.",

@@ -14,18 +14,13 @@
     },
     {
       "name": "memberContext",
-      "doc": "Member provided data in MemberInfo serialised as byte array by using KeyValuePairList.",
-      "type": "bytes"
+      "doc": "Member provided data in MemberInfo which has been signed by the registering member. The data must be a serialised KeyValuePairList.",
+      "type": "net.corda.data.membership.SignedData"
     },
     {
-      "name": "memberSignature",
-      "doc": "Signature of the member over the memberContext.",
-      "type": "net.corda.data.crypto.wire.CryptoSignatureWithKey"
-    },
-    {
-      "name": "memberSignatureSpec",
-      "type": "net.corda.data.crypto.wire.CryptoSignatureSpec",
-      "doc": "Signature spec of member signature."
+      "name": "registrationContext",
+      "doc": "Additional registration context which has been signed by the registering member and is not part of the MemberInfo. The data must be a serialised KeyValuePairList.",
+      "type": "net.corda.data.membership.SignedData"
     },
     {
       "name": "serial",

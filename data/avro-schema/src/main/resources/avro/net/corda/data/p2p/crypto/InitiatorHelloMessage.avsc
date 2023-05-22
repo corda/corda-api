@@ -12,13 +12,6 @@
       "type": "bytes"
     },
     {
-      "name": "supportedModes",
-      "type": {
-        "type": "array",
-        "items": "net.corda.data.p2p.crypto.ProtocolMode"
-      }
-    },
-    {
       "name": "source",
       "type": "net.corda.data.p2p.crypto.internal.InitiatorHandshakeIdentity"
     }

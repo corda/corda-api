@@ -73,16 +73,28 @@
             <column name="last_modified" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="context" type="VARBINARY(1048576)">
+            <column name="member_context" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="signature_key" type="VARBINARY(1024)">
+            <column name="member_context_signature_key" type="VARBINARY(1024)">
                 <constraints nullable="false"/>
             </column>
-            <column name="signature_content" type="VARBINARY(4096)">
+            <column name="member_context_signature_content" type="VARBINARY(4096)">
                 <constraints nullable="false"/>
             </column>
-            <column name="signature_spec" type="NVARCHAR(255)">
+            <column name="member_context_signature_spec" type="NVARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_context" type="VARBINARY(1048576)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_context_signature_key" type="VARBINARY(1024)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_context_signature_content" type="VARBINARY(4096)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_context_signature_spec" type="NVARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="reason" type="NVARCHAR(255)">

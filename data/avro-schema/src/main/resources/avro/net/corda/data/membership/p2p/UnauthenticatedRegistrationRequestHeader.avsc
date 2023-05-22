@@ -5,6 +5,11 @@
   "doc": "Registration request header containing information required for hybrid encryption/decryption.",
   "fields": [
     {
+      "name": "mgm",
+      "doc": "Holding identity of the target MGM.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
       "name": "salt",
       "doc": "Salt value as bytes that needs to be used for encryption/decryption.",
       "type": "bytes"
