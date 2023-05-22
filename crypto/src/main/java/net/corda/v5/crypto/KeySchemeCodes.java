@@ -2,6 +2,9 @@ package net.corda.v5.crypto;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Key schemes used in Corda for signing and key derivation.
+ */
 public final class KeySchemeCodes {
     private KeySchemeCodes() {}
 

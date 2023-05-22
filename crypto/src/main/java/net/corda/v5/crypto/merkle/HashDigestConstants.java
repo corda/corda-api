@@ -6,9 +6,7 @@ import org.jetbrains.annotations.NotNull;
  * An implementation of RFC6962 compatible merkle tree.
  */
 public final class HashDigestConstants {
-    private HashDigestConstants() {
-        // No construction allowed; this class exists to contain its static string properties. 
-    }
+    private HashDigestConstants() {}
 
     @NotNull
     public static final String HASH_DIGEST_PROVIDER_DEFAULT_NAME = "DefaultHashDigestProvider";
