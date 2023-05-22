@@ -2,6 +2,7 @@ package net.corda.v5.ledger.utxo.token.selection;
 
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,7 +46,7 @@ public final class TokenClaimCriteria {
     private final BigDecimal targetAmount;
 
     /**
-     * An optional regular expression to match against the {@link ClaimedToken#getTag()} field, or null to match all tags.
+     * An optional regular expression to match against the {@link UtxoTokenFilterFields#getTag()} field, or null to match all tags.
      */
     @Nullable
     private String tagRegex;
@@ -129,9 +130,9 @@ public final class TokenClaimCriteria {
     }
 
     /**
-     * Gets an optional regular expression to match against the {@link ClaimedToken#getTag()} field, or null to match all tags.
+     * Gets an optional regular expression to match against the {@link UtxoTokenFilterFields#getTag()} field, or null to match all tags.
      *
-     * @return Returns an optional regular expression to match against the ClaimedToken.tag field, or null to match all tags.
+     * @return Returns an optional regular expression to match against the UtxoTokenFilterFields.tag field, or null to match all tags.
      */
     @Nullable
     public String getTagRegex() {
@@ -139,7 +140,7 @@ public final class TokenClaimCriteria {
     }
 
     /**
-     * Sets an optional regular expression to match against the {@link ClaimedToken#getTag()} field, or null to match all tags.
+     * Sets an optional regular expression to match against the {@link UtxoTokenFilterFields#getTag()} field, or null to match all tags.
      */
     public void setTagRegex(@Nullable final String tagRegex) {
         this.tagRegex = tagRegex;

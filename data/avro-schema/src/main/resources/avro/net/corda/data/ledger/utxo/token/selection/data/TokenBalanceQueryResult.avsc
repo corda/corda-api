@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "TokenBalanceQueryResult",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
+  "doc": "Represents the result of a claim query, sent back to the flow",
+  "fields": [
+    {
+      "name": "poolKey",
+      "type": "net.corda.data.ledger.utxo.token.selection.key.TokenPoolCacheKey",
+      "doc": "Key of the pool of the tokens that was used to calculate the balance"
+    },
+    {
+      "name": "availableBalance",
+      "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
+      "doc": "The balance of tokens that have not been spent nor claimed"
+    },
+    {
+      "name": "totalBalance",
+      "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
+      "doc": "The available balance plus the balance of claimed tokens"
+    }
+  ]
+}
