@@ -10,4 +10,5 @@ public final class DatabaseConfig {
     public static final String JDBC_DRIVER_DIRECTORY = "database.jdbc.directory";
     public static final String JDBC_URL = "database.jdbc.url";
     public static final String DB_POOL_MAX_SIZE = "database.pool.max_size";
+    public static final String DB_POOL_MIN_SIZE = "database.pool.min_size";
 }
