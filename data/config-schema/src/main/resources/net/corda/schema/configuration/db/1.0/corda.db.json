@@ -53,7 +53,7 @@
               "default": 10
             },
             "min_size": {
-              "description": "The minimum database pool size.",
+              "description": "The minimum database pool size. If left null will default to the `max_size` value.",
               "default": null,
               "anyOf": [
                 {
