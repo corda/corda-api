@@ -6,11 +6,12 @@ import java.security.PublicKey;
 import java.util.Collections;
 import java.util.Set;
 
+/**
+ * Helper functions for key look up in a set of keys. These functions also work when the key to look up in the
+ * set of keys is {@link CompositeKey}.
+ */
 public final class KeyUtils {
-
-    private KeyUtils() {
-        // this class is never constructed; it exists for the static methods and data only
-    }
+    private KeyUtils() {}
 
     /**
      * Checks whether <code>key</code> has any intersection with the keys in <code>otherKeys</code>, 
@@ -21,7 +22,7 @@ public final class KeyUtils {
      * second argument. If <code>key</code> is a compound key, the outcome is whether any of its leaf keys
      * are in <code>otherKeys</code>.
      * {@link PublicKey}.
-     *
+     * <p/>
      * This function checks against compound key tree leaves, which by definition are not {@link CompositeKey}.
      * That is why if any of the <code>otherKeys</code> is a {@link CompositeKey}, this function will not 
      * find a match, though composite keys in the <code>otherKeys</code> set is not regarded as an error; they
@@ -29,7 +30,7 @@ public final class KeyUtils {
      * <p/>
      * The notion of a key being in a set is about equality, which is not the same as whether one key is 
      * fulfilled by another key. For example, a {@link CompositeKey} C could be defined to have threshold 2 and:
-     * </p>
+     * <p/>
      * <ul>
      *     <li> Public key X with weight 1 </li>
      *     <li> Public key Y with weight 1 </li>
@@ -38,8 +39,8 @@ public final class KeyUtils {
      * Then we would find that <code>isKeyInSet(C, X)</code> is true, but X would not fulfill C since C is fulfilled by
      * X and Y together but not X on its. However, <code>isKeyInSet(C, Z)</code> is true, and Z fulfills C by itself.
      * 
-     * @param key       The key being checked for.
-     * @param otherKeys An {@link Iterable} sequence of {@link PublicKey}.
+     * @param key       The key being looked for.
+     * @param otherKeys The keys searched for the {@code key}.
      * @return True if <code>key</code> is in otherKeys.
      */
     public static boolean isKeyInSet(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
@@ -71,8 +72,8 @@ public final class KeyUtils {
      * check fulfilment against a set of keys, without having to handle simple and composite keys separately (that is, this is
      * polymorphic).
      * 
-     * @param key  The key with the requirements.
-     * @param otherKeys The key to check whether requirements are fulfilled.
+     * @param key  The key to be checked whether it is being fulfilled by {@code otherKeys}.
+     * @param otherKeys The keys against which the {@code key} is being checked for fulfilment.
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull Set<PublicKey> otherKeys) {
         if (key instanceof CompositeKey) {
@@ -86,12 +87,12 @@ public final class KeyUtils {
      * Return true if one key fulfills the requirements of another key. See the previous variant; this overload
      * is the same as calling as the variant that takes an iterable set of other keys with <code>otherKey<code>
      * as a single element iterable. 
-     * 
+     * <p>
      * Since we do not define composite keys as acceptable on the second argument of this function, this relation
      * is not reflexive, not symmetric and not transitive. 
      *
-     * @param key The key with the requirements.
-     * @param otherKey The key to check whether requirements are fulfilled.
+     * @param key The key to be checked whether it is being fulfilled by {@code otherKey}.
+     * @param otherKey The key against which the {@code key} is being checked for fulfilment.
      */
     public static boolean isKeyFulfilledBy(@NotNull PublicKey key, @NotNull PublicKey otherKey) {
         return isKeyFulfilledBy(key,

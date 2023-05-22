@@ -16,6 +16,10 @@
           "items": "string"
         }
       ]
+    },
+    {
+      "name": "selectedMode",
+      "type": "net.corda.data.p2p.crypto.ProtocolMode"
     }
   ]
 }

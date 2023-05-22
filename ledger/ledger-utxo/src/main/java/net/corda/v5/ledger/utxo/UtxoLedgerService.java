@@ -1,9 +1,12 @@
 package net.corda.v5.ledger.utxo;
 
 import net.corda.v5.application.messaging.FlowSession;
+import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
+import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
@@ -129,27 +132,31 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Sends a transaction builder to another session, then it waits for other side to propose transaction builder components,
-     * then applies the proposed components to a copy of the original builder and returns that new builder.
+     * Sends a transaction builder to another session, waits for the other side to propose transaction builder components, applies
+     * the proposed components to a copy of the original builder, and returns that new builder.
      * <p>
-     * It supports similar workflows:
+     * It supports similar workflows to the following:
+     * <p>
      * Initiator:
-     * <p>
+     * <pre>{@code
      * val updatedTxBuilder = utxoLedgerService.sendAndReceiveTransactionBuilder(txBuilder, session)
+     * }</pre>
      * <p>
      * The notary and time window from the proposal will get discarded and the original will be kept if both the original and
-     * the proposal have these components set. Also, all duplications will be discarded.
+     * the proposal have these components set.
+     * Duplications of input staterefs, reference staterefs, attachments and signatories will be discarded.
      * <p>
      * Receiver:
-     * <p>
+     * <pre>{@code
      * val proposedTxBuilder = utxoLedgerService.receiveTransactionBuilder(session)
      * proposedTxBuilder.add...(...)
      * proposedTxBuilder.add...(...)
      * proposedTxBuilder.add...(...)
      * utxoLedgerService.replyTransactionBuilderProposal(proposedTxBuilder, session)
+     * }</pre>
      *
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
-     * @param session The receiver {@link FlowSession]}.
+     * @param session The receiver {@link FlowSession}.
      *
      * @return A new merged builder of the original and proposed components.
      */
@@ -163,7 +170,7 @@ public interface UtxoLedgerService {
     /**
      * Receives a transaction builder from another session.
      *
-     * @param session The {@link FlowSession] to receive the {@link UtxoTransactionBuilder} from.
+     * @param session The {@link FlowSession} to receive the {@link UtxoTransactionBuilder} from.
      */
     @NotNull
     @Suspendable
@@ -172,10 +179,11 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Sends the differences of transaction builders to another session with all dependent back chains.
+     * Sends the difference between the current transaction builder and the originally received one to another session
+     * with all dependent back chains.
      * It works only with {@link UtxoTransactionBuilder}s created from {@link #receiveTransactionBuilder(FlowSession)}
-     * which track the differences internally.
-     * If it is called with anything else, it throws [InvalidParameterException].
+     * which tracks the differences internally.
+     * If it is called with anything else, it throws InvalidParameterException.
      * <p>
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
      * @param session The receiver {@link FlowSession}.
@@ -185,4 +193,64 @@ public interface UtxoLedgerService {
             @NotNull UtxoTransactionBuilder transactionBuilder,
             @NotNull FlowSession session
     );
+
+
+    /**
+     * Creates a query object for a vault named query with the given name. This query can be executed later by calling
+     * {@link PagedQuery#execute()}.
+     * <p>
+     * The vault named queries executed by this method must be defined within a {@link VaultNamedQueryFactory}.
+     * <p>
+     * Example usage:
+     * <ul>
+     * <li>Kotlin:<pre>{@code
+     * val query = utxoLedgerService.query("FIND_BY_TEST_FIELD", Int::class.java)
+     *     .setParameter("testField", "value")
+     *     .setParameter("participants", listOf("something"))
+     *     .setParameter("contractStateType", ContractState::class.java.name)
+     *     .setParameter("in-memory-filter-parameter", "parameter")
+     *     .setCreatedTimestampLimit(Instant.now())
+     *     .setOffset(0)
+     *     .setLimit(100)
+     *
+     * val resultSet = query.execute()
+     *
+     * processResultsWithApplicationLogic(resultSet.results)
+     *
+     * while (resultSet.hasNext()) {
+     *     val results = resultSet.next()
+     *     processResultsWithApplicationLogic(results)
+     * }
+     * }</pre></li>
+     * <li>Java:<pre>{@code
+     * ParameterizedQuery<Integer> query = utxoLedgerService.query("FIND_BY_TEST_FIELD", Integer.class)
+     *         .setParameter("testField", "value")
+     *         .setParameter("participants", List.of("something"))
+     *         .setParameter("contractStateType", ContractState.class.getName())
+     *         .setParameter("in-memory-filter-parameter", "parameter")
+     *         .setTimestampLimit(Instant.now())
+     *         .setOffset(0)
+     *         .setLimit(100);
+     *
+     * PagedQuery.ResultSet<Integer> resultSet = query.execute();
+     *
+     * processResultsWithApplicationLogic(resultSet.getResults());
+     *
+     * while (resultSet.hasNext()) {
+     *     List<Integer> results = resultSet.next();
+     *     processResultsWithApplicationLogic(results);
+     * }
+     * }</pre></li>
+     *
+     * @param queryName The name of the named ledger query to use.
+     * @param resultClass Type that the query should return when executed.
+     *
+     * @return A {@link VaultNamedParameterizedQuery} query object that can be executed or modified further on.
+     *
+     * @see VaultNamedParameterizedQuery
+     * @see PagedQuery.ResultSet
+     * @see VaultNamedQueryFactory
+     */
+    @Suspendable
+    @NotNull <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
 }

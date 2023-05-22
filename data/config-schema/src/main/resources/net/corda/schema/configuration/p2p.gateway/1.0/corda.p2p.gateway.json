@@ -8,7 +8,7 @@
     "serversConfiguration": {
       "type": "array",
       "minItems": 1,
-      "description": "The HTTP servers. The hostAddress and hostPort pair must be unique for each server.",
+      "description": "A list of HTTP servers that Corda listens to. The list is specified as an array of hostAddress, hostPort, and urlPath values. The hostAddress and hostPort pair must be unique for each server.",
       "default": [{
         "hostAddress": "0.0.0.0",
         "hostPort": 8080,

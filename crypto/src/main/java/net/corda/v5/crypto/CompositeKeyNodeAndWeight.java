@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
 
-
 /**
  * A simple data class for passing keys and weights into <code>CompositeKeyGenerator</code>.
  */
@@ -13,7 +12,8 @@ public final class CompositeKeyNodeAndWeight {
     private final int weight;
 
     /**
-     * Construct a key.
+     * Creates a new {@code CompositeKeyNodeAndWeight} for
+     * the specified key and weight for the key.
      *
      * @param node   A public key.
      * @param weight The weight for that key, must be greater than zero.
@@ -25,15 +25,27 @@ public final class CompositeKeyNodeAndWeight {
         this.weight = weight;
     }
 
+    /**
+     * Creates a new {@code CompositeKeyNodeAndWeight} for
+     * the specified key, defaulting the key's weight to 1.
+     *
+     * @param node  A public key.
+     */
     public CompositeKeyNodeAndWeight(@NotNull PublicKey node) {
         this(node, 1);
     }
 
+    /**
+     * @return The key of the {@code CompositeKeyNodeAndWeight}.
+     */
     @NotNull
     public PublicKey getNode() {
         return this.node;
     }
 
+    /**
+     * @return The weight of the key.
+     */
     public int getWeight() {
         return this.weight;
     }
