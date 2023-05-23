@@ -3,4 +3,5 @@
 
 cordaApiCompatibilityCheck(
     corda5End2EndBranch: 'feature/mgm-re-registration',
+    cordaNonFunctionalTest: 'feature/mgm-re-registration',
 )
