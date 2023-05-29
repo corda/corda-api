@@ -5,27 +5,23 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * <p>This interface represents the alias member details like x500name, facadeIds etc.
+ * <p>This interface represents the alias member details like Application Name, facadeIds etc.
  *
  */
 @CordaSerializable
-public interface AliasMemberInfo {
+public interface InterOpIdentityInfo {
     /**
-     * @return The {@link String} representing the X500Name of the alias member.
+     * @return The {@link String} identifier for the InterOp Identity.
+     */
+    @NotNull
+    String applicationName();
+
+    /**
+     * @return The {@link String} of the Identities X500.
      */
     @NotNull
     String getX500Name();
 
-    /**
-     * @return The {@link String} representing the cpi name.
-     */
-    @NotNull
-    String getHostNetwork();
-
-    /**
-     * @return The {@link String} representing the unique identifier for the alias member.
-     */
-    String getIdentifier();
 
     /**
      * @return The {@link List<String>} representing the list of facade ids.

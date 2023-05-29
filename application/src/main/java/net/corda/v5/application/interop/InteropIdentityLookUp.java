@@ -1,7 +1,8 @@
 package net.corda.v5.application.interop;
 
+import net.corda.v5.application.interop.facade.FacadeId;
 import net.corda.v5.base.annotations.DoNotImplement;
-import net.corda.v5.interop.AliasMemberInfo;
+import net.corda.v5.interop.InterOpIdentityInfo;
 import java.util.List;
 
 /**
@@ -9,18 +10,18 @@ import java.util.List;
  *
  */
 @DoNotImplement
-public interface RemoteAliasLookUp {
+public interface InteropIdentityLookUp {
 
     /**
      * @param x500Name The x500Name of alias identity.
      * @param hostNetwork The host network of alias identity.
-     * @return The {@link AliasMemberInfo} representing the alias member info for given alias x500name and host network.
+     * @return The {@link InterOpIdentityInfo} representing the alias member info for given alias x500name and host network.
      */
-    AliasMemberInfo lookup(String x500Name, String hostNetwork);
+    InterOpIdentityInfo lookup(String applicationName);
 
     /**
      * @param facadeId The facadeId of the facade.
-     * @return The {@link List<AliasMemberInfo>} representing the alias member info for given facadeId.
+     * @return The {@link List< InterOpIdentityInfo >} representing the alias member info for given facadeId.
      */
-    List<AliasMemberInfo> lookup(String facadeId);
+    List<InterOpIdentityInfo> lookup(FacadeId facadeId);
 }
