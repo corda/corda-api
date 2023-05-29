@@ -17,7 +17,7 @@ public interface InterOpIdentityInfo {
     String applicationName();
 
     /**
-     * @return The {@link String} of the Identities X500.
+     * @return The {@link String} of the Identity's X500.
      */
     @NotNull
     String getX500Name();
