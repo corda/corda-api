@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.interop.InterOpIdentityInfo;
 import net.corda.v5.membership.MemberInfo;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface InteropIdentityLookUp {
      * @return The {@link InterOpIdentityInfo} representing the alias member info for given alias x500name and host network.
      */
     @Suspendable
-    @NotNull
+    @Nullable
     InterOpIdentityInfo lookup(String applicationName);
 
     /**
