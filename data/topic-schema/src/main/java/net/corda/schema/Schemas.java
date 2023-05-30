@@ -171,7 +171,7 @@ public final class Schemas {
         }
 
         public static final String P2P_OUT_TOPIC = "p2p.out";
-        public static final String P2P_OUT_TOPIC_DQL = getDLQTopic(P2P_OUT_TOPIC);
+        public static final String P2P_OUT_TOPIC_DLQ = getDLQTopic(P2P_OUT_TOPIC);
         public static final String P2P_OUT_MARKERS = "p2p.out.markers";
         public static final String P2P_OUT_MARKERS_STATE = getStateAndEventStateTopic(P2P_OUT_MARKERS);
         public static final String P2P_OUT_MARKERS_DLQ = getDLQTopic(P2P_OUT_MARKERS);
