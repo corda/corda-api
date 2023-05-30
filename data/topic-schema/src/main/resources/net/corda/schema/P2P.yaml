@@ -15,6 +15,12 @@ topics:
       - flow
       - membership
     config:
+  P2POutDqlTopic:
+    name: p2p.out.dlq
+    consumers:
+      - link-manager
+    producers:
+      - link-manager
   P2POutMarkersTopic:
     name: p2p.out.markers
     consumers:
