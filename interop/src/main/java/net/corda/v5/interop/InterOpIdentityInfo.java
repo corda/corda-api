@@ -5,13 +5,15 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * <p>This interface represents the alias member details like Application Name, facadeIds etc.
+ * This interface represents the InterOp Identity Info that have been registered with the User.
+ * <p> InterOpIdentityInfo details like Application Name, implemented facadeIds and X500 name.
+ *
  *
  */
 @CordaSerializable
 public interface InterOpIdentityInfo {
     /**
-     * @return The {@link String} identifier for the InterOp Identity.
+     * @return The {@link String} identifier for the InterOp Identity. This is the Common Name (CN) from the X500 and is set during Interop Registration.
      */
     @NotNull
     String applicationName();
@@ -21,7 +23,6 @@ public interface InterOpIdentityInfo {
      */
     @NotNull
     String getX500Name();
-
 
     /**
      * @return The {@link List<String>} representing the list of facade ids.
