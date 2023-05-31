@@ -15,7 +15,7 @@ topics:
       - flow
       - membership
     config:
-  P2POutDqlTopic:
+  P2POutDlqTopic:
     name: p2p.out.dlq
     consumers:
       - link-manager
