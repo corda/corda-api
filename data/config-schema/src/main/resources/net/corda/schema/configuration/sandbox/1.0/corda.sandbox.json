@@ -22,7 +22,7 @@
               "description": "The maximum number cached flow sandboxes.",
               "type": "integer",
               "minimum": 0,
-              "default": 60
+              "default": 100
             }
           }
         }
