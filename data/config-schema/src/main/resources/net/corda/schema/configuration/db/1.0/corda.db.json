@@ -64,6 +64,26 @@
                   "type": "null"
                 }
               ]
+            },
+            "idleTimeout": {
+              "description": "The TODO time in minutes.",
+              "type": "integer",
+              "default": 2
+            },
+            "maxLifetime": {
+              "description": "The TODO time in minutes.",
+              "type": "integer",
+              "default": 30
+            },
+            "keepaliveTime": {
+              "description": "The TODO time in seconds.",
+              "type": "integer",
+              "default": 0
+            },
+            "validationTimeout": {
+              "description": "The TODO time in seconds.",
+              "type": "integer",
+              "default": 5
             }
           },
           "additionalProperties": false
