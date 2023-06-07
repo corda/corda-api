@@ -66,23 +66,27 @@
               ]
             },
             "idleTimeout": {
-              "description": "The TODO time in minutes.",
+              "description": "The maximum time (in minutes) a connection can stay idle in the pool. A value of 0 means that idle connections are never removed from the pool.",
               "type": "integer",
+              "minimum": 0,
               "default": 2
             },
             "maxLifetime": {
-              "description": "The TODO time in minutes.",
+              "description": "The maximum time (in minutes) a connection can stay in the pool, regardless if it is idle or not.",
               "type": "integer",
+              "minimum": 1,
               "default": 30
             },
             "keepaliveTime": {
-              "description": "The TODO time in seconds.",
+              "description": "The interval time (in seconds) in which connections will be tested for aliveness, keeping them alive by the act of checking. A value of 0 means this is disabled.",
               "type": "integer",
+              "minimum": 0,
               "default": 0
             },
             "validationTimeout": {
-              "description": "The TODO time in seconds.",
+              "description": "The maximum time (in seconds) that the pool will wait for a connection to be validated as alive.",
               "type": "integer",
+              "minimum": 1,
               "default": 5
             }
           },
