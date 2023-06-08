@@ -1,6 +1,6 @@
 @Library('corda-shared-build-pipeline-steps@wzur-r3/ES-89/Ensure-we-can-push-to-S3-from-cordaPipelineKubernetesAgent-groovy-jobs') _
 
-cordaPipeline(
+cordaPipelineKubernetesAgent(
     runIntegrationTests: false,
     nexusAppId: 'net.corda-api-5.0',
     dependentJobsNames: ['/Corda5/corda-runtime-os-version-compatibility/release%2Fos%2F5.0'],
