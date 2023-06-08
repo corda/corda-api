@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0.1') _
+@Library('corda-shared-build-pipeline-steps@wzur-r3/ES-89/Ensure-we-can-push-to-S3-from-cordaPipelineKubernetesAgent-groovy-jobs') _
 
 cordaPipeline(
     runIntegrationTests: false,
