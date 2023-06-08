@@ -72,7 +72,7 @@
               "default": 120
             },
             "maxLifetime": {
-              "description": "The maximum time (in seconds) a connection can stay in the pool, regardless if it has been idle or has been recently used. If a connection is in-use and has reached \"maxLifetime\" timeout, it will be removed only when it becomes idle.",
+              "description": "The maximum time (in seconds) a connection can stay in the pool, regardless if it has been idle or has been recently used. If a connection is in-use and has reached \"maxLifetime\" timeout, it will be removed from the pool only when it becomes idle.",
               "type": "integer",
               "minimum": 1,
               "default": 1800
