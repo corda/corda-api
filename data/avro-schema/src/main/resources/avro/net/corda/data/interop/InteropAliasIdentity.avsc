@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "InteropAliasIdentity",
+  "namespace": "net.corda.data.interop",
+  "fields": [
+    {
+      "doc": "UUID of interop group.",
+      "name": "groupId",
+      "type": "string"
+    },
+    {
+      "doc": "My alias x500 name.",
+      "name": "aliasX500Name",
+      "type": "string"
+    },
+    {
+      "doc": "Holding Identity of Virtual Node hosting.",
+      "name": "hostingVnode",
+      "type": "string"
+    }
+  ]
+}
