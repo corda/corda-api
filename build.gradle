@@ -33,6 +33,7 @@ plugins {
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
     id 'org.jetbrains.dokka'
     id 'com.github.ben-manes.versions' // discover possible dependency version upgrades
+    id 'org.cyclonedx.bom' version '1.7.4'
 }
 
 snyk {
@@ -105,6 +106,43 @@ subprojects {
 
     ext {
         releasable = true // all corda-api jars are externally consumable
+    }
+
+    apply plugin: 'org.cyclonedx.bom'
+    cyclonedxBom {
+        skipConfigs = [
+                "compileOnlyDependenciesMetadata",
+                "integrationTestCompileOnly",
+                "testCompileOnlyDependenciesMetadata",
+                "testRuntimeOnlyDependenciesMetadata",
+                "apiDependenciesMetadata",
+                "data:topic-schema:testCompileOnlyDependenciesMetadata",
+                "serialization:testCompileOnlyDependenciesMetadata",
+                "serialization:compileOnlyDependenciesMetadata",
+                "ledger:notary-plugin:compileOnlyDependenciesMetadata",
+                "ledger:ledger-common:compileOnlyDependenciesMetadata",
+                "base:integrationTestCompileOnly",
+                "serialization:integrationTestCompileOnly",
+                "ledger:notary-plugin:testCompileOnlyDependenciesMetadata",
+                "data:db-schema:testCompileOnlyDependenciesMetadata",
+                "ledger:notary-plugin:testCompileOnlyDependenciesMetadata",
+                "application:integrationTestCompileOnly",
+                "ledger:ledger-utxo:testCompileOnlyDependenciesMetadata",
+                "ledger:notary-plugin:integrationTestCompileOnly",
+                "ledger:ledger-common:compileOnlyDependenciesMetadata",
+                "ledger:ledger-utxo:integrationTestCompileOnly",
+                "data:rbac-schema:integrationTestCompileOnly",
+                "data:config-schema:compileOnlyDependenciesMetadata",
+                "data:config-schema:testCompileOnlyDependenciesMetadata",
+                "data:avro-schema:compileOnlyDependenciesMetadata",
+                "data:topic-schema:integrationTestCompileOnly",
+                "ledger:ledger-consensual:integrationTestCompileOnly",
+                "data:rbac-schema:compileOnlyDependenciesMetadata",
+                "base:apiDependenciesMetadata",
+                "application:testCompileOnlyDependenciesMetadata",
+                "application:compileOnlyDependenciesMetadata",
+                "crypto-extensions:integrationTestCompileOnly"
+        ]
     }
 
     version rootProject.version
