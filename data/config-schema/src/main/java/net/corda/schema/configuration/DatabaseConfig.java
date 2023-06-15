@@ -11,8 +11,8 @@ public final class DatabaseConfig {
     public static final String JDBC_URL = "database.jdbc.url";
     public static final String DB_POOL_MAX_SIZE = "database.pool.max_size";
     public static final String DB_POOL_MIN_SIZE = "database.pool.min_size";
-    public static final String DB_POOL_IDLE_TIMEOUT_S = "database.pool.idleTimeout";
-    public static final String DB_POOL_MAX_LIFETIME_S = "database.pool.maxLifetime";
-    public static final String DB_POOL_KEEPALIVE_TIME_S = "database.pool.keepaliveTime";
-    public static final String DB_POOL_VALIDATION_TIMEOUT_S = "database.pool.validationTimeout";
+    public static final String DB_POOL_IDLE_TIMEOUT_S = "database.pool.idleTimeoutSecs";
+    public static final String DB_POOL_MAX_LIFETIME_S = "database.pool.maxLifetimeSecs";
+    public static final String DB_POOL_KEEPALIVE_TIME_S = "database.pool.keepaliveTimeSecs";
+    public static final String DB_POOL_VALIDATION_TIMEOUT_S = "database.pool.validationTimeoutSecs";
 }
