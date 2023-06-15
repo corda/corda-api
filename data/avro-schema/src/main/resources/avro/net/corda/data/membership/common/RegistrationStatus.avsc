@@ -15,5 +15,6 @@
     "INVALID",
     "FAILED",
     "APPROVED"
-  ]
+  ],
+  "default": "NEW"
 }
