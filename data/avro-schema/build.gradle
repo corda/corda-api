@@ -11,7 +11,7 @@ plugins {
 }
 
 dependencies {
-    api "org.apache.avro:avro:$avroVersion"
+    api libs.apache.avro
 
     implementation platform(project(':corda-api'))
     implementation project(':base')

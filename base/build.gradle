@@ -15,5 +15,5 @@ dependencies {
     compileOnly 'org.osgi:osgi.annotation'
 
     testApi 'org.jetbrains.kotlin:kotlin-osgi-bundle'
-    testImplementation "org.assertj:assertj-core:$assertjVersion"
+    testImplementation libs.assertj.core
 }

@@ -1,5 +1,11 @@
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
+        mavenLocal()
+    }
+    versionCatalogs {
+        libs {
+            from("net.corda:corda-version-catalog:$cordaVersionCatalog")
+        }
     }
 }
