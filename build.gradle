@@ -11,7 +11,7 @@ buildscript {
     }
     
     dependencies {
-        classpath "org.jetbrains.dokka:dokka-core:$dokkaVersion"
+        classpath libs.dokka.core
         constraints {
             classpath("org.jsoup:jsoup:1.15.3") {
                 because "required until dokka plugin updates it's internal version of jsoup, not fixed as of dokka 1.7.10"
