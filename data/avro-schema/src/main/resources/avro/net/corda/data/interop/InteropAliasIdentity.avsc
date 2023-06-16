@@ -1,4 +1,4 @@
-[{
+{
   "type": "record",
   "name": "InteropAliasIdentity",
   "namespace": "net.corda.data.interop",
@@ -19,4 +19,4 @@
       "type": "string"
     }
   ]
-}]
+}
