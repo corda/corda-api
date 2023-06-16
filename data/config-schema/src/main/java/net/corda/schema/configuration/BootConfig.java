@@ -35,4 +35,6 @@ public final class BootConfig {
     public static final String BOOT_REST_TLS_CA_CRT_PATH = BOOT_REST + ".tls.ca.crt.path";
 
     public static final String BOOT_SECRETS = "secrets";
+
+    public static final String BOOT_FLOW_TOPIC = "flow.eventTopic";
 }
