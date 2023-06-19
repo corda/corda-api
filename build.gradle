@@ -390,7 +390,7 @@ tasks.register('createSBOMZip', Zip) {
         }
     }
     from sourceDestFolder
-    destinationDirectory = (file(buildDir.toString() + "/archive/corda-runtime-os-SBOM/"))
+    destinationDirectory = (file(buildDir.toString() + "/archive/corda-api-SBOM/"))
 }
 
 if (project.hasProperty('generateSBOM')) {
