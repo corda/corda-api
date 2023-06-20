@@ -36,5 +36,14 @@ public final class BootConfig {
 
     public static final String BOOT_SECRETS = "secrets";
 
-    public static final String BOOT_FLOW_TOPIC = "flow.eventTopic";
+    public static final String BOOT_INPUT_TOPICS = "inputTopics";
+    public static final String BOOT_OUTPUT_TOPICS = "outputTopics";
+
+    // Keys that are valid for the flow output topic map
+    public static final String DB_OUTPUT = "db";
+    public static final String CRYPTO_OUTPUT = "crypto";
+    public static final String VERIFICATION_OUTPUT = "verification";
+    public static final String SESSION_OUTPUT = "session";
+    public static final String START_OUTPUT = "start";
+    public static final String LEDGER_OUTPUT = "ledger";
 }
