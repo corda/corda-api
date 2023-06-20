@@ -78,7 +78,7 @@ if (!JavaVersion.current().isCompatibleWith(javaVersion)) {
 }
 logger.quiet("SDK version: {}", JavaVersion.current())
 logger.quiet("JAVA HOME {}", System.getProperty("java.home"))
-def cordaVersion = "${libs.versions.cordaProductVersion.get()}.${libs.versions.cordaApiRevision.get()}"
+def cordaVersion = "$cordaProductVersion.$cordaApiRevision"
 if (System.getenv("RELEASE_VERSION")?.trim()) {
     version = System.getenv("RELEASE_VERSION")
 } else {
