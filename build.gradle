@@ -166,7 +166,7 @@ subprojects {
             // Test runtime libraries -> also keep consistent
             testRuntimeOnly libs.junit.jupiter.engine
 
-            detektPlugins libs.detekt.formatting
+            detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektPluginVersion"
         }
 
         // Making all persistence entity open and with an empty constructor to allow Hibernate to work.
@@ -251,7 +251,7 @@ subprojects {
 
     pluginManager.withPlugin('io.gitlab.arturbosch.detekt'){
         dependencies {
-        detekt libs.detekt.cli
+        detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detektPluginVersion"
             constraints {
                 detekt(libs.snakeyaml) {
                     because "required until detekt plugin updates it's internal version of snakeYaml, not fixed as of detekt version 1.21"
