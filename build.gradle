@@ -33,6 +33,7 @@ plugins {
     id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
     id 'org.jetbrains.dokka'
     id 'com.github.ben-manes.versions' // discover possible dependency version upgrades
+    id 'org.cyclonedx.bom' apply false
 }
 
 snyk {
@@ -105,6 +106,14 @@ subprojects {
 
     ext {
         releasable = true // all corda-api jars are externally consumable
+    }
+
+    apply plugin: 'org.cyclonedx.bom'
+    cyclonedxBom {
+        includeConfigs = ["runtimeClasspath"]
+        skipProjects = [rootProject.name]
+        destination = file("${buildDir}/reports/SBOM")
+        outputName = "${project.name}-corda-api-sbom"   
     }
 
     version rootProject.version
@@ -365,5 +374,36 @@ if (project.hasProperty('publishMultiModulekDocs')) {
 
     artifactoryPublish {
         publications('dokkaDocs')
+    }
+}
+
+tasks.register('createSBOMZip', Zip) {
+    description = 'Create SBOM zip file for release'
+    group = 'documentation'
+    String sourceDestFolder = buildDir.toString() + "/archive/SBOM/"
+    archiveFileName = "${project.name}-SBOM-${project.version}.zip"
+    subprojects.each {
+        String srcPath = it.buildDir.toString() + "/reports/SBOM/"
+        it.copy{
+            from srcPath
+            into sourceDestFolder
+        }
+    }
+    from sourceDestFolder
+    destinationDirectory = (file(buildDir.toString() + "/archive/corda-api-SBOM/"))
+}
+
+if (project.hasProperty('generateSBOM')) {
+    publishing {
+        publications {
+            sbom(MavenPublication) {
+                artifact createSBOMZip
+                artifactId "${project.name}-sbom"
+                groupId 'net.corda'
+            }
+        }
+    }
+    artifactoryPublish {
+        publications('sbom')
     }
 }
