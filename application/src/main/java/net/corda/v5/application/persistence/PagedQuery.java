@@ -22,7 +22,7 @@ public interface PagedQuery<R> {
      *
      * @return The same {@link PagedQuery} instance.
      *
-     * @throws IllegalArgumentException If {@code limit} is negative.
+     * @throws IllegalArgumentException If {@code limit} is negative or zero.
      */
     @NotNull
     PagedQuery<R> setLimit(int limit);

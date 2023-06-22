@@ -20,7 +20,7 @@ public interface ParameterizedQuery<R> extends PagedQuery<R> {
      *
      * @return The same {@link ParameterizedQuery} instance.
      *
-     * @throws IllegalArgumentException If {@code limit} is negative.
+     * @throws IllegalArgumentException If {@code limit} is negative or zero.
      *
      * @see PagedQuery#setLimit
      */
