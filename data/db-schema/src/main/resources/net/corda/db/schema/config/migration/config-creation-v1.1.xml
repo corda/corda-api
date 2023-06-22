@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="hsqldb"/>
+    <property name="now" value="now()" dbms="postgresql"/>
+
+    <changeSet author="R3.Corda" id="config-creation-v1.1">
+        <update tableName="config">
+            <column name="version" value="1"/>
+            <where section="corda.membership" />
+        </update>
+    </changeSet>
+</databaseChangeLog>
