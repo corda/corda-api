@@ -3,11 +3,10 @@ import groovy.io.FileType
 import groovy.text.SimpleTemplateEngine
 
 plugins {
-    id 'java-library'
-    id 'corda.java-only'
+    id 'corda-api.common-library'
     id 'corda.common-publishing'
+    id 'corda.java-only'
     id "com.github.davidmc24.gradle.plugin.avro-base"
-    id 'biz.aQute.bnd.builder'
 }
 
 dependencies {
@@ -143,12 +142,8 @@ tasks.named('processResources', ProcessResources) {
  * all the classes from this bundle.
  */
 tasks.named('jar', Jar) {
-    archiveBaseName = "corda-" + project.name
-
     bundle {
         bnd '''\
-Bundle-Name: \${project.description}
-Bundle-SymbolicName: \${project.group}.\${project.name}
 Fragment-Host: avro
 '''
     }

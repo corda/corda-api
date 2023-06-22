@@ -26,6 +26,12 @@
         "net.corda.data.flow.state.checkpoint.FlowState"
       ],
       "doc": "Current flow execution state. Null if the flow has not yet been started, for example in the face of a retry-able error."
+    },
+    {
+      "name": "flowMetricsState",
+      "type": "string",
+      "default": "{}",
+      "doc": "Internal storage for recording flow metrics"
     }
   ]
 }
