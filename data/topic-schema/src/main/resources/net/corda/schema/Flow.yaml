@@ -9,6 +9,66 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowStartTopic:
+    name: flow.start
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
+  FlowSessionTopic:
+    name: flow.session
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
+  FlowCryptoTopic:
+    name: flow.crypto
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
+  FlowDbTopic:
+    name: flow.db
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
+  FlowUniquenessTopic:
+    name: flow.uniqueness
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
+  FlowVerificationTopic:
+    name: flow.verification
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
   FlowEventStateTopic:
     name: flow.event.state
     consumers:
