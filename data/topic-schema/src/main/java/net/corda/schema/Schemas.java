@@ -102,6 +102,7 @@ public final class Schemas {
         public static final String FLOW_SESSION_TOPIC = "flow.session";
         public static final String FLOW_CRYPTO_TOPIC = "flow.crypto";
         public static final String FLOW_DB_TOPIC = "flow.db";
+        public static final String FLOW_LEDGER_TOPIC = "flow.ledger";
         public static final String FLOW_UNIQUENESS_TOPIC = "flow.uniqueness";
         public static final String FLOW_VERIFICATION_TOPIC = "flow.verification";
         public static final String FLOW_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_EVENT_TOPIC);
