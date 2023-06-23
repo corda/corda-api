@@ -49,6 +49,16 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowLedgerTopic:
+    name: flow.ledger
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
   FlowUniquenessTopic:
     name: flow.uniqueness
     consumers:
