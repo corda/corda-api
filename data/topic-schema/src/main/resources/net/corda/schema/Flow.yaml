@@ -3,88 +3,214 @@ topics:
     name: flow.event
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowStartTopic:
     name: flow.start
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowSessionTopic:
     name: flow.session
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowCryptoTopic:
     name: flow.crypto
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowDbTopic:
     name: flow.db
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowLedgerTopic:
     name: flow.ledger
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowUniquenessTopic:
     name: flow.uniqueness
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowVerificationTopic:
     name: flow.verification
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - db
       - crypto
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - uniqueness
     config:
   FlowEventStateTopic:
     name: flow.event.state
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -96,23 +222,65 @@ topics:
     name: flow.event.dlq
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
   FlowMapperEventTopic:
     name: flow.mapper.event
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - rest
     config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -124,8 +292,22 @@ topics:
     name: flow.mapper.event.dlq
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
   FlowStatusTopic:
     name: flow.status
@@ -133,6 +315,13 @@ topics:
       - rest
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - rest
     config:
       cleanup.policy: compact

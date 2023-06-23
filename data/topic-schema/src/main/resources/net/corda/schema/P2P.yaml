@@ -3,6 +3,13 @@ topics:
     name: p2p.in
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - membership
     producers:
       - link-manager
@@ -13,6 +20,13 @@ topics:
       - link-manager
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - membership
     config:
   P2POutDlqTopic:

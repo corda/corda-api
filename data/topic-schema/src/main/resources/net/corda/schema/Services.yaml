@@ -3,16 +3,44 @@ topics:
     name: services.token.event
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - db
     config:
   ServicesTokenEventStateTopic:
     name: services.token.event.state
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -24,8 +52,22 @@ topics:
     name: services.token.event.dlq
     consumers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
   ServicesTokenSyncEventTopic:
     name: services.token.sync.event
@@ -33,6 +75,13 @@ topics:
       - db
     producers:
       - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
       - db
     config:
   ServicesTokenSyncEventStateTopic:

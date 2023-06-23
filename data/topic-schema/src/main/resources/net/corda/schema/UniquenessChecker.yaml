@@ -2,7 +2,14 @@ topics:
   UniquenessCheckTopic:
     name: uniqueness.check
     consumers:
-      - "uniqueness"
+      - uniqueness
     producers:
-      - "flow"
+      - flow
+      - flow_start
+      - flow_session
+      - flow_crypto
+      - flow_db
+      - flow_ledger
+      - flow_verification
+      - flow_uniqueness
     config:
