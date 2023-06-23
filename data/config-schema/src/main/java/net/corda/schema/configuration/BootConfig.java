@@ -46,4 +46,5 @@ public final class BootConfig {
     public static final String SESSION_OUTPUT = "session";
     public static final String START_OUTPUT = "start";
     public static final String LEDGER_OUTPUT = "ledger";
+    public static final String UNIQUENESS_OUTPUT = "uniqueness";
 }
