@@ -4,13 +4,6 @@ topics:
     consumers:
       - db
       - flow
-      - flow_start
-      - flow_session
-      - flow_crypto
-      - flow_db
-      - flow_ledger
-      - flow_verification
-      - flow_uniqueness
       - link-manager
       - membership
       - rest
@@ -68,13 +61,6 @@ topics:
       - membership
       - rest
       - flow
-      - flow_start
-      - flow_session
-      - flow_crypto
-      - flow_db
-      - flow_ledger
-      - flow_verification
-      - flow_uniqueness
     producers:
       - membership
       - db
@@ -115,13 +101,6 @@ topics:
       - membership
       - rest
       - flow
-      - flow_start
-      - flow_session
-      - flow_crypto
-      - flow_db
-      - flow_ledger
-      - flow_verification
-      - flow_uniqueness
     producers:
       - db
     config:
