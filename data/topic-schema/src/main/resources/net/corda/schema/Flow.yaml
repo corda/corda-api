@@ -1,14 +1,4 @@
 topics:
-  FlowEventTopic:
-    name: flow.event
-    consumers:
-      - flow
-    producers:
-      - db
-      - crypto
-      - flow
-      - uniqueness
-    config:
   FlowStartTopic:
     name: flow.start
     consumers:
@@ -18,6 +8,13 @@ topics:
       - crypto
       - flow
       - uniqueness
+    config:
+  FlowStartStateTopic:
+    name: flow.start.state
+    consumers:
+      - flow
+    producers:
+      - flow
     config:
   FlowSessionTopic:
     name: flow.session
@@ -29,6 +26,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowSessionStateTopic:
+    name: flow.session.state
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowCryptoTopic:
     name: flow.crypto
     consumers:
@@ -38,6 +42,13 @@ topics:
       - crypto
       - flow
       - uniqueness
+    config:
+  FlowCryptoStateTopic:
+    name: flow.crypto.state
+    consumers:
+      - flow
+    producers:
+      - flow
     config:
   FlowDbTopic:
     name: flow.db
@@ -49,6 +60,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowDbStateTopic:
+    name: flow.db.state
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowLedgerTopic:
     name: flow.ledger
     consumers:
@@ -58,6 +76,13 @@ topics:
       - crypto
       - flow
       - uniqueness
+    config:
+  FlowLedgerStateTopic:
+    name: flow.ledger.state
+    consumers:
+      - flow
+    producers:
+      - flow
     config:
   FlowUniquenessTopic:
     name: flow.uniqueness
@@ -69,8 +94,32 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowUniquenessStateTopic:
+    name: flow.uniqueness.state
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowVerificationTopic:
     name: flow.verification
+    consumers:
+      - flow
+    producers:
+      - db
+      - crypto
+      - flow
+      - uniqueness
+    config:
+  FlowVerificationStateTopic:
+    name: flow.verification.state
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
+  FlowEventTopic:
+    name: flow.event
     consumers:
       - flow
     producers:
