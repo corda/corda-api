@@ -9,6 +9,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowStartDLQTopic:
+    name: flow.start.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowStartStateTopic:
     name: flow.start.state
     consumers:
@@ -16,6 +23,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowSessionTopic:
     name: flow.session
     consumers:
@@ -26,6 +39,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowSessionDLQTopic:
+    name: flow.session.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowSessionStateTopic:
     name: flow.session.state
     consumers:
@@ -33,6 +53,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowCryptoTopic:
     name: flow.crypto
     consumers:
@@ -43,6 +69,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowCryptoDLQTopic:
+    name: flow.crypto.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowCryptoStateTopic:
     name: flow.crypto.state
     consumers:
@@ -50,6 +83,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowDbTopic:
     name: flow.db
     consumers:
@@ -60,6 +99,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowDbDLQTopic:
+    name: flow.db.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowDbStateTopic:
     name: flow.db.state
     consumers:
@@ -67,6 +113,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowLedgerTopic:
     name: flow.ledger
     consumers:
@@ -77,6 +129,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowLedgerDLQTopic:
+    name: flow.ledger.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowLedgerStateTopic:
     name: flow.ledger.state
     consumers:
@@ -84,6 +143,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowUniquenessTopic:
     name: flow.uniqueness
     consumers:
@@ -94,6 +159,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowUniquenessDLQTopic:
+    name: flow.uniqueness.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowUniquenessStateTopic:
     name: flow.uniqueness.state
     consumers:
@@ -101,6 +173,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowVerificationTopic:
     name: flow.verification
     consumers:
@@ -111,6 +189,13 @@ topics:
       - flow
       - uniqueness
     config:
+  FlowVerificationDLQTopic:
+    name: flow.verification.dlq
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
   FlowVerificationStateTopic:
     name: flow.verification.state
     consumers:
@@ -118,6 +203,12 @@ topics:
     producers:
       - flow
     config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
   FlowEventTopic:
     name: flow.event
     consumers:
