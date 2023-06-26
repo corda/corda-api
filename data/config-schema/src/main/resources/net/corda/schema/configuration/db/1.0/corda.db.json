@@ -51,6 +51,43 @@
               "type": "integer",
               "minimum": 1,
               "default": 10
+            },
+            "min_size": {
+              "description": "The minimum database pool size. If left null will default to the `max_size` value.",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idleTimeoutSeconds": {
+              "description": "The maximum time (in seconds) a connection can stay idle in the pool. A value of 0 means that idle connections are never removed from the pool.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 120
+            },
+            "maxLifetimeSeconds": {
+              "description": "The maximum time (in seconds) a connection can stay in the pool, regardless if it has been idle or has been recently used. If a connection is in-use and has reached \"maxLifetime\" timeout, it will be removed from the pool only when it becomes idle.",
+              "type": "integer",
+              "minimum": 1,
+              "default": 1800
+            },
+            "keepaliveTimeSeconds": {
+              "description": "The interval time (in seconds) in which connections will be tested for aliveness. Connections which are no longer alive are removed from the pool. A value of 0 means this check is disabled.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            },
+            "validationTimeoutSeconds": {
+              "description": "The maximum time (in seconds) that the pool will wait for a connection to be validated as alive.",
+              "type": "integer",
+              "minimum": 1,
+              "default": 5
             }
           },
           "additionalProperties": false

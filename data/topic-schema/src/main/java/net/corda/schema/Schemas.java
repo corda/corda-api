@@ -30,10 +30,10 @@ public final class Schemas {
      public static final String TOPIC_CONFIG = "config";
 
     /**
-     * @return The state and event dlq topic.
+     * @return The dlq topic for the given topic.
      */
     @NotNull
-    public static String getStateAndEventDLQTopic(@NotNull String topic) {
+    public static String getDLQTopic(@NotNull String topic) {
         return topic + ".dlq";
     }
 
@@ -99,10 +99,10 @@ public final class Schemas {
         public static final String FLOW_STATUS_TOPIC = "flow.status";
         public static final String FLOW_EVENT_TOPIC = "flow.event";
         public static final String FLOW_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_EVENT_TOPIC);
-        public static final String FLOW_EVENT_DLQ_TOPIC = getStateAndEventDLQTopic(FLOW_EVENT_TOPIC);
+        public static final String FLOW_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
         public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
-        public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getStateAndEventDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
+        public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_INTEROP_EVENT_TOPIC = "flow.interop.event";
         public static final String FLOW_INTEROP_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_INTEROP_EVENT_TOPIC);
         public static final String FLOW_INTEROP_EVENT_DLQ_TOPIC = getStateAndEventDLQTopic(FLOW_INTEROP_EVENT_TOPIC);
@@ -119,11 +119,11 @@ public final class Schemas {
 
         public static final String TOKEN_CACHE_EVENT = "services.token.event";
         public static final String TOKEN_CACHE_EVENT_STATE = getStateAndEventStateTopic(TOKEN_CACHE_EVENT);
-        public static final String TOKEN_CACHE_EVENT_DLQ = getStateAndEventDLQTopic(TOKEN_CACHE_EVENT);
+        public static final String TOKEN_CACHE_EVENT_DLQ = getDLQTopic(TOKEN_CACHE_EVENT);
 
         public static final String TOKEN_CACHE_SYNC_EVENT = "services.token.sync.event";
         public static final String TOKEN_CACHE_SYNC_EVENT_STATE = getStateAndEventStateTopic(TOKEN_CACHE_SYNC_EVENT);
-        public static final String TOKEN_CACHE_SYNC_EVENT_DLQ = getStateAndEventDLQTopic(TOKEN_CACHE_SYNC_EVENT);
+        public static final String TOKEN_CACHE_SYNC_EVENT_DLQ = getDLQTopic(TOKEN_CACHE_SYNC_EVENT);
     }
 
     /**
@@ -143,19 +143,19 @@ public final class Schemas {
 
         public static final String MEMBERSHIP_DB_ASYNC_TOPIC = "membership.db.async.ops";
         public static final String MEMBERSHIP_DB_ASYNC_STATE_TOPIC = getStateAndEventStateTopic(MEMBERSHIP_DB_ASYNC_TOPIC);
-        public static final String MEMBERSHIP_DB_ASYNC_DLQ_TOPIC = getStateAndEventDLQTopic(MEMBERSHIP_DB_ASYNC_TOPIC);
+        public static final String MEMBERSHIP_DB_ASYNC_DLQ_TOPIC = getDLQTopic(MEMBERSHIP_DB_ASYNC_TOPIC);
 
         public static final String MEMBERSHIP_ASYNC_REQUEST_TOPIC = "membership.async.request";
         public static final String MEMBERSHIP_ASYNC_REQUEST_RETRIES_TOPIC = "membership.async.request.retries";
         public static final String MEMBERSHIP_ASYNC_REQUEST_RETRIES_STATE_TOPIC = getStateAndEventStateTopic(MEMBERSHIP_ASYNC_REQUEST_RETRIES_TOPIC);
-        public static final String MEMBERSHIP_ASYNC_REQUEST_RETRIES_DLQ_TOPIC = getStateAndEventDLQTopic(MEMBERSHIP_ASYNC_REQUEST_RETRIES_TOPIC);
+        public static final String MEMBERSHIP_ASYNC_REQUEST_RETRIES_DLQ_TOPIC = getDLQTopic(MEMBERSHIP_ASYNC_REQUEST_RETRIES_TOPIC);
         public static final String MEMBERSHIP_ACTIONS_TOPIC = "membership.actions";
 
         public static final String EVENT_TOPIC = "membership.event";
 
         public static final String REGISTRATION_COMMAND_TOPIC = "membership.registration";
         public static final String REGISTRATION_STATE_TOPIC = getStateAndEventStateTopic(REGISTRATION_COMMAND_TOPIC);
-        public static final String REGISTRATION_DLQ_TOPIC = getStateAndEventDLQTopic(REGISTRATION_COMMAND_TOPIC);
+        public static final String REGISTRATION_DLQ_TOPIC = getDLQTopic(REGISTRATION_COMMAND_TOPIC);
 
         public static final String SYNCHRONIZATION_TOPIC = "membership.sync";
     }
@@ -176,9 +176,10 @@ public final class Schemas {
         }
 
         public static final String P2P_OUT_TOPIC = "p2p.out";
+        public static final String P2P_OUT_TOPIC_DLQ = getDLQTopic(P2P_OUT_TOPIC);
         public static final String P2P_OUT_MARKERS = "p2p.out.markers";
         public static final String P2P_OUT_MARKERS_STATE = getStateAndEventStateTopic(P2P_OUT_MARKERS);
-        public static final String P2P_OUT_MARKERS_DLQ = getStateAndEventDLQTopic(P2P_OUT_MARKERS);
+        public static final String P2P_OUT_MARKERS_DLQ = getDLQTopic(P2P_OUT_MARKERS);
         public static final String P2P_IN_TOPIC = "p2p.in";
         public static final String P2P_HOSTED_IDENTITIES_TOPIC = "p2p.hosted.identities";
         public static final String P2P_MGM_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "p2p.mgm.allowed.client.certificate.subjects";
