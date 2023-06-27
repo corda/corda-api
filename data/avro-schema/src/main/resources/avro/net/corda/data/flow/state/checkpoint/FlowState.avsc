@@ -16,14 +16,10 @@
     },
     {
       "name": "externalEventState",
-      "type": [
-        "null",
-        {
-          "type": "array",
-          "items": "net.corda.data.flow.state.external.ExternalEventState"
-        }
-      ],
-      "default": null,
+      "type": {
+         "type": "array",
+         "items": "net.corda.data.flow.state.external.ExternalEventState"
+      },
       "doc": "Active external event request. Null if there are no requests in progress."
     },
     {
