@@ -12,7 +12,7 @@ plugins {
 dependencies {
     api libs.apache.avro
     constraints {
-        implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion") {
+        implementation(libs.jackson.databind) {
             because "required until new version of Avro available which updates Jackson"
         }
     }
