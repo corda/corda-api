@@ -121,6 +121,9 @@ public final class Schemas {
         public static final String FLOW_VERIFICATION_TOPIC = "flow.verification";
         public static final String FLOW_VERIFICATION_STATE_TOPIC = getStateAndEventStateTopic(FLOW_VERIFICATION_TOPIC);
         public static final String FLOW_VERIFICATION_DLQ_TOPIC = getDLQTopic(FLOW_VERIFICATION_TOPIC);
+        public static final String FLOW_MAPPER_START_EVENT_TOPIC = "flow.mapper.start.event";
+        public static final String FLOW_MAPPER_START_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_START_EVENT_TOPIC);
+        public static final String FLOW_MAPPER_START_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_START_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
         public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
