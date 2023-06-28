@@ -11,7 +11,11 @@ plugins {
 
 dependencies {
     api libs.apache.avro
-
+    constraints {
+        implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion") {
+            because "required until new version of Avro available which updates Jackson"
+        }
+    }
     implementation platform(project(':corda-api'))
     implementation project(':base')
     compileOnly 'org.jetbrains:annotations'
