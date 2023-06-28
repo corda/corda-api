@@ -11,7 +11,7 @@ buildscript {
     }
     
     dependencies {
-        classpath libs.dokka.core
+        classpath "org.jetbrains.dokka:dokka-core:$dokkaVersion"
         constraints {
             classpath("org.jsoup:jsoup:1.15.3") {
                 because "required until dokka plugin updates it's internal version of jsoup, not fixed as of dokka 1.7.10"
@@ -170,10 +170,10 @@ subprojects {
                 exclude group: 'mockito-core'
             }
 
-            testImplementation libs.junit.jupiter
+            testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 
             // Test runtime libraries -> also keep consistent
-            testRuntimeOnly libs.junit.jupiter.engine
+            testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
             detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektPluginVersion"
         }

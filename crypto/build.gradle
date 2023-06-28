@@ -17,6 +17,6 @@ dependencies {
     testImplementation libs.bouncycastle.bcprov
     testImplementation libs.bouncycastle.bcpkix
     testImplementation libs.assertj.core
-    testImplementation libs.junit.jupiter.api
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 }
 
