@@ -107,7 +107,7 @@ public final class Schemas {
         public static final String FLOW_INTEROP_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_INTEROP_EVENT_TOPIC);
         public static final String FLOW_INTEROP_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_INTEROP_EVENT_TOPIC);
 
-        public static final String INTEROP_ALIAS_IDENTITY_TOPIC = "interop.alias.identity";
+        public static final String INTEROP_IDENTITY_TOPIC = "interop.identity";
     }
 
     /**

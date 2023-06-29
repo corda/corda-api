@@ -86,7 +86,7 @@ topics:
       - interop
     config:
   InteropIdentitiesTopic:
-    name: interop.alias.identity
+    name: interop.identity
     consumers:
       - interop
     producers:
