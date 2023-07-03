@@ -15,11 +15,6 @@
       "doc": "Interop identity x500 name.",
       "name": "x500Name",
       "type": "string"
-    },
-    {
-      "doc": "Holding Identity of hosting Virtual Node.",
-      "name": "hostingVnode",
-      "type": "string"
     }
   ]
 }
