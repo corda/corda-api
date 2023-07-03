@@ -16,19 +16,6 @@ topics:
     producers:
       - flow
     config:
-  FlowStartStateTopic:
-    name: flow.start.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
   FlowSessionTopic:
     name: flow.session
     consumers:
@@ -46,169 +33,6 @@ topics:
     producers:
       - flow
     config:
-  FlowSessionStateTopic:
-    name: flow.session.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
-  FlowCryptoTopic:
-    name: flow.crypto
-    consumers:
-      - flow
-    producers:
-      - db
-      - crypto
-      - flow
-      - uniqueness
-    config:
-  FlowCryptoDLQTopic:
-    name: flow.crypto.dlq
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-  FlowCryptoStateTopic:
-    name: flow.crypto.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
-  FlowDbTopic:
-    name: flow.db
-    consumers:
-      - flow
-    producers:
-      - db
-      - crypto
-      - flow
-      - uniqueness
-    config:
-  FlowDbDLQTopic:
-    name: flow.db.dlq
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-  FlowDbStateTopic:
-    name: flow.db.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
-  FlowLedgerTopic:
-    name: flow.ledger
-    consumers:
-      - flow
-    producers:
-      - db
-      - crypto
-      - flow
-      - uniqueness
-    config:
-  FlowLedgerDLQTopic:
-    name: flow.ledger.dlq
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-  FlowLedgerStateTopic:
-    name: flow.ledger.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
-  FlowUniquenessTopic:
-    name: flow.uniqueness
-    consumers:
-      - flow
-    producers:
-      - db
-      - crypto
-      - flow
-      - uniqueness
-    config:
-  FlowUniquenessDLQTopic:
-    name: flow.uniqueness.dlq
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-  FlowUniquenessStateTopic:
-    name: flow.uniqueness.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
-  FlowVerificationTopic:
-    name: flow.verification
-    consumers:
-      - flow
-    producers:
-      - db
-      - crypto
-      - flow
-      - uniqueness
-    config:
-  FlowVerificationDLQTopic:
-    name: flow.verification.dlq
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-  FlowVerificationStateTopic:
-    name: flow.verification.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
   FlowEventTopic:
     name: flow.event
     consumers:
@@ -219,19 +43,6 @@ topics:
       - flow
       - uniqueness
     config:
-  FlowEventStateTopic:
-    name: flow.event.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
   FlowEventDLQTopic:
     name: flow.event.dlq
     consumers:
@@ -247,19 +58,6 @@ topics:
       - flow
       - rest
     config:
-  FlowMapperStartEventStateTopic:
-    name: flow.mapper.start.event.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
   FlowMapperStartEventDLQTopic:
     name: flow.mapper.start.event.dlq
     consumers:
@@ -267,29 +65,31 @@ topics:
     producers:
       - flow
     config:
-  FlowMapperSessionEventTopic:
-    name: flow.mapper.session.event
+  FlowMapperSessionInEventTopic:
+    name: flow.mapper.session.in.event
     consumers:
       - flow
     producers:
       - flow
       - rest
     config:
-  FlowMapperSessionEventStateTopic:
-    name: flow.mapper.session.event.state
+  FlowMapperSessionInEventDLQTopic:
+    name: flow.mapper.session.in.event.dlq
     consumers:
       - flow
     producers:
       - flow
     config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
-  FlowMapperSessionEventDLQTopic:
-    name: flow.mapper.session.event.dlq
+  FlowMapperSessionOutEventTopic:
+    name: flow.mapper.session.out.event
+    consumers:
+      - flow
+    producers:
+      - flow
+      - rest
+    config:
+  FlowMapperSessionOutEventDLQTopic:
+    name: flow.mapper.session.out.event.dlq
     consumers:
       - flow
     producers:
@@ -303,19 +103,6 @@ topics:
       - flow
       - rest
     config:
-  FlowMapperEventStateTopic:
-    name: flow.mapper.event.state
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
-      cleanup.policy: compact
-      segment.ms: 600000
-      delete.retention.ms: 300000
-      min.compaction.lag.ms: 60000
-      max.compaction.lag.ms: 604800000
-      min.cleanable.dirty.ratio: 0.5
   FlowMapperEventDLQTopic:
     name: flow.mapper.event.dlq
     consumers:
