@@ -98,25 +98,18 @@ public final class Schemas {
 
         public static final String FLOW_STATUS_TOPIC = "flow.status";
         public static final String FLOW_EVENT_TOPIC = "flow.event";
-        public static final String FLOW_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_START_TOPIC = "flow.start";
-        public static final String FLOW_START_STATE_TOPIC = getStateAndEventStateTopic(FLOW_START_TOPIC);
         public static final String FLOW_START_DLQ_TOPIC = getDLQTopic(FLOW_START_TOPIC);
         public static final String FLOW_SESSION_TOPIC = "flow.session";
-        public static final String FLOW_SESSION_STATE_TOPIC = getStateAndEventStateTopic(FLOW_SESSION_TOPIC);
         public static final String FLOW_SESSION_DLQ_TOPIC = getDLQTopic(FLOW_SESSION_TOPIC);
         public static final String FLOW_MAPPER_START_EVENT_TOPIC = "flow.mapper.start.event";
-        public static final String FLOW_MAPPER_START_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_START_EVENT_TOPIC);
         public static final String FLOW_MAPPER_START_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_START_EVENT_TOPIC);
         public static final String FLOW_MAPPER_SESSION_IN_EVENT_TOPIC = "flow.mapper.session.in.event";
-        public static final String FLOW_MAPPER_SESSION_IN_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_SESSION_IN_EVENT_TOPIC);
         public static final String FLOW_MAPPER_SESSION_IN_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_SESSION_IN_EVENT_TOPIC);
         public static final String FLOW_MAPPER_SESSION_OUT_EVENT_TOPIC = "flow.mapper.session.out.event";
-        public static final String FLOW_MAPPER_SESSION_OUT_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_SESSION_OUT_EVENT_TOPIC);
         public static final String FLOW_MAPPER_SESSION_OUT_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_SESSION_OUT_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
-        public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
     }
 
