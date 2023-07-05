@@ -15,6 +15,11 @@
       "doc": "Interop identity x500 name.",
       "name": "x500Name",
       "type": "string"
+    },
+    {
+      "doc": "Short hash of holding identity to which this interop identity corresponds.",
+      "name": "holdingIdentityShortHash",
+      "type": "string"
     }
   ]
 }
