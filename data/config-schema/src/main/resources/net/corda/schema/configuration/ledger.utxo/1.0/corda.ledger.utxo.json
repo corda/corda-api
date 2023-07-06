@@ -57,7 +57,7 @@
         "batchsize": {
           "description": "Maximum size of each batch when doing a backchain resolution.",
           "type": "integer",
-          "minimum": 0,
+          "minimum": 1,
           "default": 10
         }
       }
