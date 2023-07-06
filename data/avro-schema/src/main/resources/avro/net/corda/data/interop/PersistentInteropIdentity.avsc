@@ -17,9 +17,9 @@
       "type": "string"
     },
     {
-      "doc": "Short hash of holding identity to which this interop identity corresponds.",
-      "name": "holdingIdentityShortHash",
-      "type": "string"
+      "doc": "Whether or not this interop identity is owned by the local virtual node.",
+      "name": "localToVNode",
+      "type": "boolean"
     }
   ]
 }
