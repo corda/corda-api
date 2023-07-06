@@ -10,5 +10,5 @@ public final class LedgerConfig {
     public static final String UTXO_TOKEN_PERIODIC_CHECK_BLOCK_SIZE = "tokens.periodCheckBlockSize";
     public static final String UTXO_TOKEN_SEND_WAKEUP_MAX_RETRY_ATTEMPTS = "tokens.sendWakeUpMaxRetryAttempts";
     public static final String UTXO_TOKEN_SEND_WAKEUP_MAX_RETRY_DELAY = "tokens.sendWakeUpMaxRetryDelay";
-    public static final String UTXO_BACKCHAIN_RESOLUTION_BATCH_SIZE = "backchain.batchsize";
+    public static final String UTXO_BACKCHAIN_BATCH_SIZE = "backchain.batchsize";
 }
