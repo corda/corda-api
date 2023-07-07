@@ -23,7 +23,7 @@ public interface FacadeService {
      *    instance invokes a Facade method on a peer Identity denoted by an <code>alias</code> from an <code>interopGroup</code>.
      */
     @Suspendable
-    <T> T getFacade(String facadeId, Class<T> expectedType, MemberX500Name alias, String interopGroup);
+    <T> T getProxy(String facadeId, Class<T> expectedType, MemberX500Name alias, String interopGroup);
 
     /**
      * Interprets a Facade request and invokes a matching method on the target class.
