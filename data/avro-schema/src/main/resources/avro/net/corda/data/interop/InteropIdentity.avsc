@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "InteropIdentity",
+  "namespace": "net.corda.data.interop",
+  "fields": [
+    {
+      "doc": "Interop group ID.",
+      "name": "groupId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "doc": "Interop identity x500 name.",
+      "name": "x500Name",
+      "type": "string"
+    }
+  ]
+}
