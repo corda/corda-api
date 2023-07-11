@@ -14,7 +14,7 @@
       "doc": "Requests in the specified statuses will be included in the query result.",
       "type": {
         "type": "array",
-        "items": "net.corda.data.membership.common.RegistrationStatus"
+        "items": "net.corda.data.membership.common.v2.RegistrationStatus"
       }
     },
     {
