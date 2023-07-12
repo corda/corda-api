@@ -11,7 +11,7 @@ ignore:
           this vulnerability.
         expires: 2023-10-19T10:40:55.991Z
         created: 2022-09-22T10:40:55.995Z
-  SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038424:
+   SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038424:
     - '*':
         reason: >-
           Corda5 Shippable artifacts do not make use of dokka-core, which is
@@ -20,7 +20,7 @@ ignore:
           artifacts.
         expires: 2023-10-19T10:40:55.991Z
         created: 2022-12-20T10:40:55.995Z
-  SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038426:
+   SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038426:
     - '*':
         reason: >-
           Corda5 Shippable artifacts do not make use of dokka-core, which is
@@ -29,7 +29,7 @@ ignore:
           artifacts.
         expires: 2023-10-19T10:40:55.991Z
         created: 2022-12-20T10:40:55.995Z
-  SNYK-JAVA-COMFASTERXMLWOODSTOX-3091135:
+   SNYK-JAVA-COMFASTERXMLWOODSTOX-3091135:
     - '*':
         reason: >-
           Corda5 Shippable artifacts do not make use of dokka-core, which is
