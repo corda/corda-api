@@ -12,6 +12,16 @@ public final class MembershipConfig {
      */
     public static final String MAX_DURATION_BETWEEN_SYNC_REQUESTS_MINUTES = "maxDurationBetweenSyncRequestsMinutes";
 
+    /**
+     * The configuration key to get the maximum duration in minutes between polling for expired registration requests.
+     */
+    public static final String MAX_DURATION_BETWEEN_EXPIRED_REGISTRATION_REQUESTS_POLLS = "frequencyOfExpirationPoll";
+
+    /**
+     * The configuration key to get the time frame in minutes after which a registration request is considered as expired and gets force declined.
+     */
+    public static final String EXPIRATION_DATE_FOR_REGISTRATION_REQUESTS = "expirationTimeFrame";
+
     public static final class TtlsConfig {
         private TtlsConfig() {
         }
