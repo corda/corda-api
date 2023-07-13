@@ -62,7 +62,7 @@ topics:
     name: flow.mapper.event.dlq
     consumers:
       - flow
-      - -db
+      - db
     producers:
       - flow
       - db
