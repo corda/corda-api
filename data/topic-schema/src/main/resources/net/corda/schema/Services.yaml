@@ -3,6 +3,7 @@ topics:
     name: services.token.event
     consumers:
       - flow
+      - db
     producers:
       - flow
       - db
@@ -11,8 +12,10 @@ topics:
     name: services.token.event.state
     consumers:
       - flow
+      - db
     producers:
       - flow
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -24,8 +27,10 @@ topics:
     name: services.token.event.dlq
     consumers:
       - flow
+      - db
     producers:
       - flow
+      - db
     config:
   ServicesTokenSyncEventTopic:
     name: services.token.sync.event
@@ -59,8 +64,10 @@ topics:
     name: services.token.available # TODO: A better name might be required
     consumers:
       - flow # TODO: Review. Not sure who is the consumer. This should be the service running the token selection
+      - db
     producers:
       - flow # TODO: Review. It might be the db or the ledger
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000 # TODO: Review.
