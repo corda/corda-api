@@ -3,6 +3,7 @@ topics:
     name: flow.event
     consumers:
       - flow
+      - db
     producers:
       - db
       - crypto
@@ -13,6 +14,7 @@ topics:
     name: flow.event.state
     consumers:
       - flow
+      - db
     producers:
       - flow
     config:
@@ -26,23 +28,29 @@ topics:
     name: flow.event.dlq
     consumers:
       - flow
+      - db
     producers:
       - flow
+      - db
     config:
   FlowMapperEventTopic:
     name: flow.mapper.event
     consumers:
       - flow
+      - db
     producers:
       - flow
       - rest
+      - db
     config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
     consumers:
       - flow
+      - db
     producers:
       - flow
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -54,16 +62,20 @@ topics:
     name: flow.mapper.event.dlq
     consumers:
       - flow
+      - -db
     producers:
       - flow
+      - db
     config:
   FlowStatusTopic:
     name: flow.status
     consumers:
       - rest
+      - db
     producers:
       - flow
       - rest
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000

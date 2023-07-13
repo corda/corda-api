@@ -119,6 +119,8 @@ public final class Schemas {
         public static final String TOKEN_CACHE_SYNC_EVENT = "services.token.sync.event";
         public static final String TOKEN_CACHE_SYNC_EVENT_STATE = getStateAndEventStateTopic(TOKEN_CACHE_SYNC_EVENT);
         public static final String TOKEN_CACHE_SYNC_EVENT_DLQ = getDLQTopic(TOKEN_CACHE_SYNC_EVENT);
+
+        public static final String TOKEN_CACHE_EVENT_AVAILABLE = "services.token.available";
     }
 
     /**

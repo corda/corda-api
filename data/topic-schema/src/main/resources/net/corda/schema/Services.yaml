@@ -55,3 +55,16 @@ topics:
     producers:
       - db
     config:
+  ServicesTokenAvailableTopic: # TODO: A better name might be required
+    name: services.token.available # TODO: A better name might be required
+    consumers:
+      - flow # TODO: Review. Not sure who is the consumer. This should be the service running the token selection
+    producers:
+      - flow # TODO: Review. It might be the db or the ledger
+    config:
+      cleanup.policy: compact
+      segment.ms: 600000 # TODO: Review.
+      delete.retention.ms: 300000 # TODO: Review.
+      min.compaction.lag.ms: 60000 # TODO: Review.
+      max.compaction.lag.ms: 604800000 # TODO: Review.
+      min.cleanable.dirty.ratio: 0.5 # TODO: Review.
