@@ -1,0 +1,20 @@
+{
+  "type": "enum",
+  "name": "RegistrationStatus",
+  "namespace": "net.corda.data.membership.common.v2",
+  "doc": "Registration request status.",
+  "symbols": [
+    "NEW",
+    "SENT_TO_MGM",
+    "RECEIVED_BY_MGM",
+    "STARTED_PROCESSING_BY_MGM",
+    "PENDING_MEMBER_VERIFICATION",
+    "PENDING_MANUAL_APPROVAL",
+    "PENDING_AUTO_APPROVAL",
+    "DECLINED",
+    "INVALID",
+    "FAILED",
+    "APPROVED"
+  ],
+  "default": "NEW"
+}
