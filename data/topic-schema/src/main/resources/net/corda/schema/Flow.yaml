@@ -31,10 +31,10 @@ topics:
   FlowMapperEventTopic:
     name: flow.mapper.event
     consumers:
-      - db
+      - flow
     producers:
       - rest
-      - db
+      - flow
     config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
