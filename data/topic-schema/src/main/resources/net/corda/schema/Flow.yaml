@@ -13,7 +13,6 @@ topics:
   FlowEventStateTopic:
     name: flow.event.state
     consumers:
-      - db
       - flow
     producers:
       - db
