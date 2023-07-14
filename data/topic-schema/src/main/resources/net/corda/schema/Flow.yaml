@@ -12,8 +12,10 @@ topics:
     name: flow.event.state
     consumers:
       - db
+      - flow
     producers:
       - db
+      - flow
     config:
       cleanup.policy: compact
       segment.ms: 600000
