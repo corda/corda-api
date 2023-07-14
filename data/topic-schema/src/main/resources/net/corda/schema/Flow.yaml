@@ -2,10 +2,12 @@ topics:
   FlowEventTopic:
     name: flow.event
     consumers:
+      - flow
       - db
     producers:
       - db
       - crypto
+      - flow
       - uniqueness
     config:
   FlowEventStateTopic:
