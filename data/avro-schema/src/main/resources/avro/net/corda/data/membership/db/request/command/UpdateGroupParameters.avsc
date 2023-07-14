@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "UpdateGroupParameters",
+  "namespace": "net.corda.data.membership.db.request.command",
+  "doc": "Update group parameters",
+  "fields": [
+    {
+      "name": "update",
+      "doc": "Updated version of the group parameters.",
+      "type":
+        {
+          "type": "map",
+          "values": "string"
+        }
+    }
+  ]
+}
