@@ -259,6 +259,13 @@
                 "description": "A member template as a map of values for a member to be added to the static network member list.",
                 "type": "object"
               }
+            },
+            "groupParameters": {
+              "description": "Custom key-value properties to be included in the group parameters of a static network.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
             }
           }
         }
