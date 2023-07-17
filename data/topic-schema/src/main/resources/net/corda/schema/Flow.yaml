@@ -3,7 +3,6 @@ topics:
     name: flow.event
     consumers:
       - flow
-      - db
     producers:
       - db
       - crypto
@@ -15,7 +14,6 @@ topics:
     consumers:
       - flow
     producers:
-      - db
       - flow
     config:
       cleanup.policy: compact
@@ -27,10 +25,8 @@ topics:
   FlowEventDLQTopic:
     name: flow.event.dlq
     consumers:
-      - db
       - flow
     producers:
-      - db
       - flow
     config:
   FlowMapperEventTopic:
