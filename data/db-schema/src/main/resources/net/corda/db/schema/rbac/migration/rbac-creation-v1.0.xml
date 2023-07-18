@@ -5,7 +5,7 @@
 
     <changeSet author="R3.Corda" id="rbac-creation-v1.0">
         <createTable tableName="rbac_user">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -32,7 +32,7 @@
             <column name="password_expiry" type="TIMESTAMP">
                 <constraints nullable="true"/>
             </column>
-            <column name="parent_group" type="VARCHAR(255)">
+            <column name="parent_group" type="VARCHAR(36)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
@@ -41,7 +41,7 @@
 
         <createTable tableName="rbac_user_props"
                      remarks="Holds properties for an individual user">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -69,7 +69,7 @@
                                  onDelete="CASCADE"/>
 
         <createTable tableName="rbac_group">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -81,7 +81,7 @@
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="parent_group" type="VARCHAR(255)">
+            <column name="parent_group" type="VARCHAR(36)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
@@ -99,7 +99,7 @@
                                  onDelete="SET NULL"/>
 
         <createTable tableName="rbac_group_props" remarks="Holds properties of the group">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -108,7 +108,7 @@
             <column name="version" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="group_ref" type="VARCHAR(255)">
+            <column name="group_ref" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="key" type="VARCHAR(255)">
@@ -128,7 +128,7 @@
                                  onDelete="CASCADE"/>
 
         <createTable tableName="rbac_change_audit">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -147,7 +147,7 @@
         <addPrimaryKey tableName="rbac_change_audit" columnNames="id" constraintName="rbac_change_audit_pkey"/>
 
         <createTable tableName="rbac_role">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -159,7 +159,7 @@
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="group_vis" type="VARCHAR(255)"
+            <column name="group_vis" type="VARCHAR(36)"
                     remarks="Indicates which group which has visibility on a given role">
                 <constraints nullable="true"/>
             </column>
@@ -177,7 +177,7 @@
 
         <createTable tableName="rbac_role_user_rel"
                      remarks="Represents 1-n relationship between user and roles">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -206,16 +206,16 @@
 
         <createTable tableName="rbac_role_group_rel"
                      remarks="Represents 1-n relationship between group and roles">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="group_id" type="VARCHAR(255)">
+            <column name="group_id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
-            <column name="role_id" type="VARCHAR(255)">
+            <column name="role_id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -234,7 +234,7 @@
                                  onDelete="CASCADE"/>
 
         <createTable tableName="rbac_perm">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
@@ -243,7 +243,7 @@
             <column name="version" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="group_vis" type="VARCHAR(255)"
+            <column name="group_vis" type="VARCHAR(36)"
                     remarks="Indicates which group which has visibility on a given permission">
                 <constraints nullable="true"/>
             </column>
@@ -269,16 +269,16 @@
 
         <createTable tableName="rbac_role_perm_rel"
                      remarks="Represents n-n relationship between roles and permissions">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="update_ts" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="role_id" type="VARCHAR(255)">
+            <column name="role_id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
-            <column name="perm_id" type="VARCHAR(255)">
+            <column name="perm_id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
