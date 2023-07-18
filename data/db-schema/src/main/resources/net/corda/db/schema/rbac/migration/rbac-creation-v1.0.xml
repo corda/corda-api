@@ -50,7 +50,7 @@
             <column name="version" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="user_ref" type="VARCHAR(255)">
+            <column name="user_ref" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="key" type="VARCHAR(255)">
@@ -183,10 +183,10 @@
             <column name="update_ts" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="user_id" type="VARCHAR(255)">
+            <column name="user_id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
-            <column name="role_id" type="VARCHAR(255)">
+            <column name="role_id" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
