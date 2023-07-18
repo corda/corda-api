@@ -2,7 +2,7 @@ topics:
   ServicesTokenEventTopic:
     name: services.token.event
     consumers:
-      - flow
+      - db
     producers:
       - flow
       - db
@@ -10,9 +10,9 @@ topics:
   ServicesTokenEventStateTopic:
     name: services.token.event.state
     consumers:
-      - flow
+      - db
     producers:
-      - flow
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -23,16 +23,15 @@ topics:
   ServicesTokenEventDLQTopic:
     name: services.token.event.dlq
     consumers:
-      - flow
+      - db
     producers:
-      - flow
+      - db
     config:
   ServicesTokenSyncEventTopic:
     name: services.token.sync.event
     consumers:
       - db
     producers:
-      - flow
       - db
     config:
   ServicesTokenSyncEventStateTopic:
