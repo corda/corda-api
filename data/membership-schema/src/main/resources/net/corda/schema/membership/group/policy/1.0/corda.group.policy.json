@@ -263,8 +263,18 @@
             "groupParameters": {
               "description": "Custom key-value properties to be included in the group parameters of a static network.",
               "type": "object",
-              "additionalProperties": {
-                "type": "string"
+              "patternProperties": {
+                "^corda.minimum.platform.version$": {
+                  "description": "Optional. The minimum platform version of the static network.",
+                  "type": "integer",
+                  "minimum": 50000,
+                  "maximum": 99999
+                },
+                "^ext\\.[a-zA-Z0-9.]+$": {
+                  "description": "Optional. User-specified additional properties, which must be prefixed with `ext.`.",
+                  "type": "string",
+                  "maxLength": 256
+                }
               }
             }
           }
