@@ -70,6 +70,11 @@
         "net.corda.data.flow.event.session.SessionAck",
         "net.corda.data.flow.event.session.SessionError"
       ]
+    },
+    {
+      "name": "waitingForDataFlag",
+      "type": "Boolean",
+      "doc": "Flag is set to true is session is waiting to receive data."
     }
   ]
 }
