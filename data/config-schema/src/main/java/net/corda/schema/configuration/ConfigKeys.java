@@ -23,6 +23,7 @@ public final class ConfigKeys {
     public static final String RECONCILIATION_CONFIG = "corda.reconciliation";
     public static final String MEMBERSHIP_CONFIG = "corda.membership";
     public static final String SECURITY_CONFIG = "corda.security";
+    public static final String VNODE_DATASOURCE_CONFIG = "corda.vnodeDatasource";
 
     //  REST
     public static final String REST_ADDRESS = "address";
