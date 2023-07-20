@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/membership/group/policy/1.0/corda.group.policy.json",
   "title": "Corda Group Policy Schema",
   "description": "Schema for the group policy file included in distributed CPIs.",

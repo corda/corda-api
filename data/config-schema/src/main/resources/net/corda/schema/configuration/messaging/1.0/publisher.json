@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/messaging/1.0/publisher.json",
   "title": "Publisher configuration",
   "description": "Settings for all publishers that write to the message bus.",
