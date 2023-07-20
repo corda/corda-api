@@ -14,6 +14,6 @@ dependencies {
 
     api project(':base')
 
-    testImplementation "org.assertj:assertj-core:$assertjVersion"
-    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation libs.assertj.core
+    testImplementation libs.mockito.core
 }

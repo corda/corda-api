@@ -13,5 +13,5 @@ dependencies {
     api project(':application')
 
     testImplementation project(':crypto')
-    testImplementation "org.assertj:assertj-core:$assertjVersion"
+    testImplementation libs.assertj.core
 }

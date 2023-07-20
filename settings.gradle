@@ -79,6 +79,11 @@ dependencyResolutionManagement {
             }
         }
     }
+    versionCatalogs {
+        libs {
+            from("net.corda:$releaseVersionCatalog:$cordaVersionCatalog")
+        }
+    }
 }
 
 rootProject.name = "corda-api"

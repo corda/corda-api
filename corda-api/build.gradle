@@ -38,7 +38,7 @@ dependencies {
         }
         api('org.jetbrains:annotations') {
             version {
-                require jetbrainsAnnotationsVersion
+                require libs.versions.jetbrainsAnnotationsVersion.get()
             }
         }
         api('org.osgi:osgi.annotation') {
@@ -58,7 +58,7 @@ dependencies {
         }
         api('org.slf4j:slf4j-api') {
             version {
-                require slf4jVersion
+                require libs.versions.slf4jVersion.get()
             }
         }
     }
