@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://corda.r3.com/net/corda/schema/cordapp/configuration/external/messaging/1.0/corda.external.messaging.json",
   "title": "Corda External Messaging Configuration Schema",
   "description": "Configuration schema for the external messaging.",

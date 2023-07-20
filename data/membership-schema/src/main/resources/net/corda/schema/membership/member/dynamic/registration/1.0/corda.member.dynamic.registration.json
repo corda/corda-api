@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://corda.r3.com/net/corda/schema/membership/member/dynamic/registration/1.0/corda.member.dynamic.registration.json",
   "title": "Corda dynamic member registration context schema",
   "type": "object",
