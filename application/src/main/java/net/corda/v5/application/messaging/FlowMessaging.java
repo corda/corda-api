@@ -128,8 +128,13 @@ public interface FlowMessaging {
      * Suspends until a message has been received for each session in the specified {@code sessions}.
      * <p>
      * Consider {@link #receiveAllMap(Map)} when sessions are expected to receive different types.
+     * <p>
+     * The {@code receiveType} should be of a type that is annotated with @CordaSerializable or a primitive type. This
+     * function cannot handle types that do not meet these criteria.
      *
-     * @param receiveType type of object to be received for all {@code sessions}.
+     * @param <R> type of object to be received for all {@code sessions}.
+     * @param receiveType Type of object to be received for all {@code sessions}, which should be either a primitive type
+     *                    or a type annotated with @CordaSerializable.
      * @param sessions Set of sessions to receive from.
      * @return a {@link List} containing the objects received from the {@code sessions}.
      *
@@ -143,6 +148,9 @@ public interface FlowMessaging {
      * Suspends until a message has been received for each session in the specified {@code sessions}.
      * <p>
      * Consider {@link #receiveAll(Class, Set)} when the same type is expected from all sessions.
+     * <p>
+     * The types of objects expected to be received should be annotated with @CordaSerializable or be a primitive type. This
+     * function cannot handle types that do not meet these criteria.
      *
      * @param sessions Map of session to the type of object that is expected to be received
      * @return a {@link Map} containing the objects received by the {@link FlowSession}s who sent them.
@@ -159,8 +167,11 @@ public interface FlowMessaging {
      * Note that the other parties may receive the message at some arbitrary later point or not at all: if one of the provided [sessions]
      * is offline then message delivery will be retried until the session expires. Sessions are deemed to be expired when this session
      * stops receiving heartbeat messages from the counterparty within the configurable timeout.
+     * <p>
+     * The {@code payload} object should be of a type that is annotated with @CordaSerializable or a primitive type. This
+     * function cannot handle types that do not meet these criteria.
      *
-     * @param payload the payload to send.
+     * @param payload the payload to send, which should be either a primitive type or a type annotated with @CordaSerializable.
      * @param sessions the sessions to send the provided payload to.
      *
      * @throws CordaRuntimeException if any session is closed or in a failed state.
@@ -174,8 +185,12 @@ public interface FlowMessaging {
      * Note that the other parties may receive the message at some arbitrary later point or not at all: if one of the provided [sessions]
      * is offline then message delivery will be retried until the session expires. Sessions are deemed to be expired when this session
      * stops receiving heartbeat messages from the counterparty within the configurable timeout.
+     * <p>
+     * The objects in {@code payloadsPerSession} should be of types that are annotated with @CordaSerializable or be primitive types. This
+     * function cannot handle types that do not meet these criteria.
      *
      * @param payloadsPerSession a mapping that contains the payload to be sent to each session.
+     *                           The payloads should be either of primitive types or types annotated with @CordaSerializable.
      *
      * @throws CordaRuntimeException if any session is closed or in a failed state.
      */
