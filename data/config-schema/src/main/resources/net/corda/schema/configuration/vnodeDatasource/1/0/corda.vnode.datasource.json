@@ -73,7 +73,7 @@
               "default": 10
             },
             "min_size": {
-              "description": "The minimum database pool size. If left null will default to the `max_size` value.",
+              "description": "The minimum database pool size.",
               "type": "integer",
               "default": 0,
               "minimum": 0
