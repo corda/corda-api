@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "Call",
+  "doc": "A Web3 encoded function call which will be sent to the EVM.",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "function",
+      "type": "string",
+      "doc": "The name of the function call to be sent to the EVM"
+    },
+    {
+      "name": "options",
+      "type": "net.corda.data.interop.evm.request.CallOptions",
+      "doc": "The options available for a call"
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.interop.evm.request.Parameter"
+      },
+      "doc": "An array of parameters for this function call."
+    }
+  ]
+}

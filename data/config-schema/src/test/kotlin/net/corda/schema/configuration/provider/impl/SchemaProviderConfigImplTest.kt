@@ -4,6 +4,7 @@ import net.corda.schema.configuration.ConfigKeys.CRYPTO_CONFIG
 import net.corda.schema.configuration.ConfigKeys.DB_CONFIG
 import net.corda.schema.configuration.ConfigKeys.EXTERNAL_MESSAGING_CONFIG
 import net.corda.schema.configuration.ConfigKeys.FLOW_CONFIG
+import net.corda.schema.configuration.ConfigKeys.INTEROP_EVM_CONFIG
 import net.corda.schema.configuration.ConfigKeys.MEMBERSHIP_CONFIG
 import net.corda.schema.configuration.ConfigKeys.MESSAGING_CONFIG
 import net.corda.schema.configuration.ConfigKeys.P2P_GATEWAY_CONFIG
@@ -34,6 +35,7 @@ class SchemaProviderConfigImplTest {
             CRYPTO_CONFIG,
             DB_CONFIG,
             FLOW_CONFIG,
+            INTEROP_EVM_CONFIG,
             MESSAGING_CONFIG,
             EXTERNAL_MESSAGING_CONFIG,
             UTXO_LEDGER_CONFIG,

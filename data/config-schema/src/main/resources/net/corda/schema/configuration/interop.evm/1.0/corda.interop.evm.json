@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/flow/1.0/corda.interop.evm.json",
+  "title": "Corda Evm Processor Configuration Schema",
+  "description": "Configuration schema for the evm processor section.",
+  "type": "object",
+  "default": {},
+  "properties": {
+    "processing": {
+      "description": "Settings for evm processing.",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "maxRetryAttempts": {
+          "description": "The maximum number of times the Evm processor retries a transient error before failing. A value of zero disables retries.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 5
+        },
+        "maxRetryWindowDuration": {
+          "description": "The duration in milliseconds after a transient error that Corda retries a flow before failing it. A value of zero disables retries.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647,
+          "default": 300000
+        },
+        "maxRetryDelay": {
+          "description": "The maximum delay in milliseconds before Corda schedules a retry.",
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2147483647,
+          "default": 16000
+        },
+        "threadPoolSize": {
+          "description": "The number of threads to concurrently execute evm calls.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 3
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

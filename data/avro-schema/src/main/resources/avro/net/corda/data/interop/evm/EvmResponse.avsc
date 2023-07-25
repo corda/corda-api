@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "EvmResponse",
+  "doc": "A Web3 encoded function call response which has been returned from the EVM.",
+  "namespace": "net.corda.data.interop.evm",
+  "fields": [
+    {
+      "name": "payload",
+      "type": "string",
+      "doc": "The encoded return call from the EVM"
+    }
+  ]
+}

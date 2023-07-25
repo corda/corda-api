@@ -1,0 +1,31 @@
+{
+  "type": "record",
+  "name": "TransactionOptions",
+  "doc": "The options available for a Web3 transaction function call.",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "gasLimit",
+      "type": "string",
+      "doc": "The gasLimit value as a java BigInteger"
+    },
+    {
+      "name": "value",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The amount of ether to send for a transaction"
+    },
+    {
+      "name": "maxFeePerGas",
+      "type": "string",
+      "doc": "The maxFeePerGas value as a java BigInteger"
+    },
+    {
+      "name": "maxPriorityFeePerGas",
+      "type": "string",
+      "doc": "The maxPriorityFeePerGas value as a java BigInteger"
+    }
+  ]
+}

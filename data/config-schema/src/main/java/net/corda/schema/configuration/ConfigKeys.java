@@ -12,6 +12,7 @@ public final class ConfigKeys {
     public static final String CRYPTO_CONFIG = "corda.crypto";
     public static final String DB_CONFIG = "corda.db";
     public static final String FLOW_CONFIG = "corda.flow";
+    public static final String INTEROP_EVM_CONFIG = "corda.interop.evm";
     public static final String MESSAGING_CONFIG = "corda.messaging";
     public static final String EXTERNAL_MESSAGING_CONFIG = "corda.externalMessaging";
     public static final String STATE_MANAGER_CONFIG = "corda." + StateManagerConfig.STATE_MANAGER;

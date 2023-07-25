@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "GetTransactionReceipt",
+  "doc": "Used to request a transaction receipt for a given transaction hash",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "transactionHash",
+      "type": "string",
+      "doc": "The hash of the transaction to be queried"
+    }
+  ]
+}
