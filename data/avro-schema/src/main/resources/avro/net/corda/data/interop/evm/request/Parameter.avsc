@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "name": "Parameter",
+  "doc": "A parameter to a Solidity function call.",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "The name of the given parameter"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "The type of the given parameter"
+    },
+    {
+      "name": "value",
+      "type": [
+        "string",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ],
+      "doc": "The value of the given parameter"
+    }
+  ]
+}

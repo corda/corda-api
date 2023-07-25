@@ -1,0 +1,65 @@
+{
+  "type": "record",
+  "name": "Log",
+  "doc": "A log of a transaction",
+  "namespace": "net.corda.data.interop.evm.response",
+  "fields": [
+    {
+      "name": "address",
+      "type": "string",
+      "doc": "The address from which this log was generated"
+    },
+    {
+      "name": "topics",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": "An array of zero to four 32 Bytes DATA of indexed log arguments"
+    },
+    {
+      "name": "data",
+      "type": "string",
+      "doc": "The 32 byte non-indexed argument of the log"
+    },
+    {
+      "name": "blockNumber",
+      "type": "int",
+      "doc": "The block number where this log was in"
+    },
+    {
+      "name": "transactionHash",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The hash of the transaction from which this log was created from. null if the log is pending"
+    },
+    {
+      "name": "transactionIndex",
+      "type": [
+        "int",
+        "null"
+      ],
+      "doc": "The transaction index from which this log was created from. null if the log is pending"
+    },
+    {
+      "name": "blockHash",
+      "type": "string",
+      "doc": "The hash of the block this log in"
+    },
+    {
+      "name": "logIndex",
+      "type": [
+        "int",
+        "null"
+      ],
+      "doc": "The integer of the log position in the block. null if the log is pending"
+    },
+    {
+      "name": "removed",
+      "type": "boolean",
+      "doc": "True if this log was removed, due to a chain reorganization and false if it's a valid log"
+    }
+  ]
+}

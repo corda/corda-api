@@ -113,6 +113,17 @@ public final class Schemas {
     }
 
     /**
+     * Corda interop topic schema
+     */
+    public static final class Interop {
+        private Interop() {
+        }
+
+        public static final String EVM_REQUEST = "interop.evm.request";
+        public static final String EVM_RESPONSE = getRPCResponseTopic(EVM_REQUEST);
+    }
+
+    /**
      * Corda services topic schema.
      */
     public static final class Services {

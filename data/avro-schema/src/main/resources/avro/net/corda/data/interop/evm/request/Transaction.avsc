@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "Transaction",
+  "doc": "A Web3 transaction function call.",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "function",
+      "type": "string",
+      "doc": "The name of the function call to be sent to the EVM."
+    },
+    {
+      "name": "options",
+      "type": "net.corda.data.interop.evm.request.TransactionOptions",
+      "doc": "The options available for a transaction."
+    },
+    {
+      "name": "parameters",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.interop.evm.request.Parameter"
+      },
+      "doc": "An array of parameters for this transaction."
+    }
+  ]
+}

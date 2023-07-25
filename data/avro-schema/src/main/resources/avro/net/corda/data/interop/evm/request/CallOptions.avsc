@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "CallOptions",
+  "doc": "The options applied to a Web3 encoded function call to the EVM.",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "block",
+      "type": "string",
+      "doc": "The block number in hexadecimal format or the string latest, earliest, pending",
+      "default": "latest"
+    }
+  ]
+}

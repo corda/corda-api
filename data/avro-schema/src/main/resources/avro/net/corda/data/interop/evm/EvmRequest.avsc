@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "EvmRequest",
+  "doc": "A Web3 encoded function call which will be sent to the EVM.",
+  "namespace": "net.corda.data.interop.evm",
+  "fields": [
+    {
+      "name": "from",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "For transactions, the address of the signing key for the call.  Can be an x500 name or Ethereum address"
+    },
+    {
+      "name": "to",
+      "type": "string",
+      "doc": "The contract address on which the transaction is called"
+    },
+    {
+      "name": "rpcUrl",
+      "type": "string",
+      "doc": "The URL of the EVM network to send this function call to"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "net.corda.data.interop.evm.request.Call",
+        "net.corda.data.interop.evm.request.GetTransactionReceipt",
+        "net.corda.data.interop.evm.request.Transaction"
+      ],
+      "doc": "The function call to be sent to the EVM"
+    }
+  ]
+}

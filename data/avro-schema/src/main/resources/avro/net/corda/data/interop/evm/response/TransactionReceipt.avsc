@@ -1,0 +1,87 @@
+{
+  "type": "record",
+  "name": "TransactionReceipt",
+  "doc": "Response for a request for the receipt of a transaction",
+  "namespace": "net.corda.data.interop.evm.response",
+  "fields": [
+    {
+      "name": "blockHash",
+      "type": "string",
+      "doc": "The hash of the block where this transaction was in"
+    },
+    {
+      "name": "blockNumber",
+      "type": "string",
+      "doc": "The block number where this transaction was added"
+    },
+    {
+      "name": "contractAddress",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The contract address created for contract creation, otherwise null"
+    },
+    {
+      "name": "cumulativeGasUsed",
+      "type": "string",
+      "doc": "The total gas used when this transaction was executed in the block"
+    },
+    {
+      "name": "effectiveGasPrice",
+      "type": "string",
+      "doc": "The total base charge plus tip paid for each unit of gas"
+    },
+    {
+      "name": "from",
+      "type": "string",
+      "doc": "The address of the sender"
+    },
+    {
+      "name": "gasUsed",
+      "type": "string",
+      "doc": "The amount of gas used by this specific transaction alone"
+    },
+    {
+      "name": "logs",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.interop.evm.response.Log"
+      },
+      "doc": "An array of log objects that generated this transaction"
+    },
+    {
+      "name": "logsBloom",
+      "type": "string",
+      "doc": "The bloom filter which is used to retrieve related logs"
+    },
+    {
+      "name": "status",
+      "type": "boolean",
+      "doc": "1 (success) or 0 (failure)"
+    },
+    {
+      "name": "to",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The address of the receiver. Null when its a contract creation transaction"
+    },
+    {
+      "name": "transactionHash",
+      "type": "string",
+      "doc": "The hash of the transaction"
+    },
+    {
+      "name": "transactionIndex",
+      "type": "string",
+      "doc": "The transaction index position in the block"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "The type of value"
+    }
+  ]
+}

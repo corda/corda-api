@@ -1,0 +1,15 @@
+topics:
+  EvmRequestTopic:
+    name: interop.evm.request
+    consumers:
+      - evm
+    producers:
+      - flow
+    config:
+  EvmResponseTopic:
+    name: interop.evm.request.resp
+    consumers:
+      - flow
+    producers:
+      - evm
+    config:
