@@ -140,6 +140,7 @@ topics:
     consumers:
       - membership
     producers:
+      - db
       - rest
       - membership
   MembershipAsyncRequestRetriesTopic:
