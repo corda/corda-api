@@ -30,13 +30,13 @@
       "name": "request",
       "doc": "The 'request' that we wish to make to the ledger persistence API.",
       "type": [
+        "net.corda.data.EvolvedTypeDefaultValue",
         "net.corda.data.ledger.persistence.PersistTransaction",
         "net.corda.data.ledger.persistence.PersistTransactionIfDoesNotExist",
         "net.corda.data.ledger.persistence.FindTransaction",
         "net.corda.data.ledger.persistence.FindUnconsumedStatesByType",
         "net.corda.data.ledger.persistence.ResolveStateRefs",
         "net.corda.data.ledger.persistence.UpdateTransactionStatus",
-        "net.corda.data.persistence.FindWithNamedQuery",
         "net.corda.data.ledger.persistence.FindSignedGroupParameters",
         "net.corda.data.ledger.persistence.PersistSignedGroupParametersIfDoNotExist",
         "net.corda.data.ledger.persistence.v2.FindLedgerTransaction"

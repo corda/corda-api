@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "EvolvedTypeDefaultValue",
+  "namespace": "net.corda.data",
+  "doc": "A placeholder that should be used when a union type is evolved and a default value must be provided to allow deserialization of existing records.",
+  "fields": []
+}
