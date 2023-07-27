@@ -39,6 +39,7 @@ topics:
     producers:
       - membership
       - rest
+      - -db
     config:
   MembershipRegistrationStateTopic:
     name: membership.registration.state
@@ -140,9 +141,9 @@ topics:
     consumers:
       - membership
     producers:
-      - db
       - rest
       - membership
+      - db
   MembershipAsyncRequestRetriesTopic:
     name: membership.async.request.retries
     consumers:
