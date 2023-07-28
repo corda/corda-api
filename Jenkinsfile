@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@ronanb/J17-downstream-jobs') _
+@Library('corda-shared-build-pipeline-steps@5.1') _
 
 cordaPipeline(
     runIntegrationTests: false,
