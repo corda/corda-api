@@ -39,7 +39,7 @@ topics:
     producers:
       - membership
       - rest
-      - -db
+      - db
     config:
   MembershipRegistrationStateTopic:
     name: membership.registration.state
