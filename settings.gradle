@@ -15,7 +15,7 @@ pluginManagement {
             }
         } else {
             maven {
-                url "$artifactoryContextUrl/corda-releases"
+                url "${publicArtifactURL}/corda-releases"
                 content {
                     includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
                 }
@@ -68,7 +68,7 @@ dependencyResolutionManagement {
             mavenCentral()
 
             maven {
-                url = "$artifactoryContextUrl/corda-dependencies"
+                url = "${publicArtifactURL}/corda-dependencies"
             }
 
             maven {
