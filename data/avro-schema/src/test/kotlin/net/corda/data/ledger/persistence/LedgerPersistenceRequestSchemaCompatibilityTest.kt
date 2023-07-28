@@ -1,9 +1,7 @@
 package net.corda.data.ledger.persistence
 
-import net.corda.data.EvolvedTypeDefaultValue
 import net.corda.data.flow.event.external.ExternalEventContext
 import net.corda.data.identity.HoldingIdentity
-import net.corda.data.ledger.persistence.v2.FindLedgerTransaction
 import net.corda.data.persistence.FindWithNamedQuery
 import org.apache.avro.Schema
 import org.apache.avro.SchemaCompatibility
@@ -56,8 +54,7 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
                 "net.corda.data.ledger.persistence.UpdateTransactionStatus",
                 "net.corda.data.persistence.FindWithNamedQuery",
                 "net.corda.data.ledger.persistence.FindSignedGroupParameters",
-                "net.corda.data.ledger.persistence.PersistSignedGroupParametersIfDoNotExist",
-                "net.corda.data.ledger.persistence.v2.FindLedgerTransaction"
+                "net.corda.data.ledger.persistence.PersistSignedGroupParametersIfDoNotExist"
               ]
             },
             {
@@ -73,7 +70,6 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
             .addTypes(
                 mapOf(
                     HoldingIdentity::class.java.name to HoldingIdentity.`SCHEMA$`,
-                    EvolvedTypeDefaultValue::class.java.name to EvolvedTypeDefaultValue.`SCHEMA$`,
                     PersistTransaction::class.java.name to PersistTransaction.`SCHEMA$`,
                     PersistTransactionIfDoesNotExist::class.java.name to PersistTransactionIfDoesNotExist.`SCHEMA$`,
                     FindTransaction::class.java.name to FindTransaction.`SCHEMA$`,
@@ -83,7 +79,7 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
                     FindWithNamedQuery::class.java.name to FindWithNamedQuery.`SCHEMA$`,
                     FindSignedGroupParameters::class.java.name to FindSignedGroupParameters.`SCHEMA$`,
                     PersistSignedGroupParametersIfDoNotExist::class.java.name to PersistSignedGroupParametersIfDoNotExist.`SCHEMA$`,
-                    FindLedgerTransaction::class.java.name to FindLedgerTransaction.`SCHEMA$`,
+                    FindSignedLedgerTransaction::class.java.name to FindSignedLedgerTransaction.`SCHEMA$`,
                     ExternalEventContext::class.java.name to ExternalEventContext.`SCHEMA$`,
                 )
             )
