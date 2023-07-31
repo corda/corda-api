@@ -13,7 +13,7 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
 
     @Test
     fun `LedgerPersistenceRequest schema changes between Corda 5_0 and 5_1 are compatible`() {
-        val schemaV1Json = """
+        val oldSchemaJson = """
         {
           "type": "record",
           "name": "LedgerPersistenceRequest",
@@ -66,7 +66,7 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
         }
         """.trimIndent()
 
-        val schemaV1 = Schema.Parser()
+        val oldSchema = Schema.Parser()
             .addTypes(
                 mapOf(
                     HoldingIdentity::class.java.name to HoldingIdentity.`SCHEMA$`,
@@ -83,10 +83,12 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
                     ExternalEventContext::class.java.name to ExternalEventContext.`SCHEMA$`,
                 )
             )
-            .parse(schemaV1Json)
-        val schemaV2 = LedgerPersistenceRequest.`SCHEMA$`
+            .parse(oldSchemaJson)
 
-        val compatibility = SchemaCompatibility.checkReaderWriterCompatibility(schemaV2, schemaV1)
+        val newSchema = LedgerPersistenceRequest.`SCHEMA$`
+
+        val compatibility = SchemaCompatibility.checkReaderWriterCompatibility(newSchema, oldSchema)
+
         assertEquals(
             compatibility.type,
             SchemaCompatibility.SchemaCompatibilityType.COMPATIBLE,
