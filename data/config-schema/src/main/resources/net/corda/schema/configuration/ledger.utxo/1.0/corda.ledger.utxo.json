@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/ledger/utxo/1.0/corda.ledger.utxo.json",
   "title": "Corda UTXO ledger Configuration Schema",
   "description": "Configuration schema for the UTXO ledger.",
