@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test
 class LedgerPersistenceRequestSchemaCompatibilityTest {
 
     @Test
-    fun `check SimpleMessage schema changes between Corda 5_0 and 5_1 are compatible`() {
+    fun `LedgerPersistenceRequest schema changes between Corda 5_0 and 5_1 are compatible`() {
         val schemaV1Json = """
         {
           "type": "record",
