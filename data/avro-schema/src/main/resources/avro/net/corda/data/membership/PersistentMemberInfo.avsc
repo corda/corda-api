@@ -12,24 +12,26 @@
     {
       "name": "memberContext",
       "doc": "Deprecated field, memberContextBytes should be used instead. Member provided data in MemberInfo.",
-      "type": "net.corda.data.KeyValuePairList"
+      "type": ["null", "net.corda.data.KeyValuePairList"],
+      "default": null
     },
     {
       "name": "mgmContext",
       "doc": "Deprecated field, mgmContextBytes should be used instead. MGM provided data in MemberInfo.",
-      "type": "net.corda.data.KeyValuePairList"
+      "type": ["null", "net.corda.data.KeyValuePairList"],
+      "default": null
     },
     {
       "name": "memberContextBytes",
       "doc": "Member provided data in MemberInfo serialised as byte array by using KeyValuePairList.",
       "type": ["null", "bytes"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "mgmContextBytes",
       "doc": "MGM provided data in MemberInfo serialised as byte array by using KeyValuePairList.",
       "type": ["null", "bytes"],
-      "default": "null"
+      "default": null
     }
   ]
 }
