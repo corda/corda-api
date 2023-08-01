@@ -70,6 +70,6 @@
         "net.corda.data.flow.event.session.SessionAck",
         "net.corda.data.flow.event.session.SessionError"
       ]
-    },
+    }
   ]
 }
