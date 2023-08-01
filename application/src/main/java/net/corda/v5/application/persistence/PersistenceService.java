@@ -157,26 +157,23 @@ public interface PersistenceService {
      *     // ...
      * }
      *
-     * // create a named query setting parameters one-by-one, that returns the second page of up to 100 records
+     * // Create a named query that returns pages of up to 100 records
      * val pagedQuery = persistenceService
      *     .query("find_by_name_and_age", Dog::class.java)
      *     .setParameter("name", "Felix")
      *     .setParameter("maxAge", 5)
      *     .setLimit(100)
-     *     .setOffset(200)
+     *     .setOffset(0)
      *
-     * // execute the query and return the results as a List
-     * val result1 = pagedQuery.execute()
+     * // Execute the query and return a ResultSet
+     * val resultSet = pagedQuery.execute()
      *
-     * // create a named query setting parameters as Map, that returns the second page of up to 100 records
-     * val paramQuery = persistenceService
-     *     .query("find_by_name_and_age", Dog::class.java)
-     *     .setParameters(mapOf(Pair("name", "Felix"), Pair("maxAge", 5)))
-     *     .setLimit(100)
-     *     .setOffset(200)
+     * processResultsWithApplicationLogic(resultSet.results)
      *
-     * // execute the query and return the results as a List
-     * val result2 = pagedQuery.execute()
+     * while (resultSet.hasNext()) {
+     *     val results = resultSet.next()
+     *     processResultsWithApplicationLogic(results)
+     * }
      * }</pre></li>
      * <li>Java:<pre>{@code
      * // For JPA Entity:
@@ -196,26 +193,23 @@ public interface PersistenceService {
      *      ...
      * }
      *
-     * // create a named query setting parameters one-by-one, that returns the second page of up to 100 records
+     * // Create a named query that returns pages of up to 100 records
      * ParameterizedQuery<Dog> pagedQuery = persistenceService
      *         .query("find_by_name_and_age", Dog.class)
      *         .setParameter("name", "Felix")
      *         .setParameter("maxAge", 5)
      *         .setLimit(100)
-     *         .setOffset(200);
+     *         .setOffset(0);
      *
-     * // execute the query and return the results as a List
-     * List<Dog> result1 = pagedQuery.execute();
+     * // Execute the query and return a ResultSet
+     * ResultSet<Dog> resultSet = pagedQuery.execute();
      *
-     * // create a named query setting parameters as Map, that returns the second page of up to 100 records
-     * ParameterizedQuery<Dog> paramQuery = persistenceService
-     *         .query("find_by_name_and_age", Dog.class)
-     *         .setParameters(Map.of("name", "Felix", "maxAge", 5))
-     *         .setLimit(100)
-     *         .setOffset(200);
+     * processResultsWithApplicationLogic(resultSet.getResults());
      *
-     * // execute the query and return the results as a List
-     * List<Dog> result2 = pagedQuery.execute();
+     * while (resultSet.hasNext()) {
+     *     List<Integer> results = resultSet.next();
+     *     processResultsWithApplicationLogic(results);
+     * }
      * }</pre></li>
      * </ul>
      * @param queryName The name of the named query registered in the persistence context.

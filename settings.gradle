@@ -15,7 +15,7 @@ pluginManagement {
             }
         } else {
             maven {
-                url "$artifactoryContextUrl/corda-releases"
+                url "${publicArtifactURL}/corda-releases"
                 content {
                     includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
                 }
@@ -40,6 +40,7 @@ pluginManagement {
         id 'com.github.ben-manes.versions' version dependencyCheckVersion
         id "com.jfrog.artifactory" version artifactoryPluginVersion
         id 'io.snyk.gradle.plugin.snykplugin' version snykVersion
+        id "org.cyclonedx.bom" version cyclonedxVersion
     }
 }
 plugins {
@@ -67,7 +68,7 @@ dependencyResolutionManagement {
             mavenCentral()
 
             maven {
-                url = "$artifactoryContextUrl/corda-dependencies"
+                url = "${publicArtifactURL}/corda-dependencies"
             }
 
             maven {

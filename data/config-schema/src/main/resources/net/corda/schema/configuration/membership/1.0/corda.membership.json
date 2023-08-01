@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/membership/1.0/corda.membership.json",
   "title": "Corda Membership Configuration Schema",
   "description": "Configuration schema for the membership subsection.",
@@ -12,6 +12,20 @@
       "minimum": 10,
       "maximum": 2880,
       "default": 480
+    },
+    "frequencyOfExpirationPoll": {
+      "description": "The maximum duration in minutes between polling for expired registration requests.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2880,
+      "default": 300
+    },
+    "expirationTimeFrame": {
+      "description": "The time frame in minutes after which a registration request is considered as expired and gets force declined.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2880,
+      "default": 180
     },
     "TTLs": {
       "description": "The maximum durations in minutes to wait for different types of message to send. If set to null, Corda waits forever.",

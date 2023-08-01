@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/flow/1.0/corda.flow.json",
   "title": "Corda Flow Configuration Schema",
   "description": "Configuration schema for the flow section.",
@@ -30,7 +30,7 @@
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
-          "default": 60000
+          "default": 900000
         },
         "cleanupTime": {
           "description": "The length of time in milliseconds that the flow mapper holds onto its state for a flow that has finished. This value should be at least 2 times larger than the session.p2pTTL.",
