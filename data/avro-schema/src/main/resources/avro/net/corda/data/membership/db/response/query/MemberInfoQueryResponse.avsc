@@ -11,18 +11,6 @@
         "type": "array",
         "items": "net.corda.data.membership.PersistentMemberInfo"
       }
-    },
-    {
-      "name": "signedMembers",
-      "doc": "Member Infos with signature representing members found for a given query.",
-      "type": [
-        "null",
-        {
-          "type": "array",
-          "items": "net.corda.data.membership.PersistentSignedMemberInfo"
-        }
-      ],
-      "default": null
     }
   ]
 }
