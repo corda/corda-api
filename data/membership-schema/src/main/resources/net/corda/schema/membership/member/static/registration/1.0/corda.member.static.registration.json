@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/membership/member/static/registration/1.0/corda.member.static.registration.json",
   "title": "Corda static member registration context schema",
   "description": "Definition of the registration context required for registering a member in a static group.",
@@ -17,6 +17,11 @@
       "description": "Version supported for the flow protocol used by the notary service. Valid only when one of the roles is notary.",
       "type": "integer",
       "minimum": 1
+    },
+    "^ext\\.[a-zA-Z0-9.]+$": {
+      "description": "Optional. User-specified additional properties, which must be prefixed with `ext.`.",
+      "type": "string",
+      "maxLength": 800
     }
   },
   "properties": {
