@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "QueueRegistration",
+  "namespace": "net.corda.data.membership.command.registration.mgm",
+  "doc": " Command issued when a member registration request is received and needs to be processed.",
+  "fields": [
+    {
+      "name": "mgm",
+      "doc": "Holding identity of the target MGM.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "member",
+      "doc": "Holding identity of the requesting member.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "memberRegistrationRequest",
+      "doc": "The full registration request as received from a registering member.",
+      "type": "net.corda.data.membership.p2p.MembershipRegistrationRequest"
+    },
+    {
+       "name": "numberOfRetriesSoFar",
+       "doc": "The number of times this request failed so far.",
+       "type": "int"
+    }
+  ]
+}

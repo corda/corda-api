@@ -23,11 +23,16 @@
     {
       "name": "registrationStatus",
       "doc": "Status of the registration request.",
-      "type": "RegistrationStatus"
+      "type": "net.corda.data.membership.common.v2.RegistrationStatus"
     },
     {
       "name": "registrationId",
       "doc": "ID of the registration request.",
+      "type": "string"
+    },
+    {
+      "name": "holdingIdentityId",
+      "doc": "ID of the owner of this registration request.",
       "type": "string"
     },
     {
