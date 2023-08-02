@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/membership/member/dynamic/registration/1.0/corda.member.dynamic.registration.json",
   "title": "Corda dynamic member registration context schema",
   "type": "object",
@@ -51,9 +51,9 @@
       "type": "string"
     },
     "^ext\\.[a-zA-Z0-9.]+$": {
-      "description": "Optional. A user can specify additional properties, they must be prefixed with `ext.`.",
+      "description": "Optional. User-specified additional properties, which must be prefixed with `ext.`.",
       "type": "string",
-      "maxLength": 256
+      "maxLength": 800
     }
   },
   "properties": {
