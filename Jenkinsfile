@@ -9,4 +9,5 @@ cordaPipeline(
     localPublishVersionSuffixOverride: '-beta-9999999999999',
     // allow publishing artifacts to S3 bucket
     publishToMavenS3Repository: true,
+    javaVersion: '17'
     )
