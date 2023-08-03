@@ -19,6 +19,10 @@ public final class StateRef {
      * Specifies the delimiter that separates transaction ID and output index.
      */
     private static final String DELIMITER = ":";
+    /**
+     * The minimum SHA-256D algorithm hash length including SHA-256D: prefix
+     */
+    private static final Integer MINIMUM_HASH_LENGTH = 73;
 
     /**
      * The ID of the transaction in which the referenced state was created.
@@ -70,6 +74,16 @@ public final class StateRef {
      */
     public static StateRef parse(@NotNull final String value, DigestService digestService) {
         try {
+            if (!value.contains(DELIMITER)) {
+                throw new IllegalArgumentException(
+                        MessageFormat.format("Failed to parse a StateRef from the specified value. The value: {0} doesn't contain expected delimiter (:)", value)
+                        );
+            }
+            if (value.length() < MINIMUM_HASH_LENGTH) {
+                throw new IllegalArgumentException(
+                        MessageFormat.format("Failed to parse a StateRef from the specified value. The length of the value: {0} doesn't meet the required SHA-256D algorithm length: 73", value.length())
+                );
+            }
             final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
