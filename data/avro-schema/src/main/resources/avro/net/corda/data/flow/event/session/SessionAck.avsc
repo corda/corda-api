@@ -7,7 +7,7 @@
     {
       "name": "isWaitingForData",
       "type": "boolean",
-      "default": null,
+      "default": false,
       "doc": "Flag is set to true is session is waiting to receive data."
     }
   ]
