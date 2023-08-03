@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "CryptoRewrapRequest",
+  "namespace": "net.corda.data.crypto.wire.ops.rewrap",
+  "doc": "Internal over-the-wire crypto rewrap operations request envelope.",
+  "fields": [
+      {
+        "name": "tenantId",
+        "type": "string",
+        "doc": "TenantId"
+      },
+      {
+        "name": "targetAlias",
+        "type": "string",
+        "doc": "The wrapping key to be rewrapped."
+      },
+      {
+        "name": "newParentKeyAlias",
+        "type": "string",
+        "doc": "The new wrapping key which targetAlias will be rewrapped with."
+      }
+  ]
+}
