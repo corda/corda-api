@@ -33,6 +33,18 @@ topics:
       - membership
       - rest
     config:
+  CryptoOpsRewrapTopic:
+    name: crypto.ops.rewrap
+    consumers:
+      - crypto
+    producers:
+      - crypto
+  CryptoOpsRekeyTopic:
+    name: crypto.ops.rekey
+    consumers:
+      - crypto
+    producers:
+      - rest
   CryptoOpsRpcResponseTopic:
     name: crypto.ops.rpc.resp
     consumers:
