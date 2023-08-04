@@ -5,6 +5,7 @@ topics:
       - db
     producers:
       - rest
+      - db
     config:
   RestPermissionsManagementResponseTopic:
     name: rest.permissions.management.resp
