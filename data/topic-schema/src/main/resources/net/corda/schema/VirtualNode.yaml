@@ -82,6 +82,7 @@ topics:
       - db
     producers:
       - rest
+      - db
     config:
   VirtualNodeOperationStatusTopic:
     name: virtual.node.operation.status
