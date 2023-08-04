@@ -57,4 +57,28 @@ public interface SigningService {
     @Suspendable
     @NotNull
     Map<PublicKey, PublicKey> findMySigningKeys(@NotNull Set<PublicKey> keys);
+
+    /**
+     * Sign with the subset of keys we own from a specified set of keys.
+     * 
+     * @param bytes The data to sign over use the keys we own
+     * @param keys The set of keys to consider; we will sign with the subset of the keys which we own.
+     * @param signatureSpec The {@link SignatureSpec} to use when producing these signatures
+     * @return A set of {@link DigitalSignature.WithKeyId}, one per key we own.
+     */
+    @Suspendable
+    @NotNull
+    Set<DigitalSignature.WithKeyId> signWithMyKeys(@NotNull byte bytes[], @NotNull Set<PublicKey> keys, @NotNull SignatureSpec signatureSpec);
+
+    /**
+     * Sign with all the keys we have in a specified category.
+     *
+     * @param bytes The data to sign over use the keys we own
+     * @param category The key categories we use.
+     * @param signatureSpec The {@link SignatureSpec} to use when producing these signatures
+     * @return A set of {@link DigitalSignature.WithKeyId}, one per key we own.
+     */
+    @Suspendable
+    @NotNull
+    Set<DigitalSignature.WithKeyId> signWithMyCategoryKeys(@NotNull byte bytes[], @NotNull String category, @NotNull SignatureSpec signatureSpec);
 }

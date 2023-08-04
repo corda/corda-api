@@ -87,8 +87,12 @@ public final class Schemas {
         public static final String FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow";
         public static final String RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc";
         public static final String RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC);
+        
+        public static final String REWRAP_MESSASGE_TOPIC = "crypto.ops.rewrap";
+        
+        public static final String REKEY_MESSAGE_TOPIC = "crypto.ops.rekey";
     }
-
+                                                                                                                                                                                                                                        
     /**
      * Flow event topic schema.
      */
