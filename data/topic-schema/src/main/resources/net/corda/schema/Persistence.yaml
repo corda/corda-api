@@ -5,6 +5,7 @@ topics:
       - db
     producers:
       - flow
+      - db
     config:
   PersistenceLedgerProcessorTopic:
     name: persistence.ledger.processor
