@@ -68,20 +68,20 @@ public final class StateRef {
      * @return Returns a {@link StateRef} parsed from the specified {@link String} value.
      * @throws IllegalArgumentException if the specified value cannot be parsed.
      */
-    public static StateRef parse(@NotNull final String value, DigestService digestService) {
-        try {
-            if (value.replaceAll("[^" + DELIMITER + "]", "").length() != 2) {
-                throw new IllegalArgumentException(
-                        MessageFormat.format("Failed to parse a StateRef from the specified value. The number of delimiter ({0}) should be two in value: {1}.", DELIMITER, value)
-                );
-            }
 
-            final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
+    public static StateRef parse(@NotNull final String value, DigestService digestService) {
+        final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
+        if (lastIndexOfDelimiter == -1) {
+            throw new IllegalArgumentException(
+                    MessageFormat.format("Failed to parse a StateRef from the specified value. At least one delimiter ({0}) is expected in value: {1}.", DELIMITER, value)
+            );
+        }
+
+        try {
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
             final int index = Integer.parseUnsignedInt(subStringAfterDelimiter);
             final SecureHash transactionId = digestService.parseSecureHash(subStringBeforeDelimiter);
-
             return new StateRef(transactionId, index);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(
@@ -89,6 +89,7 @@ public final class StateRef {
                     numberFormatException
             );
         } catch (IllegalArgumentException illegalArgumentException) {
+            System.out.println("another transaction id invalid exception");
             throw new IllegalArgumentException(
                     MessageFormat.format("Failed to parse a StateRef from the specified value. The transaction ID is malformed: {0}.", value),
                     illegalArgumentException
