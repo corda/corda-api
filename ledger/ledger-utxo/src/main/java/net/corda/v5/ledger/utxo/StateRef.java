@@ -70,12 +70,13 @@ public final class StateRef {
      */
     public static StateRef parse(@NotNull final String value, DigestService digestService) {
         try {
-            final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
-            if (lastIndexOfDelimiter == -1) {
+            if (value.replaceAll("[^" + DELIMITER + "]", "").length() != 2) {
                 throw new IllegalArgumentException(
-                        MessageFormat.format("Failed to parse a StateRef from the specified value. The delimiter (:) is missing: {0}.", value)
+                        MessageFormat.format("Failed to parse a StateRef from the specified value. The number of delimiter ({0}) should be two in value: {1}.", DELIMITER, value)
                 );
             }
+
+            final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
             final int index = Integer.parseUnsignedInt(subStringAfterDelimiter);
