@@ -1,10 +1,10 @@
-package net.corda.v5.ledger.utxo.uniqueness.client;
+package net.corda.v5.ledger.utxo;
 
 import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.utxo.StateRef;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
@@ -36,21 +36,18 @@ public class StateRefParseTest {
 
         Assertions.assertEquals(StateRef.parse(value, digestService).getTransactionId().toString(), stateRef.getTransactionId().toString());
     }
+
     @Test
     void parseMalformedWithZeroDelimiter() {
         final String value = "XXX";
-        final String errorMessage = assertThrows(IllegalArgumentException.class, () -> {
-            StateRef.parse(value, digestService);
-        }).getMessage();
+        final String errorMessage = assertThrows(IllegalArgumentException.class, () -> StateRef.parse(value, digestService)).getMessage();
         Assertions.assertEquals(String.format("Failed to parse a StateRef from the specified value. At least one delimiter (%s) is expected in value: %s.", DELIMITER, value), errorMessage);
     }
 
     @Test
     void parseMalformedIndex() {
         final String value = ":asdf:a";
-        final String errorMessage = assertThrows(IllegalArgumentException.class, () -> {
-            StateRef.parse(value, digestService);
-        }).getMessage();
+        final String errorMessage = assertThrows(IllegalArgumentException.class, () -> StateRef.parse(value, digestService)).getMessage();
         Assertions.assertEquals(String.format("Failed to parse a StateRef from the specified value. The index is malformed: %s.", value), errorMessage);
     }
 
@@ -66,9 +63,7 @@ public class StateRefParseTest {
                 "is not met by hex string: \"%s\"", digestName, digestHexStringLength, hexString))).when(digestService).parseSecureHash(valueBeforeDelimiter);
 
 
-        final String errorMessage = assertThrows(IllegalArgumentException.class, () -> {
-            StateRef.parse(value, digestService);
-        }).getMessage();
+        final String errorMessage = assertThrows(IllegalArgumentException.class, () -> StateRef.parse(value, digestService)).getMessage();
 
         Assertions.assertEquals(String.format("Failed to parse a StateRef from the specified value. The transaction ID is malformed: %s.", value), errorMessage);
     }
