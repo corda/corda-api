@@ -89,7 +89,6 @@ public final class StateRef {
                     numberFormatException
             );
         } catch (IllegalArgumentException illegalArgumentException) {
-            System.out.println("another transaction id invalid exception");
             throw new IllegalArgumentException(
                     MessageFormat.format("Failed to parse a StateRef from the specified value. The transaction ID is malformed: {0}.", value),
                     illegalArgumentException
