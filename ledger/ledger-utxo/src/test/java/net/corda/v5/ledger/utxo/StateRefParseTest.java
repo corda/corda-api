@@ -18,12 +18,13 @@ public class StateRefParseTest {
     @Test
     void parseValidValue() {
         final String value = "SHA-256D:ED87C7285E1E34BF5E46302086F76317ACE9B17AEF7BD086EE09A5ACBD17CEA4:0";
-        final String subStringBeforeDelimiter = value.substring(0, value.lastIndexOf(DELIMITER));
+        final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
+        final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
         final SecureHash secureHash = mock(SecureHash.class);
 
         doReturn(secureHash).when(digestService).parseSecureHash(subStringBeforeDelimiter);
 
-        final StateRef stateRef = new StateRef(secureHash, 0);
+        final StateRef stateRef = new StateRef(secureHash, Integer.parseUnsignedInt(value.substring(lastIndexOfDelimiter + 1)));
 
         Assertions.assertEquals(StateRef.parse(value, digestService).getTransactionId().toString(), stateRef.getTransactionId().toString());
     }
