@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.0.1') _
+@Library('corda-shared-build-pipeline-steps@ES-593-Ensure-the-release-orchestrator-and-associated-publishing-logic-caters-to-grouping-GA-builds-in-S3') _
 
 cordaPipeline(
     runIntegrationTests: false,
