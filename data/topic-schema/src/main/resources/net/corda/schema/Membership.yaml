@@ -21,26 +21,21 @@ topics:
   MembershipEventTopic:
     name: membership.event
     consumers:
-      - db
     producers:
       - membership
-      - db
     config:
   MembershipActionsTopic:
     name: membership.actions
     consumers:
       - membership
-      - db
     producers:
       - membership
       - rest
-      - db
     config:
   MembershipRegistrationTopic:
     name: membership.registration
     consumers:
       - membership
-      - db
     producers:
       - membership
       - rest
@@ -50,19 +45,15 @@ topics:
     name: membership.registration.state
     consumers:
       - membership
-      - db
     producers:
       - membership
-      - db
     config:
   MembershipRegistrationDlqTopic:
     name: membership.registration.dlq
     consumers:
       - membership
-      - db
     producers:
       - membership
-      - db
     config:
   MembershipMembersTopic:
     name: membership.members
@@ -71,7 +62,6 @@ topics:
       - membership
       - rest
       - flow
-      - db
     producers:
       - membership
       - db
@@ -87,18 +77,14 @@ topics:
     name: membership.rpc.ops
     consumers:
       - membership
-      - db
     producers:
       - rest
-      - db
   MembershipRpcOpsResponseTopic:
     name: membership.rpc.ops.resp
     consumers:
       - rest
-      - db
     producers:
       - membership
-      - db
   MembershipDBRpcOpsTopic:
     name: membership.db.rpc.ops
     consumers:
@@ -117,7 +103,6 @@ topics:
       - membership
       - rest
       - flow
-      - db
     producers:
       - db
     config:
@@ -155,7 +140,6 @@ topics:
     name: membership.async.request
     consumers:
       - membership
-      - db
     producers:
       - rest
       - membership
@@ -164,18 +148,14 @@ topics:
     name: membership.async.request.retries
     consumers:
       - membership
-      - db
     producers:
       - membership
-      - db
   MembershipAsyncRequestRetriesStateTopic:
     name: membership.async.request.retries.state
     consumers:
       - membership
-      - db
     producers:
       - membership
-      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -187,17 +167,13 @@ topics:
     name: membership.async.request.retries.dlq
     consumers:
       - membership
-      - db
     producers:
       - membership
-      - db
     config:
   MembershipSynchronizationTopic:
     name: membership.sync
     consumers:
       - membership
-      - db
     producers:
       - membership
-      - db
     config:
