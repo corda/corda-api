@@ -13,7 +13,7 @@
         "name": "claimedTokenStateRefs",
         "type": {
           "type": "array",
-          "items": "net.corda.data.ledger.utxo.token.selection.data.Token"
+          "items": "string"
         },
         "default": [],
         "doc": "Deprecated. The List of state refs for the claimed tokens"
