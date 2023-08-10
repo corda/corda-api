@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "DistributeGroupParameters",
+  "namespace": "net.corda.data.membership.actions.request",
+  "doc": "Distribute group parameters to the rest of the network.",
+  "fields": [
+    {
+      "name": "mgm",
+      "doc": "The membership group manager of the group.",
+      "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "minimumGroupParametersEpoch",
+      "doc": "The minimum group parameters epoch to be distributed (if null, the latest version is used). If the group parameters with this epoch have not been published, then the membership actions processor will requeue this request to be retried later.",
+      "type": ["null", "int"]
+    }
+  ]
+}

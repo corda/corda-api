@@ -8,4 +8,6 @@
     <include file="net/corda/db/schema/config/migration/add-ledger-utxo-config.xml"/>
     <include file="net/corda/db/schema/config/migration/chunking-creation-v1.0.xml"/>
     <include file="net/corda/db/schema/config/migration/static-network-creation-v1.0.xml"/>
+
+    <include file="net/corda/db/schema/config/migration/config-creation-v5.1.xml"/>
 </databaseChangeLog>

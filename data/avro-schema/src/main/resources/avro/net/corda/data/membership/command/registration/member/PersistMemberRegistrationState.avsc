@@ -12,7 +12,7 @@
     {
       "name": "setStatusRequest",
       "doc" : "The request to set the status.",
-      "type": "net.corda.data.membership.p2p.SetOwnRegistrationStatus"
+      "type": "net.corda.data.membership.p2p.v2.SetOwnRegistrationStatus"
     }
   ]
 }

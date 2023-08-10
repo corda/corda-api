@@ -71,10 +71,14 @@ public interface FlowSession {
      * Note that this function is not just a simple send and receive pair. It is more efficient and more correct to use
      * sendAndReceive when you expect to do a message swap rather than use {@link FlowSession#send} and then
      * {@link FlowSession#receive}.
+     * <p>
+     * Both the {@code payload} object and the {@code receiveType} should be of a type that is annotated
+     * with @CordaSerializable or a primitive type. This function cannot handle types that do not meet these criteria.
      *
      * @param <R> The data type received from the counterparty.
      * @param receiveType The data type received from the counterparty.
-     * @param payload The data sent to the counterparty.
+     * @param payload The data sent to the counterparty, which should be either a primitive type
+     *                or a type annotated with @CordaSerializable.
      *
      * @return The received data <R>
      *
@@ -87,9 +91,13 @@ public interface FlowSession {
 
     /**
      * Suspends until a message of type <R> is received from {@link #getCounterparty}.
+     * <p>
+     * The {@code receiveType} should be a type that is annotated with @CordaSerializable or a primitive type. This
+     * function cannot handle types that do not meet these criteria.
      *
      * @param <R> The data type received from the counterparty.
-     * @param receiveType The data type received from the counterparty.
+     * @param receiveType The data type received from the counterparty, which should be either a primitive type
+     *                    or a type annotated with @CordaSerializable.
      *
      * @return The received data <R>
      *
@@ -106,8 +114,12 @@ public interface FlowSession {
      * Note that the other party may receive the message at some arbitrary later point or not at all: if {@link #getCounterparty}
      * is offline then message delivery will be retried until it comes back or until the message is older than the
      * network's event horizon time.
+     * <p>
+     * The {@code payload} object should be of a type that is annotated with @CordaSerializable or a primitive type. This
+     * function cannot handle types that do not meet these criteria.
      *
-     * @param payload The data sent to the counterparty.
+     * @param payload The data sent to the counterparty, which should be either a primitive type
+     *                or a type annotated with @CordaSerializable.
      *
      * @throws CordaRuntimeException if the session is closed or in a failed state.
      */
