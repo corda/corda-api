@@ -11,6 +11,7 @@ import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.StateRef;
 import net.corda.v5.ledger.utxo.TimeWindow;
 import net.corda.v5.ledger.utxo.TransactionState;
+import net.corda.v5.membership.GroupParameters;
 import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
@@ -288,4 +289,7 @@ public interface UtxoLedgerTransaction {
     // TODO : Rename to getOutputContractStates
     @NotNull
     <T extends ContractState> List<T> getOutputStates(@NotNull Class<T> type);
+
+    @NotNull
+    GroupParameters getGroupParameters();
 }
