@@ -10,6 +10,10 @@
         "net.corda.data.chunking.Chunk",
         "bytes"
       ]
+    },
+    {
+      "name": "sessionInit",
+      "type": "net.corda.data.flow.event.session.SessionInit"
     }
   ]
 }

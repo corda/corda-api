@@ -84,6 +84,28 @@ public interface FlowMessaging {
     @NotNull
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name);
 
+
+    /**
+     * Creates a communication session with a counterparty's {@link ResponderFlow}. Subsequently, you may send/receive using
+     * this session object. Note that this function does not communicate in itself. The counter-flow will be kicked off
+     * by the first send/receive.
+     * <p>
+     * Initiated flows are initiated with context based on the context of the initiating flow at the point in time this
+     * method is called. The context of the initiating flow is snapshotted by the returned session. Altering the flow
+     * context has no effect on the context of the session after this point, and therefore it has no effect on the
+     * context of the initiated flow either.
+     *
+     * @param x500Name The X500 name of the member to communicate with.
+     * @param requireClose When set to true, the initiated party will send a close message after calling FlowSession.close()
+     *                     and the initiating party will suspend and wait to receive the message when they call FlowSession.close().
+     *                     When set to false the session is marked as terminated immediately when close() is called.
+     *
+     * @return The session.
+     */
+    @Suspendable
+    @NotNull
+    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, Boolean requireClose);
+
     /**
      * Creates a communication session with another member. Subsequently, you may send/receive using this session object.
      * Note that this function does not communicate in itself. The counter-flow will be kicked off by the first
@@ -110,6 +132,9 @@ public interface FlowMessaging {
      * ```
      *
      * @param x500Name The X500 name of the member to communicate with.
+     * @param requireClose When set to true, the initiated party will send a close message after calling FlowSession.close()
+     *                     and the initiating party will suspend and wait to receive the message when they call FlowSession.close().
+     *                     When set to false the session is marked as terminated immediately when close() is called.
      * @param flowContextPropertiesBuilder A builder of context properties.
      *
      * @return The session.
@@ -122,7 +147,7 @@ public interface FlowMessaging {
      */
     @Suspendable
     @NotNull
-    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
+    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, @NotNull Boolean requireClose, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
 
     /**
      * Suspends until a message has been received for each session in the specified {@code sessions}.
