@@ -30,7 +30,7 @@ public class FlowMessagingJavaApiTest {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
         when(flowMessaging.initiateFlow(eq(counterparty), any())).thenReturn(flowSession);
 
-        FlowSession result = flowMessaging.initiateFlow(counterparty, (contextProperties) -> contextProperties.put("key", "value"));
+        FlowSession result = flowMessaging.initiateFlow(counterparty, true, (contextProperties) -> contextProperties.put("key", "value"));
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(flowSession);
