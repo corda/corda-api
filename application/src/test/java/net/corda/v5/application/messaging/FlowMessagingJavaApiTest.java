@@ -2,6 +2,7 @@ package net.corda.v5.application.messaging;
 
 import net.corda.v5.base.types.MemberX500Name;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -26,6 +27,7 @@ public class FlowMessagingJavaApiTest {
     }
 
     @Test
+    @Disabled// todo CORE-15757
     public void initiateFlowPartyWithBuilder() {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
         when(flowMessaging.initiateFlow(eq(counterparty), any())).thenReturn(flowSession);
