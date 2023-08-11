@@ -17,9 +17,9 @@
       "type": "string"
     },
     {
-      "doc": "Whether or not this interop identity is owned by the local virtual node.",
-      "name": "localToVNode",
-      "type": "boolean"
+      "doc": "The short hash of the Virtual Node that created this Interop Identity",
+      "name": "virtualNodeShortHash",
+      "type": "string"
     },
     {
       "doc": "List of facade IDs.",
