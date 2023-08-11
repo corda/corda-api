@@ -13,9 +13,10 @@ import java.util.List;
 /**
  * TransactionSignatureService can be used to sign and verify transaction signatures.
  * It supports both single and batch signatures.
+ * It can be used only in flows.
  */
 @DoNotImplement
-public interface TransactionSignatureService {
+public interface TransactionSignatureService extends TransactionSignatureVerificationService{
 
     /**
      * Signs a transaction ID with all the available keys.
@@ -52,21 +53,5 @@ public interface TransactionSignatureService {
     List<List<DigitalSignatureAndMetadata>> signBatch(
             @NotNull final List<TransactionWithMetadata> transactions,
             @NotNull final Iterable<PublicKey> publicKeys
-    );
-
-    /**
-     * Verifies a signature against a transaction.
-     * The underlying verification service signals the verification failures with different exceptions.
-     * {@link DigitalSignatureVerificationService}
-     *
-     * @param transaction           The original transaction.
-     * @param signatureWithMetadata The signature to be verified.
-     * @param publicKey             The public key to verify against. It must match with signatureWithMetadata's keyId.
-     * @throws RuntimeException if the signature could not be verified.
-     */
-    void verifySignature(
-            @NotNull final TransactionWithMetadata transaction,
-            @NotNull final DigitalSignatureAndMetadata signatureWithMetadata,
-            @NotNull final PublicKey publicKey
     );
 }
