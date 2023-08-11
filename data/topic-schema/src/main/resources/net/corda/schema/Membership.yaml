@@ -103,6 +103,7 @@ topics:
       - membership
       - rest
       - flow
+      - db
     producers:
       - db
     config:
