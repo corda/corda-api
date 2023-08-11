@@ -1,6 +1,6 @@
-@Library('corda-shared-build-pipeline-steps@5.0.1') _
+@Library('corda-shared-build-pipeline-steps@ronanb/fix-k8s-cpu-to-gradle-workers') _
 
-cordaPipeline(
+cordaPipelineKubernetesAgent(
     runIntegrationTests: false,
     dependentJobsNames: ['/Corda5/corda-runtime-os-version-compatibility/release%2Fos%2F5.0'],
     dependentJobsNonBlocking: ['/Corda5/corda-api-compatibility/'],
