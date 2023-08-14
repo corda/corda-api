@@ -15,7 +15,17 @@
           "type": "array",
           "items": "string"
         },
-        "doc": "The List of state refs for the claimed tokens"
+        "default": [],
+        "doc": "Deprecated. The List of state refs for the claimed tokens"
+      },
+      {
+        "name": "claimedTokens",
+        "type": {
+          "type": "array",
+          "items": "net.corda.data.ledger.utxo.token.selection.data.Token"
+        },
+        "default": [],
+        "doc": "List of claimed tokens"
       }
   ]
 }
