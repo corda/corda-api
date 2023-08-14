@@ -104,7 +104,7 @@ public interface FlowMessaging {
      */
     @Suspendable
     @NotNull
-    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, Boolean requireClose);
+    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose);
 
     /**
      * Creates a communication session with another member. Subsequently, you may send/receive using this session object.
@@ -147,7 +147,7 @@ public interface FlowMessaging {
      */
     @Suspendable
     @NotNull
-    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, @NotNull Boolean requireClose, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
+    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
 
     /**
      * Suspends until a message has been received for each session in the specified {@code sessions}.
