@@ -54,6 +54,13 @@
       "minimum": 5000,
       "maximum": 2147483647,
       "default": 120000
+    },
+    "memberInfoIntervalMs": {
+      "description": "The interval in milliseconds between aligning the Kafka Member Info with the DB Member Info.",
+      "type": "integer",
+      "minimum": 5000,
+      "maximum": 2147483647,
+      "default": 120000
     }
   }
 }
