@@ -11,20 +11,26 @@
       },
       {
         "name": "claimedTokenStateRefs",
-        "type": {
-          "type": "array",
-          "items": "string"
-        },
-        "default": [],
+        "type": [
+          "null",
+          {
+            "type": "array",
+            "items": "string"
+          }
+        ],
+        "default": null,
         "doc": "Deprecated. The List of state refs for the claimed tokens"
       },
       {
         "name": "claimedTokens",
-        "type": {
-          "type": "array",
-          "items": "net.corda.data.ledger.utxo.token.selection.data.Token"
-        },
-        "default": [],
+        "type": [
+          "null",
+          {
+            "type": "array",
+            "items": "net.corda.data.ledger.utxo.token.selection.data.Token"
+          }
+        ],
+        "default": null,
         "doc": "List of claimed tokens"
       }
   ]
