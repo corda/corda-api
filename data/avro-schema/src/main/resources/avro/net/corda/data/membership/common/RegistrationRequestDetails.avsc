@@ -46,19 +46,9 @@
       "type": "net.corda.data.membership.SignedData"
     },
     {
-      "name": "deserializedMemberProvidedContext",
-      "doc": "Member provided context submitted for registration.",
-      "type": "net.corda.data.KeyValuePairList"
-    },
-    {
       "name": "registrationContext",
       "doc": "Additional registration context which has been signed by the registering member and is not part of the MemberInfo (e.g. pre-auth token). The data must be a serialised KeyValuePairList.",
       "type": "net.corda.data.membership.SignedData"
-    },
-    {
-      "name": "deserializedRegistrationContext",
-      "doc": "Additional registration context submitted for registration.",
-      "type": "net.corda.data.KeyValuePairList"
     },
     {
       "name": "reason",
