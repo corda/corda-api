@@ -39,6 +39,7 @@ topics:
     producers:
       - membership
       - rest
+      - db
     config:
   MembershipRegistrationStateTopic:
     name: membership.registration.state
@@ -94,6 +95,7 @@ topics:
       - link-manager
       - membership
       - rest
+      - db
     config:
   MembershipDBRpcOpsResponseTopic:
     name: membership.db.rpc.ops.resp
@@ -102,6 +104,7 @@ topics:
       - membership
       - rest
       - flow
+      - db
     producers:
       - db
     config:
@@ -142,6 +145,7 @@ topics:
     producers:
       - rest
       - membership
+      - db
   MembershipAsyncRequestRetriesTopic:
     name: membership.async.request.retries
     consumers:
