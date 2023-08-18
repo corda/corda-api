@@ -6,7 +6,6 @@
         <addColumn tableName="vnode_member_info">
             <column name="is_deleted" type="BOOLEAN" defaultValueBoolean="false"/>
         </addColumn>
-
         <createTable tableName="vnode_persistence_request_id">
             <column name="request_id" type="NVARCHAR(255)">
                 <constraints nullable="false" primaryKey="true"/>
