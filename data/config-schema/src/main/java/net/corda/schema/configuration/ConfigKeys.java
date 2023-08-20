@@ -24,6 +24,7 @@ public final class ConfigKeys {
     public static final String MEMBERSHIP_CONFIG = "corda.membership";
     public static final String SECURITY_CONFIG = "corda.security";
     public static final String VNODE_DATASOURCE_CONFIG = "corda.vnode.datasource";
+    public static final String STATE_MANAGER_CONFIG = "corda.stateManager";
 
     //  REST
     public static final String REST_ADDRESS = "address";
