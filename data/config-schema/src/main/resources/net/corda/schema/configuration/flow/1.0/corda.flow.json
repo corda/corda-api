@@ -54,7 +54,7 @@
           "maximum": 2147483647,
           "default": 120000
         },
-        "heartbeatTimeout": {
+        "timeout": {
           "description": "The length of time in milliseconds that Corda waits when no message has been received from a counterparty before causing the session to error. This should be set at least 2 times larger than session.messageResendWindow.",
           "type": "integer",
           "minimum": 1000,
