@@ -169,6 +169,7 @@ public interface UtxoLedgerTransaction {
      * @param type The type of the {@link ContractState}.
      * @return Returns all input contract states that match the specified type.
      */
+    // TODO : Rename to getInputContractStates
     @NotNull
     <T extends ContractState> List<T> getInputStates(@NotNull Class<T> type);
 
