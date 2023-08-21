@@ -13,5 +13,5 @@ public interface GroupParametersService {
      * Returns the point in time {@link GroupParameters}
      */
     @NotNull
-    GroupParameters getGroupParameters();
+    GroupParameters getCurrentGroupParameters();
 }
