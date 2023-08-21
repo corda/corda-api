@@ -26,7 +26,7 @@
           },
           "then": {
             "properties": {
-              "stateManagerDbProperties": {
+              "database": {
                 "description": "Settings to connect to the state manager database.",
                 "$ref": "state-manager-db-properties.json"
               }
