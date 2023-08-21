@@ -19,6 +19,7 @@ topics:
       - crypto
       - db
       - flow
+      - verification
       - membership
       - gateway
       - link-manager
