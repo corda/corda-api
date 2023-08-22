@@ -3,7 +3,6 @@ topics:
     name: p2p.in
     consumers:
       - flow
-      - verification
       - membership
     producers:
       - link-manager
@@ -14,7 +13,6 @@ topics:
       - link-manager
     producers:
       - flow
-      - verification
       - membership
     config:
   P2POutDlqTopic:
