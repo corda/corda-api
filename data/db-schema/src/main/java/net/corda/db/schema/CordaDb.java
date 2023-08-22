@@ -16,7 +16,8 @@ public enum CordaDb {
     Uniqueness("corda-uniqueness"),
     Vault("corda-vault"),
     Crypto("corda-crypto"),
-    VirtualNodes("corda-virtual-nodes");
+    VirtualNodes("corda-virtual-nodes"),
+    StateManager("corda-state-manager");
 
     private final String persistenceUnitName;
 

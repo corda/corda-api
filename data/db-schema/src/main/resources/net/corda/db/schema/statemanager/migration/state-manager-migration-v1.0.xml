@@ -3,6 +3,9 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
+    <property name="now" value="now()" dbms="hsqldb"/>
+    <property name="now" value="now()" dbms="postgresql"/>
+
     <changeSet author="R3.Corda" id="state-manager-migration-v1.0">
         <createTable tableName="state">
             <column name="key" type="varchar(255)">
@@ -11,6 +14,9 @@
             <column name="state" type="BLOB"/>
             <column name="version" type="INT"/>
             <column name="metadata" type="JSONB"/>
+            <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
         <addPrimaryKey columnNames="key" constraintName="state_key" tableName="state"/>
     </changeSet>
