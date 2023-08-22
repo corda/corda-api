@@ -4,7 +4,6 @@ topics:
     consumers:
       - db
       - flow
-      - verification
       - link-manager
       - membership
       - rest

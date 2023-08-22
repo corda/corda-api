@@ -5,7 +5,6 @@ topics:
       - persistence
     producers:
       - flow
-      - verification
     config:
   PersistenceLedgerProcessorTopic:
     name: persistence.ledger.processor
@@ -13,5 +12,4 @@ topics:
       - persistence
     producers:
       - flow
-      - verification
     config:
