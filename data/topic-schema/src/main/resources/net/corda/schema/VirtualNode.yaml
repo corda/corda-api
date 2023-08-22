@@ -4,6 +4,7 @@ topics:
     consumers:
       - db
       - flow
+      - verification
       - membership
       - link-manager
       - persistence
@@ -35,6 +36,7 @@ topics:
     name: cpk.file
     consumers:
       - flow
+      - verification
       - db
       - persistence
     producers:
@@ -66,6 +68,7 @@ topics:
       - crypto
       - db
       - flow
+      - verification
       - membership
       - link-manager
       - persistence

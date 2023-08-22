@@ -5,6 +5,7 @@ topics:
       - db
     producers:
       - flow
+      - verification
       - db
       - persistence
     config:

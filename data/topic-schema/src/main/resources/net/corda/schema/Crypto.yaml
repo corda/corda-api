@@ -21,6 +21,7 @@ topics:
       - crypto
     producers:
       - flow
+      - verification
     config:
   CryptoOpsRpcTopic:
     name: crypto.ops.rpc
