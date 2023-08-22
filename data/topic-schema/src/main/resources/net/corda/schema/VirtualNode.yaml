@@ -36,6 +36,7 @@ topics:
     consumers:
       - flow
       - db
+      - persistence
     producers:
       - db
     config:
