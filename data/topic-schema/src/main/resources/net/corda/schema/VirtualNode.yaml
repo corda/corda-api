@@ -6,6 +6,7 @@ topics:
       - flow
       - membership
       - link-manager
+      - persistence
       - rest
     producers:
       - db
@@ -66,6 +67,7 @@ topics:
       - flow
       - membership
       - link-manager
+      - persistence
       - rest
     producers:
       - db
