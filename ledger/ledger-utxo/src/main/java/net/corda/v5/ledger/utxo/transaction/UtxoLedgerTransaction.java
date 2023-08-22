@@ -289,6 +289,11 @@ public interface UtxoLedgerTransaction {
     @NotNull
     <T extends ContractState> List<T> getOutputStates(@NotNull Class<T> type);
 
+    /**
+     * Gets the group parameters associated with the current {@link UtxoLedgerTransaction}.
+     *
+     * @return Returns the group parameters associated with the current {@link UtxoLedgerTransaction}.
+     */
     @NotNull
     GroupParameters getGroupParameters();
 }
