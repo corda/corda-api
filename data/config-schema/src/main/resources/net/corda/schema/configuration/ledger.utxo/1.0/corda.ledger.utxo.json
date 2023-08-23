@@ -46,6 +46,12 @@
           "type": "integer",
           "minimum": 1,
           "default": 10
+        },
+        "cachedTokenPageSize": {
+          "description": "The page size of the query that retrieves tokens from the database",
+          "type": "integer",
+          "minimum": 0,
+          "default": 1500
         }
       }
     }
