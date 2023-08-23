@@ -2,7 +2,7 @@
   "type": "record",
   "name": "MemberSignatureQueryResponse",
   "namespace": "net.corda.data.membership.db.response.query",
-  "doc": "Response to a query for one or more member infos",
+  "doc": "Deprecated schema, MemberInfoQueryResponse should be used instead. Response to a query for one or more member signatures",
   "fields": [
     {
       "name": "membersSignatures",
