@@ -11,7 +11,9 @@
             <column name="key" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="state" type="BLOB"/>
+            <column name="state" type="BLOB">
+                <constraints nullable="true"/>
+            </column>
             <column name="version" type="INT"/>
             <column name="metadata" type="JSONB"/>
             <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
