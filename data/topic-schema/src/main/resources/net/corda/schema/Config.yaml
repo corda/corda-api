@@ -23,6 +23,7 @@ topics:
       - gateway
       - link-manager
       - rest
+      - persistence
       - uniqueness
     producers:
       - db

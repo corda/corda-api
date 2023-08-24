@@ -8,6 +8,7 @@ topics:
       - membership
       - gateway
       - link-manager
+      - persistence
       - rest
       - uniqueness
     producers:
@@ -17,6 +18,7 @@ topics:
       - membership
       - gateway
       - link-manager
+      - persistence
       - rest
       - uniqueness
     config:
