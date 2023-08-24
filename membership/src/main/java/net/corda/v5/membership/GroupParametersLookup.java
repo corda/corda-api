@@ -1,6 +1,5 @@
-package net.corda.v5.ledger.utxo;
+package net.corda.v5.membership;
 
-import net.corda.v5.membership.GroupParameters;
 import org.jetbrains.annotations.NotNull;
 
 /**
