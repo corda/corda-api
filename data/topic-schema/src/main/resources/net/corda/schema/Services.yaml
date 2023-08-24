@@ -5,7 +5,7 @@ topics:
       - db
     producers:
       - flow
-      - db
+#      - db
       - persistence
     config:
   ServicesTokenEventStateTopic:
