@@ -3,6 +3,7 @@ topics:
     name: p2p.in
     consumers:
       - flow
+      - flow-mapper
       - membership
     producers:
       - link-manager
@@ -13,6 +14,7 @@ topics:
       - link-manager
     producers:
       - flow
+      - flow-mapper
       - membership
     config:
   P2POutDlqTopic:

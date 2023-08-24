@@ -5,6 +5,7 @@ topics:
       - crypto
       - db
       - flow
+      - flow-mapper
       - membership
       - gateway
       - link-manager
@@ -15,6 +16,7 @@ topics:
       - crypto
       - db
       - flow
+      - flow-mapper
       - membership
       - gateway
       - link-manager
