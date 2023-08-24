@@ -2,7 +2,7 @@ topics:
   CPIInfoTopic:
     name: cpi.info
     consumers:
-      - db
+#      - db
       - flow
       - membership
       - link-manager
