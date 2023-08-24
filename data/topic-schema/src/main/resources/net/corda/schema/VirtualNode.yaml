@@ -62,7 +62,6 @@ topics:
     name: virtual.node.info
     consumers:
       - crypto
-      - db
       - flow
       - membership
       - link-manager
