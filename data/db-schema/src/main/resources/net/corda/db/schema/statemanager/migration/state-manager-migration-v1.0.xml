@@ -6,6 +6,10 @@
     <property name="now" value="now()" dbms="hsqldb"/>
     <property name="now" value="now()" dbms="postgresql"/>
 
+    <property name="json.column.type" value="JSONB" dbms="postgresql"/>
+    <!-- Please note that HSQLDB schema is supported for integration test purposes only. -->
+    <property name="json.column.type" value="CLOB" dbms="hsqldb"/>
+
     <changeSet author="R3.Corda" id="state-manager-migration-v1.0">
         <createTable tableName="state">
             <column name="key" type="varchar(255)">
@@ -15,7 +19,7 @@
                 <constraints nullable="true"/>
             </column>
             <column name="version" type="INT"/>
-            <column name="metadata" type="JSONB"/>
+            <column name="metadata" type="${json.column.type}"/>
             <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
