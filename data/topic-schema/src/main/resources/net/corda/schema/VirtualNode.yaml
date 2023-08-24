@@ -2,7 +2,6 @@ topics:
   CPIInfoTopic:
     name: cpi.info
     consumers:
-#      - db
       - flow
       - membership
       - link-manager
@@ -35,7 +34,6 @@ topics:
     name: cpk.file
     consumers:
       - flow
-      - db
       - persistence
     producers:
       - db
