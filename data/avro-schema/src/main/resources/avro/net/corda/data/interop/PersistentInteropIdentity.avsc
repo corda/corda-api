@@ -1,0 +1,48 @@
+{
+  "type": "record",
+  "name": "PersistentInteropIdentity",
+  "namespace": "net.corda.data.interop",
+  "fields": [
+    {
+      "doc": "Interop group ID.",
+      "name": "groupId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "doc": "Interop identity x500 name.",
+      "name": "x500Name",
+      "type": "string"
+    },
+    {
+      "doc": "The short hash of the Virtual Node that created this Interop Identity",
+      "name": "virtualNodeShortHash",
+      "type": "string"
+    },
+    {
+      "doc": "List of facade IDs.",
+      "name": "facadeIds",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "doc": "Interop identity application name.",
+      "name": "applicationName",
+      "type": "string"
+    },
+    {
+      "doc": "Interop identity endpoint url.",
+      "name": "endpointUrl",
+      "type": "string"
+    },
+    {
+      "doc": "Interop identity endpoint protocol.",
+      "name": "endpointProtocol",
+      "type": "string"
+    }
+  ]
+}
