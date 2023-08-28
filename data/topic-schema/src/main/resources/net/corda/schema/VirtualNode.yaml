@@ -4,7 +4,7 @@ topics:
     consumers:
       - db
       - flow
-      - flow-mapper
+      - flowMapper
       - membership
       - link-manager
       - persistence

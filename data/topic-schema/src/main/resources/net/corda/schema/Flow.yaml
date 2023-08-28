@@ -34,18 +34,19 @@ topics:
     name: flow.mapper.event
     consumers:
       - flow
-      - flow-mapper
+      - flowMapper
     producers:
-      - flow-mapper
+      - flowMapper
       - rest
     config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
     consumers:
       - flow
-      - flow-mapper
+      - flowMapper
     producers:
-      - flow-mapper
+      - flow
+      - flowMapper
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -57,9 +58,9 @@ topics:
     name: flow.mapper.event.dlq
     consumers:
       - flow
-      - flow-mapper
+      - flowMapper
     producers:
-      - flow-mapper
+      - flowMapper
     config:
   FlowStatusTopic:
     name: flow.status
