@@ -67,6 +67,7 @@ topics:
       - crypto
       - db
       - flow
+      - flowWorker
       - membership
       - link-manager
       - persistence
