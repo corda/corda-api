@@ -63,7 +63,7 @@ topics:
       - membership
       - rest
       - flow
-      - flowWorker
+      - flowMapper
       - db
     producers:
       - membership
