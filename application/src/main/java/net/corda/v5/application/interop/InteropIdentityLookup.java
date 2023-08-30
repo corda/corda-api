@@ -9,12 +9,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * {@link InteropIdentityLookUp} allows flows to retrieve the {@link InterOpIdentityInfo} for any registered InterOp Alias Identity, including it's own Alias Identity.
+ * {@link InteropIdentityLookup} allows flows to retrieve the {@link InterOpIdentityInfo} for any registered InterOp Alias Identity, including it's own Alias Identity.
  * <p>
- * The platform will provide an instance of {@link InteropIdentityLookUp} to flows via property injection.
+ * The platform will provide an instance of {@link InteropIdentityLookup} to flows via property injection.
  */
 @DoNotImplement
-public interface InteropIdentityLookUp {
+public interface InteropIdentityLookup {
 
     /**
      * @param applicationName {@link String} The application name for InterOp Identity which is set during InterOp Alias Identity Registration.
