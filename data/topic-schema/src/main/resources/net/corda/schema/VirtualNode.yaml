@@ -5,6 +5,7 @@ topics:
       - db
       - flow
       - flowMapper
+      - verification
       - membership
       - link-manager
       - persistence
@@ -36,6 +37,7 @@ topics:
     name: cpk.file
     consumers:
       - flow
+      - verification
       - db
       - persistence
     producers:

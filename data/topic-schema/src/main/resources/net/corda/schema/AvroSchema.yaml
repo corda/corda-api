@@ -6,6 +6,7 @@ topics:
       - db
       - flow
       - flowMapper
+      - verification
       - membership
       - gateway
       - link-manager
@@ -17,6 +18,7 @@ topics:
       - db
       - flow
       - flowMapper
+      - verification
       - membership
       - gateway
       - link-manager
