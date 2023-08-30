@@ -2,7 +2,6 @@ topics:
   P2PInTopic:
     name: p2p.in
     consumers:
-      - flow
       - flowMapper
       - membership
     producers:
@@ -13,7 +12,6 @@ topics:
     consumers:
       - link-manager
     producers:
-      - flow
       - flowMapper
       - membership
     config:

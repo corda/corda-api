@@ -3,7 +3,6 @@ topics:
     name: flow.event
     consumers:
       - flow
-      - flowMapper
     producers:
       - db
       - crypto
