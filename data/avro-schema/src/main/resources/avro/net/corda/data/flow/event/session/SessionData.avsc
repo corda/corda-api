@@ -14,7 +14,7 @@
     {
       "name": "sessionInit",
       "type": ["null", "net.corda.data.flow.event.session.SessionInit"],
-      "doc": "Contains information that can be used to start an initiated flow, piggybacked on initial data messages. Will be null for messages sent to the initiator. Will be null when initiated party is confirmed to be present via receipt of any data message previously."
+      "doc": "Contains information that can be used to start an initiated flow, piggybacked on initial data messages. Will be null for messages sent to the initiator. Will be null when initiated party is confirmed to be present to ensure out of order messages that arrive first contain this info."
     }
   ]
 }
