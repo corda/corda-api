@@ -9,7 +9,7 @@
       "description": "Settings for the underlying state manager storage.",
       "type": "object",
       "properties": {
-        "stateManagerType": {
+        "type": {
           "description": "The type of state manager implementation.",
           "enum": [
             "DATABASE"
@@ -21,8 +21,8 @@
       "allOf": [
         {
           "if": {
-            "properties": {"stateManagerType": {"const": "DATABASE"}},
-            "required": ["stateManagerType"]
+            "properties": {"type": {"const": "DATABASE"}},
+            "required": ["type"]
           },
           "then": {
             "properties": {
@@ -31,7 +31,7 @@
                 "$ref": "state-manager-db-properties.json"
               }
             },
-            "required": ["stateManagerType", "stateManagerDbProperties"]
+            "required": ["type", "stateManagerDbProperties"]
           }
         }
       ]
