@@ -39,6 +39,7 @@ topics:
       - flow
       - flowMapper
     producers:
+      - flow
       - flowMapper
       - rest
     config:
