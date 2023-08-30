@@ -3,10 +3,12 @@ topics:
     name: flow.event
     consumers:
       - flow
+      - flowMapper
     producers:
       - db
       - crypto
       - flow
+      - flowMapper
       - persistence
       - uniqueness
     config:
