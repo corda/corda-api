@@ -4,6 +4,7 @@ topics:
     consumers:
       - db
       - flow
+      - flowMapper
       - verification
       - membership
       - link-manager
@@ -68,6 +69,7 @@ topics:
       - crypto
       - db
       - flow
+      - flowMapper
       - membership
       - link-manager
       - persistence
