@@ -2,7 +2,7 @@
   "type": "record",
   "name": "QueryMemberSignature",
   "namespace": "net.corda.data.membership.db.request.query",
-  "doc": "Query for one or more member signatures",
+  "doc": "Deprecated schema, QueryMemberInfo should be used instead. Query for one or more member signatures",
   "fields": [
     {
       "name": "queryIdentities",

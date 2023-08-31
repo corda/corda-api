@@ -69,12 +69,18 @@ public final class StateRef {
      * @throws IllegalArgumentException if the specified value cannot be parsed.
      */
     public static StateRef parse(@NotNull final String value, DigestService digestService) {
+        final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
+        if (lastIndexOfDelimiter == -1) {
+            throw new IllegalArgumentException(
+                    MessageFormat.format("Failed to parse a StateRef from the specified value. At least one delimiter ({0}) is expected in value: {1}.", DELIMITER, value)
+            );
+        }
+
         try {
-            final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
             final String subStringBeforeDelimiter = value.substring(0, lastIndexOfDelimiter);
             final String subStringAfterDelimiter = value.substring(lastIndexOfDelimiter + 1);
+            final int index = Integer.parseUnsignedInt(subStringAfterDelimiter);
             final SecureHash transactionId = digestService.parseSecureHash(subStringBeforeDelimiter);
-            final int index = Integer.parseInt(subStringAfterDelimiter);
             return new StateRef(transactionId, index);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(
