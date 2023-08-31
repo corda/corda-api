@@ -6,11 +6,21 @@
   "fields": [
     {
       "name": "members",
-      "doc": "List of MemberInfos to persist.",
-      "type": {
+      "doc": "Deprecated, signedMembers should be used instead. List of MemberInfos to persist.",
+      "type": ["null", {
         "type": "array",
         "items": "net.corda.data.membership.PersistentSignedMemberInfo"
-      }
+      }],
+      "default": null
+    },
+    {
+      "name": "signedMembers",
+      "doc": "List of MemberInfos to persist.",
+      "type": ["null", {
+        "type": "array",
+        "items": "net.corda.data.membership.PersistentMemberInfo"
+      }],
+      "default": null
     }
   ]
 }

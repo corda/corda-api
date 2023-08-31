@@ -57,8 +57,9 @@ dependencies {
             }
         }
         api('org.slf4j:slf4j-api') {
+            because 'Corda 5.1 only supports SLF4J 1.x'
             version {
-                require slf4jVersion
+                strictly slf4jVersion
             }
         }
     }

@@ -11,6 +11,7 @@ import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.StateRef;
 import net.corda.v5.ledger.utxo.TimeWindow;
 import net.corda.v5.ledger.utxo.TransactionState;
+import net.corda.v5.membership.GroupParameters;
 import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
@@ -285,7 +286,14 @@ public interface UtxoLedgerTransaction {
      * @param type The type of the {@link ContractState}.
      * @return Returns all output contract states that match the specified type.
      */
-    // TODO : Rename to getOutputContractStates
     @NotNull
     <T extends ContractState> List<T> getOutputStates(@NotNull Class<T> type);
+
+    /**
+     * Gets the group parameters associated with the current {@link UtxoLedgerTransaction}.
+     *
+     * @return Returns the group parameters associated with the current {@link UtxoLedgerTransaction}.
+     */
+    @NotNull
+    GroupParameters getGroupParameters();
 }
