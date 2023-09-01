@@ -55,6 +55,7 @@ topics:
       - link-manager
       - membership
       - flow
+      - flowMapper
     producers:
       - rest # Dynamic Network registration
       - membership # Static Network registration
