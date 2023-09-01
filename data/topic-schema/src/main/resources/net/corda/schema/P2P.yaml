@@ -54,7 +54,6 @@ topics:
     consumers:
       - link-manager
       - membership
-      - flow
       - flowMapper
     producers:
       - rest # Dynamic Network registration
