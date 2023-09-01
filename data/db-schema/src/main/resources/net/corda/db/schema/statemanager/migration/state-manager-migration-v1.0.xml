@@ -18,10 +18,14 @@
                 <constraints nullable="false"/>
             </column>
             <column name="state" type="${state.column.type}">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
-            <column name="version" type="INT"/>
-            <column name="metadata" type="${json.column.type}"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="metadata" type="${json.column.type}">
+                <constraints nullable="false"/>
+            </column>
             <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
