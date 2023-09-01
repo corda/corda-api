@@ -48,28 +48,19 @@
       "doc": "Identity of party in the session who was initiated."
     },
     {
-      "name": "receivedSequenceNum",
-      "type": "int",
-      "doc": "Sequence number of the last contiguous message received from a counterparty. 0 if no messages received."
-    },
-    {
-      "name": "outOfOrderSequenceNums",
-      "type": {
-        "type": "array",
-        "items": "int"
-      },
-      "doc": "The sequence numbers of events received with a value greater than the last contiguous event received. i.e out of order messages received with a value greater than the receivedSequenceNum."
-    },
-    {
       "name": "payload",
       "type": [
         "net.corda.data.flow.event.session.SessionInit",
         "net.corda.data.flow.event.session.SessionConfirm",
         "net.corda.data.flow.event.session.SessionData",
         "net.corda.data.flow.event.session.SessionClose",
-        "net.corda.data.flow.event.session.SessionAck",
         "net.corda.data.flow.event.session.SessionError"
       ]
+    },
+    {
+      "name": "contextSessionProperties",
+      "type": ["null", "net.corda.data.KeyValuePairList"],
+      "doc": "A map of context properties received from a counterparty related to this flow session. This is static data and will be set to null when previously sent."
     }
   ]
 }
