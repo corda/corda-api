@@ -4,6 +4,7 @@ topics:
     consumers:
       - db
       - flow
+      - flowMapper
       - link-manager
       - membership
       - rest
@@ -62,6 +63,7 @@ topics:
       - membership
       - rest
       - flow
+      - flowMapper
       - db
     producers:
       - membership
@@ -91,6 +93,7 @@ topics:
     consumers:
       - db
       - flow
+      - flowMapper
     producers:
       - link-manager
       - membership
@@ -104,6 +107,7 @@ topics:
       - membership
       - rest
       - flow
+      - flowMapper
       - db
     producers:
       - db

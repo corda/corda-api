@@ -7,6 +7,9 @@ topics:
       - db
       - crypto
       - flow
+      - flowMapper
+      - verification
+      - persistence
       - uniqueness
     config:
   FlowEventStateTopic:
@@ -28,21 +31,26 @@ topics:
       - flow
     producers:
       - flow
+      - verification
     config:
   FlowMapperEventTopic:
     name: flow.mapper.event
     consumers:
       - flow
+      - flowMapper
     producers:
       - flow
+      - flowMapper
       - rest
     config:
   FlowMapperEventStateTopic:
     name: flow.mapper.event.state
     consumers:
       - flow
+      - flowMapper
     producers:
       - flow
+      - flowMapper
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -54,8 +62,9 @@ topics:
     name: flow.mapper.event.dlq
     consumers:
       - flow
+      - flowMapper
     producers:
-      - flow
+      - flowMapper
     config:
   FlowStatusTopic:
     name: flow.status
