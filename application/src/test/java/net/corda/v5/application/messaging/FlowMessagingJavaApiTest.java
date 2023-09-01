@@ -2,11 +2,9 @@ package net.corda.v5.application.messaging;
 
 import net.corda.v5.base.types.MemberX500Name;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -27,12 +25,22 @@ public class FlowMessagingJavaApiTest {
     }
 
     @Test
-    @Disabled// todo CORE-15757
-    public void initiateFlowPartyWithBuilder() {
+    public void initiateFlowPartyWithBuilderRequireCloseTrue() {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
-        when(flowMessaging.initiateFlow(eq(counterparty), any())).thenReturn(flowSession);
+        when(flowMessaging.initiateFlow(eq(counterparty), eq(true), any())).thenReturn(flowSession);
 
         FlowSession result = flowMessaging.initiateFlow(counterparty, true, (contextProperties) -> contextProperties.put("key", "value"));
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(flowSession);
+    }
+
+    @Test
+    public void initiateFlowPartyWithBuilderRequireCloseFalse() {
+        final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
+        when(flowMessaging.initiateFlow(eq(counterparty), eq(false), any())).thenReturn(flowSession);
+
+        FlowSession result = flowMessaging.initiateFlow(counterparty, false, (contextProperties) -> contextProperties.put("key", "value"));
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(flowSession);
