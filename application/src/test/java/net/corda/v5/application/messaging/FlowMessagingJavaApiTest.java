@@ -25,6 +25,17 @@ public class FlowMessagingJavaApiTest {
     }
 
     @Test
+    public void initiateFlowPartyWithBuilder() {
+        final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
+        when(flowMessaging.initiateFlow(eq(counterparty), eq(true), any())).thenReturn(flowSession);
+
+        FlowSession result = flowMessaging.initiateFlow(counterparty, (contextProperties) -> contextProperties.put("key", "value"));
+
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(flowSession);
+    }
+    
+    @Test
     public void initiateFlowPartyWithBuilderRequireCloseTrue() {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
         when(flowMessaging.initiateFlow(eq(counterparty), eq(true), any())).thenReturn(flowSession);
