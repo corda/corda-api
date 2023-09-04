@@ -34,13 +34,13 @@ topics:
       - rest
     config:
   CryptoOpsRewrapTopic:
-    name: crypto.ops.rewrap
+    name: crypto.key.rotation.individual
     consumers:
       - crypto
     producers:
       - crypto
   CryptoOpsRekeyTopic:
-    name: crypto.ops.rekey
+    name: crypto.key.rotations.ops
     consumers:
       - crypto
     producers:
