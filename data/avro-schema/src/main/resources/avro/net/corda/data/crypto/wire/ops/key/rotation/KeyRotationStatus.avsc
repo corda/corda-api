@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "KeyRotationResponse",
+  "name": "KeyRotationStatus",
   "namespace": "net.corda.data.crypto.wire.ops.key.rotation",
   "doc": "Response for crypto's key rotation operation envelope",
   "fields": [
