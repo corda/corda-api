@@ -1,0 +1,67 @@
+{
+  "type": "record",
+  "name": "KeyRotationResponse",
+  "namespace": "net.corda.data.crypto.wire.ops.key.rotation",
+  "doc": "Response for crypto's key rotation operation envelope",
+  "fields": [
+    {
+    "name": "requestId",
+    "type": "string",
+    "doc": "GUID allocated by client and passed in StartRotation message."
+    },
+    {
+      "name": "managedKey",
+          "type": {
+            "type": "enum",
+            "name": "KeyType",
+            "symbols": ["MANAGED", "UNMANAGED"]
+          },
+          "doc": "Type of the key to be rotated."
+    },
+    {
+      "name": "oldKeyAlias",
+      "type": ["null", "string"],
+      "doc": "The key alias that should no longer be used, and all its protected content re-wrapped with a new key."
+    },
+    {
+      "name": "newKeyAlias",
+      "type": ["null", "string"],
+      "doc": "The unmanaged key alias that should be used for material currently wrapped with old key. Only specified when rotating unmanaged keys."
+    },
+    {
+      "name": "oldGeneration",
+      "type": ["null", "int"],
+      "doc": "Specifies the old generation number we should move away from. If absent, rotate all matching keys."
+    },
+    {
+      "name": "tenantId",
+      "type": ["null", "string"],
+      "doc": "Only specified when targeting managed keys. Specifies the specific tenant that owns the old and new key."
+    },
+    {
+      "name": "simulate",
+      "type": "boolean",
+      "doc": "True, if the invocation was a simulation."
+    },
+    {
+      "name": "newGeneration",
+      "type": ["null", "int"],
+      "doc": "Set to the new generation number when rotating a single managed key, otherwise null."
+    },
+    {
+      "name": "processedCount",
+      "type": "int",
+      "doc": "Number of wrapped keys rotated so far."
+    },
+    {
+      "name": "expectedTotal",
+      "type": "int",
+      "doc": "Number of wrapped keys in total to re-wrap as part of this operation."
+    },
+    {
+      "name": "duration",
+      "type": "int",
+      "doc": "Time in milliseconds spent processing the rotation."
+    }
+  ]
+}
