@@ -90,7 +90,7 @@ public final class Schemas {
         public static final String REWRAP_MESSAGE_TOPIC = "crypto.key.rotation.individual";
         public static final String REKEY_MESSAGE_TOPIC = "crypto.key.rotations.ops";
     }
-                                                                                                                                                                                                                                        
+
     /**
      * Flow event topic schema.
      */
