@@ -2,22 +2,27 @@
   "type": "record",
   "name": "IndividualKeyRotationRequest",
   "namespace": "net.corda.data.crypto.wire.ops.key.rotation",
-  "doc": "Internal over-the-wire crypto rewrap operations request envelope.",
+  "doc": "Internal over-the-wire individual crypto key rotation operation request envelope.",
   "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "GUID allocated by client to control key rotation."
+    },
     {
       "name": "tenantId",
       "type": "string",
       "doc": "TenantId"
     },
     {
-      "name": "targetAlias",
+      "name": "oldKeyAlias",
       "type": "string",
-      "doc": "The wrapping key to be rewrapped."
+      "doc": "The key alias whose protected content will be re-wrapped with a new key."
     },
     {
-      "name": "newParentKeyAlias",
+      "name": "newKeyAlias",
       "type": "string",
-      "doc": "The new wrapping key which targetAlias will be rewrapped with."
+      "doc": "The new wrapping key which oldKeyAlias' content will be re-wrapped with."
     }
   ]
 }
