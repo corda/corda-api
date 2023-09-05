@@ -11,12 +11,12 @@
       "type": "object",
       "default": {},
       "properties": {
-        "maxRetryAttempts": {
-          "description": "The maximum number of times Corda retries a transient error before failing the flow. A value of zero disables retries.",
+        "maxRetryWindowDuration": {
+          "description": "The duration in milliseconds after a transient error that Corda retries a flow before failing it. A value of zero disables retries.",
           "type": "integer",
           "minimum": 0,
-          "maximum": 1000,
-          "default": 5
+          "maximum": 2147483647,
+          "default": 120000
         },
         "maxRetryDelay": {
           "description": "The maximum delay in milliseconds before Corda schedules a retry.",
