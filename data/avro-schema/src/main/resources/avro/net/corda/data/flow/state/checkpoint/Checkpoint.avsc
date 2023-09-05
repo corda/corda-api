@@ -32,6 +32,15 @@
       "type": "string",
       "default": "{}",
       "doc": "Internal storage for recording flow metrics"
+    },
+    {
+      "name": "customState",
+      "type": [
+        "null",
+        "net.corda.data.KeyValuePairList"
+      ],
+      "default": null,
+      "doc": "Internal storage for pipeline extensions."
     }
   ]
 }
