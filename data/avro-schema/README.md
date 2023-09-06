@@ -1,6 +1,6 @@
 ## Avro Code Source Files
 
-All Arvo definitions should go under `src/main/resources/avro`.  While technically
+All Avro definitions should go under `src/main/resources/avro`.  While technically
 not necessary, it would also be good to put them under the same directory structure as 
 the package (or `namespace` in Avro-speak) that the record will belong.
 
