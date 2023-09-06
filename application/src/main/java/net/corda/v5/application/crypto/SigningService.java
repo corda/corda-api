@@ -41,6 +41,10 @@ public interface SigningService {
     @NotNull
     DigitalSignature.WithKeyId sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
 
+    @Suspendable
+    @NotNull
+    DigitalSignature.WithKeyId sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec, @NotNull Map<String, String> context);
+
     /**
      * Looks into a set of signing keys to find keys owned by the caller. In case of {@link CompositeKey} it looks into
      * the composite key leaves and returns the firstly found owned composite key leaf.
