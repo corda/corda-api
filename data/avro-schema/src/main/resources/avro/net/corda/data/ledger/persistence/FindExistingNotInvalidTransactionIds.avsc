@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "FindExistingNotInvalidTransactionIds",
-  "doc": "TODO",
+  "doc": "A request to fetch transaction that are not invalid (i.e. Verified or Unverified).",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [{
     "name": "transactionIds",
@@ -9,6 +9,6 @@
       "type" : "array",
       "items" : "string"
     },
-    "doc": "TODO"
+    "doc": "A list of the transaction IDs to fetch."
   }]
 }
