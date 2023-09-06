@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "FindExistingNotInvalidTransactionIds",
+  "doc": "TODO",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [{
+    "name": "transactionIds",
+    "type": {
+      "type" : "array",
+      "items" : "string"
+    },
+    "doc": "TODO"
+  }]
+}
