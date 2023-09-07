@@ -20,6 +20,6 @@
             </column>
         </createTable>
 
-        <addPrimaryKey columnNames="task_name" constraintName="task_name_pk" tableName="task_scheduler_log"/>
+        <addPrimaryKey columnNames="task_name" constraintName="task_scheduler_log_task_name_pk" tableName="task_scheduler_log"/>
     </changeSet>
 </databaseChangeLog>
