@@ -12,7 +12,7 @@
     {
       "name": "tenantId",
       "type": "string",
-      "doc": "TenantId"
+      "doc": "Specifies the specific tenant that owns the old key."
     },
     {
       "name": "oldKeyAlias",
