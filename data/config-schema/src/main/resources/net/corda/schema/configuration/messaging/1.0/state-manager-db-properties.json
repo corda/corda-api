@@ -36,7 +36,12 @@
             "url": {
               "description": "The JDBC URL.",
               "type": "string",
-              "default": "jdbc:postgresql://state-manager-db:5432/statemanager"
+              "default": "jdbc:postgresql://state-manager-db:5432/state_manager"
+            },
+            "persistenceUnitName": {
+              "description": "The persistent unit name.",
+              "type": "string",
+              "default": "corda-state-manager"
             }
           },
           "additionalProperties": false
