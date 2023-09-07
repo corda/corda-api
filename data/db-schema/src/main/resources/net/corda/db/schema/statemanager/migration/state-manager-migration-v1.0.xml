@@ -17,7 +17,7 @@
             <column name="key" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="state" type="${state.column.type}">
+            <column name="value" type="${state.column.type}">
                 <constraints nullable="false"/>
             </column>
             <column name="version" type="INT">
