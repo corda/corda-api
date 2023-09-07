@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/flow/1.1/corda.flow.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/flow/5.1/corda.flow.json",
   "title": "Corda Flow Configuration Schema",
   "description": "Configuration schema for the flow section.",
   "type": "object",
