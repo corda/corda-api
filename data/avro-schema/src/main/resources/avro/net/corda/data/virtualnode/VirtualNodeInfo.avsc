@@ -39,7 +39,7 @@
     },
     {
       "name": "uniquenessDmlConnectionId",
-      "type": "string",
+      "type": ["null", "string"],
       "doc": "ID of virtual node Uniqueness DB connection for DML operations."
     },
     {
