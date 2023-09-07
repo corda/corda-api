@@ -5,19 +5,24 @@
   "doc": "Response for crypto's rewrap operations envelope.",
   "fields": [
     {
-        "name": "tenantId",
-        "type": "string",
-        "doc": "TenantId"
+      "name": "requestId",
+      "type": "string",
+      "doc": "GUID allocated by client to control key rotation."
     },
     {
-    "name": "targetAlias",
-    "type": "string",
-    "doc": "The wrapping key to be rewrapped."
+      "name": "tenantId",
+      "type": "string",
+      "doc": "Specifies the specific tenant that owns the old key."
     },
     {
-    "name": "newParentKeyAlias",
-    "type": "string",
-    "doc": "The new wrapping key which targetAlias will be rewrapped with."
+      "name": "targetAlias",
+      "type": "string",
+      "doc": "The wrapping key to be rewrapped."
+    },
+    {
+      "name": "newParentKeyAlias",
+      "type": "string",
+      "doc": "The new wrapping key which targetAlias will be rewrapped with."
     }
   ]
 }
