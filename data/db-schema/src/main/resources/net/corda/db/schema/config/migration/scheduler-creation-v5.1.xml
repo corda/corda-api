@@ -12,7 +12,7 @@
             <column name="task_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="last_scheduled" type="DATETIME" defaultValueDate="${now}">
+            <column name="last_scheduled" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="${now}">
                 <constraints nullable="false"/>
             </column>
             <column name="scheduler_id" type="VARCHAR(255)">
