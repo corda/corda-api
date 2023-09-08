@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "ScheduledTaskTrigger",
+  "namespace": "net.corda.data.scheduler",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "Name of the scheduled task."
+    },
+    {
+      "name": "timestamp",
+      "type": {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+          },
+      "doc": "Timestamp for the trigger."
+    }
+  ]
+}
