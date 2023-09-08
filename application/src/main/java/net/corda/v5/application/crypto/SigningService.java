@@ -49,7 +49,10 @@ public interface SigningService {
      * primary identity, or previously generated via the freshKey method. If the {@link PublicKey} is actually
      * a {@link CompositeKey}, the first leaf signing key hosted by the node is used.
      * @param signatureSpec The {@link SignatureSpec} to use when producing this signature.
-     * @param context The execution context of the signing operation.
+     * @param context The execution context of the signing operation as a map of strings. Currently accepts the following parameters
+     * <ul>
+     *   <li>category: the type of signing key requested for additional verification</li>
+     * </ul>
      *
      * @return A {@link DigitalSignature.WithKeyId} representing the signed data and the {@link PublicKey} that belongs to the
      * same {@link KeyPair} as the {@link PrivateKey} that signed the data.
