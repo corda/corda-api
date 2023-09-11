@@ -12,7 +12,7 @@
     <property name="json.column.type" value="CLOB" dbms="hsqldb"/>
     <property name="state.column.type" value="binary" dbms="hsqldb"/>
 
-    <changeSet author="R3.Corda" id="state-manager-migration-v1.0">
+    <changeSet author="R3.Corda" id="state-manager-migration-v5.1">
         <createTable tableName="state">
             <column name="key" type="varchar(255)">
                 <constraints nullable="false"/>
