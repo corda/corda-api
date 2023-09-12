@@ -11,6 +11,18 @@
         "type": "array",
         "items": "net.corda.data.identity.HoldingIdentity"
       }
+    },
+    {
+      "name": "queryStatuses",
+      "doc": "Statuses of the members to retrieve.",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ],
+      "default": null
     }
   ]
 }
