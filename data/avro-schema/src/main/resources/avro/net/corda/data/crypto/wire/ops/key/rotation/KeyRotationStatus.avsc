@@ -5,18 +5,18 @@
   "doc": "Response for crypto's key rotation operation envelope",
   "fields": [
     {
-    "name": "requestId",
-    "type": "string",
-    "doc": "GUID allocated by client and passed in StartRotation message."
+      "name": "requestId",
+      "type": "string",
+      "doc": "GUID allocated by client and passed in StartRotation message."
     },
     {
       "name": "managedKey",
-          "type": {
-            "type": "enum",
-            "name": "KeyType",
-            "symbols": ["MANAGED", "UNMANAGED"]
-          },
-          "doc": "Type of the key to be rotated."
+      "type": {
+        "type": "enum",
+        "name": "KeyType",
+        "symbols": ["MANAGED", "UNMANAGED"]
+      },
+      "doc": "Type of the key to be rotated."
     },
     {
       "name": "oldKeyAlias",
@@ -60,8 +60,11 @@
     },
     {
       "name": "duration",
-      "type": "int",
-      "doc": "Time in milliseconds spent processing the rotation."
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds spent processing the rotation."
     }
   ]
 }
