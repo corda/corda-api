@@ -22,7 +22,16 @@ pluginManagement {
             }
             gradlePluginPortal()
         }
-
+        maven {
+            url "$artifactoryContextUrl/engineering-tools-maven"
+            credentials {
+                username = settings.ext.find('cordaArtifactoryUsername') ?: System.getenv('CORDA_ARTIFACTORY_USERNAME')
+                password = settings.ext.find('cordaArtifactoryPassword') ?: System.getenv('CORDA_ARTIFACTORY_PASSWORD')
+            }
+            content {
+                includeGroupByRegex 'net\\.corda\\.internal(\\..*)?'
+            }
+        }
     }
 
     plugins {
@@ -41,6 +50,7 @@ pluginManagement {
         id "com.jfrog.artifactory" version artifactoryPluginVersion
         id 'io.snyk.gradle.plugin.snykplugin' version snykVersion
         id "org.cyclonedx.bom" version cyclonedxVersion
+        id 'net.corda.internal.gradle.plugins.api-scanner' version internalApiScannerVersion // Corda API scanner
     }
 }
 plugins {
