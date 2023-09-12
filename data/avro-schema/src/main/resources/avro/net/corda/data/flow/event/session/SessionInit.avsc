@@ -25,18 +25,6 @@
       "name": "contextPlatformProperties",
       "type": "net.corda.data.KeyValuePairList",
       "doc": "A map of context platform properties made available to the flow which will also be propagated to sub flows, initiated flows and services"
-    },
-    {
-      "name": "contextSessionProperties",
-      "type": "net.corda.data.KeyValuePairList",
-      "doc": "A map of context properties to send to a counterparty related to this flow session. This contains information such as protocol name and versions supported."
-    },
-    {
-      "name": "payload",
-      "type": [
-        "null",
-        "bytes"
-      ]
     }
   ]
 }
