@@ -5,9 +5,9 @@
   "doc": "Internal over-the-wire crypto key rotation operation request envelope.",
   "fields": [
     {
-    "name": "requestId",
-    "type": "string",
-    "doc": "GUID allocated by client to control key rotation."
+      "name": "requestId",
+      "type": "string",
+      "doc": "GUID allocated by client to control key rotation."
     },
     {
       "name": "managedKey",
