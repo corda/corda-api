@@ -33,18 +33,6 @@ topics:
       - membership
       - rest
     config:
-  CryptoOpsRewrapTopic:
-    name: crypto.key.rotation.individual
-    consumers:
-      - crypto
-    producers:
-      - crypto
-  CryptoOpsRekeyTopic:
-    name: crypto.key.rotations.ops
-    consumers:
-      - crypto
-    producers:
-      - rest
   CryptoOpsRpcResponseTopic:
     name: crypto.ops.rpc.resp
     consumers:
@@ -56,3 +44,27 @@ topics:
     producers:
       - crypto
     config:
+  CryptoOpsRekeyTopic:
+    name: crypto.key.rotations.ops
+    consumers:
+      - crypto
+    producers:
+      - rest
+  CryptoOpsRekeyResponseTopic:
+    name: crypto.key.rotations.ops.resp
+    consumers:
+      - rest
+    producers:
+      - crypto
+  CryptoOpsRewrapTopic:
+    name: crypto.key.rotation.individual
+    consumers:
+      - crypto
+    producers:
+      - crypto
+  CryptoOpsRewrapResponseTopic:
+    name: crypto.key.rotation.individual.resp
+    consumers:
+      - crypto
+    producers:
+      - crypto
