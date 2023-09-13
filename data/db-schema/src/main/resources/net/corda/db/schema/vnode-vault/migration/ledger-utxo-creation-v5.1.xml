@@ -7,8 +7,9 @@
        <createIndex
            indexName="idx_consumed"
            tableName="utxo_visible_transaction_state">
-           <column name="consumed"/>
-           <where>consumed IS NULL</where>
+           <column name="consumed">
+               <where>consumed IS NULL</where>
+           </column>
        </createIndex>
     </changeSet>
 
