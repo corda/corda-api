@@ -50,7 +50,6 @@ pluginManagement {
         id "com.jfrog.artifactory" version artifactoryPluginVersion
         id 'io.snyk.gradle.plugin.snykplugin' version snykVersion
         id "org.cyclonedx.bom" version cyclonedxVersion
-        id 'net.corda.internal.gradle.plugins.api-scanner' version internalApiScannerVersion // Corda API scanner
     }
 }
 plugins {

@@ -2,7 +2,7 @@ plugins {
     id 'corda-api.common-library'
     id 'corda.common-publishing'
     id 'corda.java-only'
-    id 'net.corda.internal.gradle.plugins.api-scanner'
+    id 'corda.api-scanner'
 }
 
 description 'Corda Application'

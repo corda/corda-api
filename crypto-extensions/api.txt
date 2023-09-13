@@ -1,0 +1,30 @@
+package @org.osgi.annotation.bundle.Export net.corda.v5.crypto.extensions {
+
+  public interface DigestAlgorithm {
+    method @NonNull public byte[] digest(@NonNull byte[]);
+    method @NonNull public byte[] digest(@NonNull InputStream);
+    method @NonNull public String getAlgorithm();
+    method public int getDigestLength();
+  }
+
+  public interface DigestAlgorithmFactory {
+    method @NonNull public String getAlgorithm();
+    method @NonNull public net.corda.v5.crypto.extensions.DigestAlgorithm getInstance();
+  }
+
+}
+
+package @org.osgi.annotation.bundle.Export net.corda.v5.crypto.extensions.merkle {
+
+  public interface MerkleTreeHashDigestProvider extends net.corda.v5.crypto.merkle.MerkleTreeHashDigest {
+    method @NonNull public net.corda.v5.crypto.SecureHash leafHash(int, @Nullable byte[], @NonNull byte[]);
+    method @Nullable public byte[] leafNonce(int);
+    method @NonNull public net.corda.v5.crypto.SecureHash nodeHash(int, @NonNull net.corda.v5.crypto.SecureHash, @NonNull net.corda.v5.crypto.SecureHash);
+  }
+
+  public interface MerkleTreeHashDigestProviderWithSizeProofSupport extends net.corda.v5.crypto.extensions.merkle.MerkleTreeHashDigestProvider {
+    method @NonNull public net.corda.v5.crypto.merkle.MerkleProof getSizeProof(@NonNull List<byte[]>);
+  }
+
+}
+

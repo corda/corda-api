@@ -1,0 +1,302 @@
+package @org.osgi.annotation.bundle.Export net.corda.schema.common.provider {
+
+  public interface SchemaProvider {
+    method @NonNull public InputStream getSchema(@NonNull String, @NonNull net.corda.v5.base.versioning.Version);
+    method @NonNull public InputStream getSchemaFile(@NonNull String);
+  }
+
+}
+
+package net.corda.schema.common.provider.impl {
+
+  public abstract class AbstractSchemaProvider implements net.corda.schema.common.provider.SchemaProvider {
+    ctor protected AbstractSchemaProvider(org.slf4j.Logger);
+    method @NonNull protected abstract InputStream getResourceInputStream(@NonNull String);
+    method public abstract String getResourceRoot();
+    method @NonNull public InputStream getSchema(@NonNull String, @NonNull net.corda.v5.base.versioning.Version);
+    method @NonNull public InputStream getSchemaFile(@NonNull String);
+    field protected final org.slf4j.Logger logger;
+  }
+
+}
+
+package @org.osgi.annotation.bundle.Export net.corda.schema.configuration {
+
+  public final class BootConfig {
+    field public static final String BOOT_CRYPTO;
+    field public static final String BOOT_DB;
+    field public static final String BOOT_DIR;
+    field public static final String BOOT_JDBC_PASS;
+    field public static final String BOOT_JDBC_URL;
+    field public static final String BOOT_JDBC_USER;
+    field public static final String BOOT_KAFKA;
+    field public static final String BOOT_KAFKA_COMMON;
+    field public static final String BOOT_MAX_ALLOWED_MSG_SIZE;
+    field public static final String BOOT_REST;
+    field public static final String BOOT_REST_TLS_CA_CRT_PATH;
+    field public static final String BOOT_REST_TLS_CRT_PATH;
+    field public static final String BOOT_REST_TLS_KEYSTORE_FILE_PATH;
+    field public static final String BOOT_REST_TLS_KEYSTORE_PASSWORD;
+    field public static final String BOOT_REST_TLS_KEY_PATH;
+    field public static final String BOOT_SECRETS;
+    field public static final String BOOT_TMP_DIR;
+    field public static final String BOOT_WORKSPACE_DIR;
+    field public static final String INSTANCE_ID;
+    field public static final String TOPIC_PREFIX;
+  }
+
+  public final class ConfigDefaults {
+    field public static final String TEMP_DIR;
+    field public static final String WORKSPACE_DIR;
+  }
+
+  public final class ConfigKeys {
+    field public static final String BOOT_CONFIG;
+    field public static final String CRYPTO_CONFIG;
+    field public static final String DB_CONFIG;
+    field public static final String EXTERNAL_MESSAGING_CONFIG;
+    field public static final String FLOW_CONFIG;
+    field public static final String MEMBERSHIP_CONFIG;
+    field public static final String MESSAGING_CONFIG;
+    field public static final String P2P_GATEWAY_CONFIG;
+    field public static final String P2P_LINK_MANAGER_CONFIG;
+    field public static final String RECONCILIATION_CONFIG;
+    field public static final String REST_ADDRESS;
+    field public static final String REST_AZUREAD_CLIENT_ID;
+    field public static final String REST_AZUREAD_CLIENT_SECRET;
+    field public static final String REST_AZUREAD_TENANT_ID;
+    field public static final String REST_CONFIG;
+    field public static final String REST_CONTEXT_DESCRIPTION;
+    field public static final String REST_CONTEXT_TITLE;
+    field public static final String REST_ENDPOINT_TIMEOUT_MILLIS;
+    field public static final String REST_MAX_CONTENT_LENGTH;
+    field public static final String REST_WEBSOCKET_CONNECTION_IDLE_TIMEOUT_MS;
+    field public static final String SANDBOX_CACHE_SIZE;
+    field public static final String SANDBOX_CONFIG;
+    field public static final String SECRETS_CONFIG;
+    field public static final String SECRETS_CREATED_SECRET_PATH;
+    field public static final String SECRETS_PASSPHRASE;
+    field public static final String SECRETS_SALT;
+    field public static final String SECRETS_SERVER_ADDRESS;
+    field public static final String SECRETS_SERVER_CREDENTIALS;
+    field public static final String SECRETS_TYPE;
+    field public static final String SECRET_KEY;
+    field public static final String SECRET_KEY_VAULT_KEY;
+    field public static final String SECRET_KEY_VAULT_PATH;
+    field public static final String SECRET_REFRESH_PERIOD;
+    field public static final String SECRET_RETRY_BACKOFF;
+    field public static final String SECURITY_CONFIG;
+    field public static final String SECURITY_POLICY;
+    field public static final String TEMP_DIR;
+    field public static final String UTXO_LEDGER_CONFIG;
+    field public static final String VNODE_DATASOURCE_CONFIG;
+    field public static final String WORKSPACE_DIR;
+  }
+
+  public final class DatabaseConfig {
+    field public static final String DB_PASS;
+    field public static final String DB_POOL_IDLE_TIMEOUT_SECONDS;
+    field public static final String DB_POOL_KEEPALIVE_TIME_SECONDS;
+    field public static final String DB_POOL_MAX_LIFETIME_SECONDS;
+    field public static final String DB_POOL_MAX_SIZE;
+    field public static final String DB_POOL_MIN_SIZE;
+    field public static final String DB_POOL_VALIDATION_TIMEOUT_SECONDS;
+    field public static final String DB_USER;
+    field public static final String JDBC_DRIVER;
+    field public static final String JDBC_DRIVER_DIRECTORY;
+    field public static final String JDBC_URL;
+  }
+
+  public final class ExternalMessagingConfig {
+    field public static final String EXTERNAL_MESSAGING_ACTIVE;
+    field public static final String EXTERNAL_MESSAGING_INTERACTIVE_RESPONSE_TYPE;
+    field public static final String EXTERNAL_MESSAGING_RECEIVE_TOPIC_PATTERN;
+    field public static final String ROUTE_DEFAULTS;
+  }
+
+  public final class FlowConfig {
+    field public static final String EXTERNAL_EVENT_MAX_RETRIES;
+    field public static final String EXTERNAL_EVENT_MESSAGE_RESEND_WINDOW;
+    field public static final String PROCESSING_FLOW_CLEANUP_TIME;
+    field public static final String PROCESSING_MAX_FLOW_SLEEP_DURATION;
+    field public static final String PROCESSING_MAX_RETRY_ATTEMPTS;
+    field public static final String PROCESSING_MAX_RETRY_DELAY;
+    field public static final String SESSION_FLOW_CLEANUP_TIME;
+    field public static final String SESSION_HEARTBEAT_TIMEOUT_WINDOW;
+    field public static final String SESSION_MESSAGE_RESEND_WINDOW;
+    field public static final String SESSION_MISSING_COUNTERPARTY_TIMEOUT_WINDOW;
+    field public static final String SESSION_P2P_TTL;
+  }
+
+  public final class LedgerConfig {
+    field public static final String UTXO_TOKEN_FULL_SYNC_BLOCK_SIZE;
+    field public static final String UTXO_TOKEN_MIN_DELAY_BEFORE_NEXT_FULL_SYNC;
+    field public static final String UTXO_TOKEN_MIN_DELAY_BEFORE_NEXT_PERIODIC_SYNC;
+    field public static final String UTXO_TOKEN_PERIODIC_CHECK_BLOCK_SIZE;
+    field public static final String UTXO_TOKEN_SEND_WAKEUP_MAX_RETRY_ATTEMPTS;
+    field public static final String UTXO_TOKEN_SEND_WAKEUP_MAX_RETRY_DELAY;
+  }
+
+  public final class MembershipConfig {
+    field public static final String EXPIRATION_DATE_FOR_REGISTRATION_REQUESTS;
+    field public static final String MAX_DURATION_BETWEEN_EXPIRED_REGISTRATION_REQUESTS_POLLS;
+    field public static final String MAX_DURATION_BETWEEN_SYNC_REQUESTS_MINUTES;
+  }
+
+  public static final class MembershipConfig.TtlsConfig {
+    field public static final String DECLINE_REGISTRATION;
+    field public static final String MEMBERS_PACKAGE_UPDATE;
+    field public static final String TTLS;
+    field public static final String UPDATE_TO_PENDING_AUTO_APPROVAL;
+    field public static final String VERIFY_MEMBER_REQUEST;
+    field public static final String WAIT_FOR_MGM_SESSION;
+  }
+
+  public final class MessagingConfig {
+    field public static final String MAX_ALLOWED_MSG_SIZE;
+  }
+
+  public static final class MessagingConfig.Bus {
+    field public static final String AUTO_OFFSET_RESET;
+    field public static final String BUS;
+    field public static final String BUS_TYPE;
+    field public static final String DB_CONSUMER_AUTO_OFFSET_RESET;
+    field public static final String DB_CONSUMER_MAX_POLL_RECORDS;
+    field public static final String DB_JDBC_URL;
+    field public static final String DB_MAX_POLL_RECORDS;
+    field public static final String DB_PASS;
+    field public static final String DB_PROPERTIES;
+    field public static final String DB_PROPERTIES_CONSUMER;
+    field public static final String DB_USER;
+    field public static final String JDBC_PASS;
+    field public static final String JDBC_URL;
+    field public static final String JDBC_USER;
+    field public static final String KAFKA_BOOTSTRAP_SERVERS;
+    field public static final String KAFKA_CONSUMER_MAX_POLL_INTERVAL;
+    field public static final String KAFKA_PRODUCER_CLIENT_ID;
+    field public static final String KAFKA_PROPERTIES;
+    field public static final String KAFKA_PROPERTIES_COMMON;
+    field public static final String KAFKA_PROPERTIES_CONSUMER;
+    field public static final String KAFKA_PROPERTIES_PRODUCER;
+  }
+
+  public static final class MessagingConfig.Publisher {
+    field public static final String CLOSE_TIMEOUT;
+    field public static final String PUBLISHER;
+    field public static final String TRANSACTIONAL;
+  }
+
+  public static final class MessagingConfig.Subscription {
+    field public static final String COMMIT_RETRIES;
+    field public static final String POLL_TIMEOUT;
+    field public static final String PROCESSOR_RETRIES;
+    field public static final String PROCESSOR_TIMEOUT;
+    field public static final String SUBSCRIBE_RETRIES;
+    field public static final String SUBSCRIPTION;
+    field public static final String THREAD_STOP_TIMEOUT;
+  }
+
+  public final class ReconciliationConfig {
+    field public static final String RECONCILIATION_CONFIG_INTERVAL_MS;
+    field public static final String RECONCILIATION_CPI_INFO_INTERVAL_MS;
+    field public static final String RECONCILIATION_CPK_WRITE_INTERVAL_MS;
+    field public static final String RECONCILIATION_GROUP_PARAMS_INTERVAL_MS;
+    field public static final String RECONCILIATION_MTLS_MGM_ALLOWED_LIST_INTERVAL_MS;
+    field public static final String RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS;
+    field public static final String RECONCILIATION_VNODE_INFO_INTERVAL_MS;
+  }
+
+  public class VirtualNodeDatasourceConfig {
+    field public static final String VNODE_DDL_POOL_CONFIG;
+    field public static final String VNODE_DML_POOL_CONFIG;
+    field public static final String VNODE_POOL_IDLE_TIMEOUT_SECONDS;
+    field public static final String VNODE_POOL_KEEPALIVE_TIME_SECONDS;
+    field public static final String VNODE_POOL_MAX_LIFETIME_SECONDS;
+    field public static final String VNODE_POOL_MAX_SIZE;
+    field public static final String VNODE_POOL_MIN_SIZE;
+    field public static final String VNODE_VALIDATION_TIMEOUT_SECONDS;
+  }
+
+}
+
+package @org.osgi.annotation.bundle.Export net.corda.schema.configuration.provider {
+
+  public final class ConfigSchemaException extends net.corda.v5.base.exceptions.CordaRuntimeException {
+    ctor public ConfigSchemaException(@NonNull String, @Nullable Throwable);
+    ctor public ConfigSchemaException(@NonNull String);
+  }
+
+  public final class SchemaProviderConfigFactory {
+    method @NonNull public static net.corda.schema.common.provider.SchemaProvider getSchemaProvider();
+  }
+
+}
+
+package net.corda.schema.configuration.provider.impl {
+
+  public final class SchemaProviderConfigImpl extends net.corda.schema.common.provider.impl.AbstractSchemaProvider {
+    ctor public SchemaProviderConfigImpl();
+    method @NonNull protected InputStream getResourceInputStream(@NonNull String);
+    method public String getResourceRoot();
+  }
+
+  public final class SchemaProviderConfigImplTest {
+    ctor public SchemaProviderConfigImplTest();
+    method public void retrieves schema files when specified directly();
+    method public void schema provider fetches schema for top-level keys(@NonNull String key, @NonNull String version);
+    method public void throws if provided file does not exist();
+    method public void throws if provided key is not a top-level key();
+    method public void throws if provided version is not valid();
+    field @NonNull public static final net.corda.schema.configuration.provider.impl.SchemaProviderConfigImplTest.Companion Companion;
+  }
+
+  public static final class SchemaProviderConfigImplTest.Companion {
+  }
+
+}
+
+package @org.osgi.annotation.bundle.Export net.corda.schema.cordapp.configuration {
+
+  public final class ConfigKeys {
+    ctor public ConfigKeys();
+    field public static final String EXTERNAL_MESSAGING_CONFIG;
+  }
+
+}
+
+package @org.osgi.annotation.bundle.Export net.corda.schema.cordapp.configuration.provider {
+
+  public final class CordappConfigSchemaException extends net.corda.v5.base.exceptions.CordaRuntimeException {
+    ctor public CordappConfigSchemaException(@NonNull String, @Nullable Throwable);
+    ctor public CordappConfigSchemaException(@NonNull String);
+  }
+
+  public final class SchemaProviderCordappConfigFactory {
+    method @NonNull public static net.corda.schema.common.provider.SchemaProvider getSchemaProvider();
+  }
+
+}
+
+package net.corda.schema.cordapp.configuration.provider.impl {
+
+  public final class SchemaProviderCordappConfigImpl extends net.corda.schema.common.provider.impl.AbstractSchemaProvider {
+    ctor public SchemaProviderCordappConfigImpl();
+    method @NonNull protected InputStream getResourceInputStream(@NonNull String);
+    method public String getResourceRoot();
+  }
+
+  public final class SchemaProviderCordappConfigImplTest {
+    ctor public SchemaProviderCordappConfigImplTest();
+    method public void retrieves schema files when specified directly();
+    method public void schema provider fetches schema for top-level keys(@NonNull String key, @NonNull String version);
+    method public void throws if provided file does not exist();
+    method public void throws if provided key is not a top-level key();
+    method public void throws if provided version is not valid();
+    field @NonNull public static final net.corda.schema.cordapp.configuration.provider.impl.SchemaProviderCordappConfigImplTest.Companion Companion;
+  }
+
+  public static final class SchemaProviderCordappConfigImplTest.Companion {
+  }
+
+}
+

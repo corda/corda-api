@@ -1,0 +1,62 @@
+package @org.osgi.annotation.bundle.Export net.corda.schema.membership {
+
+  public abstract class MembershipSchema {
+    method @NonNull public final String getSchemaName();
+  }
+
+  public static final class MembershipSchema.GroupPolicySchema extends net.corda.schema.membership.MembershipSchema {
+    field public static final net.corda.schema.membership.MembershipSchema.GroupPolicySchema Default;
+  }
+
+  public static final class MembershipSchema.RegistrationContextSchema extends net.corda.schema.membership.MembershipSchema {
+    field public static final net.corda.schema.membership.MembershipSchema.RegistrationContextSchema DynamicMember;
+    field public static final net.corda.schema.membership.MembershipSchema.RegistrationContextSchema Mgm;
+    field public static final net.corda.schema.membership.MembershipSchema.RegistrationContextSchema StaticMember;
+  }
+
+}
+
+package net.corda.schema.membership.group.provider.impl {
+
+  public final class MembershipSchemaProviderImplTest {
+    ctor public MembershipSchemaProviderImplTest();
+    method public void membership schema provider fetches schema(@NonNull net.corda.schema.membership.MembershipSchema schema, @NonNull String version);
+    method public void retrieves schema files when specified directly();
+    method public void throws if provided file does not exist();
+    method public void throws if provided version is not valid(@NonNull net.corda.schema.membership.MembershipSchema schema);
+    field @NonNull public static final net.corda.schema.membership.group.provider.impl.MembershipSchemaProviderImplTest.Companion Companion;
+  }
+
+  public static final class MembershipSchemaProviderImplTest.Companion {
+  }
+
+}
+
+package @org.osgi.annotation.bundle.Export net.corda.schema.membership.provider {
+
+  public final class MembershipSchemaException extends net.corda.v5.base.exceptions.CordaRuntimeException {
+    ctor public MembershipSchemaException(@NonNull String, @Nullable Throwable);
+    ctor public MembershipSchemaException(@NonNull String);
+  }
+
+  public interface MembershipSchemaProvider {
+    method @NonNull public InputStream getSchema(@NonNull net.corda.schema.membership.MembershipSchema, @NonNull net.corda.v5.base.versioning.Version);
+    method @NonNull public InputStream getSchemaFile(@NonNull String);
+  }
+
+  public final class MembershipSchemaProviderFactory {
+    method @NonNull public static net.corda.schema.membership.provider.MembershipSchemaProvider getSchemaProvider();
+  }
+
+}
+
+package net.corda.schema.membership.provider.impl {
+
+  public class MembershipSchemaProviderImpl implements net.corda.schema.membership.provider.MembershipSchemaProvider {
+    ctor public MembershipSchemaProviderImpl();
+    method @NonNull public InputStream getSchema(@NonNull net.corda.schema.membership.MembershipSchema, @NonNull net.corda.v5.base.versioning.Version);
+    method @NonNull public InputStream getSchemaFile(@NonNull String);
+  }
+
+}
+

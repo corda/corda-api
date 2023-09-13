@@ -1,0 +1,62 @@
+package @org.osgi.annotation.bundle.Export net.corda.db.schema {
+
+  public enum CordaDb {
+    method @NonNull public String getPersistenceUnitName();
+    enum_constant public static final net.corda.db.schema.CordaDb CordaCluster;
+    enum_constant public static final net.corda.db.schema.CordaDb Crypto;
+    enum_constant public static final net.corda.db.schema.CordaDb RBAC;
+    enum_constant public static final net.corda.db.schema.CordaDb Uniqueness;
+    enum_constant public static final net.corda.db.schema.CordaDb Vault;
+    enum_constant public static final net.corda.db.schema.CordaDb VirtualNodes;
+  }
+
+  public final class DbSchema {
+    field public static final String CLUSTER_CERTIFICATE_DB_TABLE;
+    field public static final String CLUSTER_STATIC_NETWORK_INFO_TABLE;
+    field public static final String CONFIG;
+    field public static final String CONFIG_AUDIT_ID_SEQUENCE;
+    field public static final int CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE = 1; // 0x1
+    field public static final String CONFIG_AUDIT_TABLE;
+    field public static final String CONFIG_TABLE;
+    field public static final String CRYPTO;
+    field public static final String CRYPTO_HSM_ASSOCIATION_TABLE;
+    field public static final String CRYPTO_HSM_CATEGORY_ASSOCIATION_TABLE;
+    field public static final String CRYPTO_HSM_CATEGORY_MAP_TABLE;
+    field public static final String CRYPTO_HSM_CONFIG_TABLE;
+    field public static final String CRYPTO_SIGNING_KEY_MATERIAL_TABLE;
+    field public static final String CRYPTO_SIGNING_KEY_TABLE;
+    field public static final String CRYPTO_WRAPPING_KEY_TABLE;
+    field public static final String DB_CONNECTION_AUDIT_ID_SEQUENCE;
+    field public static final int DB_CONNECTION_AUDIT_ID_SEQUENCE_ALLOC_SIZE = 1; // 0x1
+    field public static final String DB_CONNECTION_AUDIT_TABLE;
+    field public static final String DB_CONNECTION_TABLE;
+    field public static final String DB_MESSAGE_BUS;
+    field public static final String HOLDING_IDENTITY_DB_TABLE;
+    field public static final String LEDGER_CONSENSUAL_CPK_TABLE;
+    field public static final String LEDGER_CONSENSUAL_TRANSACTION_COMPONENT_TABLE;
+    field public static final String LEDGER_CONSENSUAL_TRANSACTION_CPK_TABLE;
+    field public static final String LEDGER_CONSENSUAL_TRANSACTION_SIGNATURE_TABLE;
+    field public static final String LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE;
+    field public static final String LEDGER_CONSENSUAL_TRANSACTION_TABLE;
+    field public static final String RBAC;
+    field public static final String UNIQUENESS;
+    field public static final String UNIQUENESS_REJECTED_TX_TABLE;
+    field public static final String UNIQUENESS_STATE_DETAILS_TABLE;
+    field public static final String UNIQUENESS_TX_DETAILS_TABLE;
+    field public static final String VIRTUAL_NODE_DB_TABLE;
+    field public static final String VNODE;
+    field public static final String VNODE_ALLOWED_CERTIFICATE_DB_TABLE;
+    field public static final String VNODE_CERTIFICATE_DB_TABLE;
+    field public static final String VNODE_GROUP_APPROVAL_RULES;
+    field public static final String VNODE_GROUP_PARAMETERS;
+    field public static final String VNODE_GROUP_POLICY;
+    field public static final String VNODE_GROUP_REGISTRATION_TABLE;
+    field public static final String VNODE_KEY_DB_TABLE;
+    field public static final String VNODE_MEMBER_INFO;
+    field public static final String VNODE_MEMBER_SIGNATURE;
+    field public static final String VNODE_PRE_AUTH_TOKENS;
+    field public static final String VNODE_VAULT_DB_TABLE;
+  }
+
+}
+
