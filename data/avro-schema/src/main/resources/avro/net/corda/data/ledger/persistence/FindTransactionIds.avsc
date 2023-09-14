@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "FindTransactionIds",
-  "doc": "A request to fetch transactions that are in one of the given statuses.",
+  "doc": "A request to fetch transaction IDs that are in one of the given statuses.",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [
   {
