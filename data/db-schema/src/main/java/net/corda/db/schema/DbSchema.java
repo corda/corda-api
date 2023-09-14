@@ -63,4 +63,6 @@ public final class DbSchema {
     public static final String UNIQUENESS_REJECTED_TX_TABLE = "uniqueness_rejected_txs";
 
     public static final String STATE_MANAGER_TABLE = "state";
+
+    public static final String INTEROP_IDENTITY_DB_TABLE = "interop_identity";
 }
