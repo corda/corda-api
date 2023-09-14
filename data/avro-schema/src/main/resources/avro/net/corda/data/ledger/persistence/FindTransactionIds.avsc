@@ -18,6 +18,6 @@
       "type" : "array",
       "items" : "string"
     },
-    "doc": "The statuses of the transactions. The transaction must to have one of these statuses in order to be fetched."
+    "doc": "The required statuses of the transactions. The transaction must have one of these statuses in order to be fetched."
   }]
 }
