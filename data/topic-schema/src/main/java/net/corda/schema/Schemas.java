@@ -257,10 +257,10 @@ public final class Schemas {
         public static final String VIRTUAL_NODE_OPERATION_STATUS_TOPIC = "virtual.node.operation.status";
         public static final String VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request";
         public static final String VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = getRPCResponseTopic(VIRTUAL_NODE_CREATION_REQUEST_TOPIC);
+        public static final String VIRTUAL_NODE_DEDUPLICATION_TABLE_CLEAN_UP_TOPIC = "virtual.node.deduplication.table.clean.up";
         public static final String CPI_INFO_TOPIC = "cpi.info";
         public static final String CPI_UPLOAD_TOPIC = "cpi.upload";
         public static final String CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status";
         public static final String CPK_FILE_TOPIC = "cpk.file";
-        public static final String VIRTUAL_NODE_DEDUPLICATION_TABLE_CLEAN_UP_TOPIC = "virtual.node.deduplication.table.clean.up";
     }
 }
