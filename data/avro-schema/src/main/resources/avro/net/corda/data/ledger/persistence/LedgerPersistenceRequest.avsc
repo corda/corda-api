@@ -40,7 +40,7 @@
         "net.corda.data.ledger.persistence.FindSignedGroupParameters",
         "net.corda.data.ledger.persistence.PersistSignedGroupParametersIfDoNotExist",
         "net.corda.data.ledger.persistence.FindSignedLedgerTransaction",
-        "net.corda.data.ledger.persistence.FindTransactionIds"
+        "net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses"
       ]
     },
     {
