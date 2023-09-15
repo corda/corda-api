@@ -261,5 +261,6 @@ public final class Schemas {
         public static final String CPI_UPLOAD_TOPIC = "cpi.upload";
         public static final String CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status";
         public static final String CPK_FILE_TOPIC = "cpk.file";
+        public static final String VIRTUAL_NODE_DEDUPLICATION_TABLE_CLEAN_UP_TOPIC = "virtual.node.deduplication.table.clean.up";
     }
 }
