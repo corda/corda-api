@@ -104,9 +104,3 @@ topics:
       min.compaction.lag.ms: 60000
       max.compaction.lag.ms: 604800000
       min.cleanable.dirty.ratio: 0.5
-  VirtualNodeDeduplicationTableCleanUpTopic:
-    name: virtual.node.deduplication.table.clean.up
-    consumers:
-      - db
-    producers:
-      - db
