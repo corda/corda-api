@@ -4,8 +4,11 @@ topics:
     consumers:
       - db
       - flow
+      - flowMapper
+      - verification
       - membership
       - link-manager
+      - persistence
       - rest
     producers:
       - db
@@ -34,7 +37,9 @@ topics:
     name: cpk.file
     consumers:
       - flow
+      - verification
       - db
+      - persistence
     producers:
       - db
     config:
@@ -64,8 +69,10 @@ topics:
       - crypto
       - db
       - flow
+      - flowMapper
       - membership
       - link-manager
+      - persistence
       - rest
     producers:
       - db

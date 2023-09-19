@@ -19,10 +19,13 @@ topics:
       - crypto
       - db
       - flow
+      - flowMapper
+      - verification
       - membership
       - gateway
       - link-manager
       - rest
+      - persistence
       - uniqueness
     producers:
       - db

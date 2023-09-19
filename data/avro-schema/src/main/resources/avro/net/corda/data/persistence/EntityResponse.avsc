@@ -16,6 +16,12 @@
       "name": "metadata",
       "doc": "Metadata returned from the execution of the persistence operation",
       "type": "net.corda.data.KeyValuePairList"
+    },
+    {
+      "name": "resumePoint",
+      "doc": "Used by queries that support stable paging to return opaque data that indicates where the next page should resume from",
+      "type": ["null", "bytes"],
+      "default": null
     }
   ]
 }

@@ -2,7 +2,7 @@ topics:
   P2PInTopic:
     name: p2p.in
     consumers:
-      - flow
+      - flowMapper
       - membership
     producers:
       - link-manager
@@ -12,7 +12,7 @@ topics:
     consumers:
       - link-manager
     producers:
-      - flow
+      - flowMapper
       - membership
     config:
   P2POutDlqTopic:
@@ -54,6 +54,7 @@ topics:
     consumers:
       - link-manager
       - membership
+      - flowMapper
     producers:
       - rest # Dynamic Network registration
       - membership # Static Network registration

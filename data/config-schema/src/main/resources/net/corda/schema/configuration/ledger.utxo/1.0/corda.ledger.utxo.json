@@ -54,6 +54,19 @@
           "default": 1500
         }
       }
+    },
+    "backchain": {
+      "description": "Settings for backchain resolution",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "batchSize": {
+          "description": "Maximum size of each batch when doing a backchain resolution.",
+          "type": "integer",
+          "minimum": 1,
+          "default": 10
+        }
+      }
     }
   }
 }
