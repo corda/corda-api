@@ -6,7 +6,7 @@
   "fields": [
       {
         "name": "requestContext",
-        "type": "net.corda.data.flow.event.external.ExternalEventContext",
+        "type": ["null", "net.corda.data.flow.event.external.ExternalEventContext"],
         "doc": "Flow request context data for the original claim query"
       },
       {
