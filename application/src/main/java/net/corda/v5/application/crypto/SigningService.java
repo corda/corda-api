@@ -42,28 +42,6 @@ public interface SigningService {
     DigitalSignature.WithKeyId sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec);
 
     /**
-     * Using the provided signing {@link PublicKey}, internally looks up the matching {@link PrivateKey} and signs the data.
-     *
-     * @param bytes The data to sign over using the chosen key.
-     * @param publicKey The {@link PublicKey} partner to an internally held {@link PrivateKey}, either derived from the node's
-     * primary identity, or previously generated via the freshKey method. If the {@link PublicKey} is actually
-     * a {@link CompositeKey}, the first leaf signing key hosted by the node is used.
-     * @param signatureSpec The {@link SignatureSpec} to use when producing this signature.
-     * @param context The execution context of the signing operation as a map of strings. Currently accepts the following parameters
-     * <ul>
-     *   <li>category: the type of signing key requested for additional verification</li>
-     * </ul>
-     *
-     * @return A {@link DigitalSignature.WithKeyId} representing the signed data and the {@link PublicKey} that belongs to the
-     * same {@link KeyPair} as the {@link PrivateKey} that signed the data.
-     *
-     * @throws CordaRuntimeException If the input key is not a member of {@code keys}.
-     */
-    @Suspendable
-    @NotNull
-    DigitalSignature.WithKeyId sign(@NotNull byte[] bytes, @NotNull PublicKey publicKey, @NotNull SignatureSpec signatureSpec, @NotNull Map<String, String> context);
-
-    /**
      * Looks into a set of signing keys to find keys owned by the caller. In case of {@link CompositeKey} it looks into
      * the composite key leaves and returns the firstly found owned composite key leaf.
      *
