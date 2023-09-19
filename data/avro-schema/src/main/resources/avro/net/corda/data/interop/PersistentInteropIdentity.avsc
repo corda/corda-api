@@ -43,6 +43,11 @@
       "doc": "Interop identity endpoint protocol.",
       "name": "endpointProtocol",
       "type": "string"
+    },
+    {
+      "doc": "Interop identity enablement state.",
+      "name": "enabled",
+      "type": "boolean"
     }
   ]
 }
