@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
  * Users should implement this interface for any states that need to be selectable via the {@link TokenSelection} API.
  * <p>
  * The Corda platform will discover and invoke implementations of this interface for all produced states that match
- * the type specified by {@link UtxoTokenTransactionStateObserver#getStateType()}.
+ * the type specified by {@link TokenStateObserverContext#getStateType()}.
  * <p>
  * Example usage:
  * <ul>
@@ -72,24 +72,26 @@ import org.jetbrains.annotations.NotNull;
  * }
  * }</pre></li></ul>
  */
-public interface UtxoTokenTransactionStateObserver<T extends ContractState> {
-
-    /**
-     * Gets the {@link ContractState} type that the current observer is intended for.
-     *
-     * @return Returns the {@link ContractState} type that the current observer is intended for.
-     */
-    @NotNull
-    Class<T> getStateType();
+public interface TokenStateObserverContext<T extends ContractState> {
 
     /**
      * TODO: THIS COMMENT NEEDS UPDATING
-     * The action to be performed when a {@link ContractState} of type {@link T} is committed to the ledger.
+     *
+     * Gets the {@link ContractState} type that the current observer is intended for.
+     * @return Returns the {@link ContractState} type that the current observer is intended for.
+     */
+    @NotNull
+    StateAndRef<T> getStateAndRef();
+
+    /**
+     * TODO: THIS COMMENT NEEDS UPDATING
+     *
+     *  The action to be performed when a {@link ContractState} of type {@link T} is committed to the ledger.
      *
      * @param stateAndRef The {@link StateAndRef<T>} that will be committed to the ledger.
      * @param transaction The {@link UtxoLedgerTransaction} that will be committed to the ledger.
      * @return Returns a {@link UtxoToken}.
      */
     @NotNull
-    UtxoToken onCommit(@NotNull TokenStateObserverContext<T> context);
+    DigestService getDigestService();
 }
