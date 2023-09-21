@@ -11,6 +11,9 @@
             <column name="request_id" type="NVARCHAR(255)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
+            <column name="insert_ts" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <modifyDataType
