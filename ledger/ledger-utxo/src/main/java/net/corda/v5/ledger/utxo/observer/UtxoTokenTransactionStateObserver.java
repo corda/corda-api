@@ -1,14 +1,10 @@
 package net.corda.v5.ledger.utxo.observer;
 
-import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.ledger.utxo.ContractState;
-import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.token.selection.TokenSelection;
-import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * TODO: THIS COMMENT NEEDS UPDATING
  * Defines a mechanism to observe produced contract states of type {@link T} when they are committed to the ledger.
  * <p>
  * Users should implement this interface for any states that need to be selectable via the {@link TokenSelection} API.
@@ -38,13 +34,14 @@ import org.jetbrains.annotations.NotNull;
  * }
  * @NotNull
  * @Override public UtxoToken onCommit(
- * @NotNull StateAndRef<ExampleStateJ> stateAndRef,
- * @NotNull UtxoLedgerTransaction transaction
+ * @NotNull TokenStateObserverContext<ExampleStateJ> context,
  * )
  * {
  * return new UtxoToken(
- * new UtxoTokenPoolKey(ExampleStateK.class.getName(), stateAndRef.state.issuer, stateAndRef.state.currency),
- * state.amount,
+ * new UtxoTokenPoolKey(ExampleStateK.class.getName(),
+ * context.getStateAndRef().getState().getContractState().issuer,
+ * context.getStateAndRef().getState().getContractState().currency),
+ * context.getStateAndRef().getState().getContractState().amount,
  * new UtxoTokenFilterFields()
  * );
  * }
@@ -62,10 +59,10 @@ import org.jetbrains.annotations.NotNull;
  *
  * override val stateType = ExampleStateK::class.java
  *
- * override fun onCommit(stateAndRef: StateAndRef<ExampleStateK>, transaction: UtxoLedgerTransaction): UtxoToken {
+ * override fun onCommit(context: StateAndRef<ExampleStateK>): UtxoToken {
  * return UtxoToken(
- * UtxoTokenPoolKey(ExampleStateK::class.java.name, stateAndRef.state.issuer, stateAndRef.state.currency),
- * state.amount,
+ * UtxoTokenPoolKey(ExampleStateK::class.java.name, context.stateAndRef.state.contractState.issuer, context.stateAndRef.state.contractState.currency),
+ * context.stateAndRef.state.contractState.amount,
  * UtxoTokenFilterFields()
  * )
  * }
@@ -83,11 +80,9 @@ public interface UtxoTokenTransactionStateObserver<T extends ContractState> {
     Class<T> getStateType();
 
     /**
-     * TODO: THIS COMMENT NEEDS UPDATING
      * The action to be performed when a {@link ContractState} of type {@link T} is committed to the ledger.
      *
-     * @param stateAndRef The {@link StateAndRef<T>} that will be committed to the ledger.
-     * @param transaction The {@link UtxoLedgerTransaction} that will be committed to the ledger.
+     * @param context The {@link TokenStateObserverContext<T>} in which the token is being generated.
      * @return Returns a {@link UtxoToken}.
      */
     @NotNull
