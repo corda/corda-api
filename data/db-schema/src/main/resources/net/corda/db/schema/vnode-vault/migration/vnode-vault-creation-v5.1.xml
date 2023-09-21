@@ -6,5 +6,19 @@
         <addColumn tableName="vnode_member_info">
             <column name="is_deleted" type="BOOLEAN" defaultValueBoolean="false"/>
         </addColumn>
+
+        <createTable tableName="vnode_persistence_request_id">
+            <column name="request_id" type="NVARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="insert_ts" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <modifyDataType
+                columnName="reason"
+                newDataType="TEXT"
+                tableName="vnode_registration_request"/>
     </changeSet>
 </databaseChangeLog>

@@ -1,0 +1,7 @@
+topics:
+  ScheduledTaskDbProcessorTopic:
+    name: scheduled.task.db.processor
+    consumers:
+      - db
+    producers:
+      - db

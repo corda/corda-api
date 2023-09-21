@@ -95,7 +95,7 @@ public final class MessagingConfig {
         public static final String JDBC_PASS = DB_PROPERTIES + ".pass";
 
         public static final String JDBC_URL = DB_PROPERTIES + ".jdbc.url";
-        public static final String JDBC_DRIVER = DB_PROPERTIES + "jdbc.driver";
+        public static final String JDBC_DRIVER = DB_PROPERTIES + ".jdbc.driver";
         public static final String JDBC_DRIVER_DIRECTORY = DB_PROPERTIES + ".jdbc.directory";
         public static final String JDBC_PERSISTENCE_UNIT_NAME = DB_PROPERTIES + ".jdbc.persistenceUnitName";
         public static final String JDBC_POOL_MAX_SIZE = DB_PROPERTIES + ".pool.maxSize";
