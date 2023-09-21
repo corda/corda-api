@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet author="R3.Corda" id="ledger-utxo-creation-v5.1">
+       <createIndex
+           indexName="utxo_visible_transaction_state_idx_consumed"
+           tableName="utxo_visible_transaction_state">
+           <column name="consumed"/>
+       </createIndex>
+
+        <createIndex
+                indexName="utxo_transaction_output_idx_type"
+                tableName="utxo_transaction_output">
+            <column name="type"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
