@@ -262,4 +262,10 @@ public final class Schemas {
         public static final String CPI_UPLOAD_STATUS_TOPIC = "cpi.upload.status";
         public static final String CPK_FILE_TOPIC = "cpk.file";
     }
+
+    public static final class ScheduledTask {
+        private ScheduledTask() {}
+
+        public static final String SCHEDULED_TASK_DB_PROCESSOR = "scheduled.task.db.processor";
+    }
 }
