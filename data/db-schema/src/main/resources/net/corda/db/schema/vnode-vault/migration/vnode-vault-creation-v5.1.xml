@@ -15,7 +15,7 @@
 
         <modifyDataType
                 columnName="reason"
-                newDataType="varchar(1000)"
+                newDataType="TEXT"
                 tableName="vnode_registration_request"/>
     </changeSet>
 </databaseChangeLog>
