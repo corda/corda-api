@@ -12,5 +12,10 @@
                 <constraints nullable="false" primaryKey="true"/>
             </column>
         </createTable>
+
+        <modifyDataType
+                columnName="reason"
+                newDataType="TEXT"
+                tableName="vnode_registration_request"/>
     </changeSet>
 </databaseChangeLog>
