@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "SessionCounterpartyInfoRQ",
+  "name": "SessionCounterpartyInfoRequest",
   "doc" : "Request counterparties flow session information. This includes the flow protocol version that they are running.",
   "namespace": "net.corda.data.flow.event.session",
   "fields": [
