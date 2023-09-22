@@ -15,4 +15,8 @@ public final class SigningServiceSignContext {
     public SigningServiceSignContext(String keyCategory) {
         this.keyCategory = keyCategory;
     }
+
+    public String getKeyCategory() {
+        return keyCategory;
+    }
 }
