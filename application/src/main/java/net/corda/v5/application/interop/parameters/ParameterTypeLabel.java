@@ -1,5 +1,6 @@
 package net.corda.v5.application.interop.parameters;
 
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
@@ -16,7 +17,9 @@ public enum ParameterTypeLabel {
     UUID(java.util.UUID.class),
     TIMESTAMP(ZonedDateTime.class),
     BYTES(ByteBuffer.class),
-    JSON(String.class);
+    JSON(String.class),
+
+    SIGNED_TX(DigitalSignatureAndMetadata.class);
 
     @NotNull
     private final Class<?> expectedClass;
