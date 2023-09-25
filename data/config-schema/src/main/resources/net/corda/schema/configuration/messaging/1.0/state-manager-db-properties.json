@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/db/1.0/corda.db.json",
+  "title": "State Manager Database Configuration Schema",
+  "description": "Configuration schema for the database section. Note that this configuration cannot be updated dynamically through the REST endpoint.",
+  "type": "object",
+  "properties": {
+    "database": {
+      "description": "Database settings.",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "user": {
+          "description": "The database user.",
+          "type": "string"
+        },
+        "pass": {
+          "description": "The database password.",
+          "type": "string"
+        },
+        "jdbc": {
+          "description": "JDBC settings.",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "driver": {
+              "description": "The JDBC driver.",
+              "type": "string",
+              "default": "org.postgresql.Driver"
+            },
+            "directory": {
+              "description": "The directory that contains the JDBC drivers.",
+              "type": "string",
+              "default": "/opt/jdbc-driver"
+            },
+            "url": {
+              "description": "The JDBC URL.",
+              "type": "string",
+              "default": "jdbc:postgresql://state-manager-db:5432/state_manager"
+            },
+            "persistenceUnitName": {
+              "description": "The persistent unit name.",
+              "type": "string",
+              "default": "corda-state-manager"
+            }
+          },
+          "additionalProperties": false
+        },
+        "pool": {
+          "description": "Database pool settings.",
+          "type": "object",
+          "default": {},
+          "properties": {
+            "maxSize": {
+              "description": "The maximum database pool size.",
+              "type": "integer",
+              "minimum": 1,
+              "default": 10
+            },
+            "minSize": {
+              "description": "The minimum database pool size. If left null will default to the `max_size` value.",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idleTimeoutSeconds": {
+              "description": "The maximum time (in seconds) a connection can stay idle in the pool. A value of 0 means that idle connections are never removed from the pool.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 120
+            },
+            "maxLifetimeSeconds": {
+              "description": "The maximum time (in seconds) a connection can stay in the pool, regardless if it has been idle or has been recently used. If a connection is in-use and has reached \"maxLifetime\" timeout, it will be removed from the pool only when it becomes idle.",
+              "type": "integer",
+              "minimum": 1,
+              "default": 1800
+            },
+            "keepAliveTimeSeconds": {
+              "description": "The interval time (in seconds) in which connections will be tested for aliveness. Connections which are no longer alive are removed from the pool. A value of 0 means this check is disabled.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            },
+            "validationTimeoutSeconds": {
+              "description": "The maximum time (in seconds) that the pool will wait for a connection to be validated as alive.",
+              "type": "integer",
+              "minimum": 1,
+              "default": 5
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "default": {}
+  },
+  "additionalProperties": false
+}

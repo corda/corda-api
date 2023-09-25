@@ -78,4 +78,31 @@ public final class MessagingConfig {
      * producers to stay under this limit when publishing messages.
      */
     public static final String MAX_ALLOWED_MSG_SIZE = "maxAllowedMessageSize";
+
+    /**
+     * State Manager Configuration for connecting to the underlying persistent storage.
+     */
+    public static final class StateManager {
+        private StateManager() {
+        }
+
+        public static final String STATE_MANAGER = "stateManager";
+        public static final String TYPE = STATE_MANAGER + ".type";
+
+        // Database Values
+        public static final String DB_PROPERTIES = STATE_MANAGER + ".database";
+        public static final String JDBC_USER = DB_PROPERTIES + ".user";
+        public static final String JDBC_PASS = DB_PROPERTIES + ".pass";
+
+        public static final String JDBC_URL = DB_PROPERTIES + ".jdbc.url";
+        public static final String JDBC_DRIVER = DB_PROPERTIES + ".jdbc.driver";
+        public static final String JDBC_DRIVER_DIRECTORY = DB_PROPERTIES + ".jdbc.directory";
+        public static final String JDBC_PERSISTENCE_UNIT_NAME = DB_PROPERTIES + ".jdbc.persistenceUnitName";
+        public static final String JDBC_POOL_MAX_SIZE = DB_PROPERTIES + ".pool.maxSize";
+        public static final String JDBC_POOL_MIN_SIZE = DB_PROPERTIES + ".pool.minSize";
+        public static final String JDBC_POOL_IDLE_TIMEOUT_SECONDS = DB_PROPERTIES + ".pool.idleTimeoutSeconds";
+        public static final String JDBC_POOL_MAX_LIFETIME_SECONDS = DB_PROPERTIES + ".pool.maxLifetimeSeconds";
+        public static final String JDBC_POOL_KEEP_ALIVE_TIME_SECONDS = DB_PROPERTIES + ".pool.keepAliveTimeSeconds";
+        public static final String JDBC_POOL_VALIDATION_TIMEOUT_SECONDS = DB_PROPERTIES + ".pool.validationTimeoutSeconds";
+    }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="postgresql"/>
+    <property name="json.column.type" value="JSONB" dbms="postgresql"/>
+    <property name="state.column.type" value="bytea" dbms="postgresql"/>
+
+    <!-- Please note that HSQLDB schema is supported for integration test purposes only. -->
+    <property name="now" value="now()" dbms="hsqldb"/>
+    <property name="json.column.type" value="CLOB" dbms="hsqldb"/>
+    <property name="state.column.type" value="binary" dbms="hsqldb"/>
+
+    <changeSet author="R3.Corda" id="state-manager-migration-v5.1">
+        <createTable tableName="state">
+            <column name="key" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="${state.column.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="metadata" type="${json.column.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="key" constraintName="state_key" tableName="state"/>
+    </changeSet>
+</databaseChangeLog>

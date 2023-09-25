@@ -38,6 +38,7 @@ public final class DbSchema {
     public static final String VNODE_GROUP_PARAMETERS = "vnode_group_parameters";
     public static final String VNODE_GROUP_APPROVAL_RULES = "vnode_group_approval_rules";
     public static final String VNODE_PRE_AUTH_TOKENS = "vnode_pre_auth_tokens";
+    public static final String VNODE_PERSISTENCE_REQUEST_ID_TABLE = "vnode_persistence_request_id";
 
     public static final String LEDGER_CONSENSUAL_TRANSACTION_TABLE = "consensual_transaction";
     public static final String LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE = "consensual_transaction_status";
@@ -61,4 +62,6 @@ public final class DbSchema {
     public static final String UNIQUENESS_STATE_DETAILS_TABLE = "uniqueness_state_details";
     public static final String UNIQUENESS_TX_DETAILS_TABLE = "uniqueness_tx_details";
     public static final String UNIQUENESS_REJECTED_TX_TABLE = "uniqueness_rejected_txs";
+
+    public static final String STATE_MANAGER_TABLE = "state";
 }

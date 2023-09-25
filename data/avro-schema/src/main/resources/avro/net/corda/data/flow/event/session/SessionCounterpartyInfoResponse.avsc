@@ -1,0 +1,7 @@
+{
+  "type": "record",
+  "name": "SessionCounterpartyInfoResponse",
+  "doc" : "Sent from initiated to initiating party to inform them which protocol version of the flow they are running.",
+  "namespace": "net.corda.data.flow.event.session",
+  "fields": []
+}

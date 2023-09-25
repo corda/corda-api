@@ -1,8 +1,8 @@
 topics:
-  PersistenceEntityProcessorTopic:
+  VerificationProcessorTopic:
     name: verification.ledger.processor
     consumers:
-      - flow
+      - verification
     producers:
       - flow
     config:
