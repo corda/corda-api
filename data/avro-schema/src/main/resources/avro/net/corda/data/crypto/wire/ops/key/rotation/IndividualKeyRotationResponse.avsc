@@ -15,14 +15,30 @@
       "doc": "Specifies the specific tenant that owns the old key."
     },
     {
-      "name": "targetAlias",
+      "name": "oldKeyAlias",
       "type": "string",
-      "doc": "The wrapping key to be rewrapped."
+      "doc": "The key alias whose protected content has been re-wrapped with a new key."
     },
     {
-      "name": "newParentKeyAlias",
+      "name": "newKeyAlias",
       "type": "string",
-      "doc": "The new wrapping key which targetAlias will be rewrapped with."
+      "doc": "The new wrapping key which oldKeyAlias' content has been re-wrapped with."
+    },
+    {
+      "name": "startOperationTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when starting the individual key rotation."
+    },
+    {
+      "name": "endOperationTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the individual key rotation has finished."
     }
   ]
 }
