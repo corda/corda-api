@@ -19,11 +19,11 @@
     },
     {
       "name": "reason",
-      "doc": "The reason the registration request was moved to this status. Mostly relevant for switches to negative statuses (e.g. declined) to provide further context to the user on the underlying reason."
+      "doc": "The reason the registration request was moved to this status. Mostly relevant for switches to negative statuses (e.g. declined) to provide further context to the user on the underlying reason.",
       "type": [
          "null",
          "string"
-       ],
+       ]
     }
   ]
 }
