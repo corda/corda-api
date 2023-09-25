@@ -87,8 +87,14 @@ public interface UtxoLedgerService {
     UtxoFilteredTransactionBuilder filterSignedTransaction(@NotNull UtxoSignedTransaction transaction);
 
     /**
-     * Finds unconsumed states and subclasses of the states of the specified {@link ContractState} type and its subclasses in the vault.
-     * Only use this if you really care about catching all child classes. {@link #findUnconsumedStatesByExactType(Class<T>)} performs better for exact-matching use cases.
+     * Finds unconsumed states that are concrete implementations or subclasses of {@code type}.
+     * <p>
+     * Only use this method if subclasses of {@code type} must be returned.
+     * <p>
+     * Use {@link #findUnconsumedStatesByExactType(Class<T>)} to return exact instances of the input {@code type}.
+     * This method is more performant than {@link #findUnconsumedStatesByType(Class<T>)}.
+     * <p>
+     * Use {@link #query(String, Class)} for a more performant method of retrieving subclasses of a specified type.
      *
      * @param <T>  The underlying {@link ContractState} type.
      * @param type The {@link ContractState} type to find in the vault.
