@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "FindWithNamedQuery",
-  "doc": "Find entities matched by a named query. Parameters for the query may be specified. Pagination is supported, but there's no guarantee of consistency if the underlying data changes. The data will not be sorted in Corda; if the database returns an unpredictable order that must be handled by the caller. FindWithNamedQuery can be used to enforce ordering if required. Replies with {@link EntityResponse}",
+  "doc": "Find entities matched by a named query. Parameters for the query may be specified. Pagination is supported, but there's no guarantee of consistency if the underlying data changes and using offset-based pagination. The data will not be sorted in Corda; if the database returns an unpredictable order that must be handled by the caller. FindWithNamedQuery can be used to enforce ordering if required. Replies with {@link EntityResponse}",
   "namespace": "net.corda.data.persistence",
   "fields": [
     {
@@ -26,6 +26,12 @@
         "name": "limit",
         "type": "int",
         "doc": "Limit number of rows in the output query results, after applying the offset. Use the maximum int value if you do not want a lower limit."
+    },
+    {
+      "name": "resumePoint",
+      "type": ["null", "bytes"],
+      "default": null,
+      "doc": "When a query supports stable paging, contains opaque data telling the query where to resume from when making queries for subsequent pages."
     }
   ]
 }

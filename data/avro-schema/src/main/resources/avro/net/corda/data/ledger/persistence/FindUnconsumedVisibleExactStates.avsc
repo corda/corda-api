@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "FindUnconsumedStatesByExactType",
+  "doc": "Retrieve the unconsumed visible states of specific type. This only retrieves exact type excluding its states of subclass unlike {@link FindUnconsumedStatesByType}. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "stateClassName",
+      "type": "string",
+      "doc": "The fully qualified state class name"
+    }
+  ]
+}

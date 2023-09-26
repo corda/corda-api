@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "TokenForceClaimRelease",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
+  "doc": "Forcibly removes the entire claim. No response is expected for this event type.",
+  "fields": [
+    {
+      "name": "poolKey",
+      "type": "net.corda.data.ledger.utxo.token.selection.key.TokenPoolCacheKey",
+      "doc": "The key of the cache pool for the existing claim"
+    },
+    {
+      "name": "claimId",
+      "type": "string",
+      "doc": "Unique identifier for the claim"
+    }
+  ]
+}
