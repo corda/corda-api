@@ -35,4 +35,6 @@ public interface CompositeKeyGenerator {
      */
     @NotNull
     PublicKey create(@NotNull List<CompositeKeyNodeAndWeight> keys, @Nullable Integer threshold);
+
+    PublicKey delete(@NotNull List<CompositeKeyNodeAndWeight> keys);
 }
