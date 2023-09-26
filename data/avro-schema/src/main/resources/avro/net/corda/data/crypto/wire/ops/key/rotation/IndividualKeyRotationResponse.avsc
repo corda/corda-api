@@ -25,14 +25,6 @@
       "doc": "The new wrapping key which oldKeyAlias' content has been re-wrapped with."
     },
     {
-      "name": "startOperationTimestamp",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      },
-      "doc": "Time ([Instant]) in milliseconds when starting the individual key rotation."
-    },
-    {
       "name": "endOperationTimestamp",
       "type": {
         "type": "long",
