@@ -1,0 +1,139 @@
+net.corda.schema.membership.MembershipSchema:
+  annotations: []
+  type: public abstract class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getSchemaName:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: String
+net.corda.schema.membership.MembershipSchema$GroupPolicySchema:
+  annotations: []
+  type: public static final class
+  extends: net.corda.schema.membership.MembershipSchema
+  implements: []
+  interface: false
+  methods:
+    getSchemaName:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: String
+  fields:
+    Default:
+      annotation: []
+      type: public static final net.corda.schema.membership.MembershipSchema$GroupPolicySchema
+net.corda.schema.membership.MembershipSchema$RegistrationContextSchema:
+  annotations: []
+  type: public static final class
+  extends: net.corda.schema.membership.MembershipSchema
+  implements: []
+  interface: false
+  methods:
+    getSchemaName:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: String
+  fields:
+    StaticMember:
+      annotation: []
+      type: public static final net.corda.schema.membership.MembershipSchema$RegistrationContextSchema
+    DynamicMember:
+      annotation: []
+      type: public static final net.corda.schema.membership.MembershipSchema$RegistrationContextSchema
+    Mgm:
+      annotation: []
+      type: public static final net.corda.schema.membership.MembershipSchema$RegistrationContextSchema
+net.corda.schema.membership.provider.MembershipSchemaException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods: {}
+net.corda.schema.membership.provider.MembershipSchemaProvider:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getSchema:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.io.InputStream
+      params:
+        schema:
+          annotation:
+            - NotNull
+          type: net.corda.schema.membership.MembershipSchema
+        version:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.versioning.Version
+    getSchemaFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.io.InputStream
+      params:
+        fileName:
+          annotation:
+            - NotNull
+          type: String
+net.corda.schema.membership.provider.MembershipSchemaProviderFactory:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getSchemaProvider:
+      annotations:
+        - NotNull
+      default: false
+      type: public static
+      returnType: net.corda.schema.membership.provider.MembershipSchemaProvider
+net.corda.schema.membership.provider.impl.MembershipSchemaProviderImpl:
+  annotations: []
+  type: public class
+  extends: null
+  implements:
+    - net.corda.schema.membership.provider.MembershipSchemaProvider
+  interface: false
+  methods:
+    getSchema:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        schema:
+          annotation:
+            - NotNull
+          type: net.corda.schema.membership.MembershipSchema
+        version:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.versioning.Version
+    getSchemaFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        fileName:
+          annotation:
+            - NotNull
+          type: String

@@ -1,0 +1,238 @@
+net.corda.v5.ledger.common.NotaryLookup:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getNotaryServices:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.Collection<net.corda.v5.membership.NotaryInfo>
+    isNotaryVirtualNode:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: boolean
+      params:
+        virtualNodeName:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.types.MemberX500Name
+    lookup:
+      annotations:
+        - Suspendable
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.membership.NotaryInfo
+      params:
+        notaryServiceName:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.types.MemberX500Name
+net.corda.v5.ledger.common.transaction.CordaPackageSummary:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getFileChecksum:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+    getName:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+    getSignerSummaryHash:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: String
+    getVersion:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.ledger.common.transaction.TransactionMetadata:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getDigestSettings:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "java.util.Map<String, String>"
+    getLedgerModel:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+    getLedgerVersion:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: int
+    getPlatformVersion:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: int
+    getTransactionSubtype:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.ledger.common.transaction.TransactionNoAvailableKeysException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods: {}
+net.corda.v5.ledger.common.transaction.TransactionSignatureException:
+  annotations: []
+  type: public class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods:
+    getTransactionId:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+net.corda.v5.ledger.common.transaction.TransactionSignatureService:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends:
+    - net.corda.v5.ledger.common.transaction.TransactionSignatureVerificationService
+  interface: true
+  methods:
+    sign:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>
+      params:
+        transaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.common.transaction.TransactionWithMetadata
+        publicKeys:
+          annotation:
+            - NotNull
+          type: Iterable<java.security.PublicKey>
+    signBatch:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>>
+      params:
+        transactions:
+          annotation:
+            - NotNull
+          type: java.util.List<net.corda.v5.ledger.common.transaction.TransactionWithMetadata>
+        publicKeys:
+          annotation:
+            - NotNull
+          type: Iterable<java.security.PublicKey>
+    verifySignature:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        secureHash:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+        signatureWithMetadata:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.crypto.DigitalSignatureAndMetadata
+        publicKey:
+          annotation:
+            - NotNull
+          type: java.security.PublicKey
+net.corda.v5.ledger.common.transaction.TransactionSignatureVerificationService:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    verifySignature:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        secureHash:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+        signatureWithMetadata:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.crypto.DigitalSignatureAndMetadata
+        publicKey:
+          annotation:
+            - NotNull
+          type: java.security.PublicKey
+net.corda.v5.ledger.common.transaction.TransactionVerificationException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods:
+    getTransactionId:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+net.corda.v5.ledger.common.transaction.TransactionWithMetadata:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getId:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.crypto.SecureHash
+    getMetadata:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.common.transaction.TransactionMetadata

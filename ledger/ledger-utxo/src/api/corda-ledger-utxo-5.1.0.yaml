@@ -1,0 +1,2082 @@
+net.corda.v5.ledger.utxo.Attachment:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    extractFile:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        path:
+          annotation:
+            - NotNull
+          type: String
+        output:
+          annotation:
+            - NotNull
+          type: java.io.OutputStream
+    getId:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.crypto.SecureHash
+    getSignatories:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<java.security.PublicKey>
+    getSize:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: int
+    open:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.io.InputStream
+    openAsZip:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.zip.ZipInputStream
+net.corda.v5.ledger.utxo.BelongsToContract:
+  annotations: []
+  type: public @interface
+  interface: false
+  methods:
+    value:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Class<? extends net.corda.v5.ledger.utxo.Contract>
+net.corda.v5.ledger.utxo.Command:
+  annotations:
+    - CordaSerializable
+  type: public interface
+  extends: []
+  interface: true
+  methods: {}
+net.corda.v5.ledger.utxo.Contract:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    isVisible:
+      annotations:
+        - Suspendable
+      default: true
+      type: public
+      returnType: boolean
+      params:
+        state:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.ContractState
+        checker:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.VisibilityChecker
+    verify:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        transaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
+net.corda.v5.ledger.utxo.ContractState:
+  annotations:
+    - CordaSerializable
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getParticipants:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<java.security.PublicKey>
+net.corda.v5.ledger.utxo.ContractVerificationException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods:
+    getFailureReasons:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.ContractVerificationFailure>
+    getTransactionId:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+net.corda.v5.ledger.utxo.ContractVerificationFailure:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getContractClassName:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+    getContractStateClassNames:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<String>
+    getExceptionClassName:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+    getExceptionMessage:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.ledger.utxo.EncumbranceGroup:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getSize:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: int
+    getTag:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.ledger.utxo.FinalizationResult:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getTransaction:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+net.corda.v5.ledger.utxo.StateAndRef:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getRef:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.StateRef
+    getState:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.TransactionState<T>
+net.corda.v5.ledger.utxo.StateRef:
+  annotations:
+    - CordaSerializable
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    equals:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        o:
+          annotation:
+            - Nullable
+          type: Object
+    getIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    getTransactionId:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    hashCode:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    parse:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.v5.ledger.utxo.StateRef
+      params:
+        value:
+          annotation:
+            - NotNull
+          type: String
+        digestService:
+          annotation: []
+          type: net.corda.v5.application.crypto.DigestService
+    toString:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+net.corda.v5.ledger.utxo.TimeWindow:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    contains:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: boolean
+      params:
+        instant:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+    getFrom:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: java.time.Instant
+    getUntil:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.time.Instant
+net.corda.v5.ledger.utxo.TransactionState:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getContractState:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: T
+    getContractStateType:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Class<T>
+    getContractType:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Class<? extends net.corda.v5.ledger.utxo.Contract>
+    getEncumbranceGroup:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.EncumbranceGroup
+    getNotaryKey:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.security.PublicKey
+    getNotaryName:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.base.types.MemberX500Name
+net.corda.v5.ledger.utxo.UtxoLedgerService:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    createTransactionBuilder:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+    filterSignedTransaction:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+      params:
+        transaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+    finalize:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.FinalizationResult
+      params:
+        transaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+        sessions:
+          annotation:
+            - NotNull
+          type: java.util.List<net.corda.v5.application.messaging.FlowSession>
+    findLedgerTransaction:
+      annotations:
+        - Suspendable
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
+      params:
+        id:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+    findSignedTransaction:
+      annotations:
+        - Suspendable
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+      params:
+        id:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+    findUnconsumedStatesByType:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<T>>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    query:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery<R>
+      params:
+        queryName:
+          annotation:
+            - NotNull
+          type: String
+        resultClass:
+          annotation:
+            - NotNull
+          type: Class<R>
+    receiveFinality:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.FinalizationResult
+      params:
+        session:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.messaging.FlowSession
+        validator:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator
+    receiveTransactionBuilder:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        session:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.messaging.FlowSession
+    resolve:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.StateAndRef<T>
+      params:
+        stateRef:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.StateRef
+    sendAndReceiveTransactionBuilder:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        transactionBuilder:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+        session:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.messaging.FlowSession
+    sendUpdatedTransactionBuilder:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        transactionBuilder:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+        session:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.messaging.FlowSession
+net.corda.v5.ledger.utxo.VisibilityChecker:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    containsMySigningKeys:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: boolean
+      params:
+        keys:
+          annotation:
+            - NotNull
+          type: Iterable<java.security.PublicKey>
+net.corda.v5.ledger.utxo.observer.UtxoLedgerTokenStateObserver:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getStateType:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Class<T>
+    onCommit:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.observer.UtxoToken
+      params:
+        state:
+          annotation:
+            - NotNull
+          type: T
+        digestService:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.crypto.DigestService
+net.corda.v5.ledger.utxo.observer.UtxoToken:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    equals:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        other:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.observer.UtxoToken
+    getAmount:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.math.BigDecimal
+    getFilterFields:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields
+    getPoolKey:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.ledger.utxo.observer.UtxoTokenPoolKey
+    hashCode:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    equals:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        other:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields
+    getOwnerHash:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    getTag:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: String
+    hashCode:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+net.corda.v5.ledger.utxo.observer.UtxoTokenPoolKey:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    equals:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        other:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.observer.UtxoTokenPoolKey
+    getIssuerHash:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    getSymbol:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: String
+    getTokenType:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: String
+    hashCode:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    toString:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.application.persistence.ParameterizedQuery
+  interface: true
+  methods:
+    execute:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.application.persistence.PagedQuery$ResultSet<R>
+    setCreatedTimestampLimit:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery<R>
+      params:
+        timestampLimit:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+    setLimit:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery<R>
+      params:
+        limit:
+          annotation: []
+          type: int
+    setOffset:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery<R>
+      params:
+        offset:
+          annotation: []
+          type: int
+    setParameter:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery<R>
+      params:
+        name:
+          annotation:
+            - NotNull
+          type: String
+        value:
+          annotation:
+            - NotNull
+          type: Object
+    setParameters:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery<R>
+      params:
+        parameters:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, Object>"
+net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    collect:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector$Result<T>
+      params:
+        resultSet:
+          annotation:
+            - NotNull
+          type: java.util.List<R>
+        parameters:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, Object>"
+net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector$Result:
+  annotations: []
+  type: public static class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getDone:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: Boolean
+    getResults:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.util.List<T>
+net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    create:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        vaultNamedQueryBuilderFactory:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderFactory
+net.corda.v5.ledger.utxo.query.VaultNamedQueryFilter:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    filter:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Boolean
+      params:
+        data:
+          annotation:
+            - NotNull
+          type: T
+        parameters:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, Object>"
+net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefFilter:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.ledger.utxo.query.VaultNamedQueryFilter
+  interface: true
+  methods:
+    filter:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Boolean
+      params:
+        data:
+          annotation:
+            - NotNull
+          type: T
+        parameters:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, Object>"
+net.corda.v5.ledger.utxo.query.VaultNamedQueryStateAndRefTransformer:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer
+  interface: true
+  methods:
+    transform:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: R
+      params:
+        data:
+          annotation:
+            - NotNull
+          type: T
+        parameters:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, Object>"
+net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    transform:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: R
+      params:
+        data:
+          annotation:
+            - NotNull
+          type: T
+        parameters:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, Object>"
+net.corda.v5.ledger.utxo.query.json.ContractStateVaultJsonFactory:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    create:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+      params:
+        state:
+          annotation:
+            - NotNull
+          type: T
+        jsonMarshallingService:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.marshalling.JsonMarshallingService
+    getStateType:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Class<T>
+net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderBase
+  interface: true
+  methods:
+    collect:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderCollected
+      params:
+        collector:
+          annotation:
+            - NotNull
+          type: "net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector<?, ?>"
+    filter:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder
+      params:
+        filter:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.query.VaultNamedQueryFilter<?>
+    map:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder
+      params:
+        transformer:
+          annotation:
+            - NotNull
+          type: "net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer<?, ?>"
+    register:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+    whereJson:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder
+      params:
+        query:
+          annotation:
+            - NotNull
+          type: String
+net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderBase:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    register:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderCollected:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderBase
+  interface: true
+  methods:
+    register:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderFactory:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    create:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder
+      params:
+        queryName:
+          annotation:
+            - NotNull
+          type: String
+net.corda.v5.ledger.utxo.token.selection.ClaimedToken:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getAmount:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.math.BigDecimal
+    getIssuerHash:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.crypto.SecureHash
+    getNotaryX500Name:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.base.types.MemberX500Name
+    getOwnerHash:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.crypto.SecureHash
+    getStateRef:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.StateRef
+    getSymbol:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+    getTag:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: String
+    getTokenType:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.ledger.utxo.token.selection.TokenBalance:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getAvailableBalance:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.math.BigDecimal
+    getTotalBalance:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.math.BigDecimal
+net.corda.v5.ledger.utxo.token.selection.TokenBalanceCriteria:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    equals:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        other:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.token.selection.TokenBalanceCriteria
+    getIssuerHash:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    getNotaryX500Name:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.base.types.MemberX500Name
+    getOwnerHash:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    getSymbol:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: String
+    getTagRegex:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: String
+    getTokenType:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: String
+    hashCode:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    setOwnerHash:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        ownerHash:
+          annotation:
+            - Nullable
+          type: net.corda.v5.crypto.SecureHash
+    setTagRegex:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        tagRegex:
+          annotation:
+            - Nullable
+          type: String
+    toString:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+net.corda.v5.ledger.utxo.token.selection.TokenClaim:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getClaimedTokens:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.token.selection.ClaimedToken>
+    useAndRelease:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        usedTokensRefs:
+          annotation:
+            - NotNull
+          type: java.util.List<net.corda.v5.ledger.utxo.StateRef>
+net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    equals:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+      params:
+        other:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria
+    getIssuerHash:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    getNotaryX500Name:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: net.corda.v5.base.types.MemberX500Name
+    getOwnerHash:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: net.corda.v5.crypto.SecureHash
+    getSymbol:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: String
+    getTagRegex:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: String
+    getTargetAmount:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.math.BigDecimal
+    getTokenType:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: String
+    hashCode:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    setOwnerHash:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        ownerHash:
+          annotation:
+            - Nullable
+          type: net.corda.v5.crypto.SecureHash
+    setTagRegex:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        tagRegex:
+          annotation:
+            - Nullable
+          type: String
+    toString:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+net.corda.v5.ledger.utxo.token.selection.TokenSelection:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    queryBalance:
+      annotations:
+        - Suspendable
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.token.selection.TokenBalance
+      params:
+        criteria:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.token.selection.TokenBalanceCriteria
+    tryClaim:
+      annotations:
+        - Suspendable
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.token.selection.TokenClaim
+      params:
+        criteria:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria
+net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getAttachment:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.Attachment
+      params:
+        id:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+    getAttachments:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.Attachment>
+    getCommands:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<T>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getGroupParameters:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.membership.GroupParameters
+    getId:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.crypto.SecureHash
+    getInputContractStates:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.ContractState>
+    getInputStateAndRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<T>>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getInputStateRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateRef>
+    getInputStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<T>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getInputTransactionStates:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.TransactionState<?>>
+    getMetadata:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.common.transaction.TransactionMetadata
+    getNotaryKey:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.security.PublicKey
+    getNotaryName:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.base.types.MemberX500Name
+    getOutputContractStates:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.ContractState>
+    getOutputStateAndRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<T>>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getOutputStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<T>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getOutputTransactionStates:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.TransactionState<?>>
+    getReferenceContractStates:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.ContractState>
+    getReferenceStateAndRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<T>>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getReferenceStateRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateRef>
+    getReferenceStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<T>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
+    getReferenceTransactionStates:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: java.util.List<net.corda.v5.ledger.utxo.TransactionState<?>>
+    getSignatories:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<java.security.PublicKey>
+    getTimeWindow:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.TimeWindow
+net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends:
+    - net.corda.v5.ledger.common.transaction.TransactionWithMetadata
+  interface: true
+  methods:
+    getCommands:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.Command>
+    getInputStateRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateRef>
+    getNotaryKey:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.security.PublicKey
+    getNotaryName:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.base.types.MemberX500Name
+    getOutputStateAndRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<?>>
+    getReferenceStateRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateRef>
+    getSignatories:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<java.security.PublicKey>
+    getSignatures:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>
+    getTimeWindow:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.TimeWindow
+    toLedgerTransaction:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
+net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    addAttachment:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        attachmentId:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
+    addCommand:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        command:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.Command
+    addEncumberedOutputStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        tag:
+          annotation:
+            - NotNull
+          type: String
+        contractStates:
+          annotation:
+            - NotNull
+          type: "net.corda.v5.ledger.utxo.ContractState[]"
+    addInputState:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        stateRef:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.StateRef
+    addInputStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        stateRefs:
+          annotation:
+            - NotNull
+          type: "net.corda.v5.ledger.utxo.StateRef[]"
+    addOutputState:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        contractState:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.ContractState
+    addOutputStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        contractStates:
+          annotation:
+            - NotNull
+          type: "net.corda.v5.ledger.utxo.ContractState[]"
+    addReferenceState:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        stateRef:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.StateRef
+    addReferenceStates:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        stateRefs:
+          annotation:
+            - NotNull
+          type: "net.corda.v5.ledger.utxo.StateRef[]"
+    addSignatories:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        signatories:
+          annotation:
+            - NotNull
+          type: "java.security.PublicKey[]"
+    getEncumbranceGroup:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.ContractState>
+      params:
+        tag:
+          annotation:
+            - NotNull
+          type: String
+    getEncumbranceGroups:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "java.util.Map<String, java.util.List<net.corda.v5.ledger.utxo.ContractState>>"
+    getNotaryKey:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: java.security.PublicKey
+    getNotaryName:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.base.types.MemberX500Name
+    setNotary:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        notary:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.types.MemberX500Name
+    setTimeWindowBetween:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        from:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+        until:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+    setTimeWindowUntil:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder
+      params:
+        until:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+    toSignedTransaction:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator:
+  annotations: []
+  type: public interface
+  extends:
+    - java.io.Serializable
+  interface: true
+  methods:
+    checkTransaction:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        transaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
+net.corda.v5.ledger.utxo.transaction.filtered.FilteredDataInconsistencyException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods: {}
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods: {}
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData$Audit:
+  annotations:
+    - DoNotImplement
+  type: public static interface
+  extends:
+    - net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData
+  interface: true
+  methods:
+    getSize:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: int
+    getValues:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "java.util.Map<Integer, T>"
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData$Removed:
+  annotations:
+    - DoNotImplement
+  type: public static interface
+  extends:
+    - net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData
+  interface: true
+  methods: {}
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData$SizeOnly:
+  annotations:
+    - DoNotImplement
+  type: public static interface
+  extends:
+    - net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData
+  interface: true
+  methods:
+    getSize:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: int
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getCommands:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData<net.corda.v5.ledger.utxo.Command>
+    getId:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.crypto.SecureHash
+    getInputStateRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData<net.corda.v5.ledger.utxo.StateRef>
+    getMetadata:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.common.transaction.TransactionMetadata
+    getNotaryKey:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: java.security.PublicKey
+    getNotaryName:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.base.types.MemberX500Name
+    getOutputStateAndRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData<net.corda.v5.ledger.utxo.StateAndRef<?>>
+    getReferenceStateRefs:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData<net.corda.v5.ledger.utxo.StateRef>
+    getSignatories:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredData<java.security.PublicKey>
+    getTimeWindow:
+      annotations:
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.TimeWindow
+    verify:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    build:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction
+    withCommands:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+      params:
+        predicate:
+          annotation:
+            - NotNull
+          type: java.util.function.Predicate<net.corda.v5.ledger.utxo.Command>
+    withCommandsSize:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+    withInputStates:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+      params:
+        predicate:
+          annotation:
+            - NotNull
+          type: java.util.function.Predicate<net.corda.v5.ledger.utxo.StateRef>
+    withInputStatesSize:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+    withNotary:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+    withOutputStates:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+      params:
+        predicate:
+          annotation:
+            - NotNull
+          type: java.util.function.Predicate<net.corda.v5.ledger.utxo.ContractState>
+    withOutputStatesSize:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+    withReferenceStates:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+      params:
+        predicate:
+          annotation:
+            - NotNull
+          type: java.util.function.Predicate<net.corda.v5.ledger.utxo.StateRef>
+    withReferenceStatesSize:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+    withSignatories:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+      params:
+        predicate:
+          annotation:
+            - NotNull
+          type: java.util.function.Predicate<java.security.PublicKey>
+    withSignatoriesSize:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+    withTimeWindow:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
+net.corda.v5.ledger.utxo.uniqueness.client.LedgerUniquenessCheckerClientService:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    requestUniquenessCheck:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.application.uniqueness.model.UniquenessCheckResult
+      params:
+        transactionId:
+          annotation:
+            - NotNull
+          type: String
+        originatorX500Name:
+          annotation:
+            - NotNull
+          type: String
+        inputStates:
+          annotation:
+            - NotNull
+          type: java.util.List<String>
+        referenceStates:
+          annotation:
+            - NotNull
+          type: java.util.List<String>
+        numOutputStates:
+          annotation: []
+          type: int
+        timeWindowLowerBound:
+          annotation:
+            - Nullable
+          type: java.time.Instant
+        timeWindowUpperBound:
+          annotation:
+            - NotNull
+          type: java.time.Instant

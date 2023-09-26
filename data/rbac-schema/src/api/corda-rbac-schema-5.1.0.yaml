@@ -1,0 +1,44 @@
+net.corda.rbac.schema.RbacKeys:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    START_FLOW_PREFIX:
+      annotation: []
+      type: public static final String
+      initialised value: StartFlow
+    PREFIX_SEPARATOR:
+      annotation: []
+      type: public static final String
+      initialised value: ':'
+    UUID_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[1-5][a-fA-F0-9]{3}-[89aAbB][a-fA-F0-9]{3}-[a-fA-F0-9]{12}"
+    VNODE_SHORT_HASH_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[a-fA-F0-9]{12}"
+    VNODE_STATE_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[_a-zA-Z0-9]{3,255}"
+    USER_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[-._@a-zA-Z0-9]{3,255}"
+    USER_URL_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[-._a-zA-Z0-9]{3,200}[%40]{0,3}[-._a-zA-Z0-9]{0,50}"
+    CLIENT_REQ_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[-._A-Za-z0-9]{1,250}"
+    FLOW_NAME_REGEX:
+      annotation: []
+      type: public static final String
+      initialised value: "[._$a-zA-Z0-9]{1,250}"
