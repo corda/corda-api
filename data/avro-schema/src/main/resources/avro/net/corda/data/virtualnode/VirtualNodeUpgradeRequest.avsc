@@ -21,7 +21,8 @@
     {
       "name": "forceUpgrade",
       "type": "boolean",
-      "doc": "Whether this upgrade should be forced regardless of OperationInProgress."
+      "doc": "Whether this upgrade should be forced regardless of OperationInProgress.",
+      "default": false
     }
   ]
 }
