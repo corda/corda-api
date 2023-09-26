@@ -366,6 +366,18 @@ net.corda.schema.Schemas$Rest:
       annotation: []
       type: public static final String
       initialised value: rest.permissions.permission
+net.corda.schema.Schemas$ScheduledTask:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    SCHEDULED_TASK_DB_PROCESSOR:
+      annotation: []
+      type: public static final String
+      initialised value: scheduled.task.db.processor
 net.corda.schema.Schemas$Services:
   annotations: []
   type: public static final class

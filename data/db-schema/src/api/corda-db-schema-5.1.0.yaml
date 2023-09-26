@@ -134,6 +134,10 @@ net.corda.db.schema.DbSchema:
       annotation: []
       type: public static final String
       initialised value: vnode_pre_auth_tokens
+    VNODE_PERSISTENCE_REQUEST_ID_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_persistence_request_id
     LEDGER_CONSENSUAL_TRANSACTION_TABLE:
       annotation: []
       type: public static final String

@@ -406,6 +406,18 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: net.corda.v5.crypto.SecureHash
+    findUnconsumedStatesByExactType:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<T>>
+      params:
+        type:
+          annotation:
+            - NotNull
+          type: Class<T>
     findUnconsumedStatesByType:
       annotations:
         - Suspendable
@@ -523,6 +535,24 @@ net.corda.v5.ledger.utxo.VisibilityChecker:
           annotation:
             - NotNull
           type: Iterable<java.security.PublicKey>
+net.corda.v5.ledger.utxo.observer.TokenStateObserverContext:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getDigestService:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.application.crypto.DigestService
+    getStateAndRef:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.StateAndRef<T>
 net.corda.v5.ledger.utxo.observer.UtxoLedgerTokenStateObserver:
   annotations: []
   type: public interface
@@ -679,6 +709,29 @@ net.corda.v5.ledger.utxo.observer.UtxoTokenPoolKey:
       default: false
       type: public
       returnType: String
+net.corda.v5.ledger.utxo.observer.UtxoTokenTransactionStateObserver:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getStateType:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Class<T>
+    onCommit:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.observer.UtxoToken
+      params:
+        context:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.observer.TokenStateObserverContext<T>
 net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery:
   annotations: []
   type: public interface

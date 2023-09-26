@@ -172,6 +172,26 @@ net.corda.schema.configuration.BootConfig:
       annotation: []
       type: public static final String
       initialised value: secrets
+    BOOT_STATE_MANAGER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager
+    BOOT_STATE_MANAGER_TYPE:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.type
+    BOOT_STATE_MANAGER_DB_USER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.user
+    BOOT_STATE_MANAGER_DB_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pass
+    BOOT_STATE_MANAGER_JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.jdbc.url
 net.corda.schema.configuration.ConfigDefaults:
   annotations: []
   type: public final class
@@ -514,6 +534,10 @@ net.corda.schema.configuration.LedgerConfig:
       annotation: []
       type: public static final String
       initialised value: tokens.cachedTokenPageSize
+    UTXO_TOKEN_CLAIM_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.claimTimeoutSeconds
     UTXO_BACKCHAIN_BATCH_SIZE:
       annotation: []
       type: public static final String
@@ -729,7 +753,7 @@ net.corda.schema.configuration.MessagingConfig$StateManager:
     JDBC_DRIVER:
       annotation: []
       type: public static final String
-      initialised value: stateManager.databasejdbc.driver
+      initialised value: stateManager.database.jdbc.driver
     JDBC_DRIVER_DIRECTORY:
       annotation: []
       type: public static final String
