@@ -59,12 +59,20 @@
       "doc": "Number of wrapped keys in total to re-wrap as part of this operation."
     },
     {
-      "name": "duration",
+      "name": "createdTimestamp",
       "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
       },
-      "doc": "Time ([Instant]) in milliseconds spent processing the rotation."
+      "doc": "The date and time the key rotation request was created."
+    },
+    {
+      "name": "lastUpdateTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "The date and time of the last individual key rotation operation so far."
     }
   ]
 }
