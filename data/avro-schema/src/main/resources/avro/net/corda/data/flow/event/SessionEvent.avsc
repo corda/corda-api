@@ -50,8 +50,8 @@
     {
       "name": "payload",
       "type": [
-        "net.corda.data.flow.event.session.SessionInit",
-        "net.corda.data.flow.event.session.SessionConfirm",
+        "net.corda.data.flow.event.session.SessionCounterpartyInfoRequest",
+        "net.corda.data.flow.event.session.SessionCounterpartyInfoResponse",
         "net.corda.data.flow.event.session.SessionData",
         "net.corda.data.flow.event.session.SessionClose",
         "net.corda.data.flow.event.session.SessionError"

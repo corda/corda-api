@@ -126,7 +126,7 @@
       "allOf": [
         {
           "if": {
-            "properties": {"type": {"const": "DATABASE"}},
+            "properties": { "type": { "const": "DATABASE" } },
             "required": ["type"]
           },
           "then": {

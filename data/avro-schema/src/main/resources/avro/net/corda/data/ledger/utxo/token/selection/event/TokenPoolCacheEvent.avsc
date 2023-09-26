@@ -16,7 +16,8 @@
         "net.corda.data.ledger.utxo.token.selection.data.TokenClaimRelease",
         "net.corda.data.ledger.utxo.token.selection.data.TokenLedgerChange",
         "net.corda.data.ledger.utxo.token.selection.data.TokenCachedSyncCheck",
-        "net.corda.data.ledger.utxo.token.selection.data.TokenBalanceQuery"
+        "net.corda.data.ledger.utxo.token.selection.data.TokenBalanceQuery",
+        "net.corda.data.ledger.utxo.token.selection.data.TokenForceClaimRelease"
       ],
       "doc": "Represents the specific type and data of inbound event"
     }
