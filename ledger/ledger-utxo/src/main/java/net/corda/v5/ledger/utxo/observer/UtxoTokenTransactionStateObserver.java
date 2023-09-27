@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo.observer;
 
-import net.corda.v5.application.crypto.DigestService;
 import net.corda.v5.ledger.utxo.ContractState;
 import net.corda.v5.ledger.utxo.token.selection.TokenSelection;
 import org.jetbrains.annotations.NotNull;
@@ -11,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Users should implement this interface for any states that need to be selectable via the {@link TokenSelection} API.
  * <p>
  * The Corda platform will discover and invoke implementations of this interface for all produced states that match
- * the type specified by {@link UtxoLedgerTokenStateObserver#getStateType()}.
+ * the type specified by {@link UtxoTokenTransactionStateObserver#getStateType()}.
  * <p>
  * Example usage:
  * <ul>
@@ -28,16 +27,21 @@ import org.jetbrains.annotations.NotNull;
  * }
  * }
  *
- * public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenStateObserver<ExampleStateJ> {
+ * public class UtxoTokenTransactionStateObserverJavaExample implements UtxoTokenTransactionStateObserver<ExampleStateJ> {
  * @NotNull
  * @Override public Class<ExampleStateJ> getStateType() {
  * return ExampleStateJ.class;
  * }
  * @NotNull
- * @Override public UtxoToken onCommit(@NotNull ExampleStateJ state) {
+ * @Override public UtxoToken onCommit(
+ * @NotNull TokenStateObserverContext<ExampleStateJ> context,
+ * )
+ * {
  * return new UtxoToken(
- * new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency),
- * state.amount,
+ * new UtxoTokenPoolKey(ExampleStateK.class.getName(),
+ * context.getStateAndRef().getState().getContractState().issuer,
+ * context.getStateAndRef().getState().getContractState().currency),
+ * context.getStateAndRef().getState().getContractState().amount,
  * new UtxoTokenFilterFields()
  * );
  * }
@@ -51,38 +55,36 @@ import org.jetbrains.annotations.NotNull;
  * val amount: BigDecimal
  * ) : ContractState
  *
- * class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver<ExampleStateK> {
+ * class UtxoTokenTransactionStateObserverKotlinExample : UtxoTokenTransactionStateObserver<ExampleStateK> {
  *
  * override val stateType = ExampleStateK::class.java
  *
- * override fun onCommit(state: ExampleStateK): UtxoToken {
+ * override fun onCommit(context: StateAndRef<ExampleStateK>): UtxoToken {
  * return UtxoToken(
- * UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency),
- * state.amount,
+ * UtxoTokenPoolKey(ExampleStateK::class.java.name, context.stateAndRef.state.contractState.issuer, context.stateAndRef.state.contractState.currency),
+ * context.stateAndRef.state.contractState.amount,
  * UtxoTokenFilterFields()
  * )
  * }
  * }
  * }</pre></li></ul>
  */
-@Deprecated(since = "5.1", forRemoval = true)
-public interface UtxoLedgerTokenStateObserver<T extends ContractState> {
+public interface UtxoTokenTransactionStateObserver<T extends ContractState> {
 
     /**
      * Gets the {@link ContractState} type that the current observer is intended for.
      *
      * @return Returns the {@link ContractState} type that the current observer is intended for.
      */
-    // TODO : Consider providing default implementation
     @NotNull
     Class<T> getStateType();
 
     /**
      * The action to be performed when a {@link ContractState} of type {@link T} is committed to the ledger.
      *
-     * @param state The {@link ContractState} that was committed to the ledger.
+     * @param context The {@link TokenStateObserverContext<T>} in which the token is being generated.
      * @return Returns a {@link UtxoToken}.
      */
     @NotNull
-    UtxoToken onCommit(@NotNull T state, @NotNull DigestService digestService);
+    UtxoToken onCommit(@NotNull TokenStateObserverContext<T> context);
 }

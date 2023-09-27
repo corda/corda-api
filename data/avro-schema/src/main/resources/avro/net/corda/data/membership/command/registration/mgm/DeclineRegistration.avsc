@@ -6,8 +6,17 @@
   "fields": [
     {
       "name": "reason",
-      "doc": "Reason that the request was declined.",
+      "doc": "Reason that the request was declined. This contains data that will remain internal in the MGM's system for record keeping.",
       "type": "string"
+    },
+    {
+       "name": "reasonForUser",
+       "doc": "Reason that the request was declined. This contains data that will be communicated to the user to provide context. If not specified, no reason will be communicated back to the user.",
+       "type": [
+         "null",
+         "string"
+       ],
+       "default": null
     }
   ]
 }
