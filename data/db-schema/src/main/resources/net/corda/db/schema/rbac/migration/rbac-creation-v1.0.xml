@@ -134,7 +134,7 @@
             <column name="update_ts" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="actor_user" type="VARCHAR(255)">
+            <column name="actor_user" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
             <column name="change_type" type="VARCHAR(255)">
