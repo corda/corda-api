@@ -1,0 +1,487 @@
+net.corda.schema.Schemas:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getDLQTopic:
+      annotations:
+        - NotNull
+      default: false
+      type: public static
+      returnType: String
+      params:
+        topic:
+          annotation:
+            - NotNull
+          type: String
+    getRPCResponseTopic:
+      annotations:
+        - NotNull
+      default: false
+      type: public static
+      returnType: String
+      params:
+        topic:
+          annotation:
+            - NotNull
+          type: String
+    getStateAndEventStateTopic:
+      annotations:
+        - NotNull
+      default: false
+      type: public static
+      returnType: String
+      params:
+        topic:
+          annotation:
+            - NotNull
+          type: String
+  fields:
+    TOPIC_NAME:
+      annotation: []
+      type: public static final String
+      initialised value: topicName
+    NUM_PARTITIONS:
+      annotation: []
+      type: public static final String
+      initialised value: numPartitions
+    REPLICATION_FACTOR:
+      annotation: []
+      type: public static final String
+      initialised value: replicationFactor
+    TOPIC_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: config
+net.corda.schema.Schemas$AvroSchema:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    AVRO_SCHEMA_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: avro.schema
+net.corda.schema.Schemas$Certificates:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    CERTIFICATES_RPC_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: certificates.rpc.ops
+    CERTIFICATES_RPC_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+net.corda.schema.Schemas$Config:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    CONFIG_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: config.topic
+    CONFIG_MGMT_REQUEST_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: config.management.request
+    CONFIG_MGMT_REQUEST_RESP_TOPIC:
+      annotation: []
+      type: public static final String
+net.corda.schema.Schemas$Crypto:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    RPC_HSM_REGISTRATION_MESSAGE_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: crypto.hsm.rpc.registration
+    RPC_HSM_REGISTRATION_MESSAGE_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+    FLOW_OPS_MESSAGE_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: crypto.ops.flow
+    RPC_OPS_MESSAGE_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: crypto.ops.rpc
+    RPC_OPS_MESSAGE_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+net.corda.schema.Schemas$Flow:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    FLOW_STATUS_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: flow.status
+    FLOW_EVENT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: flow.event
+    FLOW_EVENT_STATE_TOPIC:
+      annotation: []
+      type: public static final String
+    FLOW_EVENT_DLQ_TOPIC:
+      annotation: []
+      type: public static final String
+    FLOW_MAPPER_EVENT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: flow.mapper.event
+    FLOW_MAPPER_EVENT_STATE_TOPIC:
+      annotation: []
+      type: public static final String
+    FLOW_MAPPER_EVENT_DLQ_TOPIC:
+      annotation: []
+      type: public static final String
+net.corda.schema.Schemas$Membership:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    GROUP_PARAMETERS_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.group.params
+    MEMBER_LIST_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.members
+    MEMBERSHIP_RPC_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.rpc.ops
+    MEMBERSHIP_RPC_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+    MEMBERSHIP_DB_RPC_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.db.rpc.ops
+    MEMBERSHIP_DB_RPC_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+    MEMBERSHIP_DB_ASYNC_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.db.async.ops
+    MEMBERSHIP_DB_ASYNC_STATE_TOPIC:
+      annotation: []
+      type: public static final String
+    MEMBERSHIP_DB_ASYNC_DLQ_TOPIC:
+      annotation: []
+      type: public static final String
+    MEMBERSHIP_ASYNC_REQUEST_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.async.request
+    MEMBERSHIP_ASYNC_REQUEST_RETRIES_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.async.request.retries
+    MEMBERSHIP_ASYNC_REQUEST_RETRIES_STATE_TOPIC:
+      annotation: []
+      type: public static final String
+    MEMBERSHIP_ASYNC_REQUEST_RETRIES_DLQ_TOPIC:
+      annotation: []
+      type: public static final String
+    MEMBERSHIP_ACTIONS_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.actions
+    EVENT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.event
+    REGISTRATION_COMMAND_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.registration
+    REGISTRATION_STATE_TOPIC:
+      annotation: []
+      type: public static final String
+    REGISTRATION_DLQ_TOPIC:
+      annotation: []
+      type: public static final String
+    SYNCHRONIZATION_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: membership.sync
+net.corda.schema.Schemas$P2P:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    P2P_OUT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.out
+    P2P_OUT_TOPIC_DLQ:
+      annotation: []
+      type: public static final String
+    P2P_OUT_MARKERS:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.out.markers
+    P2P_OUT_MARKERS_STATE:
+      annotation: []
+      type: public static final String
+    P2P_OUT_MARKERS_DLQ:
+      annotation: []
+      type: public static final String
+    P2P_IN_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.in
+    P2P_HOSTED_IDENTITIES_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.hosted.identities
+    P2P_MGM_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.mgm.allowed.client.certificate.subjects
+    LINK_OUT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: link.out
+    LINK_IN_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: link.in
+    SESSION_OUT_PARTITIONS:
+      annotation: []
+      type: public static final String
+      initialised value: session.out.partitions
+    GATEWAY_TLS_TRUSTSTORES:
+      annotation: []
+      type: public static final String
+      initialised value: gateway.tls.truststores
+    GATEWAY_TLS_CERTIFICATES:
+      annotation: []
+      type: public static final String
+      initialised value: gateway.tls.certs
+    GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: gateway.revocation.request
+    GATEWAY_REVOCATION_CHECK_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+    P2P_MTLS_MEMBER_CLIENT_CERTIFICATE_SUBJECT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.mtls.member.client.certificate.subject
+    GATEWAY_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS:
+      annotation: []
+      type: public static final String
+      initialised value: gateway.allowed.client.certificate.subjects
+net.corda.schema.Schemas$Permissions:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    PERMISSIONS_USER_SUMMARY_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: permissions.user.summary
+net.corda.schema.Schemas$Persistence:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    PERSISTENCE_ENTITY_PROCESSOR_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: persistence.entity.processor
+    PERSISTENCE_LEDGER_PROCESSOR_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: persistence.ledger.processor
+net.corda.schema.Schemas$Rest:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    REST_PERM_MGMT_REQ_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: rest.permissions.management
+    REST_PERM_MGMT_RESP_TOPIC:
+      annotation: []
+      type: public static final String
+    REST_PERM_USER_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: rest.permissions.user
+    REST_PERM_GROUP_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: rest.permissions.group
+    REST_PERM_ROLE_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: rest.permissions.role
+    REST_PERM_ENTITY_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: rest.permissions.permission
+net.corda.schema.Schemas$ScheduledTask:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    SCHEDULED_TASK_DB_PROCESSOR:
+      annotation: []
+      type: public static final String
+      initialised value: scheduled.task.db.processor
+net.corda.schema.Schemas$Services:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    TOKEN_CACHE_EVENT:
+      annotation: []
+      type: public static final String
+      initialised value: services.token.event
+    TOKEN_CACHE_EVENT_STATE:
+      annotation: []
+      type: public static final String
+    TOKEN_CACHE_EVENT_DLQ:
+      annotation: []
+      type: public static final String
+    TOKEN_CACHE_SYNC_EVENT:
+      annotation: []
+      type: public static final String
+      initialised value: services.token.sync.event
+    TOKEN_CACHE_SYNC_EVENT_STATE:
+      annotation: []
+      type: public static final String
+    TOKEN_CACHE_SYNC_EVENT_DLQ:
+      annotation: []
+      type: public static final String
+net.corda.schema.Schemas$UniquenessChecker:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    UNIQUENESS_CHECK_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: uniqueness.check
+net.corda.schema.Schemas$Verification:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    VERIFICATION_LEDGER_PROCESSOR_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: verification.ledger.processor
+net.corda.schema.Schemas$VirtualNode:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    VIRTUAL_NODE_INFO_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: virtual.node.info
+    VIRTUAL_NODE_ASYNC_REQUEST_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: virtual.node.async.request
+    VIRTUAL_NODE_OPERATION_STATUS_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: virtual.node.operation.status
+    VIRTUAL_NODE_CREATION_REQUEST_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: virtual.node.creation.request
+    VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC:
+      annotation: []
+      type: public static final String
+    CPI_INFO_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: cpi.info
+    CPI_UPLOAD_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: cpi.upload
+    CPI_UPLOAD_STATUS_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: cpi.upload.status
+    CPK_FILE_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: cpk.file
+net.corda.schema.TestSchema:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    APP_RECEIVED_MESSAGES_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: p2p.app.received_msg

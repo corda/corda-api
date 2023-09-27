@@ -1,0 +1,1062 @@
+net.corda.schema.common.provider.SchemaProvider:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getSchema:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.io.InputStream
+      params:
+        key:
+          annotation:
+            - NotNull
+          type: String
+        version:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.versioning.Version
+    getSchemaFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.io.InputStream
+      params:
+        fileName:
+          annotation:
+            - NotNull
+          type: String
+net.corda.schema.common.provider.impl.AbstractSchemaProvider:
+  annotations: []
+  type: public abstract class
+  extends: null
+  implements:
+    - net.corda.schema.common.provider.SchemaProvider
+  interface: false
+  methods:
+    getResourceInputStream:
+      annotations:
+        - NotNull
+      default: false
+      type: protected abstract
+      returnType: java.io.InputStream
+      params:
+        resource:
+          annotation:
+            - NotNull
+          type: String
+    getResourceRoot:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: String
+    getSchema:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        key:
+          annotation:
+            - NotNull
+          type: String
+        version:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.versioning.Version
+    getSchemaFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        fileName:
+          annotation:
+            - NotNull
+          type: String
+  fields:
+    logger:
+      annotation: []
+      type: protected final org.slf4j.Logger
+net.corda.schema.configuration.BootConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    INSTANCE_ID:
+      annotation: []
+      type: public static final String
+      initialised value: instanceId
+    TOPIC_PREFIX:
+      annotation: []
+      type: public static final String
+      initialised value: topicPrefix
+    BOOT_MAX_ALLOWED_MSG_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: maxAllowedMessageSize
+    BOOT_KAFKA:
+      annotation: []
+      type: public static final String
+      initialised value: kafka
+    BOOT_KAFKA_COMMON:
+      annotation: []
+      type: public static final String
+      initialised value: kafka.common
+    BOOT_CRYPTO:
+      annotation: []
+      type: public static final String
+      initialised value: crypto
+    BOOT_DB:
+      annotation: []
+      type: public static final String
+      initialised value: db
+    BOOT_JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: db.database.jdbc.url
+    BOOT_JDBC_USER:
+      annotation: []
+      type: public static final String
+      initialised value: db.database.user
+    BOOT_JDBC_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: db.database.pass
+    BOOT_DIR:
+      annotation: []
+      type: public static final String
+      initialised value: dir
+    BOOT_WORKSPACE_DIR:
+      annotation: []
+      type: public static final String
+      initialised value: dir.workspace
+    BOOT_TMP_DIR:
+      annotation: []
+      type: public static final String
+      initialised value: dir.tmp
+    BOOT_REST:
+      annotation: []
+      type: public static final String
+      initialised value: rest
+    BOOT_REST_TLS_KEYSTORE_FILE_PATH:
+      annotation: []
+      type: public static final String
+      initialised value: rest.tls.keystore.path
+    BOOT_REST_TLS_KEYSTORE_PASSWORD:
+      annotation: []
+      type: public static final String
+      initialised value: rest.tls.keystore.password
+    BOOT_REST_TLS_CRT_PATH:
+      annotation: []
+      type: public static final String
+      initialised value: rest.tls.crt.path
+    BOOT_REST_TLS_KEY_PATH:
+      annotation: []
+      type: public static final String
+      initialised value: rest.tls.key.path
+    BOOT_REST_TLS_CA_CRT_PATH:
+      annotation: []
+      type: public static final String
+      initialised value: rest.tls.ca.crt.path
+    BOOT_SECRETS:
+      annotation: []
+      type: public static final String
+      initialised value: secrets
+    BOOT_STATE_MANAGER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager
+    BOOT_STATE_MANAGER_TYPE:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.type
+    BOOT_STATE_MANAGER_DB_USER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.user
+    BOOT_STATE_MANAGER_DB_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pass
+    BOOT_STATE_MANAGER_JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.jdbc.url
+net.corda.schema.configuration.ConfigDefaults:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    WORKSPACE_DIR:
+      annotation: []
+      type: public static final String
+    TEMP_DIR:
+      annotation: []
+      type: public static final String
+net.corda.schema.configuration.ConfigKeys:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    BOOT_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.boot
+    CRYPTO_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.crypto
+    DB_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.db
+    FLOW_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.flow
+    MESSAGING_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.messaging
+    EXTERNAL_MESSAGING_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.externalMessaging
+    UTXO_LEDGER_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.ledger.utxo
+    P2P_LINK_MANAGER_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.p2p.linkManager
+    P2P_GATEWAY_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.p2p.gateway
+    REST_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.rest
+    SECRETS_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.secrets
+    SANDBOX_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.sandbox
+    RECONCILIATION_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.reconciliation
+    MEMBERSHIP_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.membership
+    SECURITY_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.security
+    VNODE_DATASOURCE_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.vnode.datasource
+    REST_ADDRESS:
+      annotation: []
+      type: public static final String
+      initialised value: address
+    REST_CONTEXT_DESCRIPTION:
+      annotation: []
+      type: public static final String
+      initialised value: context.description
+    REST_CONTEXT_TITLE:
+      annotation: []
+      type: public static final String
+      initialised value: context.title
+    REST_ENDPOINT_TIMEOUT_MILLIS:
+      annotation: []
+      type: public static final String
+      initialised value: endpoint.timeoutMs
+    REST_MAX_CONTENT_LENGTH:
+      annotation: []
+      type: public static final String
+      initialised value: maxContentLength
+    REST_AZUREAD_CLIENT_ID:
+      annotation: []
+      type: public static final String
+      initialised value: sso.azureAd.clientId
+    REST_AZUREAD_CLIENT_SECRET:
+      annotation: []
+      type: public static final String
+      initialised value: sso.azureAd.clientSecret
+    REST_AZUREAD_TENANT_ID:
+      annotation: []
+      type: public static final String
+      initialised value: sso.azureAd.tenantId
+    REST_WEBSOCKET_CONNECTION_IDLE_TIMEOUT_MS:
+      annotation: []
+      type: public static final String
+      initialised value: websocket.idleTimeoutMs
+    SECRETS_TYPE:
+      annotation: []
+      type: public static final String
+      initialised value: type
+    SECRETS_PASSPHRASE:
+      annotation: []
+      type: public static final String
+      initialised value: passphrase
+    SECRETS_SALT:
+      annotation: []
+      type: public static final String
+      initialised value: salt
+    SECRETS_SERVER_ADDRESS:
+      annotation: []
+      type: public static final String
+      initialised value: serverAddress
+    SECRETS_SERVER_CREDENTIALS:
+      annotation: []
+      type: public static final String
+      initialised value: serverCredentials
+    SECRETS_CREATED_SECRET_PATH:
+      annotation: []
+      type: public static final String
+      initialised value: createdSecretPath
+    WORKSPACE_DIR:
+      annotation: []
+      type: public static final String
+      initialised value: dir.workspace
+    TEMP_DIR:
+      annotation: []
+      type: public static final String
+      initialised value: dir.tmp
+    SECRET_REFRESH_PERIOD:
+      annotation: []
+      type: public static final String
+      initialised value: refreshPeriod
+    SECRET_RETRY_BACKOFF:
+      annotation: []
+      type: public static final String
+      initialised value: retryBackoff
+    SECRET_KEY:
+      annotation: []
+      type: public static final String
+      initialised value: configSecret
+    SECRET_KEY_VAULT_PATH:
+      annotation: []
+      type: public static final String
+      initialised value: vaultPath
+    SECRET_KEY_VAULT_KEY:
+      annotation: []
+      type: public static final String
+      initialised value: vaultKey
+    SANDBOX_CACHE_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: cache.size
+    SECURITY_POLICY:
+      annotation: []
+      type: public static final String
+      initialised value: policy
+net.corda.schema.configuration.DatabaseConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    DB_USER:
+      annotation: []
+      type: public static final String
+      initialised value: database.user
+    DB_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: database.pass
+    JDBC_DRIVER:
+      annotation: []
+      type: public static final String
+      initialised value: database.jdbc.driver
+    JDBC_DRIVER_DIRECTORY:
+      annotation: []
+      type: public static final String
+      initialised value: database.jdbc.directory
+    JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: database.jdbc.url
+    DB_POOL_MAX_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: database.pool.max_size
+    DB_POOL_MIN_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: database.pool.min_size
+    DB_POOL_IDLE_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: database.pool.idleTimeoutSeconds
+    DB_POOL_MAX_LIFETIME_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: database.pool.maxLifetimeSeconds
+    DB_POOL_KEEPALIVE_TIME_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: database.pool.keepaliveTimeSeconds
+    DB_POOL_VALIDATION_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: database.pool.validationTimeoutSeconds
+net.corda.schema.configuration.ExternalMessagingConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    ROUTE_DEFAULTS:
+      annotation: []
+      type: public static final String
+      initialised value: routeDefaults
+    EXTERNAL_MESSAGING_RECEIVE_TOPIC_PATTERN:
+      annotation: []
+      type: public static final String
+      initialised value: routeDefaults.receiveTopicPattern
+    EXTERNAL_MESSAGING_ACTIVE:
+      annotation: []
+      type: public static final String
+      initialised value: routeDefaults.active
+    EXTERNAL_MESSAGING_INTERACTIVE_RESPONSE_TYPE:
+      annotation: []
+      type: public static final String
+      initialised value: routeDefaults.inactiveResponseType
+net.corda.schema.configuration.FlowConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    EXTERNAL_EVENT_MESSAGE_RESEND_WINDOW:
+      annotation: []
+      type: public static final String
+      initialised value: event.messageResendWindow
+    EXTERNAL_EVENT_MAX_RETRIES:
+      annotation: []
+      type: public static final String
+      initialised value: event.maxRetries
+    SESSION_TIMEOUT_WINDOW:
+      annotation: []
+      type: public static final String
+      initialised value: session.timeout
+    SESSION_P2P_TTL:
+      annotation: []
+      type: public static final String
+      initialised value: session.p2pTTL
+    SESSION_FLOW_CLEANUP_TIME:
+      annotation: []
+      type: public static final String
+      initialised value: session.cleanupTime
+    PROCESSING_MAX_RETRY_ATTEMPTS:
+      annotation: []
+      type: public static final String
+      initialised value: processing.maxRetryAttempts
+    PROCESSING_MAX_RETRY_WINDOW_DURATION:
+      annotation: []
+      type: public static final String
+      initialised value: processing.maxRetryWindowDuration
+    PROCESSING_MAX_RETRY_DELAY:
+      annotation: []
+      type: public static final String
+      initialised value: processing.maxRetryDelay
+    PROCESSING_MAX_FLOW_SLEEP_DURATION:
+      annotation: []
+      type: public static final String
+      initialised value: processing.maxFlowSleepDuration
+    PROCESSING_FLOW_CLEANUP_TIME:
+      annotation: []
+      type: public static final String
+      initialised value: processing.cleanupTime
+net.corda.schema.configuration.LedgerConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    UTXO_TOKEN_MIN_DELAY_BEFORE_NEXT_FULL_SYNC:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.minDelayBeforeNextFullSync
+    UTXO_TOKEN_MIN_DELAY_BEFORE_NEXT_PERIODIC_SYNC:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.minDelayBeforeNextPeriodicSync
+    UTXO_TOKEN_FULL_SYNC_BLOCK_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.fullSyncBlockSize
+    UTXO_TOKEN_PERIODIC_CHECK_BLOCK_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.periodCheckBlockSize
+    UTXO_TOKEN_SEND_WAKEUP_MAX_RETRY_ATTEMPTS:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.sendWakeUpMaxRetryAttempts
+    UTXO_TOKEN_SEND_WAKEUP_MAX_RETRY_DELAY:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.sendWakeUpMaxRetryDelay
+    UTXO_TOKEN_CACHED_TOKEN_PAGE_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.cachedTokenPageSize
+    UTXO_TOKEN_CLAIM_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: tokens.claimTimeoutSeconds
+    UTXO_BACKCHAIN_BATCH_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: backchain.batchSize
+net.corda.schema.configuration.MembershipConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    MAX_DURATION_BETWEEN_SYNC_REQUESTS_MINUTES:
+      annotation: []
+      type: public static final String
+      initialised value: maxDurationBetweenSyncRequestsMinutes
+    MAX_DURATION_BETWEEN_EXPIRED_REGISTRATION_REQUESTS_POLLS:
+      annotation: []
+      type: public static final String
+      initialised value: frequencyOfExpirationPoll
+    EXPIRATION_DATE_FOR_REGISTRATION_REQUESTS:
+      annotation: []
+      type: public static final String
+      initialised value: expirationTimeFrame
+net.corda.schema.configuration.MembershipConfig$TtlsConfig:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    TTLS:
+      annotation: []
+      type: public static final String
+      initialised value: TTLs
+    MEMBERS_PACKAGE_UPDATE:
+      annotation: []
+      type: public static final String
+      initialised value: membersPackageUpdate
+    DECLINE_REGISTRATION:
+      annotation: []
+      type: public static final String
+      initialised value: declineRegistration
+    UPDATE_TO_PENDING_AUTO_APPROVAL:
+      annotation: []
+      type: public static final String
+      initialised value: updateToPendingAutoApproval
+    VERIFY_MEMBER_REQUEST:
+      annotation: []
+      type: public static final String
+      initialised value: verifyMemberRequest
+    WAIT_FOR_MGM_SESSION:
+      annotation: []
+      type: public static final String
+      initialised value: waitForMgmSession
+net.corda.schema.configuration.MessagingConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    MAX_ALLOWED_MSG_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: maxAllowedMessageSize
+net.corda.schema.configuration.MessagingConfig$Bus:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    BUS:
+      annotation: []
+      type: public static final String
+      initialised value: bus
+    BUS_TYPE:
+      annotation: []
+      type: public static final String
+      initialised value: bus.busType
+    AUTO_OFFSET_RESET:
+      annotation: []
+      type: public static final String
+      initialised value: auto.offset.reset
+    KAFKA_PROPERTIES:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties
+    KAFKA_PROPERTIES_COMMON:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties.common
+    KAFKA_BOOTSTRAP_SERVERS:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties.common.bootstrap.servers
+    KAFKA_PROPERTIES_CONSUMER:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties.consumer
+    KAFKA_CONSUMER_MAX_POLL_INTERVAL:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties.consumer.max.poll.interval.ms
+    KAFKA_PROPERTIES_PRODUCER:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties.producer
+    KAFKA_PRODUCER_CLIENT_ID:
+      annotation: []
+      type: public static final String
+      initialised value: bus.kafkaProperties.producer.client.id
+    JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: jdbcUrl
+    JDBC_USER:
+      annotation: []
+      type: public static final String
+      initialised value: user
+    JDBC_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: pass
+    DB_MAX_POLL_RECORDS:
+      annotation: []
+      type: public static final String
+      initialised value: maxPollRecords
+    DB_PROPERTIES:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties
+    DB_JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties.jdbcUrl
+    DB_USER:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties.user
+    DB_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties.pass
+    DB_PROPERTIES_CONSUMER:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties.consumer
+    DB_CONSUMER_MAX_POLL_RECORDS:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties.consumer.maxPollRecords
+    DB_CONSUMER_AUTO_OFFSET_RESET:
+      annotation: []
+      type: public static final String
+      initialised value: bus.dbProperties.consumer.auto.offset.reset
+net.corda.schema.configuration.MessagingConfig$Publisher:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    PUBLISHER:
+      annotation: []
+      type: public static final String
+      initialised value: publisher
+    CLOSE_TIMEOUT:
+      annotation: []
+      type: public static final String
+      initialised value: publisher.closeTimeout
+    TRANSACTIONAL:
+      annotation: []
+      type: public static final String
+      initialised value: publisher.transactional
+net.corda.schema.configuration.MessagingConfig$StateManager:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    STATE_MANAGER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager
+    TYPE:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.type
+    DB_PROPERTIES:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database
+    JDBC_USER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.user
+    JDBC_PASS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pass
+    JDBC_URL:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.jdbc.url
+    JDBC_DRIVER:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.jdbc.driver
+    JDBC_DRIVER_DIRECTORY:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.jdbc.directory
+    JDBC_PERSISTENCE_UNIT_NAME:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.jdbc.persistenceUnitName
+    JDBC_POOL_MAX_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pool.maxSize
+    JDBC_POOL_MIN_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pool.minSize
+    JDBC_POOL_IDLE_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pool.idleTimeoutSeconds
+    JDBC_POOL_MAX_LIFETIME_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pool.maxLifetimeSeconds
+    JDBC_POOL_KEEP_ALIVE_TIME_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pool.keepAliveTimeSeconds
+    JDBC_POOL_VALIDATION_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: stateManager.database.pool.validationTimeoutSeconds
+net.corda.schema.configuration.MessagingConfig$Subscription:
+  annotations: []
+  type: public static final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    SUBSCRIPTION:
+      annotation: []
+      type: public static final String
+      initialised value: subscription
+    POLL_TIMEOUT:
+      annotation: []
+      type: public static final String
+      initialised value: subscription.pollTimeout
+    THREAD_STOP_TIMEOUT:
+      annotation: []
+      type: public static final String
+      initialised value: subscription.threadStopTimeout
+    PROCESSOR_RETRIES:
+      annotation: []
+      type: public static final String
+      initialised value: subscription.processorRetries
+    SUBSCRIBE_RETRIES:
+      annotation: []
+      type: public static final String
+      initialised value: subscription.subscribeRetries
+    COMMIT_RETRIES:
+      annotation: []
+      type: public static final String
+      initialised value: subscription.commitRetries
+    PROCESSOR_TIMEOUT:
+      annotation: []
+      type: public static final String
+      initialised value: subscription.processorTimeout
+net.corda.schema.configuration.ReconciliationConfig:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    RECONCILIATION_PERMISSION_SUMMARY_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: permissionSummaryIntervalMs
+    RECONCILIATION_CPK_WRITE_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: cpkWriteIntervalMs
+    RECONCILIATION_CPI_INFO_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: cpiInfoIntervalMs
+    RECONCILIATION_CONFIG_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: configIntervalMs
+    RECONCILIATION_VNODE_INFO_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: vnodeInfoIntervalMs
+    RECONCILIATION_GROUP_PARAMS_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: groupParamsIntervalMs
+    RECONCILIATION_MTLS_MGM_ALLOWED_LIST_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: mtlsMgmAllowedCertificateSubjectsIntervalMs
+    RECONCILIATION_MEMBER_INFO_INTERVAL_MS:
+      annotation: []
+      type: public static final String
+      initialised value: memberInfoIntervalMs
+net.corda.schema.configuration.VirtualNodeDatasourceConfig:
+  annotations: []
+  type: public class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    VNODE_DDL_POOL_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: pool.ddl
+    VNODE_DML_POOL_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: pool.dml
+    VNODE_POOL_MAX_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: max_size
+    VNODE_POOL_MIN_SIZE:
+      annotation: []
+      type: public static final String
+      initialised value: min_size
+    VNODE_POOL_IDLE_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: idleTimeoutSeconds
+    VNODE_POOL_MAX_LIFETIME_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: maxLifetimeSeconds
+    VNODE_POOL_KEEPALIVE_TIME_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: keepaliveTimeSeconds
+    VNODE_VALIDATION_TIMEOUT_SECONDS:
+      annotation: []
+      type: public static final String
+      initialised value: validationTimeoutSeconds
+net.corda.schema.configuration.provider.ConfigSchemaException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods: {}
+net.corda.schema.configuration.provider.SchemaProviderConfigFactory:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getSchemaProvider:
+      annotations:
+        - NotNull
+      default: false
+      type: public static
+      returnType: net.corda.schema.common.provider.SchemaProvider
+net.corda.schema.configuration.provider.impl.SchemaProviderConfigImpl:
+  annotations: []
+  type: public final class
+  extends: net.corda.schema.common.provider.SchemaProvider
+  implements: []
+  interface: false
+  methods:
+    getResourceInputStream:
+      annotations:
+        - NotNull
+      default: false
+      type: protected
+      returnType: java.io.InputStream
+      params:
+        resource:
+          annotation:
+            - NotNull
+          type: String
+    getResourceRoot:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+    getSchema:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        key:
+          annotation:
+            - NotNull
+          type: String
+        version:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.versioning.Version
+    getSchemaFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        fileName:
+          annotation:
+            - NotNull
+          type: String
+  fields:
+    logger:
+      annotation: []
+      type: protected final org.slf4j.Logger
+net.corda.schema.cordapp.configuration.ConfigKeys:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    EXTERNAL_MESSAGING_CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: corda.external.messaging
+net.corda.schema.cordapp.configuration.provider.CordappConfigSchemaException:
+  annotations: []
+  type: public final class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods: {}
+net.corda.schema.cordapp.configuration.provider.SchemaProviderCordappConfigFactory:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getSchemaProvider:
+      annotations:
+        - NotNull
+      default: false
+      type: public static
+      returnType: net.corda.schema.common.provider.SchemaProvider
+net.corda.schema.cordapp.configuration.provider.impl.SchemaProviderCordappConfigImpl:
+  annotations: []
+  type: public final class
+  extends: net.corda.schema.common.provider.SchemaProvider
+  implements: []
+  interface: false
+  methods:
+    getResourceInputStream:
+      annotations:
+        - NotNull
+      default: false
+      type: protected
+      returnType: java.io.InputStream
+      params:
+        resource:
+          annotation:
+            - NotNull
+          type: String
+    getResourceRoot:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+    getSchema:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        key:
+          annotation:
+            - NotNull
+          type: String
+        version:
+          annotation:
+            - NotNull
+          type: net.corda.v5.base.versioning.Version
+    getSchemaFile:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.io.InputStream
+      params:
+        fileName:
+          annotation:
+            - NotNull
+          type: String
+  fields:
+    logger:
+      annotation: []
+      type: protected final org.slf4j.Logger

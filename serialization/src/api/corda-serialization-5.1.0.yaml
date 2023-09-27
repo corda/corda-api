@@ -1,0 +1,123 @@
+net.corda.v5.serialization.MissingSerializerException:
+  annotations: []
+  type: public class
+  extends: java.io.NotSerializableException
+  implements: []
+  interface: false
+  methods:
+    getTypeDescriptor:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: String
+    getTypeNames:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: java.util.List<String>
+net.corda.v5.serialization.SerializationCustomSerializer:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    fromProxy:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: OBJ
+      params:
+        proxy:
+          annotation:
+            - NotNull
+          type: PROXY
+    toProxy:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: PROXY
+      params:
+        obj:
+          annotation:
+            - NotNull
+          type: OBJ
+net.corda.v5.serialization.SerializedBytes:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getBytes:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "byte[]"
+net.corda.v5.serialization.SingletonSerializeAsToken:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getTokenName:
+      annotations:
+        - NotNull
+      default: true
+      type: public
+      returnType: String
+net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault:
+  annotations: []
+  type: public @interface
+  interface: false
+  methods:
+    newName:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: String
+    oldName:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefaults:
+  annotations: []
+  type: public @interface
+  interface: false
+  methods:
+    value:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: "net.corda.v5.serialization.annotations.CordaSerializationTransformEnumDefault[]"
+net.corda.v5.serialization.annotations.CordaSerializationTransformRename:
+  annotations: []
+  type: public @interface
+  interface: false
+  methods:
+    from:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: String
+    to:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: String
+net.corda.v5.serialization.annotations.CordaSerializationTransformRenames:
+  annotations: []
+  type: public @interface
+  interface: false
+  methods:
+    value:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: "net.corda.v5.serialization.annotations.CordaSerializationTransformRename[]"

@@ -1,0 +1,67 @@
+net.corda.v5.ledger.notary.plugin.api.PluggableNotaryClientFlow:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.application.flows.SubFlow
+  interface: true
+  methods: {}
+net.corda.v5.ledger.notary.plugin.core.NotaryException:
+  annotations:
+    - CordaSerializable
+  type: public abstract class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods:
+    getNotaryErrorMessage:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: String
+    getTxId:
+      annotations:
+        - Nullable
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+net.corda.v5.ledger.notary.plugin.core.NotaryExceptionFatal:
+  annotations:
+    - CordaSerializable
+  type: public abstract class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods:
+    getNotaryErrorMessage:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: String
+    getTxId:
+      annotations:
+        - Nullable
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash
+net.corda.v5.ledger.notary.plugin.core.NotaryExceptionUnknown:
+  annotations:
+    - CordaSerializable
+  type: public abstract class
+  extends: net.corda.v5.base.exceptions.CordaRuntimeException
+  implements: []
+  interface: false
+  methods:
+    getNotaryErrorMessage:
+      annotations:
+        - NotNull
+      default: false
+      type: public final
+      returnType: String
+    getTxId:
+      annotations:
+        - Nullable
+      default: false
+      type: public final
+      returnType: net.corda.v5.crypto.SecureHash

@@ -1,0 +1,220 @@
+net.corda.db.schema.CordaDb:
+  annotations: []
+  type: public final class
+  extends: java.lang.Enum
+  implements: []
+  interface: false
+  methods:
+    getPersistenceUnitName:
+      annotations:
+        - NotNull
+      default: false
+      type: public
+      returnType: String
+    valueOf:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.db.schema.CordaDb
+      params: {}
+    values:
+      annotations: []
+      default: false
+      type: public static
+      returnType: "net.corda.db.schema.CordaDb[]"
+net.corda.db.schema.DbSchema:
+  annotations: []
+  type: public final class
+  extends: null
+  implements: []
+  interface: false
+  methods: {}
+  fields:
+    RBAC:
+      annotation: []
+      type: public static final String
+      initialised value: RBAC
+    CONFIG:
+      annotation: []
+      type: public static final String
+      initialised value: CONFIG
+    CONFIG_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: config
+    CONFIG_AUDIT_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: config_audit
+    CONFIG_AUDIT_ID_SEQUENCE:
+      annotation: []
+      type: public static final String
+      initialised value: config_audit_id_seq
+    CLUSTER_CERTIFICATE_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: cluster_certificate
+    CLUSTER_STATIC_NETWORK_INFO_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: static_network_info
+    CONFIG_AUDIT_ID_SEQUENCE_ALLOC_SIZE:
+      annotation: []
+      type: public static final int
+      initialised value: 1
+    DB_CONNECTION_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: db_connection
+    DB_CONNECTION_AUDIT_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: db_connection_audit
+    DB_CONNECTION_AUDIT_ID_SEQUENCE:
+      annotation: []
+      type: public static final String
+      initialised value: db_connection_audit_id_seq
+    DB_CONNECTION_AUDIT_ID_SEQUENCE_ALLOC_SIZE:
+      annotation: []
+      type: public static final int
+      initialised value: 1
+    VNODE:
+      annotation: []
+      type: public static final String
+      initialised value: VNODE
+    VIRTUAL_NODE_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: virtual_node
+    HOLDING_IDENTITY_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: holding_identity
+    VNODE_VAULT_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_vault
+    VNODE_KEY_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_key
+    VNODE_CERTIFICATE_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_certificate
+    VNODE_ALLOWED_CERTIFICATE_DB_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_mtls_allowed_certificate
+    VNODE_GROUP_REGISTRATION_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_registration_request
+    VNODE_MEMBER_INFO:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_member_info
+    VNODE_GROUP_POLICY:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_group_policy
+    VNODE_MEMBER_SIGNATURE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_member_signature
+    VNODE_GROUP_PARAMETERS:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_group_parameters
+    VNODE_GROUP_APPROVAL_RULES:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_group_approval_rules
+    VNODE_PRE_AUTH_TOKENS:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_pre_auth_tokens
+    VNODE_PERSISTENCE_REQUEST_ID_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: vnode_persistence_request_id
+    LEDGER_CONSENSUAL_TRANSACTION_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: consensual_transaction
+    LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: consensual_transaction_status
+    LEDGER_CONSENSUAL_TRANSACTION_SIGNATURE_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: consensual_transaction_signature
+    LEDGER_CONSENSUAL_TRANSACTION_COMPONENT_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: consensual_transaction_component
+    LEDGER_CONSENSUAL_CPK_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: consensual_cpk
+    LEDGER_CONSENSUAL_TRANSACTION_CPK_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: consensual_transaction_cpk
+    DB_MESSAGE_BUS:
+      annotation: []
+      type: public static final String
+      initialised value: DB_MESSAGE_BUS
+    CRYPTO:
+      annotation: []
+      type: public static final String
+      initialised value: CRYPTO
+    CRYPTO_WRAPPING_KEY_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_wrapping_key
+    CRYPTO_SIGNING_KEY_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_signing_key
+    CRYPTO_SIGNING_KEY_MATERIAL_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_signing_key_material
+    CRYPTO_HSM_CONFIG_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_hsm_config
+    CRYPTO_HSM_CATEGORY_MAP_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_hsm_category_map
+    CRYPTO_HSM_ASSOCIATION_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_hsm_association
+    CRYPTO_HSM_CATEGORY_ASSOCIATION_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: crypto_hsm_category_association
+    UNIQUENESS:
+      annotation: []
+      type: public static final String
+      initialised value: UNIQUENESS
+    UNIQUENESS_STATE_DETAILS_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: uniqueness_state_details
+    UNIQUENESS_TX_DETAILS_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: uniqueness_tx_details
+    UNIQUENESS_REJECTED_TX_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: uniqueness_rejected_txs
+    STATE_MANAGER_TABLE:
+      annotation: []
+      type: public static final String
+      initialised value: state
