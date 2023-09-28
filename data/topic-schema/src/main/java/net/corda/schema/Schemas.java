@@ -103,6 +103,7 @@ public final class Schemas {
         public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
         public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
+        public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
     }
 
     /**
@@ -267,5 +268,6 @@ public final class Schemas {
         private ScheduledTask() {}
 
         public static final String SCHEDULED_TASK_DB_PROCESSOR = "scheduled.task.db.processor";
+        public static final String SCHEDULED_TASK_MAPPER_PROCESSOR = "scheduled.task.mapper.processor";
     }
 }
