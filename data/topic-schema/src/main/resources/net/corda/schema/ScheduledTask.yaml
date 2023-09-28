@@ -5,3 +5,9 @@ topics:
       - db
     producers:
       - db
+  ScheduledTaskFlowMapperProcessorTopic:
+    name: scheduled.task.mapper.processor
+    consumers:
+      - flowMapper
+    producers:
+      - db
