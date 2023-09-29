@@ -268,6 +268,10 @@ public final class Schemas {
         private ScheduledTask() {}
 
         public static final String SCHEDULED_TASK_DB_PROCESSOR = "scheduled.task.db.processor";
+        public static final String SCHEDULED_TASK_NAME_DB_PROCESSOR = "deduplication-table-clean-up-task";
         public static final String SCHEDULED_TASK_MAPPER_PROCESSOR = "scheduled.task.mapper.processor";
+        public static final String SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR = "scheduled.task.flow.processor";
+        public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timout";
+
     }
 }
