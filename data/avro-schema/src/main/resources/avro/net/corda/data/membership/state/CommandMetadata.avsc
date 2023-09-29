@@ -1,12 +1,12 @@
 {
   "type": "record",
-  "name": "CommandMetadata",
+  "name": "CompletedCommandMetadata",
   "namespace": "net.corda.data.membership.state",
-  "doc": "Metadata about a complete registration command.",
+  "doc": "Metadata about a previously completed registration command.",
   "fields": [
     {
       "name": "index",
-      "doc": "An index which can be used to determine the order of complete registration commands.",
+      "doc": "An index which can be used to determine the order of previously completed registration commands.",
       "type": "int"
     },
     {
