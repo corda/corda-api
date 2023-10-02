@@ -8,8 +8,6 @@ Jenkinsfile        @corda/blt
 gradle/*           @corda/blt
 *.gradle           @corda/blt
 gradle.properties  @corda/corda5-team-leads
-gradle.properties  @corda/corda5-someTeam # Remove Later!
-
 
 *.kt               @corda/corda5-team-leads
 *.java             @corda/corda5-team-leads
