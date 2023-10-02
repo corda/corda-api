@@ -11,3 +11,9 @@ topics:
       - flowMapper
     producers:
       - db
+  ScheduledTaskFlowProcessorTopic:
+    name: scheduled.task.flow.processor
+    consumers:
+      - flow
+    producers:
+      - db

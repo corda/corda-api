@@ -21,6 +21,15 @@
       "name": "mgm",
       "doc": "Holding identity of the MGM.",
       "type": "net.corda.data.identity.HoldingIdentity"
+    },
+    {
+      "name": "previouslyCompletedCommands",
+      "doc": "A list of all the previously completed commands during registration. Can be used for idempotency in the case of message replays.",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.membership.state.CompletedCommandMetadata"
+      },
+      "default": []
     }
   ]
 }
