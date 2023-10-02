@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 class VirtualNodeUpgradeRequestSchemaCompatibilityTest {
 
     @Test
-    fun `VirtualNodeUPgradeRequest schema changes between Corda 5_0 and 5_1 are compatible`() {
+    fun `VirtualNodeUpgradeRequest schema changes between Corda 5_0 and 5_1 are compatible`() {
         val schemaV50Json = """
         {
           "type": "record",
