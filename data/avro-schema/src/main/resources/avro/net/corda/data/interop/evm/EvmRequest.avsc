@@ -23,6 +23,11 @@
       "doc": "The URL of the EVM network to send this function call to"
     },
     {
+      "name": "returnType",
+      "type": "string",
+      "doc": "The expected return type of the request"
+    },
+    {
       "name": "payload",
       "type": [
         "net.corda.data.interop.evm.request.Call",

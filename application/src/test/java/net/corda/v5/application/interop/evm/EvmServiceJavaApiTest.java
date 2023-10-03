@@ -23,8 +23,8 @@ class EvmServiceJavaApiTest {
     @Test
     public void callWithMultipleParameters() {
         String test = "test";
-        Parameter<String> one = new Parameter<>("one", Type.STRING, "value");
-        Parameter<BigInteger> two = new Parameter<>("one", Type.INT256, BigInteger.TWO);
+        Parameter<String> one = Parameter.of("one", "value");
+        Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
         when(service.call(anyString(), anyString(), any(), eq(one), eq(two))).thenReturn(test);
 
         String result = service.call("", "", mock(CallOptions.class), one, two);
@@ -36,8 +36,8 @@ class EvmServiceJavaApiTest {
     @Test
     public void callWithMultipleParametersInList() {
         String test = "test";
-        Parameter<String> one = new Parameter<>("one", Type.STRING, "value");
-        Parameter<BigInteger> two = new Parameter<>("one", Type.INT256, BigInteger.TWO);
+        Parameter<String> one = Parameter.of("one", "value");
+        Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
         List<Parameter<?>> list =Arrays.asList(one, two);
 
         when(service.call(anyString(), anyString(), any(), eq(list))).thenReturn(test);
@@ -51,9 +51,8 @@ class EvmServiceJavaApiTest {
     @Test
     public void callIncludingAnArrayInList() {
         String test = "test";
-        String[] stringParameters = new String[] {"one", "two"};
-        Parameter<String> one = new Parameter<>("one", Type.STRING, "value");
-        Parameter<String[]> two = new Parameter<>("one", Type.STRING_ARRAY, stringParameters);
+        Parameter<String> one = Parameter.of("one", "value");
+        Parameter<String[]> two = Parameter.of("one", "one", "two");
         List<Parameter<?>> list = Arrays.asList(one, two);
 
         when(service.call(anyString(), anyString(), any(), eq(list))).thenReturn(test);
@@ -80,8 +79,8 @@ class EvmServiceJavaApiTest {
     @Test
     public void transactionWithMultipleParametersInList() {
         String test = "test";
-        Parameter<String> one = new Parameter<>("one", Type.STRING, "value");
-        Parameter<BigInteger> two = new Parameter<>("one", Type.INT256, BigInteger.TWO);
+        Parameter<String> one = Parameter.of("one", "value");
+        Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
         List<Parameter<?>> list = Arrays.asList(one, two);
 
         when(service.transaction(anyString(), anyString(), any(), eq(list))).thenReturn(test);
@@ -95,8 +94,8 @@ class EvmServiceJavaApiTest {
     @Test
     public void transactionIncludingAnArrayInList() {
         String test = "test";
-        Parameter<String> one = new Parameter<>("one", Type.STRING, "value");
-        Parameter<String[]> two = Parameter.of("one", new String[]{ "one", "two" });
+        Parameter<String> one = Parameter.of("one", "value");
+        Parameter<String[]> two = Parameter.of("one", "one", "two");
         List<Parameter<?>> list = Arrays.asList(one, two);
 
         when(service.transaction(anyString(), anyString(), any(), eq(list))).thenReturn(test);
