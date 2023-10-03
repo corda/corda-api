@@ -9,11 +9,6 @@
     <property name="json.column.type" value="CLOB" dbms="hsqldb"/>
 
     <changeSet author="R3.Corda" id="ledger-utxo-creation-v5.1">
-        <createIndex
-                indexName="utxo_visible_transaction_state_idx_consumed"
-                tableName="utxo_visible_transaction_state">
-            <column name="consumed"/>
-        </createIndex>
 
         <createIndex
                 indexName="utxo_transaction_output_idx_type"
@@ -89,6 +84,13 @@
 
         <!-- Rename utxo_transaction_output to utxo_visible_transaction_output -->
         <renameTable newTableName="utxo_visible_transaction_output" oldTableName="utxo_transaction_output"/>
+
+        <!-- Re-create the index on the consumed column in the new table -->
+        <createIndex
+                indexName="utxo_visible_transaction_output_idx_consumed"
+                tableName="utxo_visible_transaction_output">
+            <column name="consumed"/>
+        </createIndex>
 
         <!-- Drop the created column from the utxo_transaction_component table -->
         <dropColumn columnName="created" tableName="utxo_transaction_component"/>
