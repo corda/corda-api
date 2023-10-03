@@ -4,6 +4,7 @@ import net.corda.v5.base.exceptions.CordaRuntimeException;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  * Used to represent a parameter to a Solidity function.
@@ -27,6 +28,11 @@ public class Parameter<T> {
     }
 
     public static <T> Parameter<T> of(@NotNull String name, @NotNull T value) {
+        return new Parameter<>(name, value);
+    }
+
+    @SafeVarargs
+    public static <T> Parameter<T[]> of(@NotNull String name, @NotNull T... value) {
         return new Parameter<>(name, value);
     }
 
@@ -68,6 +74,8 @@ public class Parameter<T> {
         if (value.getClass().isArray()) {
             //noinspection unchecked
             return determineArrayType((T[])value);
+        } else if (value instanceof List<?>) {
+            return determineListType((List<?>)value);
         }
 
         if (value instanceof Byte) {
@@ -114,4 +122,28 @@ public class Parameter<T> {
         }
         throw new CordaRuntimeException("Value type not supported for: " + value.getClass().getTypeName());
     }
+
+    private Type<?> determineListType(List<?> value) {
+        if (value.get(0) instanceof Byte) {
+            return Type.BYTE_LIST;
+        } else if (value.get(0) instanceof Short) {
+            return Type.INT16_LIST;
+        } else if (value.get(0) instanceof Integer) {
+            return Type.INT32_LIST;
+        } else if (value.get(0) instanceof Long) {
+            return Type.INT64_LIST;
+        } else if (value.get(0) instanceof Boolean) {
+            return Type.BOOLEAN_LIST;
+        } else if (value.get(0) instanceof Enum) {
+            return Type.ENUM_LIST;
+        } else if (value.get(0) instanceof Character) {
+            return Type.CHARACTER_LIST;
+        } else if (value.get(0) instanceof String) {
+            return Type.STRING_LIST;
+        } else if (value.get(0) instanceof BigInteger) {
+            return Type.INT256_LIST;
+        }
+        throw new CordaRuntimeException("Value type not supported for: " + value.getClass().getTypeName());
+    }
+
 }
