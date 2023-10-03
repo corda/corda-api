@@ -9,6 +9,7 @@ gradle/*           @corda/blt
 *.gradle           @corda/blt
 gradle.properties  @corda/corda5-team-leads
 
+**/src/api/*.yaml  @corda/corda5-team-leads
 *.kt               @corda/corda5-team-leads
 *.java             @corda/corda5-team-leads
 
