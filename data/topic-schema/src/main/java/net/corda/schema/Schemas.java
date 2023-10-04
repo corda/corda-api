@@ -281,4 +281,15 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
 
     }
+
+    /**
+     * Corda worker RPC endpoints
+     */
+    public static final class Endpoint {
+        private Endpoint() {}
+        public static final String CRYPTO_WORKER_RPC_ENDPOINT = "worker.rpc.endpoint.crypto";
+        public static final String VERIFICATION_WORKER_RPC_ENDPOINT = "worker.rpc.endpoint.verification";
+        public static final String UNIQUENESS_WORKER_RPC_ENDPOINT = "worker.rpc.endpoint.uniqueness";
+        public static final String PERSISTENCE_WORKER_RPC_ENDPOINT = "worker.rpc.endpoint.persistence";
+    }
 }
