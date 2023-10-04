@@ -103,6 +103,8 @@ public final class Schemas {
         public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
         public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
+        public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
+        public static final String FLOW_TIMEOUT_TOPIC = "flow.timeout";
     }
 
     /**
@@ -266,6 +268,12 @@ public final class Schemas {
     public static final class ScheduledTask {
         private ScheduledTask() {}
 
-        public static final String SCHEDULED_TASK_DB_PROCESSOR = "scheduled.task.db.processor";
+        public static final String SCHEDULED_TASK_TOPIC_DB_PROCESSOR = "scheduled.task.db.processor";
+        public static final String SCHEDULED_TASK_NAME_DB_PROCESSOR = "deduplication-table-clean-up-task";
+        public static final String SCHEDULED_TASK_TOPIC_MAPPER_PROCESSOR = "scheduled.task.mapper.processor";
+        public static final String SCHEDULED_TASK_NAME_MAPPER_CLEANUP = "flow-mapper-state-cleanup";
+        public static final String SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR = "scheduled.task.flow.processor";
+        public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
+
     }
 }

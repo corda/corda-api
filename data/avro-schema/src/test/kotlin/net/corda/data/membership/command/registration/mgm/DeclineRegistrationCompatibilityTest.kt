@@ -1,6 +1,5 @@
-package net.corda.data.command.registration.mgm
+package net.corda.data.membership.command.registration.mgm
 
-import net.corda.data.membership.command.registration.mgm.DeclineRegistration
 import org.apache.avro.Schema
 import org.apache.avro.SchemaCompatibility
 import org.junit.jupiter.api.Assertions
