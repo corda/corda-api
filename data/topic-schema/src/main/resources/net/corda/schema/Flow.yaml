@@ -87,3 +87,10 @@ topics:
     producers:
       - flowMapper
     config:
+  FlowTimeoutTopic:
+    name: flow.timeout
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
