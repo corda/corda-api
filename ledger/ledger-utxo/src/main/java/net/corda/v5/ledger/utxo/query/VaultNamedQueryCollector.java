@@ -48,7 +48,7 @@ public interface VaultNamedQueryCollector<R, T> {
      * @return A result that the original result set was collected into.
      */
     @NotNull
-    Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> parameters, String DELETE_ME);
+    Result<T> collect(@NotNull List<R> resultSet, @NotNull Map<String, Object> parameters);
 
     /**
      * Representation of a "collected" result set that also contains a flag that shows whether the result set is finished
