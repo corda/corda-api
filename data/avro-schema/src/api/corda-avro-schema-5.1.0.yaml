@@ -16353,6 +16353,214 @@ net.corda.data.flow.FlowStartContext$Builder:
         value:
           annotation: []
           type: net.corda.data.flow.FlowKey$Builder
+net.corda.data.flow.FlowTimeout:
+  annotations:
+    - AvroGenerated
+  type: public class
+  extends: org.apache.avro.specific.SpecificRecordBase
+  implements:
+    - org.apache.avro.specific.SpecificRecord
+  interface: false
+  methods:
+    createDecoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageDecoder<net.corda.data.flow.FlowTimeout>
+      params:
+        resolver:
+          annotation: []
+          type: org.apache.avro.message.SchemaStore
+    fromByteBuffer:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.data.flow.FlowTimeout
+      params:
+        b:
+          annotation: []
+          type: java.nio.ByteBuffer
+    get:
+      annotations: []
+      default: false
+      type: public
+      returnType: Object
+      params:
+        field$:
+          annotation: []
+          type: int
+    getCheckpointStateKey:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+    getClassSchema:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.Schema
+    getConversion:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.Conversion<?>
+      params:
+        field:
+          annotation: []
+          type: int
+    getDecoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageDecoder<net.corda.data.flow.FlowTimeout>
+    getEncoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageEncoder<net.corda.data.flow.FlowTimeout>
+    getSchema:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.Schema
+    getSpecificData:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.specific.SpecificData
+    getTimeoutDateTime:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.time.Instant
+    newBuilder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.data.flow.FlowTimeout$Builder
+      params:
+        other:
+          annotation: []
+          type: net.corda.data.flow.FlowTimeout
+    put:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        field$:
+          annotation: []
+          type: int
+        value$:
+          annotation: []
+          type: Object
+    readExternal:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        in:
+          annotation: []
+          type: java.io.ObjectInput
+    setCheckpointStateKey:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: String
+    setTimeoutDateTime:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: java.time.Instant
+    toByteBuffer:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.nio.ByteBuffer
+    writeExternal:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        out:
+          annotation: []
+          type: java.io.ObjectOutput
+  fields:
+    SCHEMA$:
+      annotation: []
+      type: public static final org.apache.avro.Schema
+net.corda.data.flow.FlowTimeout$Builder:
+  annotations:
+    - AvroGenerated
+  type: public static class
+  extends: org.apache.avro.specific.SpecificRecordBuilderBase
+  implements:
+    - org.apache.avro.data.RecordBuilder
+  interface: false
+  methods:
+    build:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.FlowTimeout
+    clearCheckpointStateKey:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.FlowTimeout$Builder
+    clearTimeoutDateTime:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.FlowTimeout$Builder
+    getCheckpointStateKey:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+    getTimeoutDateTime:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.time.Instant
+    hasCheckpointStateKey:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    hasTimeoutDateTime:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    setCheckpointStateKey:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.FlowTimeout$Builder
+      params:
+        value:
+          annotation: []
+          type: String
+    setTimeoutDateTime:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.FlowTimeout$Builder
+      params:
+        value:
+          annotation: []
+          type: java.time.Instant
 net.corda.data.flow.event.FlowEvent:
   annotations:
     - AvroGenerated
@@ -18710,6 +18918,11 @@ net.corda.data.flow.event.mapper.ExecuteCleanup:
       default: false
       type: public static
       returnType: org.apache.avro.message.BinaryMessageEncoder<net.corda.data.flow.event.mapper.ExecuteCleanup>
+    getIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.util.List<String>
     getSchema:
       annotations: []
       default: false
@@ -18755,6 +18968,15 @@ net.corda.data.flow.event.mapper.ExecuteCleanup:
         in:
           annotation: []
           type: java.io.ObjectInput
+    setIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: java.util.List<String>
     toByteBuffer:
       annotations: []
       default: false
@@ -18787,6 +19009,30 @@ net.corda.data.flow.event.mapper.ExecuteCleanup$Builder:
       default: false
       type: public
       returnType: net.corda.data.flow.event.mapper.ExecuteCleanup
+    clearIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.event.mapper.ExecuteCleanup$Builder
+    getIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.util.List<String>
+    hasIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    setIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.flow.event.mapper.ExecuteCleanup$Builder
+      params:
+        value:
+          annotation: []
+          type: java.util.List<String>
 net.corda.data.flow.event.mapper.FlowMapperEvent:
   annotations:
     - AvroGenerated
@@ -60539,6 +60785,228 @@ net.corda.data.membership.rpc.response.MembershipRpcResponseContext$Builder:
         value:
           annotation: []
           type: java.time.Instant
+net.corda.data.membership.state.CompletedCommandMetadata:
+  annotations:
+    - AvroGenerated
+  type: public class
+  extends: org.apache.avro.specific.SpecificRecordBase
+  implements:
+    - org.apache.avro.specific.SpecificRecord
+  interface: false
+  methods:
+    createDecoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageDecoder<net.corda.data.membership.state.CompletedCommandMetadata>
+      params:
+        resolver:
+          annotation: []
+          type: org.apache.avro.message.SchemaStore
+    customDecode:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        in:
+          annotation: []
+          type: org.apache.avro.io.ResolvingDecoder
+    customEncode:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        out:
+          annotation: []
+          type: org.apache.avro.io.Encoder
+    fromByteBuffer:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata
+      params:
+        b:
+          annotation: []
+          type: java.nio.ByteBuffer
+    get:
+      annotations: []
+      default: false
+      type: public
+      returnType: Object
+      params:
+        field$:
+          annotation: []
+          type: int
+    getClassSchema:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.Schema
+    getCommand:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+    getDecoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageDecoder<net.corda.data.membership.state.CompletedCommandMetadata>
+    getEncoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageEncoder<net.corda.data.membership.state.CompletedCommandMetadata>
+    getIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    getSchema:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.Schema
+    getSpecificData:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.specific.SpecificData
+    hasCustomCoders:
+      annotations: []
+      default: false
+      type: protected
+      returnType: boolean
+    newBuilder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata$Builder
+      params:
+        other:
+          annotation: []
+          type: net.corda.data.membership.state.CompletedCommandMetadata
+    put:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        field$:
+          annotation: []
+          type: int
+        value$:
+          annotation: []
+          type: Object
+    readExternal:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        in:
+          annotation: []
+          type: java.io.ObjectInput
+    setCommand:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: String
+    setIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: int
+    toByteBuffer:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.nio.ByteBuffer
+    writeExternal:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        out:
+          annotation: []
+          type: java.io.ObjectOutput
+  fields:
+    SCHEMA$:
+      annotation: []
+      type: public static final org.apache.avro.Schema
+net.corda.data.membership.state.CompletedCommandMetadata$Builder:
+  annotations:
+    - AvroGenerated
+  type: public static class
+  extends: org.apache.avro.specific.SpecificRecordBuilderBase
+  implements:
+    - org.apache.avro.data.RecordBuilder
+  interface: false
+  methods:
+    build:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata
+    clearCommand:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata$Builder
+    clearIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata$Builder
+    getCommand:
+      annotations: []
+      default: false
+      type: public
+      returnType: String
+    getIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: int
+    hasCommand:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    hasIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    setCommand:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata$Builder
+      params:
+        value:
+          annotation: []
+          type: String
+    setIndex:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.CompletedCommandMetadata$Builder
+      params:
+        value:
+          annotation: []
+          type: int
 net.corda.data.membership.state.RegistrationState:
   annotations:
     - AvroGenerated
@@ -60604,6 +61072,11 @@ net.corda.data.membership.state.RegistrationState:
       default: false
       type: public
       returnType: net.corda.data.identity.HoldingIdentity
+    getPreviouslyCompletedCommands:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.util.List<net.corda.data.membership.state.CompletedCommandMetadata>
     getRegisteringMember:
       annotations: []
       default: false
@@ -60663,6 +61136,15 @@ net.corda.data.membership.state.RegistrationState:
         value:
           annotation: []
           type: net.corda.data.identity.HoldingIdentity
+    setPreviouslyCompletedCommands:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: java.util.List<net.corda.data.membership.state.CompletedCommandMetadata>
     setRegisteringMember:
       annotations: []
       default: false
@@ -60718,6 +61200,11 @@ net.corda.data.membership.state.RegistrationState$Builder:
       default: false
       type: public
       returnType: net.corda.data.membership.state.RegistrationState$Builder
+    clearPreviouslyCompletedCommands:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.RegistrationState$Builder
     clearRegisteringMember:
       annotations: []
       default: false
@@ -60738,6 +61225,11 @@ net.corda.data.membership.state.RegistrationState$Builder:
       default: false
       type: public
       returnType: net.corda.data.identity.HoldingIdentity$Builder
+    getPreviouslyCompletedCommands:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.util.List<net.corda.data.membership.state.CompletedCommandMetadata>
     getRegisteringMember:
       annotations: []
       default: false
@@ -60759,6 +61251,11 @@ net.corda.data.membership.state.RegistrationState$Builder:
       type: public
       returnType: boolean
     hasMgmBuilder:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    hasPreviouslyCompletedCommands:
       annotations: []
       default: false
       type: public
@@ -60796,6 +61293,15 @@ net.corda.data.membership.state.RegistrationState$Builder:
         value:
           annotation: []
           type: net.corda.data.identity.HoldingIdentity$Builder
+    setPreviouslyCompletedCommands:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.membership.state.RegistrationState$Builder
+      params:
+        value:
+          annotation: []
+          type: java.util.List<net.corda.data.membership.state.CompletedCommandMetadata>
     setRegisteringMember:
       annotations: []
       default: false

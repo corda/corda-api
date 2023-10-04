@@ -159,6 +159,14 @@ net.corda.schema.Schemas$Flow:
     FLOW_MAPPER_EVENT_DLQ_TOPIC:
       annotation: []
       type: public static final String
+    FLOW_MAPPER_CLEANUP_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: flow.mapper.cleanup
+    FLOW_TIMEOUT_TOPIC:
+      annotation: []
+      type: public static final String
+      initialised value: flow.timeout
 net.corda.schema.Schemas$Membership:
   annotations: []
   type: public static final class
@@ -374,10 +382,30 @@ net.corda.schema.Schemas$ScheduledTask:
   interface: false
   methods: {}
   fields:
-    SCHEDULED_TASK_DB_PROCESSOR:
+    SCHEDULED_TASK_TOPIC_DB_PROCESSOR:
       annotation: []
       type: public static final String
       initialised value: scheduled.task.db.processor
+    SCHEDULED_TASK_NAME_DB_PROCESSOR:
+      annotation: []
+      type: public static final String
+      initialised value: deduplication-table-clean-up-task
+    SCHEDULED_TASK_TOPIC_MAPPER_PROCESSOR:
+      annotation: []
+      type: public static final String
+      initialised value: scheduled.task.mapper.processor
+    SCHEDULED_TASK_NAME_MAPPER_CLEANUP:
+      annotation: []
+      type: public static final String
+      initialised value: flow-mapper-state-cleanup
+    SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR:
+      annotation: []
+      type: public static final String
+      initialised value: scheduled.task.flow.processor
+    SCHEDULED_TASK_NAME_SESSION_TIMEOUT:
+      annotation: []
+      type: public static final String
+      initialised value: flow-session-timeout
 net.corda.schema.Schemas$Services:
   annotations: []
   type: public static final class
