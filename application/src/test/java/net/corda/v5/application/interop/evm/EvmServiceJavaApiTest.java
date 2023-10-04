@@ -25,9 +25,9 @@ class EvmServiceJavaApiTest {
         String test = "test";
         Parameter<String> one = Parameter.of("one", "value");
         Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
-        when(service.call(anyString(), anyString(), any(), eq(one), eq(two))).thenReturn(test);
+        when(service.call(anyString(), anyString(), any(), eq(String.class), eq(one), eq(two))).thenReturn(test);
 
-        String result = service.call("", "", mock(CallOptions.class), one, two);
+        String result = service.call("", "", mock(CallOptions.class), String.class, one, two);
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
@@ -40,9 +40,9 @@ class EvmServiceJavaApiTest {
         Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
         List<Parameter<?>> list =Arrays.asList(one, two);
 
-        when(service.call(anyString(), anyString(), any(), eq(list))).thenReturn(test);
+        when(service.call(anyString(), anyString(), any(), eq(String.class), eq(list))).thenReturn(test);
 
-        String result = service.call("", "", mock(CallOptions.class), list);
+        String result = service.call("", "", mock(CallOptions.class), String.class, list);
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
@@ -55,9 +55,9 @@ class EvmServiceJavaApiTest {
         Parameter<String[]> two = Parameter.of("one", "one", "two");
         List<Parameter<?>> list = Arrays.asList(one, two);
 
-        when(service.call(anyString(), anyString(), any(), eq(list))).thenReturn(test);
+        when(service.call(anyString(), anyString(), any(), eq(String.class), eq(list))).thenReturn(test);
 
-        String result = service.call("", "", mock(CallOptions.class), list);
+        String result = service.call("", "", mock(CallOptions.class), String.class, list);
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
