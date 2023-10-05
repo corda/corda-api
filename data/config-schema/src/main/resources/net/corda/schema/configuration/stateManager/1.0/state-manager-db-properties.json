@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/db/1.0/corda.db.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/stdb/1.0/corda.db.json",
   "title": "State Manager Database Configuration Schema",
   "description": "Configuration schema for the database section. Note that this configuration cannot be updated dynamically through the REST endpoint.",
   "type": "object",
