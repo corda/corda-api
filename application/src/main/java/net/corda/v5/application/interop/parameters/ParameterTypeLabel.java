@@ -18,7 +18,6 @@ public enum ParameterTypeLabel {
     TIMESTAMP(ZonedDateTime.class),
     BYTES(ByteBuffer.class),
     JSON(String.class),
-
     SIGNED_TX(DigitalSignatureAndMetadata.class);
 
     @NotNull
