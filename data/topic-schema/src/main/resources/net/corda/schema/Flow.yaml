@@ -94,3 +94,39 @@ topics:
     producers:
       - flow
     config:
+  FlowMapperStart:
+    name: flow.mapper.start
+    consumers:
+      - flowMapper
+    producers:
+      - rest
+    config:
+  FlowMapperSessionOut:
+    name: flow.mapper.session.out
+    consumers:
+      - flowMapper
+    producers:
+      - flow
+    config:
+  FlowMapperSessionIn:
+    name: flow.mapper.session.in
+    consumers:
+      - flowMapper
+    producers:
+      - link-manager
+    config:
+  FlowStart:
+    name: flow.start
+    consumers:
+      - flow
+    producers:
+      - flowMapper
+    config:
+  FlowSession:
+    name: flow.session
+    consumers:
+      - flow
+    producers:
+      - flowMapper
+    config:
+
