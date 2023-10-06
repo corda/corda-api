@@ -15,6 +15,10 @@ dependencies {
         implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion") {
             because "required until new version of Avro available which updates Jackson"
         }
+
+        implementation("org.apache.commons:commons-compress:$commonsCompressVersion") {
+            because "CVE-2023-42503, current version of Avro uses an outdated version"
+        }
     }
 
     implementation platform(project(':corda-api'))
