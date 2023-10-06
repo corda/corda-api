@@ -105,6 +105,11 @@ public final class Schemas {
         public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
         public static final String FLOW_TIMEOUT_TOPIC = "flow.timeout";
+        public static final String FLOW_MAPPER_START = "flow.mapper.start";
+        public static final String FLOW_MAPPER_SESSION_OUT = "flow.mapper.session.out";
+        public static final String FLOW_MAPPER_SESSION_IN = "flow.mapper.session.in";
+        public static final String FLOW_START = "flow.start";
+        public static final String FLOW_SESSION = "flow.session";
     }
 
     /**
