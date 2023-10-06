@@ -41,4 +41,6 @@ public final class BootConfig {
     public static final String BOOT_STATE_MANAGER_DB_USER = BOOT_STATE_MANAGER + ".database.user";
     public static final String BOOT_STATE_MANAGER_DB_PASS = BOOT_STATE_MANAGER + ".database.pass";
     public static final String BOOT_STATE_MANAGER_JDBC_URL = BOOT_STATE_MANAGER + ".database.jdbc.url";
+
+    public static final String BOOT_WORKER_SERVICE = "worker";
 }
