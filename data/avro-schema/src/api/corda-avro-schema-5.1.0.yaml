@@ -27360,6 +27360,190 @@ net.corda.data.ledger.persistence.FindTransaction$Builder:
         value:
           annotation: []
           type: String
+net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses:
+  annotations:
+    - AvroGenerated
+  type: public class
+  extends: org.apache.avro.specific.SpecificRecordBase
+  implements:
+    - org.apache.avro.specific.SpecificRecord
+  interface: false
+  methods:
+    createDecoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageDecoder<net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses>
+      params:
+        resolver:
+          annotation: []
+          type: org.apache.avro.message.SchemaStore
+    customDecode:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        in:
+          annotation: []
+          type: org.apache.avro.io.ResolvingDecoder
+    customEncode:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        out:
+          annotation: []
+          type: org.apache.avro.io.Encoder
+    fromByteBuffer:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses
+      params:
+        b:
+          annotation: []
+          type: java.nio.ByteBuffer
+    get:
+      annotations: []
+      default: false
+      type: public
+      returnType: Object
+      params:
+        field$:
+          annotation: []
+          type: int
+    getClassSchema:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.Schema
+    getDecoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageDecoder<net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses>
+    getEncoder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: org.apache.avro.message.BinaryMessageEncoder<net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses>
+    getIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.util.List<String>
+    getSchema:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.Schema
+    getSpecificData:
+      annotations: []
+      default: false
+      type: public
+      returnType: org.apache.avro.specific.SpecificData
+    hasCustomCoders:
+      annotations: []
+      default: false
+      type: protected
+      returnType: boolean
+    newBuilder:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses$Builder
+      params:
+        other:
+          annotation: []
+          type: net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses
+    put:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        field$:
+          annotation: []
+          type: int
+        value$:
+          annotation: []
+          type: Object
+    readExternal:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        in:
+          annotation: []
+          type: java.io.ObjectInput
+    setIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: java.util.List<String>
+    toByteBuffer:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.nio.ByteBuffer
+    writeExternal:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        out:
+          annotation: []
+          type: java.io.ObjectOutput
+  fields:
+    SCHEMA$:
+      annotation: []
+      type: public static final org.apache.avro.Schema
+net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses$Builder:
+  annotations:
+    - AvroGenerated
+  type: public static class
+  extends: org.apache.avro.specific.SpecificRecordBuilderBase
+  implements:
+    - org.apache.avro.data.RecordBuilder
+  interface: false
+  methods:
+    build:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses
+    clearIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses$Builder
+    getIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.util.List<String>
+    hasIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    setIds:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses$Builder
+      params:
+        value:
+          annotation: []
+          type: java.util.List<String>
 net.corda.data.ledger.persistence.FindUnconsumedStatesByExactType:
   annotations:
     - AvroGenerated
@@ -93139,6 +93323,11 @@ net.corda.data.virtualnode.VirtualNodeUpgradeRequest:
       default: false
       type: public static
       returnType: org.apache.avro.message.BinaryMessageEncoder<net.corda.data.virtualnode.VirtualNodeUpgradeRequest>
+    getForceUpgrade:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
     getSchema:
       annotations: []
       default: false
@@ -93207,6 +93396,15 @@ net.corda.data.virtualnode.VirtualNodeUpgradeRequest:
         value:
           annotation: []
           type: String
+    setForceUpgrade:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        value:
+          annotation: []
+          type: boolean
     setVirtualNodeShortHash:
       annotations: []
       default: false
@@ -93258,6 +93456,11 @@ net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder:
       default: false
       type: public
       returnType: net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder
+    clearForceUpgrade:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder
     clearVirtualNodeShortHash:
       annotations: []
       default: false
@@ -93273,6 +93476,11 @@ net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder:
       default: false
       type: public
       returnType: String
+    getForceUpgrade:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
     getVirtualNodeShortHash:
       annotations: []
       default: false
@@ -93284,6 +93492,11 @@ net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder:
       type: public
       returnType: boolean
     hasCpiFileChecksum:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+    hasForceUpgrade:
       annotations: []
       default: false
       type: public
@@ -93311,6 +93524,15 @@ net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder:
         value:
           annotation: []
           type: String
+    setForceUpgrade:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.data.virtualnode.VirtualNodeUpgradeRequest$Builder
+      params:
+        value:
+          annotation: []
+          type: boolean
     setVirtualNodeShortHash:
       annotations: []
       default: false
