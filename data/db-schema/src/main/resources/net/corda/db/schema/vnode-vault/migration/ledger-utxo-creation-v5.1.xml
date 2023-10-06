@@ -84,16 +84,16 @@
             UPDATE utxo_transaction_output txo
             SET
             custom_representation = (
-            SELECT custom_representation from utxo_visible_transaction_state vts
-            WHERE vts.transaction_id=txo.transaction_id
-            AND vts.group_idx=txo.group_idx
-            AND vts.leaf_idx=txo.leaf_idx
+                SELECT custom_representation from utxo_visible_transaction_state vts
+                WHERE vts.transaction_id=txo.transaction_id
+                AND vts.group_idx=txo.group_idx
+                AND vts.leaf_idx=txo.leaf_idx
             ),
             consumed = (
-            SELECT consumed from utxo_visible_transaction_state vts
-            WHERE vts.transaction_id=txo.transaction_id
-            AND vts.group_idx=txo.group_idx
-            AND vts.leaf_idx=txo.leaf_idx
+                SELECT consumed from utxo_visible_transaction_state vts
+                WHERE vts.transaction_id=txo.transaction_id
+                AND vts.group_idx=txo.group_idx
+                AND vts.leaf_idx=txo.leaf_idx
             );
         </sql>
 
