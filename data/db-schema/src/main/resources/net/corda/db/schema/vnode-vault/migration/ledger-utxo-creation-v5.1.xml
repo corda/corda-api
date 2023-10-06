@@ -41,7 +41,7 @@
 
         <!-- Add new status column to utxo_transaction -->
         <addColumn tableName="utxo_transaction">
-            <column name="status" type="VARCHAR(255)">
+            <column name="status" type="VARCHAR(16)">
                 <constraints nullable="true"/>
             </column>
             <column name="updated" type="TIMESTAMP">
