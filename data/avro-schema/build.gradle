@@ -7,7 +7,6 @@ plugins {
     id 'corda.common-publishing'
     id 'corda.java-only'
     id "com.github.davidmc24.gradle.plugin.avro-base"
-    id 'corda.api-scanner'
 }
 
 dependencies {

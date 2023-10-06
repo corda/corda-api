@@ -2,7 +2,6 @@ plugins {
     id 'corda-api.common-library'
     id 'corda.common-publishing'
     id 'corda.java-only'
-    id 'corda.api-scanner'
 }
 
 description 'Schema Definition for Role Based Access Control'
