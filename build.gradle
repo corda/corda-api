@@ -343,7 +343,7 @@ tasks.named("dependencyUpdates").configure {
 }
 
 tasks.named("wrapper") {
-    gradleVersion = '8.2.1'
+    gradleVersion = '8.4'
     distributionType = Wrapper.DistributionType.BIN
 }
 
