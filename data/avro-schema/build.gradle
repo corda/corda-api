@@ -27,6 +27,13 @@ dependencies {
     compileOnly 'org.osgi:osgi.annotation'
 }
 
+configurations.all {
+    resolutionStrategy {
+        // CVE-2023-42503, current version of Avro uses an outdated version
+        force "org.apache.commons:commons-compress:$commonsCompressVersion"
+    }
+}
+
 description 'Data Model Definitions'
 
 def generatedAvroDir = layout.buildDirectory.dir('generated-avro')
