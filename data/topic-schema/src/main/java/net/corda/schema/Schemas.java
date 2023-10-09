@@ -287,9 +287,9 @@ public final class Schemas {
      */
     public static final class Endpoint {
         private Endpoint() {}
-        public static final String CRYPTO_WORKER_REST_ENDPOINT = "worker.rest.endpoint.crypto";
-        public static final String VERIFICATION_WORKER_REST_ENDPOINT = "worker.rest.endpoint.verification";
-        public static final String UNIQUENESS_WORKER_REST_ENDPOINT = "worker.rest.endpoint.uniqueness";
-        public static final String PERSISTENCE_WORKER_REST_ENDPOINT = "worker.rest.endpoint.persistence";
+        public static final String CRYPTO_WORKER_REST_ENDPOINT = "worker.endpoints.crypto";
+        public static final String VERIFICATION_WORKER_REST_ENDPOINT = "worker.endpoints.verification";
+        public static final String UNIQUENESS_WORKER_REST_ENDPOINT = "worker.endpoints.uniqueness";
+        public static final String PERSISTENCE_WORKER_REST_ENDPOINT = "worker.endpoints.persistence";
     }
 }
