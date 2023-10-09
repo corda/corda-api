@@ -17,6 +17,13 @@ buildscript {
                 because "required until dokka plugin updates it's internal version of jsoup, not fixed as of dokka 1.7.10"
             }
         }
+        
+        classpath "org.apache.avro:avro:$avroVersion"
+        constraints {
+            classpath("org.apache.commons:commons-compress:$commonsCompressVersion") {
+                because "CVE-2023-42503, current version of Avro uses an outdated version"
+            }
+        }
     }
 }
 
