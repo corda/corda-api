@@ -33,6 +33,94 @@
                      tableName="utxo_transaction_output">
             <column name="token_notary_x500_name"/>
         </createIndex>
+
+        <!-- Add new status column to utxo_transaction -->
+        <addColumn tableName="utxo_transaction">
+            <column name="status" type="VARCHAR(16)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="updated" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!-- Migrate data from the old status table -->
+        <update tableName="utxo_transaction">
+            <column name="status"
+                    valueComputed="(select status from utxo_transaction_status uts where uts.transaction_id=id)"/>
+            <column name="updated"
+                    valueComputed="(select updated from utxo_transaction_status uts where uts.transaction_id=id)"/>
+        </update>
+
+        <!-- Drop the old status table -->
+        <dropTable tableName="utxo_transaction_status"/>
+
+        <!-- After status data migration we can make the status/updated column non-nullable -->
+        <addNotNullConstraint tableName="utxo_transaction" columnName="status" columnDataType="VARCHAR(16)"/>
+        <addNotNullConstraint tableName="utxo_transaction" columnName="updated" columnDataType="TIMESTAMP"/>
+
+        <!-- Add new custom_representation and consumed columns to utxo_transaction_output -->
+        <addColumn tableName="utxo_transaction_output">
+            <column name="custom_representation" type="${json.column.type}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="consumed" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!--
+        Migrate data from the old visible states table
+        NOTE: We can't use <update> here because both tables have the same column naming
+        (transaction_id, group_idx etc.) and the SQL statement generated will not work in
+        Postgres, and we have no way to alias the base table.
+        -->
+        <sql>
+            UPDATE utxo_transaction_output txo
+            SET
+            custom_representation = (
+                SELECT custom_representation from utxo_visible_transaction_state vts
+                WHERE vts.transaction_id=txo.transaction_id
+                AND vts.group_idx=txo.group_idx
+                AND vts.leaf_idx=txo.leaf_idx
+            ),
+            consumed = (
+                SELECT consumed from utxo_visible_transaction_state vts
+                WHERE vts.transaction_id=txo.transaction_id
+                AND vts.group_idx=txo.group_idx
+                AND vts.leaf_idx=txo.leaf_idx
+            );
+        </sql>
+
+        <!-- After visible states data migration we can make the custom_representation column non-nullable -->
+        <addNotNullConstraint tableName="utxo_transaction_output"
+                              columnName="custom_representation"
+                              columnDataType="${json.column.type}"/>
+
+        <!-- Drop the utxo_visible_transaction_state table after data migration -->
+        <dropTable tableName="utxo_visible_transaction_state"/>
+
+        <!-- Rename utxo_transaction_output to utxo_visible_transaction_output -->
+        <renameTable newTableName="utxo_visible_transaction_output" oldTableName="utxo_transaction_output"/>
+
+        <!-- Re-create the index on the consumed column in the new table -->
+        <createIndex
+                indexName="utxo_visible_transaction_output_idx_consumed"
+                tableName="utxo_visible_transaction_output">
+            <column name="consumed"/>
+        </createIndex>
+
+        <!-- Drop the created column from the utxo_transaction_component table -->
+        <dropColumn columnName="created" tableName="utxo_transaction_component"/>
+
+        <!-- Drop the utxo_transaction_sources table -->
+        <dropTable tableName="utxo_transaction_sources"/>
+
+        <!-- Drop the utxo_transaction_cpk table -->
+        <dropTable tableName="utxo_transaction_cpk"/>
+
+        <!-- Drop the utxo_cpk table -->
+        <dropTable tableName="utxo_cpk"/>
     </changeSet>
 
 </databaseChangeLog>
