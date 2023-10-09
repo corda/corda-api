@@ -45,13 +45,13 @@ topics:
       - crypto
     config:
   CryptoOpsRekeyTopic:
-    name: crypto.key.rotations.ops
+    name: crypto.key.rotation.ops
     consumers:
       - crypto
     producers:
       - rest
-  CryptoOpsRekeyResponseTopic:
-    name: crypto.key.rotations.ops.resp
+  CryptoOpsRekeyStatusTopic:
+    name: crypto.key.rotation.ops.resp
     consumers:
       - rest
     producers:
