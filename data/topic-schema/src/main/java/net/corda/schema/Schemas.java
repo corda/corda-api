@@ -281,15 +281,4 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
 
     }
-
-    /**
-     * Corda worker REST endpoints
-     */
-    public static final class Endpoint {
-        private Endpoint() {}
-        public static final String CRYPTO_WORKER_REST_ENDPOINT = "worker.endpoints.crypto";
-        public static final String VERIFICATION_WORKER_REST_ENDPOINT = "worker.endpoints.verification";
-        public static final String UNIQUENESS_WORKER_REST_ENDPOINT = "worker.endpoints.uniqueness";
-        public static final String PERSISTENCE_WORKER_REST_ENDPOINT = "worker.endpoints.persistence";
-    }
 }

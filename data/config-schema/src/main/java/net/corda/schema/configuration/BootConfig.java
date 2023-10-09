@@ -43,4 +43,8 @@ public final class BootConfig {
     public static final String BOOT_STATE_MANAGER_JDBC_URL = BOOT_STATE_MANAGER + ".database.jdbc.url";
 
     public static final String BOOT_WORKER_SERVICE = "worker";
+    public static final String CRYPTO_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.crypto";
+    public static final String VERIFICATION_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.verification";
+    public static final String UNIQUENESS_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.uniqueness";
+    public static final String PERSISTENCE_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.persistence";
 }
