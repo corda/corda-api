@@ -56,7 +56,7 @@
         <dropTable tableName="utxo_transaction_status"/>
 
         <!-- After status data migration we can make the status/updated column non-nullable -->
-        <addNotNullConstraint tableName="utxo_transaction" columnName="status" columnDataType="VARCHAR(255)"/>
+        <addNotNullConstraint tableName="utxo_transaction" columnName="status" columnDataType="VARCHAR(16)"/>
         <addNotNullConstraint tableName="utxo_transaction" columnName="updated" columnDataType="TIMESTAMP"/>
 
         <!-- Add new custom_representation and consumed columns to utxo_transaction_output -->
