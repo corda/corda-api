@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/state.manager/1.0/corda.state.manager.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/stateManager/1.0/corda.stateManager.json",
   "title": "Corda State Manager Configuration Schema",
-  "description": "Configuration schema for the State Manager section. This configures the interactions of the workers with the underlying underlying persistent storage used by the out of process State Manager.",
+  "description": "Configuration schema for the State Manager section. This configures the interactions of the workers with the underlying persistent storage used by the out of process State Manager.",
   "type": "object",
   "properties": {
     "type": {
@@ -30,7 +30,7 @@
         "properties": {
           "databaseProperties": {
             "description": "Settings to connect to the State Manager Database.",
-            "$ref": "state-manager-db-properties.json"
+            "$ref": "stateManager-db-properties.json"
           }
         },
         "required": [
