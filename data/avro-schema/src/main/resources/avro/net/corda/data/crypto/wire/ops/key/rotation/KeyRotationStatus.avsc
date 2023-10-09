@@ -72,7 +72,7 @@
         "type": "long",
         "logicalType": "timestamp-millis"
       },
-      "doc": "The date and time of the last individual key rotation operation so far."
+      "doc": "The date and time when the last individual key rotation operation has finished."
     }
   ]
 }
