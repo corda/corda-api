@@ -51,11 +51,7 @@ public interface TokenSelection {
      * // take alternative action.
      * } else {
      * // Tokens we successfully claimed and can now be spent.
-     * val spentTokenRefs = spendTokens(claim.claimedTokens)
-     *
-     * // Release the claim by notifying the cache which tokens where spent. Any unspent
-     * // tokens will be released for other flows to claim.
-     * claim.useAndRelease(spentTokenRefs!!)
+     * spendTokens(claim.claimedTokens)
      * }
      *
      * return "Done"
@@ -83,11 +79,7 @@ public interface TokenSelection {
      * // take alternative action.
      * } else {
      * // Tokens we successfully claimed and can now be spent.
-     * List<StateRef> spentTokenRefs = spendTokens(claim.getClaimedTokens());
-     *
-     * // Release the claim by notifying the cache which tokens where spent. Any unspent
-     * // tokens will be released for other flows to claim.
-     * claim.useAndRelease(spentTokenRefs);
+     * spendTokens(claim.getClaimedTokens());
      * }
      *
      * return "Done";
