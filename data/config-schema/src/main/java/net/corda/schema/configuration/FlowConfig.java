@@ -14,6 +14,5 @@ public final class FlowConfig {
     public static final String PROCESSING_MAX_RETRY_DELAY = "processing.maxRetryDelay";
     public static final String PROCESSING_MAX_FLOW_SLEEP_DURATION = "processing.maxFlowSleepDuration";
     public static final String PROCESSING_FLOW_CLEANUP_TIME = "processing.cleanupTime";
-
     public static final String PROCESSING_THREAD_POOL_SIZE = "processing.poolSize";
 }
