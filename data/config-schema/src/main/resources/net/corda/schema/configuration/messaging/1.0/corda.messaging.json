@@ -109,6 +109,37 @@
       "default": 972800,
       "minimum": 512000,
       "maximum": 8388608
+    },
+    "stateManager": {
+      "description": "Connection details for the underlying persistent storage used by the out of process State Manager.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The type of state manager implementation.",
+          "enum": [
+            "DATABASE"
+          ]
+        },
+        "additionalProperties": false
+      },
+      "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "DATABASE" } },
+            "required": ["type"]
+          },
+          "then": {
+            "properties": {
+              "databaseProperties": {
+                "description": "Settings to connect to the state manager database.",
+                "$ref": "state-manager-db-properties.json"
+              }
+            },
+            "required": ["type","databaseProperties"]
+          }
+        }
+      ]
     }
   },
   "additionalProperties": false

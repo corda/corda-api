@@ -36,7 +36,7 @@ public final class BootConfig {
 
     public static final String BOOT_SECRETS = "secrets";
 
-    public static final String BOOT_STATE_MANAGER = StateManagerConfig.STATE_MANAGER;
+    public static final String BOOT_STATE_MANAGER = "stateManager";
     public static final String BOOT_STATE_MANAGER_TYPE = BOOT_STATE_MANAGER + ".type";
     public static final String BOOT_STATE_MANAGER_DB_USER = BOOT_STATE_MANAGER + ".database.user";
     public static final String BOOT_STATE_MANAGER_DB_PASS = BOOT_STATE_MANAGER + ".database.pass";
