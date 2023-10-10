@@ -45,7 +45,15 @@
           "minimum": 1000,
           "maximum": 2147483647,
           "default": 600000
-        }
+        },
+        "properties": {
+          "poolSize": {
+            "description": "The size of the flow event processing pool size.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647,
+            "default": 8
+          }
       },
       "additionalProperties": false
     },
