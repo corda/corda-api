@@ -113,14 +113,48 @@
         <!-- Drop the created column from the utxo_transaction_component table -->
         <dropColumn columnName="created" tableName="utxo_transaction_component"/>
 
-        <!-- Drop the utxo_transaction_sources table -->
-        <dropTable tableName="utxo_transaction_sources"/>
-
         <!-- Drop the utxo_transaction_cpk table -->
         <dropTable tableName="utxo_transaction_cpk"/>
 
         <!-- Drop the utxo_cpk table -->
         <dropTable tableName="utxo_cpk"/>
+
+        <!-- Add new columns: hash and index for input and reference states -->
+        <addColumn tableName="utxo_transaction_component">
+            <column name="referenced_state_transaction_id" type="VARCHAR(160)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="referenced_state_index" type="INT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!--
+        Migrate data from the old utxo_transaction_sources table
+        NOTE: We can't use <update> here because both tables have the same column naming
+        (transaction_id, group_idx etc.) and the SQL statement generated will not work in
+        Postgres, and we have no way to alias the base table.
+        -->
+        <sql>
+            UPDATE utxo_transaction_component txc
+            SET
+            referenced_state_transaction_id = (
+                SELECT ref_transaction_id from utxo_transaction_sources ts
+                WHERE ts.transaction_id=txc.transaction_id
+                AND ts.group_idx=txc.group_idx
+                AND ts.leaf_idx=txc.leaf_idx
+            ),
+            referenced_state_index = (
+                SELECT ref_leaf_idx from utxo_transaction_sources ts
+                WHERE ts.transaction_id=txc.transaction_id
+                AND ts.group_idx=txc.group_idx
+                AND ts.leaf_idx=txc.leaf_idx
+            );
+        </sql>
+
+        <!-- Drop the utxo_transaction_sources table -->
+        <dropTable tableName="utxo_transaction_sources"/>
+
     </changeSet>
 
 </databaseChangeLog>
