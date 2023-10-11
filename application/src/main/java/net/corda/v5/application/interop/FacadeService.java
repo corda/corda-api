@@ -5,6 +5,7 @@ import net.corda.v5.application.interop.facade.FacadeId;
 import net.corda.v5.application.interop.facade.FacadeRequest;
 import net.corda.v5.application.interop.facade.FacadeResponse;
 import net.corda.v5.base.annotations.Suspendable;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Service to perform Corda to Corda interoperability calls using Facades.
@@ -22,7 +23,7 @@ public interface FacadeService {
      *    instance invokes a Facade method on a peer Identity denoted by an <code>alias</code> from an <code>interopGroup</code>.
      */
     @Suspendable
-    <T> T getProxy(FacadeId facadeId, Class<T> expectedType, InterOpIdentityInfo interopIdentity);
+    <T> T getProxy(@NotNull FacadeId facadeId, Class<T> expectedType, InterOpIdentityInfo interopIdentity);
 
     /**
      * Interprets a Facade request and invokes a matching method on the target class.
