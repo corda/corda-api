@@ -120,6 +120,9 @@ public interface UtxoLedgerService {
     /**
      * Finds unconsumed states of the specified {@link ContractState} type in the vault.
      * <p>
+     * This version supports paging, limiting the number of results returned in a single query call by setting the
+     * `limit` argument.
+     * <p>
      * Example usage:
      * <ul>
      * <li>Kotlin:<pre>{@code
