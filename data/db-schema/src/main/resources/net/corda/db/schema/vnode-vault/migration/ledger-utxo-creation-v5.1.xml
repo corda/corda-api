@@ -148,7 +148,7 @@
         <!-- ^^ is this correct?? -->
         <sql dbms="postgresql">
             INSERT INTO utxo_transaction_metadata
-            SELECT
+            SELECT DISTINCT
                 hash,
                 data as canonical_data,
                 convert_from(data, 'UTF-8')::jsonb->'membershipGroupParametersHash' AS group_parameters_hash,
