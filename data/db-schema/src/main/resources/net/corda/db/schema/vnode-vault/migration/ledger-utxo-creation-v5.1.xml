@@ -135,8 +135,6 @@
 
         <!-- Drop the utxo_cpk table -->
         <dropTable tableName="utxo_cpk"/>
-
-
     </changeSet>
 
 </databaseChangeLog>
