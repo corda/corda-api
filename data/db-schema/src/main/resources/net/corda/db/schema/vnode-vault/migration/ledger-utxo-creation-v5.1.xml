@@ -129,9 +129,6 @@
             <column name="canonical_data" type="VARBINARY(1048576)">
                 <constraints nullable="false"/>
             </column>
-            <column name="json_data" type="${json.column.type}">
-                <constraints nullable="false"/>
-            </column>
             <column name="group_parameters_hash" type="VARCHAR(160)">
                 <constraints nullable="false"/>
             </column>
@@ -154,7 +151,6 @@
             SELECT
                 hash,
                 data as canonical_data,
-                convert_from(data, 'UTF-8')::jsonb AS json_data,
                 convert_from(data, 'UTF-8')::jsonb->'membershipGroupParametersHash' AS group_parameters_hash,
                 convert_from(data, 'UTF-8')::jsonb->'cpiMetadata'->'fileChecksum' AS cpi_file_checksum
             FROM
