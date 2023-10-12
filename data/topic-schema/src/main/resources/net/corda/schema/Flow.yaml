@@ -11,6 +11,7 @@ topics:
       - verification
       - persistence
       - uniqueness
+      - tokenSelection
     config:
   FlowEventStateTopic:
     name: flow.event.state

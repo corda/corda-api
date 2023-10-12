@@ -27,6 +27,7 @@ topics:
       - rest
       - persistence
       - uniqueness
+      - tokenSelection
     producers:
       - db
     config:
