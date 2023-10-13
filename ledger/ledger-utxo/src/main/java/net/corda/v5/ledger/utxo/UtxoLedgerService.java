@@ -162,7 +162,7 @@ public interface UtxoLedgerService {
      * <p>
      * The notary and time window from the proposal will get discarded and the original will be kept if both the original and
      * the proposal have these components set.
-     * Duplications of input staterefs, reference staterefs, attachments and signatories will be discarded.
+     * Duplications of input staterefs, reference staterefs, and signatories will be discarded.
      * <p>
      * Receiver:
      * <pre>{@code
