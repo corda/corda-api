@@ -135,6 +135,59 @@
 
         <!-- Drop the utxo_cpk table -->
         <dropTable tableName="utxo_cpk"/>
+
+        <createTable tableName="utxo_transaction_metadata">
+            <column name="hash" type="VARCHAR(160)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="canonical_data" type="VARBINARY(1048576)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_parameters_hash" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpi_file_checksum" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Add utxo_transaction.metadata_hash nullable to let migrate data later -->
+        <addColumn tableName="utxo_transaction">
+            <column name="metadata_hash" type="VARCHAR(160)">
+                <constraints nullable="true" foreignKeyName="fk_utxo_transaction_metadata" references="utxo_transaction_metadata(hash)"/>
+            </column>
+        </addColumn>
+
+        <!-- Populate utxo_transaction_metadata. Postgresql only since, no other dbs were supported before 5.1. So only Postgres can have data which needs to be migrated. -->
+        <!-- ^^ is this correct?? -->
+        <sql dbms="postgresql">
+            INSERT INTO utxo_transaction_metadata
+            SELECT DISTINCT
+                hash,
+                data as canonical_data,
+                convert_from(data, 'UTF-8')::jsonb->'membershipGroupParametersHash' AS group_parameters_hash,
+                convert_from(data, 'UTF-8')::jsonb->'cpiMetadata'->'fileChecksum' AS cpi_file_checksum
+            FROM
+                utxo_transaction_component
+            WHERE
+                group_idx=0 AND
+                leaf_idx=0;
+        </sql>
+
+        <!-- Migrate utxo_transaction.metadata_hash -->
+        <update tableName="utxo_transaction">
+            <column name="metadata_hash"
+                    valueComputed="(select hash from utxo_transaction_component c where c.transaction_id=id and group_idx=0 and leaf_idx=0)"/>
+        </update>
+
+        <!-- Change utxo_transaction.metadata_hash to not nullable -->
+        <addNotNullConstraint tableName="utxo_transaction" columnName="metadata_hash" columnDataType="VARCHAR(160)"/>
+
+        <!-- Old metadata records are not needed anymore. -->
+        <delete tableName="utxo_transaction_component">
+            <where>group_idx=0 AND leaf_idx=0</where>
+        </delete>
+
     </changeSet>
 
 </databaseChangeLog>
