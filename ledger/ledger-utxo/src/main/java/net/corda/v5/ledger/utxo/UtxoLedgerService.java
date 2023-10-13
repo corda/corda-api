@@ -2,6 +2,7 @@ package net.corda.v5.ledger.utxo;
 
 import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.application.persistence.PagedQuery;
+import net.corda.v5.application.persistence.PagedQuery.ResultSet;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.crypto.SecureHash;
@@ -16,6 +17,7 @@ import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuil
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.time.Instant;
 import java.util.List;
 
 /**
@@ -36,7 +38,7 @@ public interface UtxoLedgerService {
     /**
      * Resolves the specified {@link StateRef} instances into {@link StateAndRef} instances of the specified {@link ContractState} type.
      *
-     * @param <T> The underlying {@link ContractState} type.
+     * @param <T>       The underlying {@link ContractState} type.
      * @param stateRefs The {@link StateRef} instances to resolve.
      * @return Returns a {@link List} of {@link StateAndRef} of the specified {@link ContractState} type.
      */
@@ -47,7 +49,7 @@ public interface UtxoLedgerService {
     /**
      * Resolves the specified {@link StateRef} instance into a {@link StateAndRef} instance of the specified {@link ContractState} type.
      *
-     * @param <T> The underlying {@link ContractState} type.
+     * @param <T>      The underlying {@link ContractState} type.
      * @param stateRef The {@link StateRef} instances to resolve.
      * @return Returns a {@link StateAndRef} of the specified {@link ContractState} type.
      */
@@ -92,7 +94,7 @@ public interface UtxoLedgerService {
      * Only use this method if subclasses of {@code type} must be returned.
      * <p>
      * Use {@link #findUnconsumedStatesByExactType(Class<T>)} to return exact instances of the input {@code type}.
-     * This method is more performant than {@link #findUnconsumedStatesByType(Class<T>)}.
+     * This method is more performant than {@link #findUnconsumedStatesByExactType(Class, Integer, Instant)}.
      * <p>
      * Use {@link #query(String, Class)} for a more performant method of retrieving subclasses of a specified type.
      *
@@ -106,14 +108,46 @@ public interface UtxoLedgerService {
 
     /**
      * Finds unconsumed states of the specified {@link ContractState} type in the vault.
+     * <p>
+     * This version supports paging, limiting the number of results returned in a single query call by setting the
+     * `limit` argument.
+     * <p>
+     * Example usage:
+     * <ul>
+     * <li>Kotlin:<pre>{@code
+     * val resultSet = utxoLedgerService.findUnconsumedStatesByExactType(MyState::class.java, 10, Instant.now())
      *
-     * @param <T>  The underlying {@link ContractState} type.
-     * @param type The {@link ContractState} type to find in the vault.
-     * @return Returns a {@link List} of {@link StateAndRef} of unconsumed states of the specified type, or an empty list if no states could be found.
+     * processResultsWithApplicationLogic(resultSet.results)
+     *
+     * while (resultSet.hasNext()) {
+     *     val results = resultSet.next()
+     *     processResultsWithApplicationLogic(results)
+     * }
+     * }</pre></li>
+     * <li>Java:<pre>{@code
+     * PagedQuery.ResultSet<StateAndRef<MyState>> resultSet = utxoLedgerService.query(MyState.class, 10, Instant.now())
+     *
+     * processResultsWithApplicationLogic(resultSet.getResults());
+     *
+     * while (resultSet.hasNext()) {
+     *     List<Integer> results = resultSet.next();
+     *     processResultsWithApplicationLogic(results);
+     * }
+     * }</pre></li>
+     *
+     * @param <T>   The underlying {@link ContractState} type.
+     * @param type  The {@link ContractState} type to find in the vault.
+     * @param limit The size of each page.
+     * @param createdTimestampLimit The timestamp limit the underlying query enforces.
+     * @return Returns a {@link ResultSet} of {@link StateAndRef} of unconsumed states of the specified type.
      */
     @NotNull
     @Suspendable
-    <T extends ContractState> List<StateAndRef<T>> findUnconsumedStatesByExactType(@NotNull Class<T> type);
+    <T extends ContractState> ResultSet<StateAndRef<T>> findUnconsumedStatesByExactType(
+            @NotNull Class<T> type,
+            @NotNull Integer limit,
+            @NotNull Instant createdTimestampLimit
+    );
 
     /**
      * Verifies, signs, collects signatures, records and broadcasts a {@link UtxoSignedTransaction} to participants and observers.
@@ -174,8 +208,7 @@ public interface UtxoLedgerService {
      * }</pre>
      *
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
-     * @param session The receiver {@link FlowSession}.
-     *
+     * @param session            The receiver {@link FlowSession}.
      * @return A new merged builder of the original and proposed components.
      */
     @NotNull
@@ -203,8 +236,9 @@ public interface UtxoLedgerService {
      * which tracks the differences internally.
      * If it is called with anything else, it throws InvalidParameterException.
      * <p>
+     *
      * @param transactionBuilder The {@link UtxoTransactionBuilder} to send.
-     * @param session The receiver {@link FlowSession}.
+     * @param session            The receiver {@link FlowSession}.
      */
     @Suspendable
     void sendUpdatedTransactionBuilder(
@@ -260,15 +294,14 @@ public interface UtxoLedgerService {
      * }
      * }</pre></li>
      *
-     * @param queryName The name of the named ledger query to use.
+     * @param queryName   The name of the named ledger query to use.
      * @param resultClass Type that the query should return when executed.
-     *
      * @return A {@link VaultNamedParameterizedQuery} query object that can be executed or modified further on.
-     *
      * @see VaultNamedParameterizedQuery
-     * @see PagedQuery.ResultSet
+     * @see ResultSet
      * @see VaultNamedQueryFactory
      */
     @Suspendable
-    @NotNull <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
+    @NotNull
+    <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
 }
