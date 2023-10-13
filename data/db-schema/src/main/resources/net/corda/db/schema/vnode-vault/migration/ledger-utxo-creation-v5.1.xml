@@ -121,12 +121,12 @@
 
         <!-- Rename the columns in utxo_transaction_sources to avoid confusion -->
         <renameColumn columnDataType="VARCHAR(160)"
-                      newColumnName="referenced_state_transaction_id"
+                      newColumnName="source_state_transaction_id"
                       oldColumnName="ref_transaction_id"
                       tableName="utxo_transaction_sources"/>
 
         <renameColumn columnDataType="INT"
-                      newColumnName="referenced_state_index"
+                      newColumnName="source_state_idx"
                       oldColumnName="ref_leaf_idx"
                       tableName="utxo_transaction_sources"/>
 
