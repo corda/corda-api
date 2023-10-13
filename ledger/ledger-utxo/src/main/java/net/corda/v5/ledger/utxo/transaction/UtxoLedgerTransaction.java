@@ -4,7 +4,6 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.common.transaction.TransactionMetadata;
-import net.corda.v5.ledger.utxo.Attachment;
 import net.corda.v5.ledger.utxo.Command;
 import net.corda.v5.ledger.utxo.ContractState;
 import net.corda.v5.ledger.utxo.StateAndRef;
@@ -73,24 +72,6 @@ public interface UtxoLedgerTransaction {
      */
     @NotNull
     List<PublicKey> getSignatories();
-
-    /**
-     * Gets the attachments associated with the current {@link UtxoLedgerTransaction}.
-     *
-     * @return Returns the attachments associated with the current {@link UtxoLedgerTransaction}.
-     */
-    @NotNull
-    List<Attachment> getAttachments();
-
-    /**
-     * Obtains an attachment associated with the current {@link UtxoLedgerTransaction}.
-     *
-     * @param id The ID of the attachment to obtain.
-     * @return Returns the attachment with the specified ID.
-     * @throws IllegalArgumentException if the attachment with the specified ID cannot be found.
-     */
-    @NotNull
-    Attachment getAttachment(@NotNull SecureHash id);
 
     /**
      * Gets the commands associated with the current {@link UtxoLedgerTransaction}.

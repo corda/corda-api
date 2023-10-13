@@ -3,9 +3,7 @@ package net.corda.v5.ledger.utxo.transaction;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.types.MemberX500Name;
-import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.common.transaction.TransactionNoAvailableKeysException;
-import net.corda.v5.ledger.utxo.Attachment;
 import net.corda.v5.ledger.utxo.Command;
 import net.corda.v5.ledger.utxo.ContractState;
 import net.corda.v5.ledger.utxo.StateRef;
@@ -23,15 +21,6 @@ import java.util.Map;
 @DoNotImplement
 @SuppressWarnings("TooManyFunctions")
 public interface UtxoTransactionBuilder {
-
-    /**
-     * Adds the specified {@link Attachment} to the current {@link UtxoTransactionBuilder}.
-     *
-     * @param attachmentId The ID of the {@link Attachment} to add to the current {@link UtxoTransactionBuilder}.
-     * @return Returns the current {@link UtxoTransactionBuilder} with the specified {@link Attachment}.
-     */
-    @NotNull
-    UtxoTransactionBuilder addAttachment(@NotNull SecureHash attachmentId);
 
     /**
      * Adds the specified command to the current {@link UtxoTransactionBuilder}.
