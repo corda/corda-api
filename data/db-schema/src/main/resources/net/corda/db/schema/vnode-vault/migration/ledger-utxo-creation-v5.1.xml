@@ -113,8 +113,22 @@
         <!-- Drop the created column from the utxo_transaction_component table -->
         <dropColumn columnName="created" tableName="utxo_transaction_component"/>
 
-        <!-- Drop the utxo_transaction_sources table -->
-        <dropTable tableName="utxo_transaction_sources"/>
+        <!-- Drop the created and is_ref_input columns from the utxo_transaction_sources table -->
+        <dropColumn tableName="utxo_transaction_sources">
+            <column name="created"/>
+            <column name="is_ref_input"/>
+        </dropColumn>
+
+        <!-- Rename the columns in utxo_transaction_sources to avoid confusion -->
+        <renameColumn columnDataType="VARCHAR(160)"
+                      newColumnName="source_state_transaction_id"
+                      oldColumnName="ref_transaction_id"
+                      tableName="utxo_transaction_sources"/>
+
+        <renameColumn columnDataType="INT"
+                      newColumnName="source_state_idx"
+                      oldColumnName="ref_leaf_idx"
+                      tableName="utxo_transaction_sources"/>
 
         <!-- Drop the utxo_transaction_cpk table -->
         <dropTable tableName="utxo_transaction_cpk"/>
@@ -145,7 +159,6 @@
         </addColumn>
 
         <!-- Populate utxo_transaction_metadata. Postgresql only since, no other dbs were supported before 5.1. So only Postgres can have data which needs to be migrated. -->
-        <!-- ^^ is this correct?? -->
         <sql dbms="postgresql">
             INSERT INTO utxo_transaction_metadata
             SELECT DISTINCT
