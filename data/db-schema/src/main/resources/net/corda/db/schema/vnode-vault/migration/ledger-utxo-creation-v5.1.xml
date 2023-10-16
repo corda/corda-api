@@ -33,6 +33,160 @@
                      tableName="utxo_transaction_output">
             <column name="token_notary_x500_name"/>
         </createIndex>
+
+        <!-- Add new status column to utxo_transaction -->
+        <addColumn tableName="utxo_transaction">
+            <column name="status" type="VARCHAR(16)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="updated" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!-- Migrate data from the old status table -->
+        <update tableName="utxo_transaction">
+            <column name="status"
+                    valueComputed="(select status from utxo_transaction_status uts where uts.transaction_id=id)"/>
+            <column name="updated"
+                    valueComputed="(select updated from utxo_transaction_status uts where uts.transaction_id=id)"/>
+        </update>
+
+        <!-- Drop the old status table -->
+        <dropTable tableName="utxo_transaction_status"/>
+
+        <!-- After status data migration we can make the status/updated column non-nullable -->
+        <addNotNullConstraint tableName="utxo_transaction" columnName="status" columnDataType="VARCHAR(16)"/>
+        <addNotNullConstraint tableName="utxo_transaction" columnName="updated" columnDataType="TIMESTAMP"/>
+
+        <!-- Add new custom_representation and consumed columns to utxo_transaction_output -->
+        <addColumn tableName="utxo_transaction_output">
+            <column name="custom_representation" type="${json.column.type}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="consumed" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!--
+        Migrate data from the old visible states table
+        NOTE: We can't use <update> here because both tables have the same column naming
+        (transaction_id, group_idx etc.) and the SQL statement generated will not work in
+        Postgres, and we have no way to alias the base table.
+        -->
+        <sql>
+            UPDATE utxo_transaction_output txo
+            SET
+            custom_representation = (
+                SELECT custom_representation from utxo_visible_transaction_state vts
+                WHERE vts.transaction_id=txo.transaction_id
+                AND vts.group_idx=txo.group_idx
+                AND vts.leaf_idx=txo.leaf_idx
+            ),
+            consumed = (
+                SELECT consumed from utxo_visible_transaction_state vts
+                WHERE vts.transaction_id=txo.transaction_id
+                AND vts.group_idx=txo.group_idx
+                AND vts.leaf_idx=txo.leaf_idx
+            );
+        </sql>
+
+        <!-- After visible states data migration we can make the custom_representation column non-nullable -->
+        <addNotNullConstraint tableName="utxo_transaction_output"
+                              columnName="custom_representation"
+                              columnDataType="${json.column.type}"/>
+
+        <!-- Drop the utxo_visible_transaction_state table after data migration -->
+        <dropTable tableName="utxo_visible_transaction_state"/>
+
+        <!-- Rename utxo_transaction_output to utxo_visible_transaction_output -->
+        <renameTable newTableName="utxo_visible_transaction_output" oldTableName="utxo_transaction_output"/>
+
+        <!-- Re-create the index on the consumed column in the new table -->
+        <createIndex
+                indexName="utxo_visible_transaction_output_idx_consumed"
+                tableName="utxo_visible_transaction_output">
+            <column name="consumed"/>
+        </createIndex>
+
+        <!-- Drop the created column from the utxo_transaction_component table -->
+        <dropColumn columnName="created" tableName="utxo_transaction_component"/>
+
+        <!-- Drop the created and is_ref_input columns from the utxo_transaction_sources table -->
+        <dropColumn tableName="utxo_transaction_sources">
+            <column name="created"/>
+            <column name="is_ref_input"/>
+        </dropColumn>
+
+        <!-- Rename the columns in utxo_transaction_sources to avoid confusion -->
+        <renameColumn columnDataType="VARCHAR(160)"
+                      newColumnName="source_state_transaction_id"
+                      oldColumnName="ref_transaction_id"
+                      tableName="utxo_transaction_sources"/>
+
+        <renameColumn columnDataType="INT"
+                      newColumnName="source_state_idx"
+                      oldColumnName="ref_leaf_idx"
+                      tableName="utxo_transaction_sources"/>
+
+        <!-- Drop the utxo_transaction_cpk table -->
+        <dropTable tableName="utxo_transaction_cpk"/>
+
+        <!-- Drop the utxo_cpk table -->
+        <dropTable tableName="utxo_cpk"/>
+
+        <createTable tableName="utxo_transaction_metadata">
+            <column name="hash" type="VARCHAR(160)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="canonical_data" type="VARBINARY(1048576)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_parameters_hash" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpi_file_checksum" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Add utxo_transaction.metadata_hash nullable to let migrate data later -->
+        <addColumn tableName="utxo_transaction">
+            <column name="metadata_hash" type="VARCHAR(160)">
+                <constraints nullable="true" foreignKeyName="fk_utxo_transaction_metadata" references="utxo_transaction_metadata(hash)"/>
+            </column>
+        </addColumn>
+
+        <!-- Populate utxo_transaction_metadata. Postgresql only since, no other dbs were supported before 5.1. So only Postgres can have data which needs to be migrated. -->
+        <sql dbms="postgresql">
+            INSERT INTO utxo_transaction_metadata
+            SELECT DISTINCT
+                hash,
+                data as canonical_data,
+                convert_from(data, 'UTF-8')::jsonb->'membershipGroupParametersHash' AS group_parameters_hash,
+                convert_from(data, 'UTF-8')::jsonb->'cpiMetadata'->'fileChecksum' AS cpi_file_checksum
+            FROM
+                utxo_transaction_component
+            WHERE
+                group_idx=0 AND
+                leaf_idx=0;
+        </sql>
+
+        <!-- Migrate utxo_transaction.metadata_hash -->
+        <update tableName="utxo_transaction">
+            <column name="metadata_hash"
+                    valueComputed="(select hash from utxo_transaction_component c where c.transaction_id=id and group_idx=0 and leaf_idx=0)"/>
+        </update>
+
+        <!-- Change utxo_transaction.metadata_hash to not nullable -->
+        <addNotNullConstraint tableName="utxo_transaction" columnName="metadata_hash" columnDataType="VARCHAR(160)"/>
+
+        <!-- Old metadata records are not needed anymore. -->
+        <delete tableName="utxo_transaction_component">
+            <where>group_idx=0 AND leaf_idx=0</where>
+        </delete>
+
     </changeSet>
 
 </databaseChangeLog>
