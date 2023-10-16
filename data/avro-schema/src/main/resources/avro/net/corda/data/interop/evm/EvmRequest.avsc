@@ -35,6 +35,11 @@
         "net.corda.data.interop.evm.request.Transaction"
       ],
       "doc": "The function call to be sent to the EVM"
+    },
+    {
+      "name": "flowExternalEventContext",
+      "type": "net.corda.data.flow.event.external.ExternalEventContext",
+      "doc": "The context of the external event that this request was sent from."
     }
   ]
 }
