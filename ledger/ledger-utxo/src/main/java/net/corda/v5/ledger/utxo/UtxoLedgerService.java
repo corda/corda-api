@@ -90,18 +90,19 @@ public interface UtxoLedgerService {
 
     /**
      * Finds unconsumed states that are concrete implementations or subclasses of {@code type}.
-     * <p>
-     * Only use this method if subclasses of {@code type} must be returned.
-     * <p>
-     * Use {@link #findUnconsumedStatesByExactType(Class<T>)} to return exact instances of the input {@code type}.
-     * This method is more performant than {@link #findUnconsumedStatesByExactType(Class, Integer, Instant)}.
-     * <p>
-     * Use {@link #query(String, Class)} for a more performant method of retrieving subclasses of a specified type.
+     *
+     * @deprecated This method should no longer be used due to its lack of paging support, which can result in
+     *             serious performance issues and / or out of memory errors if the query returns many states.
+     *             {@link #findUnconsumedStatesByExactType(Class, Integer, Instant)} should be used instead. Note
+     *             that this will not return subclasses of the specified class. If this functionality is required,
+     *             it is recommended to write a custom query and invoke this via the {@link #query(String, Class)}
+     *             API instead.
      *
      * @param <T>  The underlying {@link ContractState} type.
      * @param type The {@link ContractState} type to find in the vault.
      * @return Returns a {@link List} of {@link StateAndRef} of unconsumed states of the specified type, or an empty list if no states could be found.
      */
+    @Deprecated(since = "5.1", forRemoval = true)
     @NotNull
     @Suspendable
     <T extends ContractState> List<StateAndRef<T>> findUnconsumedStatesByType(@NotNull Class<T> type);
