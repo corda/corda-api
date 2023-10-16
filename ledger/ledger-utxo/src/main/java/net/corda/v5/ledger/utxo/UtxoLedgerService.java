@@ -89,24 +89,6 @@ public interface UtxoLedgerService {
     UtxoFilteredTransactionBuilder filterSignedTransaction(@NotNull UtxoSignedTransaction transaction);
 
     /**
-     * Finds unconsumed states that are concrete implementations or subclasses of {@code type}.
-     * <p>
-     * Only use this method if subclasses of {@code type} must be returned.
-     * <p>
-     * Use {@link #findUnconsumedStatesByExactType(Class<T>)} to return exact instances of the input {@code type}.
-     * This method is more performant than {@link #findUnconsumedStatesByExactType(Class, Integer, Instant)}.
-     * <p>
-     * Use {@link #query(String, Class)} for a more performant method of retrieving subclasses of a specified type.
-     *
-     * @param <T>  The underlying {@link ContractState} type.
-     * @param type The {@link ContractState} type to find in the vault.
-     * @return Returns a {@link List} of {@link StateAndRef} of unconsumed states of the specified type, or an empty list if no states could be found.
-     */
-    @NotNull
-    @Suspendable
-    <T extends ContractState> List<StateAndRef<T>> findUnconsumedStatesByType(@NotNull Class<T> type);
-
-    /**
      * Finds unconsumed states of the specified {@link ContractState} type in the vault.
      * <p>
      * This version supports paging, limiting the number of results returned in a single query call by setting the
@@ -148,6 +130,48 @@ public interface UtxoLedgerService {
             @NotNull Integer limit,
             @NotNull Instant createdTimestampLimit
     );
+
+    /**
+     * Finds unconsumed states of the specified {@link ContractState} type in the vault as of now.
+     * <p>
+     * This version supports paging, limiting the number of results returned in a single query call by setting the
+     * `limit` argument.
+     * <p>
+     * Example usage:
+     * <ul>
+     * <li>Kotlin:<pre>{@code
+     * val resultSet = utxoLedgerService.findUnconsumedStatesByExactType(MyState::class.java, 10)
+     *
+     * processResultsWithApplicationLogic(resultSet.results)
+     *
+     * while (resultSet.hasNext()) {
+     *     val results = resultSet.next()
+     *     processResultsWithApplicationLogic(results)
+     * }
+     * }</pre></li>
+     * <li>Java:<pre>{@code
+     * PagedQuery.ResultSet<StateAndRef<MyState>> resultSet = utxoLedgerService.query(MyState.class, 10, Instant.now())
+     *
+     * processResultsWithApplicationLogic(resultSet.getResults());
+     *
+     * while (resultSet.hasNext()) {
+     *     List<Integer> results = resultSet.next();
+     *     processResultsWithApplicationLogic(results);
+     * }
+     * }</pre></li>
+     *
+     * @param <T>   The underlying {@link ContractState} type.
+     * @param type  The {@link ContractState} type to find in the vault.
+     * @param limit The size of each page.
+     * @return Returns a {@link ResultSet} of {@link StateAndRef} of unconsumed states of the specified type.
+     */
+    @NotNull
+    @Suspendable
+    <T extends ContractState> ResultSet<StateAndRef<T>> findUnconsumedStatesByExactType(
+            @NotNull Class<T> type,
+            @NotNull Integer limit
+    );
+
 
     /**
      * Verifies, signs, collects signatures, records and broadcasts a {@link UtxoSignedTransaction} to participants and observers.
