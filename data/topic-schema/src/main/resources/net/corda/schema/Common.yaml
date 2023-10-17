@@ -1,0 +1,17 @@
+topics:
+  MediatorSerializationDLQ:
+    name: mediator.client.serialization.dlq
+    producers:
+      - crypto
+      - db
+      - flow
+      - flowMapper
+      - verification
+      - membership
+      - gateway
+      - link-manager
+      - persistence
+      - rest
+      - uniqueness
+      - tokenSelection
+    config:
