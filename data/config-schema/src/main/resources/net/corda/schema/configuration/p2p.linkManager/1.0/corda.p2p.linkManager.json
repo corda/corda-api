@@ -89,10 +89,16 @@
       "default": 10000,
       "minimum": 500
     },
-    "sessionsPerPeer": {
-      "description": "The number of actively maintained sessions between two peers.",
+    "sessionsPerPeerForMgm": {
+      "description": "The number of actively maintained sessions between two peers if one of them is an MGM.",
       "type": "integer",
-      "default": 4,
+      "default": 1,
+      "minimum": 1
+    },
+    "sessionsPerPeerForMembers": {
+      "description": "The number of actively maintained sessions between two peers if both peers are members.",
+      "type": "integer",
+      "default": 2,
       "minimum": 1
     },
     "revocationCheck": {
