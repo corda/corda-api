@@ -114,6 +114,7 @@ topics:
     consumers:
       - flowMapper
     producers:
+      - flowMapper
       - link-manager
     config:
   FlowStart:
