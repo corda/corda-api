@@ -6,6 +6,8 @@ plugins {
 
 description 'Corda Application'
 
+//ES-1450: Testing Snyk scan when target does not exist for Snyk Delta - DO NOT MERGE
+
 dependencies {
     api 'javax.persistence:javax.persistence-api'
 
