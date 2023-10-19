@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.1') _
+@Library('corda-shared-build-pipeline-steps@connelm/ES-1450/Avoid-infinite-loop-snykDeltaScan-retry') _
 
 cordaPipelineKubernetesAgent(
     runIntegrationTests: false,
