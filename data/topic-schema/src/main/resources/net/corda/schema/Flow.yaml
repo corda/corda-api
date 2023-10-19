@@ -130,5 +130,6 @@ topics:
       - flow
     producers:
       - flowMapper
+      - tokenSelection
     config:
 
