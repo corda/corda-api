@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.18.xsd">
+
+    <changeSet author="R3.Corda" id="rbac-creation-v5.1">
+        <modifyDataType tableName="rbac_change_audit" columnName="actor_user" newDataType="VARCHAR(255)"/>
+    </changeSet>
+</databaseChangeLog>

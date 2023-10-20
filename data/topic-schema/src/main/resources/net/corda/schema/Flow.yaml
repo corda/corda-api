@@ -136,3 +136,53 @@ topics:
       min.compaction.lag.ms: 60000
       max.compaction.lag.ms: 604800000
       min.cleanable.dirty.ratio: 0.5
+  FlowMapperCleanupTopic:
+    name: flow.mapper.cleanup
+    consumers:
+      - flowMapper
+    producers:
+      - flowMapper
+    config:
+  FlowTimeoutTopic:
+    name: flow.timeout
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
+  FlowMapperStart:
+    name: flow.mapper.start
+    consumers:
+      - flowMapper
+    producers:
+      - rest
+    config:
+  FlowMapperSessionOut:
+    name: flow.mapper.session.out
+    consumers:
+      - flowMapper
+    producers:
+      - flow
+    config:
+  FlowMapperSessionIn:
+    name: flow.mapper.session.in
+    consumers:
+      - flowMapper
+    producers:
+      - link-manager
+    config:
+  FlowStart:
+    name: flow.start
+    consumers:
+      - flow
+    producers:
+      - flowMapper
+    config:
+  FlowSession:
+    name: flow.session
+    consumers:
+      - flow
+    producers:
+      - flowMapper
+    config:
+
