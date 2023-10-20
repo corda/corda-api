@@ -92,7 +92,7 @@
     "sessionsPerPeer": {
       "description": "The number of actively maintained sessions between two peers.",
       "type": "integer",
-      "default": 4,
+      "default": 2,
       "minimum": 1
     },
     "revocationCheck": {
