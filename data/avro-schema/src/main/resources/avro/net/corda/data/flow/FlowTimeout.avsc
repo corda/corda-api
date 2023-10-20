@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "FlowTimeout",
+  "namespace": "net.corda.data.flow",
+  "doc": "Represents of a flow timeout instruction.",
+  "fields": [
+      {
+        "name": "checkpointStateKey",
+        "type": "string",
+        "doc": "Key for the state record that is storing the checkpoint."
+      },
+      {
+        "name": "timeoutDateTime",
+        "type": {
+            "type": "long",
+            "logicalType": "timestamp-millis"
+          }
+      }
+    ]
+}

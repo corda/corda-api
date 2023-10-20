@@ -4,5 +4,13 @@
   "docs": "When this event is processed the flow mapper state should be set to null",
   "namespace": "net.corda.data.flow.event.mapper",
   "fields": [
+    {
+      "name": "ids",
+      "docs": "A list of IDs of mapper states that should be deleted",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
   ]
 }

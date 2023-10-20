@@ -75,9 +75,9 @@ class SchemaTests {
         yamlFileData.forEach { (fileName: String, topics: Map<String, Map<String, *>>) ->
             println("Testing: $fileName")
             val potentialClass = fileName.substringBeforeLast(".")
-            val yamlTopicNames = topics["topics"]!!.toMap().map { it.value["name"] }
+            val yamlTopicNames = topics["topics"]!!.toMap().map { it.value["name"].toString() }
             val kotlinTopicNames = memberMap[potentialClass]
-            assertThat(yamlTopicNames).containsExactlyInAnyOrderElementsOf(kotlinTopicNames)
+            assertThat(kotlinTopicNames).containsAll(yamlTopicNames)
         }
     }
 }

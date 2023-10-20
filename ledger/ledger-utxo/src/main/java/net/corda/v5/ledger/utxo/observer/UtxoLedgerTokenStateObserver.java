@@ -65,6 +65,7 @@ import org.jetbrains.annotations.NotNull;
  * }
  * }</pre></li></ul>
  */
+@Deprecated(since = "5.1", forRemoval = true)
 public interface UtxoLedgerTokenStateObserver<T extends ContractState> {
 
     /**
