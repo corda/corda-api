@@ -6,7 +6,10 @@
   "fields": [
     {
       "name": "payload",
-      "type": "string",
+      "type": [
+        "string",
+        "net.corda.data.interop.evm.response.TransactionReceipt"
+      ],
       "doc": "The encoded return call from the EVM"
     }
   ]
