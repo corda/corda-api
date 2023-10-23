@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.1') _
+@Library('corda-shared-build-pipeline-steps@connelm/NOTICK/test-do-not-merge') _
 
 cordaPipelineKubernetesAgent(
     runIntegrationTests: false,
