@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "FindTransactionIdsAndStatuses",
+  "doc": "A request to fetch transaction IDs and their statuses.",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+  {
+    "name": "ids",
+    "type": {
+      "type" : "array",
+      "items" : "string"
+    },
+    "doc": "A list of the transaction IDs to fetch."
+  }]
+}
