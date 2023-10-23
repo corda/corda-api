@@ -1,0 +1,19 @@
+topics:
+  ScheduledTaskDbProcessorTopic:
+    name: scheduled.task.db.processor
+    consumers:
+      - db
+    producers:
+      - db
+  ScheduledTaskFlowMapperProcessorTopic:
+    name: scheduled.task.mapper.processor
+    consumers:
+      - flowMapper
+    producers:
+      - db
+  ScheduledTaskFlowProcessorTopic:
+    name: scheduled.task.flow.processor
+    consumers:
+      - flow
+    producers:
+      - db

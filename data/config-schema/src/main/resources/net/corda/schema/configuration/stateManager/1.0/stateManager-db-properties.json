@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://corda.r3.com/net/corda/schema/configuration/db/1.0/corda.db.json",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/stateManager/1.0/stateManager-db-properties.json",
   "title": "State Manager Database Configuration Schema",
   "description": "Configuration schema for the database section. Note that this configuration cannot be updated dynamically through the REST endpoint.",
   "type": "object",
@@ -23,6 +23,11 @@
           "type": "object",
           "default": {},
           "properties": {
+            "url": {
+              "description": "The JDBC URL.",
+              "type": "string",
+              "default": "jdbc:postgresql://state-manager-db:5432/state_manager"
+            },
             "driver": {
               "description": "The JDBC driver.",
               "type": "string",
@@ -32,16 +37,6 @@
               "description": "The directory that contains the JDBC drivers.",
               "type": "string",
               "default": "/opt/jdbc-driver"
-            },
-            "url": {
-              "description": "The JDBC URL.",
-              "type": "string",
-              "default": "jdbc:postgresql://state-manager-db:5432/state_manager"
-            },
-            "persistenceUnitName": {
-              "description": "The persistent unit name.",
-              "type": "string",
-              "default": "corda-state-manager"
             }
           },
           "additionalProperties": false
@@ -51,13 +46,13 @@
           "type": "object",
           "default": {},
           "properties": {
-            "max_size": {
+            "maxSize": {
               "description": "The maximum database pool size.",
               "type": "integer",
               "minimum": 1,
               "default": 10
             },
-            "min_size": {
+            "minSize": {
               "description": "The minimum database pool size. If left null will default to the `max_size` value.",
               "default": null,
               "anyOf": [

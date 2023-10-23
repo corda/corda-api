@@ -10,6 +10,12 @@
         "doc": "Unique identifier for the claim"
       },
       {
+        "name": "claimTimestamp",
+        "type": ["null", "long"],
+        "default": null,
+        "doc": "Timestamp of when the claim was made in epoc milliseconds"
+      },
+      {
         "name": "claimedTokenStateRefs",
         "type": {
           "type": "array",
