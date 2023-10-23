@@ -97,6 +97,7 @@ public interface EvmService {
      * @param transactionHash the transaction for which to query
      * @return an [EvmTransactionReceipt] with the results of the transaction
      */
+    @Suspendable
     @NotNull
     TransactionReceipt getTransactionReceipt(@NotNull String transactionHash,
                                              EvmOptions options);
