@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://corda.r3.com/net/corda/schema/configuration/stateManager/1.0/corda.stateManager.json",
+  "title": "Corda State Manager Configuration Schema",
+  "description": "Configuration schema for the State Manager section. This configures the interactions of the workers with the underlying persistent storage used by the out of process State Manager.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The type of state manager implementation.",
+      "enum": [
+        "DATABASE"
+      ]
+    },
+    "additionalProperties": false
+  },
+  "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "DATABASE"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "databaseProperties": {
+            "description": "Settings to connect to the State Manager Database.",
+            "$ref": "stateManager-db-properties.json"
+          }
+        },
+        "required": [
+          "type",
+          "databaseProperties"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": false
+}
