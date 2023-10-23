@@ -82,6 +82,15 @@
       "description": "Optional. The serial on the member's latest member info.",
       "type": "integer",
       "minimum": 0
+    },
+    "corda.notary.service.backchain.verifying": {
+      "description": "Boolean flag whether the notary service is backchain verifying or not.",
+      "type": "string",
+      "enum": ["true", "false"],
+      "examples": [
+        "true",
+        "false"
+      ]
     }
   },
   "required": [],

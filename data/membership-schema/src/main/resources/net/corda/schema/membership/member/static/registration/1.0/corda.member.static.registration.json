@@ -47,6 +47,15 @@
       "examples": [
         "net.corda.notary.MyNotaryService"
       ]
+    },
+    "corda.notary.service.backchain.verifying": {
+      "description": "Boolean flag whether the notary service is backchain verifying or not.",
+      "type": "string",
+      "enum": ["true", "false"],
+      "examples": [
+        "true",
+        "false"
+      ]
     }
   },
   "required": [

@@ -48,4 +48,9 @@ public interface NotaryInfo {
      * @return The public key of the notary service, which will be a composite key of all notary virtual nodes keys.
      */
     @NotNull PublicKey getPublicKey();
+
+    /**
+     * TODO KDocs
+     */
+    boolean isBackchainVerifying();
 }
