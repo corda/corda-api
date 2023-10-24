@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "SessionCounterpartyInfoRequest",
+  "doc" : "Request counterparties flow session information. This includes the flow protocol version that they are running.",
+  "namespace": "net.corda.data.flow.event.session",
+  "fields": [
+    {
+      "name": "sessionInit",
+      "type": "net.corda.data.flow.event.session.SessionInit",
+      "doc": "Contains information that can be used to start an initiated flow. Will be null for messages sent to the initiator. Will be null when initiated party is confirmed to be present to ensure out of order messages that arrive first contain this info."
+    }
+  ]
+}

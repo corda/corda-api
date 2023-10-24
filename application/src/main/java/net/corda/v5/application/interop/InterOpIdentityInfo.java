@@ -4,6 +4,7 @@ import net.corda.v5.application.interop.facade.FacadeId;
 import net.corda.v5.base.annotations.CordaSerializable;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * This interface represents the InterOp Identity Info that have been registered with the User.
@@ -27,7 +28,7 @@ public interface InterOpIdentityInfo {
     List<FacadeId> getFacadeIds();
 
     @NotNull
-    String getGroupId();
+    UUID getGroupId();
 
     @NotNull
     String getX500Name();
