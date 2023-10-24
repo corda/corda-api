@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * {@link FlowMessaging} allows a flow to initiate and communicate with one or more 3rd party flows.
@@ -162,7 +163,7 @@ public interface FlowMessaging {
     @NotNull
     String callFacade(
             @NotNull MemberX500Name memberName,
-            @NotNull String interopGroupId,
+            @NotNull UUID interopGroupId,
             @NotNull String facadeName,
             @NotNull String methodName,
             @NotNull String payload);
