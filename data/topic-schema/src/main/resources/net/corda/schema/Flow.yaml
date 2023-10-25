@@ -114,6 +114,7 @@ topics:
     consumers:
       - flowMapper
     producers:
+      - flowMapper
       - link-manager
     config:
   FlowStart:
@@ -129,5 +130,6 @@ topics:
       - flow
     producers:
       - flowMapper
+      - tokenSelection
     config:
 
