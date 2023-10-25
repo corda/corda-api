@@ -9,6 +9,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
+import static net.corda.v5.application.interop.evm.Type.STRING;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -25,9 +26,9 @@ class EvmServiceJavaApiTest {
         String test = "test";
         Parameter<String> one = Parameter.of("one", "value");
         Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
-        when(service.call(anyString(), anyString(), any(), eq(String.class), eq(one), eq(two))).thenReturn(test);
+        when(service.call(anyString(), anyString(), any(), eq(STRING), eq(one), eq(two))).thenReturn(test);
 
-        String result = service.call("", "", mock(CallOptions.class), String.class, one, two);
+        String result = service.call("", "", mock(CallOptions.class), STRING, one, two);
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
@@ -40,9 +41,9 @@ class EvmServiceJavaApiTest {
         Parameter<BigInteger> two = Parameter.of("one", BigInteger.TWO);
         List<Parameter<?>> list =Arrays.asList(one, two);
 
-        when(service.call(anyString(), anyString(), any(), eq(String.class), eq(list))).thenReturn(test);
+        when(service.call(anyString(), anyString(), any(), eq(STRING), eq(list))).thenReturn(test);
 
-        String result = service.call("", "", mock(CallOptions.class), String.class, list);
+        String result = service.call("", "", mock(CallOptions.class), STRING, list);
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
@@ -55,9 +56,9 @@ class EvmServiceJavaApiTest {
         Parameter<String[]> two = Parameter.of("one", "one", "two");
         List<Parameter<?>> list = Arrays.asList(one, two);
 
-        when(service.call(anyString(), anyString(), any(), eq(String.class), eq(list))).thenReturn(test);
+        when(service.call(anyString(), anyString(), any(), eq(STRING), eq(list))).thenReturn(test);
 
-        String result = service.call("", "", mock(CallOptions.class), String.class, list);
+        String result = service.call("", "", mock(CallOptions.class), STRING, list);
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
@@ -66,7 +67,7 @@ class EvmServiceJavaApiTest {
     @Test
     public void transactionWithMultipleParameters() {
         String test = "test";
-        Parameter<String> one = Parameter.of("one", Type.STRING, "value");
+        Parameter<String> one = Parameter.of("one", STRING, "value");
         Parameter<BigInteger> two = Parameter.of("one", Type.INT256, BigInteger.TWO);
         when(service.transaction(anyString(), anyString(), any(), eq(one), eq(two))).thenReturn(test);
 
