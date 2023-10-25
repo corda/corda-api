@@ -12,7 +12,7 @@ def constants = new Properties()
 file("$rootDir/../gradle.properties").withInputStream { InputStream input -> constants.load(input) }
 def bndVersion = constants.getProperty('bndVersion')
 def bndlibVersion = constants.getProperty('bndlibVersion')
-def internalPublishVersion = constants.getProperty('internalPublishVersion')
+def internalPluginVersion = constants.getProperty('internalPluginVersion')
 def artifactoryContextUrl = constants.getProperty('artifactoryContextUrl')
 
 repositories {
@@ -70,7 +70,8 @@ dependencies {
     implementation "biz.aQute.bnd:biz.aQute.bnd.gradle:$bndVersion"
 
     if (System.getenv('CORDA_ARTIFACTORY_USERNAME') != null || project.hasProperty('cordaArtifactoryUsername')) {
-        implementation "com.r3.internal.gradle.plugins:publish:$internalPublishVersion"
+        implementation "com.r3.internal.gradle.plugins:publish:$internalPluginVersion"
+        implementation "com.r3.internal.gradle.plugins:api-scanner:$internalPluginVersion"
     }
 
 }

@@ -11,6 +11,7 @@ topics:
       - verification
       - persistence
       - uniqueness
+      - tokenSelection
     config:
   FlowEventStateTopic:
     name: flow.event.state
@@ -169,6 +170,7 @@ topics:
     consumers:
       - flowMapper
     producers:
+      - flowMapper
       - link-manager
     config:
   FlowStart:
@@ -184,5 +186,6 @@ topics:
       - flow
     producers:
       - flowMapper
+      - tokenSelection
     config:
 
