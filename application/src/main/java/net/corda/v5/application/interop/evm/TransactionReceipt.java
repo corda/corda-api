@@ -29,7 +29,6 @@ public class TransactionReceipt {
     /**
      * The total base charge plus tip paid for each unit of gas
      */
-    @NotNull
     private final BigInteger effectiveGasPrice;
     /**
      * The address of the sender
@@ -79,7 +78,7 @@ public class TransactionReceipt {
                               @NotNull BigInteger blockNumber,
                               String contractAddress,
                               @NotNull BigInteger cumulativeGasUsed,
-                              @NotNull BigInteger effectiveGasPrice,
+                              BigInteger effectiveGasPrice,
                               @NotNull String from,
                               @NotNull BigInteger gasUsed,
                               @NotNull List<Log> logs,
