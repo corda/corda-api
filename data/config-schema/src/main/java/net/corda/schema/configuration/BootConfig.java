@@ -47,4 +47,5 @@ public final class BootConfig {
     public static final String VERIFICATION_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.verification";
     public static final String UNIQUENESS_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.uniqueness";
     public static final String PERSISTENCE_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.persistence";
+    public static final String TOKEN_SELECTION_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.tokenSelection";
 }
