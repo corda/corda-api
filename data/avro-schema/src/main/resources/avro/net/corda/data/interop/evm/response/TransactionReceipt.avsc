@@ -29,7 +29,10 @@
     },
     {
       "name": "effectiveGasPrice",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "doc": "The total base charge plus tip paid for each unit of gas"
     },
     {
@@ -80,7 +83,10 @@
     },
     {
       "name": "type",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "doc": "The type of value"
     }
   ]
