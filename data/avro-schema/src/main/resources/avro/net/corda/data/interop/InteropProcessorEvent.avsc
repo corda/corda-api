@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "InteropProcessorEvent",
+  "namespace": "net.corda.data.interop",
+  "fields": [
+    {
+      "name": "payload",
+      "type": [
+        "net.corda.data.flow.event.SessionEvent"
+      ]
+    }
+  ]
+}
