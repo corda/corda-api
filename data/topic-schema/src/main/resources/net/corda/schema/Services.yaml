@@ -1,19 +1,24 @@
+# TODO: remove db access once the tokenSelection worker has been integrated.
 topics:
   ServicesTokenEventTopic:
     name: services.token.event
     consumers:
       - db
+      - tokenSelection
     producers:
       - flow
       - db
       - persistence
+      - tokenSelection
     config:
   ServicesTokenEventStateTopic:
     name: services.token.event.state
     consumers:
       - db
+      - tokenSelection
     producers:
       - db
+      - tokenSelection
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -25,22 +30,28 @@ topics:
     name: services.token.event.dlq
     consumers:
       - db
+      - tokenSelection
     producers:
       - db
+      - tokenSelection
     config:
   ServicesTokenSyncEventTopic:
     name: services.token.sync.event
     consumers:
       - db
+      - tokenSelection
     producers:
       - db
+      - tokenSelection
     config:
   ServicesTokenSyncEventStateTopic:
     name: services.token.sync.event.state
     consumers:
       - db
+      - tokenSelection
     producers:
       - db
+      - tokenSelection
     config:
       cleanup.policy: compact
       segment.ms: 600000
@@ -52,6 +63,8 @@ topics:
     name: services.token.sync.event.dlq
     consumers:
       - db
+      - tokenSelection
     producers:
       - db
+      - tokenSelection
     config:
