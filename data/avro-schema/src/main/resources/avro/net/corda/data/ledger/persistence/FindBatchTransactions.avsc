@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "FindBatchTransactions",
+  "doc": "A request to fetch multiple signed transactions",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+  {
+    "name": "ids",
+    "type": {
+        "type": "array",
+        "items": "string"
+    },
+    "doc": "TODO"
+  },
+  {
+    "name": "transactionStatus",
+    "type": "string",
+    "doc": "The status of the transactions"
+  }]
+}
