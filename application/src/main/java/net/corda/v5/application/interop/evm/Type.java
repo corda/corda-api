@@ -23,23 +23,31 @@ public final class Type<T> {
             case "int8":
             case "byte_list":
             case "int8_list":
+            case "byte_array":
+            case "int8_array":
                 return Byte.class;
             case "boolean":
             case "boolean_list":
+            case "boolean_array":
                 return Boolean.class;
             case "character":
             case "character_list":
+            case "character_array":
                 return Character.class;
             case "string":
             case "string_list":
             case "address":
             case "address_list":
+            case "string_array":
+            case "address_array":
                 return String.class;
             case "enum":
             case "enum_list":
+            case "enum_array":
                 return Enum.class;
             case "int16":
             case "int16_list":
+            case "int16_array":
                 return Short.class;
             case "int24":
             case "int24_list":
@@ -49,6 +57,10 @@ public final class Type<T> {
             case "int32_list":
             case "uint32":
             case "uint32_list":
+            case "int24_array":
+            case "uint24_array":
+            case "int32_array":
+            case "uint32_array":
                 return Integer.class;
             case "int40":
             case "int40_list":
@@ -66,6 +78,14 @@ public final class Type<T> {
             case "int64_list":
             case "uint64":
             case "uint64_list":
+            case "int40_array":
+            case "uint40_array":
+            case "int48_array":
+            case "uint48_array":
+            case "int56_array":
+            case "uint56_array":
+            case "int64_array":
+            case "uint64_array":
                 return Long.class;
             case "int72":
             case "int72_list":
@@ -163,35 +183,6 @@ public final class Type<T> {
             case "int256_list":
             case "uint256":
             case "uint256_list":
-                return BigInteger.class;
-            case "byte_array":
-            case "int8_array":
-                return Byte[].class;
-            case "boolean_array":
-                return Boolean[].class;
-            case "character_array":
-                return Character[].class;
-            case "string_array":
-            case "address_array":
-                return String[].class;
-            case "enum_array":
-                return Enum[].class;
-            case "int16_array":
-                return Short[].class;
-            case "int24_array":
-            case "uint24_array":
-            case "int32_array":
-            case "uint32_array":
-                return Integer[].class;
-            case "int40_array":
-            case "uint40_array":
-            case "int48_array":
-            case "uint48_array":
-            case "int56_array":
-            case "uint56_array":
-            case "int64_array":
-            case "uint64_array":
-                return Long[].class;
             case "int72_array":
             case "uint72_array":
             case "int80_array":
@@ -240,11 +231,18 @@ public final class Type<T> {
             case "uint248_array":
             case "int256_array":
             case "uint256_array":
-                return BigInteger[].class;
+                return BigInteger.class;
         }
         throw new IllegalArgumentException("Unsupported type $returnType");
     }
 
+    public boolean isList() {
+        return name.endsWith("_list");
+    }
+
+    public boolean isArray() {
+        return name.endsWith("_array");
+    }
 
     public static final Type<Byte> BYTE = new Type<>("byte");
     public static final Type<Boolean> BOOLEAN = new Type<>("boolean");
