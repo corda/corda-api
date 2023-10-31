@@ -121,4 +121,11 @@ public interface UtxoSignedTransaction extends TransactionWithMetadata {
     @NotNull
     @Suspendable
     UtxoLedgerTransaction toLedgerTransaction();
+
+    @NotNull
+    @Suspendable
+    UtxoLedgerTransaction toLedgerTransaction(
+            List<StateAndRef<?>> inputStateAndRefs,
+            List<StateAndRef<?>> referenceStateAndRefs
+    );
 }

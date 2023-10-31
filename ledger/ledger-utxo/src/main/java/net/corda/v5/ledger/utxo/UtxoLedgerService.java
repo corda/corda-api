@@ -67,6 +67,10 @@ public interface UtxoLedgerService {
     @Suspendable
     UtxoSignedTransaction findSignedTransaction(@NotNull SecureHash id);
 
+    // TODO Find a better place for this
+    @Suspendable
+    void verifyContract(@NotNull UtxoLedgerTransaction ledgerTransaction);
+
     /**
      * TODO JDocs
      * @param ids
