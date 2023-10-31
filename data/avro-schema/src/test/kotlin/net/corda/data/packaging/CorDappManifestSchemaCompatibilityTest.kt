@@ -1,6 +1,5 @@
 package net.corda.data.packaging
 
-import net.corda.data.KeyValuePairList
 import org.apache.avro.Schema
 import org.apache.avro.SchemaCompatibility
 import org.junit.jupiter.api.Assertions
