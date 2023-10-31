@@ -42,6 +42,11 @@
     {
       "name": "attributes",
       "type" : { "type":  "map", "values" :  "string", "default": {}}
+    },
+    {
+      "name": "cordappName",
+      "type": ["null", "string"],
+      "default": null
     }
   ]
 }
