@@ -72,14 +72,6 @@ public interface UtxoLedgerService {
     void verifyContract(@NotNull UtxoLedgerTransaction ledgerTransaction);
 
     /**
-     * TODO JDocs
-     * @param ids
-     * @return
-     */
-    @Suspendable
-    List<UtxoSignedTransaction> findSignedTransactions(@NotNull List<SecureHash> ids);
-
-    /**
      * Finds a {@link UtxoLedgerTransaction} in the vault by the specified transaction ID.
      *
      * @param id The ID of the {@link UtxoLedgerTransaction} to find.

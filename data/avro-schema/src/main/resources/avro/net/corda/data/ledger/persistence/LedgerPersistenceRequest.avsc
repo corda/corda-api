@@ -33,7 +33,6 @@
         "net.corda.data.ledger.persistence.PersistTransaction",
         "net.corda.data.ledger.persistence.PersistTransactionIfDoesNotExist",
         "net.corda.data.ledger.persistence.FindTransaction",
-        "net.corda.data.ledger.persistence.FindBatchTransactions",
         "net.corda.data.ledger.persistence.FindUnconsumedStatesByType",
         "net.corda.data.ledger.persistence.ResolveStateRefs",
         "net.corda.data.ledger.persistence.UpdateTransactionStatus",
