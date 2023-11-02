@@ -78,15 +78,27 @@
       "minimum": 1
     },
     "heartbeatMessagePeriod": {
-      "description": "The heartbeat message period in milliseconds.",
+      "description": "The heartbeat message period in milliseconds. heartbeatMessagePeriodForMgmPeer is used instead when communicating with an MGM.",
       "type": "integer",
       "default": 2000,
       "minimum": 500
     },
     "sessionTimeout": {
-      "description": "The session timeout in milliseconds.",
+      "description": "The session timeout in milliseconds. sessionTimeoutForMgmPeer is used instead when communicating with an MGM.",
       "type": "integer",
       "default": 10000,
+      "minimum": 500
+    },
+    "heartbeatMessagePeriodForMgmPeer": {
+      "description": "The heartbeat message period in milliseconds. Used when communicating with an MGM.",
+      "type": "integer",
+      "default": 60000,
+      "minimum": 500
+    },
+    "sessionTimeoutForMgmPeer": {
+      "description": "The session timeout in milliseconds. Used for sessions with an MGM.",
+      "type": "integer",
+      "default": 300000,
       "minimum": 500
     },
     "sessionsPerPeer": {
