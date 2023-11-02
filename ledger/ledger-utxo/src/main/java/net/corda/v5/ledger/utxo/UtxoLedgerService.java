@@ -231,6 +231,28 @@ public interface UtxoLedgerService {
     );
 
     /**
+     * Receives transaction from counterparty.
+     *
+     * @param session The counterparty who are connected to {@link FlowSession}.
+     */
+    @Suspendable
+    UtxoSignedTransaction receiveTransaction(
+            @NotNull FlowSession session
+    );
+
+    /**
+     * Sends transaction to session who are subscribed to it
+     *
+     * @param sessions The counterparty who are connected to {@link FlowSession}.
+     * @param signedTransaction The {@link UtxoSignedTransaction} by signatories.
+     */
+    @Suspendable
+    void sendTransaction(
+            @NotNull List<FlowSession> sessions,
+            @NotNull UtxoSignedTransaction signedTransaction
+    );
+
+    /**
      * Sends the difference between the current transaction builder and the originally received one to another session
      * with all dependent back chains.
      * It works only with {@link UtxoTransactionBuilder}s created from {@link #receiveTransactionBuilder(FlowSession)}
