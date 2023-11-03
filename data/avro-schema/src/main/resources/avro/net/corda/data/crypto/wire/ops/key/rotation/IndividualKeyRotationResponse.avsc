@@ -25,6 +25,11 @@
       "doc": "The new wrapping key which oldKeyAlias' content has been re-wrapped with."
     },
     {
+      "name": "targetKeyAlias",
+      "type": "string",
+      "doc": "Specifies the wrapped key to rotate"
+    },
+    {
       "name": "endOperationTimestamp",
       "type": {
         "type": "long",
