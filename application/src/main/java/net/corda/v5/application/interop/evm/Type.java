@@ -40,6 +40,7 @@ public final class Type<T> {
             case "address_list":
             case "string_array":
             case "address_array":
+            case "bytes":
                 return String.class;
             case "enum":
             case "enum_list":
@@ -315,6 +316,7 @@ public final class Type<T> {
     public static final Type<BigInteger> UINT248 = new Type<>("uint248");
     public static final Type<BigInteger> UINT256 = new Type<>("uint256");
     public static final Type<Byte[]> BYTE_ARRAY = new Type<>("byte_array");
+    public static final Type<String> BYTES = new Type<>("bytes");
     public static final Type<Boolean[]> BOOLEAN_ARRAY = new Type<>("boolean_array");
     public static final Type<Character[]> CHARACTER_ARRAY = new Type<>("character_array");
     public static final Type<String[]> STRING_ARRAY = new Type<>("string_array");
