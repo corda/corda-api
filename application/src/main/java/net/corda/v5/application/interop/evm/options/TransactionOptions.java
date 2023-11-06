@@ -16,7 +16,7 @@ public class TransactionOptions extends EvmOptions {
     public BigInteger gasLimit;
 
     /**
-     * The value transferred in wei.
+     * The value transferred in wei to the recipient address.
      */
     @NotNull
     public BigInteger value;
