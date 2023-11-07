@@ -50,7 +50,7 @@ public final class RbacKeys {
     /**
      * Flow start client request ID.
      */
-    public static final String CLIENT_REQ_REGEX = "[-._A-Za-z0-9]{1,242}";
+    public static final String CLIENT_REQ_REGEX = "[-._A-Za-z0-9]{1,250}";
 
     /**
      * FQN for a flow to be started.
