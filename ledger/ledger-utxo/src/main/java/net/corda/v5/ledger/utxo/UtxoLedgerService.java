@@ -6,6 +6,7 @@ import net.corda.v5.application.persistence.PagedQuery.ResultSet;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.common.transaction.TransactionVerificationException;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
@@ -231,28 +232,6 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Receives transaction from counterparty.
-     *
-     * @param session The counterparty who are connected to {@link FlowSession}.
-     */
-    @Suspendable
-    UtxoSignedTransaction receiveTransaction(
-            @NotNull FlowSession session
-    );
-
-    /**
-     * Sends transaction to session who are subscribed to it
-     *
-     * @param sessions The counterparty who are connected to {@link FlowSession}.
-     * @param signedTransaction The {@link UtxoSignedTransaction} by signatories.
-     */
-    @Suspendable
-    void sendTransaction(
-            @NotNull List<FlowSession> sessions,
-            @NotNull UtxoSignedTransaction signedTransaction
-    );
-
-    /**
      * Sends the difference between the current transaction builder and the originally received one to another session
      * with all dependent back chains.
      * It works only with {@link UtxoTransactionBuilder}s created from {@link #receiveTransactionBuilder(FlowSession)}
@@ -269,6 +248,30 @@ public interface UtxoLedgerService {
             @NotNull FlowSession session
     );
 
+    /**
+     * Sends transaction to counterparty whose session is open for.
+     *
+     * @param sessions The counterparty who are connected to {@link FlowSession} to send transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} by signatories.
+     * @throws IllegalArgumentException if transaction fails verification before sending transaction.
+     */
+    @Suspendable
+    void sendTransaction(
+            @NotNull List<FlowSession> sessions,
+            @NotNull UtxoSignedTransaction signedTransaction
+    );
+
+    /**
+     * Receives verified transaction from counterparty whose session is open for and persists it to a vault.
+     *
+     * @param session The counterparty who are connected to {@link FlowSession} to receive transaction from.
+     * @return Returns {@link UtxoSignedTransaction} received from counterparty through session.
+     * @throws TransactionVerificationException if the transaction received fails verification.
+     */
+    @Suspendable
+    UtxoSignedTransaction receiveTransaction(
+            @NotNull FlowSession session
+    );
 
     /**
      * Creates a query object for a vault named query with the given name. This query can be executed later by calling
