@@ -45,6 +45,13 @@
           "minimum": 1000,
           "maximum": 2147483647,
           "default": 600000
+        },
+        "poolSize": {
+          "description": "The size of the flow event processing pool size.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 8
         }
       },
       "additionalProperties": false
@@ -82,7 +89,7 @@
           "maximum": 2147483647,
           "default": 1800000
         },
-          "p2pTTL": {
+        "p2pTTL": {
           "description": "The TTL set in milliseconds. This is added to the current time and set on messages passed to the P2P layer to send to a counterparty. Messages received with a TTL timestamp set in the past will be discarded.",
           "type": "integer",
           "minimum": 10000,

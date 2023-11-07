@@ -13,6 +13,7 @@ topics:
       - persistence
       - rest
       - uniqueness
+      - tokenSelection
     producers:
       - crypto
       - db
@@ -25,6 +26,7 @@ topics:
       - persistence
       - rest
       - uniqueness
+      - tokenSelection
     config:
       cleanup.policy: compact
       segment.ms: 600000

@@ -74,6 +74,7 @@ topics:
       - link-manager
       - persistence
       - rest
+      - tokenSelection
     producers:
       - db
     config:

@@ -30,6 +30,10 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createIndex tableName="state" indexName="state_key_version_idx">
+            <column name="key"/>
+            <column name="version"/>
+        </createIndex>
         <addPrimaryKey columnNames="key" constraintName="state_key" tableName="state"/>
     </changeSet>
 </databaseChangeLog>
