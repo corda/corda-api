@@ -100,7 +100,7 @@
       "type": "object",
       "default": {},
       "properties": {
-        "forMGM": {
+        "forMgm": {
           "description": "The number of actively maintained sessions between two peers if one of them is an MGM.",
           "type": "integer",
           "default": 1,
