@@ -12,4 +12,6 @@ gradle.properties  @corda/corda5-team-leads
 *.kt               @corda/corda5-team-leads
 *.java             @corda/corda5-team-leads
 
+**/scans/*.yaml    @corda/corda5-team-leads
+
 CODEOWNERS         @corda/blt @corda/corda5-team-leads
