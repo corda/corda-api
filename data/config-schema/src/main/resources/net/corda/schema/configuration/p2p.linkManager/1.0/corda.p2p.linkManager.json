@@ -90,7 +90,7 @@
       "minimum": 500
     },
     "sessionsPerPeer": {
-      "description": "The number of actively maintained sessions between two peers.",
+      "description": "Deprecated field, numOfSessionsPerPeer should be used instead. The number of actively maintained sessions between two peers.",
       "type": ["integer", "null"],
       "default": null,
       "minimum": 1
