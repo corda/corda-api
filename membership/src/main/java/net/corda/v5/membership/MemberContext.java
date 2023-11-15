@@ -1,5 +1,6 @@
 package net.corda.v5.membership;
 
+import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.LayeredPropertyMap;
 
 /**
@@ -32,4 +33,5 @@ import net.corda.v5.base.types.LayeredPropertyMap;
  *
  * @see LayeredPropertyMap For further information on the properties and functions.
  */
+@CordaSerializable
 public interface MemberContext extends LayeredPropertyMap {}
