@@ -37,7 +37,6 @@ topics:
   FlowMapperEventTopic:
     name: flow.mapper.event
     consumers:
-      - flow
       - flowMapper
     producers:
       - flow
