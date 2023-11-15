@@ -2,7 +2,7 @@ topics:
   FlowEventTopic:
     name: flow.event
     consumers:
-      - flow
+      - db
     producers:
       - db
       - crypto
