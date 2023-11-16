@@ -105,14 +105,14 @@ topics:
     consumers:
       - flowMapper
     producers:
-      - flow
+      - db
     config:
   FlowMapperSessionIn:
     name: flow.mapper.session.in
     consumers:
       - flowMapper
     producers:
-      - flowMapper
+      - db
       - link-manager
     config:
   FlowStart:
@@ -120,7 +120,7 @@ topics:
     consumers:
       - flow
     producers:
-      - flowMapper
+      - db
     config:
   FlowSession:
     name: flow.session
