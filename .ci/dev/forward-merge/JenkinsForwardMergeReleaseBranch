@@ -19,7 +19,7 @@ String originBranch = 'release/os/5.1'
  * the branch name of target branch, it should be the branch with the next version
  * after the one in current branch.
  */
-String targetBranch = 'release/interop/syntax'
+String targetBranch = 'release/os/5.2'
 
 /**
  * Forward merge any changes between #originBranch and #targetBranch
@@ -27,5 +27,4 @@ String targetBranch = 'release/interop/syntax'
 forwardMerger(
     targetBranch: targetBranch,
     originBranch: originBranch,
-    slackChannel: '#interop-forward-merge-bot-notifications',
-)
+    slackChannel: '#c5-forward-merge-bot-notifications')
