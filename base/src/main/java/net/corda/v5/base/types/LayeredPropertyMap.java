@@ -1,5 +1,6 @@
 package net.corda.v5.base.types;
 
+import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.exceptions.ValueNotFoundException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -51,6 +52,7 @@ import java.util.Set;
  * converters using OSGi. Out of box it supports conversion to simple types like {@code int}, {@code boolean},
  * as well as {@link MemberX500Name}.
  */
+@CordaSerializable
 public interface LayeredPropertyMap {
     /**
      * @return {@link Set} of all entries in the underlying map.
