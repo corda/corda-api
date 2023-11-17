@@ -39,11 +39,6 @@
       "doc": "Only specified when targeting managed keys. Specifies the specific tenant that owns the old and new key."
     },
     {
-      "name": "simulate",
-      "type": "boolean",
-      "doc": "True, if the invocation was a simulation."
-    },
-    {
       "name": "newGeneration",
       "type": ["null", "int"],
       "doc": "Set to the new generation number when rotating a single managed key, otherwise null."
