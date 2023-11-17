@@ -37,6 +37,6 @@
         "symbols": ["MANAGED", "UNMANAGED"]
       },
       "doc": "Type of the key to be rotated."
-    },
+    }
   ]
 }
