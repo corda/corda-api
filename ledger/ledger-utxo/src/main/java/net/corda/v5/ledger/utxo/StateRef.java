@@ -6,7 +6,6 @@ import net.corda.v5.crypto.SecureHash;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.text.MessageFormat;
 import java.util.Objects;
 
 /**
@@ -72,7 +71,8 @@ public final class StateRef {
         final int lastIndexOfDelimiter = value.lastIndexOf(DELIMITER);
         if (lastIndexOfDelimiter == -1) {
             throw new IllegalArgumentException(
-                    MessageFormat.format("Failed to parse a StateRef from the specified value. At least one delimiter ({0}) is expected in value: {1}.", DELIMITER, value)
+                    "Failed to parse a StateRef from the specified value. At least one delimiter (" + DELIMITER + ") " +
+                            "is expected in value: " + value + "."
             );
         }
 
@@ -84,12 +84,12 @@ public final class StateRef {
             return new StateRef(transactionId, index);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(
-                    MessageFormat.format("Failed to parse a StateRef from the specified value. The index is malformed: {0}.", value),
+                    "Failed to parse a StateRef from the specified value. The index is malformed: " + value + ".",
                     numberFormatException
             );
         } catch (IllegalArgumentException illegalArgumentException) {
             throw new IllegalArgumentException(
-                    MessageFormat.format("Failed to parse a StateRef from the specified value. The transaction ID is malformed: {0}.", value),
+                    "Failed to parse a StateRef from the specified value. The transaction ID is malformed: " + value + ".",
                     illegalArgumentException
             );
         }
@@ -126,6 +126,6 @@ public final class StateRef {
      */
     @Override
     public String toString() {
-        return MessageFormat.format("{0}{1}{2}", transactionId, DELIMITER, index);
+        return transactionId + DELIMITER + index;
     }
 }
