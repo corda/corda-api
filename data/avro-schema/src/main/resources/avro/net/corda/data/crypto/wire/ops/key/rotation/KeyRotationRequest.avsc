@@ -19,12 +19,12 @@
       "doc": "Type of the key to be rotated."
     },
     {
-      "name": "oldKeyAlias",
+      "name": "oldParentKeyAlias",
       "type": ["null", "string"],
       "doc": "The key alias that should no longer be used, and all its protected content re-wrapped with a new key."
     },
     {
-      "name": "newKeyAlias",
+      "name": "newParentKeyAlias",
       "type": ["null", "string"],
       "doc": "The unmanaged key alias that should be used for material currently wrapped with old key. Only specified when rotating unmanaged keys."
     },
@@ -37,21 +37,6 @@
       "name": "tenantId",
       "type": ["null", "string"],
       "doc": "Only specified when targeting managed keys. Specifies the specific tenant that owns the old and new key."
-    },
-    {
-      "name": "simulate",
-      "type": "boolean",
-      "doc": "If true, only work out the number of keys to rotate; defaults to false, which causes the key rotation to actually happen."
-    },
-    {
-      "name": "timeToLive",
-      "type": ["null", "int"],
-      "doc": "The maximum number of milliseconds which should pass, after which the key rotation loop will exit. The server can return before this time, and should do at least one key rotation."
-    },
-    {
-      "name": "limit",
-      "type": ["null", "int"],
-      "doc": "The maximum number of key rotations to do, after which the key rotation loop will exit. The server can return after doing at least one, but at the server discretion not all of these keys, and should do at least one."
     }
   ]
 }
