@@ -22,7 +22,7 @@
     {
       "name": "newParentKeyAlias",
       "type": "string",
-      "doc": "The new wrapping key which oldKeyAlias' content will be re-wrapped with."
+      "doc": "The new wrapping key which oldParentKeyAlias' content will be re-wrapped with."
     },
     {
       "name": "targetKeyAlias",
