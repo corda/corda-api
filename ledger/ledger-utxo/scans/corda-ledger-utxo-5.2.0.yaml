@@ -424,6 +424,7 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
     receiveTransaction:
       annotations:
         - Suspendable
+        - NotNull
       default: false
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
@@ -479,14 +480,14 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
       type: public abstract
       returnType: void
       params:
-        sessions:
-          annotation:
-            - NotNull
-          type: java.util.List<net.corda.v5.application.messaging.FlowSession>
         signedTransaction:
           annotation:
             - NotNull
           type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+        sessions:
+          annotation:
+            - NotNull
+          type: java.util.List<net.corda.v5.application.messaging.FlowSession>
     sendUpdatedTransactionBuilder:
       annotations:
         - Suspendable
