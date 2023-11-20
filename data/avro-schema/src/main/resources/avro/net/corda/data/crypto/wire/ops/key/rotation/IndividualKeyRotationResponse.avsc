@@ -15,14 +15,14 @@
       "doc": "Specifies the specific tenant that owns the old key."
     },
     {
-      "name": "oldKeyAlias",
+      "name": "oldParentKeyAlias",
       "type": "string",
       "doc": "The key alias whose protected content has been re-wrapped with a new key."
     },
     {
-      "name": "newKeyAlias",
+      "name": "newParentKeyAlias",
       "type": "string",
-      "doc": "The new wrapping key which oldKeyAlias' content has been re-wrapped with."
+      "doc": "The new wrapping key which oldParentKeyAlias' content has been re-wrapped with."
     },
     {
       "name": "targetKeyAlias",

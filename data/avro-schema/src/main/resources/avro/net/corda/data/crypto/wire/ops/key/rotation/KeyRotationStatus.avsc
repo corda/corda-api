@@ -19,14 +19,14 @@
       "doc": "Type of the key to be rotated."
     },
     {
-      "name": "oldKeyAlias",
+      "name": "oldParentKeyAlias",
       "type": ["null", "string"],
-      "doc": "The key alias that should no longer be used, and all its protected content re-wrapped with a new key."
+      "doc": "The wrapping key alias that should no longer be used, and all its protected content re-wrapped with a new key."
     },
     {
-      "name": "newKeyAlias",
+      "name": "newParentKeyAlias",
       "type": ["null", "string"],
-      "doc": "The unmanaged key alias that should be used for material currently wrapped with old key. Only specified when rotating unmanaged keys."
+      "doc": "The wrapping key alias that should be used for material currently wrapped with old key. Only specified when rotating unmanaged keys."
     },
     {
       "name": "oldGeneration",
