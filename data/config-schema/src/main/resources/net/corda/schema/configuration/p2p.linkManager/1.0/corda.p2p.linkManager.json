@@ -90,10 +90,29 @@
       "minimum": 500
     },
     "sessionsPerPeer": {
-      "description": "The number of actively maintained sessions between two peers.",
-      "type": "integer",
-      "default": 4,
+      "description": "Deprecated field, numOfSessionsPerPeer should be used instead. The number of actively maintained sessions between two peers.",
+      "type": ["integer", "null"],
+      "default": null,
       "minimum": 1
+    },
+    "numOfSessionsPerPeer": {
+      "description": "The number of actively maintained sessions between two peers.",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "forMgm": {
+          "description": "The number of actively maintained sessions between two peers if one of them is an MGM. Communication between an MGM and a member is not considered critical and so the default value of 1 is recommended to improve performance.",
+          "type": "integer",
+          "default": 1,
+          "minimum": 1
+        },
+        "forMembers": {
+          "description": "The number of actively maintained sessions between two peers if both peers are members. The default value of 2 is recommended because the chance of both sessions failing on the same link manager is relatively low. If high-availability is critical, R3 recommends deploying multiple link manager instances instead.",
+          "type": "integer",
+          "default": 2,
+          "minimum": 1
+        }
+      }
     },
     "revocationCheck": {
       "type": "object",
