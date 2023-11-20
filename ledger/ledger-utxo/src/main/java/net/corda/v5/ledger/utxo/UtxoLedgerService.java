@@ -5,8 +5,8 @@ import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.PagedQuery.ResultSet;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.crypto.SecureHash;
-import net.corda.v5.ledger.common.transaction.TransactionVerificationException;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
@@ -249,25 +249,26 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Sends transaction to counterparty whose session is open for.
+     * Sends the transaction to counterparty sessions.
      *
-     * @param sessions The counterparty who are connected to {@link FlowSession} to send transaction.
-     * @param signedTransaction The {@link UtxoSignedTransaction} by signatories.
-     * @throws IllegalArgumentException if transaction fails verification before sending transaction.
+     * @param sessions The counterparties who receive the transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
+     * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
      */
     @Suspendable
     void sendTransaction(
-            @NotNull List<FlowSession> sessions,
-            @NotNull UtxoSignedTransaction signedTransaction
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
     );
 
     /**
-     * Receives verified transaction from counterparty whose session is open for and persists it to a vault.
+     * Receives a verified transaction from the counterparty session and persists it to the vault.
      *
-     * @param session The counterparty who are connected to {@link FlowSession} to receive transaction from.
-     * @return Returns {@link UtxoSignedTransaction} received from counterparty through session.
-     * @throws TransactionVerificationException if the transaction received fails verification.
+     * @param session The counterparty to receive a transaction from.
+     * @return the {@link UtxoSignedTransaction} received from counterparty.
+     * @throws CordaRuntimeException If the transaction received fails verification.
      */
+    @NotNull
     @Suspendable
     UtxoSignedTransaction receiveTransaction(
             @NotNull FlowSession session
