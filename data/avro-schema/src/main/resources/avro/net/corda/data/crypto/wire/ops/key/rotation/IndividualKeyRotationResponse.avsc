@@ -27,7 +27,7 @@
     {
       "name": "targetKeyAlias",
       "type": "string",
-      "doc": "Specifies the alias of the key that should be rotated"
+      "doc": "Specifies the alias of the key that should be rotated."
     },
     {
       "name": "endOperationTimestamp",
