@@ -114,10 +114,6 @@
               "passphrase": {
                 "description": "Passphrase for the key derivation function",
                 "type": "string"
-              },
-              "automaticRotation":  {
-                "description": "Automatically rotate away from any wrappings using this key.",
-                "type": "boolean"
               }
             },
             "additionalProperties": false,
