@@ -5,6 +5,7 @@ import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.PagedQuery.ResultSet;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
@@ -247,6 +248,31 @@ public interface UtxoLedgerService {
             @NotNull FlowSession session
     );
 
+    /**
+     * Sends the transaction to counterparty sessions.
+     *
+     * @param sessions The counterparties who receive the transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
+     * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
+     */
+    @Suspendable
+    void sendTransaction(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+    /**
+     * Receives a verified transaction from the counterparty session and persists it to the vault.
+     *
+     * @param session The counterparty to receive a transaction from.
+     * @return the {@link UtxoSignedTransaction} received from counterparty.
+     * @throws CordaRuntimeException If the transaction received fails verification.
+     */
+    @NotNull
+    @Suspendable
+    UtxoSignedTransaction receiveTransaction(
+            @NotNull FlowSession session
+    );
 
     /**
      * Creates a query object for a vault named query with the given name. This query can be executed later by calling
