@@ -333,6 +333,18 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: java.util.List<net.corda.v5.application.messaging.FlowSession>
+    findDraftSignedTransaction:
+      annotations:
+        - Suspendable
+        - Nullable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+      params:
+        id:
+          annotation:
+            - NotNull
+          type: net.corda.v5.crypto.SecureHash
     findLedgerTransaction:
       annotations:
         - Suspendable
@@ -389,6 +401,17 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: Class<T>
+    persistDraftSignedTransaction:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        utxoSignedTransaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
     query:
       annotations:
         - Suspendable
