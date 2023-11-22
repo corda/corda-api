@@ -44,3 +44,27 @@ topics:
     producers:
       - crypto
     config:
+  CryptoOpsRekeyTopic:
+    name: crypto.key.rotation.ops
+    consumers:
+      - crypto
+    producers:
+      - rest
+  CryptoOpsRekeyStatusTopic:
+    name: crypto.key.rotation.ops.resp
+    consumers:
+      - rest
+    producers:
+      - crypto
+  CryptoOpsRewrapTopic:
+    name: crypto.key.rotation.individual
+    consumers:
+      - crypto
+    producers:
+      - crypto
+  CryptoOpsRewrapResponseTopic:
+    name: crypto.key.rotation.individual.resp
+    consumers:
+      - crypto
+    producers:
+      - crypto

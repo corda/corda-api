@@ -87,6 +87,13 @@ public final class Schemas {
         public static final String FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow";
         public static final String RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc";
         public static final String RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC);
+        public static final String REKEY_MESSAGE_TOPIC = "crypto.key.rotation.ops";
+        public static final String REKEY_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REKEY_MESSAGE_TOPIC);
+        public static final String REKEY_MESSAGE_STATUS_TOPIC = "crypto.key.rotation.status";
+        public static final String REWRAP_MESSAGE_TOPIC = "crypto.key.rotation.individual";
+        public static final String REWRAP_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REWRAP_MESSAGE_TOPIC);
+
+
     }
 
     /**
