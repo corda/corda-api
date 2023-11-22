@@ -1,4 +1,4 @@
-@Library('corda-shared-build-pipeline-steps@5.1') _
+@Library('corda-shared-build-pipeline-steps@ES-1657/enable-sonarcloud') _
 
 cordaPipelineKubernetesAgent(
     runIntegrationTests: false,
