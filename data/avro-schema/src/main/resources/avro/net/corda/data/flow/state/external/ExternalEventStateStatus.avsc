@@ -14,6 +14,7 @@
         "symbols": [
           "OK",
           "RETRY",
+          "RETRYING",
           "PLATFORM_ERROR",
           "FATAL_ERROR"
         ]

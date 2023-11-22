@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "ExternalEventRetry",
+  "namespace": "net.corda.data.flow.event.external",
+  "doc": "The ExternalEventRetry event is used to retry an external event after a transient error.",
+  "fields": [
+    {
+      "name": "retries",
+      "type": "int",
+      "doc": "The number of retries"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "net.corda.data.flow.event.external.ExternalEvent"
+      ],
+      "doc": "Avro serialized representation of the payload that will be retried."
+    }
+  ]
+}
+
