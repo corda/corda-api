@@ -65,6 +65,16 @@
         "O=NotaryService, L=London, C=GB"
       ]
     },
+    "corda.notary.service.backchain.required": {
+      "description": "Boolean flag whether backchain verification by members is required when using this notary service.",
+      "type": "string",
+      "enum": ["true", "false"],
+      "default": "true",
+      "examples": [
+        "true",
+        "false"
+      ]
+    },
     "corda.notary.service.flow.protocol.name": {
       "description": "Name of the flow protocol used by the notary service. Valid only when one of the roles is notary.",
       "type": "string",
