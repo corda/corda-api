@@ -44,7 +44,6 @@
       "description": "Boolean flag whether backchain verification by members is required when using this notary service.",
       "type": "string",
       "enum": ["true", "false"],
-      "default": "true",
       "examples": [
         "true",
         "false"
