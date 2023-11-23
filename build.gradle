@@ -48,7 +48,8 @@ snyk {
 sonar {
   properties {
     property "sonar.projectKey", "corda"
-      property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.organization", "corda"
+    property "sonar.host.url", "https://sonarcloud.io"
   }
 }
 
