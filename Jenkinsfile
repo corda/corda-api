@@ -9,5 +9,6 @@ cordaPipelineKubernetesAgent(
     localPublishVersionSuffixOverride: '-beta-9999999999999',
     // allow publishing artifacts to S3 bucket
     publishToMavenS3Repository: true,
-    javaVersion: '17'
+    javaVersion: '17',
+    sonarCloudAnalysis: true
     )
