@@ -249,16 +249,6 @@ public final class Schemas {
     }
 
     /**
-     * Verification message schema.
-     */
-    public static final class Verification {
-        private Verification() {
-        }
-
-        public static final String VERIFICATION_LEDGER_PROCESSOR_TOPIC = "verification.ledger.processor";
-    }
-
-    /**
      * Virtual node schema.
      */
     public static final class VirtualNode {
