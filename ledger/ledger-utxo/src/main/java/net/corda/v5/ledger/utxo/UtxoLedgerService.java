@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.common.transaction.TransactionSignatureException;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
@@ -331,4 +332,30 @@ public interface UtxoLedgerService {
     @Suspendable
     @NotNull
     <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
+
+    /**
+     * Persists a non-finalized (draft) transaction.
+     * It executes the same checks as the finalization does before its initial persist.
+     * So the transaction and all of its signatures need to be valid, but there may be missing signatures.
+     * <p>
+     * @param utxoSignedTransaction The {@link UtxoSignedTransaction} to persist.
+     * @throws ContractVerificationException if the transaction fails contract verification.
+     * @throws TransactionSignatureException if a signature of the transaction fails verification.
+     * @throws IllegalStateException if the transaction does not have any signatures.
+     */
+    @Suspendable
+    void persistDraftSignedTransaction(
+            @NotNull UtxoSignedTransaction utxoSignedTransaction
+    );
+
+    /**
+     * Finds a draft {@link UtxoSignedTransaction} in the vault by the specified transaction ID.
+     * Draft transactions have not been finalized, so they may have missing signatures.
+     *
+     * @param id The ID of the {@link UtxoSignedTransaction} to find.
+     * @return Returns the {@link UtxoSignedTransaction} if it has been recorded previously, or null if no transaction could be found.
+     */
+    @Nullable
+    @Suspendable
+    UtxoSignedTransaction findDraftSignedTransaction(@NotNull SecureHash id);
 }
