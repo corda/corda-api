@@ -106,9 +106,6 @@ public final class Schemas {
         public static final String FLOW_EVENT_TOPIC = "flow.event";
         public static final String FLOW_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_EVENT_TOPIC);
-        public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
-        public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
-        public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
         public static final String FLOW_TIMEOUT_TOPIC = "flow.timeout";
         public static final String FLOW_MAPPER_START = "flow.mapper.start";
