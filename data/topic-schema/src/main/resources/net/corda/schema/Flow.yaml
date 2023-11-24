@@ -8,7 +8,6 @@ topics:
       - crypto
       - flow
       - flowMapper
-      - verification
       - persistence
       - uniqueness
       - tokenSelection
@@ -32,7 +31,6 @@ topics:
       - flow
     producers:
       - flow
-      - verification
     config:
   FlowMapperEventTopic:
     name: flow.mapper.event

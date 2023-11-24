@@ -84,9 +84,15 @@ public final class Schemas {
 
         public static final String RPC_HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.hsm.rpc.registration";
         public static final String RPC_HSM_REGISTRATION_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_HSM_REGISTRATION_MESSAGE_TOPIC);
-        public static final String FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow";
         public static final String RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc";
         public static final String RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC);
+        public static final String REKEY_MESSAGE_TOPIC = "crypto.key.rotation.ops";
+        public static final String REKEY_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REKEY_MESSAGE_TOPIC);
+        public static final String REKEY_MESSAGE_STATUS_TOPIC = "crypto.key.rotation.status";
+        public static final String REWRAP_MESSAGE_TOPIC = "crypto.key.rotation.individual";
+        public static final String REWRAP_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REWRAP_MESSAGE_TOPIC);
+
+
     }
 
     /**
@@ -214,7 +220,6 @@ public final class Schemas {
         }
 
         public static final String PERSISTENCE_ENTITY_PROCESSOR_TOPIC = "persistence.entity.processor";
-        public static final String PERSISTENCE_LEDGER_PROCESSOR_TOPIC = "persistence.ledger.processor";
     }
 
     /**
@@ -240,16 +245,6 @@ public final class Schemas {
         }
 
         public static final String UNIQUENESS_CHECK_TOPIC = "uniqueness.check";
-    }
-
-    /**
-     * Verification message schema.
-     */
-    public static final class Verification {
-        private Verification() {
-        }
-
-        public static final String VERIFICATION_LEDGER_PROCESSOR_TOPIC = "verification.ledger.processor";
     }
 
     /**
