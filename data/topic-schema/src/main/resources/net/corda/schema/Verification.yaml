@@ -1,8 +1,0 @@
-topics:
-  VerificationProcessorTopic:
-    name: verification.ledger.processor
-    consumers:
-      - verification
-    producers:
-      - flow
-    config:
