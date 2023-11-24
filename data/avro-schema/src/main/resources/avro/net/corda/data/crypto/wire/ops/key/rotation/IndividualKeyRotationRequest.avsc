@@ -1,0 +1,42 @@
+{
+  "type": "record",
+  "name": "IndividualKeyRotationRequest",
+  "namespace": "net.corda.data.crypto.wire.ops.key.rotation",
+  "doc": "Internal over-the-wire individual crypto key rotation operation request envelope.",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "GUID allocated by client to control key rotation."
+    },
+    {
+      "name": "tenantId",
+      "type": "string",
+      "doc": "Specifies the specific tenant that owns the old key."
+    },
+    {
+      "name": "oldParentKeyAlias",
+      "type": "string",
+      "doc": "The key alias whose protected content will be re-wrapped with a new key."
+    },
+    {
+      "name": "newParentKeyAlias",
+      "type": "string",
+      "doc": "The new wrapping key which oldParentKeyAlias' content will be re-wrapped with."
+    },
+    {
+      "name": "targetKeyAlias",
+      "type": "string",
+      "doc": "Specifies the wrapped key to rotate."
+    },
+    {
+      "name": "keyType",
+      "type": {
+        "type": "enum",
+        "name": "KeyType",
+        "symbols": ["MANAGED", "UNMANAGED"]
+      },
+      "doc": "Type of the key to be rotated."
+    }
+  ]
+}
