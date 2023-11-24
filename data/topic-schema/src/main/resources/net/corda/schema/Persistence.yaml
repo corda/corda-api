@@ -6,10 +6,3 @@ topics:
     producers:
       - flow
     config:
-  PersistenceLedgerProcessorTopic:
-    name: persistence.ledger.processor
-    consumers:
-      - persistence
-    producers:
-      - flow
-    config:
