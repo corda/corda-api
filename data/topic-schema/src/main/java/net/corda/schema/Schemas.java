@@ -216,7 +216,6 @@ public final class Schemas {
         private Persistence() {
         }
 
-        public static final String PERSISTENCE_ENTITY_PROCESSOR_TOPIC = "persistence.entity.processor";
     }
 
     /**

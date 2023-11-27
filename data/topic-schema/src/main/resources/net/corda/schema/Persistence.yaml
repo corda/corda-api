@@ -1,8 +1,0 @@
-topics:
-  PersistenceEntityProcessorTopic:
-    name: persistence.entity.processor
-    consumers:
-      - persistence
-    producers:
-      - flow
-    config:
