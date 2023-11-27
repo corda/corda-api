@@ -210,15 +210,6 @@ public final class Schemas {
     }
 
     /**
-     * Persistence message schema.
-     */
-    public static final class Persistence {
-        private Persistence() {
-        }
-
-    }
-
-    /**
      * Rest message schema.
      */
     public static final class Rest {
