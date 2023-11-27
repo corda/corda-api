@@ -8,6 +8,7 @@ import net.corda.schema.configuration.ConfigKeys.MEMBERSHIP_CONFIG
 import net.corda.schema.configuration.ConfigKeys.MESSAGING_CONFIG
 import net.corda.schema.configuration.ConfigKeys.P2P_GATEWAY_CONFIG
 import net.corda.schema.configuration.ConfigKeys.P2P_LINK_MANAGER_CONFIG
+import net.corda.schema.configuration.ConfigKeys.RBAC_CONFIG
 import net.corda.schema.configuration.ConfigKeys.RECONCILIATION_CONFIG
 import net.corda.schema.configuration.ConfigKeys.REST_CONFIG
 import net.corda.schema.configuration.ConfigKeys.SANDBOX_CONFIG
@@ -39,6 +40,7 @@ class SchemaProviderConfigImplTest {
             P2P_LINK_MANAGER_CONFIG,
             P2P_GATEWAY_CONFIG,
             REST_CONFIG,
+            RBAC_CONFIG,
             SECRETS_CONFIG,
             SANDBOX_CONFIG,
             RECONCILIATION_CONFIG,
