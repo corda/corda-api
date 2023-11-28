@@ -18,12 +18,14 @@ import java.util.Collection;
  * String protocol = notaryInfo.getProtocol();
  * Collection<Integer> protocolVersions = notaryInfo.getProtocolVersions();
  * PublicKey publicKey = notaryInfo.getPublicKey();
+ * Boolean backchainRequired = notaryInfo.getBackchainRequired();
  * }</pre></li>
  * <li>Kotlin:<pre>{@code
  * val name = notaryInfo.name
  * val protocol = notaryInfo.protocol
  * val protocolVersions = notaryInfo.protocolVersions
  * val publicKey = notaryInfo.publicKey
+ * val backchainRequired = notaryInfo.backchainRequired
  * }</pre></li>
  * </ul>
  */
@@ -48,4 +50,9 @@ public interface NotaryInfo {
      * @return The public key of the notary service, which will be a composite key of all notary virtual nodes keys.
      */
     @NotNull PublicKey getPublicKey();
+
+    /**
+     * @return boolean of whether it requires backchain verification.
+     */
+    @NotNull Boolean isBackchainRequired();
 }
