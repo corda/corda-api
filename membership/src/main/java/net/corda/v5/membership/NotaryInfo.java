@@ -54,5 +54,5 @@ public interface NotaryInfo {
     /**
      * @return boolean of whether it requires backchain verification.
      */
-    @NotNull Boolean getIsBackchainRequired();
+    @NotNull Boolean isBackchainRequired();
 }

@@ -125,12 +125,6 @@ net.corda.v5.membership.NotaryInfo:
   extends: []
   interface: true
   methods:
-    getIsBackchainRequired:
-      annotations:
-        - NotNull
-      default: false
-      type: public abstract
-      returnType: Boolean
     getName:
       annotations:
         - NotNull
@@ -155,3 +149,9 @@ net.corda.v5.membership.NotaryInfo:
       default: false
       type: public abstract
       returnType: java.security.PublicKey
+    isBackchainRequired:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Boolean
