@@ -57,14 +57,16 @@ net.corda.v5.membership.GroupParametersLookup:
       type: public abstract
       returnType: net.corda.v5.membership.GroupParameters
 net.corda.v5.membership.MGMContext:
-  annotations: []
+  annotations:
+    - CordaSerializable
   type: public interface
   extends:
     - net.corda.v5.base.types.LayeredPropertyMap
   interface: true
   methods: {}
 net.corda.v5.membership.MemberContext:
-  annotations: []
+  annotations:
+    - CordaSerializable
   type: public interface
   extends:
     - net.corda.v5.base.types.LayeredPropertyMap
@@ -147,3 +149,9 @@ net.corda.v5.membership.NotaryInfo:
       default: false
       type: public abstract
       returnType: java.security.PublicKey
+    isBackchainRequired:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: Boolean
