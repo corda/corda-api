@@ -210,16 +210,6 @@ public final class Schemas {
     }
 
     /**
-     * Persistence message schema.
-     */
-    public static final class Persistence {
-        private Persistence() {
-        }
-
-        public static final String PERSISTENCE_ENTITY_PROCESSOR_TOPIC = "persistence.entity.processor";
-    }
-
-    /**
      * Rest message schema.
      */
     public static final class Rest {
