@@ -9,7 +9,7 @@ ignore:
           temporary files via Kotlin functions with insecure permissions. Corda
           does not use any of the vulnerable functions so it not susceptible to
           this vulnerability.
-        expires: 2023-10-19T10:40:55.991Z
+        expires: 2024-10-19T10:40:55.991Z
         created: 2022-09-22T10:40:55.995Z
    SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038424:
     - '*':
@@ -18,7 +18,7 @@ ignore:
           where this dependency originates, this is used at compile / build time
           only for Kdoc generation and not shipped in any of our releasable
           artifacts.
-        expires: 2023-10-19T10:40:55.991Z
+        expires: 2024-10-19T10:40:55.991Z
         created: 2022-12-20T10:40:55.995Z
    SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038426:
     - '*':
@@ -27,7 +27,7 @@ ignore:
           where this dependency originates, this is used at compile / build time
           only for Kdoc generation and not shipped in any of our releasable
           artifacts.
-        expires: 2023-10-19T10:40:55.991Z
+        expires: 2024-10-19T10:40:55.991Z
         created: 2022-12-20T10:40:55.995Z
    SNYK-JAVA-COMFASTERXMLWOODSTOX-3091135:
     - '*':
@@ -36,6 +36,6 @@ ignore:
           where this dependency originates, this is used at compile / build time
           only for Kdoc generation and not shipped in any of our releasable
           artifacts.
-        expires: 2023-10-19T13:28:02.582Z
+        expires: 2024-10-19T13:28:02.582Z
         created: 2023-03-20T13:28:02.597Z
 patch: {}
