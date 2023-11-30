@@ -121,4 +121,15 @@ public interface UtxoSignedTransaction extends TransactionWithMetadata {
     @NotNull
     @Suspendable
     UtxoLedgerTransaction toLedgerTransaction();
+
+    /**
+     * Converts the current {@link UtxoSignedTransaction} into a {@link UtxoLedgerTransaction}.
+     *
+     * @param inputStateAndRefs input state and state refs associated with the {@link UtxoSignedTransaction}
+     * @param referenceStateAndRefs reference state and state refs
+     * @return Returns a {@link UtxoLedgerTransaction} from the current {@link UtxoSignedTransaction}.
+     */
+    @NotNull
+    @Suspendable
+    UtxoLedgerTransaction toLedgerTransaction(List<StateAndRef<?>> inputStateAndRefs, List<StateAndRef<?>> referenceStateAndRefs);
 }
