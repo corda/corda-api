@@ -12,6 +12,7 @@ import java.util.List;
 import static net.corda.v5.application.interop.evm.Type.STRING;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -141,5 +142,85 @@ class EvmServiceJavaApiTest {
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
+    }
+
+    @Test
+    public void getBlockByNumber() {
+        Block test = new Block(
+                BigInteger.ONE,
+                "hash",
+                "parentHash",
+                BigInteger.ONE,
+                "sha3Uncles",
+                "logsBloom",
+                "transactionsRoot",
+                "stateRoot",
+                "receiptsRoot",
+                "miner",
+                "mixHash",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                "extraData",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE,
+                List.of("transactions"),
+                List.of("uncles"),
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE);
+
+        when(service.getBlockByNumber(any(), anyBoolean(), any(EvmOptions.class))).thenReturn(test);
+
+        Block resultTrue = service.getBlockByNumber(BigInteger.ONE, true, mock(EvmOptions.class));
+
+        assertThat(resultTrue).isNotNull();
+        assertThat(resultTrue).isEqualTo(test);
+
+        Block resultFalse = service.getBlockByNumber(BigInteger.ONE, false, mock(EvmOptions.class));
+
+        assertThat(resultFalse).isNotNull();
+        assertThat(resultFalse).isEqualTo(test);
+    }
+
+    @Test
+    public void getBlockByHash() {
+        Block test = new Block(
+                BigInteger.ONE,
+                "hash",
+                "parentHash",
+                BigInteger.ONE,
+                "sha3Uncles",
+                "logsBloom",
+                "transactionsRoot",
+                "stateRoot",
+                "receiptsRoot",
+                "miner",
+                "mixHash",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                "extraData",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE,
+                List.of("transactions"),
+                List.of("uncles"),
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE);
+
+        when(service.getBlockByHash(any(), anyBoolean(), any(EvmOptions.class))).thenReturn(test);
+
+        Block resultTrue = service.getBlockByHash("", true, mock(EvmOptions.class));
+
+        assertThat(resultTrue).isNotNull();
+        assertThat(resultTrue).isEqualTo(test);
+
+        Block resultFalse = service.getBlockByHash("", false, mock(EvmOptions.class));
+
+        assertThat(resultFalse).isNotNull();
+        assertThat(resultFalse).isEqualTo(test);
     }
 }

@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -101,4 +102,32 @@ public interface EvmService {
     @NotNull
     TransactionReceipt getTransactionReceipt(@NotNull String transactionHash,
                                              EvmOptions options);
+
+    /**
+     * Sends a <a href="https://www.quicknode.com/docs/ethereum/eth_getBlockByNumber">eth_getBlockByNumber</a> query to the EVM.
+     * <p>
+     * Retrieves a Block of the given number.
+     *
+     * @param number           the block number for which to query
+     * @param fullTransactionObject if true it returns the full transaction object, if false only the hashes of the block
+     * @return a block object, or null when no block was found
+     */
+    @Suspendable
+    Block getBlockByNumber(@NotNull BigInteger number,
+                           boolean fullTransactionObject,
+                           EvmOptions options);
+
+    /**
+     * Sends a <a href="https://www.quicknode.com/docs/ethereum/eth_getBlockByHash">eth_getBlockByHash</a> query to the EVM.
+     * <p>
+     * Retrieves a Block of the given hash.
+     *
+     * @param hash                  the block hash for which to query
+     * @param fullTransactionObject if true it returns the full transaction object, if false only the hashes of the block
+     * @return a block object, or null when no block was found
+     */
+    @Suspendable
+    Block getBlockByHash(@NotNull String hash,
+                         boolean fullTransactionObject,
+                         EvmOptions options);
 }

@@ -1,0 +1,137 @@
+{
+  "type": "record",
+  "name": "Block",
+  "doc": "A block that represents the unit of work in an Ethereum blockchain.",
+  "namespace": "net.corda.data.interop.evm.response",
+  "fields": [
+    {
+      "name": "number",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The block number where this transaction was added"
+    },
+    {
+      "name": "hash",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The hash of the block where this transaction was in"
+    },
+    {
+      "name": "parentHash",
+      "type": "string",
+      "doc": "The hash of the parent block"
+    },
+    {
+      "name": "nonce",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The nonce of the block"
+    },
+    {
+      "name": "sha3Uncles",
+      "type": "string",
+      "doc": "The SHA3 of the uncles data in the block"
+    },
+    {
+      "name": "logsBloom",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The bloom filter for the logs of the block"
+    },
+    {
+      "name": "transactionsRoot",
+      "type": "string",
+      "doc": "The root of the transaction trie of the block"
+    },
+    {
+      "name": "stateRoot",
+      "type": "string",
+      "doc": "The root of the final state trie of the block"
+    },
+    {
+      "name": "receiptsRoot",
+      "type": "string",
+      "doc": "The root of the receipts trie of the block"
+    },
+    {
+      "name": "miner",
+      "type": "string",
+      "doc": "The address of the beneficiary to whom the mining rewards were given"
+    },
+    {
+      "name": "difficulty",
+      "type": "string",
+      "doc": "Integer of the difficulty for this block"
+    },
+    {
+      "name": "totalDifficulty",
+      "type": "string",
+      "doc": "Integer of the total difficulty of the chain until this block"
+    },
+    {
+      "name": "extraData",
+      "type": "string",
+      "doc": "The \"extra data\" field of this block"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "doc": "Integer the size of this block in bytes"
+    },
+    {
+      "name": "gasLimit",
+      "type": "string",
+      "doc": "The maximum gas allowed in this block"
+    },
+    {
+      "name": "gasUsed",
+      "type": "string",
+      "doc": "The total used gas by all transactions in this block"
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "doc": "The unix timestamp for when the block was collated"
+    },
+    {
+      "name": "transactions",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": "Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter"
+    },
+    {
+      "name": "uncles",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": "Array of uncle hashes"
+    },
+    {
+      "name": "maxFeePerGas",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The maximum fee per gas for this block"
+    },
+    {
+      "name": "maxPriorityFeePerGas",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The maximum priority fee per gas for this block"
+    }
+  ]
+}
