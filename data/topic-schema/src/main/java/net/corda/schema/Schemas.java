@@ -225,16 +225,6 @@ public final class Schemas {
     }
 
     /**
-     * Uniqueness checker schema.
-     */
-    public static final class UniquenessChecker {
-        private UniquenessChecker() {
-        }
-
-        public static final String UNIQUENESS_CHECK_TOPIC = "uniqueness.check";
-    }
-
-    /**
      * Virtual node schema.
      */
     public static final class VirtualNode {
