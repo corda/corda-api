@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "VirtualNodeUpdateResponse",
+  "name": "VirtualNodeDbConnectionUpdateResponse",
   "namespace": "net.corda.data.virtualnode",
   "fields": [
     {
