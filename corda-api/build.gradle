@@ -26,11 +26,7 @@ dependencies {
         api project(':membership')
         api project(':serialization')
 
-        api('javax.persistence:javax.persistence-api') {
-            version {
-                require javaxPersistenceApiVersion
-            }
-        }
+        api(libs.javax.persistence.api)
         api('org.jetbrains.kotlin:kotlin-osgi-bundle') {
             version {
                 require kotlinVersion

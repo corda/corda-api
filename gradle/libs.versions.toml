@@ -26,7 +26,7 @@ bouncycastle-pkix = { group = "org.bouncycastle", name = "bcpkix-jdk18on", versi
 javax-persistence-api = { group = "javax.persistence", name = "javax.persistence-api", version.ref = "javaxPersistenceApiVersion" }
 jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jacksonVersion" }
 jackson-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jacksonVersion" }
-jackson-yaml = { group = "com.fasterxml.jackson.module", name = "jackson-dataformat-yaml", version.ref = "jacksonVersion" }
+jackson-yaml = { group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-yaml", version.ref = "jacksonVersion" }
 assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertjVersion" }
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlinVersion" }
 junit = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitVersion" }
