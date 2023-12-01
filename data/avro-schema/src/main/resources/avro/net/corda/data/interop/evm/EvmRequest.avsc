@@ -33,7 +33,8 @@
         "net.corda.data.interop.evm.request.Call",
         "net.corda.data.interop.evm.request.GetTransactionReceipt",
         "net.corda.data.interop.evm.request.Transaction",
-        "net.corda.data.interop.evm.request.GetBlockByNumber"
+        "net.corda.data.interop.evm.request.GetBlockByNumber",
+        "net.corda.data.interop.evm.request.GetBalance",
       ],
       "doc": "The function call to be sent to the EVM"
     },

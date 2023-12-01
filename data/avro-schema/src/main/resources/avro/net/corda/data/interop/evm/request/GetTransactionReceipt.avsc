@@ -1,13 +1,18 @@
 {
   "type": "record",
-  "name": "GetTransactionReceipt",
-  "doc": "Used to request a transaction receipt for a given transaction hash",
+  "name": "GetBalanceOf",
+  "doc": "A request to get the balance of an account on the EVM"",
   "namespace": "net.corda.data.interop.evm.request",
   "fields": [
     {
-      "name": "transactionHash",
+      "name": "address",
       "type": "string",
-      "doc": "The hash of the transaction to be queried"
+      "doc": "The address of the account to get the balance of"
+    },
+    {
+      "name": "blockNumber",
+      "type": "string",
+      "doc": "The block number to get the balance at"
     }
   ]
 }
