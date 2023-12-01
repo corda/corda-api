@@ -1,9 +1,0 @@
-version: 2
-updates:
-  - package-ecosystem: "gradle"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    rebase-strategy: "disabled"
-    # for testing only:
-    target-branch: "driessamyn/poc/version-catalogue"
