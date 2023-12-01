@@ -229,8 +229,8 @@ class EvmServiceJavaApiTest {
     public void getBalance() {
         BigInteger test = BigInteger.ONE;
 
-        when(service.getBalance(anyString(), any(String.class))).thenReturn(test);
-        BigInteger result = service.getBalance("", "LATEST");
+        when(service.getBalance(anyString(), any(String.class), any(EvmOptions.class))).thenReturn(test);
+        BigInteger result = service.getBalance("", "LATEST",mock(EvmOptions.class));
 
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
