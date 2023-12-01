@@ -56,11 +56,8 @@ dependencies {
                 require osgiScrAnnotationVersion
             }
         }
-        api('org.slf4j:slf4j-api') {
+        api(libs.slf4j) {
             because 'Corda 5.1 only supports SLF4J 1.x'
-            version {
-                strictly slf4jVersion
-            }
         }
     }
 }

@@ -10,13 +10,13 @@ plugins {
 }
 
 dependencies {
-    api "org.apache.avro:avro:$avroVersion"
+    api libs.avro
     constraints {
         implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion") {
             because "required until new version of Avro available which updates Jackson"
         }
 
-        implementation("org.apache.commons:commons-compress:$commonsCompressVersion") {
+        implementation(libs.commons.compress) {
             because "CVE-2023-42503, current version of Avro uses an outdated version"
         }
     }
@@ -30,7 +30,7 @@ dependencies {
 configurations.all {
     resolutionStrategy {
         // CVE-2023-42503, current version of Avro uses an outdated version
-        force "org.apache.commons:commons-compress:$commonsCompressVersion"
+        force libs.commons.compress
     }
 }
 
