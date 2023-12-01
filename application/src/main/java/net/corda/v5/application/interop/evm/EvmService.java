@@ -108,7 +108,7 @@ public interface EvmService {
      * <p>
      * Retrieves a Block of the given number.
      *
-     * @param number           the block number for which to query
+     * @param number                the block number for which to query
      * @param fullTransactionObject if true it returns the full transaction object, if false only the hashes of the block
      * @return a block object, or null when no block was found
      */
@@ -130,4 +130,20 @@ public interface EvmService {
     Block getBlockByHash(@NotNull String hash,
                          boolean fullTransactionObject,
                          EvmOptions options);
+
+    /**
+     * Sends a <a href="https://www.quicknode.com/docs/ethereum/eth_getBalance">eth_getBalance</a> query to the EVM.
+     * <p>
+     * Retrieves the balance of the given address.
+     *
+     * @param address     the address for which to query
+     * @param blockNumber the block number for which to query
+     * @return the balance of the given address
+     */
+    @Suspendable
+    @NotNull
+    BigInteger getBalance(@NotNull String address,
+                          @NotNull String blockNumber);
+
+
 }

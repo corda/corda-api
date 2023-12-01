@@ -223,4 +223,16 @@ class EvmServiceJavaApiTest {
         assertThat(resultFalse).isNotNull();
         assertThat(resultFalse).isEqualTo(test);
     }
+
+
+    @Test
+    public void getBalance() {
+        BigInteger test = BigInteger.ONE;
+
+        when(service.getBalance(anyString(), any(String.class))).thenReturn(test);
+        BigInteger result = service.getBalance("", "LATEST");
+
+        assertThat(result).isNotNull();
+        assertThat(result).isEqualTo(test);
+    }
 }
