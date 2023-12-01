@@ -143,7 +143,9 @@ public interface EvmService {
     @Suspendable
     @NotNull
     BigInteger getBalance(@NotNull String address,
-                          @NotNull String blockNumber);
+                          @NotNull String blockNumber,
+                          @NotNull EvmOptions options
+                          );
 
 
 }

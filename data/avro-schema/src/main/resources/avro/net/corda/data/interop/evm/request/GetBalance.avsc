@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "GetBalance",
+  "doc": "A request to get the balance of an account on the EVM",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "address",
+      "type": "string",
+      "doc": "The address of the account to get the balance of"
+    },
+    {
+      "name": "blockNumber",
+      "type": "string",
+      "doc": "The block number to get the balance at"
+    }
+  ]
+}
