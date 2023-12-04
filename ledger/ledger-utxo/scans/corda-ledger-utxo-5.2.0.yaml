@@ -526,7 +526,7 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: net.corda.v5.application.messaging.FlowSession
-    verifyContract:
+    verify:
       annotations:
         - Suspendable
       default: false
@@ -1962,7 +1962,7 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
       default: false
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.TimeWindow
-    verify:
+    verifyDependencies:
       annotations: []
       default: false
       type: public abstract
