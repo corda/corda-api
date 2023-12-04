@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "KeyValuePairListAny",
+  "namespace": "net.corda.data",
+  "doc": "Avro representation of the List<Pair<Any, Any?>> format.",
+  "fields": [
+    {
+      "name": "items",
+      "doc": "List of the Pair items of Any avro type.",
+      "type": {
+        "type": "array",
+        "items": "KeyValuePairAny"
+      }
+    }
+  ]
+}

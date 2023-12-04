@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "MediatorReplayOutputEvents",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Output key/value pairs for given input events.",
+  "fields": [
+    {
+      "name": "key",
+      "type": "net.corda.data.messaging.mediator.MediatorReplayKey"
+    },
+    {
+      "name": "value",
+      "type": "net.corda.data.KeyValuePairListAny"
+    }
+  ]
+}

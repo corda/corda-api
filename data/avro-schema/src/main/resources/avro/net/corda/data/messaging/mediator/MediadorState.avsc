@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "MediatorState",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Mediator state wrapper to store replayed events",
+  "fields": [
+    {
+      "name": "state",
+      "type": "bytes",
+      "doc": "The mediator state"
+    },
+    {
+      "name": "outputEvents",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.messaging.mediator.MediatorReplayOutputEvents"
+      },
+      "doc": "Output events for input events to be used when replaying old records."
+    }
+  ]
+}
