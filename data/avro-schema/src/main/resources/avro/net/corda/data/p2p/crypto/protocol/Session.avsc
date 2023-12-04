@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "Session",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "sessionId",
+      "type": "string"
+    },
+    {
+      "name": "maxMessageSize",
+      "type": "int"
+    },
+    {
+      "name": "details",
+      "type": [
+        "net.corda.data.p2p.crypto.protocol.AuthenticatedSessionDetails",
+        "net.corda.data.p2p.crypto.protocol.AuthenticatedEncryptionSessionDetails"
+      ]
+    }
+ ]
+}

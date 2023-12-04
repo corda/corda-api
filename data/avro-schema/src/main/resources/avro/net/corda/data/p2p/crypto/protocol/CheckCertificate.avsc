@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "CheckCertificate",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "truststore",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "revocationCheckMode",
+      "type": [
+        "null",
+        "net.corda.data.p2p.gateway.certificates.RevocationMode"
+      ]
+    }
+  ]
+}

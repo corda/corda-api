@@ -1,0 +1,56 @@
+{
+  "type": "record",
+  "name": "AuthenticationProtocolResponderDetails",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "header",
+      "type": "net.corda.data.p2p.crypto.protocol.AuthenticationProtocolHeader"
+    },
+    {
+      "name": "step",
+      "type": {
+        "type": "enum",
+        "name": "ResponderStep",
+        "symbols" : [
+          "INIT",
+          "RECEIVED_PEER_DH_KEY",
+          "SENT_MY_DH_KEY",
+          "GENERATED_HANDSHAKE_SECRETS",
+          "RECEIVED_HANDSHAKE_MESSAGE",
+          "VALIDATED_ENCRYPTED_EXTENSIONS",
+          "SENT_HANDSHAKE_MESSAGE",
+          "SESSION_ESTABLISHED"
+        ]
+      }
+    },
+    {
+      "name": "handshakeIdentityData",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.protocol.HandshakeIdentityData"
+      ]
+    },
+    {
+      "name": "responderHandshakeMessage",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.ResponderHandshakeMessage"
+      ]
+    },
+    {
+      "name": "encryptedExtensions",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.internal.InitiatorEncryptedExtensions"
+      ]
+    },
+    {
+      "name": "initiatorPublicKey",
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  ]
+}
