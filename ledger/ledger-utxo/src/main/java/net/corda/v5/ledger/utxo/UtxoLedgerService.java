@@ -43,7 +43,7 @@ public interface UtxoLedgerService {
      * @param ledgerTransaction The {@link UtxoLedgerTransaction} to verify.
      */
     @Suspendable
-    void verifyContract(UtxoLedgerTransaction ledgerTransaction);
+    void verify(UtxoLedgerTransaction ledgerTransaction);
 
     /**
      * Resolves the specified {@link StateRef} instances into {@link StateAndRef} instances of the specified {@link ContractState} type.
