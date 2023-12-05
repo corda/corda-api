@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "WaitForTransaction",
+  "doc": "A request to wait for a transaction to be committed to the ledger.",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "transactionHash",
+      "type": "string",
+      "doc": "The hash of the transaction to be queried"
+    }
+  ]
+}

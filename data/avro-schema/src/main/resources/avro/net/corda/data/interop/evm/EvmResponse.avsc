@@ -9,7 +9,8 @@
       "type": [
         "string",
         "net.corda.data.interop.evm.response.TransactionReceipt",
-        "net.corda.data.interop.evm.response.Block"
+        "net.corda.data.interop.evm.response.Block",
+        "net.corda.data.interop.evm.response.TransactionObject"
       ],
       "doc": "The encoded return call from the EVM"
     }

@@ -113,6 +113,7 @@ public interface EvmService {
      * @return a block object, or null when no block was found
      */
     @Suspendable
+    @NotNull
     Block getBlockByNumber(@NotNull BigInteger number,
                            boolean fullTransactionObject,
                            EvmOptions options);
@@ -127,6 +128,7 @@ public interface EvmService {
      * @return a block object, or null when no block was found
      */
     @Suspendable
+    @NotNull
     Block getBlockByHash(@NotNull String hash,
                          boolean fullTransactionObject,
                          EvmOptions options);
@@ -145,7 +147,30 @@ public interface EvmService {
     BigInteger getBalance(@NotNull String address,
                           @NotNull String blockNumber,
                           @NotNull EvmOptions options
-                          );
+    );
 
+    /**
+     * Sends a <a href="https://www.quicknode.com/docs/ethereum/eth_getTransactionByHash">eth_getTransactionByHash</a> query to the EVM.
+     * <p>
+     * Retrieves a transaction of the given hash.
+     *
+     * @param hash the transaction hash for which to query
+     * @return a transaction object, or null when no transaction was found
+     */
+    @Suspendable
+    @NotNull
+    TransactionObject getTransactionByHash(@NotNull String hash,
+                                           @NotNull EvmOptions options);
+
+    /**
+     *  Waits for a transaction to be mined and returns the transaction receipt.
+     *  <p>
+     *  This method will wait for the transaction to be mined and return the transaction receipt.
+     *
+     */
+    @Suspendable
+    @NotNull
+    TransactionReceipt waitForTransaction(@NotNull String transactionHash,
+                                                 @NotNull EvmOptions options);
 
 }

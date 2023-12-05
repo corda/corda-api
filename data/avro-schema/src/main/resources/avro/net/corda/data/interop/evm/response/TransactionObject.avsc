@@ -1,0 +1,91 @@
+{
+  "type": "record",
+  "name": "TransactionObject",
+  "doc": "Response for a request for the receipt of a transaction",
+  "namespace": "net.corda.data.interop.evm.response",
+  "fields": [
+    {
+      "name": "blockHash",
+      "type": "string",
+      "doc": "The hash of the block where this transaction was in"
+    },
+    {
+      "name": "blockNumber",
+      "type": "string",
+      "doc": "The block number where this transaction was added"
+    },
+    {
+      "name": "from",
+      "type": "string",
+      "doc": "The address of the sender"
+    },
+    {
+      "name": "gas",
+      "type": "string",
+      "doc": "The gas provided by the sender, encoded as hexadecimal"
+    },
+    {
+      "name": "gasPrice",
+      "type": "string",
+      "doc": "The gas price provided by the sender in wei encoded as hexadecimal"
+    },
+    {
+      "name" : "maxFeePerGas",
+       "type" : "string",
+       "doc" : "The maximum fee per gas unit the sender is willing to pay"
+    },
+    {
+      "name" : "maxPriorityFeePerGas",
+       "type" : "string",
+       "doc" : "The maximum priority fee per gas unit the sender is willing to pay"
+    },
+    {
+      "name": "hash",
+      "type": "string",
+      "doc": "The hash of the transaction"
+    },
+    {
+      "name": "input",
+      "type": "string",
+      "doc": "The data sent along with the transaction"
+    },
+    {
+      "name": "nonce",
+      "type": "string",
+      "doc": "The number of transactions made by the sender prior to this one"
+    },
+    {
+      "name": "to",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "The address of the receiver. Null when its a contract creation transaction"
+    },
+    {
+      "name": "transactionIndex",
+      "type": "string",
+      "doc": "The transaction index position in the block"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "doc": "The value transferred in wei"
+    },
+    {
+      "name": "v",
+      "type": "string",
+      "doc": "ECDSA recovery id"
+    },
+    {
+      "name": "r",
+      "type": "string",
+      "doc": "ECDSA signature r"
+    },
+    {
+      "name": "s",
+      "type": "string",
+      "doc": "ECDSA signature s"
+    }
+  ]
+}
