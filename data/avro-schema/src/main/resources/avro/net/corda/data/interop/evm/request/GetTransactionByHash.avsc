@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "GetTransactionByHash",
+  "doc": "Request to get a transaction by its hash",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "blockHash",
+      "type": "string",
+      "doc": "The blockHash for which to query"
+    }
+  ]
+}

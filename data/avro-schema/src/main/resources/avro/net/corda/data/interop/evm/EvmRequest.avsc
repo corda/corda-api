@@ -35,7 +35,9 @@
         "net.corda.data.interop.evm.request.Transaction",
         "net.corda.data.interop.evm.request.GetBlockByNumber",
         "net.corda.data.interop.evm.request.GetBlockByHash",
-        "net.corda.data.interop.evm.request.GetBalance"
+        "net.corda.data.interop.evm.request.GetBalance",
+        "net.corda.data.interop.evm.request.GetTransactionByHash",
+        "net.corda.data.interop.evm.request.WaitForTransaction"
       ],
       "doc": "The function call to be sent to the EVM"
     },
