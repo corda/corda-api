@@ -6,6 +6,7 @@ import net.corda.v5.crypto.SecureHash;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * {@link MerkleProof}s can be used to verify if some specific data is part of a {@link MerkleTree}.
@@ -58,4 +59,53 @@ public interface MerkleProof {
      * @throws MerkleProofRebuildFailureException if the calculation of the root hash failed.
      */
     SecureHash calculateRoot(@NotNull MerkleTreeHashDigest digest);
+
+    List<LeveledHash> calculateLeveledHashes(@NotNull MerkleTreeHashDigest digest);
+
+    class LeveledHash {
+
+        private final int level;
+        private final int index;
+        private final SecureHash hash;
+
+        public LeveledHash(int level, int index, SecureHash hash) {
+            this.level = level;
+            this.index = index;
+            this.hash = hash;
+        }
+
+        public int getLevel() {
+            return level;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        public SecureHash getHash() {
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            LeveledHash that = (LeveledHash) o;
+            return level == that.level && index == that.index && Objects.equals(hash, that.hash);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(level, index, hash);
+        }
+
+        @Override
+        public String toString() {
+            return "LeveledHash{" +
+                    "level=" + level +
+                    ", index=" + index +
+                    ", hash=" + hash +
+                    '}';
+        }
+    }
 }
