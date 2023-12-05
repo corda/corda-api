@@ -5,7 +5,7 @@
   "namespace": "net.corda.data.interop.evm.request",
   "fields": [
     {
-      "name": "blockHash",
+      "name": "hash",
       "type": "string",
       "doc": "The blockHash for which to query"
     }
