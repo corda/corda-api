@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "GetBlockByHash",
+  "doc": "Used to request a block for a given block hash",
+  "namespace": "net.corda.data.interop.evm.request",
+  "fields": [
+    {
+      "name": "blockHash",
+      "type": "string",
+      "doc": "The blockHash for which to query"
+    },
+    {
+      "name": "fullTransactionObjects",
+      "type": "boolean",
+      "doc": "If true it returns the full transaction objects, if false only the hashes of the transactions"
+    }
+  ]
+}
