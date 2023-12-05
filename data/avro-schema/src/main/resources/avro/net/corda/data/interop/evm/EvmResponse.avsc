@@ -8,7 +8,8 @@
       "name": "payload",
       "type": [
         "string",
-        "net.corda.data.interop.evm.response.TransactionReceipt"
+        "net.corda.data.interop.evm.response.TransactionReceipt",
+        "net.corda.data.interop.evm.response.Block"
       ],
       "doc": "The encoded return call from the EVM"
     }
