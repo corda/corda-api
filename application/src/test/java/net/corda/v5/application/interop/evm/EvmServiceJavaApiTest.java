@@ -235,4 +235,79 @@ class EvmServiceJavaApiTest {
         assertThat(result).isNotNull();
         assertThat(result).isEqualTo(test);
     }
+
+
+    @Test
+    public void GetBlockByHash(){
+        Block test = new Block(
+                BigInteger.ONE,
+                "hash",
+                "parentHash",
+                BigInteger.ONE,
+                "sha3Uncles",
+                "logsBloom",
+                "transactionsRoot",
+                "stateRoot",
+                "receiptsRoot",
+                "miner",
+                "mixHash",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                "extraData",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE,
+                List.of("transactions"),
+                List.of("uncles"),
+                BigInteger.ONE,
+                BigInteger.ONE,
+                BigInteger.ONE);
+
+        when(service.getBlockByHash(any(), anyBoolean(), any(EvmOptions.class))).thenReturn(test);
+
+        Block resultTrue = service.getBlockByHash("", true, mock(EvmOptions.class));
+
+        assertThat(resultTrue).isNotNull();
+        assertThat(resultTrue).isEqualTo(test);
+
+        Block resultFalse = service.getBlockByHash("", false, mock(EvmOptions.class));
+
+        assertThat(resultFalse).isNotNull();
+        assertThat(resultFalse).isEqualTo(test);
+    }
+
+    @Test
+    public void waitForTransaction(){
+        TransactionReceipt test = new TransactionReceipt(
+                "blockHash",
+                BigInteger.ONE,
+                "contractAddress",
+                BigInteger.ONE,
+                BigInteger.ONE,
+                "from",
+                BigInteger.ONE,
+                List.of(new Log("address",
+                        List.of("topic"),
+                        "data",
+                        BigInteger.ONE,
+                        "transactionalHash",
+                        BigInteger.ONE,
+                        "blockHash",
+                        1,
+                        false)),
+                "logsBloom",
+                true,
+                "to",
+                "transactionHash",
+                BigInteger.ONE,
+                "type");
+
+        when(service.waitForTransaction(anyString(), any(EvmOptions.class))).thenReturn(test);
+
+        TransactionReceipt result = service.waitForTransaction("", mock(EvmOptions.class));
+
+        assertThat(result).isNotNull();
+        assertThat(result).isEqualTo(test);
+    }
 }
