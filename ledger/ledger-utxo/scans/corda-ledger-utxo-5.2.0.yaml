@@ -1962,7 +1962,7 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
       default: false
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.TimeWindow
-    verifyDependencies:
+    verify:
       annotations: []
       default: false
       type: public abstract
