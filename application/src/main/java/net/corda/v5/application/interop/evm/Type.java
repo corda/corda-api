@@ -319,6 +319,7 @@ public final class Type<T> {
     public static final Type<Byte[]> BYTE_ARRAY = new Type<>("byte_array");
     public static final Type<String> BYTES = new Type<>("bytes");
     public static final Type<String> Bytes32 = new Type<>("bytes32");
+    public static final Type<String[]> BYTES_ARRAY = new Type<>("bytes_array");
     public static final Type<Boolean[]> BOOLEAN_ARRAY = new Type<>("boolean_array");
     public static final Type<Character[]> CHARACTER_ARRAY = new Type<>("character_array");
     public static final Type<String[]> STRING_ARRAY = new Type<>("string_array");
