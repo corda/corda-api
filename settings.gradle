@@ -33,8 +33,6 @@ pluginManagement {
         id 'org.jetbrains.kotlin.plugin.jpa' version kotlinVersion
         id 'biz.aQute.bnd.builder' version bndVersion // used to create OSGi bundles
         id "com.jfrog.artifactory" version artifactoryPluginVersion
-        id 'io.snyk.gradle.plugin.snykplugin' version snykVersion
-        id "org.cyclonedx.bom" version cyclonedxVersion
     }
 }
 plugins {
