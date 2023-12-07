@@ -6,7 +6,7 @@ plugins {
     id 'corda-api.common-library'
     id 'corda.common-publishing'
     id 'corda.java-only'
-    id "com.github.davidmc24.gradle.plugin.avro-base"
+    alias libs.plugins.avro.gradle
 }
 
 dependencies {

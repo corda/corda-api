@@ -31,13 +31,7 @@ pluginManagement {
         id 'org.jetbrains.kotlin.jvm' version kotlinVersion
         id 'org.jetbrains.kotlin.plugin.allopen' version kotlinVersion
         id 'org.jetbrains.kotlin.plugin.jpa' version kotlinVersion
-        id 'io.gitlab.arturbosch.detekt' version detektPluginVersion
-        id 'org.ajoberstar.grgit' version grgitPluginVersion // used for GIT interaction (e.g. extract commit hash)
-        id 'com.dorongold.task-tree' version taskTreePluginVersion // utility to visualise Gradle task DAG
         id 'biz.aQute.bnd.builder' version bndVersion // used to create OSGi bundles
-        id 'org.jetbrains.dokka' version dokkaVersion
-        id "com.github.davidmc24.gradle.plugin.avro-base" version avroGradlePluginVersion
-        id 'com.github.ben-manes.versions' version dependencyCheckVersion
         id "com.jfrog.artifactory" version artifactoryPluginVersion
         id 'io.snyk.gradle.plugin.snykplugin' version snykVersion
         id "org.cyclonedx.bom" version cyclonedxVersion
