@@ -12,10 +12,15 @@
     },
     {
       "name": "revocationCheckMode",
-      "type": [
-        "null",
-        "net.corda.data.p2p.gateway.certificates.RevocationMode"
-      ]
+      "type": {
+        "type": "enum",
+        "name": "RevocationCheckMode",
+        "symbols" : [
+          "OFF",
+          "SOFT_FAIL",
+          "HARD_FAIL"
+        ]
+      }
     }
   ]
 }
