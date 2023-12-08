@@ -42,6 +42,7 @@ public final class Type<T> {
             case "address_array":
             case "bytes":
             case "bytes32":
+            case "bytes_array":
                 return String.class;
             case "enum":
             case "enum_list":
