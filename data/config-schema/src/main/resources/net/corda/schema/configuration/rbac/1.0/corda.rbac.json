@@ -10,22 +10,24 @@
       "description": "Settings for passwords.",
       "type": "object",
       "default": {},
-      "userPasswordChangeExpiry": {
-        "description": "The amount of time (days) before the password must be updated again after user password change.",
-        "type": "integer",
-        "minimum": 30,
-        "default": 90
-      },
-      "adminPasswordChangeExpiry": {
-        "description": "The amount of time (days) before the password must be updated again after admin password change",
-        "type": "integer",
-        "minimum": 1,
-        "default": 7
-      },
-      "passwordExpiryWarningWindow": {
-        "description": "The time (days) before a password expires in which we begin to offer warnings about upcoming expiry.",
-        "type": "integer",
-        "default": 30
+      "properties": {
+        "userPasswordChangeExpiry": {
+          "description": "The amount of time (days) before the password must be updated again after user password change.",
+          "type": "integer",
+          "minimum": 30,
+          "default": 90
+        },
+        "adminPasswordChangeExpiry": {
+          "description": "The amount of time (days) before the password must be updated again after admin password change",
+          "type": "integer",
+          "minimum": 1,
+          "default": 7
+        },
+        "passwordExpiryWarningWindow": {
+          "description": "The time (days) before a password expires in which we begin to offer warnings about upcoming expiry.",
+          "type": "integer",
+          "default": 30
+        }
       }
     }
   }
