@@ -26,14 +26,10 @@ dependencies {
         api project(':membership')
         api project(':serialization')
 
-        api('javax.persistence:javax.persistence-api') {
-            version {
-                require javaxPersistenceApiVersion
-            }
-        }
+        api(libs.javax.persistence.api)
         api('org.jetbrains.kotlin:kotlin-osgi-bundle') {
             version {
-                require kotlinVersion
+                    require kotlinVersion
             }
         }
         api('org.jetbrains:annotations') {
@@ -41,26 +37,9 @@ dependencies {
                 require jetbrainsAnnotationsVersion
             }
         }
-        api('org.osgi:osgi.annotation') {
-            version {
-                require osgiAnnotationVersion
-            }
-        }
-        api('org.osgi:osgi.core') {
-            version {
-                require osgiVersion
-            }
-        }
-        api('org.osgi:org.osgi.service.component.annotations') {
-            version {
-                require osgiScrAnnotationVersion
-            }
-        }
-        api('org.slf4j:slf4j-api') {
+        api(libs.bundles.osgi)
+        api(libs.slf4j) {
             because 'Corda 5.1 only supports SLF4J 1.x'
-            version {
-                strictly slf4jVersion
-            }
         }
     }
 }
