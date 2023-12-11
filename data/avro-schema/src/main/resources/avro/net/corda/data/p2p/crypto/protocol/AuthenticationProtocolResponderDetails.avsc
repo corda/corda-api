@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.p2p.crypto.protocol",
   "fields": [
     {
-      "name": "header",
+      "name": "protocolCommonDetails",
       "type": "net.corda.data.p2p.crypto.protocol.AuthenticationProtocolCommonDetails"
     },
     {
