@@ -145,6 +145,18 @@ net.corda.v5.ledger.utxo.FinalizationResult:
       default: false
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+net.corda.v5.ledger.utxo.NotarySignatureVerificationService:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    verifyNotarySignatures:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
 net.corda.v5.ledger.utxo.StateAndRef:
   annotations:
     - CordaSerializable
