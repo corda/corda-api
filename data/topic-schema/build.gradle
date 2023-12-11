@@ -9,9 +9,8 @@ description 'Definition of Topics'
 dependencies {
     implementation platform(project(':corda-api'))
 
-    testImplementation "org.assertj:assertj-core:$assertjVersion"
-    testImplementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
-    testImplementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion"
+    testImplementation libs.jackson.kotlin
+    testImplementation libs.jackson.yaml
 
     compileOnly 'org.osgi:osgi.annotation'
 }
