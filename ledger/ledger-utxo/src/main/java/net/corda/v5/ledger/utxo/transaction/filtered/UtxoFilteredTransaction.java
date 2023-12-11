@@ -1,14 +1,11 @@
 package net.corda.v5.ledger.utxo.transaction.filtered;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.common.transaction.TransactionMetadata;
-import net.corda.v5.ledger.common.transaction.TransactionSignatureException;
-import net.corda.v5.ledger.common.transaction.TransactionSignatureService;
 import net.corda.v5.ledger.utxo.Command;
 import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.StateRef;
@@ -17,8 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.security.PublicKey;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Defines a filtered UTXO transaction.
@@ -128,16 +123,4 @@ public interface UtxoFilteredTransaction {
      * @throws CordaRuntimeException if the current {@link UtxoFilteredTransaction} fails to verify correctly.
      */
     void verify();
-
-    /**
-     * Verifies the notary signatures attached to the current {@link UtxoFilteredTransaction}.
-     *
-     * @throws TransactionSignatureException if the current {@link UtxoFilteredTransaction} fails to verify correctly.
-     */
-    void verifyAttachedNotarySignature(
-            PublicKey notaryKey,
-            List<DigitalSignatureAndMetadata> signatures,
-            Map<String, Map<SecureHash, PublicKey>> keyIdToNotaryKeys,
-            TransactionSignatureService transactionSignatureService
-    );
 }
