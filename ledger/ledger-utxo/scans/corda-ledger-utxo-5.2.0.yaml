@@ -157,6 +157,23 @@ net.corda.v5.ledger.utxo.NotarySignatureVerificationService:
       default: false
       type: public abstract
       returnType: void
+      params:
+        transactionId:
+          annotation: []
+          type: net.corda.v5.crypto.SecureHash
+        notaryKey:
+          annotation: []
+          type: java.security.PublicKey
+        signatures:
+          annotation: []
+          type: java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>
+        keyIdToNotaryKeys:
+          annotation: []
+          type: "java.util.Map<String, java.util.Map<net.corda.v5.crypto.SecureHash,\
+            \ java.security.PublicKey>>"
+        transactionSignatureService:
+          annotation: []
+          type: net.corda.v5.ledger.common.transaction.TransactionSignatureService
 net.corda.v5.ledger.utxo.StateAndRef:
   annotations:
     - CordaSerializable
