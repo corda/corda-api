@@ -1,0 +1,56 @@
+{
+  "type": "record",
+  "name": "AuthenticationProtocolInitiatorDetails",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "protocolCommonDetails",
+      "type": "net.corda.data.p2p.crypto.protocol.AuthenticationProtocolCommonDetails"
+    },
+    {
+      "name": "step",
+      "type": {
+        "type": "enum",
+        "name": "InitiatorStep",
+        "symbols" : [
+          "INIT",
+          "SENT_MY_DH_KEY",
+          "RECEIVED_PEER_DH_KEY",
+          "GENERATED_HANDSHAKE_SECRETS",
+          "SENT_HANDSHAKE_MESSAGE",
+          "RECEIVED_HANDSHAKE_MESSAGE",
+          "SESSION_ESTABLISHED"
+        ]
+      }
+    },
+    {
+      "name": "supportedModes",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.p2p.crypto.ProtocolMode"
+      }
+    },
+    {
+      "name": "ourPublicKey",
+      "type": "string"
+    },
+    {
+      "name": "groupId",
+      "type": "string"
+    },
+    {
+      "name": "certificateCheckMode",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.protocol.CheckCertificate"
+      ]
+    },
+    {
+      "name": "initiatorHandshakeMessage",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.InitiatorHandshakeMessage"
+      ]
+    }
+  ]
+}
