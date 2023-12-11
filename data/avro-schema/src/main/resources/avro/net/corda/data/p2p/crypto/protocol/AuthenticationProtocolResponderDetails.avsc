@@ -5,7 +5,7 @@
   "fields": [
     {
       "name": "header",
-      "type": "net.corda.data.p2p.crypto.protocol.AuthenticationProtocolHeader"
+      "type": "net.corda.data.p2p.crypto.protocol.AuthenticationProtocolCommonDetails"
     },
     {
       "name": "step",
