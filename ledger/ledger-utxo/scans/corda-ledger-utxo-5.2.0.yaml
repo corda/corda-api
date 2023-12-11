@@ -152,25 +152,6 @@ net.corda.v5.ledger.utxo.NotarySignatureVerificationService:
   extends: []
   interface: true
   methods:
-    getNotaryPublicKeyByKeyId:
-      annotations: []
-      default: false
-      type: public abstract
-      returnType: java.security.PublicKey
-      params:
-        keyId:
-          annotation:
-            - NotNull
-          type: net.corda.v5.crypto.SecureHash
-        notaryKey:
-          annotation:
-            - NotNull
-          type: java.security.PublicKey
-        keyIdToNotaryKeys:
-          annotation:
-            - NotNull
-          type: "java.util.Map<String, java.util.Map<net.corda.v5.crypto.SecureHash,\
-            \ java.security.PublicKey>>"
     verifyNotarySignatures:
       annotations: []
       default: false

@@ -27,17 +27,4 @@ public interface NotarySignatureVerificationService {
             @NotNull List<DigitalSignatureAndMetadata> signatures,
             @NotNull Map<String, Map<SecureHash, PublicKey>> keyIdToNotaryKeys
     );
-
-    /**
-     * Get notary public key by key id of signature.
-     *
-     * @param keyId of notary signature
-     * @param notaryKey that is expected to be signed with
-     * @param keyIdToNotaryKeys a map of keyId to notaryKeys
-     */
-    PublicKey getNotaryPublicKeyByKeyId(
-            @NotNull SecureHash keyId,
-            @NotNull PublicKey notaryKey,
-            @NotNull Map<String, Map<SecureHash, PublicKey>> keyIdToNotaryKeys
-    );
 }
