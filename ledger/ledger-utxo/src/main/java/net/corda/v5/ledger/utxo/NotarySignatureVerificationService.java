@@ -15,7 +15,7 @@ public interface NotarySignatureVerificationService {
     /**
      * Verifies given transaction by id is signed by the notary signatures.
      *
-     * @param transactionId of signatures
+     * @param transactionId that is expected to be signed over
      * @param notaryKey that is expected to be signed with
      * @param signatures to verify
      * @param keyIdToNotaryKeys a map of keyId to notaryKeys

@@ -38,7 +38,7 @@ public interface UtxoLedgerService {
     UtxoTransactionBuilder createTransactionBuilder();
 
     /**
-     * Verifies {@link UtxoLedgerTransaction} in the notary server when using contract-verifying-notary.
+     * Verifies {@link UtxoLedgerTransaction}.
      *
      * @param ledgerTransaction The {@link UtxoLedgerTransaction} to verify.
      */
