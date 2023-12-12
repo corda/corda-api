@@ -10,51 +10,51 @@ public class Log {
      * The address from which this log was generated
      */
     @NotNull
-    private final String address;
+    final String address;
 
     /**
      * An array of zero to four 32 Bytes DATA of indexed log arguments
      */
     @NotNull
-    private final List<String> topics;
+    final List<String> topics;
 
     /**
      * The 32 byte non-indexed argument of the log
      */
     @NotNull
-    private final String data;
+    final String data;
 
     /**
      * The block number where this log was in
      */
     @NotNull
-    private final BigInteger blockNumber;
+    final BigInteger blockNumber;
 
     /**
      * The hash of the transaction from which this log was created from. null if the log is pending
      */
-    private final String transactionHash;
+    final String transactionHash;
 
     /**
      * The transaction index from which this log was created from. null if the log is pending
      */
-    private final BigInteger transactionIndex;
+    final BigInteger transactionIndex;
 
     /**
      * The hash of the block this log in
      */
     @NotNull
-    private final String blockHash;
+    final String blockHash;
 
     /**
      * The integer of the log position in the block. null if the log is pending
      */
-    private final int logIndex;
+    final int logIndex;
 
     /**
      * True if this log was removed, due to a chain reorganization and false if it's a valid log
      */
-    private final boolean removed;
+    boolean removed;
 
     public Log(@NotNull String address,
                @NotNull List<String> topics,
