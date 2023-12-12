@@ -14,7 +14,7 @@ osgiVersion = "8.0.0"
 osgiAnnotationVersion = "8.1.0"
 osgiSvcAnnotationVersion = "1.5.1"
 bndVersion = "6.4.0"
-bndlibVersion = "6.4.1"
+bndlibVersion = "7.0.0"
 
 # Testing
 assertjVersion = "3.24.2"
