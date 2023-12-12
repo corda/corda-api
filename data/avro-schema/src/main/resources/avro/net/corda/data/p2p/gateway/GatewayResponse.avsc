@@ -8,6 +8,13 @@
       "name": "id",
       "type": "string",
       "doc": "The id of the request corresponding to this response."
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.AuthenticatedDataMessage"
+      ]
     }
   ]
 }
