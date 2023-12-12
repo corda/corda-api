@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "VirtualNodeUpdateDbStatusResponse",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string"
+    },
+    {
+      "name": "operationType",
+      "type": "string"
+    },
+    {
+      "name": "virtualNodeOperationStatus",
+      "type": "net.corda.data.virtualnode.VirtualNodeOperationStatus"
+    }
+  ]
+}
