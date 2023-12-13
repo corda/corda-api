@@ -31,7 +31,7 @@ detektVersion = "1.23.4"
 dependencyCheckVersion = "0.46.0"
 gradleDataVersion = "1.8.2"
 gradleEnterpriseVersion = "3.14.1"
-grgitVersion = "5.2.0"
+grgitVersion = "5.2.1"
 snykVersion = "0.4"
 taskTreeVersion = "2.1.1"
 
