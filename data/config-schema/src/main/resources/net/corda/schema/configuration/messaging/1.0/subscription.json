@@ -67,6 +67,7 @@
           "default": 20
         }
       }
+    }
   },
   "additionalProperties": false
 }
