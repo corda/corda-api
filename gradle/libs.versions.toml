@@ -46,6 +46,12 @@ jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-datab
 jackson-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jacksonVersion" }
 jackson-yaml = { group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-yaml", version.ref = "jacksonVersion" }
 assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertjVersion" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinVersion" }
+kotlin-stdlib-common = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-common", version.ref = "kotlinVersion" }
+kotlin-stdlib-jdk7 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version.ref = "kotlinVersion" }
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlinVersion" }
+kotlin-osgi-bundle = { group = "org.jetbrains.kotlin", name = "kotlin-osgi-bundle", version.ref = "kotlinVersion" }
+kotlin-reflect= { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlinVersion" }
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlinVersion" }
 junit = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitVersion" }
 junit-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junitVersion" }
@@ -80,5 +86,8 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokkaVersion" }
 gradle-data = { id = "com.gradle.common-custom-user-data-gradle-plugin", version.ref = "gradleDataVersion" }
 gradle-enterprise = { id = "com.gradle.enterprise", version.ref = "gradleEnterpriseVersion" }
 grgit = { id = "org.ajoberstar.grgit", version.ref = "grgitVersion" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
+kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlinVersion" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlinVersion" }
 snyk = { id = "io.snyk.gradle.plugin.snykplugin", version.ref = "snykVersion" }
 task-tree = { id = "com.dorongold.task-tree", version.ref = "taskTreeVersion" }
