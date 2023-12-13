@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "EncryptionOpsResponse",
+  "namespace": "net.corda.data.crypto.wire.ops.encryption.response",
+  "doc": "Response for crypto's encryption operations envelope",
+  "fields": [
+    {
+      "name": "response",
+      "type": [
+        "net.corda.data.crypto.wire.ops.encryption.response.CryptoEncryptionResult",
+        "net.corda.data.crypto.wire.ops.encryption.response.CryptoDecryptionResult",
+        "net.corda.data.crypto.wire.ops.encryption.response.EncryptionOpsError"
+      ],
+      "doc": "Response's payload, depends on the requested operation"
+    }
+  ]
+}

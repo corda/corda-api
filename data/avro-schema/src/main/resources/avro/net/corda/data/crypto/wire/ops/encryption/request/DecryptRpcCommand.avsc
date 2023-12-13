@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "DecryptRpcCommand",
+  "namespace": "net.corda.data.crypto.wire.ops.encryption.request",
+  "doc": "Request to decrypt the given byte array",
+  "fields": [
+    {
+      "name": "category",
+      "type": "string",
+      "doc": "The category of HSM e.g. ENCRYPTION_SECRET, TLS, etc."
+    },
+    {
+      "name": "alias",
+      "doc": "The symmetric key alias.",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "cipherBytes",
+      "type": "bytes",
+      "doc": "The data to decrypt."
+    },
+    {
+      "name": "context",
+      "type": "net.corda.data.KeyValuePairList",
+      "doc": "Optional key/value operation specific context"
+    }
+  ]
+}
