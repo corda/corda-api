@@ -40,6 +40,7 @@
         "null",
         "int"
       ],
+      "default": null,
       "doc": "The length of time in milliseconds that Corda waits when no message has been received from a counterparty before causing the session to error. If not set, value from configuration is used."
     },
     {
