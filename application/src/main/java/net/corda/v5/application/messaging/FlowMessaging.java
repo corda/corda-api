@@ -9,7 +9,6 @@ import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.base.types.MemberX500Name;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -118,17 +117,13 @@ public interface FlowMessaging {
      * context of the initiated flow either.
      *
      * @param x500Name The X500 name of the member to communicate with.
-     * @param requireClose When set to true, the initiated party will send a close message after calling FlowSession.close()
-     *                     and the initiating party will suspend and wait to receive the message when they call FlowSession.close().
-     *                     When set to false the session is marked as terminated immediately when close() is called.
-     * @param sessionTimeout The duration that Corda waits when no message has been received from a counterparty before
-     *                       causing the session to error. If set to `null`, value set in Corda Configuration will be used.
+     * @param sessionConfiguration Session configuration (see {@link FlowSessionConfiguration}).
      *
      * @return The session.
      */
     @Suspendable
     @NotNull
-    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose, Duration sessionTimeout);
+    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, @NotNull FlowSessionConfiguration sessionConfiguration);
 
     /**
      * Creates a communication session with another member. Subsequently, you may send/receive using this session object.
@@ -227,24 +222,21 @@ public interface FlowMessaging {
      * <p>
      * Example of use in Kotlin.
      * ```Kotlin
-     * val flowSession = flowMessaging.initiateFlow(virtualNodeName) { flowContextProperties ->
+     * val sessionConfig = FlowSessionConfiguration.Builder().requireClose(false).build()
+     * val flowSession = flowMessaging.initiateFlow(virtualNodeName, sessionConfig) { flowContextProperties ->
      *      flowContextProperties["key"] = "value"
      * }
      * ```
      * Example of use in Java.
      * ```Java
-     * FlowSession flowSession = flowMessaging.initiateFlow(virtualNodeName, (flowContextProperties) -> {
+     * FlowSessionConfiguration sessionConfig = new FlowSessionConfiguration.Builder().requireClose(false).build();
+     * FlowSession flowSession = flowMessaging.initiateFlow(virtualNodeName, sessionConfig, (flowContextProperties) -> {
      *      flowContextProperties.put("key", "value");
      * });
      * ```
      *
      * @param x500Name The X500 name of the member to communicate with.
-     * @param requireClose When set to true, the initiated party will send a close message after calling FlowSession.close()
-     *                     and the initiating party will suspend and wait to receive the message when they call FlowSession.close().
-     *                     When set to false the session is marked as terminated immediately when close() is called.
-     * @param sessionTimeout The duration that Corda waits when no message has been received from a counterparty before
-     *                       causing the session to error. If set to `null`, value set in Corda Configuration will
-     *                       be used.
+     * @param sessionConfiguration Session configuration (see {@link FlowSessionConfiguration}).
      * @param flowContextPropertiesBuilder A builder of context properties.
      *
      * @return The session.
@@ -259,8 +251,7 @@ public interface FlowMessaging {
     @NotNull
     FlowSession initiateFlow(
             @NotNull MemberX500Name x500Name,
-            boolean requireClose,
-            Duration sessionTimeout,
+            @NotNull FlowSessionConfiguration sessionConfiguration,
             @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder
     );
 

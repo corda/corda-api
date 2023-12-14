@@ -1331,6 +1331,9 @@ net.corda.v5.application.messaging.FlowMessaging:
         requireClose:
           annotation: []
           type: boolean
+        sessionTimeout:
+          annotation: []
+          type: java.time.Duration
         flowContextPropertiesBuilder:
           annotation:
             - NotNull

@@ -28,7 +28,7 @@ public class FlowMessagingJavaApiTest {
     @Test
     public void initiateFlowPartyWithBuilder() {
         final MemberX500Name counterparty = new MemberX500Name("Alice Corp", "LDN", "GB");
-        when(flowMessaging.initiateFlow(eq(counterparty), any())).thenReturn(flowSession);
+        when(flowMessaging.initiateFlow(eq(counterparty), any(FlowContextPropertiesBuilder.class))).thenReturn(flowSession);
 
         FlowSession result = flowMessaging.initiateFlow(counterparty, (contextProperties) -> contextProperties.put("key", "value"));
 
