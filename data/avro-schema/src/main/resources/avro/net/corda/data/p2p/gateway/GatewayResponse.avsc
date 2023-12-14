@@ -13,6 +13,7 @@
       "name": "payload",
       "type": [
         "null",
+        "net.corda.data.p2p.crypto.AuthenticatedEncryptedDataMessage",
         "net.corda.data.p2p.crypto.AuthenticatedDataMessage"
       ]
     }
