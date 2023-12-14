@@ -158,10 +158,10 @@ net.corda.v5.ledger.utxo.NotarySignatureVerificationService:
       type: public abstract
       returnType: void
       params:
-        transactionId:
+        transaction:
           annotation:
             - NotNull
-          type: net.corda.v5.crypto.SecureHash
+          type: net.corda.v5.ledger.common.transaction.TransactionWithMetadata
         notaryKey:
           annotation:
             - NotNull
@@ -1930,7 +1930,8 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
     - CordaSerializable
     - DoNotImplement
   type: public interface
-  extends: []
+  extends:
+    - net.corda.v5.ledger.common.transaction.TransactionWithMetadata
   interface: true
   methods:
     getCommands:
