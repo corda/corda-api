@@ -38,6 +38,14 @@ public interface UtxoLedgerService {
     UtxoTransactionBuilder createTransactionBuilder();
 
     /**
+     * Verifies {@link UtxoLedgerTransaction}.
+     *
+     * @param ledgerTransaction The {@link UtxoLedgerTransaction} to verify.
+     */
+    @Suspendable
+    void verify(UtxoLedgerTransaction ledgerTransaction);
+
+    /**
      * Resolves the specified {@link StateRef} instances into {@link StateAndRef} instances of the specified {@link ContractState} type.
      *
      * @param <T>       The underlying {@link ContractState} type.
