@@ -7,20 +7,20 @@ slf4jVersion = { strictly = "1.7.36" }
 # Main implementation dependencies
 avroVersion = "1.11.3"
 commonsCompressVersion = "1.25.0"
-bouncycastleVersion = "1.73"
+bouncycastleVersion = "1.77"
 javaxPersistenceApiVersion = "2.2"
 jacksonVersion = "2.16.0"
 osgiVersion = "8.0.0"
 osgiAnnotationVersion = "8.1.0"
 osgiSvcAnnotationVersion = "1.5.1"
 bndVersion = "6.4.0"
-bndlibVersion = "6.4.1"
+bndlibVersion = "7.0.0"
 
 # Testing
 assertjVersion = "3.24.2"
 junitVersion = "5.10.1"
 mockitoVersion = "5.3.0"
-mockitoKotlinVersion = "4.1.0"
+mockitoKotlinVersion = "5.2.1"
 
 # Plugins
 artifactoryVersion = "4.28.2"
@@ -31,7 +31,7 @@ detektVersion = "1.23.4"
 dependencyCheckVersion = "0.46.0"
 gradleDataVersion = "1.8.2"
 gradleEnterpriseVersion = "3.14.1"
-grgitVersion = "5.2.0"
+grgitVersion = "5.2.1"
 snykVersion = "0.4"
 taskTreeVersion = "2.1.1"
 
