@@ -57,8 +57,8 @@ public final class MessagingConfig {
         public static final String SUBSCRIBE_RETRIES = SUBSCRIPTION + ".subscribeRetries";
         public static final String COMMIT_RETRIES = SUBSCRIPTION + ".commitRetries";
         public static final String PROCESSOR_TIMEOUT = SUBSCRIPTION + ".processorTimeout";
-        public static final String PROCESSING_THREAD_POOL_SIZE = "mediator.poolSize";
-        public static final String PROCESSING_MIN_POOL_RECORD_COUNT = "mediator.minPoolRecordCount";
+        public static final String PROCESSING_THREAD_POOL_SIZE = SUBSCRIPTION + ".mediator.poolSize";
+        public static final String PROCESSING_MIN_POOL_RECORD_COUNT = SUBSCRIPTION + ".mediator.minPoolRecordCount";
     }
 
     /**
