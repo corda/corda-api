@@ -6,6 +6,7 @@ import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.common.transaction.TransactionMetadata;
+import net.corda.v5.ledger.common.transaction.TransactionWithMetadata;
 import net.corda.v5.ledger.utxo.Command;
 import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.StateRef;
@@ -36,7 +37,7 @@ import java.security.PublicKey;
  */
 @CordaSerializable
 @DoNotImplement
-public interface UtxoFilteredTransaction {
+public interface UtxoFilteredTransaction extends TransactionWithMetadata {
 
     /**
      * Gets the ID of the current transaction.
