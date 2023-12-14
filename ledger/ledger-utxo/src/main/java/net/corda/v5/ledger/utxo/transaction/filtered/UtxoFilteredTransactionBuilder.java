@@ -9,6 +9,7 @@ import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
+import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -177,6 +178,19 @@ public interface UtxoFilteredTransactionBuilder {
     @NotNull
     @Suspendable
     UtxoFilteredTransactionBuilder withOutputStates(@NotNull Predicate<ContractState> predicate);
+
+    /**
+     * Includes an audit proof of the output state refs component group from a {@link UtxoSignedTransaction} in the
+     * current {@link UtxoFilteredTransaction}.
+     *
+     * @param indexes indexes of transaction to include its output to {@link UtxoFilteredTransaction}
+     * @return Returns the current {@link UtxoFilteredTransaction} including the filtered output state refs component
+     * group.
+     */
+    @Suspendable
+    @NotNull
+    UtxoFilteredTransactionBuilder withOutputStates(@NotNull List<Integer> indexes);
+
 
     /**
      * Includes a size proof of the commands component group from a {@link UtxoSignedTransaction} in the current

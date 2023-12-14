@@ -145,6 +145,36 @@ net.corda.v5.ledger.utxo.FinalizationResult:
       default: false
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+net.corda.v5.ledger.utxo.NotarySignatureVerificationService:
+  annotations:
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    verifyNotarySignatures:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        transaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.common.transaction.TransactionWithMetadata
+        notaryKey:
+          annotation:
+            - NotNull
+          type: java.security.PublicKey
+        signatures:
+          annotation:
+            - NotNull
+          type: java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>
+        keyIdToNotaryKeys:
+          annotation:
+            - NotNull
+          type: "java.util.Map<String, java.util.Map<net.corda.v5.crypto.SecureHash,\
+            \ java.security.PublicKey>>"
 net.corda.v5.ledger.utxo.StateAndRef:
   annotations:
     - CordaSerializable
@@ -526,6 +556,16 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: net.corda.v5.application.messaging.FlowSession
+    verify:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        ledgerTransaction:
+          annotation: []
+          type: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
 net.corda.v5.ledger.utxo.VisibilityChecker:
   annotations:
     - DoNotImplement
@@ -1623,6 +1663,13 @@ net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction:
       default: false
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
+      params:
+        inputStateAndRefs:
+          annotation: []
+          type: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<?>>
+        referenceStateAndRefs:
+          annotation: []
+          type: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<?>>
 net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder:
   annotations:
     - DoNotImplement
@@ -1883,7 +1930,8 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
     - CordaSerializable
     - DoNotImplement
   type: public interface
-  extends: []
+  extends:
+    - net.corda.v5.ledger.common.transaction.TransactionWithMetadata
   interface: true
   methods:
     getCommands:
@@ -2017,10 +2065,10 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder:
       type: public abstract
       returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder
       params:
-        predicate:
+        indexes:
           annotation:
             - NotNull
-          type: java.util.function.Predicate<net.corda.v5.ledger.utxo.ContractState>
+          type: java.util.List<Integer>
     withOutputStatesSize:
       annotations:
         - Suspendable
