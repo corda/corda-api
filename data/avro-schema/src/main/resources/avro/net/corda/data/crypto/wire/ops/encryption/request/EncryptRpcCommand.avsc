@@ -12,7 +12,7 @@
     {
       "name": "alias",
       "doc": "The symmetric key alias.",
-      "type": "string"
+      "type": ["null", "string"]
     },
     {
       "name": "plainBytes",
