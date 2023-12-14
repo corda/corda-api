@@ -7,7 +7,7 @@
     {
       "name": "response",
       "type": [
-        "net.corda.data.crypto.wire.ops.encryption.response.CryptoEncryptionResult",
+        "net.corda.data.crypto.wire.ops.encryption.response.CryptoDecryptionResult",
         "net.corda.data.crypto.wire.ops.encryption.response.EncryptionOpsError"
       ],
       "doc": "Response's payload, depends on the requested operation"
