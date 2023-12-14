@@ -183,7 +183,7 @@ public interface UtxoFilteredTransactionBuilder {
      * Includes an audit proof of the output state refs component group from a {@link UtxoSignedTransaction} in the
      * current {@link UtxoFilteredTransaction}.
      *
-     * @param indexes index of transaction to include its output to {@link UtxoFilteredTransaction}
+     * @param indexes indexes of transaction to include its output to {@link UtxoFilteredTransaction}
      * @return Returns the current {@link UtxoFilteredTransaction} including the filtered output state refs component
      * group.
      */
