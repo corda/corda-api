@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "EncryptionOpsResponse",
+  "name": "DecryptionOpsResponse",
   "namespace": "net.corda.data.crypto.wire.ops.encryption.response",
-  "doc": "Response for crypto's encryption operations envelope",
+  "doc": "Response for crypto's decryption operations envelope",
   "fields": [
     {
       "name": "response",
