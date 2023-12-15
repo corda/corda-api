@@ -72,7 +72,8 @@
       "examples": [
         "true",
         "false"
-      ]
+      ],
+      "default": "true"
     },
     "corda.notary.service.flow.protocol.name": {
       "description": "Name of the flow protocol used by the notary service. Valid only when one of the roles is notary.",
