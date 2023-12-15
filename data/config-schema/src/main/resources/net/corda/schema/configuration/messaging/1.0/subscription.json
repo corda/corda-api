@@ -46,6 +46,27 @@
       "minimum": 1000,
       "maximum": 2147483647,
       "default": 15000
+    },
+    "mediator": {
+      "description": "Settings for the multi source mediator",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "poolSize": {
+          "description": "The size of the mediator event processing pool size.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 8
+        },
+        "minPoolRecordCount": {
+          "description": "The minimum number of events in a single mediator processing pool. If the number of records polled is less than this, then the polled records are used in a single pool.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 20
+        }
+      }
     }
   },
   "additionalProperties": false
