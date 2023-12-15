@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "SessionState",
+  "namespace": "net.corda.data.p2p.state",
+  "fields": [
+    {
+      "doc": "The message.",
+      "name": "message",
+      "type": "net.corda.data.p2p.LinkOutMessage"
+    },
+    {
+      "doc": "The encrypted session data.",
+      "name": "encryptedSessionData",
+      "type": "bytes"
+    }
+  ]
+}
