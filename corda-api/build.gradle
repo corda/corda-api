@@ -27,11 +27,7 @@ dependencies {
         api project(':serialization')
 
         api(libs.javax.persistence.api)
-        api('org.jetbrains.kotlin:kotlin-osgi-bundle') {
-            version {
-                    require kotlinVersion
-            }
-        }
+        api(libs.kotlin.osgi.bundle)
         api('org.jetbrains:annotations') {
             version {
                 require jetbrainsAnnotationsVersion
