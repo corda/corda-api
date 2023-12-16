@@ -276,6 +276,32 @@ public interface UtxoLedgerService {
     );
 
     /**
+     * Sends the wire transaction to counterparty sessions.
+     *
+     * @param sessions The counterparties who receive the transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
+     * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
+     */
+    @Suspendable
+    void sendWireTransaction(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+    /**
+     * Receives a verified transaction from the counterparty session and persists it to the vault.
+     *
+     * @param session The counterparty to receive a transaction from.
+     * @return the {@link UtxoLedgerTransaction} received from counterparty.
+     * @throws CordaRuntimeException If the transaction received fails verification.
+     */
+    @NotNull
+    @Suspendable
+    UtxoLedgerTransaction receiveLedgerTransaction(
+            @NotNull FlowSession session
+    );
+
+    /**
      * Creates a query object for a vault named query with the given name. This query can be executed later by calling
      * {@link PagedQuery#execute()}.
      * <p>
