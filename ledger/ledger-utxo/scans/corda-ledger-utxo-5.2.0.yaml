@@ -593,24 +593,52 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: java.util.List<net.corda.v5.application.messaging.FlowSession>
-net.corda.v5.ledger.utxo.VisibilityChecker:
-  annotations:
-    - DoNotImplement
+net.corda.ledger.utxo.flow.impl.transaction.factory.UtxoLedgerTransactionFactory:
+  annotations: []
   type: public interface
   extends: []
   interface: true
   methods:
-    containsMySigningKeys:
+    create:
       annotations:
         - Suspendable
       default: false
-      type: public abstract
-      returnType: boolean
+      type: public
+      returnType: UtxoLedgerTransactionInternal
       params:
-        keys:
-          annotation:
-            - NotNull
-          type: Iterable<java.security.PublicKey>
+        wireTransaction:
+          annotation: []
+          type: WireTransaction
+#    create:
+#      annotations: []
+#      default: false
+#      type: public
+#      returnType: UtxoLedgerTransactionInternal
+#      params:
+#        wireTransaction:
+#          annotation: []
+#          type: WireTransaction
+#        inputStateAndRefs:
+#          annotation: []
+#          type: List<UtxoVisibleTransactionOutputDto>
+#        referenceStateAndRefs:
+#          annotation: []
+#          type: List<UtxoVisibleTransactionOutputDto>
+    createWithStateAndRefs:
+      annotations: []
+      default: false
+      type: public
+      returnType: UtxoLedgerTransactionInternal
+      params:
+        wireTransaction:
+          annotation: []
+          type: WireTransaction
+        inputStateAndRefs:
+          annotation: []
+          type: List<StateAndRef<*>>
+        referenceStateAndRefs:
+          annotation: []
+          type: List<StateAndRef<*>>
 net.corda.v5.ledger.utxo.observer.TokenStateObserverContext:
   annotations: []
   type: public interface
