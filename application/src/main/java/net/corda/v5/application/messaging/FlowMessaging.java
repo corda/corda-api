@@ -105,7 +105,7 @@ public interface FlowMessaging {
      *
      * @return The session.
      */
-    @Deprecated(since = "5.3")
+    @Deprecated(since = "5.2")
     @Suspendable
     @NotNull
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose);
@@ -212,7 +212,7 @@ public interface FlowMessaging {
      * exception thrown by the builder will also be thrown through here and should be avoided in the provided
      * implementation, see {@link FlowContextPropertiesBuilder}.
      */
-    @Deprecated(since = "5.3")
+    @Deprecated(since = "5.2")
     @Suspendable
     @NotNull
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
