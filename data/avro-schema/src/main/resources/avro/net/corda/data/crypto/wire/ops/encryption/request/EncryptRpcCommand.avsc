@@ -11,8 +11,8 @@
     },
     {
       "name": "alias",
-      "doc": "The symmetric key alias.",
-      "type": ["null", "string"]
+      "type": ["null", "string"],
+      "doc": "The symmetric key alias."
     },
     {
       "name": "plainBytes",
