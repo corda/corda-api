@@ -132,4 +132,9 @@ public interface UtxoSignedTransaction extends TransactionWithMetadata {
     @NotNull
     @Suspendable
     UtxoLedgerTransaction toLedgerTransaction(List<StateAndRef<?>> inputStateAndRefs, List<StateAndRef<?>> referenceStateAndRefs);
+
+    /**
+     * Verifies signatures of signatory of current {@link UtxoSignedTransaction}.
+     */
+    void verifySignatorySignatures();
 }

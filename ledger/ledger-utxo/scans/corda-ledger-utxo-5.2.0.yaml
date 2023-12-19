@@ -1670,6 +1670,11 @@ net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction:
         referenceStateAndRefs:
           annotation: []
           type: java.util.List<net.corda.v5.ledger.utxo.StateAndRef<?>>
+    verifySignatorySignatures:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: void
 net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder:
   annotations:
     - DoNotImplement
