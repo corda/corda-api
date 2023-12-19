@@ -6,17 +6,17 @@ plugins {
     id 'corda-api.common-library'
     id 'corda.common-publishing'
     id 'corda.java-only'
-    id "com.github.davidmc24.gradle.plugin.avro-base"
+    alias libs.plugins.avro.gradle
 }
 
 dependencies {
-    api "org.apache.avro:avro:$avroVersion"
+    api libs.avro
     constraints {
-        implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion") {
+        implementation(libs.jackson.databind) {
             because "required until new version of Avro available which updates Jackson"
         }
 
-        implementation("org.apache.commons:commons-compress:$commonsCompressVersion") {
+        implementation(libs.commons.compress) {
             because "CVE-2023-42503, current version of Avro uses an outdated version"
         }
     }
@@ -30,7 +30,7 @@ dependencies {
 configurations.all {
     resolutionStrategy {
         // CVE-2023-42503, current version of Avro uses an outdated version
-        force "org.apache.commons:commons-compress:$commonsCompressVersion"
+        force libs.commons.compress
     }
 }
 

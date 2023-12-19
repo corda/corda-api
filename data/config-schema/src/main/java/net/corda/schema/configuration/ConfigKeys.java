@@ -19,6 +19,7 @@ public final class ConfigKeys {
     public static final String P2P_LINK_MANAGER_CONFIG = "corda.p2p.linkManager";
     public static final String P2P_GATEWAY_CONFIG = "corda.p2p.gateway";
     public static final String REST_CONFIG = "corda.rest";
+    public static final String RBAC_CONFIG = "corda.rbac";
     public static final String SECRETS_CONFIG = "corda.secrets";
     public static final String SANDBOX_CONFIG = "corda.sandbox";
     public static final String RECONCILIATION_CONFIG = "corda.reconciliation";
@@ -37,6 +38,10 @@ public final class ConfigKeys {
     public static final String REST_AZUREAD_TENANT_ID = "sso.azureAd.tenantId";
     public static final String REST_WEBSOCKET_CONNECTION_IDLE_TIMEOUT_MS = "websocket.idleTimeoutMs";
 
+    // RBAC
+    public static final String RBAC_USER_PASSWORD_CHANGE_EXPIRY = "password.userPasswordChangeExpiry";
+    public static final String RBAC_ADMIN_PASSWORD_CHANGE_EXPIRY = "password.adminPasswordChangeExpiry";
+    public static final String RBAC_PASSWORD_EXPIRY_WARNING_WINDOW = "password.passwordExpiryWarningWindow";
     // Secrets Service
     // 
     // SECRETS_TYPE control which secrets service implementation will be selected.

@@ -84,9 +84,15 @@ public final class Schemas {
 
         public static final String RPC_HSM_REGISTRATION_MESSAGE_TOPIC = "crypto.hsm.rpc.registration";
         public static final String RPC_HSM_REGISTRATION_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_HSM_REGISTRATION_MESSAGE_TOPIC);
-        public static final String FLOW_OPS_MESSAGE_TOPIC = "crypto.ops.flow";
         public static final String RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc";
         public static final String RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC);
+        public static final String REKEY_MESSAGE_TOPIC = "crypto.key.rotation.ops";
+        public static final String REKEY_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REKEY_MESSAGE_TOPIC);
+        public static final String REKEY_MESSAGE_STATUS_TOPIC = "crypto.key.rotation.status";
+        public static final String REWRAP_MESSAGE_TOPIC = "crypto.key.rotation.individual";
+        public static final String REWRAP_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REWRAP_MESSAGE_TOPIC);
+
+
     }
 
     /**
@@ -100,9 +106,6 @@ public final class Schemas {
         public static final String FLOW_EVENT_TOPIC = "flow.event";
         public static final String FLOW_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_EVENT_TOPIC);
-        public static final String FLOW_MAPPER_EVENT_TOPIC = "flow.mapper.event";
-        public static final String FLOW_MAPPER_EVENT_STATE_TOPIC = getStateAndEventStateTopic(FLOW_MAPPER_EVENT_TOPIC);
-        public static final String FLOW_MAPPER_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_MAPPER_EVENT_TOPIC);
         public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
         public static final String FLOW_TIMEOUT_TOPIC = "flow.timeout";
         public static final String FLOW_MAPPER_START = "flow.mapper.start";
@@ -207,17 +210,6 @@ public final class Schemas {
     }
 
     /**
-     * Persistence message schema.
-     */
-    public static final class Persistence {
-        private Persistence() {
-        }
-
-        public static final String PERSISTENCE_ENTITY_PROCESSOR_TOPIC = "persistence.entity.processor";
-        public static final String PERSISTENCE_LEDGER_PROCESSOR_TOPIC = "persistence.ledger.processor";
-    }
-
-    /**
      * Rest message schema.
      */
     public static final class Rest {
@@ -230,26 +222,6 @@ public final class Schemas {
         public static final String REST_PERM_GROUP_TOPIC = "rest.permissions.group";
         public static final String REST_PERM_ROLE_TOPIC = "rest.permissions.role";
         public static final String REST_PERM_ENTITY_TOPIC = "rest.permissions.permission";
-    }
-
-    /**
-     * Uniqueness checker schema.
-     */
-    public static final class UniquenessChecker {
-        private UniquenessChecker() {
-        }
-
-        public static final String UNIQUENESS_CHECK_TOPIC = "uniqueness.check";
-    }
-
-    /**
-     * Verification message schema.
-     */
-    public static final class Verification {
-        private Verification() {
-        }
-
-        public static final String VERIFICATION_LEDGER_PROCESSOR_TOPIC = "verification.ledger.processor";
     }
 
     /**

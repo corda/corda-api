@@ -9,4 +9,6 @@
 
     <include file="net/corda/db/schema/config/migration/config-creation-v5.1.xml"/>
     <include file="net/corda/db/schema/config/migration/scheduler-creation-v5.1.xml"/>
+
+    <include file="net/corda/db/schema/config/migration/config-creation-v5.2.xml"/>
 </databaseChangeLog>

@@ -1,0 +1,42 @@
+{
+  "type": "record",
+  "name": "KeyRotationRequest",
+  "namespace": "net.corda.data.crypto.wire.ops.key.rotation",
+  "doc": "Internal over-the-wire crypto key rotation operation request envelope.",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "GUID allocated by client to control key rotation."
+    },
+    {
+      "name": "managedKey",
+      "type": {
+        "type": "enum",
+        "name": "KeyType",
+        "symbols": ["MANAGED", "UNMANAGED"]
+      },
+      "doc": "Type of the key to be rotated."
+    },
+    {
+      "name": "oldParentKeyAlias",
+      "type": ["null", "string"],
+      "doc": "The key alias that should no longer be used, and all its protected content re-wrapped with a new key."
+    },
+    {
+      "name": "newParentKeyAlias",
+      "type": ["null", "string"],
+      "doc": "The unmanaged key alias that should be used for material currently wrapped with old key. Only specified when rotating unmanaged keys."
+    },
+    {
+      "name": "oldGeneration",
+      "type": ["null", "int"],
+      "doc": "Specifies the old generation number we should move away from. If absent, rotate all matching keys."
+    },
+    {
+      "name": "tenantId",
+      "type": ["null", "string"],
+      "doc": "Only specified when targeting managed keys. Specifies the specific tenant that owns the old and new key."
+    }
+  ]
+}

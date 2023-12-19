@@ -6,8 +6,9 @@
   "fields": [
     {
       "name": "topic",
-      "type": "string",
-      "doc": "The topic that the external event is sent to."
+      "type": ["null", "string"],
+      "doc": "The topic that the external event is sent to.",
+      "default": null
     },
     {
       "name": "key",

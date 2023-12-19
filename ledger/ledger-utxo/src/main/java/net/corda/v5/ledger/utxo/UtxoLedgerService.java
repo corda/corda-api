@@ -5,7 +5,9 @@ import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.PagedQuery.ResultSet;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.ledger.common.transaction.TransactionSignatureException;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
 import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
@@ -34,6 +36,14 @@ public interface UtxoLedgerService {
     @NotNull
     @Suspendable
     UtxoTransactionBuilder createTransactionBuilder();
+
+    /**
+     * Verifies {@link UtxoLedgerTransaction}.
+     *
+     * @param ledgerTransaction The {@link UtxoLedgerTransaction} to verify.
+     */
+    @Suspendable
+    void verify(UtxoLedgerTransaction ledgerTransaction);
 
     /**
      * Resolves the specified {@link StateRef} instances into {@link StateAndRef} instances of the specified {@link ContractState} type.
@@ -247,6 +257,31 @@ public interface UtxoLedgerService {
             @NotNull FlowSession session
     );
 
+    /**
+     * Sends the transaction to counterparty sessions.
+     *
+     * @param sessions The counterparties who receive the transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
+     * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
+     */
+    @Suspendable
+    void sendTransaction(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+    /**
+     * Receives a verified transaction from the counterparty session and persists it to the vault.
+     *
+     * @param session The counterparty to receive a transaction from.
+     * @return the {@link UtxoSignedTransaction} received from counterparty.
+     * @throws CordaRuntimeException If the transaction received fails verification.
+     */
+    @NotNull
+    @Suspendable
+    UtxoSignedTransaction receiveTransaction(
+            @NotNull FlowSession session
+    );
 
     /**
      * Creates a query object for a vault named query with the given name. This query can be executed later by calling
@@ -305,4 +340,30 @@ public interface UtxoLedgerService {
     @Suspendable
     @NotNull
     <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
+
+    /**
+     * Persists a non-finalized (draft) transaction.
+     * It executes the same checks as the finalization does before its initial persist.
+     * So the transaction and all of its signatures need to be valid, but there may be missing signatures.
+     * <p>
+     * @param utxoSignedTransaction The {@link UtxoSignedTransaction} to persist.
+     * @throws ContractVerificationException if the transaction fails contract verification.
+     * @throws TransactionSignatureException if a signature of the transaction fails verification.
+     * @throws IllegalStateException if the transaction does not have any signatures.
+     */
+    @Suspendable
+    void persistDraftSignedTransaction(
+            @NotNull UtxoSignedTransaction utxoSignedTransaction
+    );
+
+    /**
+     * Finds a draft {@link UtxoSignedTransaction} in the vault by the specified transaction ID.
+     * Draft transactions have not been finalized, so they may have missing signatures.
+     *
+     * @param id The ID of the {@link UtxoSignedTransaction} to find.
+     * @return Returns the {@link UtxoSignedTransaction} if it has been recorded previously, or null if no transaction could be found.
+     */
+    @Nullable
+    @Suspendable
+    UtxoSignedTransaction findDraftSignedTransaction(@NotNull SecureHash id);
 }
