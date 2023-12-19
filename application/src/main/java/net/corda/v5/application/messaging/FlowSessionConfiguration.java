@@ -5,7 +5,7 @@ import java.time.Duration;
 /**
  * Flow session configuration. Instances should be created using {@link Builder}.
  */
-public class FlowSessionConfiguration {
+public final class FlowSessionConfiguration {
     private final boolean requireClose;
     private final Duration timeout;
 
@@ -22,7 +22,7 @@ public class FlowSessionConfiguration {
         return timeout;
     }
 
-    public static class Builder {
+    public static final class Builder {
         private boolean requireClose = true;
         private Duration timeout;
 
