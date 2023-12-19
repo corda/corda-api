@@ -22,11 +22,28 @@ pluginManagement {
             }
             gradlePluginPortal()
         }
-
     }
+
+    // Manually parse the Toml file to workaround issues with version catalog
+    // not supporting direct use in settings.gradle
+    def tomlFile = new File(rootDir, 'gradle/libs.versions.toml')
+    def tomlContent = tomlFile.text
+    def extractVersion = { String name ->
+        def pattern = java.util.regex.Pattern.compile("${name}\\s*=\\s*\"([^\"]+)\"")
+        def matcher = pattern.matcher(tomlContent)
+        if (matcher.find()) {
+            return matcher.group(1)
+        } else {
+            return null
+        }
+    }
+
+    def gradleEnterpriseVersion = extractVersion('gradleEnterpriseVersion')
+    def gradleDataPluginVersion = extractVersion('gradleDataVersion')
+
     plugins {
         id 'com.gradle.enterprise' version gradleEnterpriseVersion
-        id 'com.gradle.common-custom-user-data-gradle-plugin' version gradleDataPlugin
+        id 'com.gradle.common-custom-user-data-gradle-plugin' version gradleDataPluginVersion
     }
 }
 plugins {
