@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "EncryptionOpsError",
+  "namespace": "net.corda.data.crypto.wire.ops.encryption.response",
+  "doc": "Error result while performing encryption or decryption operation.",
+  "fields": [
+    {
+      "name": "errorMessage",
+      "type": "net.corda.data.ExceptionEnvelope"
+    }
+  ]
+}
