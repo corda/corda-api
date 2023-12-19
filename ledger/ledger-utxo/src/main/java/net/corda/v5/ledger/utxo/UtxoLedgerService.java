@@ -291,7 +291,7 @@ public interface UtxoLedgerService {
      * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
      */
     @Suspendable
-    void sendWireTransaction(
+    void sendAsLedgerTransaction(
             @NotNull UtxoSignedTransaction signedTransaction,
             @NotNull List<FlowSession> sessions
     );

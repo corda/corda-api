@@ -578,7 +578,7 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
         ledgerTransaction:
           annotation: []
           type: net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction
-    sendWireTransaction:
+    sendAsLedgerTransaction:
       annotations:
         - Suspendable
       default: false
@@ -609,21 +609,6 @@ net.corda.ledger.utxo.flow.impl.transaction.factory.UtxoLedgerTransactionFactory
         wireTransaction:
           annotation: []
           type: WireTransaction
-#    create:
-#      annotations: []
-#      default: false
-#      type: public
-#      returnType: UtxoLedgerTransactionInternal
-#      params:
-#        wireTransaction:
-#          annotation: []
-#          type: WireTransaction
-#        inputStateAndRefs:
-#          annotation: []
-#          type: List<UtxoVisibleTransactionOutputDto>
-#        referenceStateAndRefs:
-#          annotation: []
-#          type: List<UtxoVisibleTransactionOutputDto>
     createWithStateAndRefs:
       annotations: []
       default: false
