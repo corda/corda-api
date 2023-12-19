@@ -23,7 +23,6 @@ mockitoVersion = "5.8.0"
 mockitoKotlinVersion = "5.2.1"
 
 # Plugins
-artifactoryVersion = "4.28.2"
 avroGradleVersion = "1.3.0"
 cyclonedxVersion = "1.8.1"
 dokkaVersion = "1.8.20"
@@ -78,7 +77,6 @@ test-runtime = ["junit-engine", "junit-platform"]
 
 [plugins]
 avro-gradle = { id = "com.github.davidmc24.gradle.plugin.avro-base", version.ref = "avroGradleVersion" }
-artifactory = { id = "com.jfrog.artifactory", version.ref = "artifactoryVersion" }
 cyclonedx-bom = { id = "org.cyclonedx.bom", version.ref = "cyclonedxVersion" }
 dependency-check-versions = { id = "com.github.ben-manes.versions", version.ref = "dependencyCheckVersion" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektVersion" }
