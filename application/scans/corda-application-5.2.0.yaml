@@ -1328,9 +1328,10 @@ net.corda.v5.application.messaging.FlowMessaging:
           annotation:
             - NotNull
           type: net.corda.v5.base.types.MemberX500Name
-        requireClose:
-          annotation: []
-          type: boolean
+        sessionConfiguration:
+          annotation:
+            - NotNull
+          type: net.corda.v5.application.messaging.FlowSessionConfiguration
         flowContextPropertiesBuilder:
           annotation:
             - NotNull
@@ -1460,6 +1461,53 @@ net.corda.v5.application.messaging.FlowSession:
           annotation:
             - NotNull
           type: Object
+net.corda.v5.application.messaging.FlowSessionConfiguration:
+  annotations: []
+  type: public class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    getTimeout:
+      annotations: []
+      default: false
+      type: public
+      returnType: java.time.Duration
+    isRequireClose:
+      annotations: []
+      default: false
+      type: public
+      returnType: boolean
+net.corda.v5.application.messaging.FlowSessionConfiguration$Builder:
+  annotations: []
+  type: public static class
+  extends: null
+  implements: []
+  interface: false
+  methods:
+    build:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.v5.application.messaging.FlowSessionConfiguration
+    requireClose:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.v5.application.messaging.FlowSessionConfiguration$Builder
+      params:
+        requireClose:
+          annotation: []
+          type: boolean
+    timeout:
+      annotations: []
+      default: false
+      type: public
+      returnType: net.corda.v5.application.messaging.FlowSessionConfiguration$Builder
+      params:
+        timeout:
+          annotation: []
+          type: java.time.Duration
 net.corda.v5.application.persistence.CordaPersistenceException:
   annotations: []
   type: public final class

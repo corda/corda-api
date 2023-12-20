@@ -107,6 +107,25 @@ public interface FlowMessaging {
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose);
 
     /**
+     * Creates a communication session with a counterparty's {@link ResponderFlow}. Subsequently, you may send/receive using
+     * this session object. Note that this function does not communicate in itself. The counter-flow will be kicked off
+     * by the first send/receive.
+     * <p>
+     * Initiated flows are initiated with context based on the context of the initiating flow at the point in time this
+     * method is called. The context of the initiating flow is snapshotted by the returned session. Altering the flow
+     * context has no effect on the context of the session after this point, and therefore it has no effect on the
+     * context of the initiated flow either.
+     *
+     * @param x500Name The X500 name of the member to communicate with.
+     * @param sessionConfiguration Session configuration (see {@link FlowSessionConfiguration}).
+     *
+     * @return The session.
+     */
+    @Suspendable
+    @NotNull
+    FlowSession initiateFlow(@NotNull MemberX500Name x500Name, @NotNull FlowSessionConfiguration sessionConfiguration);
+
+    /**
      * Creates a communication session with another member. Subsequently, you may send/receive using this session object.
      * Note that this function does not communicate in itself. The counter-flow will be kicked off by the first
      * send/receive.
@@ -188,6 +207,53 @@ public interface FlowMessaging {
     @Suspendable
     @NotNull
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
+
+    /**
+     * Creates a communication session with another member. Subsequently, you may send/receive using this session object.
+     * Note that this function does not communicate in itself. The counter-flow will be kicked off by the first
+     * send/receive.
+     * <p>
+     * This overload takes a builder of context properties. Any properties set or modified against the context passed to
+     * this builder will be propagated to initiated flows and all that flow's initiated flows and sub flows down the
+     * stack. The properties passed to the builder are pre-populated with the current flow context properties, see
+     * {@link FlowContextProperties}. Altering the current flow context has no effect on the context of the session after the
+     * builder is applied and the session returned by this method, and therefore it has no effect on the context of the
+     * initiated flow either.
+     * <p>
+     * Example of use in Kotlin.
+     * ```Kotlin
+     * val sessionConfig = FlowSessionConfiguration.Builder().requireClose(false).build()
+     * val flowSession = flowMessaging.initiateFlow(virtualNodeName, sessionConfig) { flowContextProperties ->
+     *      flowContextProperties["key"] = "value"
+     * }
+     * ```
+     * Example of use in Java.
+     * ```Java
+     * FlowSessionConfiguration sessionConfig = new FlowSessionConfiguration.Builder().requireClose(false).build();
+     * FlowSession flowSession = flowMessaging.initiateFlow(virtualNodeName, sessionConfig, (flowContextProperties) -> {
+     *      flowContextProperties.put("key", "value");
+     * });
+     * ```
+     *
+     * @param x500Name The X500 name of the member to communicate with.
+     * @param sessionConfiguration Session configuration (see {@link FlowSessionConfiguration}).
+     * @param flowContextPropertiesBuilder A builder of context properties.
+     *
+     * @return The session.
+     *
+     * @throws IllegalArgumentException if the builder tries to set a property for which a platform property already
+     * exists or if the key is prefixed by {@link FlowContextProperties#CORDA_RESERVED_PREFIX}. See also
+     * {@link FlowContextProperties}. Any other
+     * exception thrown by the builder will also be thrown through here and should be avoided in the provided
+     * implementation, see {@link FlowContextPropertiesBuilder}.
+     */
+    @Suspendable
+    @NotNull
+    FlowSession initiateFlow(
+            @NotNull MemberX500Name x500Name,
+            @NotNull FlowSessionConfiguration sessionConfiguration,
+            @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder
+    );
 
     /**
      * Suspends until a message has been received for each session in the specified {@code sessions}.
