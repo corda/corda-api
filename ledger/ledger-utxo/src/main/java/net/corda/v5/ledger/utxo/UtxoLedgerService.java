@@ -284,10 +284,10 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Sends the wire transaction to counterparty sessions.
+     * Sends an unsigned copy of the base LedgerTransaction to counterparty sessions.
      *
+     * @param signedTransaction The {@link UtxoSignedTransaction} whose correspondent {@link UtxoLedgerTransaction} will be sent.
      * @param sessions The counterparties who receive the transaction.
-     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
      * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
      */
     @Suspendable
@@ -297,11 +297,10 @@ public interface UtxoLedgerService {
     );
 
     /**
-     * Receives a verified transaction from the counterparty session and persists it to the vault.
+     * Receives a  transaction from the counterparty session and persists it to the vault.
      *
      * @param session The counterparty to receive a transaction from.
      * @return the {@link UtxoLedgerTransaction} received from counterparty.
-     * @throws CordaRuntimeException If the transaction received fails verification.
      */
     @NotNull
     @Suspendable
