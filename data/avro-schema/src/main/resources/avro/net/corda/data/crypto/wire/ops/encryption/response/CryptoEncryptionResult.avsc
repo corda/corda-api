@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "CryptoEncryptionResult",
+  "namespace": "net.corda.data.crypto.wire.ops.encryption.response",
+  "doc": "Encryption operation response",
+  "fields": [
+    {
+      "name": "cipherBytes",
+      "type": "bytes",
+      "doc": "Encrypted byte array"
+    }
+  ]
+}
