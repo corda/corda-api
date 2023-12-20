@@ -20,8 +20,7 @@
       "name": "request",
       "type": [
         "net.corda.data.permissions.management.user.CreateUserRequest",
-        "net.corda.data.permissions.management.user.ChangeUserPasswordSelfRequest",
-        "net.corda.data.permissions.management.user.ChangeUserPasswordOtherRequest",
+        "net.corda.data.permissions.management.user.ChangeUserPasswordRequest",
         "net.corda.data.permissions.management.user.AddRoleToUserRequest",
         "net.corda.data.permissions.management.user.RemoveRoleFromUserRequest",
         "net.corda.data.permissions.management.role.CreateRoleRequest",
