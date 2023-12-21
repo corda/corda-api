@@ -839,7 +839,7 @@ net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery:
           type: String
         value:
           annotation:
-            - NotNull
+            - Nullable
           type: Object
     setParameters:
       annotations:
