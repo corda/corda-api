@@ -5,6 +5,7 @@ import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.types.MemberX500Name;
+import net.corda.v5.ledger.common.transaction.TransactionSignatureException;
 import net.corda.v5.ledger.common.transaction.TransactionWithMetadata;
 import net.corda.v5.ledger.utxo.Command;
 import net.corda.v5.ledger.utxo.StateAndRef;
@@ -132,4 +133,12 @@ public interface UtxoSignedTransaction extends TransactionWithMetadata {
     @NotNull
     @Suspendable
     UtxoLedgerTransaction toLedgerTransaction(List<StateAndRef<?>> inputStateAndRefs, List<StateAndRef<?>> referenceStateAndRefs);
+
+    /**
+     * Verify the signatories' signatures and check if there are any missing one.
+     * It ignores the non-signatory signatures! (including the notary's)
+     *
+     * @throws TransactionSignatureException if any signatures are missing or invalid.
+     */
+    void verifySignatorySignatures();
 }
