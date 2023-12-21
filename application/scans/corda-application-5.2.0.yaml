@@ -1463,7 +1463,7 @@ net.corda.v5.application.messaging.FlowSession:
           type: Object
 net.corda.v5.application.messaging.FlowSessionConfiguration:
   annotations: []
-  type: public class
+  type: public final class
   extends: null
   implements: []
   interface: false
@@ -1480,7 +1480,7 @@ net.corda.v5.application.messaging.FlowSessionConfiguration:
       returnType: boolean
 net.corda.v5.application.messaging.FlowSessionConfiguration$Builder:
   annotations: []
-  type: public static class
+  type: public static final class
   extends: null
   implements: []
   interface: false
@@ -1619,7 +1619,7 @@ net.corda.v5.application.persistence.ParameterizedQuery:
           type: String
         value:
           annotation:
-            - NotNull
+            - Nullable
           type: Object
     setParameters:
       annotations:
