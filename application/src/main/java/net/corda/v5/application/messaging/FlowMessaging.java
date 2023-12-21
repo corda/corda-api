@@ -95,6 +95,9 @@ public interface FlowMessaging {
      * context has no effect on the context of the session after this point, and therefore it has no effect on the
      * context of the initiated flow either.
      *
+     * @deprecated
+     * Use {@link FlowMessaging#initiateFlow(MemberX500Name, FlowSessionConfiguration)} instead.
+     *
      * @param x500Name The X500 name of the member to communicate with.
      * @param requireClose When set to true, the initiated party will send a close message after calling FlowSession.close()
      *                     and the initiating party will suspend and wait to receive the message when they call FlowSession.close().
@@ -102,6 +105,7 @@ public interface FlowMessaging {
      *
      * @return The session.
      */
+    @Deprecated(since = "5.2")
     @Suspendable
     @NotNull
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose);
@@ -190,6 +194,10 @@ public interface FlowMessaging {
      * });
      * ```
      *
+     * @deprecated
+     * Use {@link FlowMessaging#initiateFlow(MemberX500Name, FlowSessionConfiguration, FlowContextPropertiesBuilder)}
+     * instead.
+     *
      * @param x500Name The X500 name of the member to communicate with.
      * @param requireClose When set to true, the initiated party will send a close message after calling FlowSession.close()
      *                     and the initiating party will suspend and wait to receive the message when they call FlowSession.close().
@@ -204,6 +212,7 @@ public interface FlowMessaging {
      * exception thrown by the builder will also be thrown through here and should be avoided in the provided
      * implementation, see {@link FlowContextPropertiesBuilder}.
      */
+    @Deprecated(since = "5.2")
     @Suspendable
     @NotNull
     FlowSession initiateFlow(@NotNull MemberX500Name x500Name, boolean requireClose, @NotNull FlowContextPropertiesBuilder flowContextPropertiesBuilder);
