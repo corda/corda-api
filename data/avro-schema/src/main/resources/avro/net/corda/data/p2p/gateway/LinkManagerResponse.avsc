@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "LinkManagerResponse",
+  "namespace": "net.corda.data.p2p.gateway",
+  "doc": "A response from the p2p link manager to the p2p gateway component",
+  "fields": [
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.AuthenticatedEncryptedDataMessage",
+        "net.corda.data.p2p.crypto.AuthenticatedDataMessage"
+      ]
+    }
+  ]
+}
