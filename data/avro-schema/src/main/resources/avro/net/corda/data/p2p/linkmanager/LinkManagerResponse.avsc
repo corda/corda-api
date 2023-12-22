@@ -1,8 +1,8 @@
 {
   "type": "record",
   "name": "LinkManagerResponse",
-  "namespace": "net.corda.data.p2p.gateway",
-  "doc": "A response from the p2p link manager to the p2p gateway component",
+  "namespace": "net.corda.data.p2p.linkmanager",
+  "doc": "A response from the p2p link manager when being sent a LinkInMessage via the HTTP endpoint",
   "fields": [
     {
       "name": "payload",
