@@ -2,7 +2,7 @@ package net.corda.v5.application.interop.evm;
 
 
 import org.jetbrains.annotations.NotNull;
-import net.corda.v5.base.annotations.CordaSerializable
+import net.corda.v5.base.annotations.CordaSerializable;
 import java.math.BigInteger;
 import java.util.Objects;
 
