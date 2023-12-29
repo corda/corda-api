@@ -1,11 +1,12 @@
 package net.corda.v5.application.interop.evm;
 
 import org.jetbrains.annotations.NotNull;
-
+import net.corda.v5.base.annotations.CordaSerializable
 import java.math.BigInteger;
 import java.util.List;
 
 @SuppressWarnings("unused")
+@CordaSerializable
 public class Block {
     private final BigInteger number;
     private final String hash;
