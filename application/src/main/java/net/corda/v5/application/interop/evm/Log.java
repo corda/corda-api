@@ -1,10 +1,11 @@
 package net.corda.v5.application.interop.evm;
 
 import org.jetbrains.annotations.NotNull;
-
+import net.corda.v5.base.annotations.CordaSerializable
 import java.math.BigInteger;
 import java.util.List;
 
+@CordaSerializable
 public class Log {
     /**
      * The address from which this log was generated

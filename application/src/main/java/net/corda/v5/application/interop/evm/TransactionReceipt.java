@@ -1,11 +1,12 @@
 package net.corda.v5.application.interop.evm;
 
 import org.jetbrains.annotations.NotNull;
-
+import net.corda.v5.base.annotations.CordaSerializable
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
 
+@CordaSerializable
 public class TransactionReceipt {
     /**
      * The hash of the block where this transaction was in
