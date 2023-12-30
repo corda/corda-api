@@ -13,7 +13,7 @@
       "name": "parameters",
       "type": {
         "type": "map",
-        "values": "bytes"
+        "values": ["null", "bytes"]
       },
       "doc": "Parameters for the query, with each value represented as a bytes array payload serialized in AMQP format. Null values must be tested using IS NULL in the query; it is not possible to pass in a null as a parameter value. "
     },
