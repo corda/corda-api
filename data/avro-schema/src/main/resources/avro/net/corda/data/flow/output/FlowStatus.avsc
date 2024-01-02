@@ -26,19 +26,8 @@
     },
     {
       "name": "flowStatus",
-      "doc": "The current processing status of a flow" ,
-      "type": {
-        "name": "FlowStates",
-        "type": "enum",
-        "symbols": [
-          "START_REQUESTED",
-          "RUNNING",
-          "RETRYING",
-          "COMPLETED",
-          "FAILED",
-          "KILLED"
-        ]
-      }
+      "type": "net.corda.data.flow.output.FlowStates",
+      "doc": "The current processing status of a flow"
     },
     {
       "name": "result",
