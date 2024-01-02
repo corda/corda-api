@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "VirtualNodeSchema",
+  "namespace": "net.corda.data.virtualnode",
+  "doc": "Represents the input parameters for getting a schema SQL",
+  "fields": [
+    {
+      "name": "dbType",
+      "type": "string",
+      "doc": "The type of database to get the schema from."
+    },
+    {
+      "name": "virtualNodeShortHash",
+      "type": [ "null", "string" ],
+      "doc": "Short hash of the virtual node."
+    },
+    {
+      "name": "cpiChecksum",
+      "type": [ "null", "string" ],
+      "doc": "The checksum of the CPI file."
+    }
+  ]
+}

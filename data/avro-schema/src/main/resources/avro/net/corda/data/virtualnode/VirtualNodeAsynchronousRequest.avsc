@@ -23,8 +23,6 @@
       "type": [
         "net.corda.data.virtualnode.VirtualNodeCreateRequest",
         "net.corda.data.virtualnode.VirtualNodeDbConnectionUpdateRequest",
-        "net.corda.data.virtualnode.VirtualNodeUpgradeRequest",
-        "net.corda.data.virtualnode.VirtualNodeSchemaRequest"
       ]
     }
   ]
