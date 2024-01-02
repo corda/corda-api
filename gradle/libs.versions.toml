@@ -31,7 +31,7 @@ dependencyCheckVersion = "0.50.0"
 gradleDataVersion = "1.12.1"
 gradleEnterpriseVersion = "3.14.1"
 grgitVersion = "5.2.1"
-snykVersion = "0.4"
+snykVersion = "0.5"
 taskTreeVersion = "2.1.1"
 
 [libraries]
