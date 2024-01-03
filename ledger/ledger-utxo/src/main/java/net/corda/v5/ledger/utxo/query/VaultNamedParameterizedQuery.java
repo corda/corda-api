@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.ledger.utxo.StateAndRef;
 import net.corda.v5.ledger.utxo.UtxoLedgerService;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.time.Instant;
 import java.util.Map;
@@ -45,7 +46,7 @@ public interface VaultNamedParameterizedQuery<R> extends ParameterizedQuery<R> {
      */
     @Override
     @NotNull
-    VaultNamedParameterizedQuery<R> setParameter(@NotNull String name, @NotNull Object value);
+    VaultNamedParameterizedQuery<R> setParameter(@NotNull String name, @Nullable Object value);
 
     /**
      * @see ParameterizedQuery#setParameters(Map)
