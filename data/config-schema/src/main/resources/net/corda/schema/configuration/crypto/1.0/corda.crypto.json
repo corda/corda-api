@@ -47,7 +47,9 @@
           "properties": {
             "default": {
               "type": "integer",
-              "default": 3
+              "default": 3,
+              "minimum": 0,
+              "maximum": 10
             }
           }
         },
@@ -82,7 +84,9 @@
             "maxAttempts": {
               "description": "Maximum number of attempts",
               "type": "integer",
-              "default": 3
+              "default": 3,
+              "minimum": 0,
+              "maximum": 10
             },
             "attemptTimeoutMills": {
               "description": "Wait period in milliseconds between attempts, should be reasonably large as some operations may be long, e.g. RSA key generation by the SOFT HSM may take a few seconds",
@@ -93,7 +97,7 @@
           "additionalProperties": false
         },
         "wrappingKeys": {
-          "description" : "Key derivation parameters for wrapping keys supplied in config",
+          "description": "Key derivation parameters for wrapping keys supplied in config",
           "type": "array",
           "items": {
             "type": "object",
