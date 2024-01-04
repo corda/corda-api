@@ -22,7 +22,7 @@ public class TransactionOptions extends EvmOptions {
     public BigInteger value;
 
     /**
-     *  The maximum amount of gas to be included as a tip to the miner.
+     * The maximum amount of gas to be included as a tip to the miner.
      */
     @NotNull
     public BigInteger maxPriorityFeePerGas;
@@ -33,24 +33,41 @@ public class TransactionOptions extends EvmOptions {
     @NotNull
     public BigInteger maxFeePerGas;
 
+    /**
+     * The Private Key of the sender
+     */
+    public String privateKey;
+
+    /**
+     * @param options
+     * @param gasLimit
+     * @param value
+     * @param maxPriorityFeePerGas
+     * @param maxFeePerGas
+     * @param privateKey
+     */
+
     public TransactionOptions(@NotNull EvmOptions options,
-                              @NotNull  BigInteger gasLimit,
-                              @NotNull  BigInteger value,
-                              @NotNull  BigInteger maxPriorityFeePerGas,
-                              @NotNull  BigInteger maxFeePerGas) {
-        this(gasLimit, value, maxPriorityFeePerGas, maxFeePerGas, options.getRpcUrl(), options.getFrom());
+                              @NotNull BigInteger gasLimit,
+                              @NotNull BigInteger value,
+                              @NotNull BigInteger maxPriorityFeePerGas,
+                              @NotNull BigInteger maxFeePerGas,
+                              String privateKey) {
+        this(gasLimit, value, maxPriorityFeePerGas, maxFeePerGas, options.getRpcUrl(), options.getFrom(), privateKey);
     }
 
-    public TransactionOptions(@NotNull  BigInteger gasLimit,
-                              @NotNull  BigInteger value,
-                              @NotNull  BigInteger maxPriorityFeePerGas,
-                              @NotNull  BigInteger maxFeePerGas,
+    public TransactionOptions(@NotNull BigInteger gasLimit,
+                              @NotNull BigInteger value,
+                              @NotNull BigInteger maxPriorityFeePerGas,
+                              @NotNull BigInteger maxFeePerGas,
                               @NotNull String rpcUrl,
-                              String from) {
+                              String from,
+                              String privateKey) {
         super(rpcUrl, from);
         this.gasLimit = gasLimit;
         this.value = value;
         this.maxPriorityFeePerGas = maxPriorityFeePerGas;
         this.maxFeePerGas = maxFeePerGas;
+        this.privateKey = privateKey;
     }
 }
