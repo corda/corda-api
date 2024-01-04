@@ -5,11 +5,6 @@
   "doc": "State used by the flow engine to track pipeline details and provide diagnostics.",
   "fields": [
     {
-      "name": "maxFlowSleepDuration",
-      "type": "int",
-      "doc": "The maximum time a flow can sleep, before a Wakeup event is generated (milliseconds)"
-    },
-    {
       "name": "pendingPlatformError",
       "type": ["null", "net.corda.data.ExceptionEnvelope"],
       "default": null,
