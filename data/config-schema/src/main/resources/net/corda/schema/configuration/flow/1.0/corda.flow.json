@@ -33,7 +33,7 @@
           "default": 16000
         },
         "maxFlowSleepDuration": {
-          "description": "The maximum delay in milliseconds before Corda schedules a periodic wake-up.",
+          "description": "Deprecated. The maximum delay in milliseconds before Corda schedules a periodic wake-up.",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
