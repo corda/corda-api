@@ -6,8 +6,16 @@
   "fields": [
     {
       "name": "dbType",
-      "type": "string",
-      "doc": "The type of database to get the schema from."
+      "doc": "The type of database to get the schema from.",
+      "type": {
+        "name": "DbTypes",
+        "type": "enum",
+        "symbols": [
+          "CRYPTO",
+          "UNIQUENESS",
+          "VAULT"
+        ]
+      }
     },
     {
       "name": "virtualNodeShortHash",
