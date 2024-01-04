@@ -7,8 +7,6 @@ import org.jetbrains.annotations.NotNull;
  */
 public class CallOptions extends EvmOptions {
 
-    enum BlockNumber { LATEST, EARLIEST, PENDING };
-
     /**
      * The block number in hexadecimal format or the string "latest", "earliest", "pending"
      */

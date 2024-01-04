@@ -163,10 +163,6 @@ public class TransactionReceipt {
         return logsBloom;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
