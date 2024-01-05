@@ -77,6 +77,11 @@
       "default": 100,
       "minimum": 1
     },
+    "heartbeatEnabled": {
+      "description": "Whether heartbeat messages should be sent or not between peers to detect unhealthy sessions.",
+      "type": "boolean",
+      "default": true
+    },
     "heartbeatMessagePeriod": {
       "description": "The heartbeat message period in milliseconds.",
       "type": "integer",
