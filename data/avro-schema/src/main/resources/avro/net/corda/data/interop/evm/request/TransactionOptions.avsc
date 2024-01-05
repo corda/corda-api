@@ -26,6 +26,11 @@
       "name": "maxPriorityFeePerGas",
       "type": "string",
       "doc": "The maxPriorityFeePerGas value as a java BigInteger"
+    },
+    {
+        "name": "privateKey",
+        "type": "string",
+        "doc": "The private key of the account to sign the transaction"
     }
   ]
 }
