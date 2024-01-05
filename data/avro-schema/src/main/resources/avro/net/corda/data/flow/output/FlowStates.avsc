@@ -1,0 +1,14 @@
+{
+  "type": "enum",
+  "name": "FlowStates",
+  "namespace": "net.corda.data.flow.output",
+  "doc": "The current processing status of a flow" ,
+  "symbols": [
+    "START_REQUESTED",
+    "RUNNING",
+    "COMPLETED",
+    "FAILED",
+    "KILLED"
+  ],
+  "default": "FAILED"
+}
