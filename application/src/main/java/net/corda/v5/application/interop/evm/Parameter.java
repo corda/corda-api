@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Parameter<T> {
 
-    public Parameter(@NotNull String name, @NotNull Type type, @NotNull T value) {
+    public Parameter(@NotNull String name, @NotNull Type<T> type, @NotNull T value) {
         this.name = name;
         this.type = type;
         this.value = value;
@@ -23,7 +23,7 @@ public class Parameter<T> {
         this.value = value;
     }
 
-    public static <T> Parameter<T> of(@NotNull String name, @NotNull Type type, @NotNull T value) {
+    public static <T> Parameter<T> of(@NotNull String name, @NotNull Type<T> type, @NotNull T value) {
         return new Parameter<>(name, type, value);
     }
 
@@ -46,7 +46,7 @@ public class Parameter<T> {
      * The type of this specific parameter.  See {@link Type} for supported types.
      */
     @NotNull
-    private final Type type;
+    private final Type<?> type;
 
     /**
      * The actual value of the parameter.
@@ -60,7 +60,7 @@ public class Parameter<T> {
     }
 
     @NotNull
-    public Type getType() {
+    public Type<?> getType() {
         return type;
     }
 
@@ -69,7 +69,8 @@ public class Parameter<T> {
         return value;
     }
 
-    private Type determineType(T value) {
+
+    private Type<?> determineType(T value) {
         if (value.getClass().isArray()) {
             //noinspection unchecked
             return determineArrayType((T[])value);
@@ -99,7 +100,7 @@ public class Parameter<T> {
         throw new CordaRuntimeException("Value type not supported for: " + value.getClass().getTypeName());
     }
 
-    private Type determineArrayType(T[] value) {
+    private Type<?> determineArrayType(T[] value) {
         if (value instanceof Byte[]) {
             return Type.BYTE_ARRAY;
         } else if (value instanceof Short[]) {
@@ -122,7 +123,7 @@ public class Parameter<T> {
         throw new CordaRuntimeException("Value type not supported for: " + value.getClass().getTypeName());
     }
 
-    private Type determineListType(List<?> value) {
+    private Type<?> determineListType(List<?> value) {
         if (value.get(0) instanceof Byte) {
             return Type.BYTE_LIST;
         } else if (value.get(0) instanceof Short) {

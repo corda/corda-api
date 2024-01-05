@@ -29,7 +29,7 @@ public interface EvmService {
     <T> T call(@NotNull String functionName,
                @NotNull String to,
                CallOptions options,
-               Type returnType,
+               Type<T> returnType,
                @NotNull Parameter<?>... parameters
     );
 
@@ -46,7 +46,7 @@ public interface EvmService {
     <T> T call(@NotNull String functionName,
                @NotNull String to,
                CallOptions options,
-               Type returnType,
+               Type<T> returnType,
                @NotNull List<Parameter<?>> parameters
     );
 
