@@ -284,6 +284,30 @@ public interface UtxoLedgerService {
     );
 
     /**
+     * Sends an unsigned copy of the base LedgerTransaction to counterparty sessions.
+     *
+     * @param signedTransaction The {@link UtxoSignedTransaction} whose correspondent {@link UtxoLedgerTransaction} will be sent.
+     * @param sessions The counterparties who receive the transaction.
+     */
+    @Suspendable
+    void sendAsLedgerTransaction(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+    /**
+     * Receives a ledger transaction from the counterparty session.
+     *
+     * @param session The counterparty to receive a transaction from.
+     * @return the {@link UtxoLedgerTransaction} received from counterparty.
+     */
+    @NotNull
+    @Suspendable
+    UtxoLedgerTransaction receiveLedgerTransaction(
+            @NotNull FlowSession session
+    );
+
+    /**
      * Creates a query object for a vault named query with the given name. This query can be executed later by calling
      * {@link PagedQuery#execute()}.
      * <p>
