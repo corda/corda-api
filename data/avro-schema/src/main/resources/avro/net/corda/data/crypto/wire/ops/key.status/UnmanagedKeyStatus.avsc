@@ -2,7 +2,7 @@
   "type": "record",
   "name": "UnmanagedKeyStatus",
   "namespace": "net.corda.data.crypto.wire.ops.key.status",
-  "doc": "Total number of keys for tenantId that needs rotating away from rootKeyAlias",
+  "doc": "Defines the key status and key rotation status data stored in the database.",
   "fields": [
     {
       "name": "rootKeyAlias",
@@ -22,7 +22,7 @@
     {
       "name": "rotatedKeys",
       "type": ["null", "int"],
-      "doc": "Number of keys for tenantId that has been rotated."
+      "doc": "Number of keys for tenantId that has been rotated. Null in case of key status."
     }
   ]
 }
