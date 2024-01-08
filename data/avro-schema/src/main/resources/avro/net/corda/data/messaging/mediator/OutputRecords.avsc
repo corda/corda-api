@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "OutputRecords",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Holds all output records from the mediator processor as a single object that are to be sent to the bus",
+  "fields": [
+	{
+		"name": "outputRecords",
+        "type": {
+          "type": "array",
+          "items": "net.corda.data.messaging.mediator.OutputRecord"
+        },
+		"doc": "The bus bound output records from a mediator processor"
+	}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "OutputRecord",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Holds the contents of a bus bound output record from the mediator processor",
+  "fields": [
+	{
+		"name": "topic",
+		"type": "string",
+		"doc": "The topic to send the record"
+	},
+    {
+      "name": "key",
+      "type": "bytes",
+      "doc": "The avro serialized bytes of the key of the record"
+    },
+    {
+      "name": "value",
+      "type": "bytes",
+      "doc": "The avro serialized bytes of the value of the record"
+    }
+  ]
+}
