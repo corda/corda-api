@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "FindMerkleProofs",
+  "doc": "TODO",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "transactionId",
+      "type": "string",
+      "doc": "TODO"
+    },
+    {
+      "name": "groupId",
+      "type": "int",
+      "doc": "TODO"
+    }
+  ]
+}

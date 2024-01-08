@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "FindMerkleProofsResponse",
+  "doc": "TODO",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "results",
+      "doc": "TODO",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.ledger.persistence.MerkleProof"
+      }
+    }
+  ]
+}

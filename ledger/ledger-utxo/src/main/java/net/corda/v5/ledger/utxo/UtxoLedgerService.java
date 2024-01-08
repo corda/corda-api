@@ -7,6 +7,7 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.crypto.merkle.MerkleProof;
 import net.corda.v5.ledger.common.transaction.TransactionSignatureException;
 import net.corda.v5.ledger.utxo.query.VaultNamedParameterizedQuery;
 import net.corda.v5.ledger.utxo.query.VaultNamedQueryFactory;
@@ -97,6 +98,12 @@ public interface UtxoLedgerService {
     @NotNull
     @Suspendable
     UtxoFilteredTransactionBuilder filterSignedTransaction(@NotNull UtxoSignedTransaction transaction);
+
+    @Suspendable
+    void persistMerkleProof(@NotNull SecureHash transactionId, int groupId, @NotNull MerkleProof merkleProof);
+
+    @Suspendable
+    @NotNull List<MerkleProof> findMerkleProofs(@NotNull SecureHash transactionId, int groupId);
 
     /**
      * Finds unconsumed states that are concrete implementations or subclasses of {@code type}.

@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "name": "MerkleProof",
+  "namespace": "net.corda.data.ledger.persistence",
+  "doc": "TODO",
+  "fields": [
+    {
+      "name": "transactionId",
+      "doc": "TODO",
+      "type": "string"
+    },
+    {
+      "name": "groupId",
+      "doc": "TODO",
+      "type": "int"
+    },
+    {
+      "name": "treeSize",
+      "doc": "TODO",
+      "type": "int"
+    },
+    {
+      "name": "leaves",
+      "doc": "TODO",
+      "type": {
+        "type" : "array",
+        "items" : "int"
+      }
+    },
+    {
+      "name": "hashes",
+      "doc": "TODO",
+      "type": {
+        "type" : "array",
+        "items" : "string"
+      }
+    }
+  ]
+}

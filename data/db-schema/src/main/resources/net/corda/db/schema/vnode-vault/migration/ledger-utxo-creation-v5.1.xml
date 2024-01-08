@@ -187,6 +187,31 @@
             <where>group_idx=0 AND leaf_idx=0</where>
         </delete>
 
+        <createTable tableName="utxo_transaction_merkle_proof">
+            <column name="transaction_id" type="VARCHAR(160)">
+                <constraints nullable="false" foreignKeyName="fk_utxo_merkle_proof_id" references="utxo_transaction(id)"/>
+            </column>
+            <column name="group_idx" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tree_size" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leaves" type="INTEGER[]">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hashes" type="VARCHAR[]">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Add utxo_transaction.metadata_hash nullable to let migrate data later -->
+        <addColumn tableName="utxo_transaction">
+            <column name="is_filtered" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+
     </changeSet>
 
 </databaseChangeLog>

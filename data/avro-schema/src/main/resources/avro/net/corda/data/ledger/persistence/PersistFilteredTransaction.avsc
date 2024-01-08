@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "PersistFilteredTransaction",
+  "doc": "TODO",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "transactionId",
+      "type": "string",
+      "doc": "TODO"
+    },
+    {
+      "name": "transactionStatus",
+      "type": "string",
+      "doc": "the transaction status"
+    },
+    {
+      "name": "privacySalt",
+      "type": "bytes",
+      "doc": "TODO"
+    },
+    {
+      "name": "account",
+      "type": "string",
+      "doc": "TODO"
+    },
+    {
+      "name": "metadataHash",
+      "type": "string",
+      "doc": "TODO"
+    }
+  ]
+}
