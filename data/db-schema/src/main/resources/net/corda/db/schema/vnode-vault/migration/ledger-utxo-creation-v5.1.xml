@@ -205,7 +205,6 @@
             </column>
         </createTable>
 
-        <!-- Add utxo_transaction.metadata_hash nullable to let migrate data later -->
         <addColumn tableName="utxo_transaction">
             <column name="is_filtered" type="BOOLEAN" defaultValueBoolean="false">
                 <constraints nullable="false" />
