@@ -5,9 +5,7 @@
     <changeSet author="R3.Corda" id="ledger-utxo-creation-v5.1">
         <createTable tableName="utxo_transaction_merkle_proof">
             <column name="transaction_id" type="VARCHAR(160)">
-                <constraints nullable="false"
-                             foreignKeyName="fk_utxo_merkle_proof_transaction_id"
-                             references="utxo_transaction(id)"/>
+                <constraints nullable="false"/>
             </column>
             <column name="group_idx" type="INT">
                 <constraints nullable="false"/>
@@ -22,6 +20,10 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
+        <addPrimaryKey columnNames="transaction_id, group_idx, leaves"
+                       constraintName="utxo_transaction_merkle_proof_pkey"
+                       tableName="utxo_transaction_merkle_proof"/>
 
     </changeSet>
 
