@@ -5,6 +5,7 @@ import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.exceptions.CordaRuntimeException;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
+import net.corda.v5.crypto.merkle.MerkleProof;
 import net.corda.v5.ledger.common.transaction.TransactionMetadata;
 import net.corda.v5.ledger.common.transaction.TransactionWithMetadata;
 import net.corda.v5.ledger.utxo.Command;
@@ -15,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.security.PublicKey;
+import java.util.Map;
 
 /**
  * Defines a filtered UTXO transaction.
@@ -124,4 +126,12 @@ public interface UtxoFilteredTransaction extends TransactionWithMetadata {
      * @throws CordaRuntimeException if the current {@link UtxoFilteredTransaction} fails to verify correctly.
      */
     void verify();
+
+    /**
+     * Retrieve the Merkle proof for each component group.
+     *
+     * @return A map containing component group IDs as keys and Merkle proofs as values.
+     */
+    @NotNull
+    Map<Integer, MerkleProof> getMerkleProofs();
 }
