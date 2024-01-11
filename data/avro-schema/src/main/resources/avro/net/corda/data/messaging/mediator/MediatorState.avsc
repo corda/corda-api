@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "state",
-      "type": "bytes",
+      "type": ["null", "bytes"],
       "doc": "The messaging library clients state."
     },
     {
