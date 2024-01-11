@@ -10,7 +10,7 @@
       "doc": "MD5 hash of the input event. Event key and value bytes are used to generated the hash. This hash will act as a unique key for consumer input events."
     },
     {
-      "name": "value",
+      "name": "outputEvents",
       "type": {
         "type": "array",
         "items": "net.corda.data.messaging.mediator.MediatorReplayOutputEvent"
