@@ -2,12 +2,12 @@
   "type": "record",
   "name": "MediatorReplayOutputEvents",
   "namespace": "net.corda.data.messaging.mediator",
-  "doc": "Record the output records for a given input record, to be replayed by the mediator if necessary.",
+  "doc": "Record the output events for a given input event, to be replayed by the mediator if necessary.",
   "fields": [
     {
       "name": "key",
       "type": "bytes",
-      "doc": "MD5 hash of the input record. Record key and value bytes are used to generated the hash. This hash will act as a unique key for consumer input records."
+      "doc": "MD5 hash of the input event. Event key and value bytes are used to generated the hash. This hash will act as a unique key for consumer input events."
     },
     {
       "name": "value",
@@ -15,7 +15,7 @@
         "type": "array",
         "items": "net.corda.data.messaging.mediator.MediatorReplayOutputEvent"
       },
-      "doc": "The list of output records for the given input record."
+      "doc": "The list of output events for the given input events."
     }
   ]
 }

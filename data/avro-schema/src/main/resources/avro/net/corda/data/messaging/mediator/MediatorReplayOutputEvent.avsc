@@ -2,22 +2,22 @@
   "type": "record",
   "name": "MediatorReplayOutputEvent",
   "namespace": "net.corda.data.messaging.mediator",
-  "doc": "Record the details of a bus record to be replayed if necessary",
+  "doc": "Record the details of output events to be replayed if necessary.",
   "fields": [
     {
       "name": "topic",
       "type": "string",
-      "doc": "The topic the record should be sent to."
+      "doc": "The topic the event should be sent to."
     },
     {
       "name": "key",
       "type": "bytes",
-      "doc": "Avro serialized bytes of the record key."
+      "doc": "Avro serialized bytes of the event key."
     },
     {
       "name": "value",
       "type": "bytes",
-      "doc": "Avro serialized bytes of the record value."
+      "doc": "Avro serialized bytes of the event value."
     }
   ]
 }

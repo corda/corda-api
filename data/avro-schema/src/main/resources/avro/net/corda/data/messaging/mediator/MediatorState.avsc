@@ -15,7 +15,7 @@
         "type": "array",
         "items": "net.corda.data.messaging.mediator.MediatorReplayOutputEvents"
       },
-      "doc": "Records output records to be sent to the message bus for each input record processed for this state."
+      "doc": "Records output events to be sent to the message bus for each input event processed for this state."
     }
   ]
 }
