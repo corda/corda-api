@@ -7,7 +7,7 @@
     {
       "name": "state",
       "type": "bytes",
-      "doc": "The mediator state"
+      "doc": "The messaging library clients state."
     },
     {
       "name": "outputEvents",
@@ -15,7 +15,7 @@
         "type": "array",
         "items": "net.corda.data.messaging.mediator.MediatorReplayOutputEvents"
       },
-      "doc": "Output events for input events to be used when replaying old records."
+      "doc": "Records output records to be sent to the message bus for each input record processed for this state."
     }
   ]
 }
