@@ -6,8 +6,8 @@
   "fields": [
     {
       "name": "key",
-      "type": "net.corda.data.messaging.mediator.MediatorReplayKey",
-      "doc": "Unique details of the input record."
+      "type": "bytes",
+      "doc": "MD5 hash of the input record. Record key and value bytes are used to generated the hash. This hash will act as a unique key for consumer input records."
     },
     {
       "name": "value",
