@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "AuthenticatedEncryptionSessionDetails",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "outboundSecretKey",
+      "type": "net.corda.data.p2p.crypto.protocol.SecretKeySpec"
+    },
+    {
+      "name": "outboundNonce",
+      "type": "bytes"
+    },
+    {
+      "name": "inboundSecretKey",
+      "type": "net.corda.data.p2p.crypto.protocol.SecretKeySpec"
+    },
+    {
+      "name": "inboundNonce",
+      "type": "bytes"
+    }
+ ]
+}

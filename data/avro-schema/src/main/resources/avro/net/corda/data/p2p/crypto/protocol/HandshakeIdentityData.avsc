@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "HandshakeIdentityData",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "initiatorPublicKeyHash",
+      "type": "bytes"
+    },
+    {
+      "name": "responderPublicKeyHash",
+      "type": "bytes"
+    },
+    {
+      "name": "groupId",
+      "type": "string"
+    }
+  ]
+}

@@ -10,8 +10,6 @@ repositories {
 // So we'll load it into our own object to grab what we need.
 def constants = new Properties()
 file("$rootDir/../gradle.properties").withInputStream { InputStream input -> constants.load(input) }
-def bndVersion = constants.getProperty('bndVersion')
-def bndlibVersion = constants.getProperty('bndlibVersion')
 def internalPluginVersion = constants.getProperty('internalPluginVersion')
 def artifactoryContextUrl = constants.getProperty('artifactoryContextUrl')
 
@@ -51,23 +49,11 @@ repositories {
 
 dependencies {
     constraints {
-        implementation('biz.aQute.bnd:biz.aQute.bndlib') {
-            version {
-                require bndlibVersion
-            }
-        }
-        implementation('biz.aQute.bnd:biz.aQute.bnd.embedded-repo') {
-            version {
-                require bndlibVersion
-            }
-        }
-        implementation('biz.aQute.bnd:biz.aQute.resolve') {
-            version {
-                require bndlibVersion
-            }
-        }
+        implementation libs.bnd.lib
+        implementation libs.bnd.embedded.repo
+        implementation libs.bnd.resolve
     }
-    implementation "biz.aQute.bnd:biz.aQute.bnd.gradle:$bndVersion"
+    implementation libs.bnd.gradle
 
     if (System.getenv('CORDA_ARTIFACTORY_USERNAME') != null || project.hasProperty('cordaArtifactoryUsername')) {
         implementation "com.r3.internal.gradle.plugins:publish:$internalPluginVersion"

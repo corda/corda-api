@@ -9,31 +9,22 @@ buildscript {
     ext {
         vcsUrl = System.getenv('GIT_URL') ?: 'https://github.com/corda/corda-api.git'
     }
-    
-    dependencies {
-        classpath "org.jetbrains.dokka:dokka-core:$dokkaVersion"
-        constraints {
-            classpath("org.jsoup:jsoup:1.15.3") {
-                because "required until dokka plugin updates it's internal version of jsoup, not fixed as of dokka 1.7.10"
-            }
-        }
-    }
 }
 
 plugins {
     id 'net.corda.cordapp.cordapp-configuration'
-    id 'org.jetbrains.kotlin.jvm' apply false
-    id 'org.jetbrains.kotlin.plugin.allopen' apply false
-    id 'org.jetbrains.kotlin.plugin.jpa' apply false
-    id 'io.gitlab.arturbosch.detekt' apply false
-    id 'io.snyk.gradle.plugin.snykplugin'
-    id 'org.ajoberstar.grgit' // used for GIT interaction (e.g. extract commit hash)
+    alias libs.plugins.kotlin.jvm apply false
+    alias libs.plugins.kotlin.allopen apply false
+    alias libs.plugins.kotlin.jpa apply false
+    alias libs.plugins.detekt apply false
+    alias libs.plugins.snyk
+    alias libs.plugins.grgit // used for GIT interaction (e.g. extract commit hash)
     id 'corda.root-publish'
     id 'jacoco' // test coverage
-    id 'com.dorongold.task-tree' // utility to visualise Gradle task DAG
-    id 'org.jetbrains.dokka'
-    id 'com.github.ben-manes.versions' // discover possible dependency version upgrades
-    id 'org.cyclonedx.bom' apply false
+    alias libs.plugins.task.tree // utility to visualise Gradle task DAG
+    alias libs.plugins.dokka
+    alias libs.plugins.dependency.check.versions // discover possible dependency version upgrades
+    alias libs.plugins.cyclonedx.bom  apply false
 }
 
 snyk {
@@ -61,11 +52,11 @@ def revision = {
 void configureKotlinForOSGi(Configuration configuration) {
     configuration.resolutionStrategy {
         dependencySubstitution {
-            substitute module('org.jetbrains.kotlin:kotlin-stdlib-jdk8') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion")
-            substitute module('org.jetbrains.kotlin:kotlin-stdlib-jdk7') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion")
-            substitute module('org.jetbrains.kotlin:kotlin-stdlib-common') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion")
-            substitute module('org.jetbrains.kotlin:kotlin-stdlib') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion")
-            substitute module('org.jetbrains.kotlin:kotlin-reflect') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion")
+            substitute module('org.jetbrains.kotlin:kotlin-stdlib-jdk8') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:${libs.versions.kotlinVersion.get()}")
+            substitute module('org.jetbrains.kotlin:kotlin-stdlib-jdk7') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:${libs.versions.kotlinVersion.get()}")
+            substitute module('org.jetbrains.kotlin:kotlin-stdlib-common') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:${libs.versions.kotlinVersion.get()}")
+            substitute module('org.jetbrains.kotlin:kotlin-stdlib') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:${libs.versions.kotlinVersion.get()}")
+            substitute module('org.jetbrains.kotlin:kotlin-reflect') using module("org.jetbrains.kotlin:kotlin-osgi-bundle:${libs.versions.kotlinVersion.get()}")
         }
     }
 }
@@ -108,7 +99,9 @@ subprojects {
         releasable = true // all corda-api jars are externally consumable
     }
 
-    apply plugin: 'org.cyclonedx.bom'
+    // NOTE: according to this we shouldn't be using subprojects:
+    //   https://discuss.gradle.org/t/apply-plugin-with-version-catalog/43029
+    apply plugin: libs.plugins.cyclonedx.bom.get().pluginId
     cyclonedxBom {
         includeConfigs = ["runtimeClasspath"]
         skipProjects = [rootProject.name]
@@ -162,21 +155,7 @@ subprojects {
         //  thinking is that for the test dependencies it's ok as it'll keep things consistent.
         //  we can add exclusions, or review this if necessary.
         dependencies {
-            // Test libraries -> keep consistent across modules
-            testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
-            testImplementation "org.mockito:mockito-core:$mockitoVersion"
-            testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion") {
-                // Excluding mockito-core and adding it implicitly above. This is done to allow the use of the latest version of mockito.
-                exclude group: 'mockito-core'
-            }
-
-            testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
-
-            // Test runtime libraries -> also keep consistent
-            testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-            testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-            detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektPluginVersion"
+            detektPlugins libs.detekt.formatting
         }
 
         // Making all persistence entity open and with an empty constructor to allow Hibernate to work.
@@ -256,17 +235,6 @@ subprojects {
 
         tasks.withType(DokkaTask.class).configureEach {
             moduleVersion.set(System.getenv("RELEASE_VERSION") ?: cordaVersion)
-        }
-    }
-
-    pluginManager.withPlugin('io.gitlab.arturbosch.detekt'){
-        dependencies {
-        detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detektPluginVersion"
-            constraints {
-                detekt("org.yaml:snakeyaml:$snakeyamlVersion") {
-                    because "required until detekt plugin updates it's internal version of snakeYaml, not fixed as of detekt version 1.21"
-                }
-            }
         }
     }
 

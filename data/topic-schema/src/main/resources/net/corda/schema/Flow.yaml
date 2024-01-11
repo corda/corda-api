@@ -5,11 +5,8 @@ topics:
       - flow
     producers:
       - db
-      - crypto
       - flow
       - flowMapper
-      - persistence
-      - uniqueness
       - tokenSelection
     config:
   FlowEventDLQTopic:

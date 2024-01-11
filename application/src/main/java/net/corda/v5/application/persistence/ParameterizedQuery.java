@@ -1,6 +1,7 @@
 package net.corda.v5.application.persistence;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public interface ParameterizedQuery<R> extends PagedQuery<R> {
      * @return the same {@link ParameterizedQuery} instance.
      */
     @NotNull
-    ParameterizedQuery<R> setParameter(@NotNull String name, @NotNull Object value);
+    ParameterizedQuery<R> setParameter(@NotNull String name, @Nullable Object value);
 
     /**
      * Sets the parameters as a {@link Map}.

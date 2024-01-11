@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "CheckCertificate",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "truststore",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "revocationCheckMode",
+      "type": {
+        "type": "enum",
+        "name": "RevocationCheckMode",
+        "symbols" : [
+          "OFF",
+          "SOFT_FAIL",
+          "HARD_FAIL"
+        ]
+      }
+    }
+  ]
+}

@@ -210,16 +210,6 @@ public final class Schemas {
     }
 
     /**
-     * Persistence message schema.
-     */
-    public static final class Persistence {
-        private Persistence() {
-        }
-
-        public static final String PERSISTENCE_ENTITY_PROCESSOR_TOPIC = "persistence.entity.processor";
-    }
-
-    /**
      * Rest message schema.
      */
     public static final class Rest {
@@ -232,16 +222,6 @@ public final class Schemas {
         public static final String REST_PERM_GROUP_TOPIC = "rest.permissions.group";
         public static final String REST_PERM_ROLE_TOPIC = "rest.permissions.role";
         public static final String REST_PERM_ENTITY_TOPIC = "rest.permissions.permission";
-    }
-
-    /**
-     * Uniqueness checker schema.
-     */
-    public static final class UniquenessChecker {
-        private UniquenessChecker() {
-        }
-
-        public static final String UNIQUENESS_CHECK_TOPIC = "uniqueness.check";
     }
 
     /**

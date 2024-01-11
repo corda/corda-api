@@ -1,0 +1,106 @@
+{
+  "type": "record",
+  "name": "AuthenticationProtocolCommonDetails",
+  "namespace": "net.corda.data.p2p.crypto.protocol",
+  "fields": [
+    {
+      "name": "sessionId",
+      "type": "string"
+    },
+    {
+      "name": "ourMaxMessageSize",
+      "type": "int"
+    },
+    {
+      "name": "session",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.protocol.Session"
+      ]
+    },
+    {
+      "name": "myPrivateDHKey",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "myPublicDHKey",
+      "type": [
+        "null",
+        "bytes"
+      ]
+    },
+    {
+      "name": "peerPublicDHKey",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "sharedDHSecret",
+      "type": [
+        "null",
+        "bytes"
+      ]
+    },
+    {
+      "name": "selectedMode",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.ProtocolMode"
+      ]
+    },
+    {
+      "name": "sharedHandshakeSecrets",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.protocol.SharedHandshakeSecrets"
+      ]
+    },
+    {
+      "name": "initiatorHelloMessage",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.InitiatorHelloMessage"
+      ]
+    },
+    {
+      "name": "responderHelloMessage",
+      "type": [
+        "null",
+        "net.corda.data.p2p.crypto.ResponderHelloMessage"
+      ]
+    },
+    {
+      "name": "initiatorHelloToResponderHelloBytes",
+      "type": [
+        "null",
+        "bytes"
+      ]
+    },
+    {
+      "name": "initiatorHandshakePayloadBytes",
+      "type": [
+        "null",
+        "bytes"
+      ]
+    },
+    {
+      "name": "responderHandshakePayloadBytes",
+      "type": [
+        "null",
+        "bytes"
+      ]
+    },
+    {
+      "name": "agreedMaxMessageSize",
+      "type": [
+        "null",
+        "int"
+      ]
+    }
+  ]
+}

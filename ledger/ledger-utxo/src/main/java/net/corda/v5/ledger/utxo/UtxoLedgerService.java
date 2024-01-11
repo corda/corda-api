@@ -38,6 +38,14 @@ public interface UtxoLedgerService {
     UtxoTransactionBuilder createTransactionBuilder();
 
     /**
+     * Verifies {@link UtxoLedgerTransaction}.
+     *
+     * @param ledgerTransaction The {@link UtxoLedgerTransaction} to verify.
+     */
+    @Suspendable
+    void verify(UtxoLedgerTransaction ledgerTransaction);
+
+    /**
      * Resolves the specified {@link StateRef} instances into {@link StateAndRef} instances of the specified {@link ContractState} type.
      *
      * @param <T>       The underlying {@link ContractState} type.
@@ -272,6 +280,30 @@ public interface UtxoLedgerService {
     @NotNull
     @Suspendable
     UtxoSignedTransaction receiveTransaction(
+            @NotNull FlowSession session
+    );
+
+    /**
+     * Sends an unsigned copy of the base LedgerTransaction to counterparty sessions.
+     *
+     * @param signedTransaction The {@link UtxoSignedTransaction} whose correspondent {@link UtxoLedgerTransaction} will be sent.
+     * @param sessions The counterparties who receive the transaction.
+     */
+    @Suspendable
+    void sendAsLedgerTransaction(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+    /**
+     * Receives a ledger transaction from the counterparty session.
+     *
+     * @param session The counterparty to receive a transaction from.
+     * @return the {@link UtxoLedgerTransaction} received from counterparty.
+     */
+    @NotNull
+    @Suspendable
+    UtxoLedgerTransaction receiveLedgerTransaction(
             @NotNull FlowSession session
     );
 
