@@ -5,7 +5,7 @@
   "doc": "Record the output events for a given input event, to be replayed by the mediator if necessary.",
   "fields": [
     {
-      "name": "key",
+      "name": "inputEventHash",
       "type": "bytes",
       "doc": "MD5 hash of the input event. Event key and value bytes are used to generated the hash. This hash will act as a unique key for consumer input events."
     },
