@@ -81,4 +81,11 @@ topics:
       - flowMapper
       - tokenSelection
     config:
+  ExternalMessage:
+    name: external.message.sample
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
 

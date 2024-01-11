@@ -113,6 +113,7 @@ public final class Schemas {
         public static final String FLOW_MAPPER_SESSION_IN = "flow.mapper.session.in";
         public static final String FLOW_START = "flow.start";
         public static final String FLOW_SESSION = "flow.session";
+        public static final String EXTERNAL_MESSAGE_SAMPLE = "external.message.sample";
     }
 
     /**
