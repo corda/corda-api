@@ -16,7 +16,7 @@
     },
     {
       "name": "value",
-      "type": "bytes",
+      "type": ["null", "bytes"],
       "doc": "Avro serialized bytes of the event value."
     }
   ]
