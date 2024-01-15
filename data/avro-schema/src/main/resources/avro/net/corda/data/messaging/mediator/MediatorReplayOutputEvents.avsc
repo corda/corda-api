@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "MediatorReplayOutputEvents",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Record the output events for a given input event, to be replayed by the mediator if necessary.",
+  "fields": [
+    {
+      "name": "inputEventHash",
+      "type": "bytes",
+      "doc": "Hash of the input event. Event key and value bytes are used to generated the hash. This hash will act as a unique key for consumer input events."
+    },
+    {
+      "name": "outputEvents",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.messaging.mediator.MediatorReplayOutputEvent"
+      },
+      "doc": "The list of output events for the given input events."
+    }
+  ]
+}
