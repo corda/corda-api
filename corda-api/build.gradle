@@ -35,7 +35,7 @@ dependencies {
         }
         api(libs.bundles.osgi)
         api(libs.slf4j) {
-            because 'Corda 5.1 only supports SLF4J 1.x'
+            because 'Corda 5.2 only supports SLF4J 1.x'
         }
     }
 }
