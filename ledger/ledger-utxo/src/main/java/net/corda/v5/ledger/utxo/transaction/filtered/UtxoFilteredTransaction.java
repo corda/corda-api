@@ -126,12 +126,4 @@ public interface UtxoFilteredTransaction extends TransactionWithMetadata {
      * @throws CordaRuntimeException if the current {@link UtxoFilteredTransaction} fails to verify correctly.
      */
     void verify();
-
-    /**
-     * Retrieve the Merkle proof for each component group.
-     *
-     * @return A map containing component group IDs as keys and Merkle proofs as values.
-     */
-    @NotNull
-    Map<Integer, MerkleProof> getMerkleProofs();
 }
