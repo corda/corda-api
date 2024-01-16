@@ -365,6 +365,10 @@ public interface UtxoLedgerService {
     @NotNull
     <R> VaultNamedParameterizedQuery<R> query(@NotNull String queryName, @NotNull Class<R> resultClass);
 
+    @Suspendable
+    @NotNull
+    <R> VaultNamedParameterizedQuery<R> snapshotQuery(@NotNull String queryName, @NotNull Class<R> resultClass);
+
     /**
      * Persists a non-finalized (draft) transaction.
      * It executes the same checks as the finalization does before its initial persist.

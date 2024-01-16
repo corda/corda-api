@@ -1,9 +1,7 @@
 package net.corda.v5.ledger.utxo.query.registration;
 
 import net.corda.v5.ledger.utxo.StateAndRef;
-import net.corda.v5.ledger.utxo.query.VaultNamedQueryCollector;
-import net.corda.v5.ledger.utxo.query.VaultNamedQueryFilter;
-import net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer;
+import net.corda.v5.ledger.utxo.query.*;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -15,12 +13,43 @@ import org.jetbrains.annotations.NotNull;
 public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
 
     /**
+     * Append another column expression to the sort order of the returned results.
+     * <p>
+     * Calling this on a builder with an existing ordering will append this as a lower priority
+     * ordering, so the order will be by the first and then the second call.
+     * <p>
+     * As soon as a sort order is specified, the pages will purely be based on offset and limit and may
+     * return less rows than the limit once filtering has been applied.
+     *
+     * @param columnExpression the name of a column (qualified) or column expression (such as JSON path)
+     * @param ascending        whether the ordering should be ascending or descending for this column expression
+     * @param nullsFirst       whether nulls should come before non-null data (not SQL Server)
+     * @return A builder instance with the order by appended.
+     * @since 5.2
+     */
+    @NotNull
+    VaultNamedQueryBuilder orderBy(String columnExpression, boolean ascending, boolean nullsFirst);
+
+    /**
+     * Have the query return only vault states that are unconsumed.  This is a convenience
+     * function to save specifying the necessary where clause and filter, and is compatible with
+     * paging.
+     * <p>
+     * Subsequently adding a filter that implements {@link VaultNamedQueryConsumableStateAndRefFilter} will
+     * undo the filter part of this call. This filter may see states that are consumed after the created
+     * timestamp limit of the queries, but they will correctly be identified through the
+     * {@link Consumable} interface.
+     *
+     * @return a builder instance with these additional where clause and filter set.
+     */
+    VaultNamedQueryBuilder onlyUnconsumed();
+
+    /**
      * Sets the where clause of the named query.
      * <p>
      * Vault named queries defined with {@link #whereJson(String)} return {@link StateAndRef}s when executed.
      *
      * @param query The JSON query representation.
-     *
      * @return A builder instance with the where clause set.
      */
     @NotNull
