@@ -17,3 +17,10 @@ topics:
       - flow
     producers:
       - db
+  ScheduledTaskMediatorCleanupTopic:
+    name: scheduled.task.mediator.cleanup
+    consumers:
+      - flow
+      - flowMapper
+    producers:
+      - db

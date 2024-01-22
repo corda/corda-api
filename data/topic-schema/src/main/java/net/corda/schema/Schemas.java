@@ -252,6 +252,7 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_MAPPER_CLEANUP = "flow-mapper-state-cleanup";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR = "scheduled.task.flow.processor";
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
+        public static final String SCHEDULED_TASK_MEDIATOR_STATE_CLEANUP = "scheduled.task.mediator.cleanup";
 
     }
 }
