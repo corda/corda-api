@@ -16,18 +16,23 @@
     },
     {
       "name": "oldParentKeyAlias",
-      "type": "string",
-      "doc": "The key alias whose protected content will be re-wrapped with a new key."
+      "type": ["null", "string"],
+      "doc": "For unmanaged key rotation. The key alias whose protected content will be re-wrapped with a new key."
     },
     {
       "name": "newParentKeyAlias",
-      "type": "string",
-      "doc": "The new wrapping key which oldParentKeyAlias' content will be re-wrapped with."
+      "type": ["null", "string"],
+      "doc": "For unmanaged key rotation. The new wrapping key which oldParentKeyAlias' content will be re-wrapped with."
     },
     {
       "name": "targetKeyAlias",
-      "type": "string",
-      "doc": "Specifies the wrapped key to rotate."
+      "type": ["null", "string"],
+      "doc": "For unmanaged key rotation. Specifies the wrapped key to rotate."
+    },
+        {
+      "name": "keyUuid",
+      "type": ["null", "string"],
+      "doc": "For managed key rotation. Specifies the managed wrapping key id to rotate."
     },
     {
       "name": "keyType",
