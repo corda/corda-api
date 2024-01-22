@@ -9,6 +9,11 @@
         "type": "string",
         "doc": "Key for the state record that is storing the checkpoint."
       },
+    {
+      "name": "reason",
+      "type": "string",
+      "doc": "Optional message indicating the underlying reason about why the flow is being timed out; used as the 'errorMessage' when marking the flow as 'FAILED'."
+    },
       {
         "name": "timeoutDateTime",
         "type": {
