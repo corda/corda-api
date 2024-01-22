@@ -60,6 +60,7 @@ public final class MessagingConfig {
         public static final String MEDIATOR_PROCESSING_THREAD_POOL_SIZE = SUBSCRIPTION + ".mediator.poolSize";
         public static final String MEDIATOR_PROCESSING_MIN_POOL_RECORD_COUNT = SUBSCRIPTION + ".mediator.minPoolRecordCount";
         public static final String MEDIATOR_PROCESSING_POLL_TIMEOUT = SUBSCRIPTION + ".mediator.pollTimeout";
+        public static final String MEDIATOR_STATE_ClEANUP = SUBSCRIPTION + ".mediator.stateCleanup";
     }
 
     /**

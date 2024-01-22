@@ -72,6 +72,13 @@
           "minimum": 10,
           "maximum": 2147483647,
           "default": 50
+        },
+        "stateCleanup": {
+          "description": "The length of time in milliseconds that the mediator pattern holds onto states that are to be deleted. This allows the mediator pattern to handle duplicate messages and replayed event inputs that occur due to cluster instability.",
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2147483647,
+          "default": 60000
         }
       }
     }
