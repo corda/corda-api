@@ -8,9 +8,9 @@
       "name": "states",
       "type": {
         "type": "array",
-        "items": "bytes"
+        "items": "string"
       },
-      "doc": "The avro serialized keys of mediator states to cleanup."
+      "doc": "The string keys of mediator states stored in the state manager to cleanup."
     }
   ]
 }
