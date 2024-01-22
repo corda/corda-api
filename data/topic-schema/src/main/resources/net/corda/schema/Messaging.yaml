@@ -1,0 +1,8 @@
+topics:
+  MediatorCleanupTopic:
+    name: messaging.mediator.cleanup
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:

@@ -166,6 +166,16 @@ public final class Schemas {
         public static final String SYNCHRONIZATION_TOPIC = "membership.sync";
     }
 
+    /**
+     * Generic Messaging topic schemas.
+     */
+    public static final class Messaging {
+        private Messaging() {
+        }
+
+        public static final String MEDIATOR_CLEANUP_TOPIC = "messaging.mediator.cleanup";
+    }
+
     public static final class Certificates {
         private Certificates() {
         }
