@@ -1,15 +1,25 @@
 package net.corda.schema.configuration;
 
 /**
- * Configuration keys to access public parts of the configuration under the {@code corda.stateManager} key.
+ * Configuration keys for State Manager config used to bootstrap a worker.
  */
 public final class StateManagerConfig {
     private StateManagerConfig() {
     }
 
     public static final String STATE_MANAGER = "stateManager";
-
     public static final String TYPE = "type";
+    public static final String STATE_TYPE = "stateType";
+
+    // Keys for state type configuration
+    public static final class StateType {
+        public static final String DEFAULT = "default";
+        public static final String FLOW_CHECKPOINTS = "flowCheckpoint";
+        public static final String FLOW_STATUS = "flowStatus";
+        public static final String FLOW_MAPPING = "flowMapping";
+        public static final String KEY_ROTATION = "keyRotation";
+        public static final String TOKEN_POOL_CACHE = "tokenPoolCache";
+    }
 
     // Database Configuration Values
     public static final class Database {
