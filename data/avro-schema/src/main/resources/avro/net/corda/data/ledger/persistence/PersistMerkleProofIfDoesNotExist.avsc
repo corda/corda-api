@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "name": "PersistMerkleProofIfDoesNotExist",
+  "doc": "Persist the specified Merkle proof. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "transactionId",
+      "doc": "The ID of the transaction the Merkle proof belongs to",
+      "type": "string"
+    },
+    {
+      "name": "groupIndex",
+      "doc": "The group index the Merkle proof belongs to",
+      "type": "int"
+    },
+    {
+      "name": "treeSize",
+      "doc": "Size of the Merkle tree",
+      "type": "int"
+    },
+    {
+      "name": "leaves",
+      "doc": "Revealed leaf indices of the Merkle tree",
+      "type": {
+        "type" : "array",
+        "items" : "int"
+      }
+    },
+    {
+      "name": "hashes",
+      "doc": "Revealed hashes of the Merkle tree",
+      "type": {
+        "type" : "array",
+        "items" : "string"
+      }
+    }
+  ]
+}
