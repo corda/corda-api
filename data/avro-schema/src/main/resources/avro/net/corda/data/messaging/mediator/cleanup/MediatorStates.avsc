@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "MediatorStates",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Mediator state wrapper to store replayed events",
+  "fields": [
+    {
+      "name": "states",
+      "type": {
+        "type": "array",
+        "items": "bytes"
+      },
+      "doc": "The avro serialized keys of mediator states to cleanup."
+    }
+  ]
+}
