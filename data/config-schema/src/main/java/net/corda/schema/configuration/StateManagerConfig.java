@@ -14,7 +14,7 @@ public final class StateManagerConfig {
     // Keys for state type configuration
     public static final class StateType {
         public static final String FLOW_CHECKPOINT = "flowCheckpoint";
-        public static final String FLOW_STATUS = "flowStatus";
+        public static final String P2P_SESSION = "p2pSession";
         public static final String FLOW_MAPPING = "flowMapping";
         public static final String KEY_ROTATION = "keyRotation";
         public static final String TOKEN_POOL_CACHE = "tokenPoolCache";
