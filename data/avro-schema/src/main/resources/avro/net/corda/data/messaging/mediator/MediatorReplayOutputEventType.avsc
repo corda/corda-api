@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "MediatorReplayOutputEventType",
+  "namespace": "net.corda.data.messaging.mediator",
+  "doc": "Record the details of output events to be replayed if necessary.",
+  "fields": [
+    {
+      "name": "value",
+      "type": "bytes",
+      "doc": "Serialized bytes of the object."
+    },
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "SerializationType",
+        "symbols": ["STRING", "BYTEARRAY", "AVRO"]
+      },
+      "doc": "Type used to decide which method of deserialization to use."
+    }
+  ]
+}
