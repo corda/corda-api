@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/stateManager/1.0/stateManager-db-properties.json",
-  "title": "State Manager Configuration Schema",
-  "description": "Configuration schema for the database section. Note that this configuration cannot be updated dynamically through the REST endpoint.",
+  "title": "State Manager configuration schema for database implementation",
+  "description": "Configuration schema for State Manager's database implementation. Note that this configuration cannot be updated dynamically through the REST endpoint.",
   "type": "object",
   "additionalProperties": {
     "type": "object",

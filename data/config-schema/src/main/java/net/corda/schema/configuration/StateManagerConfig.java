@@ -9,14 +9,14 @@ public final class StateManagerConfig {
 
     public static final String STATE_MANAGER = "stateManager";
     public static final String TYPE = "type";
-    public static final String STATE_TYPE = "stateType";
 
-    // Keys for state type configuration
+    // Keys for state types in State Manager configuration map
     public enum StateType {
         FLOW_CHECKPOINT("flowCheckpoint"),
-        P2P_SESSION("p2pSession"),
         FLOW_MAPPING("flowMapping"),
+        FLOW_STATUS("flowStatus"),
         KEY_ROTATION("keyRotation"),
+        P2P_SESSION("p2pSession"),
         TOKEN_POOL_CACHE("tokenPoolCache");
 
         private final String value;
