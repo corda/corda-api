@@ -5,9 +5,14 @@
   "doc": "Defines the key status and key rotation status data.",
   "fields": [
     {
-      "name": "rootKeyAlias",
+      "name": "oldParentKeyAlias",
       "type": "string",
       "doc": "Alias of an unmanaged key that we are rotating away from."
+    },
+    {
+      "name": "newParentKeyAlias",
+      "type": ["null", "string"],
+      "doc": "The wrapping key alias that should be used for material currently wrapped with old key."
     },
     {
       "name": "total",
@@ -18,6 +23,14 @@
       "name": "rotatedKeys",
       "type": ["null", "int"],
       "doc": "Number of keys for tenantId that has been rotated. Null in case of key status."
+    },
+    {
+      "name": "createdTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "The date and time the key rotation request was created."
     }
   ]
 }
