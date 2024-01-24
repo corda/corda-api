@@ -90,7 +90,7 @@
           "default": 300000
         },
         "timeout": {
-          "description": "The length of time in milliseconds that Corda waits when no message has been received from a counterparty before causing the session to error.",
+          "description": "The length of time in milliseconds that Corda waits when no message has been received from a counterparty before causing the session to error. This value may be overridden by a flow specific timeout set via FlowMessaging API. ",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
