@@ -11,13 +11,13 @@
     },
     {
       "name": "key",
-      "type": "net.corda.data.messaging.mediator.MediatorReplayOutputEventType",
-      "doc": "Serialized bytes of the event key."
+      "type": "bytes",
+      "doc": "Avro serialized bytes of the event key."
     },
     {
       "name": "value",
-      "type": ["null", "net.corda.data.messaging.mediator.MediatorReplayOutputEventType"],
-      "doc": "Serialized bytes of the event value."
+      "type": ["null", "bytes"],
+      "doc": "Avro serialized bytes of the event value."
     }
   ]
 }
