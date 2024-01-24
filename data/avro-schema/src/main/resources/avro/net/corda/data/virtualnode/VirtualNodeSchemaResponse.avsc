@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "VirtualNodeSchemaResponse",
+  "namespace": "net.corda.data.virtualnode",
+  "fields": [
+    {
+      "name": "schemaSql",
+      "type": "string"
+    }
+  ]
+}

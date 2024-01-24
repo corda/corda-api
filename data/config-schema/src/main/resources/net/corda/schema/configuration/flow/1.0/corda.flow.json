@@ -33,11 +33,18 @@
           "default": 16000
         },
         "maxFlowSleepDuration": {
-          "description": "The maximum delay in milliseconds before Corda schedules a periodic wake-up.",
+          "description": "Deprecated. The maximum delay in milliseconds before Corda schedules a periodic wake-up.",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
           "default": 900000
+        },
+        "maxIdleTime": {
+          "description": "The maximum time, in milliseconds, a Flow can be in 'RUNNING' state without receiving any updates. Once this time has elapsed, Corda will automatically mark the flow as 'FAILED' and clean up any associated state.",
+          "type": "integer",
+          "minimum": 60000,
+          "maximum": 31557600000,
+          "default": 300000
         },
         "cleanupTime": {
           "description": "The length of time in milliseconds that the flow mapper holds onto its state for a flow that has finished. This value should be at least 2 times larger than the session.p2pTTL.",
@@ -83,7 +90,7 @@
           "default": 300000
         },
         "timeout": {
-          "description": "The length of time in milliseconds that Corda waits when no message has been received from a counterparty before causing the session to error.",
+          "description": "The length of time in milliseconds that Corda waits when no message has been received from a counterparty before causing the session to error. This value may be overridden by a flow specific timeout set via the FlowMessaging API. ",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
