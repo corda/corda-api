@@ -8,7 +8,6 @@
     "type": "object",
     "$ref": "#/$defs/stateTypeConfig"
   },
-  "additionalProperties": false,
   "$defs": {
     "stateTypeConfig": {
       "properties": {
@@ -20,6 +19,9 @@
         },
         "additionalProperties": false
       },
+      "required": [
+        "type"
+      ],
       "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
       "allOf": [
         {
@@ -28,21 +30,17 @@
               "type": {
                 "const": "DATABASE"
               }
-            },
-            "required": [
-              "type"
-            ]
+            }
           },
           "then": {
             "properties": {
-              "databaseProperties": {
-                "description": "Settings to connect to the State Manager Database.",
+              "database": {
+                "description": "Config for a state type backed by database",
                 "$ref": "stateManager-db-properties.json"
               }
             },
             "required": [
-              "type",
-              "databaseProperties"
+              "database"
             ]
           }
         }
