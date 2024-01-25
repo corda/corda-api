@@ -32,21 +32,21 @@
       },
       "additionalProperties": false
     },
-    "username": {
+    "user": {
       "description": "Admin username to use by the state manager when connecting to the database used as the persistent storage",
       "type": [
         "string",
         "null"
       ]
     },
-    "password": {
+    "pass": {
       "description": "Admin password to use by the state manager when connecting to the database used as the persistent storage",
       "type": [
         "string",
         "null"
       ]
     },
-    "connectionPool": {
+    "pool": {
       "description": "State Manager database pool connection properties",
       "properties": {
         "maxSize": {
