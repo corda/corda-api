@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "FetchFilteredTransactions",
+  "doc": "Retrieve filtered transactions of dependencies. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "stateRefs",
+      "type": {
+        "type" : "array",
+        "items" : "net.corda.data.ledger.utxo.StateRef"
+      },
+      "doc": "stateRefs of dependencies to be fetched"
+    }
+  ]
+}
