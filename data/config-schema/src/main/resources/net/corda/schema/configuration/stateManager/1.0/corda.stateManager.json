@@ -4,6 +4,9 @@
   "title": "Corda State Manager Configuration Schema",
   "description": "Configuration schema for the State Manager section. This configures the interactions of the workers with the underlying persistent storage used by the out of process State Manager.",
   "type": "object",
+  "propertyNames": {
+    "$ref": "#/$defs/validStateTypes"
+  },
   "additionalProperties": {
     "type": "object",
     "$ref": "#/$defs/stateTypeConfig"
@@ -44,6 +47,16 @@
             ]
           }
         }
+      ]
+    },
+    "validStateTypes": {
+      "enum": [
+        "flowCheckpoint",
+        "flowMapping",
+        "flowStatus",
+        "keyRotation",
+        "p2pSession",
+        "tokenPoolCache"
       ]
     }
   }
