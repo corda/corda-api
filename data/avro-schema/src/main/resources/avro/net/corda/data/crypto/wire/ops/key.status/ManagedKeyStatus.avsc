@@ -1,0 +1,31 @@
+{
+  "type": "record",
+  "name": "ManagedKeyStatus",
+  "namespace": "net.corda.data.crypto.wire.ops.key.status",
+  "doc": "Defines the key status and key rotation status data for managed keys.",
+  "fields": [
+    {
+      "name": "wrappingKeyAlias",
+      "type": "string",
+      "doc": "Alias of a managed wrapping key that we are rotating."
+    },
+    {
+      "name": "total",
+      "type": "int",
+      "doc": "Total number of keys that need rotating away from the original wrapping key."
+    },
+    {
+      "name": "rotatedKeys",
+      "type": ["null", "int"],
+      "doc": "Number of keys that have been rotated away from the original wrapping key. Null in case of key status."
+    },
+    {
+      "name": "createdTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "The date and time the key rotation request was created."
+    }
+  ]
+}
