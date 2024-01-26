@@ -6,7 +6,10 @@
     {
       "doc": "The message.",
       "name": "message",
-      "type": "net.corda.data.p2p.LinkOutMessage"
+      "type": [
+        "net.corda.data.p2p.LinkOutMessage",
+        "null"
+      ]
     },
     {
       "doc": "The encrypted session data.",

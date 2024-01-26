@@ -13,7 +13,7 @@
         "receiveTopicPattern": {
           "type": "string",
           "default": "ext.$HOLDING_ID.$CHANNEL_NAME.receive",
-          "pattern": "^(ext|EXT)([a-zA-Z0-9\\._\\-]|\\$HOLDING_ID|\\$CHANNEL_NAME){1,100}$",
+          "pattern": "^([a-zA-Z0-9\\._\\-]){0,100}(ext|EXT)([a-zA-Z0-9\\._\\-]|\\$HOLDING_ID|\\$CHANNEL_NAME){1,100}$",
           "description": "The pattern used to generate the external app receiving topic. When creating routes, Corda replaces any placeholders with the virtual node specific values. "
         },
         "active": {
