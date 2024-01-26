@@ -4,41 +4,47 @@
   "title": "Corda State Manager Configuration Schema",
   "description": "Configuration schema for the State Manager section. This configures the interactions of the workers with the underlying persistent storage used by the out of process State Manager.",
   "type": "object",
-  "properties": {
-    "type": {
-      "description": "The type of state manager implementation.",
-      "enum": [
-        "DATABASE"
-      ]
-    },
-    "additionalProperties": false
+  "additionalProperties": {
+    "type": "object",
+    "$ref": "#/$defs/stateTypeConfig"
   },
-  "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "type": {
-            "const": "DATABASE"
-          }
+  "$defs": {
+    "stateTypeConfig": {
+      "properties": {
+        "type": {
+          "description": "The type of state manager implementation.",
+          "enum": [
+            "DATABASE"
+          ]
         },
-        "required": [
-          "type"
-        ]
+        "additionalProperties": false
       },
-      "then": {
-        "properties": {
-          "databaseProperties": {
-            "description": "Settings to connect to the State Manager Database.",
-            "$ref": "stateManager-db-properties.json"
+      "required": [
+        "type"
+      ],
+      "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "DATABASE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "database": {
+                "description": "Config for a state type backed by database",
+                "$ref": "stateManager-db-properties.json"
+              }
+            },
+            "required": [
+              "database"
+            ]
           }
-        },
-        "required": [
-          "type",
-          "databaseProperties"
-        ]
-      }
+        }
+      ]
     }
-  ],
-  "additionalProperties": false
+  }
 }
