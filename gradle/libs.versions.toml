@@ -19,7 +19,7 @@ bndlibVersion = "7.0.0"
 # Testing
 assertjVersion = "3.25.2"
 junitVersion = "5.10.1"
-mockitoVersion = "5.9.0"
+mockitoVersion = "5.10.0"
 mockitoKotlinVersion = "5.2.1"
 
 # Plugins
@@ -29,7 +29,7 @@ dokkaVersion = "1.9.10"
 detektVersion = "1.23.4"
 dependencyCheckVersion = "0.51.0"
 gradleDataVersion = "1.12.1"
-gradleEnterpriseVersion = "3.16.1"
+gradleEnterpriseVersion = "3.16.2"
 grgitVersion = "5.2.1"
 snykVersion = "0.5"
 taskTreeVersion = "2.1.1"
