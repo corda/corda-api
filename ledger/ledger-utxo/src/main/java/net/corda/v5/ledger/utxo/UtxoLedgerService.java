@@ -14,11 +14,11 @@ import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator;
+import net.corda.v5.ledger.utxo.transaction.filtered.FilteredTransactionAndSignatures;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.time.Instant;
 import java.util.List;
 
@@ -86,6 +86,16 @@ public interface UtxoLedgerService {
     @Nullable
     @Suspendable
     UtxoLedgerTransaction findLedgerTransaction(@NotNull SecureHash id);
+
+    /**
+     * Finds a {@link FilteredTransactionAndSignatures} of the past transactions in the vault by the specified signed transaction.
+     *
+     * @param signedTransaction A new transaction of dependencies to find.
+     * @return Returns the {@link FilteredTransactionAndSignatures} of the past transactions. The signatures in the object is are only notary signatures.
+     */
+    @NotNull
+    @Suspendable
+     List<FilteredTransactionAndSignatures> findFilteredTransactionsAndSignatures(@NotNull UtxoSignedTransaction signedTransaction);
 
     /**
      * Filters a {@link UtxoSignedTransaction} to create a {@link UtxoFilteredTransaction} that only contains the components specified by the
