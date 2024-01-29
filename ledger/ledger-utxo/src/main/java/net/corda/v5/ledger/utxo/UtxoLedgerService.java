@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.PagedQuery.ResultSet;
@@ -14,13 +15,13 @@ import net.corda.v5.ledger.utxo.transaction.UtxoLedgerTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator;
-import net.corda.v5.ledger.utxo.transaction.filtered.FilteredTransactionAndSignatures;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Defines UTXO ledger services.
@@ -88,14 +89,14 @@ public interface UtxoLedgerService {
     UtxoLedgerTransaction findLedgerTransaction(@NotNull SecureHash id);
 
     /**
-     * Finds a {@link FilteredTransactionAndSignatures} of the past transactions in the vault by the specified signed transaction.
+     * Finds matching {@link UtxoFilteredTransaction} and the notary signatures for a given signed transaction in the vault.
      *
      * @param signedTransaction A new transaction of dependencies to find.
-     * @return Returns the {@link FilteredTransactionAndSignatures} of the past transactions. The signatures in the object is are only notary signatures.
+     * @return Returns the map of the past transactions. The signatures in the object is are only notary signatures.
      */
     @NotNull
     @Suspendable
-     List<FilteredTransactionAndSignatures> findFilteredTransactionsAndSignatures(@NotNull UtxoSignedTransaction signedTransaction);
+    Map<SecureHash, Map<UtxoFilteredTransaction, List<DigitalSignatureAndMetadata>>> findFilteredTransactionsAndSignatures(@NotNull UtxoSignedTransaction signedTransaction);
 
     /**
      * Filters a {@link UtxoSignedTransaction} to create a {@link UtxoFilteredTransaction} that only contains the components specified by the
