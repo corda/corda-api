@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "FetchFilteredTransactions",
-  "doc": "Retrieve filtered transactions of dependencies. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "name": "FindFilteredTransactionsAndSignatures",
+  "doc": "Retrieve filtered transactions and signatures of dependencies. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [
     {

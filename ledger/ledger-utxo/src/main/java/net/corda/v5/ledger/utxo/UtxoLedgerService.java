@@ -92,7 +92,7 @@ public interface UtxoLedgerService {
      * Finds matching {@link UtxoFilteredTransaction} and the notary signatures for a given signed transaction in the vault.
      *
      * @param signedTransaction A new transaction of dependencies to find.
-     * @return Returns the map of the past transactions. The signatures in the object is are only notary signatures.
+     * @return Returns the map of past transactions, containing only notary signatures in the objects.
      */
     @NotNull
     @Suspendable
