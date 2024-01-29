@@ -4,41 +4,60 @@
   "title": "Corda State Manager Configuration Schema",
   "description": "Configuration schema for the State Manager section. This configures the interactions of the workers with the underlying persistent storage used by the out of process State Manager.",
   "type": "object",
-  "properties": {
-    "type": {
-      "description": "The type of state manager implementation.",
-      "enum": [
-        "DATABASE"
+  "propertyNames": {
+    "$ref": "#/$defs/validStateTypes"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "$ref": "#/$defs/stateTypeConfig"
+  },
+  "$defs": {
+    "stateTypeConfig": {
+      "properties": {
+        "type": {
+          "description": "The type of state manager implementation.",
+          "enum": [
+            "DATABASE"
+          ]
+        },
+        "additionalProperties": false
+      },
+      "required": [
+        "type"
+      ],
+      "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "DATABASE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "database": {
+                "description": "Config for a state type backed by database",
+                "$ref": "stateManager-db-properties.json"
+              }
+            },
+            "required": [
+              "database"
+            ]
+          }
+        }
       ]
     },
-    "additionalProperties": false
-  },
-  "$comment": "Polymorphic state manager storage connection configuration. The valid section depends on which state manager implementation is in use.",
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "type": {
-            "const": "DATABASE"
-          }
-        },
-        "required": [
-          "type"
-        ]
-      },
-      "then": {
-        "properties": {
-          "databaseProperties": {
-            "description": "Settings to connect to the State Manager Database.",
-            "$ref": "stateManager-db-properties.json"
-          }
-        },
-        "required": [
-          "type",
-          "databaseProperties"
-        ]
-      }
+    "validStateTypes": {
+      "enum": [
+        "flowCheckpoint",
+        "flowMapping",
+        "flowStatus",
+        "keyRotation",
+        "p2pSession",
+        "tokenPoolCache"
+      ]
     }
-  ],
-  "additionalProperties": false
+  }
 }

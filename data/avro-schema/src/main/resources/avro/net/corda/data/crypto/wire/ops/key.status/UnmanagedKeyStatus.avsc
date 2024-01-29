@@ -2,7 +2,7 @@
   "type": "record",
   "name": "UnmanagedKeyStatus",
   "namespace": "net.corda.data.crypto.wire.ops.key.status",
-  "doc": "Defines the key status and key rotation status data.",
+  "doc": "Defines the key status and key rotation status data for unmanaged keys.",
   "fields": [
     {
       "name": "oldParentKeyAlias",
