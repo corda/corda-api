@@ -37,6 +37,11 @@
               "description": "The JDBC URL.",
               "type": "string",
               "default": "jdbc:postgresql://cluster-db:5432/cordacluster"
+            },
+            "serversidePoolerUrl": {
+              "description": "The JDBC URL for the connection pooler if used (optional). When not set or empty, connections will always fall back to `url`",
+              "type": "string",
+              "default": ""
             }
           },
           "additionalProperties": false
