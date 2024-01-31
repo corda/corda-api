@@ -1,6 +1,7 @@
 package net.corda.schema.configuration;
 
 /** The keys for various configurations for a worker. */
+@SuppressWarnings("unused")
 public final class ConfigKeys {
     private ConfigKeys() {
     }
@@ -42,6 +43,7 @@ public final class ConfigKeys {
     public static final String RBAC_USER_PASSWORD_CHANGE_EXPIRY = "password.userPasswordChangeExpiry";
     public static final String RBAC_ADMIN_PASSWORD_CHANGE_EXPIRY = "password.adminPasswordChangeExpiry";
     public static final String RBAC_PASSWORD_EXPIRY_WARNING_WINDOW = "password.passwordExpiryWarningWindow";
+    public static final String RBAC_PASSWORD_LENGTH_LIMIT = "password.lengthLimit";
     // Secrets Service
     // 
     // SECRETS_TYPE control which secrets service implementation will be selected.
