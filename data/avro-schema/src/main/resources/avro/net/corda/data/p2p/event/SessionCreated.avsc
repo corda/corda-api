@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "SessionCreated",
+  "namespace": "net.corda.data.p2p.event",
+  "fields": [
+    {
+      "name": "direction",
+      "type": "net.corda.data.p2p.event.SessionDirection"
+    },
+    {
+      "name": "stateManagerKey",
+      "type": "string"
+    }
+  ]
+}
