@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "ExecuteFlowStatusCleanup",
+  "docs": "When this event is processed the listed FlowKeys should be deleted from the flow status lookup service store",
+  "namespace": "net.corda.data.rest",
+  "fields": [
+    {
+      "name": "keys",
+      "docs": "A list of FlowKeys for flow states that should be deleted",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}
