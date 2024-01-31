@@ -70,7 +70,7 @@ topics:
       max.compaction.lag.ms: 604800000
       min.cleanable.dirty.ratio: 0.5
   RestFlowStatusCleanupTopic:
-    name: rest.permissions.role
+    name: rest.flow.status.cleanup
     consumers:
       - rest
     producers:
