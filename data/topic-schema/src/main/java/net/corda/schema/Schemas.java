@@ -223,6 +223,7 @@ public final class Schemas {
         public static final String REST_PERM_GROUP_TOPIC = "rest.permissions.group";
         public static final String REST_PERM_ROLE_TOPIC = "rest.permissions.role";
         public static final String REST_PERM_ENTITY_TOPIC = "rest.permissions.permission";
+        public static final String REST_FLOW_STATUS_CLEANUP_TOPIC = "rest.flow.status.cleanup";
     }
 
     /**
