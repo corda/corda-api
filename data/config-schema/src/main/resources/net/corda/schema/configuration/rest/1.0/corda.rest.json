@@ -62,6 +62,13 @@
           "default": 30000
         }
       }
+    },
+    "flowStatusCleanupTimeMs": {
+      "description": "The duration, in milliseconds, for which the flow status lookup service retains flow statuses in terminal states (COMPLETED, FAILED, KILLED) without updates. After this period, they are deleted. This must be greater than flow.session.cleanupTime and flow.processing.cleanupTime otherwise flows with re-used requestIds may be silently de-duplicated by the FlowMapper.",
+      "type": "integer",
+      "minimum": 600000,
+      "maximum:": 2147483647,
+      "default": 604800000
     }
   }
 }
