@@ -27,6 +27,13 @@
           "description": "The time (days) before a password expires in which we begin to offer warnings about upcoming expiry.",
           "type": "integer",
           "default": 30
+        },
+        "lengthLimit" : {
+          "description": "The maximum number of characters to be used when assigning a password to a user.",
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 1000,
+          "default": 255
         }
       }
     }
