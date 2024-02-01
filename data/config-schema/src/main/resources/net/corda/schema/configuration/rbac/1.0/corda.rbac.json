@@ -29,7 +29,7 @@
           "default": 30
         },
         "lengthLimit" : {
-          "description": "The maximum number of characters to be used when assigning a password to a user.",
+          "description": "The maximum number of characters of new passwords.",
           "type": "integer",
           "minimum": 10,
           "maximum": 1000,
