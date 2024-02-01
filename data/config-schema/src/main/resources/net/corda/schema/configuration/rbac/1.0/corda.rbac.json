@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/rbac/1.0/corda.rbac.json",
   "title": "Corda RBAC Configuration Schema",
-  "description": "Configuration schema for the Roll Based Access section.",
+  "description": "Configuration schema for the Role Based Access (RBAC) section.",
   "type": "object",
   "default": {},
   "properties": {
@@ -12,19 +12,19 @@
       "default": {},
       "properties": {
         "userPasswordChangeExpiry": {
-          "description": "The amount of time (days) before the password must be updated again after user password change.",
+          "description": "The amount of time (days) before the password must be updated again after the user changes it.",
           "type": "integer",
           "minimum": 30,
           "default": 90
         },
         "adminPasswordChangeExpiry": {
-          "description": "The amount of time (days) before the password must be updated again after admin password change",
+          "description": "The amount of time (days) before the password must be updated again after the admin changes it.",
           "type": "integer",
           "minimum": 1,
           "default": 7
         },
         "passwordExpiryWarningWindow": {
-          "description": "The time (days) before a password expires in which we begin to offer warnings about upcoming expiry.",
+          "description": "The time (days) before a password expires when warnings are issued the about upcoming expiry.",
           "type": "integer",
           "default": 30
         },
