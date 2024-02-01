@@ -38,7 +38,7 @@ public final class ConfigKeys {
     public static final String REST_AZUREAD_CLIENT_SECRET = "sso.azureAd.clientSecret";
     public static final String REST_AZUREAD_TENANT_ID = "sso.azureAd.tenantId";
     public static final String REST_WEBSOCKET_CONNECTION_IDLE_TIMEOUT_MS = "websocket.idleTimeoutMs";
-    public static final String REST_FLOW_STATUS_CLEANUP_TIME_MS = "flowStatusCleanupTime";
+    public static final String REST_FLOW_STATUS_CLEANUP_TIME_MS = "flowStatusCleanupTimeMs";
 
     // RBAC
     public static final String RBAC_USER_PASSWORD_CHANGE_EXPIRY = "password.userPasswordChangeExpiry";
