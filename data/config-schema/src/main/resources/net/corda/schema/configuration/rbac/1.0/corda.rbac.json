@@ -24,7 +24,7 @@
           "default": 7
         },
         "passwordExpiryWarningWindow": {
-          "description": "The time (days) before a password expires when warnings are issued the about upcoming expiry.",
+          "description": "The time (days) before a password expires when warnings are issued about the upcoming expiry.",
           "type": "integer",
           "default": 30
         },
