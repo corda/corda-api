@@ -1,15 +1,33 @@
 {
   "type": "record",
-  "name": "ExecuteFlowStatusCleanup",
-  "docs": "When this event is processed the listed FlowKeys should be deleted from the flow status lookup service store",
+  "name": "FlowStatusRecord",
+  "docs": "This record represents the fingerprint of a specific FlowStatus in state storage, holding its key and its version",
   "namespace": "net.corda.data.rest",
   "fields": [
     {
-      "name": "keys",
+      "name": "key",
+      "type": "string"
+    },
+    {
+      "name": "version",
+      "type": "string"
+    }
+  ]
+}
+
+
+{
+  "type": "record",
+  "name": "ExecuteFlowStatusCleanup",
+  "docs": "When this event is processed the listed FlowStatus records should be deleted from the flow status lookup service store",
+  "namespace": "net.corda.data.rest",
+  "fields": [
+    {
+      "name": "records",
       "docs": "A list of FlowKeys for flow states that should be deleted",
       "type": {
         "type": "array",
-        "items": "string"
+        "items": "net.corda.data.rest.FlowStatusRecord"
       }
     }
   ]
