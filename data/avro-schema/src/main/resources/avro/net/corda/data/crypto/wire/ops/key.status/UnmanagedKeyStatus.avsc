@@ -15,9 +15,14 @@
       "doc": "The wrapping key alias that should be used for material currently wrapped with old key."
     },
     {
+      "name": "tenantId",
+      "type": "string",
+      "doc": "TenantId whose some wrapping keys are going to be rotated."
+    },
+    {
       "name": "total",
       "type": "int",
-      "doc": "Total number of keys that needs rotating away from rootKeyAlias."
+      "doc": "Total number of keys that needs rotating away from rootKeyAlias in tenantId."
     },
     {
       "name": "rotatedKeys",
