@@ -41,8 +41,7 @@
         "net.corda.data.ledger.persistence.PersistSignedGroupParametersIfDoNotExist",
         "net.corda.data.ledger.persistence.FindSignedLedgerTransaction",
         "net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses",
-        "net.corda.data.ledger.persistence.PersistMerkleProofIfDoesNotExist",
-        "net.corda.data.ledger.persistence.FindMerkleProofs"
+        "net.corda.data.ledger.persistence.PersistTransactionSignatures"
       ]
     },
     {

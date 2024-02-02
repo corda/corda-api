@@ -224,6 +224,7 @@ public final class Schemas {
         public static final String REST_PERM_GROUP_TOPIC = "rest.permissions.group";
         public static final String REST_PERM_ROLE_TOPIC = "rest.permissions.role";
         public static final String REST_PERM_ENTITY_TOPIC = "rest.permissions.permission";
+        public static final String REST_FLOW_STATUS_CLEANUP_TOPIC = "rest.flow.status.cleanup";
     }
 
     /**
@@ -253,6 +254,8 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_MAPPER_CLEANUP = "flow-mapper-state-cleanup";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR = "scheduled.task.flow.processor";
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
+        public static final String SCHEDULED_TASK_TOPIC_FLOW_STATUS_PROCESSOR = "scheduled.task.flow.status.processor";
+        public static final String SCHEDULE_TASK_NAME_FLOW_STATUS_CLEANUP = "flow-status-cleanup";
 
     }
 }
