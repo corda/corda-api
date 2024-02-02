@@ -8,6 +8,11 @@
       "name": "filteredTransactions",
       "type": "bytes",
       "doc": "the serialized list of filtered transactions"
-    }
+    },
+    {
+      "name": "signatures",
+      "type": "bytes",
+      "doc": "the serialized list of signatures"
+    },
   ]
 }
