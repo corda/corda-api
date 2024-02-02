@@ -13,6 +13,6 @@
       "name": "signatures",
       "type": "bytes",
       "doc": "the serialized list of signatures"
-    },
+    }
   ]
 }
