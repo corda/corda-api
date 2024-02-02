@@ -41,6 +41,10 @@
                        constraintName="utxo_transaction_merkle_proof_leaves_pkey"
                        tableName="utxo_transaction_merkle_proof_leaves"/>
 
+        <addColumn tableName="utxo_transaction">
+            <column name="is_filtered" type="BOOLEAN" defaultValueBoolean="false"/>
+        </addColumn>
+
     </changeSet>
 
 </databaseChangeLog>
