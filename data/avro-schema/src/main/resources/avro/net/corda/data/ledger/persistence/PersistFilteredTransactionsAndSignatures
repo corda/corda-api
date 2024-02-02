@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "PersistFilteredTransactionsAndSignaturesIfDoNotExist",
+  "name": "PersistFilteredTransactionsAndSignatures",
   "doc": "Persist the specified filtered transactions. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [
