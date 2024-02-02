@@ -1,18 +1,13 @@
 {
   "type": "record",
   "name": "PersistFilteredTransactionsAndSignatures",
-  "doc": "Persist the specified filtered transactions. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "doc": "Persist the specified filtered transactions and corresponding signatures. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [
     {
-      "name": "filteredTransactions",
+      "name": "filteredTransactionsAndSignatures",
       "type": "bytes",
-      "doc": "the serialized list of filtered transactions"
-    },
-    {
-      "name": "signatures",
-      "type": "bytes",
-      "doc": "the serialized list of signatures"
+      "doc": "the serialized map of filtered transactions and signatures"
     }
   ]
 }
