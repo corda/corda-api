@@ -11,16 +11,6 @@
         "items" : "net.corda.data.ledger.utxo.StateRef"
       },
       "doc": "stateRefs of dependencies to be fetched"
-    },
-    {
-      "name": "publicKey",
-      "type": "bytes",
-      "doc": "serialized notary key."
-    },
-    {
-      "name": "notaryName",
-      "type": "string",
-      "doc": "notary X500 name."
-    },
+    }
   ]
 }
