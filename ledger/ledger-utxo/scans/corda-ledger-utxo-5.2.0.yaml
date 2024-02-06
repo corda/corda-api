@@ -375,6 +375,19 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: net.corda.v5.crypto.SecureHash
+    findFilteredTransactionsAndSignatures:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "java.util.Map<net.corda.v5.crypto.SecureHash, java.util.Map<net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction,\
+        \ java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>>>"
+      params:
+        signedTransaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
     findLedgerTransaction:
       annotations:
         - Suspendable
