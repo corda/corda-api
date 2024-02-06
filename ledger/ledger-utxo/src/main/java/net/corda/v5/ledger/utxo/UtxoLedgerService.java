@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo;
 
+import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.PagedQuery.ResultSet;
@@ -18,9 +19,9 @@ import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Defines UTXO ledger services.
@@ -86,6 +87,16 @@ public interface UtxoLedgerService {
     @Nullable
     @Suspendable
     UtxoLedgerTransaction findLedgerTransaction(@NotNull SecureHash id);
+
+    /**
+     * Finds matching {@link UtxoFilteredTransaction} and the notary signatures for a given signed transaction in the vault.
+     *
+     * @param signedTransaction A new transaction of dependencies to find.
+     * @return Returns the map of past transactions, containing only notary signatures in the objects.
+     */
+    @NotNull
+    @Suspendable
+    Map<SecureHash, Map<UtxoFilteredTransaction, List<DigitalSignatureAndMetadata>>> findFilteredTransactionsAndSignatures(@NotNull UtxoSignedTransaction signedTransaction);
 
     /**
      * Filters a {@link UtxoSignedTransaction} to create a {@link UtxoFilteredTransaction} that only contains the components specified by the
