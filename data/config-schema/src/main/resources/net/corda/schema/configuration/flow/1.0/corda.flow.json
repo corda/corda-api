@@ -47,7 +47,7 @@
           "default": 300000
         },
         "cleanupTime": {
-          "description": "The length of time in milliseconds that the flow mapper holds onto the state for a flow that has finished. When the start flow state is removed, clientRequestIds will be available for reuse within the flow mapper.",
+          "description": "The length of time in milliseconds that the flow mapper holds onto the state for a flow that has finished. When the start flow state is removed, clientRequestIds will be available for reuse within the flow mapper. This value should be set lower than the rest config field 'flowStatusCleanupTimeMs'.",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
