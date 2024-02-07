@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "ReEstablishSessionMessage",
+  "namespace": "net.corda.data.p2p",
+  "doc": "A message sent to the session initiating party to trigger session re-establishment.",
+  "fields": [
+    {
+      "name": "sessionId",
+      "doc": "Session ID of the lost session.",
+      "type": "string"
+    }
+  ]
+}
