@@ -1,0 +1,6 @@
+{
+  "type": "enum",
+  "name": "SessionDirection",
+  "namespace": "net.corda.data.p2p.event",
+  "symbols": [ "INBOUND", "OUTBOUND"]
+}
