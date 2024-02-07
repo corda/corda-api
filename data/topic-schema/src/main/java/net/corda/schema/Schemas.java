@@ -199,6 +199,7 @@ public final class Schemas {
         public static final String GATEWAY_REVOCATION_CHECK_RESPONSE_TOPIC = getRPCResponseTopic(GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC);
         public static final String P2P_MTLS_MEMBER_CLIENT_CERTIFICATE_SUBJECT_TOPIC = "p2p.mtls.member.client.certificate.subject";
         public static final String GATEWAY_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "gateway.allowed.client.certificate.subjects";
+        public static final String SESSION_EVENTS = "session.events";
     }
 
     /**
