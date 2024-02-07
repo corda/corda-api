@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "SessionDeleted",
+  "namespace": "net.corda.data.p2p.event",
+  "fields": [
+    {
+      "name": "stateManagerKey",
+      "type": "string"
+    }
+  ]
+}
