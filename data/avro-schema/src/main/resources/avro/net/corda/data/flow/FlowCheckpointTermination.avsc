@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "FlowCheckpointDelete",
+  "name": "FlowCheckpointTermination",
   "namespace": "net.corda.data.flow",
   "doc": "Represents of a flow checkpoint deletion instruction.",
   "fields": [
