@@ -74,7 +74,7 @@
           "default": 50
         },
         "processorTimeout": {
-          "description": "The length of time the mediator will wait for a single group of events to process. This value should be set to less than the consumer max.poll.interval.ms config value, which by default is 5 minutes.",
+          "description": "The length of time in milliseconds the mediator will wait for a single group of events to process. This value should be set to less than the consumer max.poll.interval.ms config value, which by default is 5 minutes.",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
