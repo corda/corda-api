@@ -11,6 +11,11 @@
         "items": "bytes"
       },
       "doc": "the serialized entities, each on in AMQP format"
+    },
+    {
+      "name": "deduplicationId",
+      "type": "String",
+      "doc": "A deterministic identifier that can be used to deduplication replayed requests from the flow engine."
     }
   ]
 }
