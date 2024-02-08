@@ -108,6 +108,7 @@ public final class Schemas {
         public static final String FLOW_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
         public static final String FLOW_TIMEOUT_TOPIC = "flow.timeout";
+        public static final String FLOW_CHECKPOINT_TERMINATION = "flow.checkpoint.termination";
         public static final String FLOW_MAPPER_START = "flow.mapper.start";
         public static final String FLOW_MAPPER_SESSION_OUT = "flow.mapper.session.out";
         public static final String FLOW_MAPPER_SESSION_IN = "flow.mapper.session.in";
@@ -254,6 +255,7 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_MAPPER_CLEANUP = "flow-mapper-state-cleanup";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR = "scheduled.task.flow.processor";
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
+        public static final String SCHEDULED_TASK_NAME_FLOW_CHECKPOINT_TERMINATION = "flow-checkpoint-termination";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_STATUS_PROCESSOR = "scheduled.task.flow.status.processor";
         public static final String SCHEDULE_TASK_NAME_FLOW_STATUS_CLEANUP = "flow-status-cleanup";
 

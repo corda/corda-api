@@ -53,6 +53,13 @@
           "maximum": 2147483647,
           "default": 600000
         },
+        "checkpointCleanupTime": {
+          "description": "The length of time in milliseconds that the flow engine holds onto the state for a flow that has finished. When the checkpoint is removed, any old or duplicate messages replayed to the flow worker cannot be executed and will produce no replayed outputs.",
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2147483647,
+          "default": 120000
+        },
         "poolSize": {
           "description": "The size of the flow event processing pool size.",
           "type": "integer",
