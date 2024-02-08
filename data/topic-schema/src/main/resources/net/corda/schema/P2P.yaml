@@ -175,3 +175,10 @@ topics:
       min.compaction.lag.ms: 60000
       max.compaction.lag.ms: 604800000
       min.cleanable.dirty.ratio: 0.5
+  SessionEventsTopic:
+    name: session.events
+    consumers:
+      - link-manager
+    producers:
+      - link-manager
+    config:

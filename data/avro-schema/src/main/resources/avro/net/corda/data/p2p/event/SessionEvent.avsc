@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "SessionEvent",
+  "namespace": "net.corda.data.p2p.event",
+  "fields": [
+    {
+      "name": "type",
+      "type": [
+        "net.corda.data.p2p.event.SessionCreated",
+        "net.corda.data.p2p.event.SessionDeleted"
+      ]
+    }
+  ]
+}
