@@ -31,8 +31,7 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
      * Sets an ORDER BY expression. The columnExpression needs to evaluate to a value in the vault database, i.e.
      * either a column name or a JSON expression. The flags string allows to set order by flags, e.g. "ASC",
      * these will be passed through to the database as is, so be careful with using database vendor specific
-     * expressions.
-     *
+     * flags.
      * This function can be called multiple times on one VaultNamedQueryBuilder. The order of calls matters - the first
      * call defines the primary order, and within that the column of the second call will be used etc.
      *
@@ -47,7 +46,6 @@ public interface VaultNamedQueryBuilder extends VaultNamedQueryBuilderBase {
      * Sets an ORDER BY expression. The columnExpression needs to evaluate to a value in the vault database, i.e.
      * either a column name or a JSON expression. This is equivalent
      * to calling `oderBy(columnExpression, null);`
-     *
      * This function can be called multiple times on one VaultNamedQueryBuilder. The order of calls matters - the first
      * call defines the primary order, and within that the column of the second call will be used etc.
      *
