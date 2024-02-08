@@ -11,7 +11,7 @@
     },
     {
       "name": "deduplicationId",
-      "type": "String",
+      "type": "string",
       "doc": "A deterministic identifier that can be used to deduplication replayed requests from the flow engine."
     },
     {
