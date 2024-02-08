@@ -129,7 +129,7 @@
           }
         },
         "defaultWrappingKey": {
-          "description": "The default wrapping key, which must be a key specified in the wrappingKeys array.",
+          "description": "The default wrapping key. This must be a key specified in the wrappingKeys array.",
           "type": "string"
         }
       },
