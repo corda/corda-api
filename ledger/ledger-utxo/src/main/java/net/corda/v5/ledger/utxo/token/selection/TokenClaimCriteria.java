@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo.token.selection;
 
+import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields;
@@ -13,6 +14,7 @@ import java.util.Objects;
 /**
  * Represents a description of the selection criteria for a token selection query using the {@link TokenSelection} API.
  */
+@CordaSerializable
 public final class TokenClaimCriteria {
 
     /**
