@@ -21,19 +21,13 @@
     },
     {
       "name": "ownerHash",
-      "type": [
-        "null",
-        "string"
-      ],
+      "type": ["null", "string"],
       "default": null,
       "doc": "Optional owner hash to match on, null will match all"
     },
     {
       "name": "tagRegex",
-      "type": [
-        "null",
-        "string"
-      ],
+      "type": ["null", "string"],
       "default": null,
       "doc": "Optional regular expression used to match a tag, null will match all"
     }
