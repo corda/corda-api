@@ -3,6 +3,7 @@ package net.corda.v5.ledger.utxo.transaction.filtered;
 import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.annotations.DoNotImplement;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -18,13 +19,13 @@ public interface UtxoFilteredTransactionAndSignatures {
      *
      * @return A {@link UtxoFilteredTransaction} object.
      */
-    UtxoFilteredTransaction getFilteredTransaction();
+    @NotNull UtxoFilteredTransaction getFilteredTransaction();
 
     /**
      * Gets the signatures that belong to the filtered transaction.
      *
      * @return A list of signatures represented by {@link DigitalSignatureAndMetadata}s.
      */
-    List<DigitalSignatureAndMetadata> getSignatures();
+    @NotNull List<DigitalSignatureAndMetadata> getSignatures();
 
 }
