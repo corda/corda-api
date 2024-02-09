@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo.token.selection;
 
-import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
 import net.corda.v5.ledger.utxo.observer.UtxoTokenFilterFields;
