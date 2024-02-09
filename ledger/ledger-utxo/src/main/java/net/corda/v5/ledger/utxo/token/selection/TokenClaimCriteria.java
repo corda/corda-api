@@ -14,7 +14,6 @@ import java.util.Objects;
 /**
  * Represents a description of the selection criteria for a token selection query using the {@link TokenSelection} API.
  */
-@CordaSerializable
 public final class TokenClaimCriteria {
 
     /**
