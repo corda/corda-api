@@ -10,7 +10,8 @@
         "net.corda.data.flow.state.waiting.CounterPartyFlowInfo",
         "net.corda.data.flow.state.waiting.SessionConfirmation",
         "net.corda.data.flow.state.waiting.SessionData",
-        "net.corda.data.flow.state.waiting.external.ExternalEventResponse"
+        "net.corda.data.flow.state.waiting.external.ExternalEventResponse",
+        "net.corda.data.flow.state.waiting.start.WaitingForStartFlow"
       ]
     }
   ]
