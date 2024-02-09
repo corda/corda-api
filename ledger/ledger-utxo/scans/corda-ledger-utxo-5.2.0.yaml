@@ -381,8 +381,7 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
         - NotNull
       default: false
       type: public abstract
-      returnType: "java.util.Map<net.corda.v5.crypto.SecureHash, java.util.Map<net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction,\
-        \ java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>>>"
+      returnType: "java.util.Map<net.corda.v5.crypto.SecureHash, net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionAndSignatures>"
       params:
         signedTransaction:
           annotation:
@@ -2043,6 +2042,26 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
       default: false
       type: public abstract
       returnType: void
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionAndSignatures:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getFilteredTransaction:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction
+    getSignatures:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>
 net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder:
   annotations:
     - DoNotImplement
