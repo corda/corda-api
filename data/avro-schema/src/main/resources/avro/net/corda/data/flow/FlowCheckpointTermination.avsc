@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "FlowCheckpointTermination",
+  "namespace": "net.corda.data.flow",
+  "doc": "Represents of a flow checkpoint deletion instruction.",
+  "fields": [
+    {
+      "name": "checkpointStateKeys",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": "Keys for the terminated checkpoints that are to be deleted."
+    }
+  ]
+}
