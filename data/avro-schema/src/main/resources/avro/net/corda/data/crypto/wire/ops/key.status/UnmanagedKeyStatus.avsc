@@ -2,18 +2,8 @@
   "type": "record",
   "name": "UnmanagedKeyStatus",
   "namespace": "net.corda.data.crypto.wire.ops.key.status",
-  "doc": "Defines the key status and key rotation status data for unmanaged keys.",
+  "doc": "Defines the key status and key rotation status data for master wrapping key.",
   "fields": [
-    {
-      "name": "oldParentKeyAlias",
-      "type": "string",
-      "doc": "Alias of an unmanaged key that we are rotating away from."
-    },
-    {
-      "name": "newParentKeyAlias",
-      "type": ["null", "string"],
-      "doc": "The wrapping key alias that should be used for material currently wrapped with old key."
-    },
     {
       "name": "tenantId",
       "type": "string",
@@ -22,7 +12,7 @@
     {
       "name": "total",
       "type": "int",
-      "doc": "Total number of keys that needs rotating away from rootKeyAlias in tenantId."
+      "doc": "Total number of keys that needs rotating in tenantId."
     },
     {
       "name": "rotatedKeys",
