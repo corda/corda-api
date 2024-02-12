@@ -23,9 +23,6 @@
             <column name="version" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="metadata" type="${json.column.type}">
-                <constraints nullable="false"/>
-            </column>
             <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
@@ -35,5 +32,28 @@
             <column name="version"/>
         </createIndex>
         <addPrimaryKey columnNames="key" constraintName="state_key" tableName="state"/>
+
+
+        <createTable tableName="statemeta">
+            <column name="statekey" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createIndex tableName="statemeta" indexName="statemeta_key_version_idx">
+            <column name="statekey"/>
+            <column name="version"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>

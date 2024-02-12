@@ -68,7 +68,7 @@
       "type": "integer",
       "minimum": 60000,
       "maximum:": 2147483647,
-      "default": 604800000
+      "default": 120000
     }
   }
 }
