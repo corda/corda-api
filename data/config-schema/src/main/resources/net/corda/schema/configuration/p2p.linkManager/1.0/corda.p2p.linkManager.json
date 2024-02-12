@@ -91,7 +91,7 @@
     "sessionTimeout": {
       "description": "The session timeout in milliseconds.",
       "type": "integer",
-      "default": 10000,
+      "default": 60000,
       "minimum": 500
     },
     "sessionsPerPeer": {
