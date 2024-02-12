@@ -45,4 +45,7 @@ public final class BootConfig {
     public static final String PERSISTENCE_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.persistence";
     public static final String TOKEN_SELECTION_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.tokenSelection";
     public static final String P2P_LINK_MANAGER_WORKER_REST_ENDPOINT = BOOT_WORKER_SERVICE + ".endpoints.p2pLinkManager";
+    public static final String WORKER_MEDIATOR_REPLICAS_FLOW_SESSION = BOOT_WORKER_SERVICE + ".mediatorReplicas.flowSession";
+    public static final String WORKER_MEDIATOR_REPLICAS_FLOW_MAPPER_SESSION_IN = BOOT_WORKER_SERVICE + ".mediatorReplicas.flowMapperSessionIn";
+    public static final String WORKER_MEDIATOR_REPLICAS_FLOW_MAPPER_SESSION_OUT = BOOT_WORKER_SERVICE + ".mediatorReplicas.flowMapperSessionOut";
 }
