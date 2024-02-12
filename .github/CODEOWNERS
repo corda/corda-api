@@ -1,19 +1,2 @@
-
-# Build scripts and Jenkins files should be audited by BLT
-# Any changes to source code of corda-api to be reviewd by C5 team leads
-
-Jenkinsfile        @corda/blt
-.ci/**             @corda/blt
-
-gradle/wrapper     @corda/blt
-*.toml             @corda/corda5-team-leads
-
-*.gradle           @corda/blt
-gradle.properties  @corda/corda5-team-leads
-
-*.kt               @corda/corda5-team-leads
-*.java             @corda/corda5-team-leads
-
-**/scans/*.yaml    @corda/corda5-team-leads
-
-CODEOWNERS         @corda/blt @corda/corda5-team-leads
+# Code freeze reviewers
+* @driessamyn @jasonbyrner3 @ronanbrowne @rick-r3 @simon-johnson-r3 @blsemo @Omar-awad @aditisdesai @vinir3 @vkolomeyko @thiagoviana @Sakpal @dickon
