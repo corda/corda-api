@@ -29,7 +29,7 @@
             <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="expire_at_time" type="TIMESTAMP">
+            <column name="expire_at_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="true"/>
             </column>
         </createTable>
