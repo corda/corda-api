@@ -29,10 +29,12 @@
             <column name="modified_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
+            <column name="expire_at_time" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
         <createIndex tableName="state" indexName="state_key_version_idx">
             <column name="key"/>
-            <column name="version"/>
         </createIndex>
         <addPrimaryKey columnNames="key" constraintName="state_key" tableName="state"/>
     </changeSet>
