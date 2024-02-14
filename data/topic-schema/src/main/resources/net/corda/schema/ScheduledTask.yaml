@@ -22,4 +22,4 @@ topics:
     consumers:
       - rest
     producers:
-      - rest
+      - db
