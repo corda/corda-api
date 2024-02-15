@@ -282,6 +282,20 @@ public interface UtxoLedgerService {
     );
 
     /**
+     * Sends the transaction to counterparty sessions and forces backchain resolution.
+     *
+     * @param sessions The counterparties who receive the transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
+     * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
+     */
+    @Suspendable
+    void sendTransactionWithBackchain(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+
+    /**
      * Receives a verified transaction from the counterparty session and persists it to the vault.
      *
      * @param session The counterparty to receive a transaction from.
@@ -301,7 +315,7 @@ public interface UtxoLedgerService {
      * @param sessions The counterparties who receive the transaction.
      */
     @Suspendable
-    void sendAsLedgerTransaction(
+    void sendLedgerTransaction(
             @NotNull UtxoSignedTransaction signedTransaction,
             @NotNull List<FlowSession> sessions
     );
