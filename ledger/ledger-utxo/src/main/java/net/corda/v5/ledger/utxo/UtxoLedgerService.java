@@ -1,6 +1,5 @@
 package net.corda.v5.ledger.utxo;
 
-import net.corda.v5.application.crypto.DigitalSignatureAndMetadata;
 import net.corda.v5.application.messaging.FlowSession;
 import net.corda.v5.application.persistence.PagedQuery;
 import net.corda.v5.application.persistence.PagedQuery.ResultSet;
@@ -16,6 +15,7 @@ import net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionBuilder;
 import net.corda.v5.ledger.utxo.transaction.UtxoTransactionValidator;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction;
+import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionAndSignatures;
 import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -96,7 +96,7 @@ public interface UtxoLedgerService {
      */
     @NotNull
     @Suspendable
-    Map<SecureHash, Map<UtxoFilteredTransaction, List<DigitalSignatureAndMetadata>>> findFilteredTransactionsAndSignatures(@NotNull UtxoSignedTransaction signedTransaction);
+    Map<SecureHash, UtxoFilteredTransactionAndSignatures> findFilteredTransactionsAndSignatures(@NotNull UtxoSignedTransaction signedTransaction);
 
     /**
      * Filters a {@link UtxoSignedTransaction} to create a {@link UtxoFilteredTransaction} that only contains the components specified by the
@@ -282,6 +282,20 @@ public interface UtxoLedgerService {
     );
 
     /**
+     * Sends the transaction to counterparty sessions and forces backchain resolution.
+     *
+     * @param sessions The counterparties who receive the transaction.
+     * @param signedTransaction The {@link UtxoSignedTransaction} to send.
+     * @throws CordaRuntimeException If transaction verification fails on the receiving sessions.
+     */
+    @Suspendable
+    void sendTransactionWithBackchain(
+            @NotNull UtxoSignedTransaction signedTransaction,
+            @NotNull List<FlowSession> sessions
+    );
+
+
+    /**
      * Receives a verified transaction from the counterparty session and persists it to the vault.
      *
      * @param session The counterparty to receive a transaction from.
@@ -301,7 +315,7 @@ public interface UtxoLedgerService {
      * @param sessions The counterparties who receive the transaction.
      */
     @Suspendable
-    void sendAsLedgerTransaction(
+    void sendLedgerTransaction(
             @NotNull UtxoSignedTransaction signedTransaction,
             @NotNull List<FlowSession> sessions
     );

@@ -13,6 +13,8 @@ public final class FlowConfig {
     public static final String PROCESSING_MAX_RETRY_WINDOW_DURATION = "processing.maxRetryWindowDuration";
     public static final String PROCESSING_MAX_RETRY_DELAY = "processing.maxRetryDelay";
     public static final String PROCESSING_MAX_FLOW_SLEEP_DURATION = "processing.maxFlowSleepDuration";
-    public static final String PROCESSING_FLOW_CLEANUP_TIME = "processing.cleanupTime";
+    public static final String PROCESSING_FLOW_MAPPER_CLEANUP_TIME = "processing.cleanupTime";
+    public static final String PROCESSING_FLOW_CHECKPOINT_CLEANUP_TIME = "processing.checkpointCleanupTime";
+
     public static final String PROCESSING_MAX_IDLE_TIME = "processing.maxIdleTime";
 }
