@@ -7,6 +7,21 @@ topics:
       - membership
       - rest
     config:
+  CryptoHSMRPCRegistrationRespTopic:
+    name: crypto.hsm.rpc.registration.resp
+    consumers:
+      - membership
+      - rest
+    producers:
+      - crypto
+    config:
+  CryptoOpsFlowTopic:
+    name: crypto.ops.flow
+    consumers:
+      - crypto
+    producers:
+      - flow
+    config:
   CryptoOpsRpcTopic:
     name: crypto.ops.rpc
     consumers:
@@ -17,6 +32,17 @@ topics:
       - link-manager
       - membership
       - rest
+    config:
+  CryptoOpsRpcResponseTopic:
+    name: crypto.ops.rpc.resp
+    consumers:
+      - crypto
+      - gateway
+      - link-manager
+      - membership
+      - rest
+    producers:
+      - crypto
     config:
   CryptoOpsRekeyTopic:
     name: crypto.key.rotation.ops
