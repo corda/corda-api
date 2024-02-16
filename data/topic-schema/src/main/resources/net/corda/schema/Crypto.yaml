@@ -15,13 +15,6 @@ topics:
     producers:
       - crypto
     config:
-  CryptoOpsFlowTopic:
-    name: crypto.ops.flow
-    consumers:
-      - crypto
-    producers:
-      - flow
-    config:
   CryptoOpsRpcTopic:
     name: crypto.ops.rpc
     consumers:
