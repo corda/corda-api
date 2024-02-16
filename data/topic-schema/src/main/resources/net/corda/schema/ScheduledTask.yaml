@@ -17,3 +17,9 @@ topics:
       - flow
     producers:
       - db
+  ScheduledTaskFlowStatusProcessorTopic:
+    name: scheduled.task.flow.status.processor
+    consumers:
+      - rest
+    producers:
+      - db

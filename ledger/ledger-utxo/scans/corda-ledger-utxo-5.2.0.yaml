@@ -375,6 +375,18 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: net.corda.v5.crypto.SecureHash
+    findFilteredTransactionsAndSignatures:
+      annotations:
+        - Suspendable
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "java.util.Map<net.corda.v5.crypto.SecureHash, net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionAndSignatures>"
+      params:
+        signedTransaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
     findLedgerTransaction:
       annotations:
         - Suspendable
@@ -538,7 +550,7 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
           annotation:
             - NotNull
           type: net.corda.v5.application.messaging.FlowSession
-    sendAsLedgerTransaction:
+    sendLedgerTransaction:
       annotations:
         - Suspendable
       default: false
@@ -554,6 +566,21 @@ net.corda.v5.ledger.utxo.UtxoLedgerService:
             - NotNull
           type: java.util.List<net.corda.v5.application.messaging.FlowSession>
     sendTransaction:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        signedTransaction:
+          annotation:
+            - NotNull
+          type: net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction
+        sessions:
+          annotation:
+            - NotNull
+          type: java.util.List<net.corda.v5.application.messaging.FlowSession>
+    sendTransactionWithBackchain:
       annotations:
         - Suspendable
       default: false
@@ -1088,11 +1115,28 @@ net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder:
           annotation:
             - NotNull
           type: "net.corda.v5.ledger.utxo.query.VaultNamedQueryTransformer<?, ?>"
+    orderBy:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder
+      params:
+        columnExpression:
+          annotation:
+            - NotNull
+          type: String
     register:
       annotations: []
       default: false
       type: public abstract
       returnType: void
+    selectUnconsumedStatesOnly:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilder
     whereJson:
       annotations:
         - NotNull
@@ -1220,7 +1264,8 @@ net.corda.v5.ledger.utxo.token.selection.TokenBalance:
       type: public abstract
       returnType: java.math.BigDecimal
 net.corda.v5.ledger.utxo.token.selection.TokenBalanceCriteria:
-  annotations: []
+  annotations:
+    - CordaSerializable
   type: public final class
   extends: null
   implements: []
@@ -1327,7 +1372,8 @@ net.corda.v5.ledger.utxo.token.selection.TokenClaim:
             - NotNull
           type: java.util.List<net.corda.v5.ledger.utxo.StateRef>
 net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria:
-  annotations: []
+  annotations:
+    - CordaSerializable
   type: public final class
   extends: null
   implements: []
@@ -2030,6 +2076,26 @@ net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction:
       default: false
       type: public abstract
       returnType: void
+net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionAndSignatures:
+  annotations:
+    - CordaSerializable
+    - DoNotImplement
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    getFilteredTransaction:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransaction
+    getSignatures:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.util.List<net.corda.v5.application.crypto.DigitalSignatureAndMetadata>
 net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuilder:
   annotations:
     - DoNotImplement

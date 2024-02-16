@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "PersistTransactionSignatures",
+  "doc": "Persist new transactions signatures. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "The transaction ID, derived from the root hash of its Merkle tree"
+    },
+    {
+      "name": "startingIndex",
+      "type": "int",
+      "doc": "The index to insert the new signatures from"
+    },
+    {
+      "name": "signatures",
+      "type": {
+        "type" : "array",
+        "items" : "bytes"
+      },
+      "doc": "the new signatures to persist"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 package net.corda.schema.configuration;
 
 /** The keys for various configurations for a worker. */
+@SuppressWarnings("unused")
 public final class ConfigKeys {
     private ConfigKeys() {
     }
@@ -37,11 +38,13 @@ public final class ConfigKeys {
     public static final String REST_AZUREAD_CLIENT_SECRET = "sso.azureAd.clientSecret";
     public static final String REST_AZUREAD_TENANT_ID = "sso.azureAd.tenantId";
     public static final String REST_WEBSOCKET_CONNECTION_IDLE_TIMEOUT_MS = "websocket.idleTimeoutMs";
+    public static final String REST_FLOW_STATUS_CLEANUP_TIME_MS = "flowStatusCleanupTimeMs";
 
     // RBAC
     public static final String RBAC_USER_PASSWORD_CHANGE_EXPIRY = "password.userPasswordChangeExpiry";
     public static final String RBAC_ADMIN_PASSWORD_CHANGE_EXPIRY = "password.adminPasswordChangeExpiry";
     public static final String RBAC_PASSWORD_EXPIRY_WARNING_WINDOW = "password.passwordExpiryWarningWindow";
+    public static final String RBAC_PASSWORD_LENGTH_LIMIT = "password.lengthLimit";
     // Secrets Service
     // 
     // SECRETS_TYPE control which secrets service implementation will be selected.

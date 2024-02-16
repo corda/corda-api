@@ -47,11 +47,18 @@
           "default": 300000
         },
         "cleanupTime": {
-          "description": "The length of time in milliseconds that the flow mapper holds onto its state for a flow that has finished. This value should be at least 2 times larger than the session.p2pTTL.",
+          "description": "The length of time in milliseconds that the flow mapper holds onto the state for a flow that has finished. When the start flow state is removed, clientRequestIds will be available for reuse within the flow mapper. This value should be set lower than the rest config field 'flowStatusCleanupTimeMs'.",
           "type": "integer",
           "minimum": 1000,
           "maximum": 2147483647,
           "default": 600000
+        },
+        "checkpointCleanupTime": {
+          "description": "The length of time in milliseconds that the flow engine holds onto the state for a flow that has finished. When the checkpoint is removed, any old or duplicate messages replayed to the flow worker cannot be executed and will produce no replayed outputs.",
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2147483647,
+          "default": 120000
         },
         "poolSize": {
           "description": "The size of the flow event processing pool size.",

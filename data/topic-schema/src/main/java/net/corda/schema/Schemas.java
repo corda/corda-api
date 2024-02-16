@@ -103,6 +103,7 @@ public final class Schemas {
         public static final String FLOW_EVENT_DLQ_TOPIC = getDLQTopic(FLOW_EVENT_TOPIC);
         public static final String FLOW_MAPPER_CLEANUP_TOPIC = "flow.mapper.cleanup";
         public static final String FLOW_TIMEOUT_TOPIC = "flow.timeout";
+        public static final String FLOW_CHECKPOINT_TERMINATION = "flow.checkpoint.termination";
         public static final String FLOW_MAPPER_START = "flow.mapper.start";
         public static final String FLOW_MAPPER_SESSION_OUT = "flow.mapper.session.out";
         public static final String FLOW_MAPPER_SESSION_IN = "flow.mapper.session.in";
@@ -193,6 +194,7 @@ public final class Schemas {
         public static final String GATEWAY_REVOCATION_CHECK_RESPONSE_TOPIC = getRPCResponseTopic(GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC);
         public static final String P2P_MTLS_MEMBER_CLIENT_CERTIFICATE_SUBJECT_TOPIC = "p2p.mtls.member.client.certificate.subject";
         public static final String GATEWAY_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "gateway.allowed.client.certificate.subjects";
+        public static final String SESSION_EVENTS = "session.events";
     }
 
     /**
@@ -218,6 +220,7 @@ public final class Schemas {
         public static final String REST_PERM_GROUP_TOPIC = "rest.permissions.group";
         public static final String REST_PERM_ROLE_TOPIC = "rest.permissions.role";
         public static final String REST_PERM_ENTITY_TOPIC = "rest.permissions.permission";
+        public static final String REST_FLOW_STATUS_CLEANUP_TOPIC = "rest.flow.status.cleanup";
     }
 
     /**
@@ -247,6 +250,9 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_MAPPER_CLEANUP = "flow-mapper-state-cleanup";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_PROCESSOR = "scheduled.task.flow.processor";
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
+        public static final String SCHEDULED_TASK_NAME_FLOW_CHECKPOINT_TERMINATION = "flow-checkpoint-termination";
+        public static final String SCHEDULED_TASK_TOPIC_FLOW_STATUS_PROCESSOR = "scheduled.task.flow.status.processor";
+        public static final String SCHEDULE_TASK_NAME_FLOW_STATUS_CLEANUP = "flow-status-cleanup";
 
     }
 }
