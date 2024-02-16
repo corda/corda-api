@@ -41,14 +41,6 @@
       ],
       "default": null,
       "doc": "Internal storage for pipeline extensions."
-    },
-    {
-      "name": "savedOutputs",
-      "type": {
-        "type": "array",
-        "items": "net.corda.data.flow.state.checkpoint.SavedOutputs"
-      },
-      "doc": "Saved output events by input for replay if neccessary."
     }
   ]
 }
