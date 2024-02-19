@@ -44,13 +44,6 @@ topics:
     producers:
       - flow
     config:
-  FlowCheckpointTermination:
-    name: flow.checkpoint.termination
-    consumers:
-      - flow
-    producers:
-      - flow
-    config:
   FlowMapperStart:
     name: flow.mapper.start
     consumers:
