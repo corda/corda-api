@@ -78,12 +78,12 @@
       "minimum": 1
     },
     "heartbeatEnabled": {
-      "description": "Whether heartbeat messages should be sent or not between peers to detect unhealthy sessions.",
+      "description": "Deprecated (not used). Whether heartbeat messages should be sent or not between peers to detect unhealthy sessions.",
       "type": "boolean",
       "default": true
     },
     "heartbeatMessagePeriod": {
-      "description": "The heartbeat message period in milliseconds.",
+      "description": "Deprecated (not used). The heartbeat message period in milliseconds.",
       "type": "integer",
       "default": 2000,
       "minimum": 500
@@ -95,13 +95,13 @@
       "minimum": 500
     },
     "sessionsPerPeer": {
-      "description": "Deprecated field, numOfSessionsPerPeer should be used instead. The number of actively maintained sessions between two peers.",
+      "description": "Deprecated (not used). The number of actively maintained sessions between two peers.",
       "type": ["integer", "null"],
       "default": null,
       "minimum": 1
     },
     "numOfSessionsPerPeer": {
-      "description": "The number of actively maintained sessions between two peers.",
+      "description": "Deprecated (not used). The number of actively maintained sessions between two peers.",
       "type": "object",
       "default": {},
       "properties": {
@@ -144,7 +144,7 @@
       }
     },
     "sessionRefreshThreshold": {
-      "description": "The session refresh threshold in seconds. The default value is five days.",
+      "description": "Deprecated (not used). The session refresh threshold in seconds. The default value is five days.",
       "type": "integer",
       "default": 432000,
       "maximum": 432000
