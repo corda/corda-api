@@ -4,8 +4,11 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
     <!-- TEXT type cannot be used for HSQL because it will be converted to CLOB when fetched -->
-    <property name="merkle.proof.hashes.column.type" value="VARCHAR(1024)" dbms="hsqldb"/>
+    <property name="merkle.proof.hashes.column.type" value="VARCHAR(8192)" dbms="hsqldb"/>
     <property name="merkle.proof.hashes.column.type" value="TEXT" dbms="postgresql"/>
+
+    <property name="merkle.proof.leaf.indexes.column.type" value="VARCHAR(8192)" dbms="hsqldb"/>
+    <property name="merkle.proof.leaf.indexes.column.type" value="TEXT" dbms="postgresql"/>
 
     <changeSet author="R3.Corda" id="ledger-utxo-creation-v5.2">
 
@@ -21,6 +24,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="tree_size" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leaf_indexes" type="${merkle.proof.hashes.column.type}">
                 <constraints nullable="false"/>
             </column>
             <column name="hashes" type="${merkle.proof.hashes.column.type}">
