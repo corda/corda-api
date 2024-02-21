@@ -191,7 +191,6 @@ public final class Schemas {
         public static final String P2P_MGM_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "p2p.mgm.allowed.client.certificate.subjects";
         public static final String LINK_OUT_TOPIC = "link.out";
         public static final String LINK_IN_TOPIC = "link.in";
-        public static final String SESSION_OUT_PARTITIONS = "session.out.partitions";
         public static final String GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores";
         public static final String GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs";
         public static final String GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC = "gateway.revocation.request";
