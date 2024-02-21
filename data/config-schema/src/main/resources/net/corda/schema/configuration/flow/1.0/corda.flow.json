@@ -44,7 +44,7 @@
           "type": "integer",
           "minimum": 60000,
           "maximum": 31557600000,
-          "default": 300000
+          "default": 1800000
         },
         "cleanupTime": {
           "description": "The length of time in milliseconds that the flow mapper holds onto the state for a flow that has finished. When the start flow state is removed, clientRequestIds will be available for reuse within the flow mapper. This value should be set lower than the rest config field 'flowStatusCleanupTimeMs'.",
@@ -52,13 +52,6 @@
           "minimum": 1000,
           "maximum": 2147483647,
           "default": 600000
-        },
-        "checkpointCleanupTime": {
-          "description": "The length of time in milliseconds that the flow engine holds onto the state for a flow that has finished. When the checkpoint is removed, any old or duplicate messages replayed to the flow worker cannot be executed and will produce no replayed outputs.",
-          "type": "integer",
-          "minimum": 1000,
-          "maximum": 2147483647,
-          "default": 120000
         },
         "poolSize": {
           "description": "The size of the flow event processing pool size.",
