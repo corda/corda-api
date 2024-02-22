@@ -6,6 +6,7 @@ slf4jVersion = { strictly = "1.7.36" }
 
 # Main implementation dependencies
 avroVersion = "1.11.3"
+apacheCommonsCodecVersion="1.16.1"
 commonsCompressVersion = "1.26.0"
 bouncycastleVersion = "1.77"
 javaxPersistenceApiVersion = "2.2"
@@ -37,6 +38,7 @@ taskTreeVersion = "2.1.1"
 [libraries]
 slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4jVersion" }
 avro = { group = "org.apache.avro", name = "avro", version.ref = "avroVersion" }
+apache-commons-codec = { group = "commons-codec", name = "commons-codec", version.ref = "apacheCommonsCodecVersion" }
 commons-compress = { group = "org.apache.commons", name = "commons-compress", version.ref = "commonsCompressVersion" }
 bouncycastle-prov = { group = "org.bouncycastle", name = "bcprov-jdk18on", version.ref = "bouncycastleVersion" }
 bouncycastle-pkix = { group = "org.bouncycastle", name = "bcpkix-jdk18on", version.ref = "bouncycastleVersion" }
