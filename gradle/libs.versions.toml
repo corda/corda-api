@@ -6,7 +6,7 @@ slf4jVersion = { strictly = "1.7.36" }
 
 # Main implementation dependencies
 avroVersion = "1.11.3"
-commonsCompressVersion = "1.25.0"
+commonsCompressVersion = "1.26.0"
 bouncycastleVersion = "1.77"
 javaxPersistenceApiVersion = "2.2"
 jacksonVersion = "2.16.1"
