@@ -2,17 +2,17 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://corda.r3.com/net/corda/schema/configuration/crypto/1.0/corda.crypto.json",
   "title": "Corda Crypto Library Configuration Schema",
-  "description": "Configuration schema for the crypto library subsection.",
+  "description": "Configuration schema for the crypto library section.",
   "type": "object",
   "default": {},
   "properties": {
     "caching": {
-      "description": "Caching settings",
+      "description": "Caching settings.",
       "type": "object",
       "default": {},
       "properties": {
         "expireAfterAccessMins": {
-          "description": "Expiration time in minutes for cached key metadata",
+          "description": "The expiration time in minutes for cached key metadata.",
           "type": "object",
           "default": {},
           "properties": {
@@ -23,7 +23,7 @@
           }
         },
         "maximumSize": {
-          "description": "Maximum number of cached key metadata",
+          "description": "The maximum number of cached key metadata.",
           "type": "object",
           "default": {},
           "properties": {
@@ -37,12 +37,12 @@
       "additionalProperties": false
     },
     "retrying": {
-      "description": "Retry settings",
+      "description": "Retry settings.",
       "type": "object",
       "default": {},
       "properties": {
         "maxAttempts": {
-          "description": "Maximum attempts to process a message",
+          "description": "The maximum attempts to process a message.",
           "type": "object",
           "properties": {
             "default": {
@@ -54,7 +54,7 @@
           }
         },
         "waitBetweenMills": {
-          "description": "Time between attempts in milliseconds, if the number of values is less than attempts then the last item is repeated",
+          "description": "The time between attempts in milliseconds. If the number of values specified is less than the number of attempts, the last item is repeated.",
           "type": "object",
           "properties": {
             "default": {
@@ -72,24 +72,24 @@
       }
     },
     "hsm": {
-      "description": "Settings and capabilities for the HSM",
+      "description": "Settings and capabilities for the HSM.",
       "type": "object",
       "default": {},
       "properties": {
         "retrying": {
-          "description": "Retry settings for the HSM",
+          "description": "Retry settings for the HSM.",
           "type": "object",
           "default": {},
           "properties": {
             "maxAttempts": {
-              "description": "Maximum number of attempts",
+              "description": "The maximum number of attempts.",
               "type": "integer",
               "default": 3,
               "minimum": 0,
               "maximum": 10
             },
             "attemptTimeoutMills": {
-              "description": "Wait period in milliseconds between attempts, should be reasonably large as some operations may be long, e.g. RSA key generation by the SOFT HSM may take a few seconds",
+              "description": "The wait period in milliseconds between attempts. This should be a reasonably large value as some operations may take longer to complete. For example, RSA key generation by the SOFT HSM may take a few seconds.",
               "type": "integer",
               "default": 20000
             }
@@ -97,7 +97,7 @@
           "additionalProperties": false
         },
         "wrappingKeys": {
-          "description": "Key derivation parameters for wrapping keys supplied in config",
+          "description": "Key derivation parameters for wrapping keys supplied in config.",
           "type": "array",
           "items": {
             "type": "object",
@@ -107,16 +107,16 @@
                 "type": "string"
               },
               "algorithm": {
-                "description": "Key derivation function and wrapping key algorithm selection",
+                "description": "Key derivation function and wrapping key algorithm selection.",
                 "type": "string",
                 "default": "PBKDF2WithHmacSHA256"
               },
               "salt": {
-                "description": "Salt for the key derivation function",
+                "description": "The salt for the key derivation function.",
                 "type": "string"
               },
               "passphrase": {
-                "description": "Passphrase for the key derivation function",
+                "description": "The passphrase for the key derivation function.",
                 "type": "string"
               }
             },
@@ -129,7 +129,7 @@
           }
         },
         "defaultWrappingKey": {
-          "description": "The default wrapping key, which must be in the wrappingKeys array.",
+          "description": "The default wrapping key. This must be a key specified in the wrappingKeys array.",
           "type": "string"
         }
       },
