@@ -298,7 +298,6 @@ net.corda.v5.application.crypto.SigningService:
   methods:
     decodePublicKey:
       annotations:
-        - Suspendable
         - NotNull
       default: false
       type: public abstract
@@ -310,7 +309,6 @@ net.corda.v5.application.crypto.SigningService:
           type: String
     encodeAsByteArray:
       annotations:
-        - Suspendable
         - NotNull
       default: false
       type: public abstract
@@ -322,7 +320,6 @@ net.corda.v5.application.crypto.SigningService:
           type: java.security.PublicKey
     encodeAsString:
       annotations:
-        - Suspendable
         - NotNull
       default: false
       type: public abstract

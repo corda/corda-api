@@ -61,20 +61,18 @@ public interface SigningService {
     /**
      * Deserializes a {@link PublicKey} from a {@code byte} array.
      *
-     * @param encodedKey The public key represented asa a {@code byte} array.
+     * @param encodedKey The public key represented as a {@code byte} array.
      * @return An instance of {@link PublicKey} constructed from the encoded key.
      */
-    @Suspendable
     @NotNull
     PublicKey decodePublicKey(@NotNull byte[] encodedKey);
 
     /**
      * Deserializes a {@link PublicKey} from a {@link String}.
      *
-     * @param encodedKey The public key represented asa a hex encoded {@link String}.
+     * @param encodedKey The public key represented as a PEM encoded {@link String}.
      * @return An instance of {@link PublicKey} constructed from the encoded key.
      */
-    @Suspendable
     @NotNull
     PublicKey decodePublicKey(@NotNull String encodedKey);
 
@@ -84,17 +82,15 @@ public interface SigningService {
      * @param publicKey The {@link PublicKey} to be encoded.
      * @return A {@code byte} array representation of the public key.
      */
-    @Suspendable
     @NotNull
     byte[] encodeAsByteArray(@NotNull PublicKey publicKey);
 
     /**
-     * Serializes a {@link PublicKey} into a hex encoded String.
+     * Serializes a {@link PublicKey} into a PEM encoded String.
      *
      * @param publicKey The {@link PublicKey} to be encoded.
      * @return A hex encoded {@link String} representation of the public key.
      */
-    @Suspendable
     @NotNull
     String encodeAsString(@NotNull PublicKey publicKey);
 }
