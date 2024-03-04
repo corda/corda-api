@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 topics:
   CPIInfoTopic:
     name: cpi.info
@@ -32,6 +33,7 @@ topics:
       - rest
     producers:
       - db
+      - rest
     config:
   CPKFileTopic:
     name: cpk.file
@@ -105,4 +107,113 @@ topics:
       delete.retention.ms: 300000
       min.compaction.lag.ms: 60000
       max.compaction.lag.ms: 604800000
+=======
+topics:
+  CPIInfoTopic:
+    name: cpi.info
+    consumers:
+      - db
+      - flow
+      - flowMapper
+      - verification
+      - membership
+      - link-manager
+      - persistence
+      - rest
+    producers:
+      - db
+    config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
+  CPIUploadTopic:
+    name: cpi.upload
+    consumers:
+      - db
+    producers:
+      - rest
+    config:
+  CPIStatusTopic:
+    name: cpi.upload.status
+    consumers:
+      - rest
+    producers:
+      - db
+      - rest
+    config:
+  CPKFileTopic:
+    name: cpk.file
+    consumers:
+      - flow
+      - verification
+      - db
+      - persistence
+    producers:
+      - db
+    config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
+  VirtualNodeCreationRequestTopic:
+    name: virtual.node.creation.request
+    consumers:
+      - db
+    producers:
+      - rest
+    config:
+  VirtualNodeCreationRequestResponseTopic:
+    name: virtual.node.creation.request.resp
+    consumers:
+      - rest
+    producers:
+      - db
+    config:
+  VirtualNodeInfoTopic:
+    name: virtual.node.info
+    consumers:
+      - crypto
+      - db
+      - flow
+      - flowMapper
+      - membership
+      - link-manager
+      - persistence
+      - rest
+      - tokenSelection
+    producers:
+      - db
+    config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+      min.cleanable.dirty.ratio: 0.5
+  VirtualNodeAsyncRequestTopic:
+    name: virtual.node.async.request
+    consumers:
+      - db
+    producers:
+      - rest
+    config:
+  VirtualNodeOperationStatusTopic:
+    name: virtual.node.operation.status
+    consumers:
+      - rest
+    producers:
+      - db
+      - rest
+    config:
+      cleanup.policy: compact
+      segment.ms: 600000
+      delete.retention.ms: 300000
+      min.compaction.lag.ms: 60000
+      max.compaction.lag.ms: 604800000
+>>>>>>> 5e71a8aa (CORE-14391 - Allow the rest work publish to the `cpi.upload.status` Kafka topic)
       min.cleanable.dirty.ratio: 0.5
