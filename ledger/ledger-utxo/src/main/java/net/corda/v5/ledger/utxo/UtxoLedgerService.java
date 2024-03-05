@@ -415,4 +415,7 @@ public interface UtxoLedgerService {
     @Nullable
     @Suspendable
     UtxoSignedTransaction findDraftSignedTransaction(@NotNull SecureHash id);
+
+    @Suspendable
+    void recoverMissedNotarisedTransactions(Instant instant);
 }

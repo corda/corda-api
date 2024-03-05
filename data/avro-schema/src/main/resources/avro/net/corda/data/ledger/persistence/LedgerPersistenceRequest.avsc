@@ -43,7 +43,8 @@
         "net.corda.data.ledger.persistence.FindTransactionIdsAndStatuses",
         "net.corda.data.ledger.persistence.FindFilteredTransactionsAndSignatures",
         "net.corda.data.ledger.persistence.PersistFilteredTransactionsAndSignatures",
-        "net.corda.data.ledger.persistence.PersistTransactionSignatures"
+        "net.corda.data.ledger.persistence.PersistTransactionSignatures",
+        "net.corda.data.ledger.persistence.FindTransactionsWithStatusBeforeTime"
       ]
     },
     {
