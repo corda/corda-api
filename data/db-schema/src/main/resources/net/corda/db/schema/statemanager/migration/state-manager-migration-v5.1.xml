@@ -30,10 +30,20 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <modifySql dbms="postgresql">
+            <append value=" PARTITION BY HASH(key)"/>
+        </modifySql>
         <createIndex tableName="state" indexName="state_key_version_idx">
             <column name="key"/>
             <column name="version"/>
         </createIndex>
         <addPrimaryKey columnNames="key" constraintName="state_key" tableName="state"/>
+        <sql dbms="postgresql">
+            CREATE TABLE state_0 PARTITION OF state FOR VALUES WITH (MODULUS 5,REMAINDER 0);
+            CREATE TABLE state_1 PARTITION OF state FOR VALUES WITH (MODULUS 5,REMAINDER 1);
+            CREATE TABLE state_2 PARTITION OF state FOR VALUES WITH (MODULUS 5,REMAINDER 2);
+            CREATE TABLE state_3 PARTITION OF state FOR VALUES WITH (MODULUS 5,REMAINDER 3);
+            CREATE TABLE state_4 PARTITION OF state FOR VALUES WITH (MODULUS 5,REMAINDER 4);
+        </sql>
     </changeSet>
 </databaseChangeLog>
