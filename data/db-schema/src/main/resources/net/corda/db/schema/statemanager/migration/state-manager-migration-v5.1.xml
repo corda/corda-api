@@ -33,6 +33,8 @@
         <modifySql dbms="postgresql">
             <append value=" PARTITION BY HASH(key)"/>
         </modifySql>
+    </changeSet>
+    <changeSet author="R3.Corda" id="state-manager-migration-v5.1.2">
         <createIndex tableName="state" indexName="state_key_version_idx">
             <column name="key"/>
             <column name="version"/>
