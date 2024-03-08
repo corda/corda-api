@@ -23,3 +23,9 @@ topics:
       - rest
     producers:
       - db
+  ScheduledTaskRecoverMissedNotarizedTransactionsTopic:
+    name: scheduled.task.ledger.missed.transactions
+    consumers:
+      - flow
+    producers:
+      - db
