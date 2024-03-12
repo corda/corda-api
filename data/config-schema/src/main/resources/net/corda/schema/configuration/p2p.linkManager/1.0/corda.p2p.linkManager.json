@@ -178,7 +178,7 @@
           "minimum": 1
         },
         "maxCacheOffsetAge": {
-          "description": "The oldest offset of a cached data message, relative to the last sent message offset.",
+          "description": "The oldest offset of a cached data message, relative to the last sent message offset (in number of records).",
           "type": "integer",
           "default": 50000,
           "minimum": 1
