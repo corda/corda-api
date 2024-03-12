@@ -148,6 +148,24 @@
       "type": "integer",
       "default": 432000,
       "maximum": 432000
+    },
+    "sessionCache": {
+      "type": "object",
+      "default": {},
+      "properties": {
+        "inboundSessionsCacheSize": {
+          "description": "The number of inbound sessions to keep in the link manager cache.",
+          "type": "integer",
+          "default": 10000,
+          "minimum": 1
+        },
+        "outboundSessionsCacheSize": {
+          "description": "The number of outbound sessions to keep in the link manager cache.",
+          "type": "integer",
+          "default": 10000,
+          "minimum": 1
+        }
+      }
     }
   },
   "additionalProperties": false
