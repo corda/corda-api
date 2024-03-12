@@ -10,7 +10,15 @@
       "doc": "The status of the transaction"
     },
     {
-      "name": "instant",
+      "name": "from",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds to find transactions from"
+    },
+    {
+      "name": "until",
       "type": {
         "type": "long",
         "logicalType": "timestamp-millis"
