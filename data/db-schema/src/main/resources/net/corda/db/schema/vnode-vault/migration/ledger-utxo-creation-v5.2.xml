@@ -51,6 +51,10 @@
             <column name="is_filtered" type="BOOLEAN" defaultValueBoolean="false"/>
         </addColumn>
 
+        <addColumn tableName="utxo_transaction">
+            <column name="recovery_attempt_count" type="INT" defaultValueNumeric="0"/>
+        </addColumn>
+
     </changeSet>
 
 </databaseChangeLog>

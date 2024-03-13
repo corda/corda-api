@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "IncrementRecoveryAttemptCount",
+  "doc": "Increments the recovery attempt count column. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "The transaction ID, derived from the root hash of its Merkle tree"
+    }
+  ]
+}

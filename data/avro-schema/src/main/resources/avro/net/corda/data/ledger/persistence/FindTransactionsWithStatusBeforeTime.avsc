@@ -24,6 +24,11 @@
         "logicalType": "timestamp-millis"
       },
       "doc": "Time ([Instant]) in milliseconds to find transactions until"
+    },
+    {
+      "name": "limit",
+      "doc": "The number of results to return",
+      "type": "int"
     }
   ]
 }
