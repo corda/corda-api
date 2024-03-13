@@ -12,4 +12,5 @@
     and liquibase, so instead we have to keep the content in sync.  
     -->    
     <include file="net/corda/db/schema/vnode-crypto/migration/vnode-crypto-creation-v1.0.xml"/>
+    <include file="net/corda/db/schema/vnode-crypto/migration/vnode-crypto-creation-v5.3.xml"/>
 </databaseChangeLog>
