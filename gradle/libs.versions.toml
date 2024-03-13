@@ -7,7 +7,7 @@ slf4jVersion = { strictly = "1.7.36" }
 # Main implementation dependencies
 avroVersion = "1.11.3"
 apacheCommonsCodecVersion="1.16.1"
-commonsCompressVersion = "1.26.0"
+commonsCompressVersion = "1.26.1"
 bouncycastleVersion = "1.77"
 javaxPersistenceApiVersion = "2.2"
 jacksonVersion = "2.17.0"
@@ -20,13 +20,13 @@ bndlibVersion = "7.0.0"
 # Testing
 assertjVersion = "3.25.3"
 junitVersion = "5.10.2"
-mockitoVersion = "5.10.0"
+mockitoVersion = "5.11.0"
 mockitoKotlinVersion = "5.2.1"
 
 # Plugins
 avroGradleVersion = "1.3.0"
 cyclonedxVersion = "1.8.2"
-dokkaVersion = "1.9.10"
+dokkaVersion = "1.9.20"
 detektVersion = "1.23.5"
 dependencyCheckVersion = "0.51.0"
 gradleDataVersion = "1.12.1"
