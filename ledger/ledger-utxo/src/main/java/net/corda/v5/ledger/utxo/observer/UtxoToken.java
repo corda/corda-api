@@ -32,6 +32,9 @@ public final class UtxoToken {
     @Nullable
     private final UtxoTokenFilterFields filterFields;
 
+    @Nullable
+    private final Long priority;
+
     /**
      * Creates a new instance of the {@link UtxoToken} class.
      *
@@ -43,9 +46,26 @@ public final class UtxoToken {
             @NotNull final UtxoTokenPoolKey poolKey,
             @NotNull final BigDecimal amount,
             @Nullable final UtxoTokenFilterFields filterFields) {
+        this(poolKey, amount, filterFields, null);
+    }
+
+    /**
+     * Creates a new instance of the {@link UtxoToken} class.
+     *
+     * @param poolKey The key of the token pool that this token belongs to.
+     * @param amount The amount represented by this token.
+     * @param filterFields Optional fields available to the {@link TokenSelection} API {@link TokenClaimCriteria}.
+     * @param priority Priority for token selection, lower is higher
+     */
+    public UtxoToken(
+            @NotNull final UtxoTokenPoolKey poolKey,
+            @NotNull final BigDecimal amount,
+            @Nullable final UtxoTokenFilterFields filterFields,
+            @Nullable final Long priority) {
         this.poolKey = poolKey;
         this.amount = amount;
         this.filterFields = filterFields;
+        this.priority = priority;
     }
 
     /**
@@ -79,6 +99,16 @@ public final class UtxoToken {
     }
 
     /**
+     * Gets the token priority.
+     *
+     * @return Returns the token priority, lower is higher.
+     */
+    @Nullable
+    public Long getPriority() {
+        return priority;
+    }
+
+    /**
      * Determines whether the specified object is equal to the current object.
      *
      * @param obj The object to compare with the current object.
@@ -98,7 +128,8 @@ public final class UtxoToken {
     public boolean equals(@NotNull final UtxoToken other) {
         return Objects.equals(other.poolKey, poolKey)
                 && Objects.compare(other.amount, amount, BigDecimal::compareTo) == 0
-                && Objects.equals(other.filterFields, filterFields);
+                && Objects.equals(other.filterFields, filterFields)
+                && Objects.equals(other.priority, priority);
     }
 
     /**
@@ -108,7 +139,7 @@ public final class UtxoToken {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(poolKey, amount, filterFields);
+        return Objects.hash(poolKey, amount, filterFields, priority);
     }
 
     /**
@@ -118,6 +149,10 @@ public final class UtxoToken {
      */
     @Override
     public String toString() {
-        return MessageFormat.format("UtxoToken(poolKey={0}, amount={1}, filterFields={2}", poolKey, amount, filterFields);
+        return MessageFormat.format("UtxoToken(poolKey={0}, amount={1}, filterFields={2}, priority={3}",
+                poolKey,
+                amount,
+                filterFields,
+                priority);
     }
 }
