@@ -172,9 +172,6 @@
         <addUniqueConstraint constraintName="crypto_signing_key_unique"
                              tableName="crypto_signing_key"
                              columnNames="tenant_id, key_id"/>
-        <addUniqueConstraint constraintName="alias_unique"
-                             tableName="crypto_signing_key"
-                             columnNames="tenant_id, alias"/>
         <createIndex indexName="crypto_signing_key_full_key_idx"
                      tableName="crypto_signing_key">
             <column name="tenant_id"/>
