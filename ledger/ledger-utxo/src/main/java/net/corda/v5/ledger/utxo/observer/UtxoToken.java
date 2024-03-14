@@ -101,7 +101,7 @@ public final class UtxoToken {
     /**
      * Gets the token priority.
      *
-     * @return Returns the token priority, lower is higher.
+     * @return Returns the token priority, lower is higher. `null` value means no priority is set.
      */
     @Nullable
     public Long getPriority() {
