@@ -185,13 +185,13 @@
         },
         "statePersistencePeriodSeconds": {
           "description": "The maximum period, in seconds, between persisting the current state.",
-          "type": "integer",
+          "type": "number",
           "default": 1,
           "minimum": 1
         },
         "outboundBatchProcessingTimeoutSeconds": {
           "description": "The maximum amount of time allowed to process a batch of outbound messages.",
-          "type": "integer",
+          "type": "number",
           "default": 30,
           "minimum": 1
         }
