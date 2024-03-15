@@ -16,10 +16,21 @@ import java.util.List;
  *         Specify the {@link net.corda.v5.application.flows.InitiatingFlow InitiatingFlow} annotation.
  *     </li>
  *     <li>
- *         Provide a constructor which takes exactly two arguments: a
- *        {@link net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction UtxoSignedTransaction}
- *        representing the transaction, and a {@link net.corda.v5.base.types.MemberX500Name> MemberX500Name} which is
- *        populated with the notary virtual node representing the notary service.
+ *         Provide a constructor which takes exactly three arguments, in order:
+ *         <ul>
+ *             <li>
+ *                 {@link net.corda.v5.ledger.utxo.transaction.UtxoSignedTransaction UtxoSignedTransaction}
+ *                 representing the transaction.
+ *              </li>
+ *              <li>
+ *                  {@link net.corda.v5.base.types.MemberX500Name> MemberX500Name} which is populated with the notary
+ *                  virtual node representing the notary service.
+ *              </li>
+ *              <li>
+ *                  {@link net.corda.v5.ledger.notary.plugin.api.NotarizationType} that determines the type of
+ *                  processing the notary performs.
+ *              </li>
+ *        </ul>
  *     </li>
  *     <li>
  *         The {@link #call} method must specify the {@link net.corda.v5.base.annotations.Suspendable Suspendable}
