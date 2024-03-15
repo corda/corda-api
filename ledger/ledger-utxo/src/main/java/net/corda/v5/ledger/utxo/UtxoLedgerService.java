@@ -20,7 +20,6 @@ import net.corda.v5.ledger.utxo.transaction.filtered.UtxoFilteredTransactionBuil
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
@@ -417,7 +416,4 @@ public interface UtxoLedgerService {
     @Nullable
     @Suspendable
     UtxoSignedTransaction findDraftSignedTransaction(@NotNull SecureHash id);
-
-    @Suspendable
-    void recoverMissedNotarisedTransactions(Instant from, Instant until, Duration duration);
 }
