@@ -1,8 +1,11 @@
 package net.corda.v5.ledger.utxo.token.selection;
 
+import net.corda.v5.base.annotations.CordaSerializable;
+
 /**
  * Token selection strategy. RANDOM is the default.
  */
+@CordaSerializable
 public enum Strategy {
     /**
      * Choose tokens in transaction ID order. As this field is not a sequential value, it has the effect of a pseudo
