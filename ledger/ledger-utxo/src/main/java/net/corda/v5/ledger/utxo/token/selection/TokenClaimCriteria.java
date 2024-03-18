@@ -1,5 +1,6 @@
 package net.corda.v5.ledger.utxo.token.selection;
 
+import net.corda.v5.base.annotations.ConstructorForDeserialization;
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.MemberX500Name;
 import net.corda.v5.crypto.SecureHash;
@@ -94,6 +95,7 @@ public final class TokenClaimCriteria {
      * @param targetAmount   The minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
      * @param strategy       The token selection strategy to use.
      */
+    @ConstructorForDeserialization
     public TokenClaimCriteria(
             @NotNull final String tokenType,
             @NotNull final SecureHash issuerHash,
