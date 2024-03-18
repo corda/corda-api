@@ -718,6 +718,12 @@ net.corda.v5.ledger.utxo.observer.UtxoToken:
       default: false
       type: public
       returnType: net.corda.v5.ledger.utxo.observer.UtxoTokenPoolKey
+    getPriority:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: Long
     hashCode:
       annotations: []
       default: false
@@ -1244,6 +1250,24 @@ net.corda.v5.ledger.utxo.token.selection.ClaimedToken:
       default: false
       type: public abstract
       returnType: String
+net.corda.v5.ledger.utxo.token.selection.Strategy:
+  annotations: []
+  type: public final class
+  extends: java.lang.Enum
+  implements: []
+  interface: false
+  methods:
+    valueOf:
+      annotations: []
+      default: false
+      type: public static
+      returnType: net.corda.v5.ledger.utxo.token.selection.Strategy
+      params: {}
+    values:
+      annotations: []
+      default: false
+      type: public static
+      returnType: "net.corda.v5.ledger.utxo.token.selection.Strategy[]"
 net.corda.v5.ledger.utxo.token.selection.TokenBalance:
   annotations:
     - DoNotImplement
@@ -1407,6 +1431,12 @@ net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria:
       default: false
       type: public
       returnType: net.corda.v5.crypto.SecureHash
+    getStrategy:
+      annotations:
+        - Nullable
+      default: false
+      type: public
+      returnType: net.corda.v5.ledger.utxo.token.selection.Strategy
     getSymbol:
       annotations:
         - NotNull
@@ -1446,6 +1476,16 @@ net.corda.v5.ledger.utxo.token.selection.TokenClaimCriteria:
           annotation:
             - Nullable
           type: net.corda.v5.crypto.SecureHash
+    setStrategy:
+      annotations: []
+      default: false
+      type: public
+      returnType: void
+      params:
+        strategy:
+          annotation:
+            - Nullable
+          type: net.corda.v5.ledger.utxo.token.selection.Strategy
     setTagRegex:
       annotations: []
       default: false

@@ -60,6 +60,13 @@ public final class TokenClaimCriteria {
     private SecureHash ownerHash;
 
     /**
+     * Token selection strategy.
+     * Defaults to RANDOM.
+     */
+    @Nullable
+    private Strategy strategy;
+
+    /**
      * Creates a new instance of the {@link TokenClaimCriteria} class.
      *
      * @param tokenType      The type of tokens to be selected.
@@ -74,11 +81,32 @@ public final class TokenClaimCriteria {
             @NotNull final MemberX500Name notaryX500Name,
             @NotNull final String symbol,
             @NotNull final BigDecimal targetAmount) {
+        this(tokenType, issuerHash, notaryX500Name, symbol, targetAmount, null);
+    }
+
+    /**
+     * Creates a new instance of the {@link TokenClaimCriteria} class.
+     *
+     * @param tokenType      The type of tokens to be selected.
+     * @param issuerHash     The {@link SecureHash} of the issuer of tokens to be selected.
+     * @param notaryX500Name The {@link MemberX500Name} of the notary of the tokens to be selected.
+     * @param symbol         The symbol of the notary of tokens to be selected.
+     * @param targetAmount   The minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
+     * @param strategy       The token selection strategy to use.
+     */
+    public TokenClaimCriteria(
+            @NotNull final String tokenType,
+            @NotNull final SecureHash issuerHash,
+            @NotNull final MemberX500Name notaryX500Name,
+            @NotNull final String symbol,
+            @NotNull final BigDecimal targetAmount,
+            @Nullable final Strategy strategy) {
         this.tokenType = tokenType;
         this.issuerHash = issuerHash;
         this.notaryX500Name = notaryX500Name;
         this.symbol = symbol;
         this.targetAmount = targetAmount;
+        this.strategy = strategy;
     }
 
     /**
@@ -166,6 +194,23 @@ public final class TokenClaimCriteria {
     }
 
     /**
+     * Gets token selection strategy.
+     *
+     * @return Returns token selection strategy {@link Strategy}, or null if none specified.
+     */
+    @Nullable
+    public Strategy getStrategy() {
+        return strategy;
+    }
+
+    /**
+     * Sets a token selection strategy {@link Strategy}, or null to use the default strategy.
+     */
+    public void setStrategy(@Nullable final Strategy strategy) {
+        this.strategy = strategy;
+    }
+
+    /**
      * Determines whether the specified object is equal to the current object.
      *
      * @param obj The object to compare with the current object.
@@ -189,7 +234,8 @@ public final class TokenClaimCriteria {
                 && Objects.equals(other.symbol, symbol)
                 && Objects.compare(other.targetAmount, targetAmount, BigDecimal::compareTo) == 0
                 && Objects.equals(other.tagRegex, tagRegex)
-                && Objects.equals(other.ownerHash, ownerHash);
+                && Objects.equals(other.ownerHash, ownerHash)
+                && Objects.equals(other.strategy, strategy);
     }
 
     /**
@@ -199,7 +245,7 @@ public final class TokenClaimCriteria {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(tokenType, issuerHash, notaryX500Name, symbol, targetAmount, tagRegex, ownerHash);
+        return Objects.hash(tokenType, issuerHash, notaryX500Name, symbol, targetAmount, tagRegex, ownerHash, strategy);
     }
 
     /**
@@ -210,8 +256,8 @@ public final class TokenClaimCriteria {
     @Override
     public String toString() {
         return MessageFormat.format(
-                "TokenClaimCriteria(tokenType={0}, issuerHash={1}, notaryX500Name={2}, symbol={3}, targetAmount={4}, tagRegex={5}, ownerHash={6})",
-                tokenType, issuerHash, notaryX500Name, symbol, targetAmount, tagRegex, ownerHash
+                "TokenClaimCriteria(tokenType={0}, issuerHash={1}, notaryX500Name={2}, symbol={3}, targetAmount={4}, tagRegex={5}, ownerHash={6}, strategy={7})",
+                tokenType, issuerHash, notaryX500Name, symbol, targetAmount, tagRegex, ownerHash, strategy
         );
     }
 }
