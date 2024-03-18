@@ -40,4 +40,33 @@ public interface LedgerUniquenessCheckerClientService {
             @Nullable Instant timeWindowLowerBound,
             @NotNull Instant timeWindowUpperBound
     );
+
+    /**
+     * Requests a check for an existing uniqueness check.
+     * <ul>
+     *  <li>
+     *      Returns a successful result if transaction has already successfully processed by the uniqueness checker.
+     *  </li>
+     *  <li>
+     *      Returns a fatal failure result if the transaction has already failed its uniqueness check.
+     *  </li>
+     *  <li>
+     *      Returns a failure result that might succeed if tried again when the transaction has not yet been
+     *      processed by the uniqueness checker.
+     *  </li>
+     * </ul>
+     *
+     * @param transactionId The ID of the transaction to be processed.
+     * @param originatorX500Name The X500 name of the party that requested (initiated) notarization.
+     * @param timeWindowLowerBound The earliest date/time from which the transaction is considered valid.
+     * @param timeWindowUpperBound The latest date/time until the transaction is considered valid.
+     * @return Returns the result that was produced by the uniqueness checker.
+     */
+    @Suspendable
+    UniquenessCheckResult requestUniquenessCheck(
+            @NotNull String transactionId,
+            @NotNull String originatorX500Name,
+            @Nullable Instant timeWindowLowerBound,
+            @NotNull Instant timeWindowUpperBound
+    );
 }
