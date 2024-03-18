@@ -81,11 +81,32 @@ public final class TokenClaimCriteria {
             @NotNull final MemberX500Name notaryX500Name,
             @NotNull final String symbol,
             @NotNull final BigDecimal targetAmount) {
+        this(tokenType, issuerHash, notaryX500Name, symbol, targetAmount, null);
+    }
+
+    /**
+     * Creates a new instance of the {@link TokenClaimCriteria} class.
+     *
+     * @param tokenType      The type of tokens to be selected.
+     * @param issuerHash     The {@link SecureHash} of the issuer of tokens to be selected.
+     * @param notaryX500Name The {@link MemberX500Name} of the notary of the tokens to be selected.
+     * @param symbol         The symbol of the notary of tokens to be selected.
+     * @param targetAmount   The minimum value for the sum of {@link ClaimedToken#getAmount()} for the selected tokens.
+     * @param strategy       The token selection strategy to use.
+     */
+    public TokenClaimCriteria(
+            @NotNull final String tokenType,
+            @NotNull final SecureHash issuerHash,
+            @NotNull final MemberX500Name notaryX500Name,
+            @NotNull final String symbol,
+            @NotNull final BigDecimal targetAmount,
+            @Nullable final Strategy strategy) {
         this.tokenType = tokenType;
         this.issuerHash = issuerHash;
         this.notaryX500Name = notaryX500Name;
         this.symbol = symbol;
         this.targetAmount = targetAmount;
+        this.strategy = strategy;
     }
 
     /**
