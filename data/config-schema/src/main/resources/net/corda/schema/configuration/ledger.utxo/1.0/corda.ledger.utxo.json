@@ -58,6 +58,12 @@
           "type": "integer",
           "minimum": 1,
           "default": 600
+        },
+        "tokenCacheExpiryPeriodMilliseconds": {
+          "description": "Expiry period in milliseconds for token in the cache (default 200 milliseconds). A zero value means the cached tokens expire instantly",
+          "type": "long",
+          "minimum": 0,
+          "default": 200
         }
       }
     },
