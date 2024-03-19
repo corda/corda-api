@@ -52,7 +52,7 @@
         </addColumn>
 
         <addColumn tableName="utxo_transaction">
-            <column name="recovery_attempt_count" type="INT" defaultValueNumeric="0"/>
+            <column name="repair_attempt_count" type="INT" defaultValueNumeric="0"/>
         </addColumn>
 
     </changeSet>

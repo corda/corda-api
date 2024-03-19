@@ -6,10 +6,10 @@ import org.jetbrains.annotations.NotNull;
 import java.time.Duration;
 import java.time.Instant;
 
-public interface UtxoLedgerRecoveryService {
+public interface UtxoLedgerRepairService {
 
     @Suspendable
-    void recoverMissedNotarisedTransactions(
+    void repairTransactions(
             @NotNull Instant from,
             @NotNull Instant until,
             @NotNull Duration duration

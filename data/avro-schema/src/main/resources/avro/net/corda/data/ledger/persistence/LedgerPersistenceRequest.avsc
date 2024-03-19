@@ -45,7 +45,7 @@
         "net.corda.data.ledger.persistence.PersistFilteredTransactionsAndSignatures",
         "net.corda.data.ledger.persistence.PersistTransactionSignatures",
         "net.corda.data.ledger.persistence.FindTransactionsWithStatusBeforeTime",
-        "net.corda.data.ledger.persistence.IncrementTransactionRecoveryAttemptCount"
+        "net.corda.data.ledger.persistence.IncrementTransactionRepairAttemptCount"
       ]
     },
     {
