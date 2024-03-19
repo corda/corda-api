@@ -58,8 +58,7 @@
           "type": "integer",
           "minimum": 1,
           "default": 600
-        }
-      },
+        },
         "tokenCacheRefreshPeriodMilliseconds": {
           "description": "Period in milliseconds in which the token cache is refreshed (default 200 milliseconds)",
           "type": "long",
