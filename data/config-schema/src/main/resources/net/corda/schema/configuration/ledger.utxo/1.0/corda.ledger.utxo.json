@@ -73,6 +73,28 @@
           "default": 10
         }
       }
+    },
+    "repair": {
+      "description": "Settings for ledger repair",
+      "type": "object",
+      "default": {},
+      "properties": {
+        "runtimeDuration": {
+          "description": "The maximum time (in Hocon Duration format) that the repair process will run for.",
+          "type": "string",
+          "default": "2m"
+        },
+        "fromDuration": {
+          "description": "How far in the past (in Hocon Duration format) from the current time that the repair process starts processing transaction from. 'fromDuration' should be greater than 'untilDuration'.",
+          "type": "string",
+          "default": "1h"
+        },
+        "untilDuration": {
+          "description": "How far in the past (in Hocon Duration format) from the current time that the repair process starts processing transaction until. 'untilDuration' should be smaller than 'fromDuration'",
+          "type": "string",
+          "default": "5m"
+        }
+      }
     }
   }
 }
