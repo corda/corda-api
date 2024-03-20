@@ -21,6 +21,18 @@
         "items" : "int"
       },
       "doc": "indexes of the visible states"
+    },
+    {
+      "name": "lastPersistedTimestamp",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "doc": "Time ({@link java.time.Instant}) in milliseconds when the last transaction was persisted.",
+      "default": null
     }
   ]
 }
