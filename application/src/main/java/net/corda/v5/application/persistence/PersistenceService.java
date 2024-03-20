@@ -21,8 +21,17 @@ public interface PersistenceService {
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
      * service internally making multiple requests to persist the same entities. In order that the same entities are not
      * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
-     * already successful. In order for the persistence service to be able to employ this mechanism, one of the following
-     * criteria must be met:
+     * already successful. In order for the persistence service to be able to employ this mechanism, in all cases:
+     * <ul>
+     *     <Li>Branches in the entire flow must be evaluated in a deterministic manner for the same flow inputs such that if
+     *         a part of a flow has to be replayed, Corda can match persistence requests up at runtime.
+     *         It does this, in part, by counting calls to suspendable functions, hence any order change or swapping in or
+     *         out of calls to [persist] during execution may prohibit de-duplication checks. If you cannot guarantee this,
+     *         for example if you are executing query code and hanging some conditional code off that, you must wrap calls
+     *         to [persist] in exception handling and expect they could fail even once data has been persisted.
+     *         Flows which are non-deterministic for the same inputs are not recommended.</Li>
+     * </ul>
+     * and one of the following criteria must be met:
      * <ul>
      *     <li>The JPA entity must have an id defined, binding a field to the primary key field in the table, and the value of
      *         this field provided for the entity must be deterministic at the point the persistence operation is made.
@@ -52,8 +61,17 @@ public interface PersistenceService {
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
      * service internally making multiple requests to persist the same entities. In order that the same entities are not
      * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
-     * already successful. In order for the persistence service to be able to employ this mechanism, one of the following
-     * criteria must be met:
+     * already successful. In order for the persistence service to be able to employ this mechanism, in all cases:
+     * <ul>
+     *     <Li>Branches in the entire flow must be evaluated in a deterministic manner for the same flow inputs such that if
+     *         a part of a flow has to be replayed, Corda can match persistence requests up at runtime.
+     *         It does this, in part, by counting calls to suspendable functions, hence any order change or swapping in or
+     *         out of calls to [persist] during execution may prohibit de-duplication checks. If you cannot guarantee this,
+     *         for example if you are executing query code and hanging some conditional code off that, you must wrap calls
+     *         to [persist] in exception handling and expect they could fail even once data has been persisted.
+     *         Flows which are non-deterministic for the same inputs are not recommended.</Li>
+     * </ul>
+     * and one of the following criteria must be met:
      * <ul>
      *     <li>At least one JPA entity in the list of entities to be persisted must have an id defined, binding a field to the
      *         primary key field in the table. All entities with id fields must provide deterministic values for these fields
