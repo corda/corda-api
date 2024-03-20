@@ -183,6 +183,12 @@
           "default": 50000,
           "minimum": 1
         },
+        "maxNumberOfPersistenceRetries": {
+          "description": "The maximum number of times to try to persist the states before giving up.",
+          "type": "number",
+          "default": 3,
+          "minimum": 0
+        },
         "statePersistencePeriodSeconds": {
           "description": "The maximum period, in seconds, between persisting the current state.",
           "type": "number",
