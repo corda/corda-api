@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "FindTransactionsWithStatusBeforeTime",
+  "name": "FindTransactionsWithStatusCreatedBetweenTime",
   "doc": "Retrieve the specified signed transaction, specified by id. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
   "namespace": "net.corda.data.ledger.persistence",
   "fields": [
