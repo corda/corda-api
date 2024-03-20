@@ -1,5 +1,5 @@
 // Check corda-api compatibility with downstream consumers which implement CordApps
-@Library('corda-shared-build-pipeline-steps@test/CORE-19045') _
+@Library('corda-shared-build-pipeline-steps@feature/CORE-19045') _
 
 cordaApiCompatibilityCheck(
     javaVersion: '17'
