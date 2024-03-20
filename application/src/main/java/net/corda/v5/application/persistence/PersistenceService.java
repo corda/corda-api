@@ -18,10 +18,30 @@ public interface PersistenceService {
 
     /**
      * Persists a single {@code entity} to the store.
+     * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
+     * service internally making multiple requests to persist the same entities. In order that the same entities are not
+     * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
+     * already successful. In order for the persistence service to be able to employ this mechanism, one of the following
+     * criteria must be met:
+     * <ul>
+     *     <li>The JPA entity must have an id defined, binding a field to the primary key field in the table, and the value of
+     *         this field provided for the entity must be deterministic at the point the persistence operation is made.
+     *         For example the value should not be populated with a timestamp which would potentially change each time the method
+     *         is called. Note that fields other than the id field in the entity do not have to be deterministic in this case.
+     *         That is you could populate the entity with a stable id, and a different field could hold a timestamp. If this
+     *         persist operation required retries to complete, the value of the non-deterministic field would represent the
+     *         first successful persist operation, for example the first timestamp that made it to the database, even if
+     *         subsequent attempts to retry the persist operation follow.</li>
+     *     <li>For JPA entities with no defined id, the entity must be populated with deterministic values in all its fields.
+     *         If any field were to change if the method were to be called again, for example if it was populated with a
+     *         timestamp, the de-duplication mechanism would fail to recognise this was a duplicate request and more than
+     *         one entity may be persisted.</li>
+     * </ul>
+     * It is up to the caller of this function to ensure either one of the above criteria are fulfilled where de-duplication
+     * of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.
      *
      * @param entity The entity to persist.
-     *
-     * @throws IllegalArgumentException If {@code entity} is a primitive type.
+     * @throws IllegalArgumentException  If {@code entity} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -29,10 +49,32 @@ public interface PersistenceService {
 
     /**
      * Persists multiple {@code entities} in the persistence context in a single transaction.
+     * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
+     * service internally making multiple requests to persist the same entities. In order that the same entities are not
+     * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
+     * already successful. In order for the persistence service to be able to employ this mechanism, one of the following
+     * criteria must be met:
+     * <ul>
+     *     <li>At least one JPA entity in the list of entities to be persisted must have an id defined, binding a field to the
+     *         primary key field in the table. All entities with id fields must provide deterministic values for these fields
+     *         at the point the persistence operation is made.
+     *         For example no id field should be populated with a timestamp which would potentially change each time the method
+     *         is called. Note that fields other than the id fields in the entities do not have to be deterministic in this case.
+     *         That is you could populate an entity with a stable id, and a different field could hold a timestamp. If this
+     *         persist operation required retries to complete, the value of the non-deterministic field would represent the
+     *         first successful persist operation, for example the first timestamp, even if subsequent attempts to retry the
+     *         persist operation follow.</li>
+     *     <li>Where no JPA entities in the list of entities to be persisted have a defined id, all entities must be populated
+     *         with deterministic values in all fields.
+     *         If any field were to change if the method were to be called again, for example if it was populated with a
+     *         timestamp, the de-duplication mechanism would fail to recognise this was a duplicate request and more than
+     *         one instance of the entities provided may be persisted.</li>
+     * </ul>
+     * It is up to the caller of this function to ensure either one of the above criteria are fulfilled where de-duplication
+     * of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.
      *
      * @param entities List of entities to be persisted.
-     *
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types.
+     * @throws IllegalArgumentException  If {@code entities} contains any primitive types.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -42,10 +84,8 @@ public interface PersistenceService {
      * Merges a single {@code entity} in the persistence context in a transaction.
      *
      * @param entity The entity to merge.
-     *
      * @return The merged entity.
-     *
-     * @throws IllegalArgumentException If {@code entity} is a primitive type.
+     * @throws IllegalArgumentException  If {@code entity} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -56,10 +96,8 @@ public interface PersistenceService {
      * Merges multiple {@code entities} in the persistence context in a single transaction.
      *
      * @param entities List of entities to be merged.
-     *
      * @return The list of merged entities.
-     *
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types.
+     * @throws IllegalArgumentException  If {@code entities} contains any primitive types.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -70,8 +108,7 @@ public interface PersistenceService {
      * Removes a single {@code entity} from the persistence context in a transaction.
      *
      * @param entity The entity to remove.
-     *
-     * @throws IllegalArgumentException If {@code entity} is a primitive type.
+     * @throws IllegalArgumentException  If {@code entity} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -81,8 +118,7 @@ public interface PersistenceService {
      * Removes multiple {@code entities} from the persistence context in a single transaction.
      *
      * @param entities List of entities to be removed.
-     *
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types.
+     * @throws IllegalArgumentException  If {@code entities} contains any primitive types.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -93,11 +129,9 @@ public interface PersistenceService {
      * {@code primaryKey}.
      *
      * @param entityClass The type of entity to find.
-     * @param primaryKey The primary key of the entity to find.
-     *
+     * @param primaryKey  The primary key of the entity to find.
      * @return The found entity. Null if it could not be found in the persistence context.
-     *
-     * @throws IllegalArgumentException If {@code entityClass} is a primitive type.
+     * @throws IllegalArgumentException  If {@code entityClass} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -109,10 +143,8 @@ public interface PersistenceService {
      *
      * @param entityClass The type of the entities to find.
      * @param primaryKeys List of primary keys to find with the given {@code entityClass} type.
-     *
      * @return List of entities found. Empty list if none were found.
-     *
-     * @throws IllegalArgumentException If {@code entityClass} is a primitive type.
+     * @throws IllegalArgumentException  If {@code entityClass} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -124,8 +156,7 @@ public interface PersistenceService {
      *
      * @param entityClass The type of the entities to find.
      * @return A {@link PagedQuery} That returns the list of entities found.
-     *
-     * @throws IllegalArgumentException If {@code entityClass} is a primitive type.
+     * @throws IllegalArgumentException  If {@code entityClass} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
@@ -212,18 +243,17 @@ public interface PersistenceService {
      * }
      * }</pre></li>
      * </ul>
-     * @param queryName The name of the named query registered in the persistence context.
+     *
+     * @param queryName   The name of the named query registered in the persistence context.
      * @param entityClass The type of the entities to find.
-     * @param <T> The type of the results.
-     *
+     * @param <T>         The type of the results.
      * @return A {@link ParameterizedQuery} that returns the list of entities found. Empty list if none were found.
-     *
      * @throws IllegalArgumentException If {@code entityClass} is a primitive type.
      */
     @Suspendable
     @NotNull
     <T> ParameterizedQuery<T> query(
-        @NotNull String queryName,
-        @NotNull Class<T> entityClass
+            @NotNull String queryName,
+            @NotNull Class<T> entityClass
     );
 }
