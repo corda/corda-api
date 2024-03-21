@@ -2,5 +2,5 @@
   "type": "enum",
   "name": "UniquenessCheckType",
   "namespace": "net.corda.data.uniqueness",
-  "symbols": [ "NOTARIZE", "CHECK" ]
+  "symbols": [ "WRITE", "READ" ]
 }

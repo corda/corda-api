@@ -18,7 +18,7 @@ import java.util.List;
 public interface LedgerUniquenessCheckerClientService {
 
     /**
-     * Requests a uniqueness check.
+     * Requests a uniqueness check write.
      *
      * @param transactionId The ID of the transaction to be processed.
      * @param originatorX500Name The X500 name of the party that requested (initiated) notarization.
@@ -31,7 +31,7 @@ public interface LedgerUniquenessCheckerClientService {
      */
     @Suspendable
     @SuppressWarnings("LongParameterList")
-    UniquenessCheckResult requestUniquenessCheck(
+    UniquenessCheckResult requestUniquenessCheckWrite(
             @NotNull String transactionId,
             @NotNull String originatorX500Name,
             @NotNull List<String> inputStates,
@@ -42,7 +42,7 @@ public interface LedgerUniquenessCheckerClientService {
     );
 
     /**
-     * Requests a check for an existing uniqueness check.
+     * Requests a uniqueness check read.
      * <ul>
      *  <li>
      *      Returns a successful result if transaction has already successfully processed by the uniqueness checker.
@@ -63,7 +63,7 @@ public interface LedgerUniquenessCheckerClientService {
      * @return Returns the result that was produced by the uniqueness checker.
      */
     @Suspendable
-    UniquenessCheckResult requestUniquenessCheck(
+    UniquenessCheckResult requestUniquenessCheckRead(
             @NotNull String transactionId,
             @NotNull String originatorX500Name,
             @Nullable Instant timeWindowLowerBound,

@@ -5,5 +5,5 @@ import net.corda.v5.base.annotations.CordaSerializable;
 @CordaSerializable
 public enum NotarizationType {
 
-    NOTARIZE, CHECK
+    WRITE, READ
 }
