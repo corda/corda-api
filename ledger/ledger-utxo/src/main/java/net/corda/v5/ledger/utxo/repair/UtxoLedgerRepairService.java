@@ -1,4 +1,4 @@
-package net.corda.v5.ledger.utxo.recovery;
+package net.corda.v5.ledger.utxo.repair;
 
 import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;

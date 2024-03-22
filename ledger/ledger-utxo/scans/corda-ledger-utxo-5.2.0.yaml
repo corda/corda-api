@@ -1189,7 +1189,7 @@ net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderFactory:
           annotation:
             - NotNull
           type: String
-net.corda.v5.ledger.utxo.recovery.UtxoLedgerRepairService:
+net.corda.v5.ledger.utxo.repair.UtxoLedgerRepairService:
   annotations: []
   type: public interface
   extends: []
