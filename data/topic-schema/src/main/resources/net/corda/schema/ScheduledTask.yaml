@@ -26,6 +26,6 @@ topics:
   ScheduledTaskLedgerRepairTopic:
     name: scheduled.task.ledger.repair
     consumers:
-      - flow
+      - flowMapper
     producers:
       - db
