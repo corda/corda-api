@@ -82,17 +82,17 @@
         "runtimeDuration": {
           "description": "The maximum time (in Hocon Duration format) that the repair process will run for.",
           "type": "string",
-          "default": "2m"
+          "default": "10m"
         },
         "fromDuration": {
           "description": "How far in the past (in Hocon Duration format) from the current time that the repair process starts processing transactions from. 'fromDuration' should be greater than 'untilDuration'.",
           "type": "string",
-          "default": "1h"
+          "default": "5d"
         },
         "untilDuration": {
           "description": "How far in the past (in Hocon Duration format) from the current time that the repair process starts processing transactions until. 'untilDuration' should be smaller than 'fromDuration'",
           "type": "string",
-          "default": "5m"
+          "default": "10m"
         }
       }
     }
