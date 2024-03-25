@@ -225,7 +225,17 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
         // X500Principal is used to sanitise the syntax as the LdapName will let through a string like
         // "O=VALID, L=IN,VALID, C=DE, OU=VALID, CN=VALID" where the (L) has to be escaped.
         requireNotNull(name, "name must not be null");
-        return toAttributesMap(new X500Principal(name));
+        try {
+            return toAttributesMap(new X500Principal(name));
+        } catch (IllegalArgumentException e) {
+            var message = "The name: \"" + name + "\" in not a valid X500 name. An example of a valid X500 name can be "
+                    + "\"CN=alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US\". See RFC 1779 for details.";
+            throw new IllegalArgumentException(
+                    message,
+                    e
+            );
+        }
+
     }
 
     @NotNull
