@@ -256,6 +256,8 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_STATUS_PROCESSOR = "scheduled.task.flow.status.processor";
         public static final String SCHEDULE_TASK_NAME_FLOW_STATUS_CLEANUP = "flow-status-cleanup";
+        public static final String SCHEDULE_TASK_NAME_LEDGER_REPAIR = "ledger-repair";
+        public static final String SCHEDULE_TASK_TOPIC_LEDGER_REPAIR_PROCESSOR = "scheduled.task.ledger.repair";
 
     }
 }

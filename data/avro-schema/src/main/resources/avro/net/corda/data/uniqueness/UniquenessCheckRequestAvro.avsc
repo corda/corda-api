@@ -53,6 +53,11 @@
         "type": "long",
         "logicalType": "timestamp-millis"
       }
+    },
+    {
+      "name": "uniquenessCheckType",
+      "type": "net.corda.data.uniqueness.UniquenessCheckType",
+      "doc": "The type of uniqueness check to perform"
     }
   ]
 }

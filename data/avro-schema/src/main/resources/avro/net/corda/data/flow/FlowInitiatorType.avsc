@@ -4,7 +4,8 @@
   "namespace": "net.corda.data.flow",
   "doc": "Represents the type flow initiator.",
   "symbols": [
-     "RPC",
-     "P2P"
+    "RPC",
+    "P2P",
+    "SCHEDULED"
   ]
 }

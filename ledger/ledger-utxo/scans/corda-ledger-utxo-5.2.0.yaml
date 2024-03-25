@@ -1189,6 +1189,31 @@ net.corda.v5.ledger.utxo.query.registration.VaultNamedQueryBuilderFactory:
           annotation:
             - NotNull
           type: String
+net.corda.v5.ledger.utxo.repair.UtxoLedgerRepairService:
+  annotations: []
+  type: public interface
+  extends: []
+  interface: true
+  methods:
+    repairTransactions:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: void
+      params:
+        from:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+        until:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+        duration:
+          annotation:
+            - NotNull
+          type: java.time.Duration
 net.corda.v5.ledger.utxo.token.selection.ClaimedToken:
   annotations:
     - DoNotImplement
@@ -2226,7 +2251,30 @@ net.corda.v5.ledger.utxo.uniqueness.client.LedgerUniquenessCheckerClientService:
   extends: []
   interface: true
   methods:
-    requestUniquenessCheck:
+    requestUniquenessCheckRead:
+      annotations:
+        - Suspendable
+      default: false
+      type: public abstract
+      returnType: net.corda.v5.application.uniqueness.model.UniquenessCheckResult
+      params:
+        transactionId:
+          annotation:
+            - NotNull
+          type: String
+        originatorX500Name:
+          annotation:
+            - NotNull
+          type: String
+        timeWindowLowerBound:
+          annotation:
+            - Nullable
+          type: java.time.Instant
+        timeWindowUpperBound:
+          annotation:
+            - NotNull
+          type: java.time.Instant
+    requestUniquenessCheckWrite:
       annotations:
         - Suspendable
       default: false
