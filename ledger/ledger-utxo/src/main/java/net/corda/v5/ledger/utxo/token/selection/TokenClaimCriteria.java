@@ -60,6 +60,14 @@ public final class TokenClaimCriteria {
     private SecureHash ownerHash;
 
     /**
+     * A unique deterministic identifier for a token claim. Corda may rerun a token claim request on behalf of the
+     * calling flow in the event system instability. This ID will be used to deduplicate TokenClaims in this scenario.
+     * This ID needs to be unique per TokenClaim within a single flow.
+     */
+    @NotNull
+    private String deduplicationId;
+
+    /**
      * Creates a new instance of the {@link TokenClaimCriteria} class.
      *
      * @param tokenType      The type of tokens to be selected.
