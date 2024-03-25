@@ -18,7 +18,7 @@ import java.util.List;
 public interface LedgerUniquenessCheckerClientService {
 
     /**
-     * Requests a uniqueness check.
+     * Requests a uniqueness check write.
      *
      * @param transactionId The ID of the transaction to be processed.
      * @param originatorX500Name The X500 name of the party that requested (initiated) notarization.
@@ -31,12 +31,41 @@ public interface LedgerUniquenessCheckerClientService {
      */
     @Suspendable
     @SuppressWarnings("LongParameterList")
-    UniquenessCheckResult requestUniquenessCheck(
+    UniquenessCheckResult requestUniquenessCheckWrite(
             @NotNull String transactionId,
             @NotNull String originatorX500Name,
             @NotNull List<String> inputStates,
             @NotNull List<String> referenceStates,
             int numOutputStates,
+            @Nullable Instant timeWindowLowerBound,
+            @NotNull Instant timeWindowUpperBound
+    );
+
+    /**
+     * Requests a uniqueness check read.
+     * <ul>
+     *  <li>
+     *      Returns a successful result if transaction has already successfully processed by the uniqueness checker.
+     *  </li>
+     *  <li>
+     *      Returns a fatal failure result if the transaction has already failed its uniqueness check.
+     *  </li>
+     *  <li>
+     *      Returns a failure result that might succeed if tried again when the transaction has not yet been
+     *      processed by the uniqueness checker.
+     *  </li>
+     * </ul>
+     *
+     * @param transactionId The ID of the transaction to be processed.
+     * @param originatorX500Name The X500 name of the party that requested (initiated) notarization.
+     * @param timeWindowLowerBound The earliest date/time from which the transaction is considered valid.
+     * @param timeWindowUpperBound The latest date/time until the transaction is considered valid.
+     * @return Returns the result that was produced by the uniqueness checker.
+     */
+    @Suspendable
+    UniquenessCheckResult requestUniquenessCheckRead(
+            @NotNull String transactionId,
+            @NotNull String originatorX500Name,
             @Nullable Instant timeWindowLowerBound,
             @NotNull Instant timeWindowUpperBound
     );
