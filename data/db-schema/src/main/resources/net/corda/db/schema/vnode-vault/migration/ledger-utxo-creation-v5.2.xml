@@ -51,6 +51,16 @@
             <column name="is_filtered" type="BOOLEAN" defaultValueBoolean="false"/>
         </addColumn>
 
+        <addColumn tableName="utxo_transaction">
+            <column name="repair_attempt_count" type="INT" defaultValueNumeric="0"/>
+        </addColumn>
+
+        <createIndex indexName="utxo_transaction_idx_status_created"
+                     tableName="utxo_transaction">
+            <column name="status"/>
+            <column name="created"/>
+        </createIndex>
+
     </changeSet>
 
 </databaseChangeLog>
