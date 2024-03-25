@@ -13,7 +13,7 @@
       "type": {
         "type": "enum",
         "name": "ErrorKind",
-        "symbols": ["GENERAL", "INVALID_ENTITY_UPDATE"]
+        "symbols": ["GENERAL", "INVALID_ENTITY_UPDATE", "NOT_FOUND"]
       },
       "doc": "The kind of error that caused the failure"
     }
