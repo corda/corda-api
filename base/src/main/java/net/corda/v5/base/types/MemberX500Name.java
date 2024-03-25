@@ -229,7 +229,7 @@ public final class MemberX500Name implements Comparable<MemberX500Name> {
             return toAttributesMap(new X500Principal(name));
         } catch (IllegalArgumentException e) {
             var message = "The name: \"" + name + "\" in not a valid X500 name. An example of a valid X500 name can be "
-                    + "\"CN=alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US\". See RFC 1779 for details.";
+                    + "\"CN=Alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US\". See RFC 1779 for details.";
             throw new IllegalArgumentException(
                     message,
                     e

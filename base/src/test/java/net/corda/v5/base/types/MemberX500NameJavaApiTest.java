@@ -104,7 +104,7 @@ class MemberX500NameJavaApiTest {
     }
 
     @Test
-    public void parseFailesWithBadName() {
+    public void parseFailsWithBadName() {
         assertThatThrownBy( ()-> {
                     MemberX500Name.parse("B00CA01FD5DC");
                 }
