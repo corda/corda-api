@@ -37,7 +37,6 @@ public interface PersistenceService {
     @Suspendable
     void persist(@NotNull String deduplicationId, @NotNull Object entity);
 
-
     /**
      * Persists multiple {@code entities} in the persistence context in a single transaction.
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
@@ -58,7 +57,6 @@ public interface PersistenceService {
      */
     @Suspendable
     void persist(@NotNull String deduplicationId, @NotNull List<?> entities);
-
 
     /**
      * Merges a single {@code entity} in the persistence context in a transaction.
