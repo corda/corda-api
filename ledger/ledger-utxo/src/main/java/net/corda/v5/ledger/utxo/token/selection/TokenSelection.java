@@ -1,12 +1,9 @@
 package net.corda.v5.ledger.utxo.token.selection;
 
-import net.corda.v5.application.flows.CordaInject;
 import net.corda.v5.base.annotations.DoNotImplement;
 import net.corda.v5.base.annotations.Suspendable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.math.BigDecimal;
 
 /**
  * Defines a mechanism to allow flows to query the token cache. The query can be either to claim a list of {@link ClaimedToken}
