@@ -30,7 +30,7 @@ public interface TokenSelection {
      * This ID needs to be unique per TokenClaim within a single flow.
      *
      * @param criteria The {@link TokenClaimCriteria} used to select tokens.
-     * @param deduplicationId A unique deterministic identifier for a token claim.
+     * @param deduplicationId A unique deterministic identifier for a token claim. It has a max length of 128 characters.
      *
      * @return Returns a {@link TokenClaim} if enough tokens were claimed to satisfy the {@link TokenClaimCriteria#getTargetAmount()},
      * or null if the {@link TokenClaimCriteria#getTargetAmount()} could not be reached.
