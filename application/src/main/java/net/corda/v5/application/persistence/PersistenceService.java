@@ -30,10 +30,10 @@ public interface PersistenceService {
      * <p>
      * For example:
      * <pre>
-     * private static final MY_ENTITY_DEDUPE_ID = "entity1dedupeId"
+     * private static final String MY_ENTITY_DEDUPE_ID = "entity1dedupeId";
      *
      * private void persistEntity() {
-     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entity)
+     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entitiy);
      * }
      * </pre>
      *
@@ -64,10 +64,10 @@ public interface PersistenceService {
      * <p>
      * For example:
      * <pre>
-     * private static final MY_ENTITY_DEDUPE_ID = "entity1dedupeId"
+     * private static final String MY_ENTITY_DEDUPE_ID = "entity1dedupeId";
      *
-     * private void persistEntity() {
-     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entities)
+     * private void persistEntities() {
+     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entities);
      * }
      * </pre>
      *
