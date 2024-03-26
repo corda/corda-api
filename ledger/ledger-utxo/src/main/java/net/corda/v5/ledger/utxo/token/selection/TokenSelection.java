@@ -28,9 +28,9 @@ public interface TokenSelection {
      *
      * @param criteria The {@link TokenClaimCriteria} used to select tokens.
      * @param deduplicationId A unique deterministic identifier for a token claim. It has a max length of 128 characters.
-     *
      * @return Returns a {@link TokenClaim} if enough tokens were claimed to satisfy the {@link TokenClaimCriteria#getTargetAmount()},
      * or null if the {@link TokenClaimCriteria#getTargetAmount()} could not be reached.
+     * @throws IllegalArgumentException if the deduplicationId exceeds 128 characters
      * <p>
      * <p>
      * Example usage:
