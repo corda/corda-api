@@ -21,8 +21,21 @@ public interface PersistenceService {
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
      * service internally making multiple requests to persist the same entities. In order that the same entities are not
      * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
-     * already successful. In order for the persistence service to be able to employ this mechanism, a unique, deterministic
-     * deduplication ID must be provided. This ID has a maximum size of 128 characters.
+     * already successful. In order for the persistence service to be able to employ this mechanism, this ID must be:
+     * <ul>
+     *     <li>Unique within the context of the flow;</li>
+     *     <li>Deterministic at the time of the function call (I.e., a UUID should not be used).</li>
+     *     <li>128 characters or fewer in length.</li>
+     * </ul>
+     * <p>
+     * For example:
+     * <pre>
+     * private static final MY_ENTITY_DEDUPE_ID = "entity1dedupeId"
+     *
+     * private void persistEntity() {
+     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entity)
+     * }
+     * </pre>
      *
      * It is up to the caller of this function to ensure that the above criteria is fulfilled where de-duplication
      * of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.
@@ -42,8 +55,21 @@ public interface PersistenceService {
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
      * service internally making multiple requests to persist the same entities. In order that the same entities are not
      * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
-     * already successful. In order for the persistence service to be able to employ this mechanism, a unique, deterministic
-     * deduplication ID must be provided. This ID has a maximum size of 128 characters.
+     * already successful. In order for the persistence service to be able to employ this mechanism, this ID must be:
+     * <ul>
+     *     <li>Unique within the context of the flow;</li>
+     *     <li>Deterministic at the time of the function call (I.e., a UUID should not be used).</li>
+     *     <li>128 characters or fewer in length.</li>
+     * </ul>
+     * <p>
+     * For example:
+     * <pre>
+     * private static final MY_ENTITY_DEDUPE_ID = "entity1dedupeId"
+     *
+     * private void persistEntity() {
+     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entities)
+     * }
+     * </pre>
      *
      * It is up to the caller of this function to ensure that the above criteria is fulfilled where de-duplication
      * of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.
