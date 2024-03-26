@@ -1686,6 +1686,10 @@ net.corda.v5.application.persistence.PersistenceService:
       type: public abstract
       returnType: void
       params:
+        deduplicationId:
+          annotation:
+            - NotNull
+          type: String
         entities:
           annotation:
             - NotNull
