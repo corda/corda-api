@@ -1,13 +1,13 @@
 # Build scripts and Jenkins files should be audited by BLT
 # Any changes to source code of corda-api to be reviewd by C5 team leads
 
-Jenkinsfile        @corda/blt
-.ci/**             @corda/blt
+Jenkinsfile        @corda/infrastructure-release
+.ci/**             @corda/infrastructure-release
 
-gradle/wrapper     @corda/blt
+gradle/wrapper     @corda/infrastructure-release
 *.toml             @corda/corda5-team-leads
 
-*.gradle           @corda/blt
+*.gradle           @corda/infrastructure-release
 gradle.properties  @corda/corda5-team-leads
 
 *.kt               @corda/corda5-team-leads
@@ -15,4 +15,4 @@ gradle.properties  @corda/corda5-team-leads
 
 **/scans/*.yaml    @corda/corda5-team-leads
 
-CODEOWNERS         @corda/blt @corda/corda5-team-leads
+CODEOWNERS         @corda/infrastructure-release @corda/corda5-team-leads
