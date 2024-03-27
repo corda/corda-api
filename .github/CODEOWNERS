@@ -1,6 +1,7 @@
 # Build scripts and Jenkins files should be audited by BLT
 # Any changes to source code of corda-api to be reviewd by C5 team leads
 
+.github/CODEOWNERS @corda/infrastructure-release
 Jenkinsfile        @corda/blt
 .ci/**             @corda/blt
 
