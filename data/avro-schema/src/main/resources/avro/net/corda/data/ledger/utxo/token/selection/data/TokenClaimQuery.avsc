@@ -33,7 +33,7 @@
       },
       {
         "name": "strategy",
-        "type": ["null","net.corda.v5.ledger.utxo.token.selection.Strategy"],
+        "type": ["null","net.corda.data.ledger.utxo.token.selection.data.Strategy"],
         "default": null,
         "doc": " The token selection strategy to use"
       }
