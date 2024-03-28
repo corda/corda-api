@@ -18,6 +18,11 @@
       "type": "net.corda.data.membership.common.v2.RegistrationStatus"
     },
     {
+      "name": "serial",
+      "doc": "The version of the member info the member could see when calling registration.",
+      "type": ["long", "null"]
+    },
+    {
       "name": "reason",
       "doc": "Reason for the new status for this registration request.",
       "type": ["string", "null"]
