@@ -50,7 +50,6 @@ topics:
       - flowMapper
     producers:
       - rest
-      - flow
     config:
   FlowMapperSessionOut:
     name: flow.mapper.session.out
