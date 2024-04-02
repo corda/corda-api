@@ -18,6 +18,10 @@
       "name": "registrationRequest",
       "type": "net.corda.data.membership.p2p.MembershipRegistrationRequest",
       "doc": "The full registration request to persist as received over the P2P layer."
+    }, {
+      "name": "create",
+      "type": "boolean",
+      "doc": "Create a new registration request if one not exists."
     }
   ]
 }
