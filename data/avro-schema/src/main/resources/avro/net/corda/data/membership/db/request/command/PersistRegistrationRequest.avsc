@@ -21,7 +21,7 @@
     }, {
       "name": "create",
       "type": "boolean",
-      "doc": "Create a new registration request if one not exists."
+      "doc": "Create a new registration request if one does not exists."
     }
   ]
 }
