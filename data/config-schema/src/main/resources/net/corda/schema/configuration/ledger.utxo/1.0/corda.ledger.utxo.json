@@ -65,13 +65,13 @@
           "minimum": 0,
           "default": 600000
         },
-        "dbTokensFetchMinIntervalInMillis": {
+        "dbTokensFetchMinPeriodlMilliseconds": {
           "description": "Minimum backoff period in milliseconds for db calls that do not fulfill a token claim request (default half second)",
           "type": "integer",
           "minimum": 1,
           "default": 500
         },
-        "dbTokensFetchMaxIntervalInMillis": {
+        "dbTokensFetchMaxPeriodMilliseconds": {
           "description": "Maximum backoff period in milliseconds for db calls that do not fulfill a token claim request (default 1 minute)",
           "type": "integer",
           "minimum": 1,
