@@ -21,68 +21,64 @@ public interface PersistenceService {
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
      * service internally making multiple requests to persist the same entities. In order that the same entities are not
      * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
-     * already successful. In order for the persistence service to be able to employ this mechanism, this ID must be:
+     * already successful. In order for the persistence service to be able to employ this mechanism, one of the following
+     * criteria must be met:
      * <ul>
-     *     <li>Unique within the context of the flow;</li>
-     *     <li>Deterministic at the time of the function call (I.e., a UUID should not be used).</li>
-     *     <li>128 characters or fewer in length.</li>
+     *     <li>The JPA entity must have an id defined, binding a field to the primary key field in the table, and the value of
+     *         this field provided for the entity must be deterministic at the point the persistence operation is made.
+     *         For example the value should not be populated with a timestamp which would potentially change each time the method
+     *         is called. Note that fields other than the id field in the entity do not have to be deterministic in this case.
+     *         That is you could populate the entity with a stable id, and a different field could hold a timestamp. If this
+     *         persist operation required retries to complete, the value of the non-deterministic field would represent the
+     *         first successful persist operation, for example the first timestamp that made it to the database, even if
+     *         subsequent attempts to retry the persist operation follow.</li>
+     *     <li>For JPA entities with no defined id, the entity must be populated with deterministic values in all its fields.
+     *         If any field were to change if the method were to be called again, for example if it was populated with a
+     *         timestamp, the de-duplication mechanism would fail to recognise this was a duplicate request and more than
+     *         one entity may be persisted.</li>
      * </ul>
-     * <p>
-     * For example:
-     * <pre>
-     * private static final String MY_ENTITY_DEDUPE_ID = "entity1dedupeId";
-     *
-     * private void persistEntity() {
-     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entitiy);
-     * }
-     * </pre>
-     *
-     * It is up to the caller of this function to ensure that the above criteria is fulfilled where de-duplication
+     * It is up to the caller of this function to ensure either one of the above criteria are fulfilled where de-duplication
      * of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.
      *
-     * @param deduplicationId A unique identifier used to deduplicate persistence requests. This identifier must be non-deterministic
-     *                        and unique within the context of a single flow to allow for effective deduplication. (Max length: 128 characters)
      * @param entity The entity to persist.
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types or if {@code deduplicationId} is null, empty,
-     *                                  or exceeds 128 characters in length.
+     * @throws IllegalArgumentException  If {@code entity} is a primitive type.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
-    void persist(@NotNull String deduplicationId, @NotNull Object entity);
+    void persist(@NotNull Object entity);
 
     /**
      * Persists multiple {@code entities} in the persistence context in a single transaction.
      * There is an automatic transient failure retry mechanism backing this method which can sometimes lead to the persistence
      * service internally making multiple requests to persist the same entities. In order that the same entities are not
      * erroneously persisted more than once, a de-duplication mechanism is in place to filter duplicate requests that were
-     * already successful. In order for the persistence service to be able to employ this mechanism, this ID must be:
+     * already successful. In order for the persistence service to be able to employ this mechanism, one of the following
+     * criteria must be met:
      * <ul>
-     *     <li>Unique within the context of the flow;</li>
-     *     <li>Deterministic at the time of the function call (I.e., a UUID should not be used).</li>
-     *     <li>128 characters or fewer in length.</li>
+     *     <li>At least one JPA entity in the list of entities to be persisted must have an id defined, binding a field to the
+     *         primary key field in the table. All entities with id fields must provide deterministic values for these fields
+     *         at the point the persistence operation is made.
+     *         For example no id field should be populated with a timestamp which would potentially change each time the method
+     *         is called. Note that fields other than the id fields in the entities do not have to be deterministic in this case.
+     *         That is you could populate an entity with a stable id, and a different field could hold a timestamp. If this
+     *         persist operation required retries to complete, the value of the non-deterministic field would represent the
+     *         first successful persist operation, for example the first timestamp, even if subsequent attempts to retry the
+     *         persist operation follow.</li>
+     *     <li>Where no JPA entities in the list of entities to be persisted have a defined id, all entities must be populated
+     *         with deterministic values in all fields.
+     *         If any field were to change if the method were to be called again, for example if it was populated with a
+     *         timestamp, the de-duplication mechanism would fail to recognise this was a duplicate request and more than
+     *         one instance of the entities provided may be persisted.</li>
      * </ul>
-     * <p>
-     * For example:
-     * <pre>
-     * private static final String MY_ENTITY_DEDUPE_ID = "entity1dedupeId";
-     *
-     * private void persistEntities() {
-     *     persistenceService.persist(MY_ENTITY_DEDUPE_ID, entities);
-     * }
-     * </pre>
-     *
-     * It is up to the caller of this function to ensure that the above criteria is fulfilled where de-duplication
+     * It is up to the caller of this function to ensure either one of the above criteria are fulfilled where de-duplication
      * of retries is a hard requirement. Otherwise, the caller should expect duplication might occur.
      *
-     * @param deduplicationId A unique identifier used to deduplicate persistence requests. This identifier must be non-deterministic
-     *                        and unique within the context of a single flow to allow for effective deduplication. (Max length: 128 characters)
      * @param entities List of entities to be persisted.
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types or if {@code deduplicationId} is null, empty,
-     *                                  or exceeds 128 characters in length.
+     * @throws IllegalArgumentException  If {@code entities} contains any primitive types.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
     @Suspendable
-    void persist(@NotNull String deduplicationId, @NotNull List<?> entities);
+    void persist(@NotNull List<?> entities);
 
     /**
      * Merges a single {@code entity} in the persistence context in a transaction.
