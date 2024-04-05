@@ -33,7 +33,7 @@ gradleDataVersion = "1.12.1"
 gradleEnterpriseVersion = "3.16.2"
 grgitVersion = "5.2.2"
 snykVersion = "0.5"
-taskTreeVersion = "2.1.1"
+taskTreeVersion = "3.0.0"
 
 [libraries]
 slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4jVersion" }
