@@ -11,6 +11,12 @@
             </column>
         </addColumn>
 
+        <createIndex indexName="utxo_visible_transaction_output_token_priority_tx_id_idx"
+                     tableName="utxo_visible_transaction_output">
+            <column name="token_priority"/>
+            <column name="transaction_id"/>
+        </createIndex>
+
     </changeSet>
 
 </databaseChangeLog>
