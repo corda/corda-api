@@ -9,7 +9,8 @@
         "type": [
           "net.corda.data.p2p.app.AuthenticatedMessage",
           "net.corda.data.p2p.app.OutboundUnauthenticatedMessage",
-          "net.corda.data.p2p.app.InboundUnauthenticatedMessage"
+          "net.corda.data.p2p.app.InboundUnauthenticatedMessage",
+          "net.corda.data.p2p.MessageAck"
         ]
       }
   ]
