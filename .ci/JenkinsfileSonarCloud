@@ -1,0 +1,41 @@
+@Library('corda-shared-build-pipeline-steps@5.3') _
+
+import com.r3.build.agents.KubernetesAgent
+import com.r3.build.enums.BuildEnvironment
+import com.r3.build.enums.KubernetesCluster
+import com.r3.build.BuildConstants
+
+KubernetesAgent k8s = new KubernetesAgent(
+        BuildEnvironment.AMD64_LINUX_JAVA17,
+        KubernetesCluster.JenkinsAgents,
+        1
+)
+
+pipeline {
+    agent {
+        kubernetes {
+            cloud k8s.buildCluster.cloudName
+            yaml k8s.JSON
+            yamlMergeStrategy merge() // important to keep tolerations from the inherited template
+            idleMinutes 15
+            podRetention always()
+            nodeSelector k8s.nodeSelector
+            label k8s.jenkinsLabel
+            showRawYaml true
+            defaultContainer k8s.defaultContainer.name
+        }
+    }
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarCloud') {
+                    sh './gradlew sonar'
+                }
+            }
+        }
+    }
+}
