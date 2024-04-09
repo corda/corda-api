@@ -44,8 +44,6 @@ sonar {
   }
 }
 
-invalid gradle
-
 def revision = {
     if (System.getenv("CORDA_REVISION")) {
         return System.getenv("CORDA_REVISION")
