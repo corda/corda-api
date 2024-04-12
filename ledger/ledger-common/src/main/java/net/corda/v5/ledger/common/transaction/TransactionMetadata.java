@@ -50,4 +50,11 @@ public interface TransactionMetadata {
      * @return Returns the platform version at the time of the creation of the transaction.
      */
     int getPlatformVersion();
+
+    /**
+     * Gets the minimum platform version at the time of the creation of the transaction.
+     *
+     * @return Returns the minimum platform version at the time of the creation of the transaction.
+     */
+    Integer getMinimumPlatformVersion();
 }
