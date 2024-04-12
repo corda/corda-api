@@ -93,6 +93,11 @@ net.corda.v5.ledger.common.transaction.TransactionMetadata:
       default: false
       type: public abstract
       returnType: int
+    getMinimumPlatformVersion:
+      annotations: []
+      default: false
+      type: public abstract
+      returnType: Integer
     getPlatformVersion:
       annotations: []
       default: false
