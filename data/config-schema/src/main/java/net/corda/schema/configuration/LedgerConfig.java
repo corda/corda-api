@@ -16,4 +16,7 @@ public final class LedgerConfig {
     public static final String UTXO_TOKEN_MIN_DB_BACKOFF_PERIOD_MILLISECONDS = "tokens.dbBackoffMinPeriodMilliseconds";
     public static final String UTXO_TOKEN_MAX_DB_BACKOFF_PERIOD_MILLISECONDS = "tokens.dbBackoffMaxPeriodMilliseconds";
     public static final String UTXO_BACKCHAIN_BATCH_SIZE = "backchain.batchSize";
+    public static final String UTXO_LEDGER_REPAIR_RUNTIME_DURATION = "repair.runtimeDuration";
+    public static final String UTXO_LEDGER_REPAIR_FROM_DURATION = "repair.fromDuration";
+    public static final String UTXO_LEDGER_REPAIR_UNTIL_DURATION = "repair.untilDuration";
 }

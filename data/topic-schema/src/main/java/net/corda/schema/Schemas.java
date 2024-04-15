@@ -253,6 +253,8 @@ public final class Schemas {
         public static final String SCHEDULE_TASK_NAME_FLOW_STATUS_CLEANUP = "flow-status-cleanup";
         public static final String SCHEDULED_TASK_TOPIC_STALE_P2P_SESSION_PROCESSOR = "scheduled.task.stale.p2p.session.processor";
         public static final String SCHEDULED_TASK_NAME_STALE_P2P_SESSION_CLEANUP = "stale-p2p-session-cleanup-task";
+        public static final String SCHEDULE_TASK_NAME_LEDGER_REPAIR = "ledger-repair";
+        public static final String SCHEDULE_TASK_TOPIC_LEDGER_REPAIR_PROCESSOR = "scheduled.task.ledger.repair";
 
     }
 }

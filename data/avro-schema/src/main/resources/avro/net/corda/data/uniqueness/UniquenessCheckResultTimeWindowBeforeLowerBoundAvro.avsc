@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "UniquenessCheckResultTimeWindowBeforeLowerBoundAvro",
+  "namespace": "net.corda.data.uniqueness",
+  "fields": [
+    {
+      "name": "evaluationTimestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "timeWindowLowerBound",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    }
+  ]
+}

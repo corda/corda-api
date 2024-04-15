@@ -29,3 +29,9 @@ topics:
       - link-manager
     producers:
       - db
+  ScheduledTaskLedgerRepairTopic:
+    name: scheduled.task.ledger.repair
+    consumers:
+      - flow
+    producers:
+      - db
