@@ -7,6 +7,10 @@
     {
       "name": "messageId",
       "type": "string"
+    },
+    {
+      "name": "key",
+      "type": "string"
     }
   ]
 }
