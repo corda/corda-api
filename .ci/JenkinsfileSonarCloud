@@ -62,7 +62,9 @@ pipeline {
         }
         stage('Snyk Code analysis') {
             steps {
-                snykUtils.runSnykCode()
+                script {
+                    snykUtils.runSnykCode()
+                }
             }
         }
     }
