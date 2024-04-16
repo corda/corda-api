@@ -56,7 +56,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarCloud') {
-                    sh './gradlew sonar'
+                    sh './gradlew sonar -Dsonar.branch.name=${BRANCH_NAME}'
                 }
             }
         }
