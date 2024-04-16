@@ -122,6 +122,7 @@ subprojects {
     group 'net.corda'
 
     pluginManager.withPlugin('java') {
+        apply plugin: 'org.sonarqube'
         java {
             toolchain {
                 languageVersion = of(javaVersion.majorVersion.toInteger())
