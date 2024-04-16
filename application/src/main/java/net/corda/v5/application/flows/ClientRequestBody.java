@@ -2,6 +2,7 @@ package net.corda.v5.application.flows;
 
 import net.corda.v5.application.marshalling.MarshallingService;
 import org.jetbrains.annotations.NotNull;
+import java.util.Random;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +15,7 @@ import java.util.Map;
  * @see ClientStartableFlow
  */
 public interface ClientRequestBody {
-
+    Random rand = new Random();
     /**
      * Gets the request body for the {@link ClientStartableFlow}.
      *
