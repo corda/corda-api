@@ -36,6 +36,15 @@ snyk {
     autoUpdate = true
 }
 
+sonar {
+    properties {
+        property "sonar.projectKey", "corda"
+        property "sonar.organization", "corda"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.branch.name", System.getenv("BRANCH_NAME") ?: grgit.branch.current.name
+    }
+}
+
 def revision = {
     if (System.getenv("CORDA_REVISION")) {
         return System.getenv("CORDA_REVISION")
@@ -114,16 +123,6 @@ subprojects {
     group 'net.corda'
 
     pluginManager.withPlugin('java') {
-        apply plugin: 'org.sonarqube'
-        sonar {
-            properties {
-              property "sonar.projectKey", "corda"
-              property "sonar.organization", "corda"
-              property "sonar.host.url", "https://sonarcloud.io"
-              property "sonar.branch.name", System.getenv("BRANCH_NAME") ?: grgit.branch.current.name
-            }
-        }
-
         java {
             toolchain {
                 languageVersion = of(javaVersion.majorVersion.toInteger())
