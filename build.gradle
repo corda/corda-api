@@ -36,14 +36,6 @@ snyk {
     autoUpdate = true
 }
 
-sonar {
-  properties {
-    property "sonar.projectKey", "corda"
-    property "sonar.organization", "corda"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
-
 def revision = {
     if (System.getenv("CORDA_REVISION")) {
         return System.getenv("CORDA_REVISION")
@@ -123,6 +115,14 @@ subprojects {
 
     pluginManager.withPlugin('java') {
         apply plugin: 'org.sonarqube'
+        sonar {
+            properties {
+              property "sonar.projectKey", "corda"
+              property "sonar.organization", "corda"
+              property "sonar.host.url", "https://sonarcloud.io"
+            }
+        }
+
         java {
             toolchain {
                 languageVersion = of(javaVersion.majorVersion.toInteger())
