@@ -5,6 +5,7 @@ import com.r3.build.enums.BuildEnvironment
 import com.r3.build.enums.KubernetesCluster
 import com.r3.build.BuildConstants
 import com.r3.build.utils.GitUtils
+import com.r3.build.utils.SnykUtils
 
 KubernetesAgent k8s = new KubernetesAgent(
         BuildEnvironment.AMD64_LINUX_JAVA17,
@@ -13,6 +14,7 @@ KubernetesAgent k8s = new KubernetesAgent(
 )
 
 GitUtils gitUtils = new GitUtils(this)
+SnykUtils snykUtils = new SnykUtils(this)
 
 pipeline {
     agent {
@@ -60,8 +62,7 @@ pipeline {
         }
         stage('Snyk Code analysis') {
             steps {
-                sh "snyk code test --json | snyk-to-html -o snyk-code-results-${env.JOB_NAME}.html"
-                archiveArtifacts artifacts: "snyk-code-results-${env.JOB_NAME}", allowEmptyArchive: true
+                snykUtils.runSnykCode()
             }
         }
     }
