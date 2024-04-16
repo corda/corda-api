@@ -41,7 +41,6 @@ sonar {
         property "sonar.projectKey", "corda"
         property "sonar.organization", "corda"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.branch.name", System.getenv("BRANCH_NAME") ?: grgit.branch.current.name
     }
 }
 
