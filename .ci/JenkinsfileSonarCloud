@@ -4,12 +4,15 @@ import com.r3.build.agents.KubernetesAgent
 import com.r3.build.enums.BuildEnvironment
 import com.r3.build.enums.KubernetesCluster
 import com.r3.build.BuildConstants
+import com.r3.build.utils.GitUtils
 
 KubernetesAgent k8s = new KubernetesAgent(
         BuildEnvironment.AMD64_LINUX_JAVA17,
         KubernetesCluster.JenkinsAgents,
         1
 )
+
+GitUtils gitUtils = new GitUtils(this)
 
 pipeline {
     agent {
@@ -25,8 +28,26 @@ pipeline {
             defaultContainer k8s.defaultContainer.name
         }
     }
+
+    environment {
+        ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
+        CORDA_ARTIFACTORY_PASSWORD = "${env.ARTIFACTORY_CREDENTIALS_PSW}"
+        CORDA_ARTIFACTORY_USERNAME = "${env.ARTIFACTORY_CREDENTIALS_USR}"
+        BUILD_CACHE_CREDENTIALS = credentials('gradle-ent-cache-credentials')
+        BUILD_CACHE_PASSWORD = "${env.BUILD_CACHE_CREDENTIALS_PSW}"
+        BUILD_CACHE_USERNAME = "${env.BUILD_CACHE_CREDENTIALS_USR}"
+        CORDA_GRADLE_SCAN_KEY = credentials('gradle-build-scans-key')
+        GRADLE_USER_HOME = "/host_tmp/gradle"
+        SNYK_TOKEN = credentials("r3-snyk-corda5")
+        SNYK_ORG_ID = credentials("corda5-snyk-org-id")
+    }
+
     options {
         timestamps()
+    }
+
+    triggers {
+        cron (gitUtils.isReleaseBranch() ? '@midnight' : '')
     }
 
     stages {
@@ -35,6 +56,12 @@ pipeline {
                 withSonarQubeEnv('SonarCloud') {
                     sh './gradlew sonar'
                 }
+            }
+        }
+        stage('Snyk Code analysis') {
+            steps {
+                sh "snyk code test --json | snyk-to-html -o snyk-code-results-${env.JOB_NAME}.html"
+                archiveArtifacts artifacts: "snyk-code-results-${env.JOB_NAME}", allowEmptyArchive: true
             }
         }
     }
