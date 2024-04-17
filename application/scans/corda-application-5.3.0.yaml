@@ -1719,6 +1719,10 @@ net.corda.v5.application.persistence.PersistenceService:
       type: public abstract
       returnType: void
       params:
+        deduplicationId:
+          annotation:
+            - NotNull
+          type: String
         entities:
           annotation:
             - NotNull
@@ -1828,6 +1832,13 @@ net.corda.v5.application.uniqueness.model.UniquenessCheckErrorMalformedRequest:
       default: false
       type: public abstract
       returnType: String
+net.corda.v5.application.uniqueness.model.UniquenessCheckErrorNotPreviouslySeenTransaction:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.application.uniqueness.model.UniquenessCheckError
+  interface: true
+  methods: {}
 net.corda.v5.application.uniqueness.model.UniquenessCheckErrorReferenceStateConflict:
   annotations: []
   type: public interface
@@ -1854,6 +1865,25 @@ net.corda.v5.application.uniqueness.model.UniquenessCheckErrorReferenceStateUnkn
       default: false
       type: public abstract
       returnType: java.util.List<net.corda.v5.application.uniqueness.model.UniquenessCheckStateRef>
+net.corda.v5.application.uniqueness.model.UniquenessCheckErrorTimeWindowBeforeLowerBound:
+  annotations: []
+  type: public interface
+  extends:
+    - net.corda.v5.application.uniqueness.model.UniquenessCheckError
+  interface: true
+  methods:
+    getEvaluationTimestamp:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.time.Instant
+    getTimeWindowLowerBound:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.time.Instant
 net.corda.v5.application.uniqueness.model.UniquenessCheckErrorTimeWindowOutOfBounds:
   annotations: []
   type: public interface

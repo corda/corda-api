@@ -1,0 +1,6 @@
+{
+  "type": "record",
+  "name": "UniquenessCheckResultNotPreviouslySeenTransactionAvro",
+  "namespace": "net.corda.data.uniqueness",
+  "fields": []
+}

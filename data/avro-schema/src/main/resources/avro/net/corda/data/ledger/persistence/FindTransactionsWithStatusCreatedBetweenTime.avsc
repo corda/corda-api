@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "FindTransactionsWithStatusCreatedBetweenTime",
+  "doc": "Retrieve the specified signed transaction, specified by id. One of several types of ledger persistence request {@link LedgerPersistenceRequest}",
+  "namespace": "net.corda.data.ledger.persistence",
+  "fields": [
+    {
+      "name": "transactionStatus",
+      "type": "string",
+      "doc": "The status of the transaction"
+    },
+    {
+      "name": "from",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds to find transactions from"
+    },
+    {
+      "name": "until",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds to find transactions until"
+    },
+    {
+      "name": "limit",
+      "doc": "The number of results to return",
+      "type": "int"
+    }
+  ]
+}
