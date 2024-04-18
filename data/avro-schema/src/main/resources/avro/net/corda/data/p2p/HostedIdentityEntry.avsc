@@ -33,6 +33,10 @@
          "type": "array",
          "items": "HostedIdentitySessionKeyAndCert"
        }
-     }
+     },
+    {
+      "name": "version",
+      "type": "int"
+    }
   ]
 }
