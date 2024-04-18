@@ -114,6 +114,13 @@ topics:
     producers:
       - gateway
     config:
+  LinkAckInTopic:
+    name: link.ack.in
+    consumers:
+      - link-manager
+    producers:
+      - link-manager
+    config:
   LinkOutTopic:
     name: link.out
     consumers:
