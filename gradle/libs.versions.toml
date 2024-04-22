@@ -29,11 +29,12 @@ cyclonedxVersion = "1.8.2"
 dokkaVersion = "1.9.20"
 detektVersion = "1.23.6"
 dependencyCheckVersion = "0.51.0"
-gradleDataVersion = "2.0"
+gradleDataVersion = "2.0.1"
 gradleEnterpriseVersion = "3.16.2"
 grgitVersion = "5.2.2"
 snykVersion = "0.5"
 taskTreeVersion = "3.0.0"
+sonarVersion = "4.4.1.3373"
 
 [libraries]
 slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4jVersion" }
@@ -91,3 +92,4 @@ kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "ko
 kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlinVersion" }
 snyk = { id = "io.snyk.gradle.plugin.snykplugin", version.ref = "snykVersion" }
 task-tree = { id = "com.dorongold.task-tree", version.ref = "taskTreeVersion" }
+sonar = { id = "org.sonarqube", version.ref = "sonarVersion" }
