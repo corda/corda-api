@@ -12,6 +12,7 @@ public final class ReconciliationConfig {
     public static final String RECONCILIATION_VNODE_INFO_INTERVAL_MS ="vnodeInfoIntervalMs";
     public static final String RECONCILIATION_GROUP_PARAMS_INTERVAL_MS = "groupParamsIntervalMs";
     public static final String RECONCILIATION_MTLS_MGM_ALLOWED_LIST_INTERVAL_MS = "mtlsMgmAllowedCertificateSubjectsIntervalMs";
+    public static final String RECONCILIATION_HOSTED_IDENTITY_INTERVAL_MS = "hostedIdentityIntervalMs";
 
     public static final String RECONCILIATION_MEMBER_INFO_INTERVAL_MS = "memberInfoIntervalMs";
 }

@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet author="R3.Corda" id="config-creation-v5.2.1">
+        <createTable tableName="hosted_identity_session_key_info">
+            <column name="holding_identity_id" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- short hash (first 12 hex chars of SHA256) of the public key -->
+            <column name="session_key_id" type="CHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="session_certificate_alias" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="vnode_session_key_info" columnNames="holding_identity_id,session_key_id"
+                       constraintName="vnode_session_key_info_pk"/>
+
+        <createTable tableName="hosted_identity">
+            <column name="holding_identity_id" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="preferred_session_key_id" type="CHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tls_certificate_alias" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="use_cluster_level_tls" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="hosted_identity" columnNames="holding_identity_id"
+                       constraintName="hosted_identity_pk"/>
+        <addForeignKeyConstraint baseColumnNames="holding_identity_id,preferred_session_key_id"
+                                 baseTableName="hosted_identity"
+                                 constraintName="FK_hosted_identity_preferred_session_key"
+                                 referencedColumnNames="holding_identity_id,session_key_id"
+                                 referencedTableName="hosted_identity_session_key_info"/>
+    </changeSet>
+
+</databaseChangeLog>
