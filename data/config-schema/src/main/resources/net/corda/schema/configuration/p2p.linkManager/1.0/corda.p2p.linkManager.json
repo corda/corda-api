@@ -171,12 +171,6 @@
       "type": "object",
       "default": {},
       "properties": {
-        "maxCacheSizeMegabytes": {
-          "description": "The maximum allowed size of the data message cache in megabytes.",
-          "type": "integer",
-          "default": 100,
-          "minimum": 1
-        },
         "maxCacheOffsetAge": {
           "description": "The oldest offset of a cached data message, relative to the last sent message offset (in number of records).",
           "type": "integer",
