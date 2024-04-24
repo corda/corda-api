@@ -16,8 +16,8 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <addPrimaryKey tableName="vnode_session_key_info" columnNames="holding_identity_id,session_key_id"
-                       constraintName="vnode_session_key_info_pk"/>
+        <addPrimaryKey tableName="hosted_identity_session_key_info" columnNames="holding_identity_id,session_key_id"
+                       constraintName="hosted_identity_session_key_info_pk"/>
 
         <createTable tableName="hosted_identity">
             <column name="holding_identity_id" type="VARCHAR(12)">
