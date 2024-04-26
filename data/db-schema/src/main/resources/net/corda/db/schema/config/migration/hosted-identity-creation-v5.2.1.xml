@@ -3,7 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
-    <changeSet author="R3.Corda" id="config-creation-v5.2.1">
+    <changeSet author="R3.Corda" id="hosted-identity-creation-v5.2.1">
         <createTable tableName="hosted_identity_session_key_info">
             <column name="holding_identity_id" type="VARCHAR(12)">
                 <constraints nullable="false"/>

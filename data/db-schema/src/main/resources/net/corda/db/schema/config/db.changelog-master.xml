@@ -12,5 +12,5 @@
 
     <include file="net/corda/db/schema/config/migration/config-creation-v5.2.xml"/>
 
-    <include file="net/corda/db/schema/config/migration/config-creation-v5.2.1.xml"/>
+    <include file="net/corda/db/schema/config/migration/hosted-identity-creation-v5.2.1.xml"/>
 </databaseChangeLog>
