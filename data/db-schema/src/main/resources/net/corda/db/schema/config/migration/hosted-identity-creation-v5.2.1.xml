@@ -38,11 +38,6 @@
         </createTable>
         <addPrimaryKey tableName="hosted_identity" columnNames="holding_identity_id"
                        constraintName="hosted_identity_pk"/>
-        <addForeignKeyConstraint baseColumnNames="holding_identity_id,preferred_session_key_id"
-                                 baseTableName="hosted_identity"
-                                 constraintName="FK_hosted_identity_preferred_session_key"
-                                 referencedColumnNames="holding_identity_id,session_key_id"
-                                 referencedTableName="hosted_identity_session_key_info"/>
     </changeSet>
 
 </databaseChangeLog>
