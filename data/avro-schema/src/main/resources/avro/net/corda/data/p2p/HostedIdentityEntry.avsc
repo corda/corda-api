@@ -35,6 +35,7 @@
        }
      },
     {
+      "doc": "Version of the hosted identity",
       "name": "version",
       "type": ["null", "int"],
       "default": null
