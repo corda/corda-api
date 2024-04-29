@@ -34,6 +34,7 @@ topics:
       - link-manager
       - membership
       - rest
+      - db
     producers:
       - crypto
     config:
