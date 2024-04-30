@@ -17,6 +17,18 @@
             <column name="transaction_id"/>
         </createIndex>
 
+        <dropPrimaryKey constraintName="utxo_transaction_signature_pkey"
+            dropIndex="true"
+            tableName="utxo_transaction_signature"
+        />
+
+        <addPrimaryKey columnNames="transaction_id, pub_key_hash"
+            constraintName="utxo_transaction_signature_pkey"
+            tableName="utxo_transaction_signature"
+        />
+
+        <dropColumn columnName="signature_idx" tableName="utxo_transaction_signature"/>
+
     </changeSet>
 
 </databaseChangeLog>
