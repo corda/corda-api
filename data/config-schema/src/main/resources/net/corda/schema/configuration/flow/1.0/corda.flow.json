@@ -109,6 +109,13 @@
           "minimum": 10000,
           "maximum": 2147483647,
           "default": 600000
+        },
+        "maxPayloadSize": {
+          "description": "The maximum size of a payload in bytes that is allowed to be sent to a counterparty at once.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 104857600
         }
       },
       "additionalProperties": false
