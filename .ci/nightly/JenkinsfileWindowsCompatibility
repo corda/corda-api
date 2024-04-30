@@ -2,6 +2,6 @@
 
 windowsCompatibility(
     runIntegrationTests: false,
-    dailyBuildCron: 'H 02 * * *',
+    dailyBuildCron: '',
     javaVersion: '17'
     )
