@@ -309,12 +309,13 @@ public interface FlowMessaging {
      * stops receiving heartbeat messages from the counterparty within the configurable timeout.
      * <p>
      * The {@code payload} object should be of a type that is annotated with @CordaSerializable or a primitive type. This
-     * function cannot handle types that do not meet these criteria.
+     * function cannot handle types that do not meet these criteria. The maximum payload size that can be sent at once is dictated by Flow Config, and defaults to 100MB.
      *
      * @param payload the payload to send, which should be either a primitive type or a type annotated with @CordaSerializable.
+     *                Payload size should not exceed the configurable maximum size in bytes (default of 100MB).
      * @param sessions the sessions to send the provided payload to.
      *
-     * @throws CordaRuntimeException if any session is closed or in a failed state.
+     * @throws CordaRuntimeException if any session is closed or in a failed state, or if the payload size exceeds the configured maximum size in bytes.
      */
     @Suspendable
     void sendAll(@NotNull Object payload, @NotNull Set<FlowSession> sessions);
@@ -327,12 +328,13 @@ public interface FlowMessaging {
      * stops receiving heartbeat messages from the counterparty within the configurable timeout.
      * <p>
      * The objects in {@code payloadsPerSession} should be of types that are annotated with @CordaSerializable or be primitive types. This
-     * function cannot handle types that do not meet these criteria.
+     * function cannot handle types that do not meet these criteria. The maximum payload size that can be sent at once is dictated by Flow Config, and defaults to 100MB.
      *
      * @param payloadsPerSession a mapping that contains the payload to be sent to each session.
      *                           The payloads should be either of primitive types or types annotated with @CordaSerializable.
+     *                           Payload size should not exceed the configurable maximum size in bytes (default of 100MB).
      *
-     * @throws CordaRuntimeException if any session is closed or in a failed state.
+     * @throws CordaRuntimeException if any session is closed or in a failed state, or if the payload size exceeds the configured maximum size in bytes.
      */
     @Suspendable
     void sendAllMap(@NotNull Map<FlowSession, Object> payloadsPerSession);
