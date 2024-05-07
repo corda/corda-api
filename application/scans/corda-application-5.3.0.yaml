@@ -296,6 +296,39 @@ net.corda.v5.application.crypto.SigningService:
   extends: []
   interface: true
   methods:
+    decodePublicKey:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: java.security.PublicKey
+      params:
+        encodedKey:
+          annotation:
+            - NotNull
+          type: String
+    encodeAsByteArray:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: "byte[]"
+      params:
+        publicKey:
+          annotation:
+            - NotNull
+          type: java.security.PublicKey
+    encodeAsString:
+      annotations:
+        - NotNull
+      default: false
+      type: public abstract
+      returnType: String
+      params:
+        publicKey:
+          annotation:
+            - NotNull
+          type: java.security.PublicKey
     findMySigningKeys:
       annotations:
         - Suspendable

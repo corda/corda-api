@@ -25,6 +25,7 @@ plugins {
     alias libs.plugins.dokka
     alias libs.plugins.dependency.check.versions // discover possible dependency version upgrades
     alias libs.plugins.cyclonedx.bom  apply false
+    alias libs.plugins.sonar
 }
 
 snyk {
@@ -33,6 +34,14 @@ snyk {
     severity = project.findProperty("snykSeverity") ?: 'low'
     autoDownload = true
     autoUpdate = true
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "corda"
+        property "sonar.organization", "corda"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 def revision = {
@@ -113,6 +122,7 @@ subprojects {
     group 'net.corda'
 
     pluginManager.withPlugin('java') {
+        apply plugin: 'org.sonarqube'
         java {
             toolchain {
                 languageVersion = of(javaVersion.majorVersion.toInteger())
