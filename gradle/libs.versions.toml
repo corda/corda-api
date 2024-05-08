@@ -2,7 +2,7 @@
 kotlinVersion = "1.8.21"
 
 # Logging
-slf4jVersion = { strictly = "1.7.36" }
+slf4jVersion = "2.0.12"
 
 # Main implementation dependencies
 avroVersion = "1.11.3"
