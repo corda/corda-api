@@ -43,7 +43,7 @@ public interface PersistenceService {
      * @param deduplicationId A unique identifier used to deduplicate persistence requests. This identifier must be non-deterministic
      *                        and unique within the context of a single flow to allow for effective deduplication. (Max length: 128 characters)
      * @param entity The entity to persist.
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types or if {@code deduplicationId} is null, empty,
+     * @throws IllegalArgumentException If {@code entity} is a primitive type or if {@code deduplicationId} is null, empty,
      *                                  or exceeds 128 characters in length.
      * @throws CordaPersistenceException If an error occurs during execution.
      */
@@ -77,7 +77,7 @@ public interface PersistenceService {
      * @param deduplicationId A unique identifier used to deduplicate persistence requests. This identifier must be non-deterministic
      *                        and unique within the context of a single flow to allow for effective deduplication. (Max length: 128 characters)
      * @param entities List of entities to be persisted.
-     * @throws IllegalArgumentException If {@code entities} contains any primitive types or if {@code deduplicationId} is null, empty,
+     * @throws IllegalArgumentException If {@code entities} is a primitive type or if {@code deduplicationId} is null, empty,
      *                                  or exceeds 128 characters in length.
      * @throws CordaPersistenceException If an error occurs during execution.
      */

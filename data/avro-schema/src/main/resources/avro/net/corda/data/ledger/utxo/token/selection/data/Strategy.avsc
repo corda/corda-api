@@ -1,0 +1,7 @@
+{
+  "type": "enum",
+  "name": "Strategy",
+  "namespace": "net.corda.data.ledger.utxo.token.selection.data",
+  "doc": "Token selection strategy.",
+  "symbols": ["RANDOM", "PRIORITY"]
+}
