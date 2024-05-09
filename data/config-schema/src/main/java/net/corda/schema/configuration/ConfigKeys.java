@@ -28,6 +28,44 @@ public final class ConfigKeys {
     public static final String SECURITY_CONFIG = "corda.security";
     public static final String VNODE_DATASOURCE_CONFIG = "corda.vnode.datasource";
 
+    // An enum to hold all the root config keys
+    public enum RootConfigKey {
+
+        BOOT(BOOT_CONFIG),
+        CRYPTO(CRYPTO_CONFIG),
+        DB(DB_CONFIG),
+        FLOW(FLOW_CONFIG),
+        MESSAGING(MESSAGING_CONFIG),
+        EXTERNAL_MESSAGING(EXTERNAL_MESSAGING_CONFIG),
+        STATE_MANAGER(STATE_MANAGER_CONFIG),
+        UTXO_LEDGER(UTXO_LEDGER_CONFIG),
+        P2P_LINK_MANAGER(P2P_LINK_MANAGER_CONFIG),
+        P2P_GATEWAY(P2P_GATEWAY_CONFIG),
+        REST(REST_CONFIG),
+        RBAC(RBAC_CONFIG),
+        SECRETS(SECRETS_CONFIG),
+        SANDBOX(SANDBOX_CONFIG),
+        RECONCILIATION(RECONCILIATION_CONFIG),
+        MEMBERSHIP(MEMBERSHIP_CONFIG),
+        SECURITY(SECURITY_CONFIG),
+        VNODE_DATASOURCE(VNODE_DATASOURCE_CONFIG);
+
+        private final String value;
+
+        RootConfigKey(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return getValue();
+        }
+    }
+
     //  REST
     public static final String REST_ADDRESS = "address";
     public static final String REST_CONTEXT_DESCRIPTION = "context.description";

@@ -10,11 +10,6 @@
       "doc": "The transaction ID, derived from the root hash of its Merkle tree"
     },
     {
-      "name": "startingIndex",
-      "type": "int",
-      "doc": "The index to insert the new signatures from"
-    },
-    {
       "name": "signatures",
       "type": {
         "type" : "array",
