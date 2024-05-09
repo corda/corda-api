@@ -55,9 +55,11 @@ topics:
       - link-manager
       - membership
       - flowMapper
+      - db
     producers:
       - rest # Dynamic Network registration
       - membership # Static Network registration
+      - db
     config:
       cleanup.policy: compact
       segment.ms: 600000
