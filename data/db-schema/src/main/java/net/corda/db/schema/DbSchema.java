@@ -39,6 +39,8 @@ public final class DbSchema {
     public static final String VNODE_GROUP_APPROVAL_RULES = "vnode_group_approval_rules";
     public static final String VNODE_PRE_AUTH_TOKENS = "vnode_pre_auth_tokens";
     public static final String VNODE_PERSISTENCE_REQUEST_ID_TABLE = "vnode_persistence_request_id";
+    public static final String HOSTED_IDENTITY = "hosted_identity";
+    public static final String HOSTED_IDENTITY_SESSION_KEY_INFO = "hosted_identity_session_key_info";
 
     public static final String LEDGER_CONSENSUAL_TRANSACTION_TABLE = "consensual_transaction";
     public static final String LEDGER_CONSENSUAL_TRANSACTION_STATUS_TABLE = "consensual_transaction_status";

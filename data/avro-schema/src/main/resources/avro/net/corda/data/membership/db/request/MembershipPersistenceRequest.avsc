@@ -40,7 +40,8 @@
         "net.corda.data.membership.db.request.query.MutualTlsListAllowedCertificates",
         "net.corda.data.membership.db.request.query.QueryApprovalRules",
         "net.corda.data.membership.db.request.query.QueryPreAuthToken",
-        "net.corda.data.membership.db.request.query.QueryStaticNetworkInfo"
+        "net.corda.data.membership.db.request.query.QueryStaticNetworkInfo",
+        "net.corda.data.membership.db.request.command.PersistHostedIdentity"
       ],
       "doc": "Request's payload, depends on the requested operation."
     }
