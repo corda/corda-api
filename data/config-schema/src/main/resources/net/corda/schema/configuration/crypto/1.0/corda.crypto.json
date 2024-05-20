@@ -18,7 +18,7 @@
           "properties": {
             "default": {
               "type": "integer",
-              "default": 10000
+              "default": 60
             }
           }
         },
@@ -29,7 +29,7 @@
           "properties": {
             "default": {
               "type": "integer",
-              "default": 60
+              "default": 10000
             }
           }
         }
@@ -44,6 +44,7 @@
         "maxAttempts": {
           "description": "The maximum attempts to process a message.",
           "type": "object",
+          "default": {},
           "properties": {
             "default": {
               "type": "integer",
@@ -56,6 +57,7 @@
         "waitBetweenMills": {
           "description": "The time between attempts in milliseconds. If the number of values specified is less than the number of attempts, the last item is repeated.",
           "type": "object",
+          "default": {},
           "properties": {
             "default": {
               "type": "array",
