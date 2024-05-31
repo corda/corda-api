@@ -1,7 +1,5 @@
 @Library('corda-shared-build-pipeline-steps@5.2') _
 
 staticCodeAnalysisPipeline(
-    snykCodeEnabled : true,
-    snykOrgId: 'corda5-snyk-org-id',
-    snykToken: 'r3-snyk-corda5'
+    snykCodeEnabled : true
 )
