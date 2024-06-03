@@ -24,7 +24,7 @@ import java.util.UUID
 class TestPatternsMatch {
 
     private fun wildcardMatch(input: String, regex: String): Boolean {
-        return input.matches(regex.toRegex(RegexOption.IGNORE_CASE))
+        return input.matches(regex.toRegex())
     }
 
     @Test

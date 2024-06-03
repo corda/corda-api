@@ -88,7 +88,7 @@ public final class RbacKeys {
     /**
      * HSM category regex.
      */
-    public static final String HSM_CATEGORY_REGEX = "^[_A-Z]{2,20}$";
+    public static final String HSM_CATEGORY_REGEX = "[_A-Z]{2,20}";
 
     /**
      * Alias which keys are stored under regex.
