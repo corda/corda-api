@@ -98,5 +98,5 @@ public final class RbacKeys {
     /**
      * Key scheme regex.
      */
-    public static final String KEY_SCHEME_REGEX = "CORDA\\.[-.A-Z0-9]{30}";
+    public static final String KEY_SCHEME_REGEX = "CORDA\\.[-.A-Z0-9]{3,30}";
 }
