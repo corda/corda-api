@@ -88,23 +88,15 @@ public final class RbacKeys {
     /**
      * HSM category regex.
      */
-    public static final String HSM_CATEGORY_REGEX = "(ACCOUNTS|CI|LEDGER|NOTARY|PRE_AUTH|SESSION_INIT|TLS|JWT_KEY)";
+    public static final String HSM_CATEGORY_REGEX = "^[_A-Z]{2,20}$";
 
     /**
      * Alias which keys are stored under regex.
      */
-    public static final String ALIAS_REGEX = "[-._A-Za-z0-9]{1,255}";
+    public static final String ALIAS_REGEX = "[-._a-zA-Z0-9]{1,255}";
 
     /**
      * Key scheme regex.
      */
-    public static final String KEY_SCHEME_REGEX =
-            "(CORDA\\.RSA" +
-                    "|CORDA\\.ECDSA\\.SECP256K1" +
-                    "|CORDA\\.ECDSA\\.SECP256R1" +
-                    "|CORDA\\.EDDSA\\.ED25519" +
-                    "|CORDA\\.X25519" +
-                    "|CORDA\\.SM2" +
-                    "|CORDA\\.GOST3410\\.GOST3411" +
-                    "|CORDA\\.SPHINCS-256)";
+    public static final String KEY_SCHEME_REGEX = "CORDA\\.[-.A-Z0-9]{30}";
 }
