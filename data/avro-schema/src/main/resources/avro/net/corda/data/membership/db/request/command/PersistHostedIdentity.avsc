@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "PersistHostedIdentity",
+  "namespace": "net.corda.data.membership.db.request.command",
+  "doc": "Persist a locally-hosted identity.",
+  "fields": [
+    {
+      "name": "tlsCertificateAlias",
+      "doc": "Alias of the TLS certificate chain.",
+      "type": "string"
+    },
+    {
+      "name": "useClusterLevelTls",
+      "doc": "Specifies whether the cluster-level P2P TLS certificate type and key should be used, or the virtual node certificate and key.",
+      "type": "boolean"
+    },
+    {
+      "name": "sessionKeysAndCertificates",
+      "doc": "List of session keys and certificates.",
+      "type": {
+        "type": "array",
+        "items": "net.corda.data.membership.db.request.command.SessionKeyAndCertificate"
+      }
+    }
+  ]
+}

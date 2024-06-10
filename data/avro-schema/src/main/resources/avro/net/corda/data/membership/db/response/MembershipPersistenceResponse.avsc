@@ -29,7 +29,8 @@
         "net.corda.data.membership.db.response.query.GroupPolicyQueryResponse",
         "net.corda.data.membership.db.response.query.ApprovalRulesQueryResponse",
         "net.corda.data.membership.db.response.query.PreAuthTokenQueryResponse",
-        "net.corda.data.membership.db.response.query.StaticNetworkInfoQueryResponse"
+        "net.corda.data.membership.db.response.query.StaticNetworkInfoQueryResponse",
+        "net.corda.data.membership.db.response.command.PersistHostedIdentityResponse"
       ],
       "doc": "Response payload which depends on the requested operation."
     }

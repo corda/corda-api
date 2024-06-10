@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "PersistHostedIdentityResponse",
+  "namespace": "net.corda.data.membership.db.response.command",
+  "doc": "Response to a persist hosted identity request.",
+  "fields": [
+    {
+      "name": "version",
+      "doc": "Version of the newly persisted hosted identity.",
+      "type": "int"
+    }
+  ]
+}
