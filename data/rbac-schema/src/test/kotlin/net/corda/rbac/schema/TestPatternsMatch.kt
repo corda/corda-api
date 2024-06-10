@@ -9,6 +9,7 @@ import net.corda.rbac.schema.RbacKeys.FLOW_STATE_REGEX
 import net.corda.rbac.schema.RbacKeys.HSM_CATEGORY_REGEX
 import net.corda.rbac.schema.RbacKeys.KEY_ID_REGEX
 import net.corda.rbac.schema.RbacKeys.KEY_SCHEME_REGEX
+import net.corda.rbac.schema.RbacKeys.OPTIONAL_QUERY_PARAMETER
 import net.corda.rbac.schema.RbacKeys.TENANT_ID_REGEX
 import net.corda.rbac.schema.RbacKeys.USER_REGEX
 import net.corda.rbac.schema.RbacKeys.USER_URL_REGEX
@@ -125,8 +126,8 @@ class TestPatternsMatch {
 
     @Test
     fun testTenantId() {
-        listOf("ABCDEF123456", "p2p").forEach { validTenantId ->
-            assertTrue(wildcardMatch(validTenantId, TENANT_ID_REGEX)) { "Failed for $validTenantId" }
+        listOf("ABCDEF123456", "p2p", "ABCDEF123456?query=abcdef123456").forEach { validTenantId ->
+            assertTrue(wildcardMatch(validTenantId, TENANT_ID_REGEX + OPTIONAL_QUERY_PARAMETER)) { "Failed for $validTenantId" }
         }
 
         assertFalse(wildcardMatch("invalid", TENANT_ID_REGEX))

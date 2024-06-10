@@ -17,6 +17,11 @@ public final class RbacKeys {
      */
     public static final String PREFIX_SEPARATOR = ":";
 
+    /**
+     * Regular expression to allow for optional query parameters.
+     */
+    public static final String OPTIONAL_QUERY_PARAMETER = "((\\?)(.*?))?";
+
     private static final String UUID_CHARS = "[a-fA-F0-9]";
     /**
      * Regular expressions to validate common data structures as part of RBAC checks.
