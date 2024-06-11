@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "LookUpKeyById",
+  "namespace": "net.corda.data.crypto.wire.ops.reconciliation",
+  "doc": "Request to lookup for keys by their key ids. The maximum number of items is 20",
+  "fields": [
+    {
+      "name": "keyIds",
+      "type": [
+        "net.corda.data.crypto.ShortHashes",
+        "net.corda.data.crypto.SecureHashes"
+      ],
+      "doc": "List of key ids"
+    },
+    {
+       "name": "tenantId",
+       "type": "string"
+    }
+  ]
+}
