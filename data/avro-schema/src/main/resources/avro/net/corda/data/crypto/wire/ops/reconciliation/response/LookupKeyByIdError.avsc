@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "LookupKeyByIdError",
+  "namespace": "net.corda.data.crypto.wire.ops.reconciliation.response",
+  "doc": "Error result when looking up a key by Id.",
+  "fields": [
+    {
+      "name": "errorMessage",
+      "type": "net.corda.data.ExceptionEnvelope"
+    }
+  ]
+}

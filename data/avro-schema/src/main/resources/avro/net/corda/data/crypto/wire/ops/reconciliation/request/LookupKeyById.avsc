@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "LookUpKeyById",
-  "namespace": "net.corda.data.crypto.wire.ops.reconciliation",
+  "namespace": "net.corda.data.crypto.wire.ops.reconciliation.request",
   "doc": "Request to lookup for keys by their key ids. The maximum number of items is 20",
   "fields": [
     {
