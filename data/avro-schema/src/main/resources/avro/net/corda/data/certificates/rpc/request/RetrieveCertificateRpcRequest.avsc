@@ -8,6 +8,14 @@
       "name": "alias",
       "doc": "The certificate alias.",
       "type": "string"
+    },
+    {
+      "name": "requestId",
+      "doc": "ID of the request.",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
     }
   ]
 }
