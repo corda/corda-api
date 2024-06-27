@@ -1,14 +1,14 @@
 {
   "type": "record",
   "name": "LookupKeyByIdResponse",
-  "namespace": "net.corda.data.crypto.wire.ops.reconciliation.response",
+  "namespace": "net.corda.data.crypto.wire.ops.sync.response",
   "doc": "Result of the Lookup key by ID operation",
   "fields": [
     {
       "name": "response",
       "type": [
         "net.corda.data.crypto.wire.CryptoSigningKeys",
-        "net.corda.data.crypto.wire.ops.reconciliation.response.LookupKeyByIdError"
+        "net.corda.data.crypto.wire.ops.sync.response.LookupKeyByIdError"
       ],
       "doc": "Response's payload, depends on the requested operation"
     }

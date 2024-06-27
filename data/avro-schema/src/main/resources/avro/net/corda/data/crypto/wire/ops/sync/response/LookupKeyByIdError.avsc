@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "LookupKeyByIdError",
-  "namespace": "net.corda.data.crypto.wire.ops.reconciliation.response",
+  "namespace": "net.corda.data.crypto.wire.ops.sync.response",
   "doc": "Error result when looking up a key by Id.",
   "fields": [
     {
