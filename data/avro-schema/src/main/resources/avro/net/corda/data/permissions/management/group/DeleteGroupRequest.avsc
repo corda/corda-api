@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "DeleteGroupRequest",
+  "namespace": "net.corda.data.permissions.management.group",
+  "fields": [
+    {
+      "name": "groupId",
+      "type": "string"
+    }
+  ]
+}
