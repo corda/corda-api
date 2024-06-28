@@ -17,7 +17,7 @@
       {
         "name": "targetAmount",
         "type": "net.corda.data.ledger.utxo.token.selection.data.TokenAmount",
-        "doc": "The target amount to be claimed."
+        "doc": "The target amount to be claimed"
       },
       {
         "name": "ownerHash",
@@ -30,6 +30,12 @@
         "type": ["null", "string"],
         "default": null,
         "doc": "Optional regular expression used to match a tag, null will match all"
+      },
+      {
+        "name": "strategy",
+        "type": ["null","net.corda.data.ledger.utxo.token.selection.data.Strategy"],
+        "default": null,
+        "doc": " The token selection strategy to use"
       }
     ]
 }

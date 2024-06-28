@@ -74,15 +74,17 @@ public interface FlowSession {
      * <p>
      * Both the {@code payload} object and the {@code receiveType} should be of a type that is annotated
      * with @CordaSerializable or a primitive type. This function cannot handle types that do not meet these criteria.
+     * The maximum payload size that can be sent at once is dictated by `session.maxPayloadSize`, and defaults to 100MB.
      *
      * @param <R> The data type received from the counterparty.
      * @param receiveType The data type received from the counterparty.
      * @param payload The data sent to the counterparty, which should be either a primitive type
-     *                or a type annotated with @CordaSerializable.
+     *                or a type annotated with @CordaSerializable. Payload size should not exceed the configurable maximum size in bytes
+     *                (default of 100MB).
      *
      * @return The received data <R>
      *
-     * @throws CordaRuntimeException if the session is closed or in a failed state.
+     * @throws CordaRuntimeException if the session is closed or in a failed state, or if the payload size exceeds the configured maximum size in bytes.
      */
     @Suspendable
     @NotNull
@@ -116,12 +118,14 @@ public interface FlowSession {
      * network's event horizon time.
      * <p>
      * The {@code payload} object should be of a type that is annotated with @CordaSerializable or a primitive type. This
-     * function cannot handle types that do not meet these criteria.
+     * function cannot handle types that do not meet these criteria. The maximum payload size that can be
+     * sent at once is dictated by `session.maxPayloadSize`, and defaults to 100MB.
      *
      * @param payload The data sent to the counterparty, which should be either a primitive type
-     *                or a type annotated with @CordaSerializable.
+     *                or a type annotated with @CordaSerializable. Payload size should not exceed the configurable maximum size in bytes
+     *                (default of 100MB).
      *
-     * @throws CordaRuntimeException if the session is closed or in a failed state.
+     * @throws CordaRuntimeException if the session is closed or in a failed state, or if the payload size exceeds the configured maximum size in bytes.
      */
     @Suspendable
     void send(@NotNull Object payload);
