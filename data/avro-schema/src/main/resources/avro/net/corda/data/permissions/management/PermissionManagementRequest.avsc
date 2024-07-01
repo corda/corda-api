@@ -19,7 +19,13 @@
     {
       "name": "request",
       "type": [
+        "net.corda.data.permissions.management.group.AddRoleToGroupRequest",
+        "net.corda.data.permissions.management.group.ChangeGroupParentIdRequest",
+        "net.corda.data.permissions.management.group.CreateGroupRequest",
+        "net.corda.data.permissions.management.group.DeleteGroupRequest",
+        "net.corda.data.permissions.management.group.RemoveRoleFromGroupRequest",
         "net.corda.data.permissions.management.user.CreateUserRequest",
+        "net.corda.data.permissions.management.user.ChangeUserParentGroupIdRequest",
         "net.corda.data.permissions.management.user.ChangeUserPasswordRequest",
         "net.corda.data.permissions.management.user.AddRoleToUserRequest",
         "net.corda.data.permissions.management.user.RemoveRoleFromUserRequest",

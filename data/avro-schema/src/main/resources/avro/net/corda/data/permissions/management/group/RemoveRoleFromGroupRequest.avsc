@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "RemoveRoleFromGroupRequest",
+  "namespace": "net.corda.data.permissions.management.group",
+  "fields": [
+    {
+      "name": "groupId",
+      "type": "string"
+    },
+    {
+      "name": "roleId",
+      "type": "string"
+    }
+  ]
+}
