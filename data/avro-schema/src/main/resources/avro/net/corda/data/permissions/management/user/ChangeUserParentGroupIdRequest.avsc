@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "ChangeUserParentGroupIdRequest",
+  "namespace": "net.corda.data.permissions.management.user",
+  "fields": [
+    {
+      "name": "userId",
+      "type": "string"
+    },
+    {
+      "name": "newParentGroupId",
+      "type": [ "null", "string" ]
+    }
+  ]
+}
