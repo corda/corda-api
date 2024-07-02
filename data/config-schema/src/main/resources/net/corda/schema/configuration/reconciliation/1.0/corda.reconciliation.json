@@ -61,6 +61,13 @@
       "minimum": 5000,
       "maximum": 2147483647,
       "default": 120000
+    },
+    "hostedIdentityIntervalMs": {
+      "description": "The interval in milliseconds between aligning the Kafka Hosted Identity with the DB Hosted Identity.",
+      "type": "integer",
+      "minimum": 5000,
+      "maximum": 2147483647,
+      "default": 120000
     }
   }
 }
