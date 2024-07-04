@@ -34,7 +34,7 @@ gradleEnterpriseVersion = "3.16.2"
 grgitVersion = "5.2.2"
 snykVersion = "0.6.1"
 taskTreeVersion = "4.0.0"
-sonarVersion = "4.4.1.3373"
+sonarVersion = "5.1.0.4882"
 
 [libraries]
 slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4jVersion" }
