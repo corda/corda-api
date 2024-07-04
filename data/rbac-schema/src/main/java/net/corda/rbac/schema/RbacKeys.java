@@ -56,6 +56,11 @@ public final class RbacKeys {
     public static final String USER_URL_REGEX = ALLOWED_USER_URL_CHARS + "{3,200}[%40]{0,3}" + ALLOWED_USER_URL_CHARS + "{0,50}";
 
     /**
+     * User property key and value regex.
+     */
+    public static final String PROPERTY_KEY_VALUE_REGEX = "[_a-zA-Z0-9]{1,255}";
+
+    /**
      * CPI file checksum.
      */
     public static final String CPI_FILE_CHECKSUM_REGEX = UUID_CHARS + "{12}";
