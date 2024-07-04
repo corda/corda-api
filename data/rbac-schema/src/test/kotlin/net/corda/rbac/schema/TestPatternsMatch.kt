@@ -1,22 +1,6 @@
 package net.corda.rbac.schema
 
-import net.corda.rbac.schema.RbacKeys.ALIAS_REGEX
-import net.corda.rbac.schema.RbacKeys.CERTIFICATE_USAGE_REGEX
-import net.corda.rbac.schema.RbacKeys.CLIENT_REQ_REGEX
-import net.corda.rbac.schema.RbacKeys.CPI_FILE_CHECKSUM_REGEX
-import net.corda.rbac.schema.RbacKeys.FLOW_NAME_REGEX
-import net.corda.rbac.schema.RbacKeys.FLOW_STATE_REGEX
-import net.corda.rbac.schema.RbacKeys.HSM_CATEGORY_REGEX
-import net.corda.rbac.schema.RbacKeys.KEY_ID_REGEX
-import net.corda.rbac.schema.RbacKeys.KEY_SCHEME_REGEX
-import net.corda.rbac.schema.RbacKeys.OPTIONAL_QUERY_PARAMETER
-import net.corda.rbac.schema.RbacKeys.TENANT_ID_REGEX
-import net.corda.rbac.schema.RbacKeys.USER_REGEX
-import net.corda.rbac.schema.RbacKeys.USER_URL_REGEX
-import net.corda.rbac.schema.RbacKeys.UUID_REGEX
-import net.corda.rbac.schema.RbacKeys.VNODE_SHORT_HASH_REGEX
-import net.corda.rbac.schema.RbacKeys.VNODE_STATE_REGEX
-import net.corda.rbac.schema.RbacKeys.VNODE_STATUS_REQ_REGEX
+import net.corda.rbac.schema.RbacKeys.*
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -79,6 +63,14 @@ class TestPatternsMatch {
 
         assertFalse(wildcardMatch("joe/bloggs", USER_URL_REGEX))
         assertFalse(wildcardMatch("0", USER_URL_REGEX))
+    }
+
+    @Test
+    fun testPropertyKeyValue() {
+        val validPropertyKey = "My_Property-key.1"
+
+        assertTrue(wildcardMatch(validPropertyKey, PROPERTY_KEY_VALUE_REGEX))
+        assertFalse(wildcardMatch("Invalid@", PROPERTY_KEY_VALUE_REGEX))
     }
 
     @Test

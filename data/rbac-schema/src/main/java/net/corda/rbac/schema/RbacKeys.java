@@ -58,7 +58,7 @@ public final class RbacKeys {
     /**
      * User property key and value regex.
      */
-    public static final String PROPERTY_KEY_VALUE_REGEX = "[_a-zA-Z0-9]{1,255}";
+    public static final String PROPERTY_KEY_VALUE_REGEX = "[-._a-zA-Z0-9]{1,255}";
 
     /**
      * CPI file checksum.
