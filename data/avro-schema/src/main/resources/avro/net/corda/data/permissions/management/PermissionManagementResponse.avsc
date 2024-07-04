@@ -9,6 +9,7 @@
         "boolean",
         "net.corda.data.ExceptionEnvelope",
         "net.corda.data.permissions.User",
+        "net.corda.data.permissions.Group",
         "net.corda.data.permissions.Role",
         "net.corda.data.permissions.Permission",
         "net.corda.data.permissions.management.permission.BulkCreatePermissionsResponse"

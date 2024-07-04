@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "SessionKeyAndCertificate",
+  "namespace": "net.corda.data.membership.db.request.command",
+  "doc": "Session key and certificate for a locally-hosted identity.",
+  "fields": [
+    {
+      "name": "sessionKeyId",
+      "doc": "Session key identifier.",
+      "type": "string"
+    },
+    {
+      "name": "certificateAlias",
+      "doc": "The certificate chain alias of the session key. Null if no PKI is used for sessions.",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "isPreferred",
+      "doc": "True if this key is the preferred key.",
+      "type": "boolean"
+    }
+  ]
+}

@@ -25,6 +25,7 @@ topics:
       - link-manager
       - membership
       - rest
+      - db
     config:
   CryptoOpsRpcResponseTopic:
     name: crypto.ops.rpc.resp
@@ -34,6 +35,7 @@ topics:
       - link-manager
       - membership
       - rest
+      - db
     producers:
       - crypto
     config:
