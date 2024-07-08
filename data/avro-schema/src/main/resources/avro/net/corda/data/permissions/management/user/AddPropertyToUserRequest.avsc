@@ -9,7 +9,11 @@
     },
     {
       "name": "properties",
-      "type": "map"
+      "type":
+        {
+          "type": "map",
+          "values": "string"
+        }
     }
   ]
 }
