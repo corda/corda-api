@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "AddPropertyToUserRequest",
+  "namespace": "net.corda.data.permissions.management.user",
+  "fields": [
+    {
+      "name": "loginName",
+      "type": "string"
+    },
+    {
+      "name": "properties",
+      "type": "map"
+    }
+  ]
+}
