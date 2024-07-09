@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "RemovePropertyFromUserRequest",
+  "namespace": "net.corda.data.permissions.management.user",
+  "fields": [
+    {
+      "name": "loginName",
+      "type": "string"
+    },
+    {
+      "name": "propertyKey",
+      "type": "string"
+    }
+  ]
+}
