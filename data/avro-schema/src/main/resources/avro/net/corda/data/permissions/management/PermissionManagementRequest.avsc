@@ -34,7 +34,9 @@
         "net.corda.data.permissions.management.permission.CreatePermissionRequest",
         "net.corda.data.permissions.management.permission.BulkCreatePermissionsRequest",
         "net.corda.data.permissions.management.role.AddPermissionToRoleRequest",
-        "net.corda.data.permissions.management.role.RemovePermissionFromRoleRequest"
+        "net.corda.data.permissions.management.role.RemovePermissionFromRoleRequest",
+        "net.corda.data.permissions.management.user.AddPropertyToUserRequest",
+        "net.corda.data.permissions.management.user.RemovePropertyFromUserRequest"
       ]
     }
   ]
