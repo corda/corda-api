@@ -4,7 +4,7 @@
   "namespace": "net.corda.data.permissions.management.user",
   "fields": [
     {
-      "name": "userId",
+      "name": "loginName",
       "type": "string"
     },
     {
