@@ -5,7 +5,7 @@ kotlinVersion = "1.8.21"
 slf4jVersion = "2.0.13"
 
 # Main implementation dependencies
-avroVersion = "1.11.3"
+avroVersion = "1.12.0"
 apacheCommonsCodecVersion="1.17.0"
 commonsCompressVersion = "1.26.2"
 bouncycastleVersion = "1.77"
