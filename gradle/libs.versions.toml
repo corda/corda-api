@@ -32,7 +32,7 @@ dependencyCheckVersion = "0.51.0"
 gradleDataVersion = "2.0.1"
 gradleEnterpriseVersion = "3.16.2"
 grgitVersion = "5.3.0"
-snykVersion = "0.6.1"
+snykVersion = "0.7.0"
 taskTreeVersion = "4.0.0"
 sonarVersion = "4.4.1.3373"
 
