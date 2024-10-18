@@ -10,7 +10,6 @@ description 'Corda Ledger Common'
 dependencies {
     compileOnly 'org.osgi:osgi.annotation'
 
-    api platform(project(':corda-api'))
     api project(':application')
 
     testImplementation project(':crypto')
