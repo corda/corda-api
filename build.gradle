@@ -26,6 +26,8 @@ plugins {
     alias libs.plugins.dependency.check.versions // discover possible dependency version upgrades
     alias libs.plugins.cyclonedx.bom  apply false
     alias libs.plugins.sonar
+
+    id 'com.autonomousapps.dependency-analysis' version "2.1.4"
 }
 
 snyk {
