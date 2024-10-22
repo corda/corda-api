@@ -79,6 +79,13 @@
           "minimum": 1000,
           "maximum": 2147483647,
           "default": 120000
+        },
+        "transientErrorRetryTimeout": {
+          "description": "The length of time in milliseconds the mediator will allow an inter-worker RPC call to return transient errors before marking the state as failed. A retry topic is used to persist retries across multiple consumer polls.",
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2147483647,
+          "default": 1200000
         }
       }
     }

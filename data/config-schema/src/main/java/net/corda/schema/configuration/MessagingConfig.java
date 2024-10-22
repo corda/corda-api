@@ -62,6 +62,7 @@ public final class MessagingConfig {
         public static final String MEDIATOR_PROCESSING_MIN_POOL_RECORD_COUNT = SUBSCRIPTION + ".mediator.minPoolRecordCount";
         public static final String MEDIATOR_PROCESSING_POLL_TIMEOUT = SUBSCRIPTION + ".mediator.pollTimeout";
         public static final String MEDIATOR_PROCESSING_PROCESSOR_TIMEOUT = SUBSCRIPTION + ".mediator.processorTimeout";
+        public static final String MEDIATOR_PROCESSING_TRANSIENT_ERROR_TIMEOUT = SUBSCRIPTION + ".mediator.transientErrorRetryTimeout";
     }
 
     /**
