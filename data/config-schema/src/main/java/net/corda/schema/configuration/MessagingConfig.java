@@ -25,6 +25,7 @@ public final class MessagingConfig {
         public static final String KAFKA_BOOTSTRAP_SERVERS = KAFKA_PROPERTIES_COMMON + ".bootstrap.servers";
         public static final String KAFKA_PROPERTIES_CONSUMER = KAFKA_PROPERTIES + ".consumer";
         public static final String KAFKA_CONSUMER_MAX_POLL_INTERVAL = KAFKA_PROPERTIES_CONSUMER + ".max.poll.interval.ms";
+        public static final String KAFKA_CONSUMER_MAX_POLL_RECORDS = KAFKA_PROPERTIES_CONSUMER + ".max.poll.records";
         public static final String KAFKA_PROPERTIES_PRODUCER = KAFKA_PROPERTIES + ".producer";
         public static final String KAFKA_PRODUCER_CLIENT_ID = KAFKA_PROPERTIES_PRODUCER + ".client.id";
 
@@ -61,6 +62,7 @@ public final class MessagingConfig {
         public static final String MEDIATOR_PROCESSING_MIN_POOL_RECORD_COUNT = SUBSCRIPTION + ".mediator.minPoolRecordCount";
         public static final String MEDIATOR_PROCESSING_POLL_TIMEOUT = SUBSCRIPTION + ".mediator.pollTimeout";
         public static final String MEDIATOR_PROCESSING_PROCESSOR_TIMEOUT = SUBSCRIPTION + ".mediator.processorTimeout";
+        public static final String MEDIATOR_PROCESSING_TRANSIENT_ERROR_TIMEOUT = SUBSCRIPTION + ".mediator.transientErrorRetryTimeout";
     }
 
     /**

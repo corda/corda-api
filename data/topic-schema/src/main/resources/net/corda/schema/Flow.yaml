@@ -89,4 +89,12 @@ topics:
     producers:
       - flow
     config:
+  FlowRetry:
+    name: flow.retry
+    consumers:
+      - flow
+    producers:
+      - flow
+    config:
+
 
