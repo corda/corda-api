@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "RequestHeader",
+  "namespace": "net.corda.data",
+  "doc": "Key-value pair of request header. Key is type String and value can be bytes or String.",
+  "fields": [
+    {
+      "name": "key",
+      "type": "string"
+    },
+    {
+      "name": "value",
+      "type": ["null", "string", "bytes"]
+    }
+  ]
+}

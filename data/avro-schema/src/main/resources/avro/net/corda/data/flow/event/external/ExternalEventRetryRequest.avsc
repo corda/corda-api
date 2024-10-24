@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "ExternalEventRetryRequest",
+  "namespace": "net.corda.data.flow.event.external",
+  "doc": "This event captures the details of the external event request to allow it to be polled from the bus and retried.",
+  "fields": [
+
+    {
+      "name": "payload",
+      "type": ["null", "bytes"],
+      "doc": "Avro serialized representation of the external event payload"
+    },
+    {
+      "name": "requestHeaders",
+      "type": "net.corda.data.RequestHeaders",
+      "doc": "The key/value headers for the sync request."
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the retry request was (re)created."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "RequestHeaders",
+  "namespace": "net.corda.data",
+  "doc": "Avro representation of the RPC Sync Request Headers",
+  "fields": [
+    {
+      "name": "items",
+      "doc": "List of the headers.",
+      "type": {
+        "type": "array",
+        "items": "RequestHeader"
+      }
+    }
+  ]
+}
