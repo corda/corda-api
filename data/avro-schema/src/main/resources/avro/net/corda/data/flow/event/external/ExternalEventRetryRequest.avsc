@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "requestId",
-      "type": ["string"],
+      "type": "string",
       "doc": "The requestId of the external event request to retry."
     }
   ]
