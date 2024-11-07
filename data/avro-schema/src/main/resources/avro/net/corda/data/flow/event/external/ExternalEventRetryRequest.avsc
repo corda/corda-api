@@ -8,6 +8,14 @@
       "name": "requestId",
       "type": "string",
       "doc": "The requestId of the external event request to retry."
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the request was created."
     }
   ]
 }
