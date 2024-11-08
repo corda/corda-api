@@ -15,7 +15,7 @@
         "type": "long",
         "logicalType": "timestamp-millis"
       },
-      "doc": "Time ([Instant]) in milliseconds when the request was created."
+      "doc": "Time ([Instant]) in milliseconds when the request was created. Ensures each request is unique for replay logic."
     }
   ]
 }
