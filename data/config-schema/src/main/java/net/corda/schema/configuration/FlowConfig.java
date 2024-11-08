@@ -6,6 +6,7 @@ public final class FlowConfig {
 
     public static final String EXTERNAL_EVENT_MESSAGE_RESEND_WINDOW = "event.messageResendWindow";
     public static final String EXTERNAL_EVENT_MAX_RETRIES = "event.maxRetries";
+    public static final String EXTERNAL_EVENT_TRANSIENT_ERROR_TIMEOUT = "event.transientErrorRetryTimeout";
     public static final String SESSION_TIMEOUT_WINDOW = "session.timeout";
     public static final String SESSION_P2P_TTL = "session.p2pTTL";
     public static final String SESSION_FLOW_CLEANUP_TIME = "session.cleanupTime";
