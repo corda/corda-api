@@ -126,18 +126,11 @@
           "default": 60000
         },
         "maxRetries": {
-          "description": "The maximum number of times Corda retries a request before returning an exception for error cases other than transient errors.",
+          "description": "The maximum number of times Corda retries a request before returning an exception for error cases other than transient errors. Transient errors will be retied ",
           "type": "integer",
           "minimum": 0,
           "maximum": 2147483647,
           "default": 5
-        },
-        "transientErrorRetryTimeout": {
-          "description": "The length of time in milliseconds the flow engine will allow an inter-worker RPC call to return transient errors before marking the flow as failed.",
-          "type": "integer",
-          "minimum": 1000,
-          "maximum": 2147483647,
-          "default": 1200000
         }
       },
       "additionalProperties": false
