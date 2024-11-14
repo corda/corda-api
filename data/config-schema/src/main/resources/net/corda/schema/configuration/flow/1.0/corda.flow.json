@@ -126,7 +126,7 @@
           "default": 60000
         },
         "maxRetries": {
-          "description": "The maximum number of times Corda retries a request before returning an exception.",
+          "description": "The maximum number of times Corda retries a request before returning an exception for error cases other than transient errors. Transient errors will be retied until flows are cleaned up when the maxIdleTime expires.",
           "type": "integer",
           "minimum": 0,
           "maximum": 2147483647,
