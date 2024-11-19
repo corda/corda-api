@@ -68,19 +68,19 @@ class LedgerPersistenceRequestSchemaCompatibilityTest {
 
         val oldSchema = Schema.Parser()
             .addTypes(
-                mapOf(
-                    HoldingIdentity::class.java.name to HoldingIdentity.`SCHEMA$`,
-                    PersistTransaction::class.java.name to PersistTransaction.`SCHEMA$`,
-                    PersistTransactionIfDoesNotExist::class.java.name to PersistTransactionIfDoesNotExist.`SCHEMA$`,
-                    FindTransaction::class.java.name to FindTransaction.`SCHEMA$`,
-                    FindUnconsumedStatesByType::class.java.name to FindUnconsumedStatesByType.`SCHEMA$`,
-                    ResolveStateRefs::class.java.name to ResolveStateRefs.`SCHEMA$`,
-                    UpdateTransactionStatus::class.java.name to UpdateTransactionStatus.`SCHEMA$`,
-                    FindWithNamedQuery::class.java.name to FindWithNamedQuery.`SCHEMA$`,
-                    FindSignedGroupParameters::class.java.name to FindSignedGroupParameters.`SCHEMA$`,
-                    PersistSignedGroupParametersIfDoNotExist::class.java.name to PersistSignedGroupParametersIfDoNotExist.`SCHEMA$`,
-                    FindSignedLedgerTransaction::class.java.name to FindSignedLedgerTransaction.`SCHEMA$`,
-                    ExternalEventContext::class.java.name to ExternalEventContext.`SCHEMA$`,
+                listOf(
+                    HoldingIdentity.`SCHEMA$`,
+                    PersistTransaction.`SCHEMA$`,
+                    PersistTransactionIfDoesNotExist.`SCHEMA$`,
+                    FindTransaction.`SCHEMA$`,
+                    FindUnconsumedStatesByType.`SCHEMA$`,
+                    ResolveStateRefs.`SCHEMA$`,
+                    UpdateTransactionStatus.`SCHEMA$`,
+                    FindWithNamedQuery.`SCHEMA$`,
+                    FindSignedGroupParameters.`SCHEMA$`,
+                    PersistSignedGroupParametersIfDoNotExist.`SCHEMA$`,
+                    FindSignedLedgerTransaction.`SCHEMA$`,
+                    ExternalEventContext.`SCHEMA$`
                 )
             )
             .parse(oldSchemaJson)

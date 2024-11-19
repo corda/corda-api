@@ -50,10 +50,10 @@ class PipelineStateSchemaCompatibilityTest {
 
         val oldSchema = Schema.Parser()
             .addTypes(
-                mapOf(
-                    SecureHash::class.java.name to SecureHash.`SCHEMA$`,
-                    RetryState::class.java.name to RetryState.`SCHEMA$`,
-                    ExceptionEnvelope::class.java.name to ExceptionEnvelope.`SCHEMA$`,
+                listOf(
+                    SecureHash.`SCHEMA$`,
+                    RetryState.`SCHEMA$`,
+                    ExceptionEnvelope.`SCHEMA$`
                 )
             )
             .parse(oldSchemaJson)

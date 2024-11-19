@@ -45,8 +45,8 @@ class TokenClaimSchemaCompatibilityTest {
 
         val oldSchema = Schema.Parser()
             .addTypes(
-                mapOf(
-                    Token::class.java.name to Token.`SCHEMA$`,
+                listOf(
+                    Token.`SCHEMA$`,
                 )
             )
             .parse(oldSchemaJson)

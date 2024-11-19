@@ -40,7 +40,7 @@ class RegistrationStateTest {
         """.trimIndent()
 
         val oldSchema = Schema.Parser()
-            .addTypes(mapOf(HoldingIdentity::class.java.name to HoldingIdentity.`SCHEMA$`))
+            .addTypes(listOf(HoldingIdentity.`SCHEMA$`))
             .parse(oldSchemaJson)
         val newSchema = RegistrationState.`SCHEMA$`
 

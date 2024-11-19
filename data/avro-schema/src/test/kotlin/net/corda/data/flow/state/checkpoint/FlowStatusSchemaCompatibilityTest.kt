@@ -93,10 +93,10 @@ class FlowStatusSchemaCompatibilityTest {
 
         val oldSchema = Schema.Parser()
             .addTypes(
-                mapOf(
-                    FlowKey::class.java.name to FlowKey.`SCHEMA$`,
-                    FlowInitiatorType::class.java.name to FlowInitiatorType.`SCHEMA$`,
-                    ExceptionEnvelope::class.java.name to ExceptionEnvelope.`SCHEMA$`,
+                listOf(
+                    FlowKey.`SCHEMA$`,
+                    FlowInitiatorType.`SCHEMA$`,
+                    ExceptionEnvelope.`SCHEMA$`
                 )
             )
             .parse(oldSchemaJson)

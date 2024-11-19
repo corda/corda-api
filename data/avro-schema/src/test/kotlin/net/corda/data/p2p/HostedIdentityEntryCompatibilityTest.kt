@@ -51,9 +51,8 @@ class HostedIdentityEntryCompatibilityTest {
         """.trimIndent()
 
         val schemaV52 = Schema.Parser().addTypes(
-            mapOf(
-                HoldingIdentity::class.java.name to HoldingIdentity.`SCHEMA$`,
-                HostedIdentitySessionKeyAndCert::class.java.name to HostedIdentitySessionKeyAndCert.`SCHEMA$`
+            listOf(
+              HoldingIdentity.`SCHEMA$`, HostedIdentitySessionKeyAndCert.`SCHEMA$`
             )
         ).parse(schemaV52Json)
         val schemaV521 = HostedIdentityEntry.`SCHEMA$`
