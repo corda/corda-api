@@ -8,7 +8,7 @@ slf4jVersion = { strictly = "1.7.36" }
 avroVersion = "1.11.4"
 apacheCommonsCodecVersion="1.16.1"
 commonsCompressVersion = "1.26.0"
-bouncycastleVersion = "1.77"
+bouncycastleVersion = "1.79"
 javaxPersistenceApiVersion = "2.2"
 jacksonVersion = "2.16.1"
 osgiVersion = "8.0.0"
