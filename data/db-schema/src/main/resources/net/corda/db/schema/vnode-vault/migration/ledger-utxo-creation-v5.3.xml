@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet author="R3.Corda" id="ledger-utxo-creation-v5.3">
+
+        <addColumn tableName="utxo_visible_transaction_output">
+            <column name="token_priority" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <createIndex indexName="utxo_visible_transaction_output_token_priority_tx_id_idx"
+                     tableName="utxo_visible_transaction_output">
+            <column name="token_priority"/>
+            <column name="transaction_id"/>
+        </createIndex>
+
+        <dropPrimaryKey constraintName="utxo_transaction_signature_pkey"
+            dropIndex="true"
+            tableName="utxo_transaction_signature"
+        />
+
+        <addPrimaryKey columnNames="transaction_id, pub_key_hash"
+            constraintName="utxo_transaction_signature_pkey"
+            tableName="utxo_transaction_signature"
+        />
+
+        <dropColumn columnName="signature_idx" tableName="utxo_transaction_signature"/>
+
+    </changeSet>
+
+</databaseChangeLog>

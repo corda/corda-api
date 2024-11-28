@@ -1,21 +1,8 @@
 package net.corda.schema.configuration.provider.impl
 
-import net.corda.schema.configuration.ConfigKeys.CRYPTO_CONFIG
-import net.corda.schema.configuration.ConfigKeys.DB_CONFIG
-import net.corda.schema.configuration.ConfigKeys.EXTERNAL_MESSAGING_CONFIG
-import net.corda.schema.configuration.ConfigKeys.FLOW_CONFIG
-import net.corda.schema.configuration.ConfigKeys.MEMBERSHIP_CONFIG
-import net.corda.schema.configuration.ConfigKeys.MESSAGING_CONFIG
-import net.corda.schema.configuration.ConfigKeys.P2P_GATEWAY_CONFIG
-import net.corda.schema.configuration.ConfigKeys.P2P_LINK_MANAGER_CONFIG
-import net.corda.schema.configuration.ConfigKeys.RBAC_CONFIG
-import net.corda.schema.configuration.ConfigKeys.RECONCILIATION_CONFIG
-import net.corda.schema.configuration.ConfigKeys.REST_CONFIG
-import net.corda.schema.configuration.ConfigKeys.SANDBOX_CONFIG
-import net.corda.schema.configuration.ConfigKeys.SECRETS_CONFIG
-import net.corda.schema.configuration.ConfigKeys.STATE_MANAGER_CONFIG
-import net.corda.schema.configuration.ConfigKeys.UTXO_LEDGER_CONFIG
+import net.corda.schema.configuration.ConfigKeys.RootConfigKey
 import net.corda.schema.configuration.provider.ConfigSchemaException
+import net.corda.schema.configuration.provider.SchemaProviderConfigFactory
 import net.corda.v5.base.versioning.Version
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -24,29 +11,12 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.Arguments.arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
-import net.corda.schema.configuration.provider.SchemaProviderConfigFactory
 
 class SchemaProviderConfigImplTest {
 
     companion object {
         // All the top level config keys excluding the boot config, which is handled differently.
-        private val CONFIG_KEYS = listOf(
-            CRYPTO_CONFIG,
-            DB_CONFIG,
-            FLOW_CONFIG,
-            MESSAGING_CONFIG,
-            EXTERNAL_MESSAGING_CONFIG,
-            UTXO_LEDGER_CONFIG,
-            P2P_LINK_MANAGER_CONFIG,
-            P2P_GATEWAY_CONFIG,
-            REST_CONFIG,
-            RBAC_CONFIG,
-            SECRETS_CONFIG,
-            SANDBOX_CONFIG,
-            RECONCILIATION_CONFIG,
-            MEMBERSHIP_CONFIG,
-            STATE_MANAGER_CONFIG
-        )
+        private val CONFIG_KEYS = RootConfigKey.values().filterNot { it == RootConfigKey.BOOT }
         private val VERSIONS = listOf("1.0")
 
         // This is a bit dubious as it assumes that all keys will update schema version at the same time. Either this is
@@ -55,7 +25,7 @@ class SchemaProviderConfigImplTest {
         @JvmStatic
         private fun schemaSources(): Stream<Arguments> {
             return CONFIG_KEYS.stream().flatMap { key ->
-                VERSIONS.stream().map { version -> arguments(key, version) }
+                VERSIONS.stream().map { version -> arguments(key.value, version) }
             }
         }
 
@@ -85,7 +55,7 @@ class SchemaProviderConfigImplTest {
     fun `throws if provided version is not valid`() {
         val provider = SchemaProviderConfigFactory.getSchemaProvider()
         assertThrows<ConfigSchemaException> {
-            provider.getSchema(MESSAGING_CONFIG, Version(0, 0))
+            provider.getSchema(RootConfigKey.MESSAGING.value, Version(0, 0))
         }
     }
 

@@ -53,6 +53,13 @@
           "maximum": 2147483647,
           "default": 600000
         },
+        "fiberTimeout": {
+          "description": "The length of time in milliseconds before fiber times out. This value must be lower than subscription.processorTimeout.",
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2147483647,
+          "default": 11250
+        },
         "poolSize": {
           "description": "The size of the flow event processing pool size.",
           "type": "integer",
@@ -109,6 +116,13 @@
           "minimum": 10000,
           "maximum": 2147483647,
           "default": 600000
+        },
+        "maxPayloadSize": {
+          "description": "The maximum size of a payload in bytes that is allowed to be sent to a counterparty at once.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 104857600
         }
       },
       "additionalProperties": false

@@ -1,12 +1,13 @@
 package net.corda.v5.base.types;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.security.auth.x500.X500Principal;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MemberX500NameJavaApiTest {
 
@@ -23,12 +24,12 @@ class MemberX500NameJavaApiTest {
     public void requiredArguments() {
         final MemberX500Name cordaX500Name = new MemberX500Name(organization, locality, country);
 
-        Assertions.assertThat(cordaX500Name.getCommonName()).isNull();
-        Assertions.assertThat(cordaX500Name.getOrganizationUnit()).isNull();
-        Assertions.assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
-        Assertions.assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
-        Assertions.assertThat(cordaX500Name.getState()).isNull();
-        Assertions.assertThat(cordaX500Name.getCountry()).isEqualTo(country);
+        assertThat(cordaX500Name.getCommonName()).isNull();
+        assertThat(cordaX500Name.getOrganizationUnit()).isNull();
+        assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
+        assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
+        assertThat(cordaX500Name.getState()).isNull();
+        assertThat(cordaX500Name.getCountry()).isEqualTo(country);
     }
 
     @Test
@@ -37,14 +38,14 @@ class MemberX500NameJavaApiTest {
                 commonName, organizationUnit, organization, locality, state, country
         );
 
-        Assertions.assertThat(cordaX500Name.getCommonName()).isEqualTo(commonName);
-        Assertions.assertThat(cordaX500Name.getOrganizationUnit()).isEqualTo(organizationUnit);
-        Assertions.assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
-        Assertions.assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
-        Assertions.assertThat(cordaX500Name.getState()).isEqualTo(state);
-        Assertions.assertThat(cordaX500Name.getCountry()).isEqualTo(country);
+        assertThat(cordaX500Name.getCommonName()).isEqualTo(commonName);
+        assertThat(cordaX500Name.getOrganizationUnit()).isEqualTo(organizationUnit);
+        assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
+        assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
+        assertThat(cordaX500Name.getState()).isEqualTo(state);
+        assertThat(cordaX500Name.getCountry()).isEqualTo(country);
 
-        Assertions.assertThat(cordaX500Name.getX500Principal()).isNotNull();
+        assertThat(cordaX500Name.getX500Principal()).isNotNull();
     }
 
     @Test
@@ -53,12 +54,12 @@ class MemberX500NameJavaApiTest {
                 commonName, organization, locality, country
         );
 
-        Assertions.assertThat(cordaX500Name.getCommonName()).isEqualTo(commonName);
-        Assertions.assertThat(cordaX500Name.getOrganizationUnit()).isNull();
-        Assertions.assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
-        Assertions.assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
-        Assertions.assertThat(cordaX500Name.getState()).isNull();
-        Assertions.assertThat(cordaX500Name.getCountry()).isEqualTo(country);
+        assertThat(cordaX500Name.getCommonName()).isEqualTo(commonName);
+        assertThat(cordaX500Name.getOrganizationUnit()).isNull();
+        assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
+        assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
+        assertThat(cordaX500Name.getState()).isNull();
+        assertThat(cordaX500Name.getCountry()).isEqualTo(country);
     }
 
     @Test
@@ -66,18 +67,18 @@ class MemberX500NameJavaApiTest {
         final X500Principal principal = new X500Principal(name);
         final MemberX500Name cordaX500Name = MemberX500Name.build(principal);
 
-        Assertions.assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
-        Assertions.assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
-        Assertions.assertThat(cordaX500Name.getCountry()).isEqualTo(country);
+        assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
+        assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
+        assertThat(cordaX500Name.getCountry()).isEqualTo(country);
     }
 
     @Test
     public void parse() {
         final MemberX500Name cordaX500Name = MemberX500Name.parse(name);
 
-        Assertions.assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
-        Assertions.assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
-        Assertions.assertThat(cordaX500Name.getCountry()).isEqualTo(country);
+        assertThat(cordaX500Name.getOrganization()).isEqualTo(organization);
+        assertThat(cordaX500Name.getLocality()).isEqualTo(locality);
+        assertThat(cordaX500Name.getCountry()).isEqualTo(country);
     }
 
     @Test
@@ -86,7 +87,7 @@ class MemberX500NameJavaApiTest {
 
         final X500Principal principal = cordaX500Name.getX500Principal();
 
-        Assertions.assertThat(principal).isNotNull();
+        assertThat(principal).isNotNull();
     }
 
     @Test
@@ -94,11 +95,21 @@ class MemberX500NameJavaApiTest {
         final Map<String, String > map = MemberX500Name.toAttributesMap(
                 "CN=alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US"
         );
-        Assertions.assertThat(map).contains(entry("CN", "alice"));
-        Assertions.assertThat(map).contains(entry("OU", "Accounting"));
-        Assertions.assertThat(map).contains(entry("O", "R3"));
-        Assertions.assertThat(map).contains(entry("L", "Seattle"));
-        Assertions.assertThat(map).contains(entry("ST", "Washington"));
-        Assertions.assertThat(map).contains(entry("C", "US"));
+        assertThat(map).contains(entry("CN", "alice"));
+        assertThat(map).contains(entry("OU", "Accounting"));
+        assertThat(map).contains(entry("O", "R3"));
+        assertThat(map).contains(entry("L", "Seattle"));
+        assertThat(map).contains(entry("ST", "Washington"));
+        assertThat(map).contains(entry("C", "US"));
+    }
+
+    @Test
+    public void parseFailsWithBadName() {
+        assertThatThrownBy( ()-> {
+                    MemberX500Name.parse("B00CA01FD5DC");
+                }
+        ).hasMessageContaining("B00CA01FD5DC")
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasCauseInstanceOf(IllegalArgumentException.class);
     }
 }
