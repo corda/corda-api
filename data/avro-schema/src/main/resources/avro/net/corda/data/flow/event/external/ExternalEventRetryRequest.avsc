@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "ExternalEventRetryRequest",
+  "namespace": "net.corda.data.flow.event.external",
+  "doc": "This event captures the details of the external event request to allow it to be polled from the bus and retried.",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "The requestId of the external event request to retry."
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Time ([Instant]) in milliseconds when the request was created. Ensures each request is unique for replay logic."
+    }
+  ]
+}
