@@ -62,7 +62,7 @@ public interface ExternalMessaging {
      *
      * @param channelName The name of the channel the message should be sent through.
      * @param message   The contents of the message to be sent.
-     * @throws CordaRuntimeException if the channel does not exist.
+     * @throws CordaRuntimeException if the channel does not exist or if the message exceeds the max allowed message size.
      */
     @Suspendable
     void send(@NotNull String channelName, @NotNull String message);
@@ -73,7 +73,7 @@ public interface ExternalMessaging {
      * @param channelName The name of the channel the message should be sent through.
      * @param messageId   An ID of the message to be sent.
      * @param message   The contents of the message to be sent.
-     * @throws CordaRuntimeException if the channel does not exist.
+     * @throws CordaRuntimeException if the channel does not exist or if the message exceeds the max allowed message size.
      */
     @Suspendable
     void send(@NotNull String channelName, @NotNull String messageId, @NotNull String message);
