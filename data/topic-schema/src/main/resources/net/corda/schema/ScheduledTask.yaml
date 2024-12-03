@@ -23,6 +23,12 @@ topics:
       - rest
     producers:
       - db
+  ScheduledTaskStaleP2PSessionProcessorTopic:
+    name: scheduled.task.stale.p2p.session.processor
+    consumers:
+      - link-manager
+    producers:
+      - db
   ScheduledTaskLedgerRepairTopic:
     name: scheduled.task.ledger.repair
     consumers:

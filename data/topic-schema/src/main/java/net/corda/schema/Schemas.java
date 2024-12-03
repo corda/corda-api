@@ -87,10 +87,7 @@ public final class Schemas {
         public static final String RPC_OPS_MESSAGE_TOPIC = "crypto.ops.rpc";
         public static final String RPC_OPS_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(RPC_OPS_MESSAGE_TOPIC);
         public static final String REKEY_MESSAGE_TOPIC = "crypto.key.rotation.ops";
-        public static final String REKEY_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REKEY_MESSAGE_TOPIC);
-        public static final String REKEY_MESSAGE_STATUS_TOPIC = "crypto.key.rotation.status";
         public static final String REWRAP_MESSAGE_TOPIC = "crypto.key.rotation.individual";
-        public static final String REWRAP_MESSAGE_RESPONSE_TOPIC = getRPCResponseTopic(REWRAP_MESSAGE_TOPIC);
 
 
     }
@@ -191,7 +188,6 @@ public final class Schemas {
         public static final String P2P_MGM_ALLOWED_CLIENT_CERTIFICATE_SUBJECTS = "p2p.mgm.allowed.client.certificate.subjects";
         public static final String LINK_OUT_TOPIC = "link.out";
         public static final String LINK_IN_TOPIC = "link.in";
-        public static final String SESSION_OUT_PARTITIONS = "session.out.partitions";
         public static final String GATEWAY_TLS_TRUSTSTORES = "gateway.tls.truststores";
         public static final String GATEWAY_TLS_CERTIFICATES = "gateway.tls.certs";
         public static final String GATEWAY_REVOCATION_CHECK_REQUEST_TOPIC = "gateway.revocation.request";
@@ -236,7 +232,6 @@ public final class Schemas {
 
         public static final String VIRTUAL_NODE_INFO_TOPIC = "virtual.node.info";
         public static final String VIRTUAL_NODE_ASYNC_REQUEST_TOPIC = "virtual.node.async.request";
-        public static final String VIRTUAL_NODE_OPERATION_STATUS_TOPIC = "virtual.node.operation.status";
         public static final String VIRTUAL_NODE_CREATION_REQUEST_TOPIC = "virtual.node.creation.request";
         public static final String VIRTUAL_NODE_CREATION_REQUEST_RESPONSE_TOPIC = getRPCResponseTopic(VIRTUAL_NODE_CREATION_REQUEST_TOPIC);
         public static final String CPI_INFO_TOPIC = "cpi.info";
@@ -256,6 +251,8 @@ public final class Schemas {
         public static final String SCHEDULED_TASK_NAME_SESSION_TIMEOUT = "flow-session-timeout";
         public static final String SCHEDULED_TASK_TOPIC_FLOW_STATUS_PROCESSOR = "scheduled.task.flow.status.processor";
         public static final String SCHEDULE_TASK_NAME_FLOW_STATUS_CLEANUP = "flow-status-cleanup";
+        public static final String SCHEDULED_TASK_TOPIC_STALE_P2P_SESSION_PROCESSOR = "scheduled.task.stale.p2p.session.processor";
+        public static final String SCHEDULED_TASK_NAME_STALE_P2P_SESSION_CLEANUP = "stale-p2p-session-cleanup-task";
         public static final String SCHEDULE_TASK_NAME_LEDGER_REPAIR = "ledger-repair";
         public static final String SCHEDULE_TASK_TOPIC_LEDGER_REPAIR_PROCESSOR = "scheduled.task.ledger.repair";
 

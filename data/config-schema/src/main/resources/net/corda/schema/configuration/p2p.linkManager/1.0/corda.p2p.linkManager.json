@@ -148,6 +148,60 @@
       "type": "integer",
       "default": 432000,
       "maximum": 432000
+    },
+    "sessionCache": {
+      "type": "object",
+      "default": {},
+      "properties": {
+        "inboundSessionsCacheSize": {
+          "description": "The number of inbound sessions to keep in the link manager cache.",
+          "type": "integer",
+          "default": 10000,
+          "minimum": 1
+        },
+        "outboundSessionsCacheSize": {
+          "description": "The number of outbound sessions to keep in the link manager cache.",
+          "type": "integer",
+          "default": 10000,
+          "minimum": 1
+        }
+      }
+    },
+    "deliveryTracker": {
+      "type": "object",
+      "default": {},
+      "properties": {
+        "maxCacheSizeMegabytes": {
+          "description": "The maximum allowed size of the data message cache in megabytes.",
+          "type": "integer",
+          "default": 100,
+          "minimum": 1
+        },
+        "maxCacheOffsetAge": {
+          "description": "The oldest offset of a cached data message, relative to the last sent message offset (in number of records).",
+          "type": "integer",
+          "default": 50000,
+          "minimum": 1
+        },
+        "maxNumberOfPersistenceRetries": {
+          "description": "The maximum number of times to try to persist the states before giving up.",
+          "type": "number",
+          "default": 3,
+          "minimum": 0
+        },
+        "statePersistencePeriodSeconds": {
+          "description": "The maximum period, in seconds, between persisting the current state.",
+          "type": "number",
+          "default": 1,
+          "minimum": 1
+        },
+        "outboundBatchProcessingTimeoutSeconds": {
+          "description": "The maximum amount of time allowed to process a batch of outbound messages.",
+          "type": "number",
+          "default": 30,
+          "minimum": 1
+        }
+      }
     }
   },
   "additionalProperties": false

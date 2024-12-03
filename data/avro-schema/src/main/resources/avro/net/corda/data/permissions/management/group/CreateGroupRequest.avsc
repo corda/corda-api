@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "CreateGroupRequest",
+  "namespace": "net.corda.data.permissions.management.group",
+  "fields": [
+    {
+      "name": "groupName",
+      "type": "string"
+    },
+    {
+      "name": "parentGroupId",
+      "type": [ "null", "string" ]
+    }
+  ]
+}

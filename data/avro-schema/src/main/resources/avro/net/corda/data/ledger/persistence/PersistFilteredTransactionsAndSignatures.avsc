@@ -8,6 +8,22 @@
       "name": "filteredTransactionsAndSignatures",
       "type": "bytes",
       "doc": "the serialized map of filtered transactions and signatures"
+    },
+    {
+      "name": "inputStateRefs",
+      "type": {
+        "type" : "array",
+        "items" : "net.corda.data.ledger.utxo.StateRef"
+      },
+      "doc": "The input states being stored"
+    },
+    {
+      "name": "referenceStateRefs",
+      "type": {
+        "type" : "array",
+        "items" : "net.corda.data.ledger.utxo.StateRef"
+      },
+      "doc": "The reference states being stored"
     }
   ]
 }

@@ -15,6 +15,11 @@
       "doc": "Specifies the specific tenant that owns the old key."
     },
     {
+      "name": "masterWrappingKeyAlias",
+      "type": ["null", "string"],
+      "doc": "Mandatory for unmanaged key rotation only, always null for managed key rotation. Specifies the default master wrapping key to rotate to."
+    },
+    {
       "name": "targetKeyAlias",
       "type": ["null", "string"],
       "doc": "Mandatory for unmanaged key rotation only, always null for managed key rotation. Specifies the wrapped key to rotate."
