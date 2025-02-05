@@ -6,7 +6,7 @@ slf4jVersion = "2.0.13"
 
 # Main implementation dependencies
 avroVersion = "1.11.4"
-apacheCommonsCodecVersion="1.17.0"
+apacheCommonsCodecVersion="1.18.0"
 commonsCompressVersion = "1.26.2"
 bouncycastleVersion = "1.79"
 javaxPersistenceApiVersion = "2.2"
