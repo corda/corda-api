@@ -26,7 +26,7 @@ mockitoKotlinVersion = "5.4.0"
 # Plugins
 avroGradleVersion = "1.3.0"
 cyclonedxVersion = "1.8.2"
-dokkaVersion = "1.9.20"
+dokkaVersion = "2.1.0"
 detektVersion = "1.23.6"
 dependencyCheckVersion = "0.51.0"
 gradleDataVersion = "2.0.1"
