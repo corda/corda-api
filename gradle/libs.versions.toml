@@ -18,7 +18,7 @@ bndVersion = "6.4.0"
 bndlibVersion = "7.0.0"
 
 # Testing
-assertjVersion = "3.27.0"
+assertjVersion = "3.27.7"
 junitVersion = "5.11.4"
 mockitoVersion = "5.14.1"
 mockitoKotlinVersion = "5.4.0"
