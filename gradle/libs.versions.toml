@@ -20,7 +20,7 @@ bndlibVersion = "7.0.0"
 # Testing
 assertjVersion = "3.27.0"
 junitVersion = "5.11.4"
-mockitoVersion = "5.14.1"
+mockitoVersion = "5.23.0"
 mockitoKotlinVersion = "5.4.0"
 
 # Plugins
