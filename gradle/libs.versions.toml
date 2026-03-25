@@ -14,7 +14,7 @@ jacksonVersion = "2.17.2"
 osgiVersion = "8.0.0"
 osgiAnnotationVersion = "8.1.0"
 osgiSvcAnnotationVersion = "1.5.1"
-bndVersion = "6.4.0"
+bndVersion = "7.2.3"
 bndlibVersion = "7.0.0"
 
 # Testing
