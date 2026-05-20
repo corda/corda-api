@@ -19,7 +19,7 @@ bndlibVersion = "7.0.0"
 
 # Testing
 assertjVersion = "3.27.0"
-junitVersion = "5.11.4"
+junitVersion = "6.1.0"
 mockitoVersion = "5.14.1"
 mockitoKotlinVersion = "5.4.0"
 
